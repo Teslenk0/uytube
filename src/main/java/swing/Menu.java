@@ -5,6 +5,8 @@
  */
 package swing;
 
+import java.awt.event.KeyEvent;
+
 
 /**
  *
@@ -47,7 +49,7 @@ public class Menu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(java.awt.SystemColor.activeCaptionBorder);
-        setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setMinimumSize(new java.awt.Dimension(500, 500));
         setUndecorated(true);
         setResizable(false);
@@ -59,6 +61,11 @@ public class Menu extends javax.swing.JFrame {
         jPasswordField1.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jPasswordField1.setBorder(null);
         jPasswordField1.setOpaque(false);
+        jPasswordField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPasswordField1KeyPressed(evt);
+            }
+        });
         jPanel2.add(jPasswordField1);
         jPasswordField1.setBounds(130, 300, 290, 50);
 
@@ -70,6 +77,11 @@ public class Menu extends javax.swing.JFrame {
         menuNomb.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         menuNomb.setBorder(null);
         menuNomb.setOpaque(false);
+        menuNomb.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                menuNombKeyPressed(evt);
+            }
+        });
         jPanel2.add(menuNomb);
         menuNomb.setBounds(130, 230, 290, 50);
 
@@ -151,43 +163,39 @@ public class Menu extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_btn_exitMousePressed
 
+    private void menuNombKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_menuNombKeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+             String nombre = menuNomb.getText();
+            if("macaco".equals(nombre)){ //Usuario correcto
+                MenuInicio menuinicio = new MenuInicio();
+                menuinicio.setVisible(true);
+                this.setVisible(false);
+            }
+            else{ //Usuario incorrecto
+                VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled);
+                error.setVisible(true);
+            }
+        }
+    }//GEN-LAST:event_menuNombKeyPressed
+
+    private void jPasswordField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+             String nombre = menuNomb.getText();
+            if("macaco".equals(nombre)){ //Usuario correcto
+                MenuInicio menuinicio = new MenuInicio();
+                menuinicio.setVisible(true);
+                this.setVisible(false);
+            }
+            else{ //Usuario incorrecto
+                VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled);
+                error.setVisible(true);
+            }
+        }
+    }//GEN-LAST:event_jPasswordField1KeyPressed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Menu().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btn_exit;

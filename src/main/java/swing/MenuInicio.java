@@ -22,6 +22,13 @@ public class MenuInicio extends javax.swing.JFrame {
         setColor(btn_Inicio); 
         ind_1.setOpaque(true);
         resetColor(new JPanel[]{btn_Registros,btn_Consultas,btn_Modificar}, new JPanel[]{ind_2,ind_3, ind_4});
+        Panel_Central.removeAll();
+        Panel_Central.repaint();
+        Panel_Central.revalidate();
+        
+        Panel_Central.add(Central1);
+        Panel_Central.repaint();
+        Panel_Central.revalidate();
         setLocationRelativeTo(null);
         Transparencia();
     }
