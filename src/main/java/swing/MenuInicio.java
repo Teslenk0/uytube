@@ -23,12 +23,10 @@ public class MenuInicio extends javax.swing.JFrame {
         ind_1.setOpaque(true);
         resetColor(new JPanel[]{btn_Registros,btn_Consultas,btn_Modificar}, new JPanel[]{ind_2,ind_3, ind_4});
         Panel_Central.removeAll();
-        Panel_Central.repaint();
-        Panel_Central.revalidate();
-        
         Panel_Central.add(Central1);
-        Panel_Central.repaint();
         Panel_Central.revalidate();
+        Panel_Central.repaint();
+        
         setLocationRelativeTo(null);
         Transparencia();
     }
@@ -448,12 +446,9 @@ public class MenuInicio extends javax.swing.JFrame {
         resetColor(new JPanel[]{btn_Registros,btn_Consultas,btn_Modificar}, new JPanel[]{ind_2,ind_3, ind_4});
         
         Panel_Central.removeAll();
-        Panel_Central.repaint();
-        Panel_Central.revalidate();
-        
         Panel_Central.add(Central1);
-        Panel_Central.repaint();
         Panel_Central.revalidate();
+        Panel_Central.repaint();
         
     }//GEN-LAST:event_btn_InicioMousePressed
 
@@ -463,12 +458,9 @@ public class MenuInicio extends javax.swing.JFrame {
         ind_3.setOpaque(true);
         resetColor(new JPanel[]{btn_Registros,btn_Inicio,btn_Modificar}, new JPanel[]{ind_2,ind_1, ind_4});
         Panel_Central.removeAll();
-        Panel_Central.repaint();
-        Panel_Central.revalidate();
-        
         Panel_Central.add(Central2);
-        Panel_Central.repaint();
         Panel_Central.revalidate();
+        Panel_Central.repaint();
     }//GEN-LAST:event_btn_ConsultasMousePressed
 
     private void btn_ModificarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ModificarMousePressed
@@ -477,12 +469,9 @@ public class MenuInicio extends javax.swing.JFrame {
         ind_4.setOpaque(true);
         resetColor(new JPanel[]{btn_Registros,btn_Consultas,btn_Inicio}, new JPanel[]{ind_2,ind_3, ind_1});
         Panel_Central.removeAll();
-        Panel_Central.repaint();
-        Panel_Central.revalidate();
-        
         Panel_Central.add(Central3);
-        Panel_Central.repaint();
         Panel_Central.revalidate();
+        Panel_Central.repaint();
     }//GEN-LAST:event_btn_ModificarMousePressed
 
     private void btn_RegistrosMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_RegistrosMouseReleased
@@ -491,12 +480,9 @@ public class MenuInicio extends javax.swing.JFrame {
         ind_2.setOpaque(true);
         resetColor(new JPanel[]{btn_Inicio,btn_Consultas,btn_Modificar}, new JPanel[]{ind_1,ind_3, ind_4});
         Panel_Central.removeAll();
-        Panel_Central.repaint();
-        Panel_Central.revalidate();
-        
         Panel_Central.add(Central4);
-        Panel_Central.repaint();
         Panel_Central.revalidate();
+        Panel_Central.repaint();
     }//GEN-LAST:event_btn_RegistrosMouseReleased
 
     int xx,xy;
