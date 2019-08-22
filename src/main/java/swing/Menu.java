@@ -19,7 +19,6 @@ public class Menu extends javax.swing.JFrame {
      */
     public Menu() {
         initComponents();
-        setVisible(true);
         setLocationRelativeTo(null);
     }
 
@@ -40,10 +39,12 @@ public class Menu extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         menuIniciar = new javax.swing.JButton();
         menuCancelar = new javax.swing.JButton();
+        cerrar = new javax.swing.JButton();
+        minimizar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        btn_exit = new javax.swing.JLabel();
+        DragPanel = new javax.swing.JPanel();
 
         jCheckBox1.setText("jCheckBox1");
 
@@ -67,7 +68,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jPasswordField1);
-        jPasswordField1.setBounds(130, 300, 290, 50);
+        jPasswordField1.setBounds(140, 300, 290, 50);
 
         menuPass.setBorder(null);
         menuPass.setOpaque(false);
@@ -83,13 +84,16 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         jPanel2.add(menuNomb);
-        menuNomb.setBounds(130, 230, 290, 50);
+        menuNomb.setBounds(140, 230, 290, 50);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/txt_user.png"))); // NOI18N
         jPanel2.add(jLabel1);
         jLabel1.setBounds(80, 220, 340, 70);
 
         menuIniciar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_iniciar_2.png"))); // NOI18N
+        menuIniciar.setBorderPainted(false);
+        menuIniciar.setContentAreaFilled(false);
+        menuIniciar.setOpaque(false);
         menuIniciar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_iniciar_1.png"))); // NOI18N
         menuIniciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,7 +104,10 @@ public class Menu extends javax.swing.JFrame {
         menuIniciar.setBounds(140, 370, 100, 50);
 
         menuCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_cancel_2.png"))); // NOI18N
-        menuCancelar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_cancel_2.png"))); // NOI18N
+        menuCancelar.setBorderPainted(false);
+        menuCancelar.setContentAreaFilled(false);
+        menuCancelar.setOpaque(false);
+        menuCancelar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_cancel_1.png"))); // NOI18N
         menuCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuCancelarActionPerformed(evt);
@@ -108,6 +115,31 @@ public class Menu extends javax.swing.JFrame {
         });
         jPanel2.add(menuCancelar);
         menuCancelar.setBounds(270, 370, 100, 50);
+
+        cerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/IconCerrar.png"))); // NOI18N
+        cerrar.setActionCommand("");
+        cerrar.setBorderPainted(false);
+        cerrar.setContentAreaFilled(false);
+        cerrar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/IconCerrar2.png"))); // NOI18N
+        cerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cerrarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(cerrar);
+        cerrar.setBounds(470, 10, 20, 20);
+
+        minimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/IconMinimizar.png"))); // NOI18N
+        minimizar.setBorderPainted(false);
+        minimizar.setContentAreaFilled(false);
+        minimizar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/IconMinimizar2.png"))); // NOI18N
+        minimizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                minimizarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(minimizar);
+        minimizar.setBounds(440, 10, 20, 20);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/txt_pass.png"))); // NOI18N
         jPanel2.add(jLabel2);
@@ -125,17 +157,34 @@ public class Menu extends javax.swing.JFrame {
         jPanel2.add(jLabel4);
         jLabel4.setBounds(150, 10, 200, 170);
 
-        btn_exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/IconCerrar.png"))); // NOI18N
-        btn_exit.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                btn_exitMousePressed(evt);
+        getContentPane().add(jPanel2);
+        jPanel2.setBounds(0, 0, 500, 460);
+
+        DragPanel.setBackground(new java.awt.Color(12, 129, 129));
+        DragPanel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                DragPanelMouseDragged(evt);
             }
         });
-        jPanel2.add(btn_exit);
-        btn_exit.setBounds(470, 0, 30, 30);
+        DragPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                DragPanelMousePressed(evt);
+            }
+        });
 
-        getContentPane().add(jPanel2);
-        jPanel2.setBounds(0, 0, 500, 510);
+        javax.swing.GroupLayout DragPanelLayout = new javax.swing.GroupLayout(DragPanel);
+        DragPanel.setLayout(DragPanelLayout);
+        DragPanelLayout.setHorizontalGroup(
+            DragPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        DragPanelLayout.setVerticalGroup(
+            DragPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(DragPanel);
+        DragPanel.setBounds(0, 0, 500, 460);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -156,12 +205,6 @@ public class Menu extends javax.swing.JFrame {
     private void menuCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCancelarActionPerformed
       System.exit(0);
     }//GEN-LAST:event_menuCancelarActionPerformed
-
-    private void btn_exitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_exitMousePressed
-        // TODO add your handling code here:
-
-        System.exit(0);
-    }//GEN-LAST:event_btn_exitMousePressed
 
     private void menuNombKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_menuNombKeyPressed
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
@@ -193,12 +236,37 @@ public class Menu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jPasswordField1KeyPressed
 
+    private void cerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarActionPerformed
+      System.exit(0);
+    }//GEN-LAST:event_cerrarActionPerformed
+
+    private void minimizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minimizarActionPerformed
+        setState(Menu.ICONIFIED);
+    }//GEN-LAST:event_minimizarActionPerformed
+int xx,xy;
+    private void DragPanelMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DragPanelMouseDragged
+        // TODO add your handling code here:
+
+        //source to drag
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x-xx,y-xy);
+    }//GEN-LAST:event_DragPanelMouseDragged
+
+    private void DragPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DragPanelMousePressed
+        // TODO add your handling code here:
+        //drag this pane
+        xx = evt.getX();
+        xy = evt.getY();
+    }//GEN-LAST:event_DragPanelMousePressed
+
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel btn_exit;
+    private javax.swing.JPanel DragPanel;
+    private javax.swing.JButton cerrar;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -210,5 +278,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton menuIniciar;
     private javax.swing.JTextField menuNomb;
     private javax.swing.JTextField menuPass;
+    private javax.swing.JButton minimizar;
     // End of variables declaration//GEN-END:variables
 }

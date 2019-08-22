@@ -30,13 +30,15 @@ public class VentanaEmergente extends javax.swing.JDialog {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        DragPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(320, 150));
-        setPreferredSize(new java.awt.Dimension(320, 150));
+        setMinimumSize(new java.awt.Dimension(320, 110));
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(320, 110));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -49,42 +51,93 @@ public class VentanaEmergente extends javax.swing.JDialog {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(100, 70, 100, 30);
+        jButton1.setBounds(110, 70, 100, 30);
 
-        jLabel1.setText("El usuario ingresado es incorrecto.");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(40, 28, 250, 40);
-
-        jPanel1.setBackground(new java.awt.Color(110, 104, 101));
-
-        jLabel2.setForeground(new java.awt.Color(253, 251, 251));
-        jLabel2.setText("Error:");
+        jPanel1.setBackground(new java.awt.Color(23, 35, 51));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addContainerGap(298, Short.MAX_VALUE))
+            .addGap(0, 320, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 2, Short.MAX_VALUE)
-                .addComponent(jLabel2))
+            .addGap(0, 30, Short.MAX_VALUE)
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 350, 20);
+        jPanel1.setBounds(0, 0, 320, 30);
+
+        jLabel1.setText("El usuario ingresado es incorrecto.");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 70, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(31, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29))
+        );
+
+        getContentPane().add(jPanel2);
+        jPanel2.setBounds(0, 0, 320, 100);
+
+        DragPanel.setBackground(new java.awt.Color(255, 255, 255));
+        DragPanel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                DragPanelMouseDragged(evt);
+            }
+        });
+        DragPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                DragPanelMousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout DragPanelLayout = new javax.swing.GroupLayout(DragPanel);
+        DragPanel.setLayout(DragPanelLayout);
+        DragPanelLayout.setHorizontalGroup(
+            DragPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        DragPanelLayout.setVerticalGroup(
+            DragPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(DragPanel);
+        DragPanel.setBounds(0, 0, 320, 100);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        setVisible(false);
+        dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+int xx, xy;
+    private void DragPanelMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DragPanelMouseDragged
+        // TODO add your handling code here:
+
+        //source to drag
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x-xx,y-xy);
+    }//GEN-LAST:event_DragPanelMouseDragged
+
+    private void DragPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DragPanelMousePressed
+        // TODO add your handling code here:
+        //drag this pane
+        xx = evt.getX();
+        xy = evt.getY();
+    }//GEN-LAST:event_DragPanelMousePressed
 
     /**
      * @param args the command line arguments
@@ -130,9 +183,10 @@ public class VentanaEmergente extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel DragPanel;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }
