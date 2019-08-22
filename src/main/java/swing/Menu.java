@@ -5,6 +5,7 @@
  */
 package swing;
 
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 
 
@@ -19,6 +20,7 @@ public class Menu extends javax.swing.JFrame {
      */
     public Menu() {
         initComponents();
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/logoAPP.png")));
         setLocationRelativeTo(null);
     }
 
@@ -158,7 +160,7 @@ public class Menu extends javax.swing.JFrame {
         jLabel4.setBounds(150, 10, 200, 170);
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(0, 0, 500, 460);
+        jPanel2.setBounds(0, 0, 500, 510);
 
         DragPanel.setBackground(new java.awt.Color(12, 129, 129));
         DragPanel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -180,11 +182,11 @@ public class Menu extends javax.swing.JFrame {
         );
         DragPanelLayout.setVerticalGroup(
             DragPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 510, Short.MAX_VALUE)
         );
 
         getContentPane().add(DragPanel);
-        DragPanel.setBounds(0, 0, 500, 460);
+        DragPanel.setBounds(0, 0, 500, 510);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -198,7 +200,9 @@ public class Menu extends javax.swing.JFrame {
         }
         else{ //Usuario incorrecto
             VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled);
+            error.CambioTexto("Los datos ingresados son incorrectos");
             error.setVisible(true);
+           
         }
     }//GEN-LAST:event_menuIniciarActionPerformed
 
@@ -216,6 +220,7 @@ public class Menu extends javax.swing.JFrame {
             }
             else{ //Usuario incorrecto
                 VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled);
+                error.CambioTexto("Los datos ingresados son incorrectos");
                 error.setVisible(true);
             }
         }
@@ -231,6 +236,7 @@ public class Menu extends javax.swing.JFrame {
             }
             else{ //Usuario incorrecto
                 VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled);
+                error.CambioTexto("Los datos ingresados son incorrectos");
                 error.setVisible(true);
             }
         }

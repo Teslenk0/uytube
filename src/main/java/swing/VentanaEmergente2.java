@@ -11,12 +11,12 @@ import javax.swing.JLabel;
  *
  * @author esteban
  */
-public class VentanaEmergente extends javax.swing.JDialog {
+public class VentanaEmergente2 extends javax.swing.JDialog {
 
     /**
      * Creates new form UsuarioIncorrecto
      */
-    public VentanaEmergente(java.awt.Frame parent, boolean modal) {
+    public VentanaEmergente2(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
@@ -35,13 +35,13 @@ public class VentanaEmergente extends javax.swing.JDialog {
         BotonCerrar = new javax.swing.JButton();
         Panel = new javax.swing.JPanel();
         Texto = new javax.swing.JLabel();
+        BotonCancelar = new javax.swing.JButton();
         BotonAceptar = new javax.swing.JButton();
         DragPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(353, 144));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(353, 144));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -77,6 +77,26 @@ public class VentanaEmergente extends javax.swing.JDialog {
         getContentPane().add(BarraSuperior);
         BarraSuperior.setBounds(0, 0, 360, 33);
 
+        Panel.setLayout(null);
+
+        Texto.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        Texto.setText("¿Seguro que desea cerrar sesion?");
+        Panel.add(Texto);
+        Texto.setBounds(80, 40, 250, 40);
+
+        BotonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_cancel_3.png"))); // NOI18N
+        BotonCancelar.setBorder(null);
+        BotonCancelar.setBorderPainted(false);
+        BotonCancelar.setContentAreaFilled(false);
+        BotonCancelar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_cancel_4.png"))); // NOI18N
+        BotonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonCancelarActionPerformed(evt);
+            }
+        });
+        Panel.add(BotonCancelar);
+        BotonCancelar.setBounds(180, 90, 80, 40);
+
         BotonAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_2.png"))); // NOI18N
         BotonAceptar.setBorder(null);
         BotonAceptar.setBorderPainted(false);
@@ -87,29 +107,8 @@ public class VentanaEmergente extends javax.swing.JDialog {
                 BotonAceptarActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout PanelLayout = new javax.swing.GroupLayout(Panel);
-        Panel.setLayout(PanelLayout);
-        PanelLayout.setHorizontalGroup(
-            PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelLayout.createSequentialGroup()
-                .addGap(132, 132, 132)
-                .addComponent(BotonAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelLayout.createSequentialGroup()
-                .addContainerGap(70, Short.MAX_VALUE)
-                .addComponent(Texto, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40))
-        );
-        PanelLayout.setVerticalGroup(
-            PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelLayout.createSequentialGroup()
-                .addContainerGap(44, Short.MAX_VALUE)
-                .addComponent(Texto, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(BotonAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16))
-        );
+        Panel.add(BotonAceptar);
+        BotonAceptar.setBounds(85, 89, 80, 40);
 
         getContentPane().add(Panel);
         Panel.setBounds(0, 0, 360, 150);
@@ -145,6 +144,9 @@ public class VentanaEmergente extends javax.swing.JDialog {
 
     private void BotonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAceptarActionPerformed
         dispose();
+        MenuInicio MI = new MenuInicio().getFrame();
+        MI.setVisible(false);
+        new Menu().setVisible(true);
     }//GEN-LAST:event_BotonAceptarActionPerformed
 int xx, xy;
     private void DragPanelMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DragPanelMouseDragged
@@ -168,6 +170,11 @@ int xx, xy;
         dispose();
     }//GEN-LAST:event_BotonCerrarActionPerformed
 
+    private void BotonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonCancelarActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_BotonCancelarActionPerformed
+
 public void CambioTexto(String texto){
     Texto.setText(texto);
 }
@@ -175,6 +182,7 @@ public void CambioTexto(String texto){
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BarraSuperior;
     private javax.swing.JButton BotonAceptar;
+    private javax.swing.JButton BotonCancelar;
     private javax.swing.JButton BotonCerrar;
     private javax.swing.JPanel DragPanel;
     private javax.swing.JPanel Panel;

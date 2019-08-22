@@ -6,6 +6,8 @@
 package swing;
 
 import java.awt.Color;
+import java.awt.Toolkit;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 /**
@@ -19,6 +21,7 @@ public class MenuInicio extends javax.swing.JFrame {
      */
     public MenuInicio() {
         initComponents();
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/logoAPP.png")));
         setLocationRelativeTo(null);
         setColor(btn_Inicio); 
         ind_1.setOpaque(true);
@@ -545,8 +548,8 @@ public class MenuInicio extends javax.swing.JFrame {
         btn_CerrarSesion.setBackground(new Color(235,76,76));
         ind_5.setOpaque(true);
         resetColor(new JPanel[]{btn_Inicio,btn_Usuario,btn_Consultas,btn_Modificar}, new JPanel[]{ind_1,ind_3,ind_4,ind_2});
-        this.setVisible(false);
-        new Menu().setVisible(true);
+        VentanaEmergente2 error = new VentanaEmergente2(this, rootPaneCheckingEnabled);
+        error.setVisible(true);
     }//GEN-LAST:event_btn_CerrarSesionMousePressed
 
     private void btn_ModificarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ModificarMousePressed
@@ -576,6 +579,9 @@ public class MenuInicio extends javax.swing.JFrame {
         
     }
     
+    public MenuInicio getFrame(){
+        return this;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AgregarUsuario;
