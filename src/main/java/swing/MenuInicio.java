@@ -23,6 +23,19 @@ public class MenuInicio extends javax.swing.JFrame {
         ind_1.setOpaque(true);
         resetColor(new JPanel[]{btn_Registros,btn_Consultas,btn_Modificar}, new JPanel[]{ind_2,ind_3, ind_4});
         setLocationRelativeTo(null);
+        Transparencia();
+    }
+
+    public void Transparencia() {
+        AgregarUsuario.setOpaque(false);
+        AgregarUsuario.setContentAreaFilled(false);
+        AgregarUsuario.setBorderPainted(false);
+        BorrarUsuario.setOpaque(false);
+        BorrarUsuario.setContentAreaFilled(false);
+        BorrarUsuario.setBorderPainted(false);
+        ConfigUsuario.setOpaque(false);
+        ConfigUsuario.setContentAreaFilled(false);
+        ConfigUsuario.setBorderPainted(false);
     }
 
     /**
@@ -43,7 +56,7 @@ public class MenuInicio extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         btn_Consultas = new javax.swing.JPanel();
         ind_3 = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
+        Usuario = new javax.swing.JLabel();
         btn_Modificar = new javax.swing.JPanel();
         ind_4 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
@@ -51,9 +64,10 @@ public class MenuInicio extends javax.swing.JFrame {
         btn_exit = new javax.swing.JLabel();
         Panel_Central = new javax.swing.JPanel();
         Central1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         Central2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        AgregarUsuario = new javax.swing.JButton();
+        BorrarUsuario = new javax.swing.JButton();
+        ConfigUsuario = new javax.swing.JButton();
         Central3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         Central4 = new javax.swing.JPanel();
@@ -185,9 +199,9 @@ public class MenuInicio extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Registros");
+        Usuario.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        Usuario.setForeground(new java.awt.Color(255, 255, 255));
+        Usuario.setText("Usuario");
 
         javax.swing.GroupLayout btn_ConsultasLayout = new javax.swing.GroupLayout(btn_Consultas);
         btn_Consultas.setLayout(btn_ConsultasLayout);
@@ -196,8 +210,8 @@ public class MenuInicio extends javax.swing.JFrame {
             .addGroup(btn_ConsultasLayout.createSequentialGroup()
                 .addComponent(ind_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
-                .addComponent(jLabel10)
-                .addGap(0, 74, Short.MAX_VALUE))
+                .addComponent(Usuario)
+                .addGap(0, 77, Short.MAX_VALUE))
         );
         btn_ConsultasLayout.setVerticalGroup(
             btn_ConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -206,7 +220,7 @@ public class MenuInicio extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(btn_ConsultasLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Usuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -301,43 +315,58 @@ public class MenuInicio extends javax.swing.JFrame {
 
         Panel_Central.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setText("PANEL INICIO");
-
         javax.swing.GroupLayout Central1Layout = new javax.swing.GroupLayout(Central1);
         Central1.setLayout(Central1Layout);
         Central1Layout.setHorizontalGroup(
             Central1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Central1Layout.createSequentialGroup()
-                .addGap(319, 319, 319)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(325, Short.MAX_VALUE))
+            .addGap(0, 720, Short.MAX_VALUE)
         );
         Central1Layout.setVerticalGroup(
             Central1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Central1Layout.createSequentialGroup()
-                .addGap(226, 226, 226)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(285, Short.MAX_VALUE))
+            .addGap(0, 542, Short.MAX_VALUE)
         );
 
-        jLabel2.setText("PANEL REGISTROS");
+        AgregarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/AddUser 1.png"))); // NOI18N
+        AgregarUsuario.setBorderPainted(false);
+        AgregarUsuario.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/AddUser 2.png"))); // NOI18N
+
+        BorrarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BorrarUser1.png"))); // NOI18N
+        BorrarUsuario.setBorderPainted(false);
+        BorrarUsuario.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BorrarUser 2.png"))); // NOI18N
+
+        ConfigUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/config 1.png"))); // NOI18N
+        ConfigUsuario.setBorderPainted(false);
+        ConfigUsuario.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/config 2.png"))); // NOI18N
 
         javax.swing.GroupLayout Central2Layout = new javax.swing.GroupLayout(Central2);
         Central2.setLayout(Central2Layout);
         Central2Layout.setHorizontalGroup(
             Central2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Central2Layout.createSequentialGroup()
-                .addGap(307, 307, 307)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(308, Short.MAX_VALUE))
+                .addGap(64, 64, 64)
+                .addGroup(Central2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(AgregarUsuario)
+                    .addComponent(ConfigUsuario))
+                .addGap(46, 46, 46)
+                .addComponent(BorrarUsuario)
+                .addContainerGap(74, Short.MAX_VALUE))
         );
         Central2Layout.setVerticalGroup(
             Central2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Central2Layout.createSequentialGroup()
-                .addGap(223, 223, 223)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(288, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addGroup(Central2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BorrarUsuario)
+                    .addGroup(Central2Layout.createSequentialGroup()
+                        .addComponent(AgregarUsuario)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ConfigUsuario)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        AgregarUsuario.getAccessibleContext().setAccessibleName("AgregarUsuario");
+        BorrarUsuario.getAccessibleContext().setAccessibleName("BorrarUsuario");
+        ConfigUsuario.getAccessibleContext().setAccessibleName("ConfigUsuario");
 
         jLabel3.setText("PANEL CONSULTAS");
 
@@ -355,7 +384,7 @@ public class MenuInicio extends javax.swing.JFrame {
             .addGroup(Central3Layout.createSequentialGroup()
                 .addGap(225, 225, 225)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(286, Short.MAX_VALUE))
+                .addContainerGap(288, Short.MAX_VALUE))
         );
 
         jLabel4.setText("PANEL MODIFICAR");
@@ -374,7 +403,7 @@ public class MenuInicio extends javax.swing.JFrame {
             .addGroup(Central4Layout.createSequentialGroup()
                 .addGap(227, 227, 227)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(284, Short.MAX_VALUE))
+                .addContainerGap(286, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout Panel_CentralLayout = new javax.swing.GroupLayout(Panel_Central);
@@ -505,13 +534,17 @@ public class MenuInicio extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AgregarUsuario;
     private javax.swing.JPanel Barra_Superior;
+    private javax.swing.JButton BorrarUsuario;
     private javax.swing.JPanel Central1;
     private javax.swing.JPanel Central2;
     private javax.swing.JPanel Central3;
     private javax.swing.JPanel Central4;
+    private javax.swing.JButton ConfigUsuario;
     private javax.swing.JPanel Panel_Central;
     private javax.swing.JPanel Panel_Lateral;
+    private javax.swing.JLabel Usuario;
     private javax.swing.JPanel btn_Consultas;
     private javax.swing.JPanel btn_Inicio;
     private javax.swing.JPanel btn_Modificar;
@@ -521,10 +554,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JPanel ind_2;
     private javax.swing.JPanel ind_3;
     private javax.swing.JPanel ind_4;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel8;
