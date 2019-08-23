@@ -36,7 +36,6 @@ public class Menu extends javax.swing.JFrame {
         jCheckBox1 = new javax.swing.JCheckBox();
         jPanel2 = new javax.swing.JPanel();
         jPasswordField1 = new javax.swing.JPasswordField();
-        menuPass = new javax.swing.JTextField();
         menuNomb = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         menuIniciar = new javax.swing.JButton();
@@ -64,6 +63,11 @@ public class Menu extends javax.swing.JFrame {
         jPasswordField1.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jPasswordField1.setBorder(null);
         jPasswordField1.setOpaque(false);
+        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordField1ActionPerformed(evt);
+            }
+        });
         jPasswordField1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jPasswordField1KeyPressed(evt);
@@ -71,11 +75,6 @@ public class Menu extends javax.swing.JFrame {
         });
         jPanel2.add(jPasswordField1);
         jPasswordField1.setBounds(130, 300, 290, 50);
-
-        menuPass.setBorder(null);
-        menuPass.setOpaque(false);
-        jPanel2.add(menuPass);
-        menuPass.setBounds(130, 300, 290, 50);
 
         menuNomb.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         menuNomb.setBorder(null);
@@ -263,6 +262,10 @@ int xx,xy;
         xy = evt.getY();
     }//GEN-LAST:event_DragPanelMousePressed
 
+    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPasswordField1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -280,7 +283,6 @@ int xx,xy;
     private javax.swing.JButton menuCancelar;
     private javax.swing.JButton menuIniciar;
     private javax.swing.JTextField menuNomb;
-    private javax.swing.JTextField menuPass;
     private javax.swing.JButton minimizar;
     // End of variables declaration//GEN-END:variables
 }

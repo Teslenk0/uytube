@@ -70,6 +70,27 @@ public class MenuInicio extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         Central4 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
+        Central2_1 = new javax.swing.JPanel();
+        Nombre = new javax.swing.JLabel();
+        Apellido = new javax.swing.JLabel();
+        Nickname = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        txtNick = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
+        txtApellido = new javax.swing.JTextField();
+        txtDia = new javax.swing.JTextField();
+        FechNac = new javax.swing.JLabel();
+        txtMes = new javax.swing.JTextField();
+        txtCorreo = new javax.swing.JTextField();
+        txtAnio = new javax.swing.JTextField();
+        AgregarFoto = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
+        Cancelar = new javax.swing.JButton();
+        Registrar1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        NombCanal = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -367,17 +388,22 @@ public class MenuInicio extends javax.swing.JFrame {
         Central1.setLayout(Central1Layout);
         Central1Layout.setHorizontalGroup(
             Central1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
+            .addGap(0, 744, Short.MAX_VALUE)
         );
         Central1Layout.setVerticalGroup(
             Central1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 542, Short.MAX_VALUE)
+            .addGap(0, 574, Short.MAX_VALUE)
         );
 
         AgregarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/AddUser 1.png"))); // NOI18N
         AgregarUsuario.setBorderPainted(false);
         AgregarUsuario.setContentAreaFilled(false);
         AgregarUsuario.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/AddUser 2.png"))); // NOI18N
+        AgregarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AgregarUsuarioActionPerformed(evt);
+            }
+        });
 
         BorrarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BorrarUser1.png"))); // NOI18N
         BorrarUsuario.setBorderPainted(false);
@@ -400,7 +426,7 @@ public class MenuInicio extends javax.swing.JFrame {
                     .addComponent(ConfigUsuario))
                 .addGap(46, 46, 46)
                 .addComponent(BorrarUsuario)
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addContainerGap(98, Short.MAX_VALUE))
         );
         Central2Layout.setVerticalGroup(
             Central2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -428,14 +454,14 @@ public class MenuInicio extends javax.swing.JFrame {
             .addGroup(Central3Layout.createSequentialGroup()
                 .addGap(307, 307, 307)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(306, Short.MAX_VALUE))
+                .addContainerGap(330, Short.MAX_VALUE))
         );
         Central3Layout.setVerticalGroup(
             Central3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Central3Layout.createSequentialGroup()
                 .addGap(225, 225, 225)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(288, Short.MAX_VALUE))
+                .addContainerGap(320, Short.MAX_VALUE))
         );
 
         jLabel4.setText("PANEL MODIFICAR");
@@ -445,7 +471,7 @@ public class MenuInicio extends javax.swing.JFrame {
         Central4Layout.setHorizontalGroup(
             Central4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Central4Layout.createSequentialGroup()
-                .addContainerGap(310, Short.MAX_VALUE)
+                .addContainerGap(334, Short.MAX_VALUE)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(261, 261, 261))
         );
@@ -454,8 +480,75 @@ public class MenuInicio extends javax.swing.JFrame {
             .addGroup(Central4Layout.createSequentialGroup()
                 .addGap(227, 227, 227)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(286, Short.MAX_VALUE))
+                .addContainerGap(318, Short.MAX_VALUE))
         );
+
+        Central2_1.setMinimumSize(new java.awt.Dimension(720, 560));
+        Central2_1.setLayout(null);
+
+        Nombre.setText("Nombre (*)");
+        Central2_1.add(Nombre);
+        Nombre.setBounds(160, 100, 120, 18);
+
+        Apellido.setText("Apellido (*)");
+        Central2_1.add(Apellido);
+        Apellido.setBounds(160, 140, 100, 18);
+
+        Nickname.setText("Nickname (*)");
+        Central2_1.add(Nickname);
+        Nickname.setBounds(160, 60, 120, 18);
+
+        jLabel6.setText("Correo (*)");
+        Central2_1.add(jLabel6);
+        jLabel6.setBounds(160, 220, 110, 18);
+        Central2_1.add(txtNick);
+        txtNick.setBounds(330, 50, 151, 28);
+        Central2_1.add(txtNombre);
+        txtNombre.setBounds(330, 90, 151, 28);
+        Central2_1.add(txtApellido);
+        txtApellido.setBounds(330, 130, 151, 28);
+        Central2_1.add(txtDia);
+        txtDia.setBounds(330, 180, 54, 28);
+
+        FechNac.setText("Fecha de nacimiento (*)");
+        Central2_1.add(FechNac);
+        FechNac.setBounds(160, 190, 220, 18);
+        Central2_1.add(txtMes);
+        txtMes.setBounds(390, 180, 54, 28);
+        Central2_1.add(txtCorreo);
+        txtCorreo.setBounds(330, 220, 259, 28);
+        Central2_1.add(txtAnio);
+        txtAnio.setBounds(450, 180, 54, 28);
+
+        AgregarFoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/add_norm.png"))); // NOI18N
+        Central2_1.add(AgregarFoto);
+        AgregarFoto.setBounds(180, 390, 30, 30);
+
+        jLabel12.setText("Subir imagen .jpg o .png");
+        Central2_1.add(jLabel12);
+        jLabel12.setBounds(230, 400, 270, 18);
+
+        Cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_cancel_2.png"))); // NOI18N
+        Cancelar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_cancel_1.png"))); // NOI18N
+        Central2_1.add(Cancelar);
+        Cancelar.setBounds(400, 480, 100, 47);
+
+        Registrar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_regist_2.png"))); // NOI18N
+        Registrar1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_regist_1.png"))); // NOI18N
+        Central2_1.add(Registrar1);
+        Registrar1.setBounds(230, 480, 100, 47);
+
+        jLabel2.setText("Nombre del canal");
+        Central2_1.add(jLabel2);
+        jLabel2.setBounds(160, 260, 130, 18);
+        Central2_1.add(NombCanal);
+        NombCanal.setBounds(330, 260, 260, 28);
+
+        jLabel5.setText("Descripcion del canal (*)");
+        Central2_1.add(jLabel5);
+        jLabel5.setBounds(160, 300, 190, 18);
+        Central2_1.add(jTextField1);
+        jTextField1.setBounds(330, 300, 260, 70);
 
         javax.swing.GroupLayout Panel_CentralLayout = new javax.swing.GroupLayout(Panel_Central);
         Panel_Central.setLayout(Panel_CentralLayout);
@@ -468,6 +561,8 @@ public class MenuInicio extends javax.swing.JFrame {
                 .addComponent(Central3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(Panel_CentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(Central4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(Panel_CentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(Central2_1, javax.swing.GroupLayout.DEFAULT_SIZE, 744, Short.MAX_VALUE))
         );
         Panel_CentralLayout.setVerticalGroup(
             Panel_CentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -478,6 +573,8 @@ public class MenuInicio extends javax.swing.JFrame {
                 .addComponent(Central3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(Panel_CentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(Central4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(Panel_CentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(Central2_1, javax.swing.GroupLayout.DEFAULT_SIZE, 574, Short.MAX_VALUE))
         );
 
         getContentPane().add(Panel_Central, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, 720, 540));
@@ -562,6 +659,13 @@ public class MenuInicio extends javax.swing.JFrame {
         Panel_Central.repaint();
     }//GEN-LAST:event_btn_ModificarMousePressed
 
+    private void AgregarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarUsuarioActionPerformed
+        Panel_Central.removeAll();
+        Panel_Central.add(Central2_1);
+        Panel_Central.revalidate();
+        Panel_Central.repaint();
+    }//GEN-LAST:event_AgregarUsuarioActionPerformed
+
     
     private void setColor(JPanel pane)
     {
@@ -584,16 +688,25 @@ public class MenuInicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AgregarFoto;
     private javax.swing.JButton AgregarUsuario;
+    private javax.swing.JLabel Apellido;
     private javax.swing.JPanel Barra_Superior;
     private javax.swing.JButton BorrarUsuario;
+    private javax.swing.JButton Cancelar;
     private javax.swing.JPanel Central1;
     private javax.swing.JPanel Central2;
+    private javax.swing.JPanel Central2_1;
     private javax.swing.JPanel Central3;
     private javax.swing.JPanel Central4;
     private javax.swing.JButton ConfigUsuario;
+    private javax.swing.JLabel FechNac;
+    private javax.swing.JLabel Nickname;
+    private javax.swing.JTextField NombCanal;
+    private javax.swing.JLabel Nombre;
     private javax.swing.JPanel Panel_Central;
     private javax.swing.JPanel Panel_Lateral;
+    private javax.swing.JButton Registrar1;
     private javax.swing.JLabel Usuario;
     private javax.swing.JPanel btn_CerrarSesion;
     private javax.swing.JPanel btn_Consultas;
@@ -608,10 +721,22 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JPanel ind_5;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton minimizar;
+    private javax.swing.JTextField txtAnio;
+    private javax.swing.JTextField txtApellido;
+    private javax.swing.JTextField txtCorreo;
+    private javax.swing.JTextField txtDia;
+    private javax.swing.JTextField txtMes;
+    private javax.swing.JTextField txtNick;
+    private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }
