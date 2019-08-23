@@ -388,11 +388,11 @@ public class MenuInicio extends javax.swing.JFrame {
         Central1.setLayout(Central1Layout);
         Central1Layout.setHorizontalGroup(
             Central1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 744, Short.MAX_VALUE)
+            .addGap(0, 720, Short.MAX_VALUE)
         );
         Central1Layout.setVerticalGroup(
             Central1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 574, Short.MAX_VALUE)
+            .addGap(0, 560, Short.MAX_VALUE)
         );
 
         AgregarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/AddUser 1.png"))); // NOI18N
@@ -426,7 +426,7 @@ public class MenuInicio extends javax.swing.JFrame {
                     .addComponent(ConfigUsuario))
                 .addGap(46, 46, 46)
                 .addComponent(BorrarUsuario)
-                .addContainerGap(98, Short.MAX_VALUE))
+                .addContainerGap(74, Short.MAX_VALUE))
         );
         Central2Layout.setVerticalGroup(
             Central2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -454,14 +454,14 @@ public class MenuInicio extends javax.swing.JFrame {
             .addGroup(Central3Layout.createSequentialGroup()
                 .addGap(307, 307, 307)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(330, Short.MAX_VALUE))
+                .addContainerGap(306, Short.MAX_VALUE))
         );
         Central3Layout.setVerticalGroup(
             Central3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Central3Layout.createSequentialGroup()
                 .addGap(225, 225, 225)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(320, Short.MAX_VALUE))
+                .addContainerGap(306, Short.MAX_VALUE))
         );
 
         jLabel4.setText("PANEL MODIFICAR");
@@ -471,7 +471,7 @@ public class MenuInicio extends javax.swing.JFrame {
         Central4Layout.setHorizontalGroup(
             Central4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Central4Layout.createSequentialGroup()
-                .addContainerGap(334, Short.MAX_VALUE)
+                .addContainerGap(310, Short.MAX_VALUE)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(261, 261, 261))
         );
@@ -480,7 +480,7 @@ public class MenuInicio extends javax.swing.JFrame {
             .addGroup(Central4Layout.createSequentialGroup()
                 .addGap(227, 227, 227)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(318, Short.MAX_VALUE))
+                .addContainerGap(304, Short.MAX_VALUE))
         );
 
         Central2_1.setMinimumSize(new java.awt.Dimension(720, 560));
@@ -562,7 +562,7 @@ public class MenuInicio extends javax.swing.JFrame {
             .addGroup(Panel_CentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(Central4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(Panel_CentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(Central2_1, javax.swing.GroupLayout.DEFAULT_SIZE, 744, Short.MAX_VALUE))
+                .addComponent(Central2_1, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE))
         );
         Panel_CentralLayout.setVerticalGroup(
             Panel_CentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -574,7 +574,7 @@ public class MenuInicio extends javax.swing.JFrame {
             .addGroup(Panel_CentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(Central4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(Panel_CentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(Central2_1, javax.swing.GroupLayout.DEFAULT_SIZE, 574, Short.MAX_VALUE))
+                .addComponent(Central2_1, javax.swing.GroupLayout.DEFAULT_SIZE, 560, Short.MAX_VALUE))
         );
 
         getContentPane().add(Panel_Central, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, 720, 540));
