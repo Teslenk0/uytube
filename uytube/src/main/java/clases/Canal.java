@@ -26,17 +26,21 @@ public class Canal implements Serializable {
     
     protected Set<Video> videos;
     
+    protected Set<ListaReproduccion> listas;
+    
 
-    public Canal(Usuario user, String descripcion, Set<Video> videos) {
+    public Canal(Usuario user, String descripcion, Set<Video> videos, Set<ListaReproduccion> listas) {
         this.user = user;
         this.descripcion = descripcion;
         this.videos = videos;
+        this.listas = listas;
     }
 
     public Canal(Usuario user, String descripcion) {
         this.user = user;
         this.descripcion = descripcion;
         this.videos = new TreeSet<Video>();
+       // this.listas = new TreeSet<ListaReproduccion()>; // no estoy seguro de que las listas sean Set?
     }
 
     public Set<Video> getVideos() {
