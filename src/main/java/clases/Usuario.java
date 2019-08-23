@@ -6,25 +6,29 @@
 package clases;
 
 import interfaces.controladorUsuario;
+import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Entity;
 
 /**
  * 
  * @author tesla
  */
-public class Usuario implements controladorUsuario{
+public class Usuario implements controladorUsuario,Serializable{
     
-    private String nickname;
+    protected static final long serialVersionUID = 1L;
     
-    private String nombre;
+    protected String nickname;
     
-    private String apellido;
+    protected String nombre;
     
-    private String email;
+    protected String apellido;
     
-    private Date fechaNac;
+    protected String email;
     
-    private String imagen;
+    protected Date fechaNac;
+    
+    protected String imagen;
 
     public Usuario(String nickname, String nombre, String apellido, String email, Date fechaNac, String imagen) {
         this.nickname = nickname;
@@ -35,8 +39,7 @@ public class Usuario implements controladorUsuario{
         this.imagen = imagen;
     }
     
-   
-   
+ 
 
     public String getNickname() {
         return nickname;
