@@ -8,26 +8,37 @@ package clases;
 import interfaces.controladorUsuario;
 import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 /**
  * 
  * @author tesla
  */
-public class Usuario implements controladorUsuario,Serializable{
+
+@MappedSuperclass
+@IdClass(PkUsuario.class)
+public abstract class Usuario implements controladorUsuario,Serializable{
     
     protected static final long serialVersionUID = 1L;
     
+    @Id
+    @Column(name = "nickname")
     protected String nickname;
     
+    @Column(name = "nombre")
     protected String nombre;
     
+    @Column(name = "apellido")
     protected String apellido;
     
+    @Id
+    @Column(name = "email")
     protected String email;
     
+    @Column(name = "fechaNac")
     protected Date fechaNac;
     
+    @Column(name = "imagen")
     protected String imagen;
 
     public Usuario(String nickname, String nombre, String apellido, String email, Date fechaNac, String imagen) {

@@ -14,7 +14,8 @@ import javax.persistence.Table;
  * @author tesla
  */
 
-
+@Entity
+@Table(name = "usuario_admin")
 public class Administrador extends Usuario{
     
     
