@@ -5,7 +5,7 @@
  */
 package clases;
 
-import java.util.Set;
+import java.util.List;
 
 /**
  *
@@ -13,7 +13,7 @@ import java.util.Set;
  */
 public class ListaporDefecto extends ListaReproduccion{
     
-    public ListaporDefecto(String nombreLista, Set<Video> videosLista, Categoria categoria) {
+    public ListaporDefecto(String nombreLista, List<Video> videosLista, Categoria categoria) {
         super(nombreLista, videosLista, categoria);
     }
     
