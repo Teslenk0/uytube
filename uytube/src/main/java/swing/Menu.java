@@ -36,7 +36,7 @@ public class Menu extends javax.swing.JFrame {
     private void initComponents() {
 
         jCheckBox1 = new javax.swing.JCheckBox();
-        jPanel2 = new javax.swing.JPanel();
+        Panel = new javax.swing.JPanel();
         Password = new javax.swing.JPasswordField();
         Username = new javax.swing.JTextField();
         FondoUsername = new javax.swing.JLabel();
@@ -59,12 +59,12 @@ public class Menu extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(null);
 
-        jPanel2.setBackground(new java.awt.Color(16, 129, 129));
-        jPanel2.setLayout(null);
+        Panel.setBackground(new java.awt.Color(12, 129, 129));
+        Panel.setLayout(null);
 
         Password.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
         Password.setForeground(new java.awt.Color(153, 153, 153));
-        Password.setText("000000000");
+        Password.setText("000000000*******");
         Password.setBorder(null);
         Password.setOpaque(false);
         Password.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -77,7 +77,7 @@ public class Menu extends javax.swing.JFrame {
                 PasswordKeyPressed(evt);
             }
         });
-        jPanel2.add(Password);
+        Panel.add(Password);
         Password.setBounds(140, 300, 290, 50);
 
         Username.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
@@ -95,27 +95,27 @@ public class Menu extends javax.swing.JFrame {
                 UsernameKeyPressed(evt);
             }
         });
-        jPanel2.add(Username);
+        Panel.add(Username);
         Username.setBounds(140, 230, 290, 50);
 
         FondoUsername.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/txt_user.png"))); // NOI18N
-        jPanel2.add(FondoUsername);
+        Panel.add(FondoUsername);
         FondoUsername.setBounds(80, 220, 340, 70);
 
         FondoPassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/txt_pass.png"))); // NOI18N
-        jPanel2.add(FondoPassword);
+        Panel.add(FondoPassword);
         FondoPassword.setBounds(80, 290, 340, 70);
 
         InicioSesion.setBackground(new java.awt.Color(247, 243, 247));
         InicioSesion.setFont(new java.awt.Font("Berlin Sans FB", 0, 28)); // NOI18N
         InicioSesion.setForeground(new java.awt.Color(101, 13, 136));
         InicioSesion.setText("Inicio de sesión");
-        jPanel2.add(InicioSesion);
+        Panel.add(InicioSesion);
         InicioSesion.setBounds(170, 170, 220, 40);
 
         Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo.png"))); // NOI18N
         Logo.setText("jLabel4");
-        jPanel2.add(Logo);
+        Panel.add(Logo);
         Logo.setBounds(150, 10, 200, 170);
 
         menuIniciar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_iniciar_2.png"))); // NOI18N
@@ -127,7 +127,7 @@ public class Menu extends javax.swing.JFrame {
                 menuIniciarActionPerformed(evt);
             }
         });
-        jPanel2.add(menuIniciar);
+        Panel.add(menuIniciar);
         menuIniciar.setBounds(140, 370, 100, 50);
 
         menuCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_cancel_2.png"))); // NOI18N
@@ -139,7 +139,7 @@ public class Menu extends javax.swing.JFrame {
                 menuCancelarActionPerformed(evt);
             }
         });
-        jPanel2.add(menuCancelar);
+        Panel.add(menuCancelar);
         menuCancelar.setBounds(270, 370, 100, 50);
 
         cerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/IconCerrar.png"))); // NOI18N
@@ -151,7 +151,7 @@ public class Menu extends javax.swing.JFrame {
                 cerrarActionPerformed(evt);
             }
         });
-        jPanel2.add(cerrar);
+        Panel.add(cerrar);
         cerrar.setBounds(470, 10, 20, 20);
 
         minimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/IconMinimizar.png"))); // NOI18N
@@ -163,11 +163,11 @@ public class Menu extends javax.swing.JFrame {
                 minimizarActionPerformed(evt);
             }
         });
-        jPanel2.add(minimizar);
+        Panel.add(minimizar);
         minimizar.setBounds(440, 10, 20, 20);
 
-        getContentPane().add(jPanel2);
-        jPanel2.setBounds(0, 0, 500, 510);
+        getContentPane().add(Panel);
+        Panel.setBounds(0, 0, 500, 510);
 
         DragPanel.setBackground(new java.awt.Color(12, 129, 129));
         DragPanel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -289,11 +289,11 @@ int xx,xy;
     private javax.swing.JLabel FondoUsername;
     private javax.swing.JLabel InicioSesion;
     private javax.swing.JLabel Logo;
+    private javax.swing.JPanel Panel;
     private javax.swing.JPasswordField Password;
     private javax.swing.JTextField Username;
     private javax.swing.JButton cerrar;
     private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JButton menuCancelar;
     private javax.swing.JButton menuIniciar;
     private javax.swing.JButton minimizar;

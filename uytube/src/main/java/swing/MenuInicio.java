@@ -41,7 +41,6 @@ public class MenuInicio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        AdministradorText1 = new javax.swing.JLabel();
         Panel_Lateral = new javax.swing.JPanel();
         btn_Inicio = new javax.swing.JPanel();
         ind_1 = new javax.swing.JPanel();
@@ -66,9 +65,14 @@ public class MenuInicio extends javax.swing.JFrame {
         Panel_Central = new javax.swing.JPanel();
         Central1 = new javax.swing.JPanel();
         Central2 = new javax.swing.JPanel();
+        ConsultarUsuariosText = new javax.swing.JLabel();
+        ListarUsuariosText = new javax.swing.JLabel();
+        ModificarUsuarioText = new javax.swing.JLabel();
+        AgregarUserText = new javax.swing.JLabel();
         AgregarUsuario = new javax.swing.JButton();
-        BorrarUsuario = new javax.swing.JButton();
-        ConfigUsuario = new javax.swing.JButton();
+        ModificarUsuario = new javax.swing.JButton();
+        ListarUsuarios = new javax.swing.JButton();
+        ConsultarUsuarios = new javax.swing.JButton();
         Central3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         Central4 = new javax.swing.JPanel();
@@ -101,10 +105,6 @@ public class MenuInicio extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
         BackButton = new javax.swing.JButton();
-
-        AdministradorText1.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        AdministradorText1.setForeground(new java.awt.Color(255, 255, 255));
-        AdministradorText1.setText("Administrador: ");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -394,16 +394,16 @@ public class MenuInicio extends javax.swing.JFrame {
         Barra_Superior.add(cerrar);
         cerrar.setBounds(690, 10, 20, 20);
 
-        AdministradorText.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        AdministradorText.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         AdministradorText.setForeground(new java.awt.Color(255, 255, 255));
         AdministradorText.setText("Administrador: ");
         Barra_Superior.add(AdministradorText);
         AdministradorText.setBounds(20, 10, 130, 20);
 
-        AdminChange.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        AdminChange.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         AdminChange.setForeground(new java.awt.Color(255, 255, 255));
         Barra_Superior.add(AdminChange);
-        AdminChange.setBounds(140, 10, 130, 20);
+        AdminChange.setBounds(120, 10, 140, 20);
 
         getContentPane().add(Barra_Superior, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, 720, 40));
 
@@ -414,36 +414,81 @@ public class MenuInicio extends javax.swing.JFrame {
         Panel_Central.add(Central1);
         Central1.setBounds(0, 0, 720, 550);
 
+        Central2.setForeground(new java.awt.Color(255, 255, 255));
         Central2.setLayout(null);
 
-        AgregarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/AddUser 1.png"))); // NOI18N
+        ConsultarUsuariosText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        ConsultarUsuariosText.setForeground(new java.awt.Color(255, 255, 255));
+        ConsultarUsuariosText.setText("Consultar Usuario");
+        Central2.add(ConsultarUsuariosText);
+        ConsultarUsuariosText.setBounds(460, 50, 130, 20);
+
+        ListarUsuariosText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        ListarUsuariosText.setForeground(new java.awt.Color(255, 255, 255));
+        ListarUsuariosText.setText("Listar Usuarios");
+        Central2.add(ListarUsuariosText);
+        ListarUsuariosText.setBounds(470, 300, 120, 20);
+
+        ModificarUsuarioText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        ModificarUsuarioText.setForeground(new java.awt.Color(255, 255, 255));
+        ModificarUsuarioText.setText("Modificar Usuario");
+        Central2.add(ModificarUsuarioText);
+        ModificarUsuarioText.setBounds(160, 300, 130, 20);
+
+        AgregarUserText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        AgregarUserText.setForeground(new java.awt.Color(255, 255, 255));
+        AgregarUserText.setText("Agregar Usuario");
+        Central2.add(AgregarUserText);
+        AgregarUserText.setBounds(160, 50, 120, 20);
+
+        AgregarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/AgregarUser.png"))); // NOI18N
         AgregarUsuario.setBorderPainted(false);
         AgregarUsuario.setContentAreaFilled(false);
-        AgregarUsuario.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/AddUser 2.png"))); // NOI18N
+        AgregarUsuario.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/AgregarUser2.png"))); // NOI18N
         AgregarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AgregarUsuarioActionPerformed(evt);
             }
         });
         Central2.add(AgregarUsuario);
-        AgregarUsuario.setBounds(64, 30, 289, 243);
+        AgregarUsuario.setBounds(90, 40, 243, 221);
         AgregarUsuario.getAccessibleContext().setAccessibleName("AgregarUsuario");
 
-        BorrarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BorrarUser1.png"))); // NOI18N
-        BorrarUsuario.setBorderPainted(false);
-        BorrarUsuario.setContentAreaFilled(false);
-        BorrarUsuario.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BorrarUser 2.png"))); // NOI18N
-        Central2.add(BorrarUsuario);
-        BorrarUsuario.setBounds(399, 30, 289, 243);
-        BorrarUsuario.getAccessibleContext().setAccessibleName("BorrarUsuario");
+        ModificarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ModificarUser.png"))); // NOI18N
+        ModificarUsuario.setBorderPainted(false);
+        ModificarUsuario.setContentAreaFilled(false);
+        ModificarUsuario.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ModificarUser2.png"))); // NOI18N
+        ModificarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ModificarUsuarioActionPerformed(evt);
+            }
+        });
+        Central2.add(ModificarUsuario);
+        ModificarUsuario.setBounds(90, 290, 243, 221);
 
-        ConfigUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/config 1.png"))); // NOI18N
-        ConfigUsuario.setBorderPainted(false);
-        ConfigUsuario.setContentAreaFilled(false);
-        ConfigUsuario.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/config 2.png"))); // NOI18N
-        Central2.add(ConfigUsuario);
-        ConfigUsuario.setBounds(64, 279, 289, 243);
-        ConfigUsuario.getAccessibleContext().setAccessibleName("ConfigUsuario");
+        ListarUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Listar.png"))); // NOI18N
+        ListarUsuarios.setBorderPainted(false);
+        ListarUsuarios.setContentAreaFilled(false);
+        ListarUsuarios.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Listar2.png"))); // NOI18N
+        ListarUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ListarUsuariosActionPerformed(evt);
+            }
+        });
+        Central2.add(ListarUsuarios);
+        ListarUsuarios.setBounds(390, 290, 243, 221);
+
+        ConsultarUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ConsultarUser.png"))); // NOI18N
+        ConsultarUsuarios.setBorderPainted(false);
+        ConsultarUsuarios.setContentAreaFilled(false);
+        ConsultarUsuarios.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ConsultarUser2.png"))); // NOI18N
+        ConsultarUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConsultarUsuariosActionPerformed(evt);
+            }
+        });
+        Central2.add(ConsultarUsuarios);
+        ConsultarUsuarios.setBounds(390, 40, 243, 221);
 
         Panel_Central.add(Central2);
         Central2.setBounds(0, 0, 720, 550);
@@ -770,6 +815,18 @@ public class MenuInicio extends javax.swing.JFrame {
         Panel_Central.repaint();
     }//GEN-LAST:event_BackButtonActionPerformed
 
+    private void ModificarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ModificarUsuarioActionPerformed
+
+    private void ListarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarUsuariosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ListarUsuariosActionPerformed
+
+    private void ConsultarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarUsuariosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ConsultarUsuariosActionPerformed
+
     
     private void setColor(JPanel pane)
     {
@@ -796,14 +853,13 @@ public class MenuInicio extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AdminChange;
     private javax.swing.JLabel AdministradorText;
-    private javax.swing.JLabel AdministradorText1;
     private javax.swing.JButton AgregarFoto;
     private javax.swing.JLabel AgregarImg;
+    private javax.swing.JLabel AgregarUserText;
     private javax.swing.JButton AgregarUsuario;
     private javax.swing.JLabel Apellido;
     private javax.swing.JButton BackButton;
     private javax.swing.JPanel Barra_Superior;
-    private javax.swing.JButton BorrarUsuario;
     private javax.swing.JTextField CampoApellido;
     private javax.swing.JTextField CampoCanal;
     private javax.swing.JTextField CampoCorreo;
@@ -815,11 +871,16 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JPanel Central3;
     private javax.swing.JPanel Central4;
     private java.awt.Checkbox CheckboxPrivado;
-    private javax.swing.JButton ConfigUsuario;
+    private javax.swing.JButton ConsultarUsuarios;
+    private javax.swing.JLabel ConsultarUsuariosText;
     private javax.swing.JLabel Correo;
     private com.toedter.calendar.JDateChooser DateChoose;
     private javax.swing.JLabel Descripcion;
     private javax.swing.JLabel FechaNac;
+    private javax.swing.JButton ListarUsuarios;
+    private javax.swing.JLabel ListarUsuariosText;
+    private javax.swing.JButton ModificarUsuario;
+    private javax.swing.JLabel ModificarUsuarioText;
     private javax.swing.JLabel Nickname;
     private javax.swing.JLabel Nombre;
     private javax.swing.JLabel NombreCanal;
