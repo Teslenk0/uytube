@@ -330,7 +330,7 @@ public class MenuInicio extends javax.swing.JFrame {
 
         jLabel10.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Cerrar Sesion");
+        jLabel10.setText("Cerrar Sesión");
 
         javax.swing.GroupLayout btn_CerrarSesionLayout = new javax.swing.GroupLayout(btn_CerrarSesion);
         btn_CerrarSesion.setLayout(btn_CerrarSesionLayout);
@@ -412,7 +412,7 @@ public class MenuInicio extends javax.swing.JFrame {
 
         Central1.setLayout(null);
         Panel_Central.add(Central1);
-        Central1.setBounds(0, -10, 720, 550);
+        Central1.setBounds(0, 0, 720, 550);
 
         Central2.setLayout(null);
 
@@ -446,7 +446,7 @@ public class MenuInicio extends javax.swing.JFrame {
         ConfigUsuario.getAccessibleContext().setAccessibleName("ConfigUsuario");
 
         Panel_Central.add(Central2);
-        Central2.setBounds(0, -10, 720, 550);
+        Central2.setBounds(0, 0, 720, 550);
 
         Central3.setLayout(null);
 
@@ -455,7 +455,7 @@ public class MenuInicio extends javax.swing.JFrame {
         jLabel3.setBounds(307, 225, 107, 29);
 
         Panel_Central.add(Central3);
-        Central3.setBounds(0, -10, 720, 550);
+        Central3.setBounds(0, 0, 720, 550);
 
         Central4.setLayout(null);
 
@@ -464,7 +464,7 @@ public class MenuInicio extends javax.swing.JFrame {
         jLabel4.setBounds(310, 227, 149, 29);
 
         Panel_Central.add(Central4);
-        Central4.setBounds(0, -10, 720, 550);
+        Central4.setBounds(0, 0, 720, 550);
 
         Central2_1.setMinimumSize(new java.awt.Dimension(720, 560));
         Central2_1.setLayout(null);
@@ -652,9 +652,9 @@ public class MenuInicio extends javax.swing.JFrame {
         BackButton.setBounds(30, 20, 60, 50);
 
         Panel_Central.add(Central2_1);
-        Central2_1.setBounds(0, -10, 720, 550);
+        Central2_1.setBounds(0, 0, 720, 550);
 
-        getContentPane().add(Panel_Central, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, 720, 540));
+        getContentPane().add(Panel_Central, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 720, 550));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

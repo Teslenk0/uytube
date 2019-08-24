@@ -86,7 +86,7 @@ public class VentanaEmergente2 extends javax.swing.JDialog {
         Texto.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         Texto.setText("¿Seguro que desea cerrar sesion?");
         Panel.add(Texto);
-        Texto.setBounds(80, 40, 250, 40);
+        Texto.setBounds(80, 40, 290, 40);
 
         BotonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_cancel_3.png"))); // NOI18N
         BotonCancelar.setBorder(null);

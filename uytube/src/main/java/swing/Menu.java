@@ -37,16 +37,16 @@ public class Menu extends javax.swing.JFrame {
 
         jCheckBox1 = new javax.swing.JCheckBox();
         jPanel2 = new javax.swing.JPanel();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        menuNomb = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        Password = new javax.swing.JPasswordField();
+        Username = new javax.swing.JTextField();
+        FondoUsername = new javax.swing.JLabel();
+        FondoPassword = new javax.swing.JLabel();
+        InicioSesion = new javax.swing.JLabel();
+        Logo = new javax.swing.JLabel();
         menuIniciar = new javax.swing.JButton();
         menuCancelar = new javax.swing.JButton();
         cerrar = new javax.swing.JButton();
         minimizar = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         DragPanel = new javax.swing.JPanel();
 
         jCheckBox1.setText("jCheckBox1");
@@ -62,36 +62,61 @@ public class Menu extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(16, 129, 129));
         jPanel2.setLayout(null);
 
-        jPasswordField1.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
-        jPasswordField1.setBorder(null);
-        jPasswordField1.setOpaque(false);
-        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField1ActionPerformed(evt);
+        Password.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
+        Password.setForeground(new java.awt.Color(153, 153, 153));
+        Password.setText("000000000");
+        Password.setBorder(null);
+        Password.setOpaque(false);
+        Password.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                PasswordFocusGained(evt);
             }
         });
-        jPasswordField1.addKeyListener(new java.awt.event.KeyAdapter() {
+        Password.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                jPasswordField1KeyPressed(evt);
+                PasswordKeyPressed(evt);
             }
         });
-        jPanel2.add(jPasswordField1);
-        jPasswordField1.setBounds(130, 300, 290, 50);
+        jPanel2.add(Password);
+        Password.setBounds(140, 300, 290, 50);
 
-        menuNomb.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
-        menuNomb.setBorder(null);
-        menuNomb.setOpaque(false);
-        menuNomb.addKeyListener(new java.awt.event.KeyAdapter() {
+        Username.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        Username.setForeground(new java.awt.Color(153, 153, 153));
+        Username.setText("Username");
+        Username.setBorder(null);
+        Username.setOpaque(false);
+        Username.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                UsernameFocusGained(evt);
+            }
+        });
+        Username.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                menuNombKeyPressed(evt);
+                UsernameKeyPressed(evt);
             }
         });
-        jPanel2.add(menuNomb);
-        menuNomb.setBounds(130, 230, 290, 50);
+        jPanel2.add(Username);
+        Username.setBounds(140, 230, 290, 50);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/txt_user.png"))); // NOI18N
-        jPanel2.add(jLabel1);
-        jLabel1.setBounds(80, 220, 340, 70);
+        FondoUsername.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/txt_user.png"))); // NOI18N
+        jPanel2.add(FondoUsername);
+        FondoUsername.setBounds(80, 220, 340, 70);
+
+        FondoPassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/txt_pass.png"))); // NOI18N
+        jPanel2.add(FondoPassword);
+        FondoPassword.setBounds(80, 290, 340, 70);
+
+        InicioSesion.setBackground(new java.awt.Color(247, 243, 247));
+        InicioSesion.setFont(new java.awt.Font("Berlin Sans FB", 0, 28)); // NOI18N
+        InicioSesion.setForeground(new java.awt.Color(101, 13, 136));
+        InicioSesion.setText("Inicio de sesión");
+        jPanel2.add(InicioSesion);
+        InicioSesion.setBounds(170, 170, 220, 40);
+
+        Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo.png"))); // NOI18N
+        Logo.setText("jLabel4");
+        jPanel2.add(Logo);
+        Logo.setBounds(150, 10, 200, 170);
 
         menuIniciar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_iniciar_2.png"))); // NOI18N
         menuIniciar.setBorderPainted(false);
@@ -141,22 +166,6 @@ public class Menu extends javax.swing.JFrame {
         jPanel2.add(minimizar);
         minimizar.setBounds(440, 10, 20, 20);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/txt_pass.png"))); // NOI18N
-        jPanel2.add(jLabel2);
-        jLabel2.setBounds(80, 290, 340, 70);
-
-        jLabel3.setBackground(new java.awt.Color(247, 243, 247));
-        jLabel3.setFont(new java.awt.Font("Berlin Sans FB", 0, 28)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(213, 224, 236));
-        jLabel3.setText("Inicio de sesión");
-        jPanel2.add(jLabel3);
-        jLabel3.setBounds(170, 180, 220, 40);
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo.png"))); // NOI18N
-        jLabel4.setText("jLabel4");
-        jPanel2.add(jLabel4);
-        jLabel4.setBounds(150, 10, 200, 170);
-
         getContentPane().add(jPanel2);
         jPanel2.setBounds(0, 0, 500, 510);
 
@@ -190,7 +199,7 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuIniciarActionPerformed
-        String nombre = menuNomb.getText();
+        String nombre = Username.getText();
         if("macaco".equals(nombre)){ //Usuario correcto
             MenuInicio menuinicio = new MenuInicio();
             menuinicio.setVisible(true);
@@ -209,9 +218,9 @@ public class Menu extends javax.swing.JFrame {
       System.exit(0);
     }//GEN-LAST:event_menuCancelarActionPerformed
 
-    private void menuNombKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_menuNombKeyPressed
+    private void UsernameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_UsernameKeyPressed
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
-             String nombre = menuNomb.getText();
+             String nombre = Username.getText();
             if("macaco".equals(nombre)){ //Usuario correcto
                 MenuInicio menuinicio = new MenuInicio();
                 menuinicio.setVisible(true);
@@ -224,24 +233,7 @@ public class Menu extends javax.swing.JFrame {
                 error.setVisible(true);
             }
         }
-    }//GEN-LAST:event_menuNombKeyPressed
-
-    private void jPasswordField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyPressed
-        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
-             String nombre = menuNomb.getText();
-            if("macaco".equals(nombre)){ //Usuario correcto
-                MenuInicio menuinicio = new MenuInicio();
-                menuinicio.setVisible(true);
-                menuinicio.SetAdmin(nombre);
-                this.setVisible(false);
-            }
-            else{ //Usuario incorrecto
-                VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled);
-                error.CambioTexto("Los datos ingresados son incorrectos");
-                error.setVisible(true);
-            }
-        }
-    }//GEN-LAST:event_jPasswordField1KeyPressed
+    }//GEN-LAST:event_UsernameKeyPressed
 
     private void cerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarActionPerformed
       System.exit(0);
@@ -252,24 +244,40 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_minimizarActionPerformed
 int xx,xy;
     private void DragPanelMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DragPanelMouseDragged
-        // TODO add your handling code here:
-
-        //source to drag
         int x = evt.getXOnScreen();
         int y = evt.getYOnScreen();
         this.setLocation(x-xx,y-xy);
     }//GEN-LAST:event_DragPanelMouseDragged
 
     private void DragPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DragPanelMousePressed
-        // TODO add your handling code here:
-        //drag this pane
         xx = evt.getX();
         xy = evt.getY();
     }//GEN-LAST:event_DragPanelMousePressed
 
-    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField1ActionPerformed
+    private void UsernameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_UsernameFocusGained
+        Username.setText("");
+    }//GEN-LAST:event_UsernameFocusGained
+
+    private void PasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_PasswordFocusGained
+        Password.setText("");
+    }//GEN-LAST:event_PasswordFocusGained
+
+    private void PasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PasswordKeyPressed
+         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+             String nombre = Password.getText();
+            if("macaco".equals(nombre)){ //Usuario correcto
+                MenuInicio menuinicio = new MenuInicio();
+                menuinicio.setVisible(true);
+                menuinicio.SetAdmin(nombre);
+                this.setVisible(false);
+            }
+            else{ //Usuario incorrecto
+                VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled);
+                error.CambioTexto("Los datos ingresados son incorrectos");
+                error.setVisible(true);
+            }
+        }
+    }//GEN-LAST:event_PasswordKeyPressed
 
     /**
      * @param args the command line arguments
@@ -277,17 +285,17 @@ int xx,xy;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel DragPanel;
+    private javax.swing.JLabel FondoPassword;
+    private javax.swing.JLabel FondoUsername;
+    private javax.swing.JLabel InicioSesion;
+    private javax.swing.JLabel Logo;
+    private javax.swing.JPasswordField Password;
+    private javax.swing.JTextField Username;
     private javax.swing.JButton cerrar;
     private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JButton menuCancelar;
     private javax.swing.JButton menuIniciar;
-    private javax.swing.JTextField menuNomb;
     private javax.swing.JButton minimizar;
     // End of variables declaration//GEN-END:variables
 }
