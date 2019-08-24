@@ -6,7 +6,7 @@
 
     <persistence-unit name="uytube-app">
         <properties>
-            <property name="javax.persistence.jdbc.driver" value="mysql-connector-java" />
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://18.229.112.97:33066/uytubeAPP" />
             <property name="javax.persistence.jdbc.user" value="uytube" />
             <property name="javax.persistence.jdbc.password" value="Uytube++2019" />

@@ -9,6 +9,8 @@ package interfaces;
  *
  * @author esteban
  */
-public interface controladorCanal {
+public interface IControladorCanal {
+    
+    
     
 }

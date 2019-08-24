@@ -9,6 +9,7 @@ package interfaces;
  *
  * @author tesla
  */
-public interface controladorUsuario {
+public interface IControladorUsuario {
     
+    public abstract void registrarUsuario();
 }

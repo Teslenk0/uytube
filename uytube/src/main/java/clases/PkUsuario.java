@@ -15,6 +15,10 @@ public class PkUsuario implements Serializable{
     private String nickname;
     private String email;
 
+    public PkUsuario() {
+    }
+
+    
     public PkUsuario(String nickname, String email) {
         this.nickname = nickname;
         this.email = email;

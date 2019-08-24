@@ -5,10 +5,10 @@
  */
 package clases;
 
-import interfaces.controladorUsuario;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
+import interfaces.IControladorUsuario;
 
 /**
  * 
@@ -17,7 +17,7 @@ import javax.persistence.*;
 
 @MappedSuperclass
 @IdClass(PkUsuario.class)
-public abstract class Usuario implements controladorUsuario,Serializable{
+public abstract class Usuario implements Serializable{
     
     protected static final long serialVersionUID = 1L;
     
