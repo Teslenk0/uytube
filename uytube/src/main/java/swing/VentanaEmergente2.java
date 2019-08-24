@@ -83,7 +83,7 @@ public class VentanaEmergente2 extends javax.swing.JDialog {
 
         Panel.setLayout(null);
 
-        Texto.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        Texto.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         Texto.setText("¿Seguro que desea cerrar sesion?");
         Panel.add(Texto);
         Texto.setBounds(80, 40, 250, 40);

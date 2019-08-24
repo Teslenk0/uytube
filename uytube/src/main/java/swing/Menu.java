@@ -5,8 +5,10 @@
  */
 package swing;
 
+import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
+import java.io.File;
 
 
 /**
@@ -18,12 +20,12 @@ public class Menu extends javax.swing.JFrame {
     /**
      * Creates new form menu
      */
+    Font fn = null;
     public Menu() {
         initComponents();
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/logoAPP.png")));
-        setLocationRelativeTo(null);
+        setLocationRelativeTo(null);      
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -144,11 +146,11 @@ public class Menu extends javax.swing.JFrame {
         jLabel2.setBounds(80, 290, 340, 70);
 
         jLabel3.setBackground(new java.awt.Color(247, 243, 247));
-        jLabel3.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Berlin Sans FB", 0, 28)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(213, 224, 236));
-        jLabel3.setText("Inicio de sesion");
+        jLabel3.setText("Inicio de sesión");
         jPanel2.add(jLabel3);
-        jLabel3.setBounds(160, 180, 210, 30);
+        jLabel3.setBounds(170, 180, 220, 40);
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo.png"))); // NOI18N
         jLabel4.setText("jLabel4");
@@ -196,6 +198,7 @@ public class Menu extends javax.swing.JFrame {
         }
         else{ //Usuario incorrecto
             VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled);
+            
             error.CambioTexto("Los datos ingresados son incorrectos");
             error.setVisible(true);
            
@@ -212,6 +215,7 @@ public class Menu extends javax.swing.JFrame {
             if("macaco".equals(nombre)){ //Usuario correcto
                 MenuInicio menuinicio = new MenuInicio();
                 menuinicio.setVisible(true);
+                menuinicio.SetAdmin(nombre);
                 this.setVisible(false);
             }
             else{ //Usuario incorrecto
@@ -228,6 +232,7 @@ public class Menu extends javax.swing.JFrame {
             if("macaco".equals(nombre)){ //Usuario correcto
                 MenuInicio menuinicio = new MenuInicio();
                 menuinicio.setVisible(true);
+                menuinicio.SetAdmin(nombre);
                 this.setVisible(false);
             }
             else{ //Usuario incorrecto

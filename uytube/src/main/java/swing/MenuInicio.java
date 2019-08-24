@@ -7,7 +7,7 @@ package swing;
 
 import java.awt.Color;
 import java.awt.Toolkit;
-import javax.swing.JFrame;
+import java.awt.event.KeyEvent;
 import javax.swing.JPanel;
 
 /**
@@ -41,6 +41,7 @@ public class MenuInicio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        AdministradorText1 = new javax.swing.JLabel();
         Panel_Lateral = new javax.swing.JPanel();
         btn_Inicio = new javax.swing.JPanel();
         ind_1 = new javax.swing.JPanel();
@@ -60,6 +61,8 @@ public class MenuInicio extends javax.swing.JFrame {
         Barra_Superior = new javax.swing.JPanel();
         minimizar = new javax.swing.JButton();
         cerrar = new javax.swing.JButton();
+        AdministradorText = new javax.swing.JLabel();
+        AdminChange = new javax.swing.JLabel();
         Panel_Central = new javax.swing.JPanel();
         Central1 = new javax.swing.JPanel();
         Central2 = new javax.swing.JPanel();
@@ -71,26 +74,37 @@ public class MenuInicio extends javax.swing.JFrame {
         Central4 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         Central2_1 = new javax.swing.JPanel();
+        Nickname = new javax.swing.JLabel();
         Nombre = new javax.swing.JLabel();
         Apellido = new javax.swing.JLabel();
-        Nickname = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        txtNick = new javax.swing.JTextField();
-        txtNombre = new javax.swing.JTextField();
-        txtApellido = new javax.swing.JTextField();
-        txtDia = new javax.swing.JTextField();
-        FechNac = new javax.swing.JLabel();
-        txtMes = new javax.swing.JTextField();
-        txtCorreo = new javax.swing.JTextField();
-        txtAnio = new javax.swing.JTextField();
+        Correo = new javax.swing.JLabel();
+        FechaNac = new javax.swing.JLabel();
+        Privado = new javax.swing.JLabel();
+        NombreCanal = new javax.swing.JLabel();
+        Descripcion = new javax.swing.JLabel();
+        AgregarImg = new javax.swing.JLabel();
+        CampoNickname = new javax.swing.JTextField();
+        CampoNombre = new javax.swing.JTextField();
+        CampoApellido = new javax.swing.JTextField();
+        CampoCorreo = new javax.swing.JTextField();
+        CampoCanal = new javax.swing.JTextField();
+        DateChoose = new com.toedter.calendar.JDateChooser();
         AgregarFoto = new javax.swing.JButton();
-        jLabel12 = new javax.swing.JLabel();
-        Cancelar = new javax.swing.JButton();
-        Registrar1 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        NombCanal = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        Registrar = new javax.swing.JButton();
+        CheckboxPrivado = new java.awt.Checkbox();
+        jSeparator3 = new javax.swing.JSeparator();
+        jSeparator4 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
+        jSeparator5 = new javax.swing.JSeparator();
+        jSeparator6 = new javax.swing.JSeparator();
+        jSeparator7 = new javax.swing.JSeparator();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
+        BackButton = new javax.swing.JButton();
+
+        AdministradorText1.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        AdministradorText1.setForeground(new java.awt.Color(255, 255, 255));
+        AdministradorText1.setText("Administrador: ");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -98,10 +112,10 @@ public class MenuInicio extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Panel_Lateral.setBackground(new java.awt.Color(23, 35, 51));
+        Panel_Lateral.setBackground(new java.awt.Color(73, 73, 73));
         Panel_Lateral.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btn_Inicio.setBackground(new java.awt.Color(23, 35, 51));
+        btn_Inicio.setBackground(new java.awt.Color(73, 73, 73));
         btn_Inicio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btn_InicioMousePressed(evt);
@@ -122,7 +136,7 @@ public class MenuInicio extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Inicio");
 
@@ -149,7 +163,7 @@ public class MenuInicio extends javax.swing.JFrame {
 
         Panel_Lateral.add(btn_Inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 160, -1));
 
-        btn_Usuario.setBackground(new java.awt.Color(23, 35, 51));
+        btn_Usuario.setBackground(new java.awt.Color(73, 73, 73));
         btn_Usuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btn_UsuarioMousePressed(evt);
@@ -170,7 +184,7 @@ public class MenuInicio extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        Usuario.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        Usuario.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         Usuario.setForeground(new java.awt.Color(255, 255, 255));
         Usuario.setText("Usuario");
 
@@ -182,7 +196,7 @@ public class MenuInicio extends javax.swing.JFrame {
                 .addComponent(ind_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(Usuario)
-                .addGap(0, 77, Short.MAX_VALUE))
+                .addGap(0, 78, Short.MAX_VALUE))
         );
         btn_UsuarioLayout.setVerticalGroup(
             btn_UsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -197,7 +211,7 @@ public class MenuInicio extends javax.swing.JFrame {
 
         Panel_Lateral.add(btn_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 160, -1));
 
-        btn_Consultas.setBackground(new java.awt.Color(23, 35, 51));
+        btn_Consultas.setBackground(new java.awt.Color(73, 73, 73));
         btn_Consultas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btn_ConsultasMousePressed(evt);
@@ -218,7 +232,7 @@ public class MenuInicio extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Consultas");
 
@@ -230,7 +244,7 @@ public class MenuInicio extends javax.swing.JFrame {
                 .addComponent(ind_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(jLabel11)
-                .addGap(0, 71, Short.MAX_VALUE))
+                .addGap(0, 68, Short.MAX_VALUE))
         );
         btn_ConsultasLayout.setVerticalGroup(
             btn_ConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -245,7 +259,7 @@ public class MenuInicio extends javax.swing.JFrame {
 
         Panel_Lateral.add(btn_Consultas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 160, -1));
 
-        btn_Modificar.setBackground(new java.awt.Color(23, 35, 51));
+        btn_Modificar.setBackground(new java.awt.Color(73, 73, 73));
         btn_Modificar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btn_ModificarMousePressed(evt);
@@ -266,7 +280,7 @@ public class MenuInicio extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Modificar");
 
@@ -278,7 +292,7 @@ public class MenuInicio extends javax.swing.JFrame {
                 .addComponent(ind_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(jLabel9)
-                .addGap(0, 71, Short.MAX_VALUE))
+                .addGap(0, 67, Short.MAX_VALUE))
         );
         btn_ModificarLayout.setVerticalGroup(
             btn_ModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -293,7 +307,7 @@ public class MenuInicio extends javax.swing.JFrame {
 
         Panel_Lateral.add(btn_Modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 160, -1));
 
-        btn_CerrarSesion.setBackground(new java.awt.Color(23, 35, 51));
+        btn_CerrarSesion.setBackground(new java.awt.Color(73, 73, 73));
         btn_CerrarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btn_CerrarSesionMousePressed(evt);
@@ -314,7 +328,7 @@ public class MenuInicio extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Cerrar Sesion");
 
@@ -326,7 +340,7 @@ public class MenuInicio extends javax.swing.JFrame {
                 .addComponent(ind_5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(jLabel10)
-                .addGap(0, 54, Short.MAX_VALUE))
+                .addGap(0, 45, Short.MAX_VALUE))
         );
         btn_CerrarSesionLayout.setVerticalGroup(
             btn_CerrarSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -380,20 +394,27 @@ public class MenuInicio extends javax.swing.JFrame {
         Barra_Superior.add(cerrar);
         cerrar.setBounds(690, 10, 20, 20);
 
+        AdministradorText.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        AdministradorText.setForeground(new java.awt.Color(255, 255, 255));
+        AdministradorText.setText("Administrador: ");
+        Barra_Superior.add(AdministradorText);
+        AdministradorText.setBounds(20, 10, 130, 20);
+
+        AdminChange.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        AdminChange.setForeground(new java.awt.Color(255, 255, 255));
+        Barra_Superior.add(AdminChange);
+        AdminChange.setBounds(140, 10, 130, 20);
+
         getContentPane().add(Barra_Superior, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, 720, 40));
 
         Panel_Central.setBackground(new java.awt.Color(255, 255, 255));
+        Panel_Central.setLayout(null);
 
-        javax.swing.GroupLayout Central1Layout = new javax.swing.GroupLayout(Central1);
-        Central1.setLayout(Central1Layout);
-        Central1Layout.setHorizontalGroup(
-            Central1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
-        );
-        Central1Layout.setVerticalGroup(
-            Central1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 560, Short.MAX_VALUE)
-        );
+        Central1.setLayout(null);
+        Panel_Central.add(Central1);
+        Central1.setBounds(0, -10, 720, 550);
+
+        Central2.setLayout(null);
 
         AgregarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/AddUser 1.png"))); // NOI18N
         AgregarUsuario.setBorderPainted(false);
@@ -404,178 +425,234 @@ public class MenuInicio extends javax.swing.JFrame {
                 AgregarUsuarioActionPerformed(evt);
             }
         });
+        Central2.add(AgregarUsuario);
+        AgregarUsuario.setBounds(64, 30, 289, 243);
+        AgregarUsuario.getAccessibleContext().setAccessibleName("AgregarUsuario");
 
         BorrarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BorrarUser1.png"))); // NOI18N
         BorrarUsuario.setBorderPainted(false);
         BorrarUsuario.setContentAreaFilled(false);
         BorrarUsuario.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BorrarUser 2.png"))); // NOI18N
+        Central2.add(BorrarUsuario);
+        BorrarUsuario.setBounds(399, 30, 289, 243);
+        BorrarUsuario.getAccessibleContext().setAccessibleName("BorrarUsuario");
 
         ConfigUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/config 1.png"))); // NOI18N
         ConfigUsuario.setBorderPainted(false);
         ConfigUsuario.setContentAreaFilled(false);
         ConfigUsuario.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/config 2.png"))); // NOI18N
-
-        javax.swing.GroupLayout Central2Layout = new javax.swing.GroupLayout(Central2);
-        Central2.setLayout(Central2Layout);
-        Central2Layout.setHorizontalGroup(
-            Central2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Central2Layout.createSequentialGroup()
-                .addGap(64, 64, 64)
-                .addGroup(Central2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(AgregarUsuario)
-                    .addComponent(ConfigUsuario))
-                .addGap(46, 46, 46)
-                .addComponent(BorrarUsuario)
-                .addContainerGap(74, Short.MAX_VALUE))
-        );
-        Central2Layout.setVerticalGroup(
-            Central2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Central2Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(Central2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BorrarUsuario)
-                    .addGroup(Central2Layout.createSequentialGroup()
-                        .addComponent(AgregarUsuario)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ConfigUsuario)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        AgregarUsuario.getAccessibleContext().setAccessibleName("AgregarUsuario");
-        BorrarUsuario.getAccessibleContext().setAccessibleName("BorrarUsuario");
+        Central2.add(ConfigUsuario);
+        ConfigUsuario.setBounds(64, 279, 289, 243);
         ConfigUsuario.getAccessibleContext().setAccessibleName("ConfigUsuario");
 
-        jLabel3.setText("PANEL CONSULTAS");
+        Panel_Central.add(Central2);
+        Central2.setBounds(0, -10, 720, 550);
 
-        javax.swing.GroupLayout Central3Layout = new javax.swing.GroupLayout(Central3);
-        Central3.setLayout(Central3Layout);
-        Central3Layout.setHorizontalGroup(
-            Central3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Central3Layout.createSequentialGroup()
-                .addGap(307, 307, 307)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(306, Short.MAX_VALUE))
-        );
-        Central3Layout.setVerticalGroup(
-            Central3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Central3Layout.createSequentialGroup()
-                .addGap(225, 225, 225)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(306, Short.MAX_VALUE))
-        );
+        Central3.setLayout(null);
+
+        jLabel3.setText("PANEL CONSULTAS");
+        Central3.add(jLabel3);
+        jLabel3.setBounds(307, 225, 107, 29);
+
+        Panel_Central.add(Central3);
+        Central3.setBounds(0, -10, 720, 550);
+
+        Central4.setLayout(null);
 
         jLabel4.setText("PANEL MODIFICAR");
+        Central4.add(jLabel4);
+        jLabel4.setBounds(310, 227, 149, 29);
 
-        javax.swing.GroupLayout Central4Layout = new javax.swing.GroupLayout(Central4);
-        Central4.setLayout(Central4Layout);
-        Central4Layout.setHorizontalGroup(
-            Central4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Central4Layout.createSequentialGroup()
-                .addContainerGap(310, Short.MAX_VALUE)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(261, 261, 261))
-        );
-        Central4Layout.setVerticalGroup(
-            Central4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Central4Layout.createSequentialGroup()
-                .addGap(227, 227, 227)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(304, Short.MAX_VALUE))
-        );
+        Panel_Central.add(Central4);
+        Central4.setBounds(0, -10, 720, 550);
 
         Central2_1.setMinimumSize(new java.awt.Dimension(720, 560));
         Central2_1.setLayout(null);
 
-        Nombre.setText("Nombre (*)");
-        Central2_1.add(Nombre);
-        Nombre.setBounds(160, 100, 120, 18);
-
-        Apellido.setText("Apellido (*)");
-        Central2_1.add(Apellido);
-        Apellido.setBounds(160, 140, 100, 18);
-
-        Nickname.setText("Nickname (*)");
+        Nickname.setFont(new java.awt.Font("Berlin Sans FB", 0, 16)); // NOI18N
+        Nickname.setText("Nickname(*)");
         Central2_1.add(Nickname);
-        Nickname.setBounds(160, 60, 120, 18);
+        Nickname.setBounds(180, 30, 110, 14);
 
-        jLabel6.setText("Correo (*)");
-        Central2_1.add(jLabel6);
-        jLabel6.setBounds(160, 220, 110, 18);
-        Central2_1.add(txtNick);
-        txtNick.setBounds(330, 50, 151, 28);
-        Central2_1.add(txtNombre);
-        txtNombre.setBounds(330, 90, 151, 28);
-        Central2_1.add(txtApellido);
-        txtApellido.setBounds(330, 130, 151, 28);
-        Central2_1.add(txtDia);
-        txtDia.setBounds(330, 180, 54, 28);
+        Nombre.setFont(new java.awt.Font("Berlin Sans FB", 0, 16)); // NOI18N
+        Nombre.setText("Nombre(*)");
+        Central2_1.add(Nombre);
+        Nombre.setBounds(180, 70, 110, 14);
 
-        FechNac.setText("Fecha de nacimiento (*)");
-        Central2_1.add(FechNac);
-        FechNac.setBounds(160, 190, 220, 18);
-        Central2_1.add(txtMes);
-        txtMes.setBounds(390, 180, 54, 28);
-        Central2_1.add(txtCorreo);
-        txtCorreo.setBounds(330, 220, 259, 28);
-        Central2_1.add(txtAnio);
-        txtAnio.setBounds(450, 180, 54, 28);
+        Apellido.setFont(new java.awt.Font("Berlin Sans FB", 0, 16)); // NOI18N
+        Apellido.setText("Apellido(*)");
+        Central2_1.add(Apellido);
+        Apellido.setBounds(180, 110, 110, 14);
+
+        Correo.setFont(new java.awt.Font("Berlin Sans FB", 0, 16)); // NOI18N
+        Correo.setText("Correo(*)");
+        Central2_1.add(Correo);
+        Correo.setBounds(180, 150, 110, 14);
+
+        FechaNac.setFont(new java.awt.Font("Berlin Sans FB", 0, 16)); // NOI18N
+        FechaNac.setText("Fecha de nacimiento(*)");
+        Central2_1.add(FechaNac);
+        FechaNac.setBounds(180, 250, 180, 14);
+
+        Privado.setFont(new java.awt.Font("Berlin Sans FB", 0, 16)); // NOI18N
+        Privado.setText("¿Desea hacer el canal privado?");
+        Central2_1.add(Privado);
+        Privado.setBounds(180, 190, 230, 19);
+
+        NombreCanal.setFont(new java.awt.Font("Berlin Sans FB", 0, 16)); // NOI18N
+        NombreCanal.setText("Nombre de su canal(opcional)");
+        Central2_1.add(NombreCanal);
+        NombreCanal.setBounds(180, 290, 220, 20);
+
+        Descripcion.setFont(new java.awt.Font("Berlin Sans FB", 0, 16)); // NOI18N
+        Descripcion.setText("Descripcion de canal(*)");
+        Central2_1.add(Descripcion);
+        Descripcion.setBounds(180, 320, 160, 40);
+
+        AgregarImg.setFont(new java.awt.Font("Berlin Sans FB", 0, 16)); // NOI18N
+        AgregarImg.setText("Agregar imágen(opcional): Formatos JPG o PNG");
+        Central2_1.add(AgregarImg);
+        AgregarImg.setBounds(240, 430, 350, 30);
+
+        CampoNickname.setBackground(new java.awt.Color(153, 153, 153));
+        CampoNickname.setFont(new java.awt.Font("Berlin Sans FB", 0, 15)); // NOI18N
+        CampoNickname.setForeground(new java.awt.Color(102, 102, 102));
+        CampoNickname.setText("Ingrese Nickname");
+        CampoNickname.setBorder(null);
+        CampoNickname.setOpaque(false);
+        CampoNickname.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                CampoNicknameFocusGained(evt);
+            }
+        });
+        Central2_1.add(CampoNickname);
+        CampoNickname.setBounds(290, 30, 260, 14);
+
+        CampoNombre.setBackground(new java.awt.Color(153, 153, 153));
+        CampoNombre.setFont(new java.awt.Font("Berlin Sans FB", 0, 15)); // NOI18N
+        CampoNombre.setForeground(new java.awt.Color(102, 102, 102));
+        CampoNombre.setText("Ingrese Nombre");
+        CampoNombre.setBorder(null);
+        CampoNombre.setOpaque(false);
+        CampoNombre.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                CampoNombreFocusGained(evt);
+            }
+        });
+        Central2_1.add(CampoNombre);
+        CampoNombre.setBounds(290, 70, 260, 14);
+
+        CampoApellido.setBackground(new java.awt.Color(153, 153, 153));
+        CampoApellido.setFont(new java.awt.Font("Berlin Sans FB", 0, 15)); // NOI18N
+        CampoApellido.setForeground(new java.awt.Color(102, 102, 102));
+        CampoApellido.setText("Ingrese Apellido");
+        CampoApellido.setBorder(null);
+        CampoApellido.setOpaque(false);
+        CampoApellido.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                CampoApellidoFocusGained(evt);
+            }
+        });
+        Central2_1.add(CampoApellido);
+        CampoApellido.setBounds(290, 110, 260, 14);
+
+        CampoCorreo.setBackground(new java.awt.Color(153, 153, 153));
+        CampoCorreo.setFont(new java.awt.Font("Berlin Sans FB", 0, 15)); // NOI18N
+        CampoCorreo.setForeground(new java.awt.Color(102, 102, 102));
+        CampoCorreo.setText("Ingrese Correo");
+        CampoCorreo.setBorder(null);
+        CampoCorreo.setOpaque(false);
+        CampoCorreo.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                CampoCorreoFocusGained(evt);
+            }
+        });
+        Central2_1.add(CampoCorreo);
+        CampoCorreo.setBounds(290, 150, 260, 14);
+
+        CampoCanal.setBackground(new java.awt.Color(153, 153, 153));
+        CampoCanal.setFont(new java.awt.Font("Berlin Sans FB", 0, 15)); // NOI18N
+        CampoCanal.setForeground(new java.awt.Color(102, 102, 102));
+        CampoCanal.setText("Ingrese Nombre de Canal");
+        CampoCanal.setBorder(null);
+        CampoCanal.setOpaque(false);
+        CampoCanal.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                CampoCanalFocusGained(evt);
+            }
+        });
+        Central2_1.add(CampoCanal);
+        CampoCanal.setBounds(400, 290, 260, 14);
+        Central2_1.add(DateChoose);
+        DateChoose.setBounds(360, 250, 190, 20);
 
         AgregarFoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/add_norm.png"))); // NOI18N
+        AgregarFoto.setBorderPainted(false);
+        AgregarFoto.setContentAreaFilled(false);
         Central2_1.add(AgregarFoto);
-        AgregarFoto.setBounds(180, 390, 30, 30);
+        AgregarFoto.setBounds(190, 430, 40, 35);
 
-        jLabel12.setText("Subir imagen .jpg o .png");
-        Central2_1.add(jLabel12);
-        jLabel12.setBounds(230, 400, 270, 18);
+        Registrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_regist_2.png"))); // NOI18N
+        Registrar.setBorderPainted(false);
+        Registrar.setContentAreaFilled(false);
+        Registrar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_regist_1.png"))); // NOI18N
+        Central2_1.add(Registrar);
+        Registrar.setBounds(300, 480, 100, 60);
+        Central2_1.add(CheckboxPrivado);
+        CheckboxPrivado.setBounds(420, 190, 20, 20);
 
-        Cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_cancel_2.png"))); // NOI18N
-        Cancelar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_cancel_1.png"))); // NOI18N
-        Central2_1.add(Cancelar);
-        Cancelar.setBounds(400, 480, 100, 47);
+        jSeparator3.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator3.setForeground(new java.awt.Color(153, 153, 153));
+        Central2_1.add(jSeparator3);
+        jSeparator3.setBounds(290, 90, 260, 30);
 
-        Registrar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_regist_2.png"))); // NOI18N
-        Registrar1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_regist_1.png"))); // NOI18N
-        Central2_1.add(Registrar1);
-        Registrar1.setBounds(230, 480, 100, 47);
+        jSeparator4.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator4.setForeground(new java.awt.Color(153, 153, 153));
+        Central2_1.add(jSeparator4);
+        jSeparator4.setBounds(290, 130, 260, 30);
 
-        jLabel2.setText("Nombre del canal");
-        Central2_1.add(jLabel2);
-        jLabel2.setBounds(160, 260, 130, 18);
-        Central2_1.add(NombCanal);
-        NombCanal.setBounds(330, 260, 260, 28);
+        jSeparator2.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator2.setForeground(new java.awt.Color(153, 153, 153));
+        Central2_1.add(jSeparator2);
+        jSeparator2.setBounds(180, 230, 370, 30);
 
-        jLabel5.setText("Descripcion del canal (*)");
-        Central2_1.add(jLabel5);
-        jLabel5.setBounds(160, 300, 190, 18);
-        Central2_1.add(jTextField1);
-        jTextField1.setBounds(330, 300, 260, 70);
+        jSeparator5.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator5.setForeground(new java.awt.Color(153, 153, 153));
+        Central2_1.add(jSeparator5);
+        jSeparator5.setBounds(290, 50, 260, 30);
 
-        javax.swing.GroupLayout Panel_CentralLayout = new javax.swing.GroupLayout(Panel_Central);
-        Panel_Central.setLayout(Panel_CentralLayout);
-        Panel_CentralLayout.setHorizontalGroup(
-            Panel_CentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Central1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(Panel_CentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(Central2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(Panel_CentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(Central3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(Panel_CentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(Central4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(Panel_CentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(Central2_1, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE))
-        );
-        Panel_CentralLayout.setVerticalGroup(
-            Panel_CentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Central1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(Panel_CentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(Central2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(Panel_CentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(Central3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(Panel_CentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(Central4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(Panel_CentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(Central2_1, javax.swing.GroupLayout.DEFAULT_SIZE, 560, Short.MAX_VALUE))
-        );
+        jSeparator6.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator6.setForeground(new java.awt.Color(153, 153, 153));
+        Central2_1.add(jSeparator6);
+        jSeparator6.setBounds(290, 170, 260, 30);
+
+        jSeparator7.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator7.setForeground(new java.awt.Color(153, 153, 153));
+        Central2_1.add(jSeparator7);
+        jSeparator7.setBounds(400, 310, 260, 30);
+
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(5);
+        jScrollPane2.setViewportView(jTextArea2);
+
+        Central2_1.add(jScrollPane2);
+        jScrollPane2.setBounds(360, 330, 220, 80);
+
+        BackButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back.png"))); // NOI18N
+        BackButton.setBorder(null);
+        BackButton.setBorderPainted(false);
+        BackButton.setContentAreaFilled(false);
+        BackButton.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back2.png"))); // NOI18N
+        BackButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackButtonActionPerformed(evt);
+            }
+        });
+        Central2_1.add(BackButton);
+        BackButton.setBounds(30, 20, 60, 50);
+
+        Panel_Central.add(Central2_1);
+        Central2_1.setBounds(0, -10, 720, 550);
 
         getContentPane().add(Panel_Central, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, 720, 540));
 
@@ -666,16 +743,43 @@ public class MenuInicio extends javax.swing.JFrame {
         Panel_Central.repaint();
     }//GEN-LAST:event_AgregarUsuarioActionPerformed
 
+    private void CampoCanalFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CampoCanalFocusGained
+        CampoCanal.setText("");
+    }//GEN-LAST:event_CampoCanalFocusGained
+
+    private void CampoCorreoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CampoCorreoFocusGained
+        CampoCorreo.setText("");
+    }//GEN-LAST:event_CampoCorreoFocusGained
+
+    private void CampoApellidoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CampoApellidoFocusGained
+        CampoApellido.setText("");
+    }//GEN-LAST:event_CampoApellidoFocusGained
+
+    private void CampoNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CampoNombreFocusGained
+        CampoNombre.setText("");
+    }//GEN-LAST:event_CampoNombreFocusGained
+
+    private void CampoNicknameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CampoNicknameFocusGained
+        CampoNickname.setText("");
+    }//GEN-LAST:event_CampoNicknameFocusGained
+
+    private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButtonActionPerformed
+        Panel_Central.removeAll();
+        Panel_Central.add(Central2);
+        Panel_Central.revalidate();
+        Panel_Central.repaint();
+    }//GEN-LAST:event_BackButtonActionPerformed
+
     
     private void setColor(JPanel pane)
     {
-        pane.setBackground(new Color(41,57,80));
+        pane.setBackground(new Color(114, 114, 114));
     }
    
     private void resetColor(JPanel [] pane, JPanel [] indicators)
     {
         for (JPanel pane1 : pane) {
-            pane1.setBackground(new Color(23,35,51));
+            pane1.setBackground(new Color(73,73,73));
         }
         for (JPanel indicator : indicators) {
             indicator.setOpaque(false);           
@@ -683,30 +787,46 @@ public class MenuInicio extends javax.swing.JFrame {
         
     }
     
-    public MenuInicio getFrame(){
-        return this;
+    public void SetAdmin(String texto){
+        AdminChange.setText(texto);
     }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel AdminChange;
+    private javax.swing.JLabel AdministradorText;
+    private javax.swing.JLabel AdministradorText1;
     private javax.swing.JButton AgregarFoto;
+    private javax.swing.JLabel AgregarImg;
     private javax.swing.JButton AgregarUsuario;
     private javax.swing.JLabel Apellido;
+    private javax.swing.JButton BackButton;
     private javax.swing.JPanel Barra_Superior;
     private javax.swing.JButton BorrarUsuario;
-    private javax.swing.JButton Cancelar;
+    private javax.swing.JTextField CampoApellido;
+    private javax.swing.JTextField CampoCanal;
+    private javax.swing.JTextField CampoCorreo;
+    private javax.swing.JTextField CampoNickname;
+    private javax.swing.JTextField CampoNombre;
     private javax.swing.JPanel Central1;
     private javax.swing.JPanel Central2;
     private javax.swing.JPanel Central2_1;
     private javax.swing.JPanel Central3;
     private javax.swing.JPanel Central4;
+    private java.awt.Checkbox CheckboxPrivado;
     private javax.swing.JButton ConfigUsuario;
-    private javax.swing.JLabel FechNac;
+    private javax.swing.JLabel Correo;
+    private com.toedter.calendar.JDateChooser DateChoose;
+    private javax.swing.JLabel Descripcion;
+    private javax.swing.JLabel FechaNac;
     private javax.swing.JLabel Nickname;
-    private javax.swing.JTextField NombCanal;
     private javax.swing.JLabel Nombre;
+    private javax.swing.JLabel NombreCanal;
     private javax.swing.JPanel Panel_Central;
     private javax.swing.JPanel Panel_Lateral;
-    private javax.swing.JButton Registrar1;
+    private javax.swing.JLabel Privado;
+    private javax.swing.JButton Registrar;
     private javax.swing.JLabel Usuario;
     private javax.swing.JPanel btn_CerrarSesion;
     private javax.swing.JPanel btn_Consultas;
@@ -721,22 +841,18 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JPanel ind_5;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JSeparator jSeparator7;
+    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JButton minimizar;
-    private javax.swing.JTextField txtAnio;
-    private javax.swing.JTextField txtApellido;
-    private javax.swing.JTextField txtCorreo;
-    private javax.swing.JTextField txtDia;
-    private javax.swing.JTextField txtMes;
-    private javax.swing.JTextField txtNick;
-    private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }

@@ -77,6 +77,8 @@ public class VentanaEmergente extends javax.swing.JDialog {
         getContentPane().add(BarraSuperior);
         BarraSuperior.setBounds(0, 0, 360, 33);
 
+        Texto.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+
         BotonAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_2.png"))); // NOI18N
         BotonAceptar.setBorder(null);
         BotonAceptar.setBorderPainted(false);
