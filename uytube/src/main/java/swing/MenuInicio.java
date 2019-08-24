@@ -64,6 +64,7 @@ public class MenuInicio extends javax.swing.JFrame {
         AdminChange = new javax.swing.JLabel();
         Panel_Central = new javax.swing.JPanel();
         Central1 = new javax.swing.JPanel();
+        fondo = new javax.swing.JLabel();
         Central2 = new javax.swing.JPanel();
         ConsultarUsuariosText = new javax.swing.JLabel();
         ListarUsuariosText = new javax.swing.JLabel();
@@ -411,6 +412,11 @@ public class MenuInicio extends javax.swing.JFrame {
         Panel_Central.setLayout(null);
 
         Central1.setLayout(null);
+
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondoHome.gif"))); // NOI18N
+        Central1.add(fondo);
+        fondo.setBounds(0, 0, 720, 550);
+
         Panel_Central.add(Central1);
         Central1.setBounds(0, 0, 720, 550);
 
@@ -895,6 +901,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JPanel btn_Modificar;
     private javax.swing.JPanel btn_Usuario;
     private javax.swing.JButton cerrar;
+    private javax.swing.JLabel fondo;
     private javax.swing.JPanel ind_1;
     private javax.swing.JPanel ind_2;
     private javax.swing.JPanel ind_3;

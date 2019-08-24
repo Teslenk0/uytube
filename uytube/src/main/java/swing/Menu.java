@@ -64,7 +64,7 @@ public class Menu extends javax.swing.JFrame {
 
         Password.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
         Password.setForeground(new java.awt.Color(153, 153, 153));
-        Password.setText("000000000*******");
+        Password.setText("000000000*");
         Password.setBorder(null);
         Password.setOpaque(false);
         Password.addFocusListener(new java.awt.event.FocusAdapter() {
