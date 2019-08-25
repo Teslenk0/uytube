@@ -35,15 +35,15 @@ public class ManejadorInformacion{
     }
    
     public void registrarUser(Usuario u){
-        
         if (u instanceof Administrador){
-            Administrador aux = new Administrador(u.getNickname(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen());
+            Administrador aux = new Administrador(u.getNickname(), u.getContraseña(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen());
+  
             manager.getTransaction().begin();
             manager.persist(aux);
             manager.getTransaction().commit();
             manager.close();
         }else{
-            Normal aux = new Normal(u.getNickname(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen());
+            Normal aux = new Normal(u.getNickname(), u.getContraseña(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen());
             manager.getTransaction().begin();
             manager.persist(aux);
             manager.getTransaction().commit();

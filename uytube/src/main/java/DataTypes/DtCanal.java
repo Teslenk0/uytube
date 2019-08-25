@@ -16,23 +16,29 @@ public class DtCanal implements Serializable {
     
    protected static final long serialVersionUID = 1L;
    
-    protected Usuario user;
+    protected String usuario;
     
     protected String descripcion;
+    
+    protected Boolean privado;
 
-    public DtCanal(Usuario user, String descripcion) {
-        this.user = user;
+    public DtCanal(String usuario, String descripcion, Boolean privado) {
+        this.usuario = usuario;
         this.descripcion = descripcion;
+        this.privado = privado;
     }
 
-    public Usuario getUser() {
-        return user;
+    public String getUsuario() {
+        return usuario;
     }
 
     public String getDescripcion() {
         return descripcion;
     }
-   
+
+    public Boolean getPrivado() {
+        return privado;
+    }
 }
     
     

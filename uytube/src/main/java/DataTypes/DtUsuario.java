@@ -18,6 +18,8 @@ public class DtUsuario implements Serializable {
     
     protected String nickname;
     
+    protected String contraseña;
+    
     protected String nombre;
     
     protected String apellido;
@@ -28,8 +30,9 @@ public class DtUsuario implements Serializable {
     
     protected String imagen;
 
-    public DtUsuario(String nickname, String nombre, String apellido, String email, Date fechaNac, String imagen) {
+    public DtUsuario(String nickname, String contraseña, String nombre, String apellido, String email, Date fechaNac, String imagen) {
         this.nickname = nickname;
+        this.contraseña = contraseña;
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
@@ -43,6 +46,10 @@ public class DtUsuario implements Serializable {
 
     public String getNickname() {
         return nickname;
+    }
+
+    public String getContraseña() {
+        return contraseña;
     }
 
     public String getNombre() {

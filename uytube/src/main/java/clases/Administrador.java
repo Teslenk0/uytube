@@ -20,8 +20,8 @@ public class Administrador extends Usuario{
     
     
     
-    public Administrador(String nickname, String nombre, String apellido, String email, Date fechaNac, String imagen) {
-        super(nickname, nombre, apellido, email, fechaNac, imagen);
+    public Administrador(String nickname, String contraseña, String nombre, String apellido, String email, Date fechaNac, String imagen) {
+        super(nickname, contraseña, nombre, apellido, email, fechaNac, imagen);
     }
    
 }

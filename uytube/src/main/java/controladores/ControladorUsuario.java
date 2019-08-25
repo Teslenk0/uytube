@@ -11,6 +11,7 @@ import excepciones.UsuarioRepetidoException;
 import interfaces.IControladorUsuario;
 import DataTypes.DtUsuario;
 import DataTypes.DtAdministrador;
+import DataTypes.DtCanal;
 import clases.Administrador;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -24,18 +25,17 @@ import javax.imageio.ImageIO;
 public class ControladorUsuario implements IControladorUsuario{
     
     
-    @Override
-    public void registrarUsuario(DtUsuario u, BufferedImage imagen) throws UsuarioRepetidoException{
+    public void registrarUsuario(DtUsuario u, DtCanal canal, BufferedImage imagen) throws UsuarioRepetidoException{
         ManejadorInformacion mu = ManejadorInformacion.getInstance(); //pido una instancia del manejador
         Usuario user = mu.obtenerUsuario(u); //busco si esta o no
         if (user != null)   //si esta tiro exception
             throw new UsuarioRepetidoException("El usuario " + user.getNickname() + " ya existe");
         
         if(isAdmin(u)){
-            mu.registrarUser(new Administrador(u.getNickname(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen()));
+            mu.registrarUser(new Administrador(u.getNickname(), u.getContraseña(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen()));
             
         }else{
-            mu.registrarUser(new Normal(u.getNickname(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen()));
+            mu.registrarUser(new Normal(u.getNickname(), u.getContraseña(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen()));
         }
         
         //con esto saco el path de donde esta el proyecto

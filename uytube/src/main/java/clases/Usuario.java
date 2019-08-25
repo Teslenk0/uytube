@@ -24,6 +24,9 @@ public abstract class Usuario implements Serializable{
     @Column(name = "nickname")
     protected String nickname;
     
+    @Column(name = "contraseña")
+    protected String contraseña;
+    
     @Column(name = "nombre")
     protected String nombre;
     
@@ -40,16 +43,23 @@ public abstract class Usuario implements Serializable{
     @Column(name = "imagen")
     protected String imagen;
 
-    public Usuario(String nickname, String nombre, String apellido, String email, Date fechaNac, String imagen) {
+    public Usuario(String nickname, String contraseña, String nombre, String apellido, String email, Date fechaNac, String imagen) {
         this.nickname = nickname;
+        this.contraseña = contraseña;
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
         this.fechaNac = fechaNac;
         this.imagen = imagen;
     }
-    
- 
+
+    public String getContraseña() {
+        return contraseña;
+    }
+
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
+    }
 
     public String getNickname() {
         return nickname;
