@@ -27,7 +27,7 @@ public class ControladorUsuario implements IControladorUsuario{
     @Override
     public void registrarUsuario(DtUsuario u, BufferedImage imagen) throws UsuarioRepetidoException{
         ManejadorInformacion mu = ManejadorInformacion.getInstance(); //pido una instancia del manejador
-        Usuario user = mu.obtenerUsuario(u.getNickname(),u.getEmail()); //busco si esta o no
+        Usuario user = mu.obtenerUsuario(u); //busco si esta o no
         if (user != null)   //si esta tiro exception
             throw new UsuarioRepetidoException("El usuario " + user.getNickname() + " ya existe");
         
@@ -37,7 +37,14 @@ public class ControladorUsuario implements IControladorUsuario{
         }else{
             mu.registrarUser(new Normal(u.getNickname(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen()));
         }
-        String path = "src/main/resources/imagenesUsuarios/" + u.getNickname() + ".png";
+        
+        //con esto saco el path de donde esta el proyecto
+        String path = System.getProperty("user.dir");
+        
+        //lo concateno
+        path = path + "/src/main/resources/imagenesUsuarios/" + u.getNickname() + ".png";
+        
+        
         File file = new File(path);
         try {
             ImageIO.write(imagen, "png", file);
@@ -52,6 +59,7 @@ public class ControladorUsuario implements IControladorUsuario{
      * @param u recibe un datatype usuario
      * @return devuelve true si el parametro "n" es usuario administrador
      */
+    @Override
     public boolean isAdmin(DtUsuario u){
         if(u instanceof DtAdministrador) //pregunto si es admin o no
             return true;

@@ -9,6 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import clases.*;
+import DataTypes.*;
 
 /**
  *
@@ -34,16 +35,30 @@ public class ManejadorInformacion{
     }
    
     public void registrarUser(Usuario u){
-        manager.getTransaction().begin();
-        manager.persist(u);
-        manager.getTransaction().commit();
-        manager.close();
+        
+        if (u instanceof Administrador){
+            Administrador aux = new Administrador(u.getNickname(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen());
+            manager.getTransaction().begin();
+            manager.persist(aux);
+            manager.getTransaction().commit();
+            manager.close();
+        }else{
+            Normal aux = new Normal(u.getNickname(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen());
+            manager.getTransaction().begin();
+            manager.persist(aux);
+            manager.getTransaction().commit();
+            manager.close();
+        }
     }
-    
-    public Usuario obtenerUsuario(String nickname, String email) {
-        return manager.find(Usuario.class, new PkUsuario(nickname,email));
+   
+    public Usuario obtenerUsuario(DtUsuario u) {
+        if(u instanceof DtAdministrador){
+            return manager.find(Administrador.class, new PkUsuario(u.getNickname(),u.getEmail()));
+        }else{
+            return manager.find(Normal.class, new PkUsuario(u.getNickname(),u.getEmail()));
+        }
     }
-    
+   
     
     
     

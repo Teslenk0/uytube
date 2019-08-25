@@ -3,8 +3,12 @@
              xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
              http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
              version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
-
+    
     <persistence-unit name="uytube-app">
+    
+        <class>clases.Administrador</class>
+        <class>clases.Normal</class>
+        
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://18.229.112.97:33066/uytubeAPP" />
