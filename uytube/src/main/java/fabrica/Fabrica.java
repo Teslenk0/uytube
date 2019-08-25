@@ -5,8 +5,8 @@
  */
 package fabrica;
 
-import clases.ControladorCanal;
-import clases.ControladorUsuario;
+import controladores.ControladorCanal;
+import controladores.ControladorUsuario;
 import interfaces.IControladorCanal;
 import interfaces.IControladorUsuario;
 
