@@ -621,6 +621,7 @@ public class MenuInicio extends javax.swing.JFrame {
         CampoNickname.setForeground(new java.awt.Color(102, 102, 102));
         CampoNickname.setText("Ingrese Nickname");
         CampoNickname.setBorder(null);
+        CampoNickname.setNextFocusableComponent(CampoContraseña);
         CampoNickname.setOpaque(false);
         CampoNickname.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -634,6 +635,7 @@ public class MenuInicio extends javax.swing.JFrame {
         CampoContraseña.setForeground(new java.awt.Color(153, 153, 153));
         CampoContraseña.setText("*********");
         CampoContraseña.setBorder(null);
+        CampoContraseña.setNextFocusableComponent(CampoNombre);
         CampoContraseña.setOpaque(false);
         CampoContraseña.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -648,6 +650,7 @@ public class MenuInicio extends javax.swing.JFrame {
         CampoNombre.setForeground(new java.awt.Color(102, 102, 102));
         CampoNombre.setText("Ingrese Nombre");
         CampoNombre.setBorder(null);
+        CampoNombre.setNextFocusableComponent(CampoApellido);
         CampoNombre.setOpaque(false);
         CampoNombre.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -662,6 +665,7 @@ public class MenuInicio extends javax.swing.JFrame {
         CampoApellido.setForeground(new java.awt.Color(102, 102, 102));
         CampoApellido.setText("Ingrese Apellido");
         CampoApellido.setBorder(null);
+        CampoApellido.setNextFocusableComponent(CampoCorreo);
         CampoApellido.setOpaque(false);
         CampoApellido.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -676,6 +680,7 @@ public class MenuInicio extends javax.swing.JFrame {
         CampoCorreo.setForeground(new java.awt.Color(102, 102, 102));
         CampoCorreo.setText("Ingrese Correo");
         CampoCorreo.setBorder(null);
+        CampoCorreo.setNextFocusableComponent(CampoCanal);
         CampoCorreo.setOpaque(false);
         CampoCorreo.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -690,6 +695,7 @@ public class MenuInicio extends javax.swing.JFrame {
         CampoCanal.setForeground(new java.awt.Color(102, 102, 102));
         CampoCanal.setText("Ingrese Nombre de Canal");
         CampoCanal.setBorder(null);
+        CampoCanal.setNextFocusableComponent(CampoDescripcion);
         CampoCanal.setOpaque(false);
         CampoCanal.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
