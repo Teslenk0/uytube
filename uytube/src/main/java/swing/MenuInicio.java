@@ -5,9 +5,11 @@
  */
 package swing;
 
+import DataTypes.DtUsuario;
 import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
+import java.util.Date;
 import javax.swing.JPanel;
 
 /**
@@ -97,15 +99,17 @@ public class MenuInicio extends javax.swing.JFrame {
         AgregarFoto = new javax.swing.JButton();
         Registrar = new javax.swing.JButton();
         CheckboxPrivado = new java.awt.Checkbox();
+        jSeparator8 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator5 = new javax.swing.JSeparator();
         jSeparator6 = new javax.swing.JSeparator();
         jSeparator7 = new javax.swing.JSeparator();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        ScroolDescripcion = new javax.swing.JScrollPane();
+        CampoDescripcion = new javax.swing.JTextArea();
         BackButton = new javax.swing.JButton();
+        CampoImagen = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -561,9 +565,9 @@ public class MenuInicio extends javax.swing.JFrame {
         Descripcion.setBounds(180, 320, 160, 40);
 
         AgregarImg.setFont(new java.awt.Font("Berlin Sans FB", 0, 16)); // NOI18N
-        AgregarImg.setText("Agregar imágen(opcional): Formatos JPG o PNG");
+        AgregarImg.setText("Agregar imágen(opcional)");
         Central2_1.add(AgregarImg);
-        AgregarImg.setBounds(240, 430, 350, 30);
+        AgregarImg.setBounds(160, 430, 190, 30);
 
         CampoNickname.setBackground(new java.awt.Color(153, 153, 153));
         CampoNickname.setFont(new java.awt.Font("Berlin Sans FB", 0, 15)); // NOI18N
@@ -637,20 +641,36 @@ public class MenuInicio extends javax.swing.JFrame {
         Central2_1.add(DateChoose);
         DateChoose.setBounds(360, 250, 190, 20);
 
-        AgregarFoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/add_norm.png"))); // NOI18N
+        AgregarFoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/add_img.png"))); // NOI18N
         AgregarFoto.setBorderPainted(false);
         AgregarFoto.setContentAreaFilled(false);
+        AgregarFoto.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/add_img2.png"))); // NOI18N
+        AgregarFoto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AgregarFotoActionPerformed(evt);
+            }
+        });
         Central2_1.add(AgregarFoto);
-        AgregarFoto.setBounds(190, 430, 40, 35);
+        AgregarFoto.setBounds(340, 430, 40, 35);
 
         Registrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_regist_2.png"))); // NOI18N
         Registrar.setBorderPainted(false);
         Registrar.setContentAreaFilled(false);
         Registrar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_regist_1.png"))); // NOI18N
+        Registrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegistrarActionPerformed(evt);
+            }
+        });
         Central2_1.add(Registrar);
-        Registrar.setBounds(300, 480, 100, 60);
+        Registrar.setBounds(290, 480, 110, 60);
         Central2_1.add(CheckboxPrivado);
         CheckboxPrivado.setBounds(420, 190, 20, 20);
+
+        jSeparator8.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator8.setForeground(new java.awt.Color(153, 153, 153));
+        Central2_1.add(jSeparator8);
+        jSeparator8.setBounds(400, 460, 260, 30);
 
         jSeparator3.setBackground(new java.awt.Color(153, 153, 153));
         jSeparator3.setForeground(new java.awt.Color(153, 153, 153));
@@ -682,12 +702,12 @@ public class MenuInicio extends javax.swing.JFrame {
         Central2_1.add(jSeparator7);
         jSeparator7.setBounds(400, 310, 260, 30);
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane2.setViewportView(jTextArea2);
+        CampoDescripcion.setColumns(20);
+        CampoDescripcion.setRows(5);
+        ScroolDescripcion.setViewportView(CampoDescripcion);
 
-        Central2_1.add(jScrollPane2);
-        jScrollPane2.setBounds(360, 330, 220, 80);
+        Central2_1.add(ScroolDescripcion);
+        ScroolDescripcion.setBounds(360, 330, 220, 80);
 
         BackButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back.png"))); // NOI18N
         BackButton.setBorder(null);
@@ -701,6 +721,15 @@ public class MenuInicio extends javax.swing.JFrame {
         });
         Central2_1.add(BackButton);
         BackButton.setBounds(30, 20, 60, 50);
+
+        CampoImagen.setBackground(new java.awt.Color(153, 153, 153));
+        CampoImagen.setFont(new java.awt.Font("Berlin Sans FB", 0, 15)); // NOI18N
+        CampoImagen.setForeground(new java.awt.Color(102, 102, 102));
+        CampoImagen.setText("Imágen seleccionada");
+        CampoImagen.setBorder(null);
+        CampoImagen.setOpaque(false);
+        Central2_1.add(CampoImagen);
+        CampoImagen.setBounds(400, 440, 260, 20);
 
         Panel_Central.add(Central2_1);
         Central2_1.setBounds(0, 0, 720, 550);
@@ -833,6 +862,27 @@ public class MenuInicio extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ConsultarUsuariosActionPerformed
 
+String rutaImagen;
+    private void RegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarActionPerformed
+       String nickname = CampoNickname.getText();
+       String nombre = CampoNombre.getText();
+       String apellido = CampoApellido.getText();
+       String correo = CampoCorreo.getText();
+       Boolean privado = CheckboxPrivado.getState();
+       Date fecha = DateChoose.getDate();
+       String nombreCanal = CampoCanal.getText();
+       if(nombreCanal.isBlank())
+         nombreCanal = nickname;
+       String descripcion = CampoDescripcion.getText();
+       DtUsuario addUser = new DtUsuario(nickname,nombre,apellido,correo,fecha,rutaImagen);
+       
+    }//GEN-LAST:event_RegistrarActionPerformed
+
+    private void AgregarFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarFotoActionPerformed
+        SeleccionarImagen seleccionar = new SeleccionarImagen(this);
+        seleccionar.setVisible(true);
+    }//GEN-LAST:event_AgregarFotoActionPerformed
+
     
     private void setColor(JPanel pane)
     {
@@ -854,7 +904,9 @@ public class MenuInicio extends javax.swing.JFrame {
         AdminChange.setText(texto);
     }
     
-    
+     public void setPathImagen(String texto){
+         CampoImagen.setText(texto);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AdminChange;
@@ -869,6 +921,8 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JTextField CampoApellido;
     private javax.swing.JTextField CampoCanal;
     private javax.swing.JTextField CampoCorreo;
+    private javax.swing.JTextArea CampoDescripcion;
+    private javax.swing.JTextField CampoImagen;
     private javax.swing.JTextField CampoNickname;
     private javax.swing.JTextField CampoNombre;
     private javax.swing.JPanel Central1;
@@ -894,6 +948,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JPanel Panel_Lateral;
     private javax.swing.JLabel Privado;
     private javax.swing.JButton Registrar;
+    private javax.swing.JScrollPane ScroolDescripcion;
     private javax.swing.JLabel Usuario;
     private javax.swing.JPanel btn_CerrarSesion;
     private javax.swing.JPanel btn_Consultas;
@@ -913,14 +968,13 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
-    private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JSeparator jSeparator8;
     private javax.swing.JButton minimizar;
     // End of variables declaration//GEN-END:variables
 }

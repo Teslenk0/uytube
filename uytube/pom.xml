@@ -20,6 +20,13 @@
         <version>RELEASE111</version>
     </dependency>
     
+    <!-- https://mvnrepository.com/artifact/com.github.fracpete/jfilechooser-bookmarks -->
+    <dependency>
+        <groupId>com.github.fracpete</groupId>
+        <artifactId>jfilechooser-bookmarks</artifactId>
+        <version>0.1.6</version>
+    </dependency>
+
         <!-- https://mvnrepository.com/artifact/com.toedter/jcalendar -->
     <dependency>
         <groupId>com.toedter</groupId>
