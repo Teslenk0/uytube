@@ -7,8 +7,6 @@ package interfaces;
 
 import excepciones.UsuarioRepetidoException;
 import DataTypes.DtUsuario;
-import DataTypes.DtAdministrador;
-import DataTypes.DtNormal;
 
 
 /**
@@ -19,5 +17,5 @@ public interface IControladorUsuario {
     
     public abstract void registrarUsuario(DtUsuario u) throws UsuarioRepetidoException;
     
-    public abstract boolean isAdmin(Class<DtUsuario> n,Class<DtAdministrador> a);
+    public abstract boolean isAdmin(DtUsuario u);
 }

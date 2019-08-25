@@ -7,13 +7,11 @@ package controladores;
 
 import clases.Normal;
 import clases.Usuario;
-import controladores.ManejadorInformacion;
 import excepciones.UsuarioRepetidoException;
 import interfaces.IControladorUsuario;
-import java.util.GregorianCalendar;
 import DataTypes.DtUsuario;
 import DataTypes.DtAdministrador;
-import DataTypes.DtNormal;
+import clases.Administrador;
 
 /**
  *
@@ -22,33 +20,29 @@ import DataTypes.DtNormal;
 public class ControladorUsuario implements IControladorUsuario{
     
     
-    
+    @Override
     public void registrarUsuario(DtUsuario u) throws UsuarioRepetidoException{
         ManejadorInformacion mu = ManejadorInformacion.getInstance(); //pido una instancia del manejador
         Usuario user = mu.obtenerUsuario(u.getNickname(),u.getEmail()); //busco si esta o no
         if (user != null)   //si esta tiro exception
-            throw new UsuarioRepetidoException("El usuario " + user.getNickname() + " ya esta registrado");
+            throw new UsuarioRepetidoException("El usuario " + user.getNickname() + " ya existe");
         
-       
-        //ver como hacer para caster si es admin o usuario normal
-        
-        //user = new Usuario(n, ap, ci);
-        //mu.addUsuario(u);*/
-            
-        //ManejadorInformacion.registrarUser();
-        
+        if(isAdmin(u)){
+            mu.registrarUser(new Administrador(u.getNickname(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen()));
+        }else{
+            mu.registrarUser(new Normal(u.getNickname(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen()));
+        }   
     }
     
     
     /**
      * 
-     * @param n recibe un usuario normal
-     * @param a recibe una tipo Dt Admin
+     * @param u recibe un datatype usuario
      * @return devuelve true si el parametro "n" es usuario administrador
      */
-    public boolean isAdmin(Class<DtUsuario> n,Class<DtAdministrador> a){
-        /*if(n instanceof a)
-            return true;*/
+    public boolean isAdmin(DtUsuario u){
+        if(u instanceof DtAdministrador) //pregunto si es admin o no
+            return true;
         return false;
     }
     
