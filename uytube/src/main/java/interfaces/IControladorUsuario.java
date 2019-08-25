@@ -7,6 +7,7 @@ package interfaces;
 
 import excepciones.UsuarioRepetidoException;
 import DataTypes.DtUsuario;
+import java.awt.image.BufferedImage;
 
 
 /**
@@ -15,7 +16,7 @@ import DataTypes.DtUsuario;
  */
 public interface IControladorUsuario {
     
-    public abstract void registrarUsuario(DtUsuario u) throws UsuarioRepetidoException;
+    public abstract void registrarUsuario(DtUsuario u, BufferedImage imagen) throws UsuarioRepetidoException;
     
     public abstract boolean isAdmin(DtUsuario u);
 }

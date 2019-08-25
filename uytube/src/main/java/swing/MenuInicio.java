@@ -6,10 +6,15 @@
 package swing;
 
 import DataTypes.DtUsuario;
+import excepciones.UsuarioRepetidoException;
+import fabrica.Fabrica;
+import interfaces.IControladorUsuario;
 import java.awt.Color;
 import java.awt.Toolkit;
-import java.awt.event.KeyEvent;
+import java.awt.image.BufferedImage;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JPanel;
 
 /**
@@ -21,6 +26,13 @@ public class MenuInicio extends javax.swing.JFrame {
     /**
      * Creates new form Home
      */
+    
+    Fabrica fabrica = Fabrica.getInstance();
+    IControladorUsuario u = fabrica.getControladorUsuario();
+    
+    private String rutaImagen;
+    private BufferedImage imagen;
+    
     public MenuInicio() {
         initComponents();
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/logoAPP.png")));
@@ -862,7 +874,6 @@ public class MenuInicio extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ConsultarUsuariosActionPerformed
 
-String rutaImagen;
     private void RegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarActionPerformed
        String nickname = CampoNickname.getText();
        String nombre = CampoNombre.getText();
@@ -874,8 +885,14 @@ String rutaImagen;
        if(nombreCanal.isBlank())
          nombreCanal = nickname;
        String descripcion = CampoDescripcion.getText();
+       rutaImagen = "/imagenesUsuarios/" + CampoNickname.getText() + ".png";
        DtUsuario addUser = new DtUsuario(nickname,nombre,apellido,correo,fecha,rutaImagen);
-       
+        try {
+            u.registrarUsuario(addUser, imagen);
+        } catch (UsuarioRepetidoException ex) {
+            VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled);
+            error.CambioTexto("El usuario ya existe");
+        }
     }//GEN-LAST:event_RegistrarActionPerformed
 
     private void AgregarFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarFotoActionPerformed
@@ -904,8 +921,9 @@ String rutaImagen;
         AdminChange.setText(texto);
     }
     
-     public void setPathImagen(String texto){
-         CampoImagen.setText(texto);
+     public void setPathImagen(String texto, BufferedImage imagen){
+        CampoImagen.setText(texto);
+        this.imagen = imagen;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -9,10 +9,11 @@ import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
-import javax.swing.JFrame;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
@@ -23,7 +24,7 @@ public class SeleccionarImagen extends javax.swing.JFrame {
 
     private final JFileChooser openFileChooser;
     private BufferedImage originalBI;
-    String direccion;
+    private String direccion;
     private final MenuInicio mi;
     /**
      * Creates new form SeleccionarImagen
@@ -33,8 +34,9 @@ public class SeleccionarImagen extends javax.swing.JFrame {
         initComponents();
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/logoAPP.png")));
         setLocationRelativeTo(null);
-        openFileChooser = new JFileChooser();
         this.mi = frame;
+        openFileChooser = new JFileChooser();
+        openFileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
         openFileChooser.setFileFilter(new FileNameExtensionFilter("Imagenes PNG o JPG", "png", "jpg"));
         
     }
@@ -58,6 +60,7 @@ public class SeleccionarImagen extends javax.swing.JFrame {
         jSeparator5 = new javax.swing.JSeparator();
         Imagen = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jSeparator6 = new javax.swing.JSeparator();
         DragPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -151,7 +154,7 @@ public class SeleccionarImagen extends javax.swing.JFrame {
         jSeparator5.setBackground(new java.awt.Color(153, 153, 153));
         jSeparator5.setForeground(new java.awt.Color(153, 153, 153));
         PanelFondo.add(jSeparator5);
-        jSeparator5.setBounds(120, 80, 260, 30);
+        jSeparator5.setBounds(90, 280, 200, 30);
 
         Imagen.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Imagen.setMaximumSize(new java.awt.Dimension(160, 160));
@@ -159,10 +162,16 @@ public class SeleccionarImagen extends javax.swing.JFrame {
         PanelFondo.add(Imagen);
         Imagen.setBounds(120, 110, 150, 140);
 
-        jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 15)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 102, 102));
         jLabel1.setText("Tamaño máximo 160x160");
         PanelFondo.add(jLabel1);
-        jLabel1.setBounds(120, 260, 150, 20);
+        jLabel1.setBounds(110, 250, 170, 30);
+
+        jSeparator6.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator6.setForeground(new java.awt.Color(153, 153, 153));
+        PanelFondo.add(jSeparator6);
+        jSeparator6.setBounds(120, 80, 260, 30);
 
         getContentPane().add(PanelFondo);
         PanelFondo.setBounds(0, 0, 400, 380);
@@ -221,7 +230,7 @@ public class SeleccionarImagen extends javax.swing.JFrame {
     }//GEN-LAST:event_BotonCancelarActionPerformed
 
     private void BotonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAceptarActionPerformed
-        mi.setPathImagen(direccion);
+        mi.setPathImagen(direccion,originalBI);
         dispose();
     }//GEN-LAST:event_BotonAceptarActionPerformed
     
@@ -232,7 +241,7 @@ public class SeleccionarImagen extends javax.swing.JFrame {
                originalBI = ImageIO.read(openFileChooser.getSelectedFile());
                int ancho = originalBI.getWidth();
                int alto = originalBI.getHeight();
-               if(ancho>160 && alto>160){
+               if(ancho>160 || alto>160){
                    CampoFile.setText("La imágen seleccionada es muy grande");
                }
                else{
@@ -267,5 +276,6 @@ public class SeleccionarImagen extends javax.swing.JFrame {
     private javax.swing.JPanel PanelFondo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
     // End of variables declaration//GEN-END:variables
 }
