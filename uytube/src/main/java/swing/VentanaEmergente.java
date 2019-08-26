@@ -77,7 +77,7 @@ public class VentanaEmergente extends javax.swing.JDialog {
         getContentPane().add(BarraSuperior);
         BarraSuperior.setBounds(0, 0, 360, 33);
 
-        Texto.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        Texto.setFont(new java.awt.Font("Manjari", 1, 14)); // NOI18N
 
         BotonAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_2.png"))); // NOI18N
         BotonAceptar.setBorder(null);
@@ -95,13 +95,14 @@ public class VentanaEmergente extends javax.swing.JDialog {
         PanelLayout.setHorizontalGroup(
             PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelLayout.createSequentialGroup()
-                .addGap(132, 132, 132)
-                .addComponent(BotonAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(143, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Texto, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelLayout.createSequentialGroup()
+                        .addGap(132, 132, 132)
+                        .addComponent(BotonAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanelLayout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(Texto, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         PanelLayout.setVerticalGroup(
             PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

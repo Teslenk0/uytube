@@ -96,14 +96,17 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="132" max="-2" attributes="0"/>
-                  <Component id="BotonAceptar" min="-2" pref="85" max="-2" attributes="0"/>
-                  <EmptySpace pref="143" max="32767" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="Texto" min="-2" pref="305" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="132" max="-2" attributes="0"/>
+                          <Component id="BotonAceptar" min="-2" pref="85" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                          <Component id="Texto" min="-2" pref="305" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace pref="29" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -123,7 +126,7 @@
         <Component class="javax.swing.JLabel" name="Texto">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Berlin Sans FB" size="14" style="0"/>
+              <Font name="Manjari" size="14" style="1"/>
             </Property>
           </Properties>
         </Component>

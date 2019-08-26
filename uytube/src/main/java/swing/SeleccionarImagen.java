@@ -66,7 +66,6 @@ public class SeleccionarImagen extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(400, 370));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(400, 370));
         getContentPane().setLayout(null);
 
         BarraSuperior.setBackground(new java.awt.Color(73, 73, 73));
@@ -143,13 +142,13 @@ public class SeleccionarImagen extends javax.swing.JFrame {
         BotonAceptar.setBounds(100, 310, 80, 40);
 
         CampoFile.setBackground(new java.awt.Color(153, 153, 153));
-        CampoFile.setFont(new java.awt.Font("Berlin Sans FB", 0, 15)); // NOI18N
+        CampoFile.setFont(new java.awt.Font("Manjari", 1, 15)); // NOI18N
         CampoFile.setForeground(new java.awt.Color(102, 102, 102));
         CampoFile.setText("Imágen seleccionada");
         CampoFile.setBorder(null);
         CampoFile.setOpaque(false);
         PanelFondo.add(CampoFile);
-        CampoFile.setBounds(120, 60, 260, 14);
+        CampoFile.setBounds(120, 60, 260, 20);
 
         jSeparator5.setBackground(new java.awt.Color(153, 153, 153));
         jSeparator5.setForeground(new java.awt.Color(153, 153, 153));
@@ -162,11 +161,11 @@ public class SeleccionarImagen extends javax.swing.JFrame {
         PanelFondo.add(Imagen);
         Imagen.setBounds(120, 110, 150, 140);
 
-        jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 15)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Manjari", 1, 15)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(102, 102, 102));
         jLabel1.setText("Tamaño máximo 160x160");
         PanelFondo.add(jLabel1);
-        jLabel1.setBounds(110, 250, 170, 30);
+        jLabel1.setBounds(100, 260, 190, 20);
 
         jSeparator6.setBackground(new java.awt.Color(153, 153, 153));
         jSeparator6.setForeground(new java.awt.Color(153, 153, 153));

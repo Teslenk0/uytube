@@ -192,7 +192,7 @@ public class MenuInicio extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel12.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Manjari", 1, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Categorías");
 
@@ -204,7 +204,7 @@ public class MenuInicio extends javax.swing.JFrame {
                 .addComponent(ind_6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(jLabel12)
-                .addGap(0, 45, Short.MAX_VALUE))
+                .addGap(0, 49, Short.MAX_VALUE))
         );
         btn_CategoriasLayout.setVerticalGroup(
             btn_CategoriasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -240,7 +240,7 @@ public class MenuInicio extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel8.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Manjari", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Inicio");
 
@@ -252,7 +252,7 @@ public class MenuInicio extends javax.swing.JFrame {
                 .addComponent(ind_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(jLabel8)
-                .addGap(0, 93, Short.MAX_VALUE))
+                .addGap(0, 90, Short.MAX_VALUE))
         );
         btn_InicioLayout.setVerticalGroup(
             btn_InicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -288,7 +288,7 @@ public class MenuInicio extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        UsuarioBarra.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        UsuarioBarra.setFont(new java.awt.Font("Manjari", 1, 14)); // NOI18N
         UsuarioBarra.setForeground(new java.awt.Color(255, 255, 255));
         UsuarioBarra.setText("Usuario");
 
@@ -300,7 +300,7 @@ public class MenuInicio extends javax.swing.JFrame {
                 .addComponent(ind_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(UsuarioBarra)
-                .addGap(0, 78, Short.MAX_VALUE))
+                .addGap(0, 73, Short.MAX_VALUE))
         );
         btn_UsuarioLayout.setVerticalGroup(
             btn_UsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -336,7 +336,7 @@ public class MenuInicio extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel11.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Manjari", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Video");
 
@@ -348,7 +348,7 @@ public class MenuInicio extends javax.swing.JFrame {
                 .addComponent(ind_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(jLabel11)
-                .addGap(0, 81, Short.MAX_VALUE))
+                .addGap(0, 86, Short.MAX_VALUE))
         );
         btn_VideoLayout.setVerticalGroup(
             btn_VideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -384,7 +384,7 @@ public class MenuInicio extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel9.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Manjari", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Playlists");
 
@@ -396,7 +396,7 @@ public class MenuInicio extends javax.swing.JFrame {
                 .addComponent(ind_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(jLabel9)
-                .addGap(0, 66, Short.MAX_VALUE))
+                .addGap(0, 69, Short.MAX_VALUE))
         );
         btn_PlaylistLayout.setVerticalGroup(
             btn_PlaylistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -432,7 +432,7 @@ public class MenuInicio extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel10.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Manjari", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Cerrar Sesión");
 
@@ -444,7 +444,7 @@ public class MenuInicio extends javax.swing.JFrame {
                 .addComponent(ind_5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(jLabel10)
-                .addGap(0, 45, Short.MAX_VALUE))
+                .addGap(0, 33, Short.MAX_VALUE))
         );
         btn_CerrarSesionLayout.setVerticalGroup(
             btn_CerrarSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -498,13 +498,13 @@ public class MenuInicio extends javax.swing.JFrame {
         Barra_Superior.add(cerrar);
         cerrar.setBounds(690, 10, 20, 20);
 
-        AdministradorText.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        AdministradorText.setFont(new java.awt.Font("Manjari", 1, 14)); // NOI18N
         AdministradorText.setForeground(new java.awt.Color(255, 255, 255));
         AdministradorText.setText("Administrador: ");
         Barra_Superior.add(AdministradorText);
         AdministradorText.setBounds(20, 10, 130, 20);
 
-        AdminChange.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        AdminChange.setFont(new java.awt.Font("Manjari", 1, 14)); // NOI18N
         AdminChange.setForeground(new java.awt.Color(255, 255, 255));
         Barra_Superior.add(AdminChange);
         AdminChange.setBounds(120, 10, 140, 20);
@@ -530,25 +530,25 @@ public class MenuInicio extends javax.swing.JFrame {
         ConsultarUsuariosText.setForeground(new java.awt.Color(255, 255, 255));
         ConsultarUsuariosText.setText("Consultar Usuario");
         Central2.add(ConsultarUsuariosText);
-        ConsultarUsuariosText.setBounds(440, 50, 130, 20);
+        ConsultarUsuariosText.setBounds(450, 50, 130, 20);
 
         ListarUsuariosText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         ListarUsuariosText.setForeground(new java.awt.Color(255, 255, 255));
         ListarUsuariosText.setText("Listar Usuarios");
         Central2.add(ListarUsuariosText);
-        ListarUsuariosText.setBounds(450, 300, 120, 20);
+        ListarUsuariosText.setBounds(460, 300, 120, 20);
 
         ModificarUsuarioText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         ModificarUsuarioText.setForeground(new java.awt.Color(255, 255, 255));
         ModificarUsuarioText.setText("Modificar Usuario");
         Central2.add(ModificarUsuarioText);
-        ModificarUsuarioText.setBounds(140, 300, 130, 20);
+        ModificarUsuarioText.setBounds(150, 300, 130, 20);
 
         AgregarUserText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         AgregarUserText.setForeground(new java.awt.Color(255, 255, 255));
         AgregarUserText.setText("Agregar Usuario");
         Central2.add(AgregarUserText);
-        AgregarUserText.setBounds(140, 50, 120, 20);
+        AgregarUserText.setBounds(160, 50, 120, 20);
 
         AgregarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/AgregarUser.png"))); // NOI18N
         AgregarUsuario.setBorderPainted(false);
@@ -560,7 +560,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2.add(AgregarUsuario);
-        AgregarUsuario.setBounds(90, 40, 221, 223);
+        AgregarUsuario.setBounds(90, 40, 243, 221);
         AgregarUsuario.getAccessibleContext().setAccessibleName("AgregarUsuario");
 
         ModificarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ModificarUser.png"))); // NOI18N
@@ -573,7 +573,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2.add(ModificarUsuario);
-        ModificarUsuario.setBounds(90, 290, 221, 223);
+        ModificarUsuario.setBounds(90, 290, 243, 221);
 
         ListarUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Listar.png"))); // NOI18N
         ListarUsuarios.setBorderPainted(false);
@@ -585,7 +585,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2.add(ListarUsuarios);
-        ListarUsuarios.setBounds(390, 290, 221, 223);
+        ListarUsuarios.setBounds(390, 290, 243, 221);
 
         ConsultarUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ConsultarUser.png"))); // NOI18N
         ConsultarUsuarios.setBorderPainted(false);
@@ -597,7 +597,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2.add(ConsultarUsuarios);
-        ConsultarUsuarios.setBounds(390, 40, 221, 223);
+        ConsultarUsuarios.setBounds(390, 40, 243, 221);
 
         Panel_Central.add(Central2);
         Central2.setBounds(0, 0, 720, 550);
@@ -608,19 +608,19 @@ public class MenuInicio extends javax.swing.JFrame {
         consultaVid.setForeground(new java.awt.Color(255, 255, 255));
         consultaVid.setText("Consulta video");
         Central3.add(consultaVid);
-        consultaVid.setBounds(140, 300, 130, 20);
+        consultaVid.setBounds(160, 300, 130, 20);
 
         agregarVid.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         agregarVid.setForeground(new java.awt.Color(255, 255, 255));
         agregarVid.setText("Agregar video");
         Central3.add(agregarVid);
-        agregarVid.setBounds(140, 50, 130, 20);
+        agregarVid.setBounds(170, 50, 130, 20);
 
         modificarVid.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         modificarVid.setForeground(new java.awt.Color(255, 255, 255));
         modificarVid.setText("Modificar video");
         Central3.add(modificarVid);
-        modificarVid.setBounds(460, 50, 130, 20);
+        modificarVid.setBounds(470, 50, 130, 20);
 
         modVid_Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ModificarVideo.png"))); // NOI18N
         modVid_Button.setBorderPainted(false);
@@ -644,7 +644,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central3.add(agrVid_Button);
-        agrVid_Button.setBounds(90, 40, 230, 220);
+        agrVid_Button.setBounds(100, 40, 230, 220);
 
         consVid_Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ConsultarVideo.png"))); // NOI18N
         consVid_Button.setBorderPainted(false);
@@ -656,7 +656,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central3.add(consVid_Button);
-        consVid_Button.setBounds(90, 290, 230, 220);
+        consVid_Button.setBounds(100, 290, 230, 220);
 
         agregarVid3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         agregarVid3.setForeground(new java.awt.Color(255, 255, 255));
@@ -666,6 +666,9 @@ public class MenuInicio extends javax.swing.JFrame {
 
         Panel_Central.add(Central3);
         Central3.setBounds(0, 0, 720, 550);
+
+        Scroll4.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        Scroll4.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
         Central4.setPreferredSize(new java.awt.Dimension(720, 780));
         Central4.setLayout(null);
@@ -680,7 +683,7 @@ public class MenuInicio extends javax.swing.JFrame {
         crearPlaylist.setForeground(new java.awt.Color(255, 255, 255));
         crearPlaylist.setText("Crear playlist");
         Central4.add(crearPlaylist);
-        crearPlaylist.setBounds(150, 50, 130, 20);
+        crearPlaylist.setBounds(170, 50, 130, 20);
 
         modificarPlaylist.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         modificarPlaylist.setForeground(new java.awt.Color(255, 255, 255));
@@ -692,20 +695,20 @@ public class MenuInicio extends javax.swing.JFrame {
         consultaPlaylist.setForeground(new java.awt.Color(255, 255, 255));
         consultaPlaylist.setText("Consulta playlist");
         Central4.add(consultaPlaylist);
-        consultaPlaylist.setBounds(140, 560, 130, 20);
+        consultaPlaylist.setBounds(160, 550, 130, 20);
 
         agregarVideo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         agregarVideo.setForeground(new java.awt.Color(255, 255, 255));
         agregarVideo.setText("Agregar video");
         Central4.add(agregarVideo);
-        agregarVideo.setBounds(150, 300, 130, 20);
+        agregarVideo.setBounds(170, 300, 130, 20);
 
         crearPlaylist_Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/AgregarPlaylist.png"))); // NOI18N
         crearPlaylist_Button.setBorderPainted(false);
         crearPlaylist_Button.setContentAreaFilled(false);
         crearPlaylist_Button.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/AgregarPlaylist2.png"))); // NOI18N
         Central4.add(crearPlaylist_Button);
-        crearPlaylist_Button.setBounds(90, 40, 230, 210);
+        crearPlaylist_Button.setBounds(100, 40, 230, 210);
 
         modificarPlaylist_Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ModificarPlaylist.png"))); // NOI18N
         modificarPlaylist_Button.setBorderPainted(false);
@@ -725,15 +728,20 @@ public class MenuInicio extends javax.swing.JFrame {
         consultaPlaylist_button.setBorderPainted(false);
         consultaPlaylist_button.setContentAreaFilled(false);
         consultaPlaylist_button.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ConsultaPlaylist2.png"))); // NOI18N
+        consultaPlaylist_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                consultaPlaylist_buttonActionPerformed(evt);
+            }
+        });
         Central4.add(consultaPlaylist_button);
-        consultaPlaylist_button.setBounds(80, 550, 230, 210);
+        consultaPlaylist_button.setBounds(100, 540, 230, 210);
 
         agregarVideo_Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/AgregarVideoPlaylist.png"))); // NOI18N
         agregarVideo_Button.setBorderPainted(false);
         agregarVideo_Button.setContentAreaFilled(false);
         agregarVideo_Button.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/AgregarVideoPlaylist2.png"))); // NOI18N
         Central4.add(agregarVideo_Button);
-        agregarVideo_Button.setBounds(90, 290, 230, 210);
+        agregarVideo_Button.setBounds(100, 290, 230, 210);
 
         Scroll4.setViewportView(Central4);
 
@@ -746,19 +754,19 @@ public class MenuInicio extends javax.swing.JFrame {
         consultaCat.setForeground(new java.awt.Color(255, 255, 255));
         consultaCat.setText("Consulta categoría");
         Central5.add(consultaCat);
-        consultaCat.setBounds(440, 60, 130, 17);
+        consultaCat.setBounds(440, 60, 130, 20);
 
         listarCat.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         listarCat.setForeground(new java.awt.Color(255, 255, 255));
         listarCat.setText("Listar categorías");
         Central5.add(listarCat);
-        listarCat.setBounds(150, 310, 130, 17);
+        listarCat.setBounds(150, 310, 130, 20);
 
         agregarCat.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         agregarCat.setForeground(new java.awt.Color(255, 255, 255));
         agregarCat.setText("Agregar categoría");
         Central5.add(agregarCat);
-        agregarCat.setBounds(150, 60, 130, 17);
+        agregarCat.setBounds(150, 60, 130, 20);
 
         consultaCat_Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ConsultaCategoria.png"))); // NOI18N
         consultaCat_Button.setBorderPainted(false);
@@ -787,73 +795,73 @@ public class MenuInicio extends javax.swing.JFrame {
         Central2_1.setMinimumSize(new java.awt.Dimension(720, 560));
         Central2_1.setLayout(null);
 
-        Canal.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        Canal.setFont(new java.awt.Font("Manjari", 1, 18)); // NOI18N
         Canal.setText("Canal");
         Central2_1.add(Canal);
-        Canal.setBounds(530, 40, 100, 14);
+        Canal.setBounds(540, 40, 100, 20);
 
-        Usuario.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        Usuario.setFont(new java.awt.Font("Manjari", 1, 18)); // NOI18N
         Usuario.setText("Usuario");
         Central2_1.add(Usuario);
-        Usuario.setBounds(170, 40, 100, 14);
+        Usuario.setBounds(170, 40, 100, 22);
 
-        Nickname.setFont(new java.awt.Font("Berlin Sans FB", 0, 16)); // NOI18N
+        Nickname.setFont(new java.awt.Font("Manjari", 1, 16)); // NOI18N
         Nickname.setText("Nickname(*)");
         Central2_1.add(Nickname);
-        Nickname.setBounds(40, 100, 100, 14);
+        Nickname.setBounds(40, 100, 100, 19);
 
-        Contraseña.setFont(new java.awt.Font("Berlin Sans FB", 0, 16)); // NOI18N
+        Contraseña.setFont(new java.awt.Font("Manjari", 1, 16)); // NOI18N
         Contraseña.setText("Contraseña(*)");
         Central2_1.add(Contraseña);
-        Contraseña.setBounds(40, 140, 100, 14);
+        Contraseña.setBounds(40, 140, 110, 19);
 
-        Nombre.setFont(new java.awt.Font("Berlin Sans FB", 0, 16)); // NOI18N
+        Nombre.setFont(new java.awt.Font("Manjari", 1, 16)); // NOI18N
         Nombre.setText("Nombre(*)");
         Central2_1.add(Nombre);
-        Nombre.setBounds(40, 180, 90, 14);
+        Nombre.setBounds(40, 180, 90, 19);
 
-        Apellido.setFont(new java.awt.Font("Berlin Sans FB", 0, 16)); // NOI18N
+        Apellido.setFont(new java.awt.Font("Manjari", 1, 16)); // NOI18N
         Apellido.setText("Apellido(*)");
         Central2_1.add(Apellido);
-        Apellido.setBounds(40, 220, 90, 14);
+        Apellido.setBounds(40, 220, 90, 19);
 
-        Correo.setFont(new java.awt.Font("Berlin Sans FB", 0, 16)); // NOI18N
+        Correo.setFont(new java.awt.Font("Manjari", 1, 16)); // NOI18N
         Correo.setText("Correo(*)");
         Central2_1.add(Correo);
-        Correo.setBounds(40, 260, 90, 14);
+        Correo.setBounds(40, 260, 90, 19);
 
-        FechaNac.setFont(new java.awt.Font("Berlin Sans FB", 0, 16)); // NOI18N
+        FechaNac.setFont(new java.awt.Font("Manjari", 1, 16)); // NOI18N
         FechaNac.setText("Fecha de nacimiento(*)");
         Central2_1.add(FechaNac);
         FechaNac.setBounds(40, 370, 180, 20);
 
-        Administrador.setFont(new java.awt.Font("Berlin Sans FB", 0, 16)); // NOI18N
+        Administrador.setFont(new java.awt.Font("Manjari", 1, 16)); // NOI18N
         Administrador.setText("¿Este usuario es administrador?");
         Central2_1.add(Administrador);
-        Administrador.setBounds(40, 310, 230, 19);
+        Administrador.setBounds(40, 310, 240, 20);
 
-        Privado.setFont(new java.awt.Font("Berlin Sans FB", 0, 16)); // NOI18N
+        Privado.setFont(new java.awt.Font("Manjari", 1, 16)); // NOI18N
         Privado.setText("¿Desea hacer el canal privado?");
         Central2_1.add(Privado);
-        Privado.setBounds(440, 180, 230, 19);
+        Privado.setBounds(450, 180, 230, 20);
 
-        NombreCanal.setFont(new java.awt.Font("Berlin Sans FB", 0, 16)); // NOI18N
+        NombreCanal.setFont(new java.awt.Font("Manjari", 1, 16)); // NOI18N
         NombreCanal.setText("Nombre del canal(opcional)");
         Central2_1.add(NombreCanal);
-        NombreCanal.setBounds(440, 100, 220, 20);
+        NombreCanal.setBounds(450, 100, 220, 30);
 
-        Descripcion.setFont(new java.awt.Font("Berlin Sans FB", 0, 16)); // NOI18N
+        Descripcion.setFont(new java.awt.Font("Manjari", 1, 16)); // NOI18N
         Descripcion.setText("Descripcion de canal(*)");
         Central2_1.add(Descripcion);
-        Descripcion.setBounds(440, 220, 160, 40);
+        Descripcion.setBounds(450, 220, 180, 40);
 
-        AgregarImg.setFont(new java.awt.Font("Berlin Sans FB", 0, 16)); // NOI18N
+        AgregarImg.setFont(new java.awt.Font("Manjari", 1, 16)); // NOI18N
         AgregarImg.setText("Agregar imágen(opcional)");
         Central2_1.add(AgregarImg);
-        AgregarImg.setBounds(160, 420, 190, 30);
+        AgregarImg.setBounds(150, 420, 190, 40);
 
         CampoNickname.setBackground(new java.awt.Color(153, 153, 153));
-        CampoNickname.setFont(new java.awt.Font("Berlin Sans FB", 0, 15)); // NOI18N
+        CampoNickname.setFont(new java.awt.Font("Manjari", 1, 15)); // NOI18N
         CampoNickname.setForeground(new java.awt.Color(102, 102, 102));
         CampoNickname.setText("Ingrese Nickname");
         CampoNickname.setBorder(null);
@@ -865,7 +873,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2_1.add(CampoNickname);
-        CampoNickname.setBounds(140, 100, 220, 14);
+        CampoNickname.setBounds(160, 100, 220, 20);
 
         CampoContraseña.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
         CampoContraseña.setForeground(new java.awt.Color(153, 153, 153));
@@ -879,10 +887,10 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2_1.add(CampoContraseña);
-        CampoContraseña.setBounds(140, 140, 260, 15);
+        CampoContraseña.setBounds(160, 140, 220, 16);
 
         CampoNombre.setBackground(new java.awt.Color(153, 153, 153));
-        CampoNombre.setFont(new java.awt.Font("Berlin Sans FB", 0, 15)); // NOI18N
+        CampoNombre.setFont(new java.awt.Font("Manjari", 1, 15)); // NOI18N
         CampoNombre.setForeground(new java.awt.Color(102, 102, 102));
         CampoNombre.setText("Ingrese Nombre");
         CampoNombre.setBorder(null);
@@ -894,10 +902,10 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2_1.add(CampoNombre);
-        CampoNombre.setBounds(140, 180, 220, 14);
+        CampoNombre.setBounds(160, 180, 220, 20);
 
         CampoApellido.setBackground(new java.awt.Color(153, 153, 153));
-        CampoApellido.setFont(new java.awt.Font("Berlin Sans FB", 0, 15)); // NOI18N
+        CampoApellido.setFont(new java.awt.Font("Manjari", 1, 15)); // NOI18N
         CampoApellido.setForeground(new java.awt.Color(102, 102, 102));
         CampoApellido.setText("Ingrese Apellido");
         CampoApellido.setBorder(null);
@@ -909,10 +917,10 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2_1.add(CampoApellido);
-        CampoApellido.setBounds(140, 220, 220, 14);
+        CampoApellido.setBounds(160, 220, 220, 20);
 
         CampoCorreo.setBackground(new java.awt.Color(153, 153, 153));
-        CampoCorreo.setFont(new java.awt.Font("Berlin Sans FB", 0, 15)); // NOI18N
+        CampoCorreo.setFont(new java.awt.Font("Manjari", 1, 15)); // NOI18N
         CampoCorreo.setForeground(new java.awt.Color(102, 102, 102));
         CampoCorreo.setText("Ingrese Correo");
         CampoCorreo.setBorder(null);
@@ -924,10 +932,10 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2_1.add(CampoCorreo);
-        CampoCorreo.setBounds(140, 260, 220, 14);
+        CampoCorreo.setBounds(160, 260, 220, 20);
 
         CampoCanal.setBackground(new java.awt.Color(153, 153, 153));
-        CampoCanal.setFont(new java.awt.Font("Berlin Sans FB", 0, 15)); // NOI18N
+        CampoCanal.setFont(new java.awt.Font("Manjari", 1, 15)); // NOI18N
         CampoCanal.setForeground(new java.awt.Color(102, 102, 102));
         CampoCanal.setText("Ingrese Nombre de Canal");
         CampoCanal.setBorder(null);
@@ -939,18 +947,18 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2_1.add(CampoCanal);
-        CampoCanal.setBounds(440, 130, 260, 14);
+        CampoCanal.setBounds(450, 130, 260, 20);
 
         CampoImagen.setBackground(new java.awt.Color(153, 153, 153));
-        CampoImagen.setFont(new java.awt.Font("Berlin Sans FB", 0, 15)); // NOI18N
+        CampoImagen.setFont(new java.awt.Font("Manjari", 1, 15)); // NOI18N
         CampoImagen.setForeground(new java.awt.Color(102, 102, 102));
         CampoImagen.setText("Imágen seleccionada");
         CampoImagen.setBorder(null);
         CampoImagen.setOpaque(false);
         Central2_1.add(CampoImagen);
-        CampoImagen.setBounds(390, 420, 260, 30);
+        CampoImagen.setBounds(390, 430, 260, 20);
         Central2_1.add(DateChoose);
-        DateChoose.setBounds(210, 370, 150, 20);
+        DateChoose.setBounds(220, 370, 150, 20);
 
         AgregarFoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/add_img.png"))); // NOI18N
         AgregarFoto.setBorderPainted(false);
@@ -962,7 +970,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2_1.add(AgregarFoto);
-        AgregarFoto.setBounds(340, 420, 40, 37);
+        AgregarFoto.setBounds(340, 420, 40, 35);
 
         Registrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_regist_2.png"))); // NOI18N
         Registrar.setBorderPainted(false);
@@ -989,9 +997,9 @@ public class MenuInicio extends javax.swing.JFrame {
         Central2_1.add(BackButton);
         BackButton.setBounds(10, 10, 60, 50);
         Central2_1.add(CheckboxAdmin);
-        CheckboxAdmin.setBounds(270, 310, 20, 20);
+        CheckboxAdmin.setBounds(300, 310, 20, 20);
         Central2_1.add(CheckboxPrivado);
-        CheckboxPrivado.setBounds(670, 180, 20, 20);
+        CheckboxPrivado.setBounds(690, 180, 20, 20);
 
         jSeparator8.setBackground(new java.awt.Color(153, 153, 153));
         jSeparator8.setForeground(new java.awt.Color(153, 153, 153));
@@ -1001,18 +1009,18 @@ public class MenuInicio extends javax.swing.JFrame {
         jSeparator3.setBackground(new java.awt.Color(153, 153, 153));
         jSeparator3.setForeground(new java.awt.Color(153, 153, 153));
         Central2_1.add(jSeparator3);
-        jSeparator3.setBounds(140, 200, 220, 30);
+        jSeparator3.setBounds(160, 200, 220, 30);
 
         jSeparator4.setBackground(new java.awt.Color(153, 153, 153));
         jSeparator4.setForeground(new java.awt.Color(153, 153, 153));
         Central2_1.add(jSeparator4);
-        jSeparator4.setBounds(140, 240, 220, 30);
+        jSeparator4.setBounds(160, 240, 220, 30);
 
         jSeparator2.setBackground(new java.awt.Color(153, 153, 153));
         jSeparator2.setForeground(new java.awt.Color(153, 153, 153));
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
         Central2_1.add(jSeparator2);
-        jSeparator2.setBounds(390, 20, 30, 370);
+        jSeparator2.setBounds(400, 20, 30, 370);
 
         jSeparator5.setBackground(new java.awt.Color(153, 153, 153));
         jSeparator5.setForeground(new java.awt.Color(153, 153, 153));
@@ -1022,39 +1030,39 @@ public class MenuInicio extends javax.swing.JFrame {
         jSeparator6.setBackground(new java.awt.Color(153, 153, 153));
         jSeparator6.setForeground(new java.awt.Color(153, 153, 153));
         Central2_1.add(jSeparator6);
-        jSeparator6.setBounds(140, 280, 220, 30);
+        jSeparator6.setBounds(160, 280, 220, 30);
 
         jSeparator7.setBackground(new java.awt.Color(153, 153, 153));
         jSeparator7.setForeground(new java.awt.Color(153, 153, 153));
         Central2_1.add(jSeparator7);
-        jSeparator7.setBounds(60, 350, 260, 30);
+        jSeparator7.setBounds(80, 350, 260, 30);
 
         jSeparator9.setBackground(new java.awt.Color(153, 153, 153));
         jSeparator9.setForeground(new java.awt.Color(153, 153, 153));
         Central2_1.add(jSeparator9);
-        jSeparator9.setBounds(440, 150, 260, 30);
+        jSeparator9.setBounds(450, 150, 260, 30);
 
         jSeparator10.setBackground(new java.awt.Color(153, 153, 153));
         jSeparator10.setForeground(new java.awt.Color(153, 153, 153));
         Central2_1.add(jSeparator10);
-        jSeparator10.setBounds(140, 160, 220, 30);
+        jSeparator10.setBounds(160, 160, 220, 30);
 
         jSeparator11.setBackground(new java.awt.Color(153, 153, 153));
         jSeparator11.setForeground(new java.awt.Color(153, 153, 153));
         Central2_1.add(jSeparator11);
-        jSeparator11.setBounds(140, 120, 220, 30);
+        jSeparator11.setBounds(160, 120, 220, 30);
 
         jSeparator12.setBackground(new java.awt.Color(153, 153, 153));
         jSeparator12.setForeground(new java.awt.Color(153, 153, 153));
         Central2_1.add(jSeparator12);
-        jSeparator12.setBounds(440, 60, 240, 30);
+        jSeparator12.setBounds(450, 60, 240, 30);
 
         CampoDescripcion.setColumns(20);
         CampoDescripcion.setRows(5);
         ScroolDescripcion.setViewportView(CampoDescripcion);
 
         Central2_1.add(ScroolDescripcion);
-        ScroolDescripcion.setBounds(440, 250, 220, 80);
+        ScroolDescripcion.setBounds(450, 250, 220, 80);
 
         Panel_Central.add(Central2_1);
         Central2_1.setBounds(0, 0, 720, 550);
@@ -1254,6 +1262,10 @@ public class MenuInicio extends javax.swing.JFrame {
         Panel_Central.revalidate();
         Panel_Central.repaint();
     }//GEN-LAST:event_btn_CategoriasMousePressed
+
+    private void consultaPlaylist_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultaPlaylist_buttonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_consultaPlaylist_buttonActionPerformed
 
     
     private void setColor(JPanel pane)

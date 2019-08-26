@@ -80,7 +80,7 @@ public class Menu extends javax.swing.JFrame {
         Panel.add(Password);
         Password.setBounds(140, 300, 290, 50);
 
-        Username.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        Username.setFont(new java.awt.Font("Manjari Thin", 0, 18)); // NOI18N
         Username.setForeground(new java.awt.Color(153, 153, 153));
         Username.setText("Username");
         Username.setBorder(null);
@@ -107,11 +107,11 @@ public class Menu extends javax.swing.JFrame {
         FondoPassword.setBounds(80, 290, 340, 70);
 
         InicioSesion.setBackground(new java.awt.Color(247, 243, 247));
-        InicioSesion.setFont(new java.awt.Font("Berlin Sans FB", 0, 28)); // NOI18N
+        InicioSesion.setFont(new java.awt.Font("Manjari", 1, 28)); // NOI18N
         InicioSesion.setForeground(new java.awt.Color(101, 13, 136));
         InicioSesion.setText("Inicio de sesión");
         Panel.add(InicioSesion);
-        InicioSesion.setBounds(170, 170, 220, 40);
+        InicioSesion.setBounds(160, 180, 220, 40);
 
         Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo.png"))); // NOI18N
         Logo.setText("jLabel4");
