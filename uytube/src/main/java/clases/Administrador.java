@@ -19,6 +19,9 @@ import javax.persistence.Table;
 public class Administrador extends Usuario{
     
     
+    public Administrador(){
+        
+    }
     
     public Administrador(String nickname, String contraseña, String nombre, String apellido, String email, Date fechaNac, String imagen) {
         super(nickname, contraseña, nombre, apellido, email, fechaNac, imagen);

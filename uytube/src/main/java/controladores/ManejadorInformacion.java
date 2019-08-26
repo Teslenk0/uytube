@@ -10,6 +10,13 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import clases.*;
 import DataTypes.*;
+import javax.persistence.NoResultException;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+import javax.persistence.TypedQuery;
 
 /**
  *
@@ -17,15 +24,17 @@ import DataTypes.*;
  */
 public class ManejadorInformacion{
     
-    private static EntityManager manager; //pido un manager
+        
+    //private static EntityManager manager; //pido un manager
+    private EntityManager manager;
+
     
     private static EntityManagerFactory emf;  //pido una fabrica
-
+    
     private static ManejadorInformacion instancia;
     
     public ManejadorInformacion() {
         emf = Persistence.createEntityManagerFactory("uytube-app");
-        manager = emf.createEntityManager();
     }
     
     public static ManejadorInformacion getInstance() {
@@ -35,9 +44,10 @@ public class ManejadorInformacion{
     }
    
     public void registrarUser(Usuario u){
+        
+        manager = emf.createEntityManager();
         if (u instanceof Administrador){
             Administrador aux = new Administrador(u.getNickname(), u.getContraseña(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen());
-  
             manager.getTransaction().begin();
             manager.persist(aux);
             manager.getTransaction().commit();
@@ -50,16 +60,34 @@ public class ManejadorInformacion{
             manager.close();
         }
     }
-   
+    
+    
     public Usuario obtenerUsuario(DtUsuario u) {
-        if(u instanceof DtAdministrador){
-            return manager.find(Administrador.class, new PkUsuario(u.getNickname(),u.getEmail()));
+        manager = emf.createEntityManager();
+        if (u instanceof DtAdministrador) {
+            if (manager.find(Administrador.class, u.getNickname()) != null) {
+                return manager.find(Administrador.class, u.getNickname());
+            } else {
+                try{
+                    String query = "select a from Administrador a where a.email='"+u.getEmail()+"'";
+                    TypedQuery<Administrador> consulta = manager.createQuery(query, Administrador.class);
+                    return consulta.getSingleResult();
+                }catch(NoResultException e){
+                    return null;
+                }
+            }
         }else{
-            return manager.find(Normal.class, new PkUsuario(u.getNickname(),u.getEmail()));
+            if(manager.find(Normal.class, u.getNickname()) != null){
+                return manager.find(Normal.class, u.getNickname());
+            }else{
+                try{
+                    String query = "select n from Normal n where n.email='"+u.getEmail()+"'";
+                    TypedQuery<Normal> consulta = manager.createQuery(query, Normal.class);
+                    return consulta.getSingleResult();
+                }catch(NoResultException e){
+                    return null;
+                }
+            }
         }
     }
-   
-    
-    
-    
 }

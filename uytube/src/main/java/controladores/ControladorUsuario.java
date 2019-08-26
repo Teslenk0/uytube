@@ -25,20 +25,22 @@ import javax.imageio.ImageIO;
 public class ControladorUsuario implements IControladorUsuario{
     
     
+    @Override
     public void registrarUsuario(DtUsuario u, DtCanal canal, BufferedImage imagen) throws UsuarioRepetidoException{
         ManejadorInformacion mu = ManejadorInformacion.getInstance(); //pido una instancia del manejador
+        
         Usuario user = mu.obtenerUsuario(u); //busco si esta o no
-        if (user != null)   //si esta tiro exception
+        if (user != null)
             throw new UsuarioRepetidoException("El usuario " + user.getNickname() + " ya existe");
         
         if(isAdmin(u)){
             mu.registrarUser(new Administrador(u.getNickname(), u.getContraseña(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen()));
-            
         }else{
             mu.registrarUser(new Normal(u.getNickname(), u.getContraseña(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen()));
         }
         
-        //con esto saco el path de donde esta el proyecto
+        if(imagen != null){
+            //con esto saco el path de donde esta el proyecto
         String path = System.getProperty("user.dir");
         
         //lo concateno
@@ -50,6 +52,7 @@ public class ControladorUsuario implements IControladorUsuario{
             ImageIO.write(imagen, "png", file);
         } catch (IOException ex) {
             //Logger.getLogger(SeleccionarImagen.class.getName()).log(Level.SEVERE, null, ex);
+        }
         }
     }
     

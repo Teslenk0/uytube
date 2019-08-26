@@ -958,7 +958,7 @@ public class MenuInicio extends javax.swing.JFrame {
        String apellido = CampoApellido.getText();
        String correo = CampoCorreo.getText();
        Boolean privado = CheckboxPrivado.getState();
-       Boolean admin = CheckboxPrivado.getState();
+       Boolean admin = CheckboxAdmin.getState();
        Date fecha = DateChoose.getDate();
        String nombreCanal = CampoCanal.getText();
        String descripcion = CampoDescripcion.getText();
@@ -968,12 +968,12 @@ public class MenuInicio extends javax.swing.JFrame {
             VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled);
             error.CambioTexto("Debes llenar todos los campos obligatorios");
             error.setVisible(true);
-
        }
        else{
         rutaImagen = "/imagenesUsuarios/" + CampoNickname.getText() + ".png";
         DtCanal addCanal = new DtCanal(nombreCanal, descripcion, privado);
         DtUsuario addUser;
+       
          try {
              if(admin)
                  addUser = new DtAdministrador(nickname,contraseña,nombre,apellido,correo,fecha,rutaImagen);
@@ -982,7 +982,7 @@ public class MenuInicio extends javax.swing.JFrame {
              u.registrarUsuario(addUser, addCanal, imagen);
          } catch (UsuarioRepetidoException ex) {
              VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled);
-             error.CambioTexto("El nombre de usuario ya esta en uso");
+             error.CambioTexto("El nickname o email ya existe");
              error.setVisible(true);
          }
        }

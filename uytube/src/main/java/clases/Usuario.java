@@ -15,7 +15,6 @@ import javax.persistence.*;
  */
 
 @MappedSuperclass
-@IdClass(PkUsuario.class)
 public abstract class Usuario implements Serializable{
     
     protected static final long serialVersionUID = 1L;
@@ -33,8 +32,7 @@ public abstract class Usuario implements Serializable{
     @Column(name = "apellido")
     protected String apellido;
     
-    @Id
-    @Column(name = "email")
+    @Column(name = "email",unique = true)
     protected String email;
     
     @Column(name = "fechaNac")
@@ -42,6 +40,10 @@ public abstract class Usuario implements Serializable{
     
     @Column(name = "imagen")
     protected String imagen;
+    
+    public Usuario(){
+    
+    }
 
     public Usuario(String nickname, String contraseña, String nombre, String apellido, String email, Date fechaNac, String imagen) {
         this.nickname = nickname;
