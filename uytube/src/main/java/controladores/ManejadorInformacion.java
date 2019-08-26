@@ -10,6 +10,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import clases.*;
 import DataTypes.*;
+import java.util.List;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -17,6 +18,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import javax.persistence.TypedQuery;
+import org.apache.commons.collections4.ListUtils;
 
 /**
  *
@@ -89,5 +91,23 @@ public class ManejadorInformacion{
                 }
             }
         }
+    }
+    
+    public List ObtenerUsuarios (){
+        manager = emf.createEntityManager();
+        List<Administrador> usuariosAdm = manager.createQuery("FROM Administrador a").getResultList();
+        List<Normal> usuariosNor = manager.createQuery("FROM Normal a").getResultList();
+        if(usuariosAdm != null || usuariosNor != null){
+             if(usuariosAdm != null && usuariosNor != null){
+                 return ListUtils.union(usuariosAdm, usuariosNor);
+             }
+             else if(usuariosAdm != null ){
+                     return usuariosNor;
+             }
+             else if(usuariosNor != null ){
+                     return usuariosAdm;
+             }  
+         }
+         return null;
     }
 }

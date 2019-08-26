@@ -9,6 +9,7 @@ import DataTypes.DtAdministrador;
 import DataTypes.DtCanal;
 import DataTypes.DtNormal;
 import DataTypes.DtUsuario;
+import clases.Usuario;
 import excepciones.UsuarioRepetidoException;
 import fabrica.Fabrica;
 import interfaces.IControladorUsuario;
@@ -16,6 +17,7 @@ import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JPanel;
@@ -161,6 +163,9 @@ public class MenuInicio extends javax.swing.JFrame {
         jSeparator12 = new javax.swing.JSeparator();
         ScroolDescripcion = new javax.swing.JScrollPane();
         CampoDescripcion = new javax.swing.JTextArea();
+        Central2_4 = new javax.swing.JPanel();
+        comboLista = new javax.swing.JComboBox<>();
+        BackButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -560,7 +565,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2.add(AgregarUsuario);
-        AgregarUsuario.setBounds(90, 40, 243, 221);
+        AgregarUsuario.setBounds(90, 40, 223, 225);
         AgregarUsuario.getAccessibleContext().setAccessibleName("AgregarUsuario");
 
         ModificarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ModificarUser.png"))); // NOI18N
@@ -573,7 +578,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2.add(ModificarUsuario);
-        ModificarUsuario.setBounds(90, 290, 243, 221);
+        ModificarUsuario.setBounds(90, 290, 223, 225);
 
         ListarUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Listar.png"))); // NOI18N
         ListarUsuarios.setBorderPainted(false);
@@ -585,7 +590,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2.add(ListarUsuarios);
-        ListarUsuarios.setBounds(390, 290, 243, 221);
+        ListarUsuarios.setBounds(390, 290, 223, 225);
 
         ConsultarUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ConsultarUser.png"))); // NOI18N
         ConsultarUsuarios.setBorderPainted(false);
@@ -597,7 +602,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2.add(ConsultarUsuarios);
-        ConsultarUsuarios.setBounds(390, 40, 243, 221);
+        ConsultarUsuarios.setBounds(390, 40, 223, 225);
 
         Panel_Central.add(Central2);
         Central2.setBounds(0, 0, 720, 550);
@@ -754,19 +759,19 @@ public class MenuInicio extends javax.swing.JFrame {
         consultaCat.setForeground(new java.awt.Color(255, 255, 255));
         consultaCat.setText("Consulta categoría");
         Central5.add(consultaCat);
-        consultaCat.setBounds(440, 60, 130, 20);
+        consultaCat.setBounds(440, 60, 130, 17);
 
         listarCat.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         listarCat.setForeground(new java.awt.Color(255, 255, 255));
         listarCat.setText("Listar categorías");
         Central5.add(listarCat);
-        listarCat.setBounds(150, 310, 130, 20);
+        listarCat.setBounds(150, 310, 130, 17);
 
         agregarCat.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         agregarCat.setForeground(new java.awt.Color(255, 255, 255));
         agregarCat.setText("Agregar categoría");
         Central5.add(agregarCat);
-        agregarCat.setBounds(150, 60, 130, 20);
+        agregarCat.setBounds(150, 60, 130, 17);
 
         consultaCat_Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ConsultaCategoria.png"))); // NOI18N
         consultaCat_Button.setBorderPainted(false);
@@ -887,7 +892,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2_1.add(CampoContraseña);
-        CampoContraseña.setBounds(160, 140, 220, 16);
+        CampoContraseña.setBounds(160, 140, 220, 15);
 
         CampoNombre.setBackground(new java.awt.Color(153, 153, 153));
         CampoNombre.setFont(new java.awt.Font("Manjari", 1, 15)); // NOI18N
@@ -970,7 +975,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2_1.add(AgregarFoto);
-        AgregarFoto.setBounds(340, 420, 40, 35);
+        AgregarFoto.setBounds(340, 420, 40, 39);
 
         Registrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_regist_2.png"))); // NOI18N
         Registrar.setBorderPainted(false);
@@ -1066,6 +1071,48 @@ public class MenuInicio extends javax.swing.JFrame {
 
         Panel_Central.add(Central2_1);
         Central2_1.setBounds(0, 0, 720, 550);
+
+        comboLista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboListaActionPerformed(evt);
+            }
+        });
+
+        BackButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back.png"))); // NOI18N
+        BackButton2.setBorder(null);
+        BackButton2.setBorderPainted(false);
+        BackButton2.setContentAreaFilled(false);
+        BackButton2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back2.png"))); // NOI18N
+        BackButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackButton2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Central2_4Layout = new javax.swing.GroupLayout(Central2_4);
+        Central2_4.setLayout(Central2_4Layout);
+        Central2_4Layout.setHorizontalGroup(
+            Central2_4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Central2_4Layout.createSequentialGroup()
+                .addComponent(BackButton2)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Central2_4Layout.createSequentialGroup()
+                .addContainerGap(138, Short.MAX_VALUE)
+                .addComponent(comboLista, javax.swing.GroupLayout.PREFERRED_SIZE, 456, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(126, 126, 126))
+        );
+        Central2_4Layout.setVerticalGroup(
+            Central2_4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Central2_4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(BackButton2)
+                .addGap(36, 36, 36)
+                .addComponent(comboLista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(424, Short.MAX_VALUE))
+        );
+
+        Panel_Central.add(Central2_4);
+        Central2_4.setBounds(0, 0, 720, 550);
 
         getContentPane().add(Panel_Central, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 720, 550));
 
@@ -1188,7 +1235,18 @@ public class MenuInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_ModificarUsuarioActionPerformed
 
     private void ListarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarUsuariosActionPerformed
-        // TODO add your handling code here:
+        Panel_Central.removeAll();
+        Panel_Central.add(Central2_4);
+        Panel_Central.revalidate();
+        Panel_Central.repaint();
+        List lista = u.listaUsuarios();
+        Usuario user;
+        for(int x=0; x<=lista.size(); x++){
+           if(lista.get(x) != null){
+               user = (Usuario) lista.get(x);
+               comboLista.addItem(user.getNickname());
+            }
+        }
     }//GEN-LAST:event_ListarUsuariosActionPerformed
 
     private void ConsultarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarUsuariosActionPerformed
@@ -1267,6 +1325,18 @@ public class MenuInicio extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_consultaPlaylist_buttonActionPerformed
 
+    private void comboListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboListaActionPerformed
+
+    }//GEN-LAST:event_comboListaActionPerformed
+
+    private void BackButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButton2ActionPerformed
+        Panel_Central.removeAll();
+        Panel_Central.add(Central2);
+        Panel_Central.revalidate();
+        Panel_Central.repaint();
+        comboLista.removeAllItems();
+    }//GEN-LAST:event_BackButton2ActionPerformed
+
     
     private void setColor(JPanel pane)
     {
@@ -1303,6 +1373,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JButton AgregarUsuario;
     private javax.swing.JLabel Apellido;
     private javax.swing.JButton BackButton;
+    private javax.swing.JButton BackButton2;
     private javax.swing.JPanel Barra_Superior;
     private javax.swing.JTextField CampoApellido;
     private javax.swing.JTextField CampoCanal;
@@ -1316,6 +1387,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JPanel Central1;
     private javax.swing.JPanel Central2;
     private javax.swing.JPanel Central2_1;
+    private javax.swing.JPanel Central2_4;
     private javax.swing.JPanel Central3;
     private javax.swing.JPanel Central4;
     private javax.swing.JPanel Central5;
@@ -1357,6 +1429,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JPanel btn_Usuario;
     private javax.swing.JPanel btn_Video;
     private javax.swing.JButton cerrar;
+    private javax.swing.JComboBox<String> comboLista;
     private javax.swing.JButton consVid_Button;
     private javax.swing.JLabel consultaCat;
     private javax.swing.JButton consultaCat_Button;

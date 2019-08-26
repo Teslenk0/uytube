@@ -16,6 +16,7 @@ import clases.Administrador;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import javax.imageio.ImageIO;
 
 /**
@@ -56,6 +57,15 @@ public class ControladorUsuario implements IControladorUsuario{
         }
     }
     
+     /**
+     *
+     * @return
+     */
+    public List listaUsuarios(){
+        ManejadorInformacion mu = ManejadorInformacion.getInstance(); //pido una instancia del manejador
+        List lista = mu.ObtenerUsuarios();  
+        return lista;
+    }
     
     /**
      * 
