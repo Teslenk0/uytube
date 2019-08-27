@@ -223,7 +223,6 @@ public class Menu extends javax.swing.JFrame {
             if("admin".equals(nombre)){ //Usuario correcto
                 MenuInicio menuinicio = new MenuInicio();
                 menuinicio.setVisible(true);
-                menuinicio.SetAdmin(nombre);
                 this.setVisible(false);
             }
             else{ //Usuario incorrecto
@@ -267,7 +266,6 @@ int xx,xy;
             if("admin".equals(nombre)){ //Usuario correcto
                 MenuInicio menuinicio = new MenuInicio();
                 menuinicio.setVisible(true);
-                menuinicio.SetAdmin(nombre);
                 this.setVisible(false);
             }
             else{ //Usuario incorrecto

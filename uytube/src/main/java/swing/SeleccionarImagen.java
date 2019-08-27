@@ -26,6 +26,7 @@ public class SeleccionarImagen extends javax.swing.JFrame {
     private final MenuInicio mi;
     /**
      * Creates new form SeleccionarImagen
+     * @param frame
      */
     
     public SeleccionarImagen(MenuInicio frame) {
@@ -175,7 +176,7 @@ public class SeleccionarImagen extends javax.swing.JFrame {
         Imagen1.setBounds(120, 100, 160, 160);
 
         getContentPane().add(PanelFondo);
-        PanelFondo.setBounds(0, 0, 400, 380);
+        PanelFondo.setBounds(0, 0, 400, 370);
 
         DragPanel.setBackground(new java.awt.Color(12, 129, 129));
         DragPanel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {

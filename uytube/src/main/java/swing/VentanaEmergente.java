@@ -76,7 +76,11 @@ public class VentanaEmergente extends javax.swing.JDialog {
         getContentPane().add(BarraSuperior);
         BarraSuperior.setBounds(0, 0, 360, 33);
 
+        Panel.setLayout(null);
+
         Texto.setFont(new java.awt.Font("Manjari Bold", 1, 14)); // NOI18N
+        Panel.add(Texto);
+        Texto.setBounds(34, 43, 305, 40);
 
         BotonAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_2.png"))); // NOI18N
         BotonAceptar.setBorder(null);
@@ -88,29 +92,8 @@ public class VentanaEmergente extends javax.swing.JDialog {
                 BotonAceptarActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout PanelLayout = new javax.swing.GroupLayout(Panel);
-        Panel.setLayout(PanelLayout);
-        PanelLayout.setHorizontalGroup(
-            PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelLayout.createSequentialGroup()
-                .addGap(132, 132, 132)
-                .addComponent(BotonAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(143, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Texto, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        PanelLayout.setVerticalGroup(
-            PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelLayout.createSequentialGroup()
-                .addContainerGap(44, Short.MAX_VALUE)
-                .addComponent(Texto, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(BotonAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16))
-        );
+        Panel.add(BotonAceptar);
+        BotonAceptar.setBounds(133, 94, 85, 39);
 
         getContentPane().add(Panel);
         Panel.setBounds(0, 0, 360, 150);

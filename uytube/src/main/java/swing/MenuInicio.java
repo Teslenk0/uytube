@@ -78,8 +78,6 @@ public class MenuInicio extends javax.swing.JFrame {
         Barra_Superior = new javax.swing.JPanel();
         minimizar = new javax.swing.JButton();
         cerrar = new javax.swing.JButton();
-        AdministradorText = new javax.swing.JLabel();
-        AdminChange = new javax.swing.JLabel();
         Panel_Central = new javax.swing.JPanel();
         Central1 = new javax.swing.JPanel();
         fondo = new javax.swing.JLabel();
@@ -520,17 +518,6 @@ public class MenuInicio extends javax.swing.JFrame {
         });
         Barra_Superior.add(cerrar);
         cerrar.setBounds(690, 10, 20, 20);
-
-        AdministradorText.setFont(new java.awt.Font("Manjari Bold", 1, 14)); // NOI18N
-        AdministradorText.setForeground(new java.awt.Color(255, 255, 255));
-        AdministradorText.setText("Administrador: ");
-        Barra_Superior.add(AdministradorText);
-        AdministradorText.setBounds(20, 10, 130, 20);
-
-        AdminChange.setFont(new java.awt.Font("Manjari Bold", 1, 14)); // NOI18N
-        AdminChange.setForeground(new java.awt.Color(255, 255, 255));
-        Barra_Superior.add(AdminChange);
-        AdminChange.setBounds(120, 10, 140, 20);
 
         getContentPane().add(Barra_Superior, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, 720, 40));
 
@@ -1411,6 +1398,7 @@ public class MenuInicio extends javax.swing.JFrame {
         Panel_Central.add(Central2);
         Panel_Central.revalidate();
         Panel_Central.repaint();
+        resetRegistro();
     }//GEN-LAST:event_BackButtonActionPerformed
 
     private void ModificarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarUsuarioActionPerformed
@@ -1485,6 +1473,7 @@ public class MenuInicio extends javax.swing.JFrame {
              VentanaEmergente mensaje = new VentanaEmergente(this, rootPaneCheckingEnabled);
              mensaje.CambioTexto("El usuario ha sido registrado con exito");
              mensaje.setVisible(true);
+             resetRegistro();
              
          } catch (UsuarioRepetidoException ex) {
              VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled);
@@ -1591,18 +1580,25 @@ public class MenuInicio extends javax.swing.JFrame {
         
     }
     
-    public void SetAdmin(String texto){
-        AdminChange.setText(texto);
-    }
-    
      public void setPathImagen(String texto, BufferedImage imagen){
         CampoImagen.setText(texto);
         this.imagen = imagen;
     }
 
+     public void resetRegistro(){
+        CampoNickname.setText("Ingrese Nickname");
+        CampoContraseña.setText("*********");
+        CampoNombre.setText("Ingrese Nombre");
+        CampoApellido.setText("Ingrese Apellido");
+        CampoCorreo.setText("Ingrese Correo");
+        CampoCanal.setText("Ingrese Nombre de Canal");
+        CheckboxPrivado.setEnabled(false);
+        CampoDescripcion.setText(null);
+        CampoImagen.setText("Imágen Seleccionada");
+        DateChoose.setDate(null);
+    }
+     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel AdminChange;
-    private javax.swing.JLabel AdministradorText;
     private javax.swing.JButton AgregarFoto;
     private javax.swing.JLabel AgregarImg;
     private javax.swing.JLabel AgregarUserText;
