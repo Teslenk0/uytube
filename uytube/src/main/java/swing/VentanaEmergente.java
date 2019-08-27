@@ -41,7 +41,6 @@ public class VentanaEmergente extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(353, 144));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(353, 144));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -77,7 +76,7 @@ public class VentanaEmergente extends javax.swing.JDialog {
         getContentPane().add(BarraSuperior);
         BarraSuperior.setBounds(0, 0, 360, 33);
 
-        Texto.setFont(new java.awt.Font("Manjari", 1, 14)); // NOI18N
+        Texto.setFont(new java.awt.Font("Manjari Bold", 1, 14)); // NOI18N
 
         BotonAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_2.png"))); // NOI18N
         BotonAceptar.setBorder(null);

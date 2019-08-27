@@ -14,8 +14,9 @@ import javax.persistence.*;
  * @author tesla
  */
 
-@MappedSuperclass
-public abstract class Usuario implements Serializable{
+@Entity
+@Table(name = "usuario")
+public class Usuario implements Serializable{
     
     protected static final long serialVersionUID = 1L;
     

@@ -107,7 +107,7 @@ public class Menu extends javax.swing.JFrame {
         FondoPassword.setBounds(80, 290, 340, 70);
 
         InicioSesion.setBackground(new java.awt.Color(247, 243, 247));
-        InicioSesion.setFont(new java.awt.Font("Manjari", 1, 28)); // NOI18N
+        InicioSesion.setFont(new java.awt.Font("Manjari Bold", 1, 28)); // NOI18N
         InicioSesion.setForeground(new java.awt.Color(101, 13, 136));
         InicioSesion.setText("Inicio de sesión");
         Panel.add(InicioSesion);

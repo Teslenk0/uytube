@@ -5,9 +5,8 @@
  */
 package swing;
 
-import DataTypes.DtAdministrador;
+
 import DataTypes.DtCanal;
-import DataTypes.DtNormal;
 import DataTypes.DtUsuario;
 import clases.Usuario;
 import excepciones.UsuarioRepetidoException;
@@ -132,7 +131,6 @@ public class MenuInicio extends javax.swing.JFrame {
         Apellido = new javax.swing.JLabel();
         Correo = new javax.swing.JLabel();
         FechaNac = new javax.swing.JLabel();
-        Administrador = new javax.swing.JLabel();
         Privado = new javax.swing.JLabel();
         NombreCanal = new javax.swing.JLabel();
         Descripcion = new javax.swing.JLabel();
@@ -148,7 +146,6 @@ public class MenuInicio extends javax.swing.JFrame {
         AgregarFoto = new javax.swing.JButton();
         Registrar = new javax.swing.JButton();
         BackButton = new javax.swing.JButton();
-        CheckboxAdmin = new java.awt.Checkbox();
         CheckboxPrivado = new java.awt.Checkbox();
         jSeparator8 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
@@ -218,7 +215,7 @@ public class MenuInicio extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel12.setFont(new java.awt.Font("Manjari", 1, 14)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Manjari Bold", 1, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Categorías");
 
@@ -266,7 +263,7 @@ public class MenuInicio extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel8.setFont(new java.awt.Font("Manjari", 1, 14)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Manjari Bold", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Inicio");
 
@@ -314,7 +311,7 @@ public class MenuInicio extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        UsuarioBarra.setFont(new java.awt.Font("Manjari", 1, 14)); // NOI18N
+        UsuarioBarra.setFont(new java.awt.Font("Manjari Bold", 1, 14)); // NOI18N
         UsuarioBarra.setForeground(new java.awt.Color(255, 255, 255));
         UsuarioBarra.setText("Usuario");
 
@@ -362,7 +359,7 @@ public class MenuInicio extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel11.setFont(new java.awt.Font("Manjari", 1, 14)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Manjari Bold", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Video");
 
@@ -410,7 +407,7 @@ public class MenuInicio extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel9.setFont(new java.awt.Font("Manjari", 1, 14)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Manjari Bold", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Playlists");
 
@@ -458,7 +455,7 @@ public class MenuInicio extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel10.setFont(new java.awt.Font("Manjari", 1, 14)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Manjari Bold", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Cerrar Sesión");
 
@@ -524,13 +521,13 @@ public class MenuInicio extends javax.swing.JFrame {
         Barra_Superior.add(cerrar);
         cerrar.setBounds(690, 10, 20, 20);
 
-        AdministradorText.setFont(new java.awt.Font("Manjari", 1, 14)); // NOI18N
+        AdministradorText.setFont(new java.awt.Font("Manjari Bold", 1, 14)); // NOI18N
         AdministradorText.setForeground(new java.awt.Color(255, 255, 255));
         AdministradorText.setText("Administrador: ");
         Barra_Superior.add(AdministradorText);
         AdministradorText.setBounds(20, 10, 130, 20);
 
-        AdminChange.setFont(new java.awt.Font("Manjari", 1, 14)); // NOI18N
+        AdminChange.setFont(new java.awt.Font("Manjari Bold", 1, 14)); // NOI18N
         AdminChange.setForeground(new java.awt.Color(255, 255, 255));
         Barra_Superior.add(AdminChange);
         AdminChange.setBounds(120, 10, 140, 20);
@@ -586,7 +583,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2.add(AgregarUsuario);
-        AgregarUsuario.setBounds(90, 40, 221, 223);
+        AgregarUsuario.setBounds(90, 40, 223, 225);
         AgregarUsuario.getAccessibleContext().setAccessibleName("AgregarUsuario");
 
         ModificarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ModificarUser.png"))); // NOI18N
@@ -599,7 +596,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2.add(ModificarUsuario);
-        ModificarUsuario.setBounds(90, 290, 221, 223);
+        ModificarUsuario.setBounds(90, 290, 223, 225);
 
         ListarUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Listar.png"))); // NOI18N
         ListarUsuarios.setBorderPainted(false);
@@ -611,7 +608,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2.add(ListarUsuarios);
-        ListarUsuarios.setBounds(390, 290, 221, 223);
+        ListarUsuarios.setBounds(390, 290, 223, 225);
 
         ConsultarUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ConsultarUser.png"))); // NOI18N
         ConsultarUsuarios.setBorderPainted(false);
@@ -623,7 +620,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2.add(ConsultarUsuarios);
-        ConsultarUsuarios.setBounds(390, 40, 221, 223);
+        ConsultarUsuarios.setBounds(390, 40, 223, 225);
 
         Panel_Central.add(Central2);
         Central2.setBounds(0, 0, 720, 550);
@@ -831,63 +828,58 @@ public class MenuInicio extends javax.swing.JFrame {
         Central2_1.add(Usuario);
         Usuario.setBounds(170, 40, 100, 22);
 
-        Nickname.setFont(new java.awt.Font("Manjari", 1, 16)); // NOI18N
+        Nickname.setFont(new java.awt.Font("Manjari Bold", 1, 16)); // NOI18N
         Nickname.setText("Nickname(*)");
         Central2_1.add(Nickname);
         Nickname.setBounds(40, 100, 100, 19);
 
-        Contraseña.setFont(new java.awt.Font("Manjari", 1, 16)); // NOI18N
+        Contraseña.setFont(new java.awt.Font("Manjari Bold", 1, 16)); // NOI18N
         Contraseña.setText("Contraseña(*)");
         Central2_1.add(Contraseña);
         Contraseña.setBounds(40, 140, 110, 19);
 
-        Nombre.setFont(new java.awt.Font("Manjari", 1, 16)); // NOI18N
+        Nombre.setFont(new java.awt.Font("Manjari Bold", 1, 16)); // NOI18N
         Nombre.setText("Nombre(*)");
         Central2_1.add(Nombre);
         Nombre.setBounds(40, 180, 90, 19);
 
-        Apellido.setFont(new java.awt.Font("Manjari", 1, 16)); // NOI18N
+        Apellido.setFont(new java.awt.Font("Manjari Bold", 1, 16)); // NOI18N
         Apellido.setText("Apellido(*)");
         Central2_1.add(Apellido);
         Apellido.setBounds(40, 220, 90, 19);
 
-        Correo.setFont(new java.awt.Font("Manjari", 1, 16)); // NOI18N
+        Correo.setFont(new java.awt.Font("Manjari Bold", 1, 16)); // NOI18N
         Correo.setText("Correo(*)");
         Central2_1.add(Correo);
         Correo.setBounds(40, 260, 90, 19);
 
-        FechaNac.setFont(new java.awt.Font("Manjari", 1, 16)); // NOI18N
+        FechaNac.setFont(new java.awt.Font("Manjari Bold", 1, 16)); // NOI18N
         FechaNac.setText("Fecha de nacimiento(*)");
         Central2_1.add(FechaNac);
         FechaNac.setBounds(40, 370, 180, 20);
 
-        Administrador.setFont(new java.awt.Font("Manjari", 1, 16)); // NOI18N
-        Administrador.setText("¿Este usuario es administrador?");
-        Central2_1.add(Administrador);
-        Administrador.setBounds(40, 310, 240, 20);
-
-        Privado.setFont(new java.awt.Font("Manjari", 1, 16)); // NOI18N
+        Privado.setFont(new java.awt.Font("Manjari Bold", 1, 16)); // NOI18N
         Privado.setText("¿Desea hacer el canal privado?");
         Central2_1.add(Privado);
         Privado.setBounds(450, 180, 230, 20);
 
-        NombreCanal.setFont(new java.awt.Font("Manjari", 1, 16)); // NOI18N
+        NombreCanal.setFont(new java.awt.Font("Manjari Bold", 1, 16)); // NOI18N
         NombreCanal.setText("Nombre del canal(opcional)");
         Central2_1.add(NombreCanal);
         NombreCanal.setBounds(450, 100, 220, 30);
 
-        Descripcion.setFont(new java.awt.Font("Manjari", 1, 16)); // NOI18N
+        Descripcion.setFont(new java.awt.Font("Manjari Bold", 1, 16)); // NOI18N
         Descripcion.setText("Descripcion de canal(*)");
         Central2_1.add(Descripcion);
         Descripcion.setBounds(450, 220, 180, 40);
 
-        AgregarImg.setFont(new java.awt.Font("Manjari", 1, 16)); // NOI18N
+        AgregarImg.setFont(new java.awt.Font("Manjari Bold", 1, 16)); // NOI18N
         AgregarImg.setText("Agregar imágen(opcional)");
         Central2_1.add(AgregarImg);
         AgregarImg.setBounds(150, 420, 190, 40);
 
         CampoNickname.setBackground(new java.awt.Color(153, 153, 153));
-        CampoNickname.setFont(new java.awt.Font("Manjari", 1, 15)); // NOI18N
+        CampoNickname.setFont(new java.awt.Font("Manjari Bold", 1, 15)); // NOI18N
         CampoNickname.setForeground(new java.awt.Color(102, 102, 102));
         CampoNickname.setText("Ingrese Nickname");
         CampoNickname.setBorder(null);
@@ -916,7 +908,7 @@ public class MenuInicio extends javax.swing.JFrame {
         CampoContraseña.setBounds(160, 140, 220, 15);
 
         CampoNombre.setBackground(new java.awt.Color(153, 153, 153));
-        CampoNombre.setFont(new java.awt.Font("Manjari", 1, 15)); // NOI18N
+        CampoNombre.setFont(new java.awt.Font("Manjari Bold", 1, 15)); // NOI18N
         CampoNombre.setForeground(new java.awt.Color(102, 102, 102));
         CampoNombre.setText("Ingrese Nombre");
         CampoNombre.setBorder(null);
@@ -931,7 +923,7 @@ public class MenuInicio extends javax.swing.JFrame {
         CampoNombre.setBounds(160, 180, 220, 20);
 
         CampoApellido.setBackground(new java.awt.Color(153, 153, 153));
-        CampoApellido.setFont(new java.awt.Font("Manjari", 1, 15)); // NOI18N
+        CampoApellido.setFont(new java.awt.Font("Manjari Bold", 1, 15)); // NOI18N
         CampoApellido.setForeground(new java.awt.Color(102, 102, 102));
         CampoApellido.setText("Ingrese Apellido");
         CampoApellido.setBorder(null);
@@ -946,7 +938,7 @@ public class MenuInicio extends javax.swing.JFrame {
         CampoApellido.setBounds(160, 220, 220, 20);
 
         CampoCorreo.setBackground(new java.awt.Color(153, 153, 153));
-        CampoCorreo.setFont(new java.awt.Font("Manjari", 1, 15)); // NOI18N
+        CampoCorreo.setFont(new java.awt.Font("Manjari Bold", 1, 15)); // NOI18N
         CampoCorreo.setForeground(new java.awt.Color(102, 102, 102));
         CampoCorreo.setText("Ingrese Correo");
         CampoCorreo.setBorder(null);
@@ -961,7 +953,7 @@ public class MenuInicio extends javax.swing.JFrame {
         CampoCorreo.setBounds(160, 260, 220, 20);
 
         CampoCanal.setBackground(new java.awt.Color(153, 153, 153));
-        CampoCanal.setFont(new java.awt.Font("Manjari", 1, 15)); // NOI18N
+        CampoCanal.setFont(new java.awt.Font("Manjari Bold", 1, 15)); // NOI18N
         CampoCanal.setForeground(new java.awt.Color(102, 102, 102));
         CampoCanal.setText("Ingrese Nombre de Canal");
         CampoCanal.setBorder(null);
@@ -976,7 +968,7 @@ public class MenuInicio extends javax.swing.JFrame {
         CampoCanal.setBounds(450, 130, 260, 20);
 
         CampoImagen.setBackground(new java.awt.Color(153, 153, 153));
-        CampoImagen.setFont(new java.awt.Font("Manjari", 1, 15)); // NOI18N
+        CampoImagen.setFont(new java.awt.Font("Manjari Bold", 1, 15)); // NOI18N
         CampoImagen.setForeground(new java.awt.Color(102, 102, 102));
         CampoImagen.setText("Imágen seleccionada");
         CampoImagen.setEditable(false);
@@ -997,7 +989,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2_1.add(AgregarFoto);
-        AgregarFoto.setBounds(340, 420, 40, 37);
+        AgregarFoto.setBounds(340, 420, 40, 39);
 
         Registrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_regist_2.png"))); // NOI18N
         Registrar.setBorderPainted(false);
@@ -1023,8 +1015,6 @@ public class MenuInicio extends javax.swing.JFrame {
         });
         Central2_1.add(BackButton);
         BackButton.setBounds(10, 10, 60, 50);
-        Central2_1.add(CheckboxAdmin);
-        CheckboxAdmin.setBounds(300, 310, 20, 20);
         Central2_1.add(CheckboxPrivado);
         CheckboxPrivado.setBounds(690, 180, 20, 20);
 
@@ -1432,10 +1422,10 @@ public class MenuInicio extends javax.swing.JFrame {
         Panel_Central.revalidate();
         Panel_Central.repaint();
         List lista = u.listaUsuarios();
-        Usuario user;
+        DtUsuario user;
         for(int x=0; x<=lista.size()-1; x++){
            if(lista.get(x) != null){
-               user = (Usuario) lista.get(x);
+               user = (DtUsuario) lista.get(x);
                comboLista.addItem(user.getNickname());
             }
         }
@@ -1447,12 +1437,18 @@ public class MenuInicio extends javax.swing.JFrame {
         Panel_Central.revalidate();
         Panel_Central.repaint();
         List lista = u.listaUsuarios();
-        Usuario user;
-        for(int x=0; x<=lista.size()-1; x++){
-           if(lista.get(x) != null){
-               user = (Usuario) lista.get(x);
-               comboConsulta.addItem(user.getNickname());
+        if (lista != null) {
+            DtUsuario user;
+            for (int x = 0; x <= lista.size() - 1; x++) {
+                if (lista.get(x) != null) {
+                    user = (DtUsuario) lista.get(x);
+                    comboConsulta.addItem(user.getNickname());
+                }
             }
+        } else {
+            VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled);
+            error.CambioTexto("No existen usuarios en la base de datos.");
+            error.setVisible(true);
         }
     }//GEN-LAST:event_ConsultarUsuariosActionPerformed
 
@@ -1463,7 +1459,6 @@ public class MenuInicio extends javax.swing.JFrame {
        String apellido = CampoApellido.getText();
        String correo = CampoCorreo.getText();
        Boolean privado = CheckboxPrivado.getState();
-       Boolean admin = CheckboxAdmin.getState();
        Date fecha = DateChoose.getDate();
        String nombreCanal = CampoCanal.getText();
        String descripcion = CampoDescripcion.getText();
@@ -1480,10 +1475,7 @@ public class MenuInicio extends javax.swing.JFrame {
         DtUsuario addUser;
        
          try {
-             if(admin)
-                 addUser = new DtAdministrador(nickname,contraseña,nombre,apellido,correo,fecha,rutaImagen);
-             else
-                 addUser = new DtNormal(nickname,contraseña,nombre,apellido,correo,fecha,rutaImagen);
+             addUser = new DtUsuario(nickname,contraseña,nombre,apellido,correo,fecha,rutaImagen);
              u.registrarUsuario(addUser, addCanal, imagen);
          } catch (UsuarioRepetidoException ex) {
              VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled);
@@ -1559,9 +1551,9 @@ public class MenuInicio extends javax.swing.JFrame {
         Panel_Central.revalidate();
         Panel_Central.repaint();
         List lista = u.listaUsuarios();
-        Usuario user;
+        DtUsuario user;
         for(int x=0; x<=lista.size()-1; x++){
-            user = (Usuario) lista.get(x);
+            user = (DtUsuario) lista.get(x);
             if(Item.equals(user.getNickname())){
                this.Varnick.setText(Item);
                this.Varnom.setText(user.getNombre());
@@ -1608,7 +1600,6 @@ public class MenuInicio extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AdminChange;
-    private javax.swing.JLabel Administrador;
     private javax.swing.JLabel AdministradorText;
     private javax.swing.JButton AgregarFoto;
     private javax.swing.JLabel AgregarImg;
@@ -1638,7 +1629,6 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JPanel Central3;
     private javax.swing.JPanel Central4;
     private javax.swing.JPanel Central5;
-    private java.awt.Checkbox CheckboxAdmin;
     private java.awt.Checkbox CheckboxPrivado;
     private javax.swing.JButton ConsultarUsuarios;
     private javax.swing.JLabel ConsultarUsuariosText;

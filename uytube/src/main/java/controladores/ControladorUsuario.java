@@ -5,17 +5,16 @@
  */
 package controladores;
 
-import clases.Normal;
+
 import clases.Usuario;
 import excepciones.UsuarioRepetidoException;
 import interfaces.IControladorUsuario;
 import DataTypes.DtUsuario;
-import DataTypes.DtAdministrador;
 import DataTypes.DtCanal;
-import clases.Administrador;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.LinkedList;
 import java.util.List;
 import javax.imageio.ImageIO;
 
@@ -31,15 +30,11 @@ public class ControladorUsuario implements IControladorUsuario{
         ManejadorInformacion mu = ManejadorInformacion.getInstance(); //pido una instancia del manejador
         
         Usuario user = mu.obtenerUsuario(u); //busco si esta o no
-        if (user != null)
+        if (user != null) {
             throw new UsuarioRepetidoException("El usuario " + user.getNickname() + " ya existe");
-        
-        if(isAdmin(u)){
-            mu.registrarUser(new Administrador(u.getNickname(), u.getContraseña(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen()));
-        }else{
-            mu.registrarUser(new Normal(u.getNickname(), u.getContraseña(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen()));
         }
-        
+        mu.registrarUser(new Usuario(u.getNickname(), u.getContraseña(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen()));
+
         if(imagen != null){
             //con esto saco el path de donde esta el proyecto
         String path = System.getProperty("user.dir");
@@ -61,22 +56,21 @@ public class ControladorUsuario implements IControladorUsuario{
      *
      * @return
      */
-    public List listaUsuarios(){
+    public List listaUsuarios() {
         ManejadorInformacion mu = ManejadorInformacion.getInstance(); //pido una instancia del manejador
-        List lista = mu.ObtenerUsuarios();  
-        return lista;
+        List lista = mu.ObtenerUsuarios();
+        if (lista != null) {
+            List aux = new LinkedList();
+            DtUsuario dtaux;
+            for (int x = 0; x < lista.size(); x++) {
+                dtaux = new DtUsuario((Usuario) lista.get(x));
+                aux.add(dtaux);
+            }
+            return aux;
+        }
+        return null;
     }
     
-    /**
-     * 
-     * @param u recibe un datatype usuario
-     * @return devuelve true si el parametro "n" es usuario administrador
-     */
-    @Override
-    public boolean isAdmin(DtUsuario u){
-        if(u instanceof DtAdministrador) //pregunto si es admin o no
-            return true;
-        return false;
-    }
+   
     
 }

@@ -143,7 +143,7 @@ public class SeleccionarImagen extends javax.swing.JFrame {
 
         CampoFile.setEditable(false);
         CampoFile.setBackground(new java.awt.Color(153, 153, 153));
-        CampoFile.setFont(new java.awt.Font("Manjari", 1, 15)); // NOI18N
+        CampoFile.setFont(new java.awt.Font("Manjari Bold", 1, 15)); // NOI18N
         CampoFile.setForeground(new java.awt.Color(102, 102, 102));
         CampoFile.setText("Imágen seleccionada");
         CampoFile.setBorder(null);
@@ -162,7 +162,7 @@ public class SeleccionarImagen extends javax.swing.JFrame {
         PanelFondo.add(Imagen);
         Imagen.setBounds(120, 110, 150, 140);
 
-        jLabel1.setFont(new java.awt.Font("Manjari", 1, 15)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Manjari Bold", 1, 15)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(102, 102, 102));
         jLabel1.setText("Tamaño máximo 160x160");
         PanelFondo.add(jLabel1);

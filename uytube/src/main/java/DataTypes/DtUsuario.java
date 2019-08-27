@@ -5,6 +5,7 @@
  */
 package DataTypes;
 
+import clases.Usuario;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -39,7 +40,17 @@ public class DtUsuario implements Serializable {
         this.fechaNac = fechaNac;
         this.imagen = imagen;
     }
-
+    
+    public DtUsuario(Usuario u){
+        this.nickname = u.getNickname();
+        this.contraseña = u.getContraseña();
+        this.nombre = u.getNombre();
+        this.apellido = u.getApellido();
+        this.email = u.getEmail();
+        this.fechaNac = u.getFechaNac();
+        this.imagen = u.getImagen();
+    }
+    
     public static long getSerialVersionUID() {
         return serialVersionUID;
     }

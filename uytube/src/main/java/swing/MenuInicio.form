@@ -111,7 +111,7 @@
             <Component class="javax.swing.JLabel" name="jLabel12">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Manjari" size="14" style="1"/>
+                  <Font name="Manjari Bold" size="14" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -186,7 +186,7 @@
             <Component class="javax.swing.JLabel" name="jLabel8">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Manjari" size="14" style="1"/>
+                  <Font name="Manjari Bold" size="14" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -261,7 +261,7 @@
             <Component class="javax.swing.JLabel" name="UsuarioBarra">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Manjari" size="14" style="1"/>
+                  <Font name="Manjari Bold" size="14" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -336,7 +336,7 @@
             <Component class="javax.swing.JLabel" name="jLabel11">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Manjari" size="14" style="1"/>
+                  <Font name="Manjari Bold" size="14" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -411,7 +411,7 @@
             <Component class="javax.swing.JLabel" name="jLabel9">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Manjari" size="14" style="1"/>
+                  <Font name="Manjari Bold" size="14" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -486,7 +486,7 @@
             <Component class="javax.swing.JLabel" name="jLabel10">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Manjari" size="14" style="1"/>
+                  <Font name="Manjari Bold" size="14" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -561,7 +561,7 @@
         <Component class="javax.swing.JLabel" name="AdministradorText">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Manjari" size="14" style="1"/>
+              <Font name="Manjari Bold" size="14" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -577,7 +577,7 @@
         <Component class="javax.swing.JLabel" name="AdminChange">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Manjari" size="14" style="1"/>
+              <Font name="Manjari Bold" size="14" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1287,7 +1287,7 @@
             <Component class="javax.swing.JLabel" name="Nickname">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Manjari" size="16" style="1"/>
+                  <Font name="Manjari Bold" size="16" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Nickname(*)"/>
               </Properties>
@@ -1300,7 +1300,7 @@
             <Component class="javax.swing.JLabel" name="Contrase&#xf1;a">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Manjari" size="16" style="1"/>
+                  <Font name="Manjari Bold" size="16" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Contrase&#xf1;a(*)"/>
               </Properties>
@@ -1313,7 +1313,7 @@
             <Component class="javax.swing.JLabel" name="Nombre">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Manjari" size="16" style="1"/>
+                  <Font name="Manjari Bold" size="16" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Nombre(*)"/>
               </Properties>
@@ -1326,7 +1326,7 @@
             <Component class="javax.swing.JLabel" name="Apellido">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Manjari" size="16" style="1"/>
+                  <Font name="Manjari Bold" size="16" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Apellido(*)"/>
               </Properties>
@@ -1339,7 +1339,7 @@
             <Component class="javax.swing.JLabel" name="Correo">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Manjari" size="16" style="1"/>
+                  <Font name="Manjari Bold" size="16" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Correo(*)"/>
               </Properties>
@@ -1352,7 +1352,7 @@
             <Component class="javax.swing.JLabel" name="FechaNac">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Manjari" size="16" style="1"/>
+                  <Font name="Manjari Bold" size="16" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Fecha de nacimiento(*)"/>
               </Properties>
@@ -1362,23 +1362,10 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JLabel" name="Administrador">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Manjari" size="16" style="1"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="&#xbf;Este usuario es administrador?"/>
-              </Properties>
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="40" y="310" width="240" height="20"/>
-                </Constraint>
-              </Constraints>
-            </Component>
             <Component class="javax.swing.JLabel" name="Privado">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Manjari" size="16" style="1"/>
+                  <Font name="Manjari Bold" size="16" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="&#xbf;Desea hacer el canal privado?"/>
               </Properties>
@@ -1391,7 +1378,7 @@
             <Component class="javax.swing.JLabel" name="NombreCanal">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Manjari" size="16" style="1"/>
+                  <Font name="Manjari Bold" size="16" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Nombre del canal(opcional)"/>
               </Properties>
@@ -1404,7 +1391,7 @@
             <Component class="javax.swing.JLabel" name="Descripcion">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Manjari" size="16" style="1"/>
+                  <Font name="Manjari Bold" size="16" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Descripcion de canal(*)"/>
               </Properties>
@@ -1417,7 +1404,7 @@
             <Component class="javax.swing.JLabel" name="AgregarImg">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Manjari" size="16" style="1"/>
+                  <Font name="Manjari Bold" size="16" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Agregar im&#xe1;gen(opcional)"/>
               </Properties>
@@ -1433,7 +1420,7 @@
                   <Color blue="99" green="99" red="99" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Manjari" size="15" style="1"/>
+                  <Font name="Manjari Bold" size="15" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="66" red="66" type="rgb"/>
@@ -1488,7 +1475,7 @@
                   <Color blue="99" green="99" red="99" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Manjari" size="15" style="1"/>
+                  <Font name="Manjari Bold" size="15" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="66" red="66" type="rgb"/>
@@ -1517,7 +1504,7 @@
                   <Color blue="99" green="99" red="99" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Manjari" size="15" style="1"/>
+                  <Font name="Manjari Bold" size="15" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="66" red="66" type="rgb"/>
@@ -1546,7 +1533,7 @@
                   <Color blue="99" green="99" red="99" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Manjari" size="15" style="1"/>
+                  <Font name="Manjari Bold" size="15" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="66" red="66" type="rgb"/>
@@ -1575,7 +1562,7 @@
                   <Color blue="99" green="99" red="99" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Manjari" size="15" style="1"/>
+                  <Font name="Manjari Bold" size="15" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="66" red="66" type="rgb"/>
@@ -1604,7 +1591,7 @@
                   <Color blue="99" green="99" red="99" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Manjari" size="15" style="1"/>
+                  <Font name="Manjari Bold" size="15" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="66" red="66" type="rgb"/>
@@ -1688,13 +1675,6 @@
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="10" y="10" width="60" height="50"/>
-                </Constraint>
-              </Constraints>
-            </Component>
-            <Component class="java.awt.Checkbox" name="CheckboxAdmin">
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="300" y="310" width="20" height="20"/>
                 </Constraint>
               </Constraints>
             </Component>

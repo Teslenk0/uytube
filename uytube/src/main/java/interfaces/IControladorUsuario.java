@@ -20,7 +20,5 @@ public interface IControladorUsuario {
     
     public abstract void registrarUsuario(DtUsuario u, DtCanal c, BufferedImage imagen) throws UsuarioRepetidoException;
     
-    public abstract boolean isAdmin(DtUsuario u);
-    
     public abstract List listaUsuarios();
 }
