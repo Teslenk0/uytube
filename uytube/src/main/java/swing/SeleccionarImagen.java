@@ -156,7 +156,7 @@ public class SeleccionarImagen extends javax.swing.JFrame {
         PanelFondo.add(jSeparator5);
         jSeparator5.setBounds(90, 280, 200, 30);
 
-        Imagen.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        Imagen.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153), 2));
         Imagen.setMaximumSize(new java.awt.Dimension(160, 160));
         Imagen.setMinimumSize(new java.awt.Dimension(160, 160));
         PanelFondo.add(Imagen);

@@ -164,6 +164,11 @@ public class MenuInicio extends javax.swing.JFrame {
         comboConsulta = new javax.swing.JComboBox<>();
         BackButton3 = new javax.swing.JButton();
         SeleccionarUsuario = new javax.swing.JButton();
+        Central2_2_Panel = new javax.swing.JPanel();
+        jSeparator18 = new javax.swing.JSeparator();
+        Central2_4 = new javax.swing.JPanel();
+        comboLista = new javax.swing.JComboBox<>();
+        BackButton2 = new javax.swing.JButton();
         Central2_2_1 = new javax.swing.JPanel();
         nombre = new javax.swing.JLabel();
         apellido = new javax.swing.JLabel();
@@ -180,10 +185,8 @@ public class MenuInicio extends javax.swing.JFrame {
         jSeparator14 = new javax.swing.JSeparator();
         jSeparator15 = new javax.swing.JSeparator();
         jSeparator16 = new javax.swing.JSeparator();
+        Imagen = new javax.swing.JLabel();
         jSeparator17 = new javax.swing.JSeparator();
-        Central2_4 = new javax.swing.JPanel();
-        comboLista = new javax.swing.JComboBox<>();
-        BackButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -583,7 +586,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2.add(AgregarUsuario);
-        AgregarUsuario.setBounds(90, 40, 223, 225);
+        AgregarUsuario.setBounds(90, 40, 243, 221);
         AgregarUsuario.getAccessibleContext().setAccessibleName("AgregarUsuario");
 
         ModificarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ModificarUser.png"))); // NOI18N
@@ -596,7 +599,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2.add(ModificarUsuario);
-        ModificarUsuario.setBounds(90, 290, 223, 225);
+        ModificarUsuario.setBounds(90, 290, 243, 221);
 
         ListarUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Listar.png"))); // NOI18N
         ListarUsuarios.setBorderPainted(false);
@@ -608,7 +611,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2.add(ListarUsuarios);
-        ListarUsuarios.setBounds(390, 290, 223, 225);
+        ListarUsuarios.setBounds(390, 290, 243, 221);
 
         ConsultarUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ConsultarUser.png"))); // NOI18N
         ConsultarUsuarios.setBorderPainted(false);
@@ -620,7 +623,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2.add(ConsultarUsuarios);
-        ConsultarUsuarios.setBounds(390, 40, 223, 225);
+        ConsultarUsuarios.setBounds(390, 40, 243, 221);
 
         Panel_Central.add(Central2);
         Central2.setBounds(0, 0, 720, 550);
@@ -777,19 +780,19 @@ public class MenuInicio extends javax.swing.JFrame {
         consultaCat.setForeground(new java.awt.Color(255, 255, 255));
         consultaCat.setText("Consulta categoría");
         Central5.add(consultaCat);
-        consultaCat.setBounds(440, 60, 130, 17);
+        consultaCat.setBounds(440, 60, 130, 20);
 
         listarCat.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         listarCat.setForeground(new java.awt.Color(255, 255, 255));
         listarCat.setText("Listar categorías");
         Central5.add(listarCat);
-        listarCat.setBounds(150, 310, 130, 17);
+        listarCat.setBounds(150, 310, 130, 20);
 
         agregarCat.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         agregarCat.setForeground(new java.awt.Color(255, 255, 255));
         agregarCat.setText("Agregar categoría");
         Central5.add(agregarCat);
-        agregarCat.setBounds(150, 60, 130, 17);
+        agregarCat.setBounds(150, 60, 130, 20);
 
         consultaCat_Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ConsultaCategoria.png"))); // NOI18N
         consultaCat_Button.setBorderPainted(false);
@@ -905,7 +908,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2_1.add(CampoContraseña);
-        CampoContraseña.setBounds(160, 140, 220, 15);
+        CampoContraseña.setBounds(160, 140, 220, 16);
 
         CampoNombre.setBackground(new java.awt.Color(153, 153, 153));
         CampoNombre.setFont(new java.awt.Font("Manjari Bold", 1, 15)); // NOI18N
@@ -989,7 +992,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2_1.add(AgregarFoto);
-        AgregarFoto.setBounds(340, 420, 40, 39);
+        AgregarFoto.setBounds(340, 420, 40, 35);
 
         Registrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_regist_2.png"))); // NOI18N
         Registrar.setBorderPainted(false);
@@ -1084,11 +1087,15 @@ public class MenuInicio extends javax.swing.JFrame {
         Panel_Central.add(Central2_1);
         Central2_1.setBounds(0, 0, 720, 550);
 
+        Central2_2.setLayout(null);
+
         comboConsulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboConsultaActionPerformed(evt);
             }
         });
+        Central2_2.add(comboConsulta);
+        comboConsulta.setBounds(122, 90, 456, 22);
 
         BackButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back.png"))); // NOI18N
         BackButton3.setBorder(null);
@@ -1100,6 +1107,8 @@ public class MenuInicio extends javax.swing.JFrame {
                 BackButton3ActionPerformed(evt);
             }
         });
+        Central2_2.add(BackButton3);
+        BackButton3.setBounds(0, 11, 101, 51);
 
         SeleccionarUsuario.setText("Seleccionar");
         SeleccionarUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -1107,143 +1116,30 @@ public class MenuInicio extends javax.swing.JFrame {
                 SeleccionarUsuarioActionPerformed(evt);
             }
         });
+        Central2_2.add(SeleccionarUsuario);
+        SeleccionarUsuario.setBounds(596, 90, 89, 23);
 
-        Central2_2_1.setPreferredSize(new java.awt.Dimension(350, 550));
+        Central2_2_Panel.setMaximumSize(new java.awt.Dimension(403, 550));
+        Central2_2_Panel.setMinimumSize(new java.awt.Dimension(403, 550));
 
-        nombre.setText("Nombre");
-
-        apellido.setText("Apellido");
-
-        nick.setText("Nickname");
-
-        fecha.setText("Fecha de nacimiento");
-
-        Varnick.setEditable(false);
-        Varnick.setBorder(null);
-
-        mail.setText("Correo electronico");
-
-        Varnom.setEditable(false);
-        Varnom.setBorder(null);
-
-        Varape.setEditable(false);
-        Varape.setBorder(null);
-
-        Varfech.setEditable(false);
-        Varfech.setBorder(null);
-
-        Varmail.setEditable(false);
-        Varmail.setBorder(null);
-
-        javax.swing.GroupLayout Central2_2_1Layout = new javax.swing.GroupLayout(Central2_2_1);
-        Central2_2_1.setLayout(Central2_2_1Layout);
-        Central2_2_1Layout.setHorizontalGroup(
-            Central2_2_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Central2_2_1Layout.createSequentialGroup()
-                .addGap(196, 196, 196)
-                .addComponent(jSeparator16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(Central2_2_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(Central2_2_1Layout.createSequentialGroup()
-                        .addGroup(Central2_2_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jSeparator1)
-                            .addGroup(Central2_2_1Layout.createSequentialGroup()
-                                .addComponent(nick)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
-                                .addComponent(Varnick, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(160, 160, 160))
-                    .addGroup(Central2_2_1Layout.createSequentialGroup()
-                        .addGroup(Central2_2_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jSeparator15, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator14, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator13, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(Central2_2_1Layout.createSequentialGroup()
-                                .addGroup(Central2_2_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(apellido)
-                                    .addComponent(fecha)
-                                    .addComponent(mail)
-                                    .addComponent(nombre))
-                                .addGap(36, 36, 36)
-                                .addGroup(Central2_2_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(Varnom)
-                                    .addComponent(Varape)
-                                    .addComponent(Varfech)
-                                    .addComponent(Varmail, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addComponent(jSeparator17, javax.swing.GroupLayout.Alignment.TRAILING)
+        javax.swing.GroupLayout Central2_2_PanelLayout = new javax.swing.GroupLayout(Central2_2_Panel);
+        Central2_2_Panel.setLayout(Central2_2_PanelLayout);
+        Central2_2_PanelLayout.setHorizontalGroup(
+            Central2_2_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 750, Short.MAX_VALUE)
         );
-        Central2_2_1Layout.setVerticalGroup(
-            Central2_2_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Central2_2_1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jSeparator17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(81, 81, 81)
-                .addGroup(Central2_2_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(Central2_2_1Layout.createSequentialGroup()
-                        .addGroup(Central2_2_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(nick)
-                            .addComponent(Varnick, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(Central2_2_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(nombre)
-                            .addComponent(Varnom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator13, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(Central2_2_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(apellido)
-                            .addComponent(Varape, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator14, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(5, 5, 5)
-                        .addGroup(Central2_2_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(fecha)
-                            .addComponent(Varfech, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator15, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(3, 3, 3)
-                        .addGroup(Central2_2_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Varmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(mail)))
-                    .addComponent(jSeparator16, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(33, Short.MAX_VALUE))
+        Central2_2_PanelLayout.setVerticalGroup(
+            Central2_2_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 550, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout Central2_2Layout = new javax.swing.GroupLayout(Central2_2);
-        Central2_2.setLayout(Central2_2Layout);
-        Central2_2Layout.setHorizontalGroup(
-            Central2_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Central2_2Layout.createSequentialGroup()
-                .addComponent(BackButton3)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(Central2_2Layout.createSequentialGroup()
-                .addGap(75, 75, 75)
-                .addComponent(comboConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 456, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(SeleccionarUsuario)
-                .addContainerGap(80, Short.MAX_VALUE))
-            .addGroup(Central2_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(Central2_2Layout.createSequentialGroup()
-                    .addComponent(Central2_2_1, javax.swing.GroupLayout.PREFERRED_SIZE, 732, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        Central2_2Layout.setVerticalGroup(
-            Central2_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Central2_2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(BackButton3)
-                .addGap(66, 66, 66)
-                .addGroup(Central2_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(comboConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SeleccionarUsuario))
-                .addContainerGap(392, Short.MAX_VALUE))
-            .addGroup(Central2_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Central2_2Layout.createSequentialGroup()
-                    .addGap(0, 164, Short.MAX_VALUE)
-                    .addComponent(Central2_2_1, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)))
-        );
+        Central2_2.add(Central2_2_Panel);
+        Central2_2_Panel.setBounds(0, 190, 750, 360);
+
+        jSeparator18.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator18.setForeground(new java.awt.Color(153, 153, 153));
+        Central2_2.add(jSeparator18);
+        jSeparator18.setBounds(30, 160, 675, 60);
 
         Panel_Central.add(Central2_2);
         Central2_2.setBounds(0, 0, 720, 550);
@@ -1284,11 +1180,114 @@ public class MenuInicio extends javax.swing.JFrame {
                 .addComponent(BackButton2)
                 .addGap(36, 36, 36)
                 .addComponent(comboLista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(424, Short.MAX_VALUE))
+                .addContainerGap(430, Short.MAX_VALUE))
         );
 
         Panel_Central.add(Central2_4);
         Central2_4.setBounds(0, 0, 720, 550);
+
+        Central2_2_1.setMaximumSize(new java.awt.Dimension(403, 550));
+        Central2_2_1.setMinimumSize(new java.awt.Dimension(403, 550));
+        Central2_2_1.setPreferredSize(new java.awt.Dimension(403, 550));
+        Central2_2_1.setLayout(null);
+
+        nombre.setFont(new java.awt.Font("Manjari", 1, 12)); // NOI18N
+        nombre.setForeground(new java.awt.Color(102, 102, 102));
+        nombre.setText("Nombre");
+        Central2_2_1.add(nombre);
+        nombre.setBounds(280, 80, 70, 15);
+
+        apellido.setFont(new java.awt.Font("Manjari", 1, 12)); // NOI18N
+        apellido.setForeground(new java.awt.Color(102, 102, 102));
+        apellido.setText("Apellido");
+        Central2_2_1.add(apellido);
+        apellido.setBounds(280, 120, 70, 15);
+
+        nick.setFont(new java.awt.Font("Manjari", 1, 12)); // NOI18N
+        nick.setForeground(new java.awt.Color(102, 102, 102));
+        nick.setText("Nickname");
+        Central2_2_1.add(nick);
+        nick.setBounds(280, 40, 70, 15);
+
+        fecha.setFont(new java.awt.Font("Manjari", 1, 12)); // NOI18N
+        fecha.setForeground(new java.awt.Color(102, 102, 102));
+        fecha.setText("Fecha de nacimiento");
+        Central2_2_1.add(fecha);
+        fecha.setBounds(280, 160, 130, 15);
+
+        Varnick.setEditable(false);
+        Varnick.setFont(new java.awt.Font("Manjari", 1, 12)); // NOI18N
+        Varnick.setBorder(null);
+        Central2_2_1.add(Varnick);
+        Varnick.setBounds(420, 40, 190, 15);
+
+        mail.setFont(new java.awt.Font("Manjari", 1, 12)); // NOI18N
+        mail.setForeground(new java.awt.Color(102, 102, 102));
+        mail.setText("Correo electronico");
+        Central2_2_1.add(mail);
+        mail.setBounds(280, 200, 120, 15);
+
+        Varnom.setEditable(false);
+        Varnom.setFont(new java.awt.Font("Manjari", 1, 12)); // NOI18N
+        Varnom.setBorder(null);
+        Central2_2_1.add(Varnom);
+        Varnom.setBounds(420, 80, 190, 15);
+
+        Varape.setEditable(false);
+        Varape.setFont(new java.awt.Font("Manjari", 1, 12)); // NOI18N
+        Varape.setBorder(null);
+        Central2_2_1.add(Varape);
+        Varape.setBounds(420, 120, 190, 15);
+
+        Varfech.setEditable(false);
+        Varfech.setFont(new java.awt.Font("Manjari", 1, 12)); // NOI18N
+        Varfech.setBorder(null);
+        Central2_2_1.add(Varfech);
+        Varfech.setBounds(420, 160, 190, 15);
+
+        Varmail.setEditable(false);
+        Varmail.setFont(new java.awt.Font("Manjari", 1, 12)); // NOI18N
+        Varmail.setBorder(null);
+        Central2_2_1.add(Varmail);
+        Varmail.setBounds(420, 200, 190, 15);
+
+        jSeparator1.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator1.setForeground(new java.awt.Color(153, 153, 153));
+        Central2_2_1.add(jSeparator1);
+        jSeparator1.setBounds(280, 60, 330, 16);
+
+        jSeparator13.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator13.setForeground(new java.awt.Color(153, 153, 153));
+        Central2_2_1.add(jSeparator13);
+        jSeparator13.setBounds(280, 100, 330, 16);
+
+        jSeparator14.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator14.setForeground(new java.awt.Color(153, 153, 153));
+        Central2_2_1.add(jSeparator14);
+        jSeparator14.setBounds(280, 140, 330, 16);
+
+        jSeparator15.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator15.setForeground(new java.awt.Color(153, 153, 153));
+        Central2_2_1.add(jSeparator15);
+        jSeparator15.setBounds(280, 220, 330, 16);
+        Central2_2_1.add(jSeparator16);
+        jSeparator16.setBounds(196, 94, 0, 254);
+
+        Imagen.setBackground(new java.awt.Color(255, 255, 255));
+        Imagen.setForeground(new java.awt.Color(255, 255, 255));
+        Imagen.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153), 2));
+        Imagen.setMaximumSize(new java.awt.Dimension(160, 160));
+        Imagen.setMinimumSize(new java.awt.Dimension(160, 160));
+        Central2_2_1.add(Imagen);
+        Imagen.setBounds(80, 40, 150, 140);
+
+        jSeparator17.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator17.setForeground(new java.awt.Color(153, 153, 153));
+        Central2_2_1.add(jSeparator17);
+        jSeparator17.setBounds(280, 180, 330, 16);
+
+        Panel_Central.add(Central2_2_1);
+        Central2_2_1.setBounds(0, 0, 720, 350);
 
         getContentPane().add(Panel_Central, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 720, 550));
 
@@ -1540,10 +1539,9 @@ public class MenuInicio extends javax.swing.JFrame {
 
     private void SeleccionarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeleccionarUsuarioActionPerformed
         Item = comboConsulta.getSelectedItem().toString();
-        //Panel_Central.removeAll();
-        Panel_Central.add(Central2_2_1);
-        //Panel_Central.revalidate();
-        //Panel_Central.repaint();
+        Central2_2_Panel.add(Central2_2_1);
+        Panel_Central.revalidate();
+        Panel_Central.repaint();
         List lista = u.listaUsuarios();
         DtUsuario user;
         for(int x=0; x<=lista.size()-1; x++){
@@ -1611,6 +1609,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JPanel Central2_1;
     private javax.swing.JPanel Central2_2;
     private javax.swing.JPanel Central2_2_1;
+    private javax.swing.JPanel Central2_2_Panel;
     private javax.swing.JPanel Central2_4;
     private javax.swing.JPanel Central3;
     private javax.swing.JPanel Central4;
@@ -1623,6 +1622,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser DateChoose;
     private javax.swing.JLabel Descripcion;
     private javax.swing.JLabel FechaNac;
+    private javax.swing.JLabel Imagen;
     private javax.swing.JButton ListarUsuarios;
     private javax.swing.JLabel ListarUsuariosText;
     private javax.swing.JButton ModificarUsuario;
@@ -1691,6 +1691,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator15;
     private javax.swing.JSeparator jSeparator16;
     private javax.swing.JSeparator jSeparator17;
+    private javax.swing.JSeparator jSeparator18;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
