@@ -979,6 +979,7 @@ public class MenuInicio extends javax.swing.JFrame {
         CampoImagen.setFont(new java.awt.Font("Manjari", 1, 15)); // NOI18N
         CampoImagen.setForeground(new java.awt.Color(102, 102, 102));
         CampoImagen.setText("Imágen seleccionada");
+        CampoImagen.setEditable(false);
         CampoImagen.setBorder(null);
         CampoImagen.setOpaque(false);
         Central2_1.add(CampoImagen);

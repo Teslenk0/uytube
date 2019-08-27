@@ -63,7 +63,7 @@ public class Menu extends javax.swing.JFrame {
         Panel.setLayout(null);
 
         Password.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
-        Password.setForeground(new java.awt.Color(153, 153, 153));
+        Password.setForeground(new java.awt.Color(78, 78, 78));
         Password.setText("000000000*");
         Password.setBorder(null);
         Password.setOpaque(false);
@@ -81,7 +81,7 @@ public class Menu extends javax.swing.JFrame {
         Password.setBounds(140, 300, 290, 50);
 
         Username.setFont(new java.awt.Font("Manjari Thin", 0, 18)); // NOI18N
-        Username.setForeground(new java.awt.Color(153, 153, 153));
+        Username.setForeground(new java.awt.Color(78, 78, 78));
         Username.setText("Username");
         Username.setBorder(null);
         Username.setOpaque(false);

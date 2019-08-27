@@ -141,6 +141,7 @@ public class SeleccionarImagen extends javax.swing.JFrame {
         PanelFondo.add(BotonAceptar);
         BotonAceptar.setBounds(100, 310, 80, 40);
 
+        CampoFile.setEditable(false);
         CampoFile.setBackground(new java.awt.Color(153, 153, 153));
         CampoFile.setFont(new java.awt.Font("Manjari", 1, 15)); // NOI18N
         CampoFile.setForeground(new java.awt.Color(102, 102, 102));
