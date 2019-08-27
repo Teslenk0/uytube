@@ -9,8 +9,6 @@ import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -58,9 +56,9 @@ public class SeleccionarImagen extends javax.swing.JFrame {
         BotonAceptar = new javax.swing.JButton();
         CampoFile = new javax.swing.JTextField();
         jSeparator5 = new javax.swing.JSeparator();
-        Imagen = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jSeparator6 = new javax.swing.JSeparator();
+        Imagen1 = new javax.swing.JLabel();
         DragPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -126,7 +124,7 @@ public class SeleccionarImagen extends javax.swing.JFrame {
             }
         });
         PanelFondo.add(BotonCancelar);
-        BotonCancelar.setBounds(210, 310, 80, 40);
+        BotonCancelar.setBounds(220, 310, 80, 40);
 
         BotonAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_2.png"))); // NOI18N
         BotonAceptar.setBorder(null);
@@ -154,24 +152,27 @@ public class SeleccionarImagen extends javax.swing.JFrame {
         jSeparator5.setBackground(new java.awt.Color(153, 153, 153));
         jSeparator5.setForeground(new java.awt.Color(153, 153, 153));
         PanelFondo.add(jSeparator5);
-        jSeparator5.setBounds(90, 280, 200, 30);
-
-        Imagen.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153), 2));
-        Imagen.setMaximumSize(new java.awt.Dimension(160, 160));
-        Imagen.setMinimumSize(new java.awt.Dimension(160, 160));
-        PanelFondo.add(Imagen);
-        Imagen.setBounds(120, 110, 150, 140);
+        jSeparator5.setBounds(90, 290, 210, 30);
 
         jLabel1.setFont(new java.awt.Font("Manjari Bold", 1, 15)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(102, 102, 102));
         jLabel1.setText("Tamaño máximo 160x160");
         PanelFondo.add(jLabel1);
-        jLabel1.setBounds(100, 260, 190, 20);
+        jLabel1.setBounds(110, 270, 190, 20);
 
         jSeparator6.setBackground(new java.awt.Color(153, 153, 153));
         jSeparator6.setForeground(new java.awt.Color(153, 153, 153));
         PanelFondo.add(jSeparator6);
         jSeparator6.setBounds(120, 80, 260, 30);
+
+        Imagen1.setBackground(new java.awt.Color(255, 255, 255));
+        Imagen1.setForeground(new java.awt.Color(255, 255, 255));
+        Imagen1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153), 2));
+        Imagen1.setMaximumSize(new java.awt.Dimension(160, 160));
+        Imagen1.setMinimumSize(new java.awt.Dimension(160, 160));
+        Imagen1.setPreferredSize(new java.awt.Dimension(160, 160));
+        PanelFondo.add(Imagen1);
+        Imagen1.setBounds(120, 100, 160, 160);
 
         getContentPane().add(PanelFondo);
         PanelFondo.setBounds(0, 0, 400, 380);
@@ -196,11 +197,11 @@ public class SeleccionarImagen extends javax.swing.JFrame {
         );
         DragPanelLayout.setVerticalGroup(
             DragPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 370, Short.MAX_VALUE)
         );
 
         getContentPane().add(DragPanel);
-        DragPanel.setBounds(0, 0, 400, 300);
+        DragPanel.setBounds(0, 0, 400, 370);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -248,7 +249,7 @@ public class SeleccionarImagen extends javax.swing.JFrame {
                 File archivo = openFileChooser.getSelectedFile();
                 direccion = archivo.getAbsolutePath();
                 CampoFile.setText(direccion);
-                Imagen.setIcon(new ImageIcon(direccion));
+                Imagen1.setIcon(new ImageIcon(direccion));
                }
            }catch(IOException ieo){
                CampoFile.setText("Archivo de formato incorrecto");
@@ -272,7 +273,7 @@ public class SeleccionarImagen extends javax.swing.JFrame {
     private javax.swing.JButton BotonCerrar;
     private javax.swing.JTextField CampoFile;
     private javax.swing.JPanel DragPanel;
-    private javax.swing.JLabel Imagen;
+    private javax.swing.JLabel Imagen1;
     private javax.swing.JPanel PanelFondo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JSeparator jSeparator5;

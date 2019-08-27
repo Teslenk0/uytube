@@ -5,7 +5,6 @@
  */
 package swing;
 
-import javax.swing.JLabel;
 import  javax.swing.JFrame;
 
 /**

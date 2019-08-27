@@ -8,7 +8,6 @@ package swing;
 import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
-import java.io.File;
 
 
 /**
@@ -200,7 +199,7 @@ public class Menu extends javax.swing.JFrame {
 
     private void menuIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuIniciarActionPerformed
         String nombre = Username.getText();
-        if("macaco".equals(nombre)){ //Usuario correcto
+        if("admin".equals(nombre)){ //Usuario correcto
             MenuInicio menuinicio = new MenuInicio();
             menuinicio.setVisible(true);
             this.setVisible(false);
@@ -221,7 +220,7 @@ public class Menu extends javax.swing.JFrame {
     private void UsernameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_UsernameKeyPressed
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
              String nombre = Username.getText();
-            if("macaco".equals(nombre)){ //Usuario correcto
+            if("admin".equals(nombre)){ //Usuario correcto
                 MenuInicio menuinicio = new MenuInicio();
                 menuinicio.setVisible(true);
                 menuinicio.SetAdmin(nombre);
@@ -265,7 +264,7 @@ int xx,xy;
     private void PasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PasswordKeyPressed
          if(evt.getKeyCode()==KeyEvent.VK_ENTER){
              String nombre = Password.getText();
-            if("macaco".equals(nombre)){ //Usuario correcto
+            if("admin".equals(nombre)){ //Usuario correcto
                 MenuInicio menuinicio = new MenuInicio();
                 menuinicio.setVisible(true);
                 menuinicio.SetAdmin(nombre);

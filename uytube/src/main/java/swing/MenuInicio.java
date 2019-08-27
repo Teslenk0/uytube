@@ -8,7 +8,6 @@ package swing;
 
 import DataTypes.DtCanal;
 import DataTypes.DtUsuario;
-import clases.Usuario;
 import excepciones.UsuarioRepetidoException;
 import fabrica.Fabrica;
 import interfaces.IControladorUsuario;
@@ -17,8 +16,6 @@ import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import java.util.Date;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JPanel;
 
 /**
@@ -945,7 +942,7 @@ public class MenuInicio extends javax.swing.JFrame {
         CampoCorreo.setForeground(new java.awt.Color(102, 102, 102));
         CampoCorreo.setText("Ingrese Correo");
         CampoCorreo.setBorder(null);
-        CampoCorreo.setNextFocusableComponent(CampoCanal);
+        CampoCorreo.setNextFocusableComponent(DateChoose);
         CampoCorreo.setOpaque(false);
         CampoCorreo.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -979,6 +976,8 @@ public class MenuInicio extends javax.swing.JFrame {
         CampoImagen.setOpaque(false);
         Central2_1.add(CampoImagen);
         CampoImagen.setBounds(390, 430, 260, 20);
+
+        DateChoose.setNextFocusableComponent(Descripcion);
         Central2_1.add(DateChoose);
         DateChoose.setBounds(220, 370, 150, 20);
 
@@ -1110,14 +1109,17 @@ public class MenuInicio extends javax.swing.JFrame {
         Central2_2.add(BackButton3);
         BackButton3.setBounds(0, 11, 101, 51);
 
-        SeleccionarUsuario.setText("Seleccionar");
+        SeleccionarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_seleccionar_2.png"))); // NOI18N
+        SeleccionarUsuario.setBorderPainted(false);
+        SeleccionarUsuario.setContentAreaFilled(false);
+        SeleccionarUsuario.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_seleccionar_1.png"))); // NOI18N
         SeleccionarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SeleccionarUsuarioActionPerformed(evt);
             }
         });
         Central2_2.add(SeleccionarUsuario);
-        SeleccionarUsuario.setBounds(596, 90, 89, 23);
+        SeleccionarUsuario.setBounds(590, 80, 110, 40);
 
         Central2_2_Panel.setMaximumSize(new java.awt.Dimension(403, 550));
         Central2_2_Panel.setMinimumSize(new java.awt.Dimension(403, 550));
@@ -1218,6 +1220,7 @@ public class MenuInicio extends javax.swing.JFrame {
         Varnick.setEditable(false);
         Varnick.setFont(new java.awt.Font("Manjari", 1, 12)); // NOI18N
         Varnick.setBorder(null);
+        Varnick.setOpaque(false);
         Central2_2_1.add(Varnick);
         Varnick.setBounds(420, 40, 190, 15);
 
@@ -1230,24 +1233,28 @@ public class MenuInicio extends javax.swing.JFrame {
         Varnom.setEditable(false);
         Varnom.setFont(new java.awt.Font("Manjari", 1, 12)); // NOI18N
         Varnom.setBorder(null);
+        Varnom.setOpaque(false);
         Central2_2_1.add(Varnom);
         Varnom.setBounds(420, 80, 190, 15);
 
         Varape.setEditable(false);
         Varape.setFont(new java.awt.Font("Manjari", 1, 12)); // NOI18N
         Varape.setBorder(null);
+        Varape.setOpaque(false);
         Central2_2_1.add(Varape);
         Varape.setBounds(420, 120, 190, 15);
 
         Varfech.setEditable(false);
         Varfech.setFont(new java.awt.Font("Manjari", 1, 12)); // NOI18N
         Varfech.setBorder(null);
+        Varfech.setOpaque(false);
         Central2_2_1.add(Varfech);
         Varfech.setBounds(420, 160, 190, 15);
 
         Varmail.setEditable(false);
         Varmail.setFont(new java.awt.Font("Manjari", 1, 12)); // NOI18N
         Varmail.setBorder(null);
+        Varmail.setOpaque(false);
         Central2_2_1.add(Varmail);
         Varmail.setBounds(420, 200, 190, 15);
 
@@ -1278,8 +1285,9 @@ public class MenuInicio extends javax.swing.JFrame {
         Imagen.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153), 2));
         Imagen.setMaximumSize(new java.awt.Dimension(160, 160));
         Imagen.setMinimumSize(new java.awt.Dimension(160, 160));
+        Imagen.setPreferredSize(new java.awt.Dimension(160, 160));
         Central2_2_1.add(Imagen);
-        Imagen.setBounds(80, 40, 150, 140);
+        Imagen.setBounds(80, 40, 160, 160);
 
         jSeparator17.setBackground(new java.awt.Color(153, 153, 153));
         jSeparator17.setForeground(new java.awt.Color(153, 153, 153));
@@ -1448,28 +1456,36 @@ public class MenuInicio extends javax.swing.JFrame {
     private void RegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarActionPerformed
        String nickname = CampoNickname.getText();
        String contraseña = CampoContraseña.getText();
-       String nombre = CampoNombre.getText();
-       String apellido = CampoApellido.getText();
+       String nombreText = CampoNombre.getText();
+       String apellidoText = CampoApellido.getText();
        String correo = CampoCorreo.getText();
        Boolean privado = CheckboxPrivado.getState();
-       Date fecha = DateChoose.getDate();
+       Date fechaText = DateChoose.getDate();
        String nombreCanal = CampoCanal.getText();
        String descripcion = CampoDescripcion.getText();
        if(nombreCanal.isBlank())
          nombreCanal = nickname;
-       if(nickname.isBlank() || contraseña.isBlank() || nombre.isBlank() || apellido.isBlank() || correo.isBlank() || fecha.toString().isBlank() || descripcion.isBlank()){
+       if(nickname.isBlank() || contraseña.isBlank() || nombreText.isBlank() || apellidoText.isBlank() || correo.isBlank() || fechaText.toString().isBlank() || descripcion.isBlank()){
             VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled);
             error.CambioTexto("Debes llenar todos los campos obligatorios");
             error.setVisible(true);
        }
        else{
-        rutaImagen = "/imagenesUsuarios/" + CampoNickname.getText() + ".png";
+        if(imagen==null)
+            rutaImagen = "/imagenesUsuarios/Defecto.png";
+        else
+            rutaImagen = "/imagenesUsuarios/" + CampoNickname.getText() + ".png";
+        
         DtCanal addCanal = new DtCanal(nombreCanal, descripcion, privado);
         DtUsuario addUser;
        
          try {
-             addUser = new DtUsuario(nickname,contraseña,nombre,apellido,correo,fecha,rutaImagen);
+             addUser = new DtUsuario(nickname,contraseña,nombreText,apellidoText,correo,fechaText,rutaImagen);
              u.registrarUsuario(addUser, addCanal, imagen);
+             VentanaEmergente mensaje = new VentanaEmergente(this, rootPaneCheckingEnabled);
+             mensaje.CambioTexto("El usuario ha sido registrado con exito");
+             mensaje.setVisible(true);
+             
          } catch (UsuarioRepetidoException ex) {
              VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled);
              error.CambioTexto("El nickname o email ya existe");
@@ -1552,6 +1568,7 @@ public class MenuInicio extends javax.swing.JFrame {
                this.Varape.setText(user.getApellido());
                this.Varfech.setText(user.getFechaNac().toString());
                this.Varmail.setText(user.getEmail());
+               this.Imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource(user.getImagen())));
             }
         }                        
         
