@@ -1451,35 +1451,40 @@ public class MenuInicio extends javax.swing.JFrame {
        Date fechaText = DateChoose.getDate();
        String nombreCanal = CampoCanal.getText();
        String descripcion = CampoDescripcion.getText();
-       if(nombreCanal.isBlank())
-         nombreCanal = nickname;
-       if(nickname.isBlank() || contraseña.isBlank() || nombreText.isBlank() || apellidoText.isBlank() || correo.isBlank() || fechaText.toString().isBlank() || descripcion.isBlank()){
-            VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled);
-            error.CambioTexto("Debes llenar todos los campos obligatorios");
-            error.setVisible(true);
-       }
-       else{
-        if(imagen==null)
-            rutaImagen = "/imagenesUsuarios/Defecto.png";
-        else
-            rutaImagen = "/imagenesUsuarios/" + CampoNickname.getText() + ".png";
-        
-        DtCanal addCanal = new DtCanal(nombreCanal, descripcion, privado);
-        DtUsuario addUser;
-       
-         try {
-             addUser = new DtUsuario(nickname,contraseña,nombreText,apellidoText,correo,fechaText,rutaImagen);
-             u.registrarUsuario(addUser, addCanal, imagen);
-             VentanaEmergente mensaje = new VentanaEmergente(this, rootPaneCheckingEnabled);
-             mensaje.CambioTexto("El usuario ha sido registrado con exito");
+       VentanaEmergente mensaje = new VentanaEmergente(this, rootPaneCheckingEnabled);
+       if(!nickname.equals("Ingrese Nickname") || !contraseña.equals("*********") || !nombreText.equals("Ingrese Nombre") || !apellidoText.equals("Ingrese Apellido") || !correo.equals("Ingrese Correo")){
+        if(nombreCanal.isBlank())
+          nombreCanal = nickname;
+        if(nickname.isBlank() || contraseña.isBlank() || nombreText.isBlank() || apellidoText.isBlank() || correo.isBlank() || fechaText.toString().isBlank() || descripcion.isBlank()){
+             mensaje.CambioTexto("Debes llenar todos los campos obligatorios");
              mensaje.setVisible(true);
-             resetRegistro();
-             
-         } catch (UsuarioRepetidoException ex) {
-             VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled);
-             error.CambioTexto("El nickname o email ya existe");
-             error.setVisible(true);
-         }
+        }
+        else{
+         if(imagen==null)
+             rutaImagen = "/imagenesUsuarios/Defecto.png";
+         else
+             rutaImagen = "/imagenesUsuarios/" + CampoNickname.getText() + ".png";
+
+         DtCanal addCanal = new DtCanal(nombreCanal, descripcion, privado);
+         DtUsuario addUser;
+
+          try {
+              addUser = new DtUsuario(nickname,contraseña,nombreText,apellidoText,correo,fechaText,rutaImagen);
+              u.registrarUsuario(addUser, addCanal, imagen);
+              mensaje.CambioTexto("El usuario ha sido registrado con exito");
+              mensaje.setVisible(true);
+              resetRegistro();
+
+          } catch (UsuarioRepetidoException ex) {
+              mensaje.CambioTexto("El nickname o email ya existe");
+              mensaje.setVisible(true);
+          }
+        }
+      }
+      else{
+        VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled);
+        mensaje.CambioTexto("Debes llenar todos los campos obligatorios");
+        mensaje.setVisible(true);
        }
     }//GEN-LAST:event_RegistrarActionPerformed
 
