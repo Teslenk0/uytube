@@ -1554,13 +1554,19 @@ public class MenuInicio extends javax.swing.JFrame {
         Panel_Central.repaint();
         List lista = u.listaUsuarios();
         DtUsuario user;
+        String fechaN;
+        Integer num;
         for(int x=0; x<=lista.size()-1; x++){
             user = (DtUsuario) lista.get(x);
             if(Item.equals(user.getNickname())){
                this.Varnick.setText(Item);
                this.Varnom.setText(user.getNombre());
                this.Varape.setText(user.getApellido());
-               this.Varfech.setText(user.getFechaNac().toString());
+               fechaN = user.getFechaNac().toString();
+               fechaN = fechaN.substring(0, 10);
+               num = Integer.parseInt(fechaN.substring(9,10)) + 1;
+               fechaN = fechaN.substring(0, 9) + num.toString();
+               this.Varfech.setText(fechaN);
                this.Varmail.setText(user.getEmail());
                this.Imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource(user.getImagen())));
             }
