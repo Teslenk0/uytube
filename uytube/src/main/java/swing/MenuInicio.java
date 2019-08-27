@@ -1564,8 +1564,8 @@ public class MenuInicio extends javax.swing.JFrame {
                this.Varape.setText(user.getApellido());
                fechaN = user.getFechaNac().toString();
                fechaN = fechaN.substring(0, 10);
-               num = Integer.parseInt(fechaN.substring(9,10)) + 1;
-               fechaN = fechaN.substring(0, 9) + num.toString();
+               num = Integer.parseInt(fechaN.substring(8,10)) + 1;
+               fechaN = fechaN.substring(0, 8) + num.toString();
                this.Varfech.setText(fechaN);
                this.Varmail.setText(user.getEmail());
                this.Imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource(user.getImagen())));
