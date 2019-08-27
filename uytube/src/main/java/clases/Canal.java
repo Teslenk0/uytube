@@ -9,6 +9,11 @@ package clases;
 import java.io.Serializable;
 import java.util.Set;
 import java.util.TreeSet;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 
 
@@ -16,17 +21,25 @@ import java.util.TreeSet;
  *
  * @author esteban
  */
+//@Entity
+//@Table(name = "canal_usuario")
 public class Canal implements Serializable {
     
    protected static final long serialVersionUID = 1L;
    
+    
+    //@OneToOne
+    //@Id
     protected Usuario user;
     
+    @Column(name = "descripcion")
     protected String descripcion;
     
     protected Set<Video> videos;
     
     protected Set<ListaReproduccion> listas;
+    
+    
     
 
     public Canal(Usuario user, String descripcion, Set<Video> videos, Set<ListaReproduccion> listas) {
@@ -34,13 +47,6 @@ public class Canal implements Serializable {
         this.descripcion = descripcion;
         this.videos = videos;
         this.listas = listas;
-    }
-
-    public Canal(Usuario user, String descripcion) {
-        this.user = user;
-        this.descripcion = descripcion;
-        this.videos = new TreeSet<Video>();
-       // this.listas = new TreeSet<ListaReproduccion()>; // no estoy seguro de que las listas sean Set?
     }
 
     public Set<Video> getVideos() {

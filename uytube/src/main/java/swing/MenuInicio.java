@@ -175,12 +175,12 @@ public class MenuInicio extends javax.swing.JFrame {
         Varape = new javax.swing.JTextField();
         Varfech = new javax.swing.JTextField();
         Varmail = new javax.swing.JTextField();
-        BackButton4 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator13 = new javax.swing.JSeparator();
         jSeparator14 = new javax.swing.JSeparator();
         jSeparator15 = new javax.swing.JSeparator();
         jSeparator16 = new javax.swing.JSeparator();
+        jSeparator17 = new javax.swing.JSeparator();
         Central2_4 = new javax.swing.JPanel();
         comboLista = new javax.swing.JComboBox<>();
         BackButton2 = new javax.swing.JButton();
@@ -1108,34 +1108,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout Central2_2Layout = new javax.swing.GroupLayout(Central2_2);
-        Central2_2.setLayout(Central2_2Layout);
-        Central2_2Layout.setHorizontalGroup(
-            Central2_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Central2_2Layout.createSequentialGroup()
-                .addComponent(BackButton3)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(Central2_2Layout.createSequentialGroup()
-                .addGap(75, 75, 75)
-                .addComponent(comboConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 456, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(SeleccionarUsuario)
-                .addContainerGap(68, Short.MAX_VALUE))
-        );
-        Central2_2Layout.setVerticalGroup(
-            Central2_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Central2_2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(BackButton3)
-                .addGap(66, 66, 66)
-                .addGroup(Central2_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(comboConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SeleccionarUsuario))
-                .addContainerGap(392, Short.MAX_VALUE))
-        );
-
-        Panel_Central.add(Central2_2);
-        Central2_2.setBounds(0, 0, 720, 550);
+        Central2_2_1.setPreferredSize(new java.awt.Dimension(350, 550));
 
         nombre.setText("Nombre");
 
@@ -1162,17 +1135,6 @@ public class MenuInicio extends javax.swing.JFrame {
         Varmail.setEditable(false);
         Varmail.setBorder(null);
 
-        BackButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back.png"))); // NOI18N
-        BackButton4.setBorder(null);
-        BackButton4.setBorderPainted(false);
-        BackButton4.setContentAreaFilled(false);
-        BackButton4.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back2.png"))); // NOI18N
-        BackButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BackButton4ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout Central2_2_1Layout = new javax.swing.GroupLayout(Central2_2_1);
         Central2_2_1.setLayout(Central2_2_1Layout);
         Central2_2_1Layout.setHorizontalGroup(
@@ -1187,7 +1149,7 @@ public class MenuInicio extends javax.swing.JFrame {
                             .addComponent(jSeparator1)
                             .addGroup(Central2_2_1Layout.createSequentialGroup()
                                 .addComponent(nick)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
                                 .addComponent(Varnick, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(160, 160, 160))
                     .addGroup(Central2_2_1Layout.createSequentialGroup()
@@ -1208,16 +1170,14 @@ public class MenuInicio extends javax.swing.JFrame {
                                     .addComponent(Varfech)
                                     .addComponent(Varmail, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE))))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(Central2_2_1Layout.createSequentialGroup()
-                .addComponent(BackButton4)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jSeparator17, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         Central2_2_1Layout.setVerticalGroup(
             Central2_2_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Central2_2_1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(BackButton4)
-                .addGap(14, 14, 14)
+                .addComponent(jSeparator17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(81, 81, 81)
                 .addGroup(Central2_2_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Central2_2_1Layout.createSequentialGroup()
                         .addGroup(Central2_2_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1248,11 +1208,45 @@ public class MenuInicio extends javax.swing.JFrame {
                             .addComponent(Varmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(mail)))
                     .addComponent(jSeparator16, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(220, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
-        Panel_Central.add(Central2_2_1);
-        Central2_2_1.setBounds(0, 0, 720, 550);
+        javax.swing.GroupLayout Central2_2Layout = new javax.swing.GroupLayout(Central2_2);
+        Central2_2.setLayout(Central2_2Layout);
+        Central2_2Layout.setHorizontalGroup(
+            Central2_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Central2_2Layout.createSequentialGroup()
+                .addComponent(BackButton3)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(Central2_2Layout.createSequentialGroup()
+                .addGap(75, 75, 75)
+                .addComponent(comboConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 456, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(SeleccionarUsuario)
+                .addContainerGap(80, Short.MAX_VALUE))
+            .addGroup(Central2_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(Central2_2Layout.createSequentialGroup()
+                    .addComponent(Central2_2_1, javax.swing.GroupLayout.PREFERRED_SIZE, 732, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        Central2_2Layout.setVerticalGroup(
+            Central2_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Central2_2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(BackButton3)
+                .addGap(66, 66, 66)
+                .addGroup(Central2_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(comboConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SeleccionarUsuario))
+                .addContainerGap(392, Short.MAX_VALUE))
+            .addGroup(Central2_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Central2_2Layout.createSequentialGroup()
+                    .addGap(0, 164, Short.MAX_VALUE)
+                    .addComponent(Central2_2_1, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+
+        Panel_Central.add(Central2_2);
+        Central2_2.setBounds(0, 0, 720, 550);
 
         comboLista.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1546,10 +1540,10 @@ public class MenuInicio extends javax.swing.JFrame {
 
     private void SeleccionarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeleccionarUsuarioActionPerformed
         Item = comboConsulta.getSelectedItem().toString();
-        Panel_Central.removeAll();
+        //Panel_Central.removeAll();
         Panel_Central.add(Central2_2_1);
-        Panel_Central.revalidate();
-        Panel_Central.repaint();
+        //Panel_Central.revalidate();
+        //Panel_Central.repaint();
         List lista = u.listaUsuarios();
         DtUsuario user;
         for(int x=0; x<=lista.size()-1; x++){
@@ -1564,13 +1558,6 @@ public class MenuInicio extends javax.swing.JFrame {
         }                        
         
     }//GEN-LAST:event_SeleccionarUsuarioActionPerformed
-
-    private void BackButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButton4ActionPerformed
-        Panel_Central.removeAll();
-        Panel_Central.add(Central2_2);
-        Panel_Central.revalidate();
-        Panel_Central.repaint();
-    }//GEN-LAST:event_BackButton4ActionPerformed
 
     
     private void setColor(JPanel pane)
@@ -1609,7 +1596,6 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JButton BackButton;
     private javax.swing.JButton BackButton2;
     private javax.swing.JButton BackButton3;
-    private javax.swing.JButton BackButton4;
     private javax.swing.JPanel Barra_Superior;
     private javax.swing.JTextField CampoApellido;
     private javax.swing.JTextField CampoCanal;
@@ -1704,6 +1690,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator14;
     private javax.swing.JSeparator jSeparator15;
     private javax.swing.JSeparator jSeparator16;
+    private javax.swing.JSeparator jSeparator17;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
