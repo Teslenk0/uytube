@@ -2099,35 +2099,60 @@
                 <Property name="text" type="java.lang.String" value="Fecha de nacimiento"/>
               </Properties>
             </Component>
+            <Component class="javax.swing.JTextField" name="Varnick">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="null"/>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="Varnick.setEditable(false);"/>
+              </AuxValues>
+            </Component>
             <Component class="javax.swing.JLabel" name="mail">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Correo electronico"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="Varnick">
-              <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JTextField" name="Varnom">
               <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="null"/>
+                </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="Varnom.setEditable(false);"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JTextField" name="Varape">
               <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="null"/>
+                </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="Varape.setEditable(false);"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JTextField" name="Varfech">
               <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="null"/>
+                </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="Varfech.setEditable(false);"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JTextField" name="Varmail">
               <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="null"/>
+                </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="Varmail.setEditable(false);"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JButton" name="BackButton4">
               <Properties>

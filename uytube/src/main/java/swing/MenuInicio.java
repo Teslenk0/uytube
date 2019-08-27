@@ -172,8 +172,8 @@ public class MenuInicio extends javax.swing.JFrame {
         apellido = new javax.swing.JLabel();
         nick = new javax.swing.JLabel();
         fecha = new javax.swing.JLabel();
-        mail = new javax.swing.JLabel();
         Varnick = new javax.swing.JTextField();
+        mail = new javax.swing.JLabel();
         Varnom = new javax.swing.JTextField();
         Varape = new javax.swing.JTextField();
         Varfech = new javax.swing.JTextField();
@@ -586,7 +586,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2.add(AgregarUsuario);
-        AgregarUsuario.setBounds(90, 40, 223, 225);
+        AgregarUsuario.setBounds(90, 40, 221, 223);
         AgregarUsuario.getAccessibleContext().setAccessibleName("AgregarUsuario");
 
         ModificarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ModificarUser.png"))); // NOI18N
@@ -599,7 +599,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2.add(ModificarUsuario);
-        ModificarUsuario.setBounds(90, 290, 223, 225);
+        ModificarUsuario.setBounds(90, 290, 221, 223);
 
         ListarUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Listar.png"))); // NOI18N
         ListarUsuarios.setBorderPainted(false);
@@ -611,7 +611,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2.add(ListarUsuarios);
-        ListarUsuarios.setBounds(390, 290, 223, 225);
+        ListarUsuarios.setBounds(390, 290, 221, 223);
 
         ConsultarUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ConsultarUser.png"))); // NOI18N
         ConsultarUsuarios.setBorderPainted(false);
@@ -623,7 +623,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2.add(ConsultarUsuarios);
-        ConsultarUsuarios.setBounds(390, 40, 223, 225);
+        ConsultarUsuarios.setBounds(390, 40, 221, 223);
 
         Panel_Central.add(Central2);
         Central2.setBounds(0, 0, 720, 550);
@@ -996,7 +996,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2_1.add(AgregarFoto);
-        AgregarFoto.setBounds(340, 420, 40, 39);
+        AgregarFoto.setBounds(340, 420, 40, 37);
 
         Registrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_regist_2.png"))); // NOI18N
         Registrar.setBorderPainted(false);
@@ -1154,17 +1154,22 @@ public class MenuInicio extends javax.swing.JFrame {
 
         fecha.setText("Fecha de nacimiento");
 
+        Varnick.setEditable(false);
+        Varnick.setBorder(null);
+
         mail.setText("Correo electronico");
 
-        Varnick.setEnabled(false);
+        Varnom.setEditable(false);
+        Varnom.setBorder(null);
 
-        Varnom.setEnabled(false);
+        Varape.setEditable(false);
+        Varape.setBorder(null);
 
-        Varape.setEnabled(false);
+        Varfech.setEditable(false);
+        Varfech.setBorder(null);
 
-        Varfech.setEnabled(false);
-
-        Varmail.setEnabled(false);
+        Varmail.setEditable(false);
+        Varmail.setBorder(null);
 
         BackButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back.png"))); // NOI18N
         BackButton4.setBorder(null);
