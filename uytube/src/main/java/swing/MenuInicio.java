@@ -31,7 +31,7 @@ public class MenuInicio extends javax.swing.JFrame {
     /**
      * Creates new form Home
      */
-    
+    String Item;
     Fabrica fabrica = Fabrica.getInstance();
     IControladorUsuario u = fabrica.getControladorUsuario();
     
@@ -163,6 +163,27 @@ public class MenuInicio extends javax.swing.JFrame {
         jSeparator12 = new javax.swing.JSeparator();
         ScroolDescripcion = new javax.swing.JScrollPane();
         CampoDescripcion = new javax.swing.JTextArea();
+        Central2_2 = new javax.swing.JPanel();
+        comboConsulta = new javax.swing.JComboBox<>();
+        BackButton3 = new javax.swing.JButton();
+        SeleccionarUsuario = new javax.swing.JButton();
+        Central2_2_1 = new javax.swing.JPanel();
+        nombre = new javax.swing.JLabel();
+        apellido = new javax.swing.JLabel();
+        nick = new javax.swing.JLabel();
+        fecha = new javax.swing.JLabel();
+        mail = new javax.swing.JLabel();
+        Varnick = new javax.swing.JTextField();
+        Varnom = new javax.swing.JTextField();
+        Varape = new javax.swing.JTextField();
+        Varfech = new javax.swing.JTextField();
+        Varmail = new javax.swing.JTextField();
+        BackButton4 = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator13 = new javax.swing.JSeparator();
+        jSeparator14 = new javax.swing.JSeparator();
+        jSeparator15 = new javax.swing.JSeparator();
+        jSeparator16 = new javax.swing.JSeparator();
         Central2_4 = new javax.swing.JPanel();
         comboLista = new javax.swing.JComboBox<>();
         BackButton2 = new javax.swing.JButton();
@@ -1072,6 +1093,171 @@ public class MenuInicio extends javax.swing.JFrame {
         Panel_Central.add(Central2_1);
         Central2_1.setBounds(0, 0, 720, 550);
 
+        comboConsulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboConsultaActionPerformed(evt);
+            }
+        });
+
+        BackButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back.png"))); // NOI18N
+        BackButton3.setBorder(null);
+        BackButton3.setBorderPainted(false);
+        BackButton3.setContentAreaFilled(false);
+        BackButton3.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back2.png"))); // NOI18N
+        BackButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackButton3ActionPerformed(evt);
+            }
+        });
+
+        SeleccionarUsuario.setText("Seleccionar");
+        SeleccionarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SeleccionarUsuarioActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Central2_2Layout = new javax.swing.GroupLayout(Central2_2);
+        Central2_2.setLayout(Central2_2Layout);
+        Central2_2Layout.setHorizontalGroup(
+            Central2_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Central2_2Layout.createSequentialGroup()
+                .addComponent(BackButton3)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(Central2_2Layout.createSequentialGroup()
+                .addGap(75, 75, 75)
+                .addComponent(comboConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 456, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(SeleccionarUsuario)
+                .addContainerGap(68, Short.MAX_VALUE))
+        );
+        Central2_2Layout.setVerticalGroup(
+            Central2_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Central2_2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(BackButton3)
+                .addGap(66, 66, 66)
+                .addGroup(Central2_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(comboConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SeleccionarUsuario))
+                .addContainerGap(392, Short.MAX_VALUE))
+        );
+
+        Panel_Central.add(Central2_2);
+        Central2_2.setBounds(0, 0, 720, 550);
+
+        nombre.setText("Nombre");
+
+        apellido.setText("Apellido");
+
+        nick.setText("Nickname");
+
+        fecha.setText("Fecha de nacimiento");
+
+        mail.setText("Correo electronico");
+
+        Varnick.setEnabled(false);
+
+        Varnom.setEnabled(false);
+
+        Varape.setEnabled(false);
+
+        Varfech.setEnabled(false);
+
+        Varmail.setEnabled(false);
+
+        BackButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back.png"))); // NOI18N
+        BackButton4.setBorder(null);
+        BackButton4.setBorderPainted(false);
+        BackButton4.setContentAreaFilled(false);
+        BackButton4.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back2.png"))); // NOI18N
+        BackButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackButton4ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Central2_2_1Layout = new javax.swing.GroupLayout(Central2_2_1);
+        Central2_2_1.setLayout(Central2_2_1Layout);
+        Central2_2_1Layout.setHorizontalGroup(
+            Central2_2_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Central2_2_1Layout.createSequentialGroup()
+                .addGap(196, 196, 196)
+                .addComponent(jSeparator16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(Central2_2_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Central2_2_1Layout.createSequentialGroup()
+                        .addGroup(Central2_2_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jSeparator1)
+                            .addGroup(Central2_2_1Layout.createSequentialGroup()
+                                .addComponent(nick)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
+                                .addComponent(Varnick, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(160, 160, 160))
+                    .addGroup(Central2_2_1Layout.createSequentialGroup()
+                        .addGroup(Central2_2_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jSeparator15, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSeparator14, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSeparator13, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(Central2_2_1Layout.createSequentialGroup()
+                                .addGroup(Central2_2_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(apellido)
+                                    .addComponent(fecha)
+                                    .addComponent(mail)
+                                    .addComponent(nombre))
+                                .addGap(36, 36, 36)
+                                .addGroup(Central2_2_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(Varnom)
+                                    .addComponent(Varape)
+                                    .addComponent(Varfech)
+                                    .addComponent(Varmail, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(Central2_2_1Layout.createSequentialGroup()
+                .addComponent(BackButton4)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        Central2_2_1Layout.setVerticalGroup(
+            Central2_2_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Central2_2_1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(BackButton4)
+                .addGap(14, 14, 14)
+                .addGroup(Central2_2_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Central2_2_1Layout.createSequentialGroup()
+                        .addGroup(Central2_2_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(nick)
+                            .addComponent(Varnick, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(Central2_2_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(nombre)
+                            .addComponent(Varnom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator13, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(Central2_2_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(apellido)
+                            .addComponent(Varape, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator14, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(5, 5, 5)
+                        .addGroup(Central2_2_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(fecha)
+                            .addComponent(Varfech, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator15, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(3, 3, 3)
+                        .addGroup(Central2_2_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Varmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(mail)))
+                    .addComponent(jSeparator16, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(220, Short.MAX_VALUE))
+        );
+
+        Panel_Central.add(Central2_2_1);
+        Central2_2_1.setBounds(0, 0, 720, 550);
+
         comboLista.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboListaActionPerformed(evt);
@@ -1241,7 +1427,7 @@ public class MenuInicio extends javax.swing.JFrame {
         Panel_Central.repaint();
         List lista = u.listaUsuarios();
         Usuario user;
-        for(int x=0; x<=lista.size(); x++){
+        for(int x=0; x<=lista.size()-1; x++){
            if(lista.get(x) != null){
                user = (Usuario) lista.get(x);
                comboLista.addItem(user.getNickname());
@@ -1250,7 +1436,18 @@ public class MenuInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_ListarUsuariosActionPerformed
 
     private void ConsultarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarUsuariosActionPerformed
-        // TODO add your handling code here:
+        Panel_Central.removeAll();
+        Panel_Central.add(Central2_2);
+        Panel_Central.revalidate();
+        Panel_Central.repaint();
+        List lista = u.listaUsuarios();
+        Usuario user;
+        for(int x=0; x<=lista.size()-1; x++){
+           if(lista.get(x) != null){
+               user = (Usuario) lista.get(x);
+               comboConsulta.addItem(user.getNickname());
+            }
+        }
     }//GEN-LAST:event_ConsultarUsuariosActionPerformed
 
     private void RegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarActionPerformed
@@ -1337,6 +1534,46 @@ public class MenuInicio extends javax.swing.JFrame {
         comboLista.removeAllItems();
     }//GEN-LAST:event_BackButton2ActionPerformed
 
+    private void comboConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboConsultaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboConsultaActionPerformed
+
+    private void BackButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButton3ActionPerformed
+        Panel_Central.removeAll();
+        Panel_Central.add(Central2);
+        Panel_Central.revalidate();
+        Panel_Central.repaint();
+        comboLista.removeAllItems();
+    }//GEN-LAST:event_BackButton3ActionPerformed
+
+    private void SeleccionarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeleccionarUsuarioActionPerformed
+        Item = comboConsulta.getSelectedItem().toString();
+        Panel_Central.removeAll();
+        Panel_Central.add(Central2_2_1);
+        Panel_Central.revalidate();
+        Panel_Central.repaint();
+        List lista = u.listaUsuarios();
+        Usuario user;
+        for(int x=0; x<=lista.size()-1; x++){
+            user = (Usuario) lista.get(x);
+            if(Item.equals(user.getNickname())){
+               this.Varnick.setText(Item);
+               this.Varnom.setText(user.getNombre());
+               this.Varape.setText(user.getApellido());
+               this.Varfech.setText(user.getFechaNac().toString());
+               this.Varmail.setText(user.getEmail());
+            }
+        }                        
+        
+    }//GEN-LAST:event_SeleccionarUsuarioActionPerformed
+
+    private void BackButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButton4ActionPerformed
+        Panel_Central.removeAll();
+        Panel_Central.add(Central2_2);
+        Panel_Central.revalidate();
+        Panel_Central.repaint();
+    }//GEN-LAST:event_BackButton4ActionPerformed
+
     
     private void setColor(JPanel pane)
     {
@@ -1374,6 +1611,8 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JLabel Apellido;
     private javax.swing.JButton BackButton;
     private javax.swing.JButton BackButton2;
+    private javax.swing.JButton BackButton3;
+    private javax.swing.JButton BackButton4;
     private javax.swing.JPanel Barra_Superior;
     private javax.swing.JTextField CampoApellido;
     private javax.swing.JTextField CampoCanal;
@@ -1387,6 +1626,8 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JPanel Central1;
     private javax.swing.JPanel Central2;
     private javax.swing.JPanel Central2_1;
+    private javax.swing.JPanel Central2_2;
+    private javax.swing.JPanel Central2_2_1;
     private javax.swing.JPanel Central2_4;
     private javax.swing.JPanel Central3;
     private javax.swing.JPanel Central4;
@@ -1413,8 +1654,14 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JButton Registrar;
     private javax.swing.JScrollPane Scroll4;
     private javax.swing.JScrollPane ScroolDescripcion;
+    private javax.swing.JButton SeleccionarUsuario;
     private javax.swing.JLabel Usuario;
     private javax.swing.JLabel UsuarioBarra;
+    private javax.swing.JTextField Varape;
+    private javax.swing.JTextField Varfech;
+    private javax.swing.JTextField Varmail;
+    private javax.swing.JTextField Varnick;
+    private javax.swing.JTextField Varnom;
     private javax.swing.JButton agrVid_Button;
     private javax.swing.JLabel agregarCat;
     private javax.swing.JButton agregarCat_Button;
@@ -1422,6 +1669,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JLabel agregarVid3;
     private javax.swing.JLabel agregarVideo;
     private javax.swing.JButton agregarVideo_Button;
+    private javax.swing.JLabel apellido;
     private javax.swing.JPanel btn_Categorias;
     private javax.swing.JPanel btn_CerrarSesion;
     private javax.swing.JPanel btn_Inicio;
@@ -1429,6 +1677,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JPanel btn_Usuario;
     private javax.swing.JPanel btn_Video;
     private javax.swing.JButton cerrar;
+    private javax.swing.JComboBox<String> comboConsulta;
     private javax.swing.JComboBox<String> comboLista;
     private javax.swing.JButton consVid_Button;
     private javax.swing.JLabel consultaCat;
@@ -1438,6 +1687,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JLabel consultaVid;
     private javax.swing.JLabel crearPlaylist;
     private javax.swing.JButton crearPlaylist_Button;
+    private javax.swing.JLabel fecha;
     private javax.swing.JLabel fondo;
     private javax.swing.JPanel ind_1;
     private javax.swing.JPanel ind_2;
@@ -1450,9 +1700,14 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
     private javax.swing.JSeparator jSeparator12;
+    private javax.swing.JSeparator jSeparator13;
+    private javax.swing.JSeparator jSeparator14;
+    private javax.swing.JSeparator jSeparator15;
+    private javax.swing.JSeparator jSeparator16;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
@@ -1463,11 +1718,14 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JLabel listarCat;
     private javax.swing.JButton listarCat_Button;
+    private javax.swing.JLabel mail;
     private javax.swing.JButton minimizar;
     private javax.swing.JButton modVid_Button;
     private javax.swing.JLabel modificarPlaylist;
     private javax.swing.JButton modificarPlaylist_Button;
     private javax.swing.JLabel modificarVid;
+    private javax.swing.JLabel nick;
+    private javax.swing.JLabel nombre;
     private javax.swing.JLabel quitarVideo;
     private javax.swing.JButton quitarVideo_Button;
     // End of variables declaration//GEN-END:variables
