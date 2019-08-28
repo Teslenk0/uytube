@@ -1553,13 +1553,10 @@ public class MenuInicio extends javax.swing.JFrame {
         Panel_Central.add(Central2);
         Panel_Central.revalidate();
         Panel_Central.repaint();
+        Central2_2_Panel.removeAll();
+        Central2_2_Panel.revalidate();
+        Central2_2_Panel.repaint();
         comboConsulta.removeAllItems();
-        this.Varnick.setText("");
-        this.Varnom.setText("");
-        this.Varape.setText("");
-        this.Varfech.setText("");
-        this.Varmail.setText("");
-        this.Imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("")));
     }//GEN-LAST:event_BackButton3ActionPerformed
 
     private void SeleccionarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeleccionarUsuarioActionPerformed

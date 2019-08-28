@@ -30,18 +30,29 @@ public class Canal implements Serializable {
     
     //@OneToOne
     //@Id
+    //@Column(name = "user")
     protected Usuario user;
     
-    @Column(name = "descripcion")
+    //@Column(name = "descripcion")
     protected String descripcion;
+    
+    //@Column(name = "isPrivate")
+    //protected Boolean esPrivado;
     
     protected Set<Video> videos;
     
     protected Set<ListaReproduccion> listas;
-    
-    
-    
 
+    public Canal() {
+    }
+    
+    /**
+     *
+     * @param user
+     * @param descripcion
+     * @param videos
+     * @param listas
+     */
     public Canal(Usuario user, String descripcion, Set<Video> videos, Set<ListaReproduccion> listas) {
         this.user = user;
         this.descripcion = descripcion;
@@ -49,13 +60,13 @@ public class Canal implements Serializable {
         this.listas = listas;
     }
 
-    public Set<Video> getVideos() {
+    /*public Set<Video> getVideos() {
         return videos;
     }
 
     public void setVideos(Set<Video> videos) {
         this.videos = videos;
-    }
+    }*/
 
     
     public Usuario getUser() {
