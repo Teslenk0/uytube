@@ -12,11 +12,6 @@ import clases.*;
 import DataTypes.*;
 import java.util.List;
 import javax.persistence.NoResultException;
-import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
 import javax.persistence.TypedQuery;
 
 /**
@@ -45,12 +40,9 @@ public class ManejadorInformacion{
     }
    
     public void registrarUser(Usuario u) {
-
         manager = emf.createEntityManager();
-
-        Usuario aux = new Usuario(u.getNickname(), u.getContraseña(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen());
         manager.getTransaction().begin();
-        manager.persist(aux);
+        manager.persist(u);
         manager.getTransaction().commit();
         manager.close();
 

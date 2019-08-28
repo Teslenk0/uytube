@@ -18,35 +18,39 @@ import javax.persistence.*;
 @Table(name = "usuario")
 public class Usuario implements Serializable{
     
-    protected static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
     
     @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "nickname")
-    protected String nickname;
+    private String nickname;
     
     @Column(name = "contraseña")
-    protected String contraseña;
+    private String contraseña;
     
     @Column(name = "nombre")
-    protected String nombre;
+    private String nombre;
     
     @Column(name = "apellido")
-    protected String apellido;
+    private String apellido;
     
     @Column(name = "email",unique = true)
-    protected String email;
+    private String email;
     
     @Column(name = "fechaNac")
-    protected Date fechaNac;
+    private Date fechaNac;
     
     @Column(name = "imagen")
-    protected String imagen;
+    private String imagen;
+    
+    @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL,
+              fetch = FetchType.LAZY, optional = false)
+    private Canal canal;
     
     public Usuario(){
-    
     }
 
-    public Usuario(String nickname, String contraseña, String nombre, String apellido, String email, Date fechaNac, String imagen) {
+    public Usuario(String nickname, String contraseña, String nombre, String apellido, String email, Date fechaNac, String imagen, Canal canal) {
         this.nickname = nickname;
         this.contraseña = contraseña;
         this.nombre = nombre;
@@ -54,6 +58,7 @@ public class Usuario implements Serializable{
         this.email = email;
         this.fechaNac = fechaNac;
         this.imagen = imagen;
+        this.canal = canal;
     }
 
     public String getContraseña() {
@@ -112,11 +117,16 @@ public class Usuario implements Serializable{
         this.imagen = imagen;
     }
 
+    public Canal getCanal() {
+        return canal;
+    }
+
+    public void setCanal(Canal canal) {
+        this.canal = canal;
+    }
+
     @Override
     public String toString() {
-        return "Usuario{" + "nickname=" + nickname + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email + ", fechaNac=" + fechaNac + ", imagen=" + imagen + '}';
+        return "Usuario{" + "nickname=" + nickname + ", contrase\u00f1a=" + contraseña + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email + ", fechaNac=" + fechaNac + ", imagen=" + imagen + ", canal=" + canal + '}';
     }
-    
- 
-    
 }

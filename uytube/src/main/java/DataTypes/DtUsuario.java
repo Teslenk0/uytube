@@ -15,21 +15,21 @@ import java.util.Date;
  */
 public class DtUsuario implements Serializable {
     
-    protected static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
     
-    protected String nickname;
+    private final String nickname;
     
-    protected String contraseña;
+    private final String contraseña;
     
-    protected String nombre;
+    private final String nombre;
     
-    protected String apellido;
+    private final String apellido;
     
-    protected String email;
+    private final String email;
     
-    protected Date fechaNac;
+    private final Date fechaNac;
     
-    protected String imagen;
+    private final String imagen;
 
     public DtUsuario(String nickname, String contraseña, String nombre, String apellido, String email, Date fechaNac, String imagen) {
         this.nickname = nickname;

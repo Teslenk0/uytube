@@ -17,19 +17,19 @@ public class DtVideo implements Serializable{
         
       private static final long serialVersionUID = 1L; 
      
-      private  String nombre;
+      private final  String nombre;
       
-      private String descripcion;
+      private final String descripcion;
       
-      private int duracion;
+      private final int duracion;
       
-      private Date fechaPublicacion;
+      private final Date fechaPublicacion;
       
-      private String url;
+      private final String url;
       
-      private boolean privado;
+      private final boolean privado;
       
-      private Categoria cat;
+      private final Categoria cat;
 
     public DtVideo(String nombre, String descripcion, int duracion, Date fechaPublicacion, String url, boolean privado, Categoria cat) {
         this.nombre = nombre;

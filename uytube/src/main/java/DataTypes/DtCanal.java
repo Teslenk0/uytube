@@ -5,7 +5,6 @@
  */
 package DataTypes;
 
-import clases.Usuario;
 import java.io.Serializable;
 
 /**
@@ -14,22 +13,29 @@ import java.io.Serializable;
  */
 public class DtCanal implements Serializable {
     
-   protected static final long serialVersionUID = 1L;
+   private static final long serialVersionUID = 1L;
    
-    protected String usuario;
+    private final String nickname;
     
-    protected String descripcion;
+    private final String nombre_canal;
     
-    protected Boolean privado;
+    private final String descripcion;
+    
+    private final Boolean privado;
 
-    public DtCanal(String usuario, String descripcion, Boolean privado) {
-        this.usuario = usuario;
+    public DtCanal(String nickname, String nombre_canal, String descripcion, Boolean privado) {
+        this.nickname = nickname;
+        this.nombre_canal = nombre_canal;
         this.descripcion = descripcion;
         this.privado = privado;
     }
 
-    public String getUsuario() {
-        return usuario;
+    public String getNickname() {
+        return nickname;
+    }
+
+    public String getNombre_canal() {
+        return nombre_canal;
     }
 
     public String getDescripcion() {

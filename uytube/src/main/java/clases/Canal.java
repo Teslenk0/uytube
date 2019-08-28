@@ -8,10 +8,12 @@ package clases;
 
 import java.io.Serializable;
 import java.util.Set;
-import java.util.TreeSet;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -21,43 +23,43 @@ import javax.persistence.Table;
  *
  * @author esteban
  */
-//@Entity
-//@Table(name = "canal_usuario")
+@Entity
+@Table(name = "canal_usuario")
 public class Canal implements Serializable {
     
-   protected static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
    
+    @Id
+    @Column(name = "nickname")
+    private String nickname;
     
-    //@OneToOne
-    //@Id
-    //@Column(name = "user")
-    protected Usuario user;
+    @Column(name = "nombre_canal")
+    private String nombre_canal;
     
-    //@Column(name = "descripcion")
-    protected String descripcion;
+    @Column(name = "descripcion")
+    private String descripcion;
     
-    //@Column(name = "isPrivate")
-    //protected Boolean esPrivado;
+    @Column(name = "isPrivate")
+    private Boolean privado;
     
-    protected Set<Video> videos;
+    @OneToOne(fetch = FetchType.LAZY)
+    @MapsId
+    @JoinColumn(name = "nickname")
+    private Usuario usuario;
     
-    protected Set<ListaReproduccion> listas;
-
+    //private Set<Video> videos;
+    
+    //private Set<ListaReproduccion> listas;
+    
     public Canal() {
     }
     
-    /**
-     *
-     * @param user
-     * @param descripcion
-     * @param videos
-     * @param listas
-     */
-    public Canal(Usuario user, String descripcion, Set<Video> videos, Set<ListaReproduccion> listas) {
-        this.user = user;
+
+    public Canal(String user, String nombre_canal, String descripcion, Boolean privado) {
+        this.nickname = user;
+        this.nombre_canal = nombre_canal;
         this.descripcion = descripcion;
-        this.videos = videos;
-        this.listas = listas;
+        this.privado = privado;
     }
 
     /*public Set<Video> getVideos() {
@@ -68,15 +70,14 @@ public class Canal implements Serializable {
         this.videos = videos;
     }*/
 
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
     
-    public Usuario getUser() {
-        return user;
-    }
-
-    public void setUser(Usuario user) {
-        this.user = user;
-    }
-
     public String getDescripcion() {
         return descripcion;
     }
@@ -85,9 +86,18 @@ public class Canal implements Serializable {
         this.descripcion = descripcion;
     }
 
+    public Boolean getPrivado() {
+        return privado;
+    }
+
+    public void setPrivado(Boolean privado) {
+        this.privado = privado;
+    }
+
     @Override
     public String toString() {
-        return "Canal{" + "user=" + user + ", descripcion=" + descripcion + '}';
-    }  
+        return "Canal{" + "username=" + nickname + ", descripcion=" + descripcion + ", privado=" + privado + '}';
+    }
+
     
 }

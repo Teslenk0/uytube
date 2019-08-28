@@ -570,7 +570,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2.add(AgregarUsuario);
-        AgregarUsuario.setBounds(90, 40, 223, 225);
+        AgregarUsuario.setBounds(90, 40, 243, 221);
         AgregarUsuario.getAccessibleContext().setAccessibleName("AgregarUsuario");
 
         ModificarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ModificarUser.png"))); // NOI18N
@@ -583,7 +583,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2.add(ModificarUsuario);
-        ModificarUsuario.setBounds(90, 290, 223, 225);
+        ModificarUsuario.setBounds(90, 290, 243, 221);
 
         ListarUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Listar.png"))); // NOI18N
         ListarUsuarios.setBorderPainted(false);
@@ -595,7 +595,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2.add(ListarUsuarios);
-        ListarUsuarios.setBounds(390, 290, 223, 225);
+        ListarUsuarios.setBounds(390, 290, 243, 221);
 
         ConsultarUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ConsultarUser.png"))); // NOI18N
         ConsultarUsuarios.setBorderPainted(false);
@@ -607,7 +607,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2.add(ConsultarUsuarios);
-        ConsultarUsuarios.setBounds(390, 40, 223, 225);
+        ConsultarUsuarios.setBounds(390, 40, 243, 221);
 
         Panel_Central.add(Central2);
         Central2.setBounds(0, 0, 720, 550);
@@ -764,19 +764,19 @@ public class MenuInicio extends javax.swing.JFrame {
         consultaCat.setForeground(new java.awt.Color(255, 255, 255));
         consultaCat.setText("Consulta categoría");
         Central5.add(consultaCat);
-        consultaCat.setBounds(440, 60, 130, 17);
+        consultaCat.setBounds(440, 60, 130, 20);
 
         listarCat.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         listarCat.setForeground(new java.awt.Color(255, 255, 255));
         listarCat.setText("Listar categorías");
         Central5.add(listarCat);
-        listarCat.setBounds(150, 310, 130, 17);
+        listarCat.setBounds(150, 310, 130, 20);
 
         agregarCat.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         agregarCat.setForeground(new java.awt.Color(255, 255, 255));
         agregarCat.setText("Agregar categoría");
         Central5.add(agregarCat);
-        agregarCat.setBounds(150, 60, 130, 17);
+        agregarCat.setBounds(150, 60, 130, 20);
 
         consultaCat_Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ConsultaCategoria.png"))); // NOI18N
         consultaCat_Button.setBorderPainted(false);
@@ -892,7 +892,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2_1.add(CampoContraseña);
-        CampoContraseña.setBounds(160, 140, 220, 15);
+        CampoContraseña.setBounds(160, 140, 220, 16);
 
         CampoNombre.setBackground(new java.awt.Color(153, 153, 153));
         CampoNombre.setFont(new java.awt.Font("Manjari Bold", 1, 15)); // NOI18N
@@ -978,7 +978,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2_1.add(AgregarFoto);
-        AgregarFoto.setBounds(340, 420, 40, 39);
+        AgregarFoto.setBounds(340, 420, 40, 35);
 
         Registrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_regist_2.png"))); // NOI18N
         Registrar.setBorderPainted(false);
@@ -1081,7 +1081,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2_2.add(comboConsulta);
-        comboConsulta.setBounds(122, 90, 456, 28);
+        comboConsulta.setBounds(122, 90, 456, 22);
 
         BackButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back.png"))); // NOI18N
         BackButton3.setBorder(null);
@@ -1094,7 +1094,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2_2.add(BackButton3);
-        BackButton3.setBounds(0, 11, 101, 50);
+        BackButton3.setBounds(0, 11, 101, 51);
 
         SeleccionarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_seleccionar_2.png"))); // NOI18N
         SeleccionarUsuario.setBorderPainted(false);
@@ -1265,7 +1265,7 @@ public class MenuInicio extends javax.swing.JFrame {
         Central2_2_1.add(jSeparator15);
         jSeparator15.setBounds(280, 220, 330, 16);
         Central2_2_1.add(jSeparator16);
-        jSeparator16.setBounds(196, 94, 4, 254);
+        jSeparator16.setBounds(196, 94, 0, 254);
 
         Imagen.setBackground(new java.awt.Color(255, 255, 255));
         Imagen.setForeground(new java.awt.Color(255, 255, 255));
@@ -1273,15 +1273,6 @@ public class MenuInicio extends javax.swing.JFrame {
         Imagen.setMaximumSize(new java.awt.Dimension(160, 160));
         Imagen.setMinimumSize(new java.awt.Dimension(160, 160));
         Imagen.setPreferredSize(new java.awt.Dimension(160, 160));
-        Imagen.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                ImagenAncestorAdded(evt);
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-        });
         Central2_2_1.add(Imagen);
         Imagen.setBounds(80, 40, 160, 160);
 
@@ -1462,7 +1453,7 @@ public class MenuInicio extends javax.swing.JFrame {
        String descripcion = CampoDescripcion.getText();
        VentanaEmergente mensaje = new VentanaEmergente(this, rootPaneCheckingEnabled);
        if(!nickname.equals("Ingrese Nickname") || !contraseña.equals("*********") || !nombreText.equals("Ingrese Nombre") || !apellidoText.equals("Ingrese Apellido") || !correo.equals("Ingrese Correo")){
-        if(nombreCanal.isBlank())
+        if(nombreCanal.isBlank() || nombreCanal.equals("Ingrese Nombre de Canal"))
           nombreCanal = nickname;
         if(nickname.isBlank() || contraseña.isBlank() || nombreText.isBlank() || apellidoText.isBlank() || correo.isBlank() || fechaText.toString().isBlank() || descripcion.isBlank()){
              mensaje.CambioTexto("Debes llenar todos los campos obligatorios");
@@ -1474,7 +1465,7 @@ public class MenuInicio extends javax.swing.JFrame {
          else
              rutaImagen = "/imagenesUsuarios/" + CampoNickname.getText() + ".png";
 
-         DtCanal addCanal = new DtCanal(nombreCanal, descripcion, privado);
+         DtCanal addCanal = new DtCanal(nickname, nombreCanal, descripcion, privado);
          DtUsuario addUser;
 
           try {
@@ -1556,7 +1547,7 @@ public class MenuInicio extends javax.swing.JFrame {
         Central2_2_Panel.removeAll();
         Central2_2_Panel.revalidate();
         Central2_2_Panel.repaint();
-        comboConsulta.removeAllItems();
+        comboLista.removeAllItems();
     }//GEN-LAST:event_BackButton3ActionPerformed
 
     private void SeleccionarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeleccionarUsuarioActionPerformed
@@ -1585,10 +1576,6 @@ public class MenuInicio extends javax.swing.JFrame {
         }                        
         
     }//GEN-LAST:event_SeleccionarUsuarioActionPerformed
-
-    private void ImagenAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_ImagenAncestorAdded
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ImagenAncestorAdded
 
     
     private void setColor(JPanel pane)
