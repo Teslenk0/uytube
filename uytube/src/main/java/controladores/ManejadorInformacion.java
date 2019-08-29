@@ -74,4 +74,12 @@ public class ManejadorInformacion{
         return null;
 
     }
+    
+    public void crearCanal(Canal c){
+        manager = emf.createEntityManager();
+        manager.getTransaction().begin();
+        manager.persist(c);
+        manager.getTransaction().commit();
+        manager.close();
+    }
 }

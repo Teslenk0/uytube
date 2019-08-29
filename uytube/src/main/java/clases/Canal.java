@@ -7,13 +7,11 @@ package clases;
 
 
 import java.io.Serializable;
-import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -28,11 +26,12 @@ import javax.persistence.Table;
 public class Canal implements Serializable {
     
     private static final long serialVersionUID = 1L;
-   
-    @Id
-    @Column(name = "nickname")
-    private String nickname;
     
+    @OneToOne
+    @JoinColumn(name = "nickname")
+    private Usuario usuario;
+    
+    @Id
     @Column(name = "nombre_canal")
     private String nombre_canal;
     
@@ -42,42 +41,32 @@ public class Canal implements Serializable {
     @Column(name = "isPrivate")
     private Boolean privado;
     
-    @OneToOne(fetch = FetchType.LAZY)
-    @MapsId
-    @JoinColumn(name = "nickname")
-    private Usuario usuario;
-    
-    //private Set<Video> videos;
-    
-    //private Set<ListaReproduccion> listas;
-    
     public Canal() {
     }
-    
 
-    public Canal(String user, String nombre_canal, String descripcion, Boolean privado) {
-        this.nickname = user;
+    public Canal(Usuario usuario, String nombre_canal, String descripcion, Boolean privado) {
+        this.usuario = usuario;
         this.nombre_canal = nombre_canal;
         this.descripcion = descripcion;
         this.privado = privado;
     }
 
-    /*public Set<Video> getVideos() {
-        return videos;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setVideos(Set<Video> videos) {
-        this.videos = videos;
-    }*/
-
-    public String getNickname() {
-        return nickname;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
+    public String getNombre_canal() {
+        return nombre_canal;
     }
-    
+
+    public void setNombre_canal(String nombre_canal) {
+        this.nombre_canal = nombre_canal;
+    }
+
     public String getDescripcion() {
         return descripcion;
     }
@@ -96,8 +85,6 @@ public class Canal implements Serializable {
 
     @Override
     public String toString() {
-        return "Canal{" + "username=" + nickname + ", descripcion=" + descripcion + ", privado=" + privado + '}';
+        return "Canal{" + "usuario=" + usuario + ", nombre_canal=" + nombre_canal + ", descripcion=" + descripcion + ", privado=" + privado + '}';
     }
-
-    
 }

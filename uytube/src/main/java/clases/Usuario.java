@@ -21,7 +21,6 @@ public class Usuario implements Serializable{
     private static final long serialVersionUID = 1L;
     
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "nickname")
     private String nickname;
     
@@ -43,14 +42,10 @@ public class Usuario implements Serializable{
     @Column(name = "imagen")
     private String imagen;
     
-    @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL,
-              fetch = FetchType.LAZY, optional = false)
-    private Canal canal;
-    
     public Usuario(){
     }
 
-    public Usuario(String nickname, String contraseña, String nombre, String apellido, String email, Date fechaNac, String imagen, Canal canal) {
+    public Usuario(String nickname, String contraseña, String nombre, String apellido, String email, Date fechaNac, String imagen) {
         this.nickname = nickname;
         this.contraseña = contraseña;
         this.nombre = nombre;
@@ -58,8 +53,9 @@ public class Usuario implements Serializable{
         this.email = email;
         this.fechaNac = fechaNac;
         this.imagen = imagen;
-        this.canal = canal;
     }
+    
+    
 
     public String getContraseña() {
         return contraseña;
@@ -115,18 +111,5 @@ public class Usuario implements Serializable{
 
     public void setImagen(String imagen) {
         this.imagen = imagen;
-    }
-
-    public Canal getCanal() {
-        return canal;
-    }
-
-    public void setCanal(Canal canal) {
-        this.canal = canal;
-    }
-
-    @Override
-    public String toString() {
-        return "Usuario{" + "nickname=" + nickname + ", contrase\u00f1a=" + contraseña + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email + ", fechaNac=" + fechaNac + ", imagen=" + imagen + ", canal=" + canal + '}';
     }
 }

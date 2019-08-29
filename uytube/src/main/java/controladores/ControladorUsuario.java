@@ -36,10 +36,13 @@ public class ControladorUsuario implements IControladorUsuario{
         if (user != null) {
             throw new UsuarioRepetidoException("El usuario " + user.getNickname() + " ya existe");
         }
+       
+        user = new Usuario(u.getNickname(), u.getContraseña(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen());
+              
+        mu.registrarUser(user);
         
-        Canal canal = new Canal(c.getNickname(), c.getNombre_canal(), c.getDescripcion(), c.getPrivado());
-        mu.registrarUser(new Usuario(u.getNickname(), u.getContraseña(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen(), canal));
-
+        mu.crearCanal(new Canal(user, c.getNombre_canal(), c.getDescripcion(), c.getPrivado()));
+        
         if(imagen != null){
             String path = System.getProperty("user.dir");
             path = path + "/src/main/resources/imagenesUsuarios/" + u.getNickname() + ".png";
