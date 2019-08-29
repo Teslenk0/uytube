@@ -5,19 +5,22 @@
  */
 package swing;
 
+import java.awt.Font;
+
 /**
  *
  * @author esteban
  */
 public class VentanaEmergente extends javax.swing.JDialog {
 
+    Font manjari;
     /**
      * Creates new form UsuarioIncorrecto
      * @param parent
      * @param modal
      */
-    public VentanaEmergente(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public VentanaEmergente(java.awt.Frame parent, boolean modal, Font manjari) {
+        this.manjari = manjari;
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -78,7 +81,7 @@ public class VentanaEmergente extends javax.swing.JDialog {
 
         Panel.setLayout(null);
 
-        Texto.setFont(new java.awt.Font("Manjari Bold", 1, 14)); // NOI18N
+        Texto.setFont(manjari);
         Panel.add(Texto);
         Texto.setBounds(34, 43, 305, 40);
 

@@ -5,6 +5,7 @@
  */
 package swing;
 
+import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -24,12 +25,14 @@ public class SeleccionarImagen extends javax.swing.JFrame {
     private BufferedImage originalBI;
     private String direccion;
     private final MenuInicio mi;
+    Font berlin;
     /**
      * Creates new form SeleccionarImagen
      * @param frame
      */
     
-    public SeleccionarImagen(MenuInicio frame) {
+    public SeleccionarImagen(MenuInicio frame, Font berlin) {
+        this.berlin = berlin;
         initComponents();
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/logoAPP.png")));
         setLocationRelativeTo(null);
@@ -142,7 +145,7 @@ public class SeleccionarImagen extends javax.swing.JFrame {
 
         CampoFile.setEditable(false);
         CampoFile.setBackground(new java.awt.Color(153, 153, 153));
-        CampoFile.setFont(new java.awt.Font("Manjari Bold", 1, 15)); // NOI18N
+        CampoFile.setFont(berlin);
         CampoFile.setForeground(new java.awt.Color(102, 102, 102));
         CampoFile.setText("Imágen seleccionada");
         CampoFile.setBorder(null);
@@ -153,13 +156,13 @@ public class SeleccionarImagen extends javax.swing.JFrame {
         jSeparator5.setBackground(new java.awt.Color(153, 153, 153));
         jSeparator5.setForeground(new java.awt.Color(153, 153, 153));
         PanelFondo.add(jSeparator5);
-        jSeparator5.setBounds(90, 290, 210, 30);
+        jSeparator5.setBounds(100, 290, 210, 30);
 
-        jLabel1.setFont(new java.awt.Font("Manjari Bold", 1, 15)); // NOI18N
+        jLabel1.setFont(berlin);
         jLabel1.setForeground(new java.awt.Color(102, 102, 102));
         jLabel1.setText("Tamaño máximo 160x160");
         PanelFondo.add(jLabel1);
-        jLabel1.setBounds(110, 270, 190, 20);
+        jLabel1.setBounds(120, 270, 190, 20);
 
         jSeparator6.setBackground(new java.awt.Color(153, 153, 153));
         jSeparator6.setForeground(new java.awt.Color(153, 153, 153));

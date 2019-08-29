@@ -6,8 +6,14 @@
 package swing;
 
 import java.awt.Font;
+import java.awt.FontFormatException;
+import java.awt.GraphicsEnvironment;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -19,11 +25,22 @@ public class Menu extends javax.swing.JFrame {
     /**
      * Creates new form menu
      */
-    Font fn = null;
+    Font manjari, berlin;
+    
     public Menu() {
+        try {
+            String path = System.getProperty("user.dir") + "/src/main/resources/font/Manjari.ttf";
+            manjari = Font.createFont(Font.TRUETYPE_FONT, new File(path)).deriveFont(14f);
+            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+            ge.registerFont(manjari);
+            path = System.getProperty("user.dir") + "/src/main/resources/font/Berlin.ttf";
+            berlin = Font.createFont(Font.TRUETYPE_FONT, new File(path)).deriveFont(16f);
+        } catch (FontFormatException | IOException ex) {
+            Logger.getLogger(MenuInicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
         initComponents();
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/logoAPP.png")));
-        setLocationRelativeTo(null);      
+        setLocationRelativeTo(null);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -62,7 +79,7 @@ public class Menu extends javax.swing.JFrame {
         Panel.setLayout(null);
 
         Password.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
-        Password.setForeground(new java.awt.Color(78, 78, 78));
+        Password.setForeground(new java.awt.Color(102, 102, 102));
         Password.setText("000000000*");
         Password.setBorder(null);
         Password.setOpaque(false);
@@ -79,8 +96,8 @@ public class Menu extends javax.swing.JFrame {
         Panel.add(Password);
         Password.setBounds(140, 300, 290, 50);
 
-        Username.setFont(new java.awt.Font("Manjari Thin", 0, 18)); // NOI18N
-        Username.setForeground(new java.awt.Color(78, 78, 78));
+        Username.setFont(manjari.deriveFont(18f));
+        Username.setForeground(new java.awt.Color(102, 102, 102));
         Username.setText("Username");
         Username.setBorder(null);
         Username.setOpaque(false);
@@ -106,7 +123,7 @@ public class Menu extends javax.swing.JFrame {
         FondoPassword.setBounds(80, 290, 340, 70);
 
         InicioSesion.setBackground(new java.awt.Color(247, 243, 247));
-        InicioSesion.setFont(new java.awt.Font("Manjari Bold", 1, 28)); // NOI18N
+        InicioSesion.setFont(manjari.deriveFont(26f));
         InicioSesion.setForeground(new java.awt.Color(101, 13, 136));
         InicioSesion.setText("Inicio de sesión");
         Panel.add(InicioSesion);
@@ -200,12 +217,12 @@ public class Menu extends javax.swing.JFrame {
     private void menuIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuIniciarActionPerformed
         String nombre = Username.getText();
         if("admin".equals(nombre)){ //Usuario correcto
-            MenuInicio menuinicio = new MenuInicio();
+            MenuInicio menuinicio = new MenuInicio(manjari,berlin);
             menuinicio.setVisible(true);
             this.setVisible(false);
         }
         else{ //Usuario incorrecto
-            VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled);
+            VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled,manjari);
             
             error.CambioTexto("Los datos ingresados son incorrectos");
             error.setVisible(true);
@@ -221,12 +238,12 @@ public class Menu extends javax.swing.JFrame {
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
              String nombre = Username.getText();
             if("admin".equals(nombre)){ //Usuario correcto
-                MenuInicio menuinicio = new MenuInicio();
+                MenuInicio menuinicio = new MenuInicio(manjari,berlin);
                 menuinicio.setVisible(true);
                 this.setVisible(false);
             }
             else{ //Usuario incorrecto
-                VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled);
+                VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled,manjari);
                 error.CambioTexto("Los datos ingresados son incorrectos");
                 error.setVisible(true);
             }
@@ -264,12 +281,12 @@ int xx,xy;
          if(evt.getKeyCode()==KeyEvent.VK_ENTER){
              String nombre = Password.getText();
             if("admin".equals(nombre)){ //Usuario correcto
-                MenuInicio menuinicio = new MenuInicio();
+                MenuInicio menuinicio = new MenuInicio(manjari,berlin);
                 menuinicio.setVisible(true);
                 this.setVisible(false);
             }
             else{ //Usuario incorrecto
-                VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled);
+                VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled,manjari);
                 error.CambioTexto("Los datos ingresados son incorrectos");
                 error.setVisible(true);
             }

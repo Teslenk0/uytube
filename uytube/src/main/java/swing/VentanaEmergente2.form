@@ -95,14 +95,14 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="Texto">
           <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Manjari Bold" size="14" style="1"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="manjari" type="code"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&#xbf;Seguro que desea cerrar sesion?"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="60" y="40" width="240" height="40"/>
+              <AbsoluteConstraints x="60" y="40" width="240" height="50"/>
             </Constraint>
           </Constraints>
         </Component>

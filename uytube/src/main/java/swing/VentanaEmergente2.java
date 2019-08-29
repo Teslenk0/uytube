@@ -5,6 +5,7 @@
  */
 package swing;
 
+import java.awt.Font;
 import  javax.swing.JFrame;
 
 /**
@@ -13,13 +14,14 @@ import  javax.swing.JFrame;
  */
 public class VentanaEmergente2 extends javax.swing.JDialog {
 
+    Font manjari;
     /**
      * Creates new form UsuarioIncorrecto
      */
     private final JFrame frame;
     
-    public VentanaEmergente2(java.awt.Frame parent, boolean modal, JFrame frame) {
-        super(parent, modal);
+    public VentanaEmergente2(java.awt.Frame parent, boolean modal, JFrame frame, Font manjari) {
+        this.manjari = manjari;
         initComponents();
         this.frame = frame;   
         setLocationRelativeTo(null);
@@ -82,10 +84,10 @@ public class VentanaEmergente2 extends javax.swing.JDialog {
 
         Panel.setLayout(null);
 
-        Texto.setFont(new java.awt.Font("Manjari Bold", 1, 14)); // NOI18N
+        Texto.setFont(manjari);
         Texto.setText("¿Seguro que desea cerrar sesion?");
         Panel.add(Texto);
-        Texto.setBounds(60, 40, 240, 40);
+        Texto.setBounds(60, 40, 240, 50);
 
         BotonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_cancel_3.png"))); // NOI18N
         BotonCancelar.setBorder(null);

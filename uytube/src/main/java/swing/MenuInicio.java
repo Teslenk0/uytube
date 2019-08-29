@@ -12,6 +12,7 @@ import excepciones.UsuarioRepetidoException;
 import fabrica.Fabrica;
 import interfaces.IControladorUsuario;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import java.util.Date;
@@ -30,11 +31,14 @@ public class MenuInicio extends javax.swing.JFrame {
     String Item;
     Fabrica fabrica = Fabrica.getInstance();
     IControladorUsuario u = fabrica.getControladorUsuario();
+    Font manjari, berlin;
     
     private String rutaImagen;
     private BufferedImage imagen;
     
-    public MenuInicio() {
+    public MenuInicio(Font manjari, Font berlin) {
+        this.manjari = manjari;
+        this.berlin = berlin;
         initComponents();
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/logoAPP.png")));
         setLocationRelativeTo(null);
@@ -45,8 +49,8 @@ public class MenuInicio extends javax.swing.JFrame {
         Panel_Central.add(Central1);
         Panel_Central.revalidate();
         Panel_Central.repaint();
+        
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -190,7 +194,7 @@ public class MenuInicio extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Panel_Lateral.setBackground(new java.awt.Color(73, 73, 73));
-        Panel_Lateral.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Panel_Lateral.setLayout(null);
 
         btn_Categorias.setBackground(new java.awt.Color(73, 73, 73));
         btn_Categorias.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -198,6 +202,7 @@ public class MenuInicio extends javax.swing.JFrame {
                 btn_CategoriasMousePressed(evt);
             }
         });
+        btn_Categorias.setLayout(null);
 
         ind_6.setOpaque(false);
         ind_6.setPreferredSize(new java.awt.Dimension(3, 43));
@@ -213,32 +218,17 @@ public class MenuInicio extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel12.setFont(new java.awt.Font("Manjari Bold", 1, 14)); // NOI18N
+        btn_Categorias.add(ind_6);
+        ind_6.setBounds(0, 0, 3, 43);
+
+        jLabel12.setFont(manjari);
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Categorías");
+        btn_Categorias.add(jLabel12);
+        jLabel12.setBounds(38, 11, 100, 21);
 
-        javax.swing.GroupLayout btn_CategoriasLayout = new javax.swing.GroupLayout(btn_Categorias);
-        btn_Categorias.setLayout(btn_CategoriasLayout);
-        btn_CategoriasLayout.setHorizontalGroup(
-            btn_CategoriasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_CategoriasLayout.createSequentialGroup()
-                .addComponent(ind_6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addComponent(jLabel12)
-                .addGap(0, 49, Short.MAX_VALUE))
-        );
-        btn_CategoriasLayout.setVerticalGroup(
-            btn_CategoriasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_CategoriasLayout.createSequentialGroup()
-                .addComponent(ind_6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(btn_CategoriasLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        Panel_Lateral.add(btn_Categorias, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 160, -1));
+        Panel_Lateral.add(btn_Categorias);
+        btn_Categorias.setBounds(0, 259, 160, 40);
 
         btn_Inicio.setBackground(new java.awt.Color(73, 73, 73));
         btn_Inicio.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -246,6 +236,7 @@ public class MenuInicio extends javax.swing.JFrame {
                 btn_InicioMousePressed(evt);
             }
         });
+        btn_Inicio.setLayout(null);
 
         ind_1.setOpaque(false);
         ind_1.setPreferredSize(new java.awt.Dimension(3, 43));
@@ -261,32 +252,17 @@ public class MenuInicio extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel8.setFont(new java.awt.Font("Manjari Bold", 1, 14)); // NOI18N
+        btn_Inicio.add(ind_1);
+        ind_1.setBounds(0, 0, 3, 43);
+
+        jLabel8.setFont(manjari);
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Inicio");
+        btn_Inicio.add(jLabel8);
+        jLabel8.setBounds(38, 11, 90, 21);
 
-        javax.swing.GroupLayout btn_InicioLayout = new javax.swing.GroupLayout(btn_Inicio);
-        btn_Inicio.setLayout(btn_InicioLayout);
-        btn_InicioLayout.setHorizontalGroup(
-            btn_InicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_InicioLayout.createSequentialGroup()
-                .addComponent(ind_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addComponent(jLabel8)
-                .addGap(0, 90, Short.MAX_VALUE))
-        );
-        btn_InicioLayout.setVerticalGroup(
-            btn_InicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_InicioLayout.createSequentialGroup()
-                .addComponent(ind_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(btn_InicioLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        Panel_Lateral.add(btn_Inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 160, -1));
+        Panel_Lateral.add(btn_Inicio);
+        btn_Inicio.setBounds(0, 100, 160, 40);
 
         btn_Usuario.setBackground(new java.awt.Color(73, 73, 73));
         btn_Usuario.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -294,6 +270,7 @@ public class MenuInicio extends javax.swing.JFrame {
                 btn_UsuarioMousePressed(evt);
             }
         });
+        btn_Usuario.setLayout(null);
 
         ind_3.setOpaque(false);
         ind_3.setPreferredSize(new java.awt.Dimension(3, 43));
@@ -309,32 +286,17 @@ public class MenuInicio extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        UsuarioBarra.setFont(new java.awt.Font("Manjari Bold", 1, 14)); // NOI18N
+        btn_Usuario.add(ind_3);
+        ind_3.setBounds(0, 0, 3, 43);
+
+        UsuarioBarra.setFont(manjari);
         UsuarioBarra.setForeground(new java.awt.Color(255, 255, 255));
         UsuarioBarra.setText("Usuario");
+        btn_Usuario.add(UsuarioBarra);
+        UsuarioBarra.setBounds(38, 11, 90, 21);
 
-        javax.swing.GroupLayout btn_UsuarioLayout = new javax.swing.GroupLayout(btn_Usuario);
-        btn_Usuario.setLayout(btn_UsuarioLayout);
-        btn_UsuarioLayout.setHorizontalGroup(
-            btn_UsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_UsuarioLayout.createSequentialGroup()
-                .addComponent(ind_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addComponent(UsuarioBarra)
-                .addGap(0, 73, Short.MAX_VALUE))
-        );
-        btn_UsuarioLayout.setVerticalGroup(
-            btn_UsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_UsuarioLayout.createSequentialGroup()
-                .addComponent(ind_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(btn_UsuarioLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(UsuarioBarra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        Panel_Lateral.add(btn_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 160, -1));
+        Panel_Lateral.add(btn_Usuario);
+        btn_Usuario.setBounds(0, 140, 160, 40);
 
         btn_Video.setBackground(new java.awt.Color(73, 73, 73));
         btn_Video.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -342,6 +304,7 @@ public class MenuInicio extends javax.swing.JFrame {
                 btn_VideoMousePressed(evt);
             }
         });
+        btn_Video.setLayout(null);
 
         ind_4.setOpaque(false);
         ind_4.setPreferredSize(new java.awt.Dimension(3, 43));
@@ -357,32 +320,17 @@ public class MenuInicio extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel11.setFont(new java.awt.Font("Manjari Bold", 1, 14)); // NOI18N
+        btn_Video.add(ind_4);
+        ind_4.setBounds(0, 0, 3, 43);
+
+        jLabel11.setFont(manjari);
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Video");
+        btn_Video.add(jLabel11);
+        jLabel11.setBounds(38, 11, 70, 21);
 
-        javax.swing.GroupLayout btn_VideoLayout = new javax.swing.GroupLayout(btn_Video);
-        btn_Video.setLayout(btn_VideoLayout);
-        btn_VideoLayout.setHorizontalGroup(
-            btn_VideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_VideoLayout.createSequentialGroup()
-                .addComponent(ind_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addComponent(jLabel11)
-                .addGap(0, 86, Short.MAX_VALUE))
-        );
-        btn_VideoLayout.setVerticalGroup(
-            btn_VideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_VideoLayout.createSequentialGroup()
-                .addComponent(ind_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(btn_VideoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        Panel_Lateral.add(btn_Video, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 160, -1));
+        Panel_Lateral.add(btn_Video);
+        btn_Video.setBounds(0, 180, 160, 40);
 
         btn_Playlist.setBackground(new java.awt.Color(73, 73, 73));
         btn_Playlist.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -390,6 +338,7 @@ public class MenuInicio extends javax.swing.JFrame {
                 btn_PlaylistMousePressed(evt);
             }
         });
+        btn_Playlist.setLayout(null);
 
         ind_2.setOpaque(false);
         ind_2.setPreferredSize(new java.awt.Dimension(3, 43));
@@ -405,32 +354,17 @@ public class MenuInicio extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel9.setFont(new java.awt.Font("Manjari Bold", 1, 14)); // NOI18N
+        btn_Playlist.add(ind_2);
+        ind_2.setBounds(0, 0, 3, 43);
+
+        jLabel9.setFont(manjari);
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Playlists");
+        btn_Playlist.add(jLabel9);
+        jLabel9.setBounds(38, 11, 80, 21);
 
-        javax.swing.GroupLayout btn_PlaylistLayout = new javax.swing.GroupLayout(btn_Playlist);
-        btn_Playlist.setLayout(btn_PlaylistLayout);
-        btn_PlaylistLayout.setHorizontalGroup(
-            btn_PlaylistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_PlaylistLayout.createSequentialGroup()
-                .addComponent(ind_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addComponent(jLabel9)
-                .addGap(0, 69, Short.MAX_VALUE))
-        );
-        btn_PlaylistLayout.setVerticalGroup(
-            btn_PlaylistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_PlaylistLayout.createSequentialGroup()
-                .addComponent(ind_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(btn_PlaylistLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        Panel_Lateral.add(btn_Playlist, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 160, -1));
+        Panel_Lateral.add(btn_Playlist);
+        btn_Playlist.setBounds(0, 220, 160, 40);
 
         btn_CerrarSesion.setBackground(new java.awt.Color(73, 73, 73));
         btn_CerrarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -438,6 +372,7 @@ public class MenuInicio extends javax.swing.JFrame {
                 btn_CerrarSesionMousePressed(evt);
             }
         });
+        btn_CerrarSesion.setLayout(null);
 
         ind_5.setOpaque(false);
         ind_5.setPreferredSize(new java.awt.Dimension(3, 43));
@@ -453,32 +388,17 @@ public class MenuInicio extends javax.swing.JFrame {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel10.setFont(new java.awt.Font("Manjari Bold", 1, 14)); // NOI18N
+        btn_CerrarSesion.add(ind_5);
+        ind_5.setBounds(0, 0, 3, 43);
+
+        jLabel10.setFont(manjari);
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Cerrar Sesión");
+        btn_CerrarSesion.add(jLabel10);
+        jLabel10.setBounds(40, 10, 100, 21);
 
-        javax.swing.GroupLayout btn_CerrarSesionLayout = new javax.swing.GroupLayout(btn_CerrarSesion);
-        btn_CerrarSesion.setLayout(btn_CerrarSesionLayout);
-        btn_CerrarSesionLayout.setHorizontalGroup(
-            btn_CerrarSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_CerrarSesionLayout.createSequentialGroup()
-                .addComponent(ind_5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addComponent(jLabel10)
-                .addGap(0, 33, Short.MAX_VALUE))
-        );
-        btn_CerrarSesionLayout.setVerticalGroup(
-            btn_CerrarSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_CerrarSesionLayout.createSequentialGroup()
-                .addComponent(ind_5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(btn_CerrarSesionLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        Panel_Lateral.add(btn_CerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 160, -1));
+        Panel_Lateral.add(btn_CerrarSesion);
+        btn_CerrarSesion.setBounds(0, 370, 160, 40);
 
         getContentPane().add(Panel_Lateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 590));
 
@@ -536,29 +456,29 @@ public class MenuInicio extends javax.swing.JFrame {
         Central2.setForeground(new java.awt.Color(255, 255, 255));
         Central2.setLayout(null);
 
-        ConsultarUsuariosText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        ConsultarUsuariosText.setFont(manjari);
         ConsultarUsuariosText.setForeground(new java.awt.Color(255, 255, 255));
         ConsultarUsuariosText.setText("Consultar Usuario");
         Central2.add(ConsultarUsuariosText);
-        ConsultarUsuariosText.setBounds(450, 50, 130, 20);
+        ConsultarUsuariosText.setBounds(450, 50, 130, 30);
 
-        ListarUsuariosText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        ListarUsuariosText.setFont(manjari);
         ListarUsuariosText.setForeground(new java.awt.Color(255, 255, 255));
         ListarUsuariosText.setText("Listar Usuarios");
         Central2.add(ListarUsuariosText);
-        ListarUsuariosText.setBounds(460, 300, 120, 20);
+        ListarUsuariosText.setBounds(460, 300, 120, 30);
 
-        ModificarUsuarioText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        ModificarUsuarioText.setFont(manjari);
         ModificarUsuarioText.setForeground(new java.awt.Color(255, 255, 255));
         ModificarUsuarioText.setText("Modificar Usuario");
         Central2.add(ModificarUsuarioText);
-        ModificarUsuarioText.setBounds(150, 300, 130, 20);
+        ModificarUsuarioText.setBounds(150, 300, 130, 30);
 
-        AgregarUserText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        AgregarUserText.setFont(manjari);
         AgregarUserText.setForeground(new java.awt.Color(255, 255, 255));
         AgregarUserText.setText("Agregar Usuario");
         Central2.add(AgregarUserText);
-        AgregarUserText.setBounds(160, 50, 120, 20);
+        AgregarUserText.setBounds(160, 50, 120, 30);
 
         AgregarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/AgregarUser.png"))); // NOI18N
         AgregarUsuario.setBorderPainted(false);
@@ -614,23 +534,23 @@ public class MenuInicio extends javax.swing.JFrame {
 
         Central3.setLayout(null);
 
-        consultaVid.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        consultaVid.setFont(manjari);
         consultaVid.setForeground(new java.awt.Color(255, 255, 255));
         consultaVid.setText("Consulta video");
         Central3.add(consultaVid);
-        consultaVid.setBounds(160, 300, 130, 20);
+        consultaVid.setBounds(160, 300, 130, 30);
 
-        agregarVid.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        agregarVid.setFont(manjari);
         agregarVid.setForeground(new java.awt.Color(255, 255, 255));
         agregarVid.setText("Agregar video");
         Central3.add(agregarVid);
-        agregarVid.setBounds(170, 50, 130, 20);
+        agregarVid.setBounds(170, 50, 130, 30);
 
-        modificarVid.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        modificarVid.setFont(manjari);
         modificarVid.setForeground(new java.awt.Color(255, 255, 255));
         modificarVid.setText("Modificar video");
         Central3.add(modificarVid);
-        modificarVid.setBounds(470, 50, 130, 20);
+        modificarVid.setBounds(460, 50, 130, 30);
 
         modVid_Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ModificarVideo.png"))); // NOI18N
         modVid_Button.setBorderPainted(false);
@@ -683,35 +603,35 @@ public class MenuInicio extends javax.swing.JFrame {
         Central4.setPreferredSize(new java.awt.Dimension(720, 780));
         Central4.setLayout(null);
 
-        quitarVideo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        quitarVideo.setFont(manjari);
         quitarVideo.setForeground(new java.awt.Color(255, 255, 255));
         quitarVideo.setText("Quitar video");
         Central4.add(quitarVideo);
-        quitarVideo.setBounds(460, 300, 130, 20);
+        quitarVideo.setBounds(460, 290, 130, 40);
 
-        crearPlaylist.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        crearPlaylist.setFont(manjari);
         crearPlaylist.setForeground(new java.awt.Color(255, 255, 255));
         crearPlaylist.setText("Crear playlist");
         Central4.add(crearPlaylist);
-        crearPlaylist.setBounds(170, 50, 130, 20);
+        crearPlaylist.setBounds(170, 40, 130, 40);
 
-        modificarPlaylist.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        modificarPlaylist.setFont(manjari);
         modificarPlaylist.setForeground(new java.awt.Color(255, 255, 255));
         modificarPlaylist.setText("Modificar playlist");
         Central4.add(modificarPlaylist);
-        modificarPlaylist.setBounds(450, 50, 130, 20);
+        modificarPlaylist.setBounds(450, 40, 130, 40);
 
-        consultaPlaylist.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        consultaPlaylist.setFont(manjari);
         consultaPlaylist.setForeground(new java.awt.Color(255, 255, 255));
         consultaPlaylist.setText("Consulta playlist");
         Central4.add(consultaPlaylist);
-        consultaPlaylist.setBounds(160, 550, 130, 20);
+        consultaPlaylist.setBounds(160, 540, 130, 40);
 
-        agregarVideo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        agregarVideo.setFont(manjari);
         agregarVideo.setForeground(new java.awt.Color(255, 255, 255));
         agregarVideo.setText("Agregar video");
         Central4.add(agregarVideo);
-        agregarVideo.setBounds(170, 300, 130, 20);
+        agregarVideo.setBounds(170, 290, 130, 40);
 
         crearPlaylist_Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/AgregarPlaylist.png"))); // NOI18N
         crearPlaylist_Button.setBorderPainted(false);
@@ -760,23 +680,23 @@ public class MenuInicio extends javax.swing.JFrame {
 
         Central5.setLayout(null);
 
-        consultaCat.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        consultaCat.setFont(manjari);
         consultaCat.setForeground(new java.awt.Color(255, 255, 255));
         consultaCat.setText("Consulta categoría");
         Central5.add(consultaCat);
-        consultaCat.setBounds(440, 60, 130, 20);
+        consultaCat.setBounds(440, 50, 130, 40);
 
-        listarCat.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        listarCat.setFont(manjari);
         listarCat.setForeground(new java.awt.Color(255, 255, 255));
         listarCat.setText("Listar categorías");
         Central5.add(listarCat);
-        listarCat.setBounds(150, 310, 130, 20);
+        listarCat.setBounds(160, 300, 130, 40);
 
-        agregarCat.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        agregarCat.setFont(manjari);
         agregarCat.setForeground(new java.awt.Color(255, 255, 255));
         agregarCat.setText("Agregar categoría");
         Central5.add(agregarCat);
-        agregarCat.setBounds(150, 60, 130, 20);
+        agregarCat.setBounds(160, 50, 130, 40);
 
         consultaCat_Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ConsultaCategoria.png"))); // NOI18N
         consultaCat_Button.setBorderPainted(false);
@@ -805,68 +725,68 @@ public class MenuInicio extends javax.swing.JFrame {
         Central2_1.setMinimumSize(new java.awt.Dimension(720, 560));
         Central2_1.setLayout(null);
 
-        Canal.setFont(new java.awt.Font("Manjari", 1, 18)); // NOI18N
+        Canal.setFont(berlin.deriveFont(20f));
         Canal.setText("Canal");
         Central2_1.add(Canal);
         Canal.setBounds(540, 40, 100, 20);
 
-        Usuario.setFont(new java.awt.Font("Manjari", 1, 18)); // NOI18N
+        Usuario.setFont(berlin.deriveFont(20f));
         Usuario.setText("Usuario");
         Central2_1.add(Usuario);
-        Usuario.setBounds(170, 40, 100, 22);
+        Usuario.setBounds(170, 40, 100, 14);
 
-        Nickname.setFont(new java.awt.Font("Manjari Bold", 1, 16)); // NOI18N
+        Nickname.setFont(berlin);
         Nickname.setText("Nickname(*)");
         Central2_1.add(Nickname);
-        Nickname.setBounds(40, 100, 100, 19);
+        Nickname.setBounds(40, 100, 100, 14);
 
-        Contraseña.setFont(new java.awt.Font("Manjari Bold", 1, 16)); // NOI18N
+        Contraseña.setFont(berlin);
         Contraseña.setText("Contraseña(*)");
         Central2_1.add(Contraseña);
-        Contraseña.setBounds(40, 140, 110, 19);
+        Contraseña.setBounds(40, 140, 110, 14);
 
-        Nombre.setFont(new java.awt.Font("Manjari Bold", 1, 16)); // NOI18N
+        Nombre.setFont(berlin);
         Nombre.setText("Nombre(*)");
         Central2_1.add(Nombre);
-        Nombre.setBounds(40, 180, 90, 19);
+        Nombre.setBounds(40, 180, 90, 14);
 
-        Apellido.setFont(new java.awt.Font("Manjari Bold", 1, 16)); // NOI18N
+        Apellido.setFont(berlin);
         Apellido.setText("Apellido(*)");
         Central2_1.add(Apellido);
-        Apellido.setBounds(40, 220, 90, 19);
+        Apellido.setBounds(40, 220, 90, 14);
 
-        Correo.setFont(new java.awt.Font("Manjari Bold", 1, 16)); // NOI18N
+        Correo.setFont(berlin);
         Correo.setText("Correo(*)");
         Central2_1.add(Correo);
-        Correo.setBounds(40, 260, 90, 19);
+        Correo.setBounds(40, 260, 90, 14);
 
-        FechaNac.setFont(new java.awt.Font("Manjari Bold", 1, 16)); // NOI18N
+        FechaNac.setFont(berlin);
         FechaNac.setText("Fecha de nacimiento(*)");
         Central2_1.add(FechaNac);
-        FechaNac.setBounds(40, 370, 180, 20);
+        FechaNac.setBounds(60, 370, 160, 20);
 
-        Privado.setFont(new java.awt.Font("Manjari Bold", 1, 16)); // NOI18N
+        Privado.setFont(berlin);
         Privado.setText("¿Desea hacer el canal privado?");
         Central2_1.add(Privado);
         Privado.setBounds(450, 180, 230, 20);
 
-        NombreCanal.setFont(new java.awt.Font("Manjari Bold", 1, 16)); // NOI18N
+        NombreCanal.setFont(berlin);
         NombreCanal.setText("Nombre del canal(opcional)");
         Central2_1.add(NombreCanal);
         NombreCanal.setBounds(450, 100, 220, 30);
 
-        Descripcion.setFont(new java.awt.Font("Manjari Bold", 1, 16)); // NOI18N
+        Descripcion.setFont(berlin);
         Descripcion.setText("Descripcion de canal(*)");
         Central2_1.add(Descripcion);
         Descripcion.setBounds(450, 220, 180, 40);
 
-        AgregarImg.setFont(new java.awt.Font("Manjari Bold", 1, 16)); // NOI18N
+        AgregarImg.setFont(berlin);
         AgregarImg.setText("Agregar imágen(opcional)");
         Central2_1.add(AgregarImg);
-        AgregarImg.setBounds(150, 420, 190, 40);
+        AgregarImg.setBounds(160, 420, 180, 30);
 
         CampoNickname.setBackground(new java.awt.Color(153, 153, 153));
-        CampoNickname.setFont(new java.awt.Font("Manjari Bold", 1, 15)); // NOI18N
+        CampoNickname.setFont(berlin);
         CampoNickname.setForeground(new java.awt.Color(102, 102, 102));
         CampoNickname.setText("Ingrese Nickname");
         CampoNickname.setBorder(null);
@@ -895,7 +815,7 @@ public class MenuInicio extends javax.swing.JFrame {
         CampoContraseña.setBounds(160, 140, 220, 16);
 
         CampoNombre.setBackground(new java.awt.Color(153, 153, 153));
-        CampoNombre.setFont(new java.awt.Font("Manjari Bold", 1, 15)); // NOI18N
+        CampoNombre.setFont(berlin);
         CampoNombre.setForeground(new java.awt.Color(102, 102, 102));
         CampoNombre.setText("Ingrese Nombre");
         CampoNombre.setBorder(null);
@@ -910,7 +830,7 @@ public class MenuInicio extends javax.swing.JFrame {
         CampoNombre.setBounds(160, 180, 220, 20);
 
         CampoApellido.setBackground(new java.awt.Color(153, 153, 153));
-        CampoApellido.setFont(new java.awt.Font("Manjari Bold", 1, 15)); // NOI18N
+        CampoApellido.setFont(berlin);
         CampoApellido.setForeground(new java.awt.Color(102, 102, 102));
         CampoApellido.setText("Ingrese Apellido");
         CampoApellido.setBorder(null);
@@ -925,7 +845,7 @@ public class MenuInicio extends javax.swing.JFrame {
         CampoApellido.setBounds(160, 220, 220, 20);
 
         CampoCorreo.setBackground(new java.awt.Color(153, 153, 153));
-        CampoCorreo.setFont(new java.awt.Font("Manjari Bold", 1, 15)); // NOI18N
+        CampoCorreo.setFont(berlin);
         CampoCorreo.setForeground(new java.awt.Color(102, 102, 102));
         CampoCorreo.setText("Ingrese Correo");
         CampoCorreo.setBorder(null);
@@ -940,7 +860,7 @@ public class MenuInicio extends javax.swing.JFrame {
         CampoCorreo.setBounds(160, 260, 220, 20);
 
         CampoCanal.setBackground(new java.awt.Color(153, 153, 153));
-        CampoCanal.setFont(new java.awt.Font("Manjari Bold", 1, 15)); // NOI18N
+        CampoCanal.setFont(berlin);
         CampoCanal.setForeground(new java.awt.Color(102, 102, 102));
         CampoCanal.setText("Ingrese Nombre de Canal");
         CampoCanal.setBorder(null);
@@ -955,14 +875,14 @@ public class MenuInicio extends javax.swing.JFrame {
         CampoCanal.setBounds(450, 130, 260, 20);
 
         CampoImagen.setBackground(new java.awt.Color(153, 153, 153));
-        CampoImagen.setFont(new java.awt.Font("Manjari Bold", 1, 15)); // NOI18N
+        CampoImagen.setFont(berlin);
         CampoImagen.setForeground(new java.awt.Color(102, 102, 102));
         CampoImagen.setText("Imágen seleccionada");
         CampoImagen.setEditable(false);
         CampoImagen.setBorder(null);
         CampoImagen.setOpaque(false);
         Central2_1.add(CampoImagen);
-        CampoImagen.setBounds(390, 430, 260, 20);
+        CampoImagen.setBounds(390, 420, 260, 30);
 
         DateChoose.setNextFocusableComponent(Descripcion);
         Central2_1.add(DateChoose);
@@ -1180,29 +1100,29 @@ public class MenuInicio extends javax.swing.JFrame {
         Central2_2_1.setPreferredSize(new java.awt.Dimension(403, 550));
         Central2_2_1.setLayout(null);
 
-        nombre.setFont(new java.awt.Font("Manjari", 1, 12)); // NOI18N
+        nombre.setFont(berlin);
         nombre.setForeground(new java.awt.Color(102, 102, 102));
         nombre.setText("Nombre");
         Central2_2_1.add(nombre);
-        nombre.setBounds(280, 80, 70, 15);
+        nombre.setBounds(280, 80, 70, 14);
 
-        apellido.setFont(new java.awt.Font("Manjari", 1, 12)); // NOI18N
+        apellido.setFont(berlin);
         apellido.setForeground(new java.awt.Color(102, 102, 102));
         apellido.setText("Apellido");
         Central2_2_1.add(apellido);
-        apellido.setBounds(280, 120, 70, 15);
+        apellido.setBounds(280, 120, 70, 14);
 
-        nick.setFont(new java.awt.Font("Manjari", 1, 12)); // NOI18N
+        nick.setFont(berlin);
         nick.setForeground(new java.awt.Color(102, 102, 102));
         nick.setText("Nickname");
         Central2_2_1.add(nick);
-        nick.setBounds(280, 40, 70, 15);
+        nick.setBounds(280, 40, 70, 20);
 
-        fecha.setFont(new java.awt.Font("Manjari", 1, 12)); // NOI18N
+        fecha.setFont(berlin);
         fecha.setForeground(new java.awt.Color(102, 102, 102));
         fecha.setText("Fecha de nacimiento");
         Central2_2_1.add(fecha);
-        fecha.setBounds(280, 160, 130, 15);
+        fecha.setBounds(280, 160, 130, 14);
 
         Varnick.setEditable(false);
         Varnick.setFont(new java.awt.Font("Manjari", 1, 12)); // NOI18N
@@ -1211,11 +1131,11 @@ public class MenuInicio extends javax.swing.JFrame {
         Central2_2_1.add(Varnick);
         Varnick.setBounds(420, 40, 190, 15);
 
-        mail.setFont(new java.awt.Font("Manjari", 1, 12)); // NOI18N
+        mail.setFont(berlin);
         mail.setForeground(new java.awt.Color(102, 102, 102));
         mail.setText("Correo electronico");
         Central2_2_1.add(mail);
-        mail.setBounds(280, 200, 120, 15);
+        mail.setBounds(280, 200, 120, 14);
 
         Varnom.setEditable(false);
         Varnom.setFont(new java.awt.Font("Manjari", 1, 12)); // NOI18N
@@ -1302,8 +1222,7 @@ public class MenuInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_InicioMousePressed
 
     private void btn_UsuarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_UsuarioMousePressed
-        // TODO add your handling code here:
-         setColor(btn_Usuario); 
+        setColor(btn_Usuario); 
         ind_3.setOpaque(true);
         resetColor(new JPanel[]{btn_Playlist,btn_Inicio,btn_Video,btn_CerrarSesion,btn_Categorias}, new JPanel[]{ind_2,ind_1,ind_4,ind_5,ind_6});
         Panel_Central.removeAll();
@@ -1313,8 +1232,7 @@ public class MenuInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_UsuarioMousePressed
 
     private void btn_VideoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_VideoMousePressed
-        // TODO add your handling code here:
-          setColor(btn_Video); 
+        setColor(btn_Video); 
         ind_4.setOpaque(true);
         resetColor(new JPanel[]{btn_Playlist,btn_Usuario,btn_Inicio,btn_CerrarSesion,btn_Categorias}, new JPanel[]{ind_2,ind_3,ind_1,ind_5,ind_6});
         Panel_Central.removeAll();
@@ -1325,16 +1243,11 @@ public class MenuInicio extends javax.swing.JFrame {
 
     int xx,xy;
     private void Barra_SuperiorMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Barra_SuperiorMousePressed
-        // TODO add your handling code here:
-        //drag this pane
         xx = evt.getX();
         xy = evt.getY();
     }//GEN-LAST:event_Barra_SuperiorMousePressed
 
     private void Barra_SuperiorMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Barra_SuperiorMouseDragged
-        // TODO add your handling code here:
-        
-        //source to drag
         int x = evt.getXOnScreen();
         int y = evt.getYOnScreen();
         this.setLocation(x-xx,y-xy);
@@ -1352,7 +1265,7 @@ public class MenuInicio extends javax.swing.JFrame {
         btn_CerrarSesion.setBackground(new Color(235,76,76));
         ind_5.setOpaque(true);
         resetColor(new JPanel[]{btn_Inicio,btn_Usuario,btn_Video,btn_Playlist,btn_Categorias}, new JPanel[]{ind_1,ind_3,ind_4,ind_2,ind_6});
-        VentanaEmergente2 error = new VentanaEmergente2(this, rootPaneCheckingEnabled,this);
+        VentanaEmergente2 error = new VentanaEmergente2(this, rootPaneCheckingEnabled,this,manjari);
         error.setVisible(true);
     }//GEN-LAST:event_btn_CerrarSesionMousePressed
 
@@ -1435,7 +1348,7 @@ public class MenuInicio extends javax.swing.JFrame {
                 }
             }
         } else {
-            VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled);
+            VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled,manjari);
             error.CambioTexto("No existen usuarios en la base de datos.");
             error.setVisible(true);
         }
@@ -1451,7 +1364,7 @@ public class MenuInicio extends javax.swing.JFrame {
        Date fechaText = DateChoose.getDate();
        String nombreCanal = CampoCanal.getText();
        String descripcion = CampoDescripcion.getText();
-       VentanaEmergente mensaje = new VentanaEmergente(this, rootPaneCheckingEnabled);
+       VentanaEmergente mensaje = new VentanaEmergente(this, rootPaneCheckingEnabled,manjari);
        if(!nickname.equals("Ingrese Nickname") || !contraseña.equals("*********") || !nombreText.equals("Ingrese Nombre") || !apellidoText.equals("Ingrese Apellido") || !correo.equals("Ingrese Correo")){
         if(nombreCanal.isBlank() || nombreCanal.equals("Ingrese Nombre de Canal"))
           nombreCanal = nickname;
@@ -1482,14 +1395,14 @@ public class MenuInicio extends javax.swing.JFrame {
         }
       }
       else{
-        VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled);
+        VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled,manjari);
         mensaje.CambioTexto("Debes llenar todos los campos obligatorios");
         mensaje.setVisible(true);
        }
     }//GEN-LAST:event_RegistrarActionPerformed
 
     private void AgregarFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarFotoActionPerformed
-        SeleccionarImagen seleccionar = new SeleccionarImagen(this);
+        SeleccionarImagen seleccionar = new SeleccionarImagen(this,berlin);
         seleccionar.setVisible(true);
     }//GEN-LAST:event_AgregarFotoActionPerformed
 
