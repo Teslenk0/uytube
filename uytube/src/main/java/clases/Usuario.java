@@ -42,6 +42,10 @@ public class Usuario implements Serializable{
     @Column(name = "imagen")
     private String imagen;
     
+    @OneToOne
+    @JoinColumn(name = "canal")
+    private Canal canal;
+    
     public Usuario(){
     }
 
@@ -53,6 +57,17 @@ public class Usuario implements Serializable{
         this.email = email;
         this.fechaNac = fechaNac;
         this.imagen = imagen;
+    }
+
+    public Usuario(String nickname, String contraseña, String nombre, String apellido, String email, Date fechaNac, String imagen, Canal canal) {
+        this.nickname = nickname;
+        this.contraseña = contraseña;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.email = email;
+        this.fechaNac = fechaNac;
+        this.imagen = imagen;
+        this.canal = canal;
     }
     
     
@@ -112,4 +127,14 @@ public class Usuario implements Serializable{
     public void setImagen(String imagen) {
         this.imagen = imagen;
     }
+
+    public Canal getCanal() {
+        return canal;
+    }
+
+    public void setCanal(Canal canal) {
+        this.canal = canal;
+    }
+    
+    
 }

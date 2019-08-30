@@ -7,12 +7,9 @@ package clases;
 
 
 import java.io.Serializable;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -27,10 +24,6 @@ public class Canal implements Serializable {
     
     private static final long serialVersionUID = 1L;
     
-    @OneToOne
-    @JoinColumn(name = "nickname")
-    private Usuario usuario;
-    
     @Id
     @Column(name = "nombre_canal")
     private String nombre_canal;
@@ -44,21 +37,12 @@ public class Canal implements Serializable {
     public Canal() {
     }
 
-    public Canal(Usuario usuario, String nombre_canal, String descripcion, Boolean privado) {
-        this.usuario = usuario;
+    public Canal(String nombre_canal, String descripcion, Boolean privado) {
         this.nombre_canal = nombre_canal;
         this.descripcion = descripcion;
         this.privado = privado;
     }
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
-
+    
     public String getNombre_canal() {
         return nombre_canal;
     }
@@ -85,6 +69,8 @@ public class Canal implements Serializable {
 
     @Override
     public String toString() {
-        return "Canal{" + "usuario=" + usuario + ", nombre_canal=" + nombre_canal + ", descripcion=" + descripcion + ", privado=" + privado + '}';
+        return "Canal{" + "nombre_canal=" + nombre_canal + ", descripcion=" + descripcion + ", privado=" + privado + '}';
     }
+
+    
 }
