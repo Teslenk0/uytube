@@ -44,7 +44,7 @@ public class Usuario implements Serializable{
     
     @OneToOne
     @JoinColumn(name = "canal")
-    private Canal canal;
+    private Canal canal;     
     
     public Usuario(){
     }

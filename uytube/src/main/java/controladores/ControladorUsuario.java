@@ -29,7 +29,7 @@ public class ControladorUsuario implements IControladorUsuario{
     
     
     @Override
-    public void registrarUsuario(DtUsuario u, DtCanal c, BufferedImage imagen) throws UsuarioRepetidoException{
+    public void registrarUsuario(DtUsuario u, BufferedImage imagen) throws UsuarioRepetidoException{
         ManejadorInformacion mu = ManejadorInformacion.getInstance(); //pido una instancia del manejador
         
         Usuario user = mu.obtenerUsuario(u); //busco si esta o no
@@ -37,7 +37,7 @@ public class ControladorUsuario implements IControladorUsuario{
             throw new UsuarioRepetidoException("El usuario " + user.getNickname() + " ya existe");
         }
        
-        Canal canal = new Canal(c.getNombre_canal(), c.getDescripcion(), c.getPrivado());
+        Canal canal = new Canal(u.getCanal().getNombre_canal(),u.getCanal().getDescripcion(),u.getCanal().getPrivado());
         mu.crearCanal(canal);
         
         user = new Usuario(u.getNickname(), u.getContraseña(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen(),canal);

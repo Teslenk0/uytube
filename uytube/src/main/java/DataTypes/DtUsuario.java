@@ -30,8 +30,10 @@ public class DtUsuario implements Serializable {
     private final Date fechaNac;
     
     private final String imagen;
+    
+    private final DtCanal canal;
 
-    public DtUsuario(String nickname, String contraseña, String nombre, String apellido, String email, Date fechaNac, String imagen) {
+    public DtUsuario(String nickname, String contraseña, String nombre, String apellido, String email, Date fechaNac, String imagen, DtCanal canal) {
         this.nickname = nickname;
         this.contraseña = contraseña;
         this.nombre = nombre;
@@ -39,6 +41,7 @@ public class DtUsuario implements Serializable {
         this.email = email;
         this.fechaNac = fechaNac;
         this.imagen = imagen;
+        this.canal = canal;
     }
     
     public DtUsuario(Usuario u){
@@ -49,6 +52,7 @@ public class DtUsuario implements Serializable {
         this.email = u.getEmail();
         this.fechaNac = u.getFechaNac();
         this.imagen = u.getImagen();
+        this.canal = new DtCanal(u.getCanal().getNombre_canal(),u.getCanal().getDescripcion(),u.getCanal().getPrivado());
     }
     
     public static long getSerialVersionUID() {
@@ -82,5 +86,11 @@ public class DtUsuario implements Serializable {
     public String getImagen() {
         return imagen;
     }
+
+    public DtCanal getCanal() {
+        return canal;
+    }
+    
+    
     
 }

@@ -13,25 +13,19 @@ import java.io.Serializable;
  */
 public class DtCanal implements Serializable {
     
-   private static final long serialVersionUID = 1L;
-   
-    private final String nickname;
-    
+    private static final long serialVersionUID = 1L;
+       
     private final String nombre_canal;
     
     private final String descripcion;
     
     private final Boolean privado;
 
-    public DtCanal(String nickname, String nombre_canal, String descripcion, Boolean privado) {
-        this.nickname = nickname;
+    public DtCanal(String nombre_canal, String descripcion, Boolean privado) {
+        
         this.nombre_canal = nombre_canal;
         this.descripcion = descripcion;
         this.privado = privado;
-    }
-
-    public String getNickname() {
-        return nickname;
     }
 
     public String getNombre_canal() {

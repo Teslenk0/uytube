@@ -18,7 +18,7 @@ import java.util.List;
  */
 public interface IControladorUsuario {
     
-    public abstract void registrarUsuario(DtUsuario u, DtCanal c, BufferedImage imagen) throws UsuarioRepetidoException;
+    public abstract void registrarUsuario(DtUsuario u, BufferedImage imagen) throws UsuarioRepetidoException;
     
     public abstract List listaUsuarios();
 }

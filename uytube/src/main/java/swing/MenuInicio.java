@@ -1378,12 +1378,12 @@ public class MenuInicio extends javax.swing.JFrame {
          else
              rutaImagen = "/imagenesUsuarios/" + CampoNickname.getText() + ".png";
 
-         DtCanal addCanal = new DtCanal(nickname, nombreCanal, descripcion, privado);
+         DtCanal addCanal = new DtCanal(nombreCanal, descripcion, privado);
          DtUsuario addUser;
 
           try {
-              addUser = new DtUsuario(nickname,contraseña,nombreText,apellidoText,correo,fechaText,rutaImagen);
-              u.registrarUsuario(addUser, addCanal, imagen);
+              addUser = new DtUsuario(nickname,contraseña,nombreText,apellidoText,correo,fechaText,rutaImagen,addCanal);
+              u.registrarUsuario(addUser, imagen);
               mensaje.CambioTexto("El usuario ha sido registrado con exito");
               mensaje.setVisible(true);
               resetRegistro();
@@ -1460,7 +1460,7 @@ public class MenuInicio extends javax.swing.JFrame {
         Central2_2_Panel.removeAll();
         Central2_2_Panel.revalidate();
         Central2_2_Panel.repaint();
-        comboLista.removeAllItems();
+        comboConsulta.removeAllItems();
     }//GEN-LAST:event_BackButton3ActionPerformed
 
     private void SeleccionarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeleccionarUsuarioActionPerformed
