@@ -78,5 +78,8 @@ public class ControladorUsuario implements IControladorUsuario{
     }
     
    
-    
+    public void inicioBase(){
+        ManejadorInformacion mu = ManejadorInformacion.getInstance();
+        mu.iniciarConexionInicial();
+    }
 }

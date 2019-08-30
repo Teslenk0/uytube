@@ -7,47 +7,83 @@ package clases;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.IdClass;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.persistence.Id;
 
 /**
  *
  * @author esteban
  */
 
-   public class Video implements Serializable{
-        
-      private static final long serialVersionUID = 1L; 
-     
-      private String nombre;
-      
-      private String descripcion;
-      
-      private int duracion;
-      
-      private Date fechaPublicacion;
-      
-      private String url;
-      
-      private boolean privado;
-      
-      private Categoria cat;
+@Entity
+@Table(name = "videos_canal")
+@IdClass(PkVideo.class)
+public class Video implements Serializable {
 
-    public Video(String nombre, String descripcion, int duracion, Date fechaPublicacion, String url, boolean privado, Categoria cat) {
-        this.nombre = nombre;
+    private static final long serialVersionUID = 1L;
+    
+    @Id
+    @Column(name = "nombre")
+    private String nombreVideo;
+    
+    @Id
+    @OneToOne
+    @JoinColumn(name = "nombre_canal")
+    private Canal nombreCanal;
+    
+    @Column(name = "descripcion")
+    private String descripcion;
+    
+    @Column(name = "duracion")
+    private int duracion;
+    
+    @Column(name = "fecha_publicacion")
+    private Date fechaPublicacion;
+    
+    @Column(name = "url")
+    private String url;
+    
+    /*@OneToOne
+    @JoinColumn(name = "categoria")
+    private Categoria cat;*/
+
+    public Video() {
+    }
+
+    public Video(String nombreVideo, Canal nombreCanal, String descripcion, int duracion, Date fechaPublicacion, String url, Categoria cat) {
+        this.nombreVideo = nombreVideo;
+        this.nombreCanal = nombreCanal;
         this.descripcion = descripcion;
         this.duracion = duracion;
         this.fechaPublicacion = fechaPublicacion;
         this.url = url;
-        this.privado = privado;
-        this.cat = cat;
+        //this.cat = cat;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNombreVideo() {
+        return nombreVideo;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombreVideo(String nombreVideo) {
+        this.nombreVideo = nombreVideo;
     }
+
+    public Canal getNombreCanal() {
+        return nombreCanal;
+    }
+
+    public void setNombreCanal(Canal nombreCanal) {
+        this.nombreCanal = nombreCanal;
+    }
+
+    
+    
+    
 
     public String getDescripcion() {
         return descripcion;
@@ -81,26 +117,29 @@ import java.util.Date;
         this.url = url;
     }
 
-    public boolean isPrivado() {
-        return privado;
-    }
+    
 
-    public void setPrivado(boolean privado) {
-        this.privado = privado;
-    }
-
-    public Categoria getCat() {
+    /*public Categoria getCat() {
         return cat;
     }
 
     public void setCat(Categoria cat) {
         this.cat = cat;
-    }
+    }*/
 
     @Override
     public String toString() {
-        return "Video{" + "nombre=" + nombre + ", descripcion=" + descripcion + ", duracion=" + duracion + ", fechaPublicacion=" + fechaPublicacion + ", url=" + url + ", privado=" + privado + ", cat=" + cat + '}';
+        return "Video{" + "nombreVideo=" + nombreVideo + ", nombreCanal=" + nombreCanal + ", descripcion=" + descripcion + ", duracion=" + duracion + ", fechaPublicacion=" + fechaPublicacion + ", url=" + url + '}';
     }
 
-}
+   
+    
+    
 
+   
+
+    
+
+    
+
+}

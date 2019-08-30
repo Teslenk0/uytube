@@ -35,6 +35,7 @@ clases/Comentario.class
 controladores/ControladorUsuario.class
 swing/MenuInicio$2.class
 DataTypes/DtVideo.class
+clases/PkVideo.class
 swing/MenuInicio$8.class
 swing/MenuInicio$24.class
 swing/Menu$4.class

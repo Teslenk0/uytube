@@ -40,6 +40,7 @@ public class MenuInicio extends javax.swing.JFrame {
         this.manjari = manjari;
         this.berlin = berlin;
         initComponents();
+        this.u.inicioBase();
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/logoAPP.png")));
         setLocationRelativeTo(null);
         setColor(btn_Inicio); 

@@ -21,4 +21,6 @@ public interface IControladorUsuario {
     public abstract void registrarUsuario(DtUsuario u, BufferedImage imagen) throws UsuarioRepetidoException;
     
     public abstract List listaUsuarios();
+    
+    public abstract void inicioBase();
 }

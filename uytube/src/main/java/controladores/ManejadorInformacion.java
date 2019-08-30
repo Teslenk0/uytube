@@ -20,7 +20,7 @@ import javax.persistence.TypedQuery;
  */
 public class ManejadorInformacion{
     
-        
+    private boolean conexionIniciada = false;    
     //private static EntityManager manager; //pido un manager
     private EntityManager manager;
 
@@ -81,5 +81,15 @@ public class ManejadorInformacion{
         manager.persist(c);
         manager.getTransaction().commit();
         manager.close();
+    }
+    
+    public void iniciarConexionInicial(){
+        manager = emf.createEntityManager();
+        if(!conexionIniciada){
+            manager.getTransaction().begin();
+            manager.getTransaction().rollback();
+            manager.close();
+            this.conexionIniciada = true;
+        }
     }
 }
