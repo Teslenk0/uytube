@@ -12,6 +12,7 @@ import clases.*;
 import DataTypes.*;
 import java.util.List;
 import javax.persistence.NoResultException;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 /**
@@ -91,5 +92,18 @@ public class ManejadorInformacion{
             manager.close();
             this.conexionIniciada = true;
         }
+    }
+    
+    public void modificarUsuario(Usuario u, Canal c){
+        manager = emf.createEntityManager();
+        manager.getTransaction().begin();
+        Usuario user = manager.find(Usuario.class,u.getNickname());
+        Canal can = manager .find(Canal.class, user.getCanal().getNombre_canal());
+        //can.setNombre_canal(c.getNombre_canal());  
+        // No puedo cambiar el nombre del canal fk ?
+        can.setDescripcion(c.getDescripcion());
+        manager.merge(u);
+        manager.getTransaction().commit();
+        manager.close();
     }
 }

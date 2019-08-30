@@ -9,6 +9,7 @@ import DataTypes.DtCanal;
 import excepciones.UsuarioRepetidoException;
 import DataTypes.DtUsuario;
 import java.awt.image.BufferedImage;
+import java.util.Date;
 import java.util.List;
 
 
@@ -23,4 +24,6 @@ public interface IControladorUsuario {
     public abstract List listaUsuarios();
     
     public abstract void inicioBase();
+    
+    public abstract void modificarUsuario(DtUsuario modUser, DtCanal modCanal);
 }

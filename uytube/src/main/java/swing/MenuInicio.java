@@ -166,6 +166,12 @@ public class MenuInicio extends javax.swing.JFrame {
         SeleccionarUsuario = new javax.swing.JButton();
         Central2_2_Panel = new javax.swing.JPanel();
         jSeparator18 = new javax.swing.JSeparator();
+        Central2_3 = new javax.swing.JPanel();
+        comboModificar = new javax.swing.JComboBox<>();
+        BackButton4 = new javax.swing.JButton();
+        SeleccionarUsuarioModificar = new javax.swing.JButton();
+        Central2_3_Panel = new javax.swing.JPanel();
+        jSeparator19 = new javax.swing.JSeparator();
         Central2_4 = new javax.swing.JPanel();
         comboLista = new javax.swing.JComboBox<>();
         BackButton2 = new javax.swing.JButton();
@@ -187,6 +193,43 @@ public class MenuInicio extends javax.swing.JFrame {
         jSeparator16 = new javax.swing.JSeparator();
         Imagen = new javax.swing.JLabel();
         jSeparator17 = new javax.swing.JSeparator();
+        mail2 = new javax.swing.JLabel();
+        Varcanal = new javax.swing.JTextField();
+        jSeparator26 = new javax.swing.JSeparator();
+        mail3 = new javax.swing.JLabel();
+        VarDescr = new javax.swing.JTextField();
+        jSeparator27 = new javax.swing.JSeparator();
+        Central2_3_1 = new javax.swing.JPanel();
+        nombre1 = new javax.swing.JLabel();
+        apellido1 = new javax.swing.JLabel();
+        nick1 = new javax.swing.JLabel();
+        fecha1 = new javax.swing.JLabel();
+        Varnick1 = new javax.swing.JTextField();
+        mail1 = new javax.swing.JLabel();
+        Varnom1 = new javax.swing.JTextField();
+        Varape1 = new javax.swing.JTextField();
+        Varmail1 = new javax.swing.JTextField();
+        jSeparator20 = new javax.swing.JSeparator();
+        jSeparator21 = new javax.swing.JSeparator();
+        jSeparator22 = new javax.swing.JSeparator();
+        jSeparator23 = new javax.swing.JSeparator();
+        jSeparator24 = new javax.swing.JSeparator();
+        Imagen1 = new javax.swing.JLabel();
+        jSeparator25 = new javax.swing.JSeparator();
+        mail4 = new javax.swing.JLabel();
+        Varcanal1 = new javax.swing.JTextField();
+        jSeparator28 = new javax.swing.JSeparator();
+        mail5 = new javax.swing.JLabel();
+        VarDescr1 = new javax.swing.JTextField();
+        jSeparator29 = new javax.swing.JSeparator();
+        AgregarImg1 = new javax.swing.JLabel();
+        CampoImagen1 = new javax.swing.JTextField();
+        DateChoose1 = new com.toedter.calendar.JDateChooser();
+        AgregarFoto1 = new javax.swing.JButton();
+        Modificar = new javax.swing.JButton();
+        contraseña = new javax.swing.JLabel();
+        VarPass = new javax.swing.JTextField();
+        jSeparator30 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -491,7 +534,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2.add(AgregarUsuario);
-        AgregarUsuario.setBounds(90, 40, 243, 221);
+        AgregarUsuario.setBounds(90, 40, 223, 225);
         AgregarUsuario.getAccessibleContext().setAccessibleName("AgregarUsuario");
 
         ModificarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ModificarUser.png"))); // NOI18N
@@ -504,7 +547,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2.add(ModificarUsuario);
-        ModificarUsuario.setBounds(90, 290, 243, 221);
+        ModificarUsuario.setBounds(90, 290, 223, 225);
 
         ListarUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Listar.png"))); // NOI18N
         ListarUsuarios.setBorderPainted(false);
@@ -516,7 +559,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2.add(ListarUsuarios);
-        ListarUsuarios.setBounds(390, 290, 243, 221);
+        ListarUsuarios.setBounds(390, 290, 223, 225);
 
         ConsultarUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ConsultarUser.png"))); // NOI18N
         ConsultarUsuarios.setBorderPainted(false);
@@ -528,7 +571,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2.add(ConsultarUsuarios);
-        ConsultarUsuarios.setBounds(390, 40, 243, 221);
+        ConsultarUsuarios.setBounds(390, 40, 223, 225);
 
         Panel_Central.add(Central2);
         Central2.setBounds(0, 0, 720, 550);
@@ -734,32 +777,32 @@ public class MenuInicio extends javax.swing.JFrame {
         Usuario.setFont(berlin.deriveFont(20f));
         Usuario.setText("Usuario");
         Central2_1.add(Usuario);
-        Usuario.setBounds(170, 40, 100, 14);
+        Usuario.setBounds(170, 40, 100, 18);
 
         Nickname.setFont(berlin);
         Nickname.setText("Nickname(*)");
         Central2_1.add(Nickname);
-        Nickname.setBounds(40, 100, 100, 14);
+        Nickname.setBounds(40, 100, 100, 18);
 
         Contraseña.setFont(berlin);
         Contraseña.setText("Contraseña(*)");
         Central2_1.add(Contraseña);
-        Contraseña.setBounds(40, 140, 110, 14);
+        Contraseña.setBounds(40, 140, 110, 18);
 
         Nombre.setFont(berlin);
         Nombre.setText("Nombre(*)");
         Central2_1.add(Nombre);
-        Nombre.setBounds(40, 180, 90, 14);
+        Nombre.setBounds(40, 180, 90, 18);
 
         Apellido.setFont(berlin);
         Apellido.setText("Apellido(*)");
         Central2_1.add(Apellido);
-        Apellido.setBounds(40, 220, 90, 14);
+        Apellido.setBounds(40, 220, 90, 18);
 
         Correo.setFont(berlin);
         Correo.setText("Correo(*)");
         Central2_1.add(Correo);
-        Correo.setBounds(40, 260, 90, 14);
+        Correo.setBounds(40, 260, 90, 18);
 
         FechaNac.setFont(berlin);
         FechaNac.setText("Fecha de nacimiento(*)");
@@ -813,7 +856,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2_1.add(CampoContraseña);
-        CampoContraseña.setBounds(160, 140, 220, 16);
+        CampoContraseña.setBounds(160, 140, 220, 15);
 
         CampoNombre.setBackground(new java.awt.Color(153, 153, 153));
         CampoNombre.setFont(berlin);
@@ -899,7 +942,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2_1.add(AgregarFoto);
-        AgregarFoto.setBounds(340, 420, 40, 35);
+        AgregarFoto.setBounds(340, 420, 40, 39);
 
         Registrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_regist_2.png"))); // NOI18N
         Registrar.setBorderPainted(false);
@@ -1002,7 +1045,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2_2.add(comboConsulta);
-        comboConsulta.setBounds(122, 90, 456, 22);
+        comboConsulta.setBounds(122, 90, 456, 28);
 
         BackButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back.png"))); // NOI18N
         BackButton3.setBorder(null);
@@ -1015,7 +1058,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2_2.add(BackButton3);
-        BackButton3.setBounds(0, 11, 101, 51);
+        BackButton3.setBounds(0, 11, 101, 50);
 
         SeleccionarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_seleccionar_2.png"))); // NOI18N
         SeleccionarUsuario.setBorderPainted(false);
@@ -1053,6 +1096,66 @@ public class MenuInicio extends javax.swing.JFrame {
 
         Panel_Central.add(Central2_2);
         Central2_2.setBounds(0, 0, 720, 550);
+
+        Central2_3.setLayout(null);
+
+        comboModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboModificarActionPerformed(evt);
+            }
+        });
+        Central2_3.add(comboModificar);
+        comboModificar.setBounds(122, 90, 456, 28);
+
+        BackButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back.png"))); // NOI18N
+        BackButton4.setBorder(null);
+        BackButton4.setBorderPainted(false);
+        BackButton4.setContentAreaFilled(false);
+        BackButton4.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back2.png"))); // NOI18N
+        BackButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackButton4ActionPerformed(evt);
+            }
+        });
+        Central2_3.add(BackButton4);
+        BackButton4.setBounds(0, 11, 101, 50);
+
+        SeleccionarUsuarioModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_seleccionar_2.png"))); // NOI18N
+        SeleccionarUsuarioModificar.setBorderPainted(false);
+        SeleccionarUsuarioModificar.setContentAreaFilled(false);
+        SeleccionarUsuarioModificar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_seleccionar_1.png"))); // NOI18N
+        SeleccionarUsuarioModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SeleccionarUsuarioModificarActionPerformed(evt);
+            }
+        });
+        Central2_3.add(SeleccionarUsuarioModificar);
+        SeleccionarUsuarioModificar.setBounds(590, 80, 110, 40);
+
+        Central2_3_Panel.setMaximumSize(new java.awt.Dimension(403, 550));
+        Central2_3_Panel.setMinimumSize(new java.awt.Dimension(403, 550));
+
+        javax.swing.GroupLayout Central2_3_PanelLayout = new javax.swing.GroupLayout(Central2_3_Panel);
+        Central2_3_Panel.setLayout(Central2_3_PanelLayout);
+        Central2_3_PanelLayout.setHorizontalGroup(
+            Central2_3_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 750, Short.MAX_VALUE)
+        );
+        Central2_3_PanelLayout.setVerticalGroup(
+            Central2_3_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 550, Short.MAX_VALUE)
+        );
+
+        Central2_3.add(Central2_3_Panel);
+        Central2_3_Panel.setBounds(0, 190, 750, 360);
+
+        jSeparator19.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator19.setForeground(new java.awt.Color(153, 153, 153));
+        Central2_3.add(jSeparator19);
+        jSeparator19.setBounds(30, 160, 675, 60);
+
+        Panel_Central.add(Central2_3);
+        Central2_3.setBounds(0, 0, 720, 550);
 
         comboLista.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1105,13 +1208,13 @@ public class MenuInicio extends javax.swing.JFrame {
         nombre.setForeground(new java.awt.Color(102, 102, 102));
         nombre.setText("Nombre");
         Central2_2_1.add(nombre);
-        nombre.setBounds(280, 80, 70, 14);
+        nombre.setBounds(280, 80, 70, 18);
 
         apellido.setFont(berlin);
         apellido.setForeground(new java.awt.Color(102, 102, 102));
         apellido.setText("Apellido");
         Central2_2_1.add(apellido);
-        apellido.setBounds(280, 120, 70, 14);
+        apellido.setBounds(280, 120, 70, 18);
 
         nick.setFont(berlin);
         nick.setForeground(new java.awt.Color(102, 102, 102));
@@ -1123,48 +1226,48 @@ public class MenuInicio extends javax.swing.JFrame {
         fecha.setForeground(new java.awt.Color(102, 102, 102));
         fecha.setText("Fecha de nacimiento");
         Central2_2_1.add(fecha);
-        fecha.setBounds(280, 160, 130, 14);
+        fecha.setBounds(280, 160, 130, 18);
 
         Varnick.setEditable(false);
-        Varnick.setFont(new java.awt.Font("Manjari", 1, 12)); // NOI18N
+        Varnick.setFont(berlin);
         Varnick.setBorder(null);
         Varnick.setOpaque(false);
         Central2_2_1.add(Varnick);
-        Varnick.setBounds(420, 40, 190, 15);
+        Varnick.setBounds(420, 40, 190, 18);
 
         mail.setFont(berlin);
         mail.setForeground(new java.awt.Color(102, 102, 102));
         mail.setText("Correo electronico");
         Central2_2_1.add(mail);
-        mail.setBounds(280, 200, 120, 14);
+        mail.setBounds(280, 200, 120, 18);
 
         Varnom.setEditable(false);
-        Varnom.setFont(new java.awt.Font("Manjari", 1, 12)); // NOI18N
+        Varnom.setFont(berlin);
         Varnom.setBorder(null);
         Varnom.setOpaque(false);
         Central2_2_1.add(Varnom);
-        Varnom.setBounds(420, 80, 190, 15);
+        Varnom.setBounds(420, 80, 190, 18);
 
         Varape.setEditable(false);
-        Varape.setFont(new java.awt.Font("Manjari", 1, 12)); // NOI18N
+        Varape.setFont(berlin);
         Varape.setBorder(null);
         Varape.setOpaque(false);
         Central2_2_1.add(Varape);
-        Varape.setBounds(420, 120, 190, 15);
+        Varape.setBounds(420, 120, 190, 18);
 
         Varfech.setEditable(false);
-        Varfech.setFont(new java.awt.Font("Manjari", 1, 12)); // NOI18N
+        Varfech.setFont(berlin);
         Varfech.setBorder(null);
         Varfech.setOpaque(false);
         Central2_2_1.add(Varfech);
-        Varfech.setBounds(420, 160, 190, 15);
+        Varfech.setBounds(420, 160, 190, 18);
 
         Varmail.setEditable(false);
-        Varmail.setFont(new java.awt.Font("Manjari", 1, 12)); // NOI18N
+        Varmail.setFont(berlin);
         Varmail.setBorder(null);
         Varmail.setOpaque(false);
         Central2_2_1.add(Varmail);
-        Varmail.setBounds(420, 200, 190, 15);
+        Varmail.setBounds(420, 200, 190, 18);
 
         jSeparator1.setBackground(new java.awt.Color(153, 153, 153));
         jSeparator1.setForeground(new java.awt.Color(153, 153, 153));
@@ -1186,7 +1289,7 @@ public class MenuInicio extends javax.swing.JFrame {
         Central2_2_1.add(jSeparator15);
         jSeparator15.setBounds(280, 220, 330, 16);
         Central2_2_1.add(jSeparator16);
-        jSeparator16.setBounds(196, 94, 0, 254);
+        jSeparator16.setBounds(196, 94, 4, 254);
 
         Imagen.setBackground(new java.awt.Color(255, 255, 255));
         Imagen.setForeground(new java.awt.Color(255, 255, 255));
@@ -1202,8 +1305,247 @@ public class MenuInicio extends javax.swing.JFrame {
         Central2_2_1.add(jSeparator17);
         jSeparator17.setBounds(280, 180, 330, 16);
 
+        mail2.setFont(berlin);
+        mail2.setForeground(new java.awt.Color(102, 102, 102));
+        mail2.setText("Nombre canal");
+        Central2_2_1.add(mail2);
+        mail2.setBounds(280, 240, 120, 18);
+
+        Varmail.setEditable(false);
+        Varcanal.setFont(berlin);
+        Varcanal.setBorder(null);
+        Varcanal.setOpaque(false);
+        Central2_2_1.add(Varcanal);
+        Varcanal.setBounds(420, 240, 190, 15);
+
+        jSeparator26.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator26.setForeground(new java.awt.Color(153, 153, 153));
+        Central2_2_1.add(jSeparator26);
+        jSeparator26.setBounds(280, 260, 330, 16);
+
+        mail3.setFont(berlin);
+        mail3.setForeground(new java.awt.Color(102, 102, 102));
+        mail3.setText("Descripcion");
+        Central2_2_1.add(mail3);
+        mail3.setBounds(280, 280, 120, 18);
+
+        Varmail.setEditable(false);
+        VarDescr.setFont(berlin);
+        VarDescr.setBorder(null);
+        VarDescr.setOpaque(false);
+        Central2_2_1.add(VarDescr);
+        VarDescr.setBounds(420, 280, 190, 15);
+
+        jSeparator27.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator27.setForeground(new java.awt.Color(153, 153, 153));
+        Central2_2_1.add(jSeparator27);
+        jSeparator27.setBounds(280, 300, 330, 16);
+
         Panel_Central.add(Central2_2_1);
         Central2_2_1.setBounds(0, 0, 720, 350);
+
+        Central2_3_1.setMaximumSize(new java.awt.Dimension(403, 550));
+        Central2_3_1.setMinimumSize(new java.awt.Dimension(403, 550));
+        Central2_3_1.setLayout(null);
+
+        nombre1.setFont(berlin);
+        nombre1.setForeground(new java.awt.Color(102, 102, 102));
+        nombre1.setText("Nombre (*)");
+        Central2_3_1.add(nombre1);
+        nombre1.setBounds(280, 50, 100, 18);
+
+        apellido1.setFont(berlin);
+        apellido1.setForeground(new java.awt.Color(102, 102, 102));
+        apellido1.setText("Apellido (*)");
+        Central2_3_1.add(apellido1);
+        apellido1.setBounds(280, 90, 90, 18);
+
+        nick1.setFont(berlin);
+        nick1.setForeground(new java.awt.Color(102, 102, 102));
+        nick1.setText("Nickname (*)");
+        Central2_3_1.add(nick1);
+        nick1.setBounds(280, 10, 100, 20);
+
+        fecha1.setFont(berlin);
+        fecha1.setForeground(new java.awt.Color(102, 102, 102));
+        fecha1.setText("Fecha de nacimiento ");
+        Central2_3_1.add(fecha1);
+        fecha1.setBounds(280, 290, 160, 18);
+
+        Varnick.setEditable(false);
+        Varnick1.setEditable(false);
+        Varnick1.setFont(berlin);
+        Varnick1.setBorder(null);
+        Varnick1.setOpaque(false);
+        Central2_3_1.add(Varnick1);
+        Varnick1.setBounds(430, 10, 190, 18);
+
+        mail1.setFont(berlin);
+        mail1.setForeground(new java.awt.Color(102, 102, 102));
+        mail1.setText("Correo electronico  (*)");
+        Central2_3_1.add(mail1);
+        mail1.setBounds(280, 170, 150, 18);
+
+        Varnom.setEditable(false);
+        Varnom1.setFont(berlin);
+        Varnom1.setBorder(null);
+        Varnom1.setOpaque(false);
+        Central2_3_1.add(Varnom1);
+        Varnom1.setBounds(430, 50, 190, 18);
+
+        Varape.setEditable(false);
+        Varape1.setFont(berlin);
+        Varape1.setBorder(null);
+        Varape1.setOpaque(false);
+        Central2_3_1.add(Varape1);
+        Varape1.setBounds(430, 90, 190, 18);
+
+        Varmail.setEditable(false);
+        Varmail1.setEditable(false);
+        Varmail1.setFont(new java.awt.Font("Manjari", 1, 12)); // NOI18N
+        Varmail1.setBorder(null);
+        Varmail1.setOpaque(false);
+        Central2_3_1.add(Varmail1);
+        Varmail1.setBounds(430, 170, 190, 15);
+
+        jSeparator20.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator20.setForeground(new java.awt.Color(153, 153, 153));
+        Central2_3_1.add(jSeparator20);
+        jSeparator20.setBounds(280, 30, 340, 16);
+
+        jSeparator21.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator21.setForeground(new java.awt.Color(153, 153, 153));
+        Central2_3_1.add(jSeparator21);
+        jSeparator21.setBounds(280, 70, 340, 16);
+
+        jSeparator22.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator22.setForeground(new java.awt.Color(153, 153, 153));
+        Central2_3_1.add(jSeparator22);
+        jSeparator22.setBounds(280, 310, 340, 16);
+
+        jSeparator23.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator23.setForeground(new java.awt.Color(153, 153, 153));
+        Central2_3_1.add(jSeparator23);
+        jSeparator23.setBounds(280, 190, 340, 16);
+        Central2_3_1.add(jSeparator24);
+        jSeparator24.setBounds(196, 94, 4, 254);
+
+        Imagen1.setBackground(new java.awt.Color(255, 255, 255));
+        Imagen1.setForeground(new java.awt.Color(255, 255, 255));
+        Imagen1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153), 2));
+        Imagen1.setMaximumSize(new java.awt.Dimension(160, 160));
+        Imagen1.setMinimumSize(new java.awt.Dimension(160, 160));
+        Imagen1.setPreferredSize(new java.awt.Dimension(160, 160));
+        Central2_3_1.add(Imagen1);
+        Imagen1.setBounds(40, 10, 160, 160);
+
+        jSeparator25.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator25.setForeground(new java.awt.Color(153, 153, 153));
+        Central2_3_1.add(jSeparator25);
+        jSeparator25.setBounds(280, 150, 340, 16);
+
+        mail4.setFont(berlin);
+        mail4.setForeground(new java.awt.Color(102, 102, 102));
+        mail4.setText("Nombre canal");
+        Central2_3_1.add(mail4);
+        mail4.setBounds(280, 210, 120, 18);
+
+        Varmail.setEditable(false);
+        Varcanal1.setFont(berlin);
+        Varcanal1.setBorder(null);
+        Varcanal1.setOpaque(false);
+        Central2_3_1.add(Varcanal1);
+        Varcanal1.setBounds(430, 210, 190, 15);
+
+        jSeparator28.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator28.setForeground(new java.awt.Color(153, 153, 153));
+        Central2_3_1.add(jSeparator28);
+        jSeparator28.setBounds(280, 230, 340, 16);
+
+        mail5.setFont(berlin);
+        mail5.setForeground(new java.awt.Color(102, 102, 102));
+        mail5.setText("Descripcion (*)");
+        Central2_3_1.add(mail5);
+        mail5.setBounds(280, 250, 120, 18);
+
+        Varmail.setEditable(false);
+        VarDescr1.setFont(berlin);
+        VarDescr1.setBorder(null);
+        VarDescr1.setOpaque(false);
+        Central2_3_1.add(VarDescr1);
+        VarDescr1.setBounds(430, 250, 190, 15);
+
+        jSeparator29.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator29.setForeground(new java.awt.Color(153, 153, 153));
+        Central2_3_1.add(jSeparator29);
+        jSeparator29.setBounds(290, 270, 330, 16);
+
+        AgregarImg1.setFont(berlin);
+        AgregarImg1.setText("Seleccionar Imagen");
+        Central2_3_1.add(AgregarImg1);
+        AgregarImg1.setBounds(30, 180, 140, 30);
+
+        CampoImagen1.setBackground(new java.awt.Color(153, 153, 153));
+        CampoImagen1.setFont(berlin);
+        CampoImagen1.setForeground(new java.awt.Color(102, 102, 102));
+        CampoImagen1.setText("Imágen seleccionada");
+        CampoImagen1.setBorder(null);
+        CampoImagen1.setOpaque(false);
+        Central2_3_1.add(CampoImagen1);
+        CampoImagen1.setBounds(30, 210, 160, 30);
+
+        DateChoose1.setNextFocusableComponent(Descripcion);
+        DateChoose1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DateChoose1MouseClicked(evt);
+            }
+        });
+        Central2_3_1.add(DateChoose1);
+        DateChoose1.setBounds(430, 290, 190, 20);
+
+        AgregarFoto1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/add_img.png"))); // NOI18N
+        AgregarFoto1.setBorderPainted(false);
+        AgregarFoto1.setContentAreaFilled(false);
+        AgregarFoto1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/add_img2.png"))); // NOI18N
+        AgregarFoto1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AgregarFoto1ActionPerformed(evt);
+            }
+        });
+        Central2_3_1.add(AgregarFoto1);
+        AgregarFoto1.setBounds(180, 180, 30, 30);
+
+        Modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_2.png"))); // NOI18N
+        Modificar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_1.png"))); // NOI18N
+        Modificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ModificarActionPerformed(evt);
+            }
+        });
+        Central2_3_1.add(Modificar);
+        Modificar.setBounds(80, 290, 70, 40);
+        Modificar.getAccessibleContext().setAccessibleName("modificar");
+
+        contraseña.setFont(berlin);
+        contraseña.setForeground(new java.awt.Color(102, 102, 102));
+        contraseña.setText("Contraseña  (*)");
+        Central2_3_1.add(contraseña);
+        contraseña.setBounds(280, 130, 130, 18);
+
+        Varape.setEditable(false);
+        VarPass.setFont(berlin);
+        VarPass.setBorder(null);
+        VarPass.setOpaque(false);
+        Central2_3_1.add(VarPass);
+        VarPass.setBounds(430, 130, 190, 18);
+
+        jSeparator30.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator30.setForeground(new java.awt.Color(153, 153, 153));
+        Central2_3_1.add(jSeparator30);
+        jSeparator30.setBounds(280, 110, 340, 16);
+
+        Panel_Central.add(Central2_3_1);
+        Central2_3_1.setBounds(0, 0, 720, 350);
 
         getContentPane().add(Panel_Central, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 720, 550));
 
@@ -1316,7 +1658,24 @@ public class MenuInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_BackButtonActionPerformed
 
     private void ModificarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarUsuarioActionPerformed
-        // TODO add your handling code here:
+        Panel_Central.removeAll();
+        Panel_Central.add(Central2_3);
+        Panel_Central.revalidate();
+        Panel_Central.repaint();
+        List lista = u.listaUsuarios();
+        if (lista != null) {
+            DtUsuario user;
+            for (int x = 0; x <= lista.size() - 1; x++) {
+                if (lista.get(x) != null) {
+                    user = (DtUsuario) lista.get(x);
+                    comboModificar.addItem(user.getNickname());
+                }
+            }
+        } else {
+            VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled,manjari);
+            error.CambioTexto("No existen usuarios en la base de datos.");
+            error.setVisible(true);
+        }
     }//GEN-LAST:event_ModificarUsuarioActionPerformed
 
     private void ListarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarUsuariosActionPerformed
@@ -1486,10 +1845,103 @@ public class MenuInicio extends javax.swing.JFrame {
                this.Varfech.setText(fechaN);
                this.Varmail.setText(user.getEmail());
                this.Imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource(user.getImagen())));
+               this.Varcanal.setText(user.getCanal().getNombre_canal());
+               this.VarDescr.setText(user.getCanal().getDescripcion());
             }
         }                        
         
     }//GEN-LAST:event_SeleccionarUsuarioActionPerformed
+
+    private void comboModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboModificarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboModificarActionPerformed
+
+    private void BackButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButton4ActionPerformed
+        Panel_Central.removeAll();
+        Panel_Central.add(Central2);
+        Panel_Central.revalidate();
+        Panel_Central.repaint();
+        Central2_3_Panel.removeAll();
+        Central2_3_Panel.revalidate();
+        Central2_3_Panel.repaint();
+        comboModificar.removeAllItems();
+        DateChoose1.setDate(null);
+    }//GEN-LAST:event_BackButton4ActionPerformed
+
+    private void SeleccionarUsuarioModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeleccionarUsuarioModificarActionPerformed
+        DateChoose1.setDate(null);
+        Item = comboModificar.getSelectedItem().toString();
+        Central2_3_Panel.add(Central2_3_1);
+        Panel_Central.revalidate();
+        Panel_Central.repaint();
+        List lista = u.listaUsuarios();
+        DtUsuario user;
+        String fechaN;
+        Integer num;
+        for(int x=0; x<=lista.size()-1; x++){
+            user = (DtUsuario) lista.get(x);
+            if(Item.equals(user.getNickname())){
+               this.Varnick1.setText(Item);
+               this.Varnom1.setText(user.getNombre());
+               this.Varape1.setText(user.getApellido());
+               this.Varmail1.setText(user.getEmail());
+               this.Imagen1.setIcon(new javax.swing.ImageIcon(getClass().getResource(user.getImagen())));
+               this.Varcanal1.setText(user.getCanal().getNombre_canal());
+               this.VarDescr1.setText(user.getCanal().getDescripcion());
+               this.VarPass.setText(user.getContraseña());
+               fechaN = user.getFechaNac().toString();
+               fechaN = fechaN.substring(0, 10);
+               num = Integer.parseInt(fechaN.substring(8,10)) + 1;
+               fechaN = fechaN.substring(0, 8) + num.toString();
+               DateChoose1.setDate(user.getFechaNac());
+            }
+        }                        
+    }//GEN-LAST:event_SeleccionarUsuarioModificarActionPerformed
+
+    private void AgregarFoto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarFoto1ActionPerformed
+        SeleccionarImagen seleccionar = new SeleccionarImagen(this,berlin);
+        seleccionar.setVisible(true);
+    }//GEN-LAST:event_AgregarFoto1ActionPerformed
+
+    private void ModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarActionPerformed
+        String nom = Varnom1.getText();
+        String ape = Varape1.getText();
+        String nomCanal = Varcanal1.getText();
+        String descripcion = VarDescr1.getText();
+        Date nuevafecha = DateChoose1.getDate();
+        String pass = VarPass.getText();
+        rutaImagen = "/imagenesUsuarios/" + Varnick1.getText() + ".png";
+        List lista = u.listaUsuarios();
+        for(int x=0; x<=lista.size()-1; x++){
+            DtUsuario user = (DtUsuario) lista.get(x);
+            if(user.getNickname().equals(Varnick1.getText())){
+               VentanaEmergente mensaje = new VentanaEmergente(this, rootPaneCheckingEnabled,manjari);
+               if(nuevafecha == null || pass.isBlank() || nom.isBlank() || ape.isBlank() || descripcion.isBlank() || descripcion.isBlank()){
+                    mensaje.CambioTexto("Debes llenar todos los campos obligatorios");
+                    mensaje.setVisible(true);
+                }
+               else if(user.getNombre().equals(nom) && user.getApellido().equals(ape) && user.getContraseña().equals(pass) && user.getCanal().getNombre_canal().equals(nomCanal) && user.getCanal().getDescripcion().equals(descripcion)){
+                    mensaje.CambioTexto("No se realizo ninguna modificacion");
+                    mensaje.setVisible(true);
+               }
+               else{
+                    if(nomCanal == null){
+                        nomCanal = user.getNickname();
+                    }
+                    DtUsuario modUser;
+                    DtCanal modCanal = new DtCanal (nomCanal, descripcion, user.getCanal().getPrivado());
+                    modUser = new DtUsuario(user.getNickname(),pass, nom, ape, user.getEmail(), nuevafecha, rutaImagen, user.getCanal());
+                    u.modificarUsuario(modUser, modCanal);
+                    mensaje.CambioTexto("Modificaciones realizadas con exito");
+                    mensaje.setVisible(true);
+               }
+            }
+        }
+    }//GEN-LAST:event_ModificarActionPerformed
+
+    private void DateChoose1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DateChoose1MouseClicked
+        
+    }//GEN-LAST:event_DateChoose1MouseClicked
 
     
     private void setColor(JPanel pane)
@@ -1510,6 +1962,7 @@ public class MenuInicio extends javax.swing.JFrame {
     
      public void setPathImagen(String texto, BufferedImage imagen){
         CampoImagen.setText(texto);
+        CampoImagen1.setText(texto);
         this.imagen = imagen;
     }
 
@@ -1528,13 +1981,16 @@ public class MenuInicio extends javax.swing.JFrame {
      
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AgregarFoto;
+    private javax.swing.JButton AgregarFoto1;
     private javax.swing.JLabel AgregarImg;
+    private javax.swing.JLabel AgregarImg1;
     private javax.swing.JLabel AgregarUserText;
     private javax.swing.JButton AgregarUsuario;
     private javax.swing.JLabel Apellido;
     private javax.swing.JButton BackButton;
     private javax.swing.JButton BackButton2;
     private javax.swing.JButton BackButton3;
+    private javax.swing.JButton BackButton4;
     private javax.swing.JPanel Barra_Superior;
     private javax.swing.JTextField CampoApellido;
     private javax.swing.JTextField CampoCanal;
@@ -1542,6 +1998,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JTextField CampoCorreo;
     private javax.swing.JTextArea CampoDescripcion;
     private javax.swing.JTextField CampoImagen;
+    private javax.swing.JTextField CampoImagen1;
     private javax.swing.JTextField CampoNickname;
     private javax.swing.JTextField CampoNombre;
     private javax.swing.JLabel Canal;
@@ -1551,6 +2008,9 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JPanel Central2_2;
     private javax.swing.JPanel Central2_2_1;
     private javax.swing.JPanel Central2_2_Panel;
+    private javax.swing.JPanel Central2_3;
+    private javax.swing.JPanel Central2_3_1;
+    private javax.swing.JPanel Central2_3_Panel;
     private javax.swing.JPanel Central2_4;
     private javax.swing.JPanel Central3;
     private javax.swing.JPanel Central4;
@@ -1561,11 +2021,14 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JLabel Contraseña;
     private javax.swing.JLabel Correo;
     private com.toedter.calendar.JDateChooser DateChoose;
+    private com.toedter.calendar.JDateChooser DateChoose1;
     private javax.swing.JLabel Descripcion;
     private javax.swing.JLabel FechaNac;
     private javax.swing.JLabel Imagen;
+    private javax.swing.JLabel Imagen1;
     private javax.swing.JButton ListarUsuarios;
     private javax.swing.JLabel ListarUsuariosText;
+    private javax.swing.JButton Modificar;
     private javax.swing.JButton ModificarUsuario;
     private javax.swing.JLabel ModificarUsuarioText;
     private javax.swing.JLabel Nickname;
@@ -1578,13 +2041,23 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JScrollPane Scroll4;
     private javax.swing.JScrollPane ScroolDescripcion;
     private javax.swing.JButton SeleccionarUsuario;
+    private javax.swing.JButton SeleccionarUsuarioModificar;
     private javax.swing.JLabel Usuario;
     private javax.swing.JLabel UsuarioBarra;
+    private javax.swing.JTextField VarDescr;
+    private javax.swing.JTextField VarDescr1;
+    private javax.swing.JTextField VarPass;
     private javax.swing.JTextField Varape;
+    private javax.swing.JTextField Varape1;
+    private javax.swing.JTextField Varcanal;
+    private javax.swing.JTextField Varcanal1;
     private javax.swing.JTextField Varfech;
     private javax.swing.JTextField Varmail;
+    private javax.swing.JTextField Varmail1;
     private javax.swing.JTextField Varnick;
+    private javax.swing.JTextField Varnick1;
     private javax.swing.JTextField Varnom;
+    private javax.swing.JTextField Varnom1;
     private javax.swing.JButton agrVid_Button;
     private javax.swing.JLabel agregarCat;
     private javax.swing.JButton agregarCat_Button;
@@ -1593,6 +2066,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JLabel agregarVideo;
     private javax.swing.JButton agregarVideo_Button;
     private javax.swing.JLabel apellido;
+    private javax.swing.JLabel apellido1;
     private javax.swing.JPanel btn_Categorias;
     private javax.swing.JPanel btn_CerrarSesion;
     private javax.swing.JPanel btn_Inicio;
@@ -1602,15 +2076,18 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JButton cerrar;
     private javax.swing.JComboBox<String> comboConsulta;
     private javax.swing.JComboBox<String> comboLista;
+    private javax.swing.JComboBox<String> comboModificar;
     private javax.swing.JButton consVid_Button;
     private javax.swing.JLabel consultaCat;
     private javax.swing.JButton consultaCat_Button;
     private javax.swing.JLabel consultaPlaylist;
     private javax.swing.JButton consultaPlaylist_button;
     private javax.swing.JLabel consultaVid;
+    private javax.swing.JLabel contraseña;
     private javax.swing.JLabel crearPlaylist;
     private javax.swing.JButton crearPlaylist_Button;
     private javax.swing.JLabel fecha;
+    private javax.swing.JLabel fecha1;
     private javax.swing.JLabel fondo;
     private javax.swing.JPanel ind_1;
     private javax.swing.JPanel ind_2;
@@ -1633,8 +2110,20 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator16;
     private javax.swing.JSeparator jSeparator17;
     private javax.swing.JSeparator jSeparator18;
+    private javax.swing.JSeparator jSeparator19;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator20;
+    private javax.swing.JSeparator jSeparator21;
+    private javax.swing.JSeparator jSeparator22;
+    private javax.swing.JSeparator jSeparator23;
+    private javax.swing.JSeparator jSeparator24;
+    private javax.swing.JSeparator jSeparator25;
+    private javax.swing.JSeparator jSeparator26;
+    private javax.swing.JSeparator jSeparator27;
+    private javax.swing.JSeparator jSeparator28;
+    private javax.swing.JSeparator jSeparator29;
     private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator30;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
@@ -1644,13 +2133,20 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JLabel listarCat;
     private javax.swing.JButton listarCat_Button;
     private javax.swing.JLabel mail;
+    private javax.swing.JLabel mail1;
+    private javax.swing.JLabel mail2;
+    private javax.swing.JLabel mail3;
+    private javax.swing.JLabel mail4;
+    private javax.swing.JLabel mail5;
     private javax.swing.JButton minimizar;
     private javax.swing.JButton modVid_Button;
     private javax.swing.JLabel modificarPlaylist;
     private javax.swing.JButton modificarPlaylist_Button;
     private javax.swing.JLabel modificarVid;
     private javax.swing.JLabel nick;
+    private javax.swing.JLabel nick1;
     private javax.swing.JLabel nombre;
+    private javax.swing.JLabel nombre1;
     private javax.swing.JLabel quitarVideo;
     private javax.swing.JButton quitarVideo_Button;
     // End of variables declaration//GEN-END:variables

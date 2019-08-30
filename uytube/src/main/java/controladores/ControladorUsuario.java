@@ -15,6 +15,7 @@ import clases.Canal;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Level;
@@ -77,7 +78,20 @@ public class ControladorUsuario implements IControladorUsuario{
         return null;
     }
     
+    @Override
+    public void modificarUsuario(DtUsuario u, DtCanal c){
+        ManejadorInformacion mu = ManejadorInformacion.getInstance();
+        
+        Canal canal = new Canal (c.getNombre_canal(),c.getDescripcion(),c.getPrivado());
+        
+        Canal CanalViejo = new Canal (u.getCanal().getNombre_canal(),u.getCanal().getDescripcion(),u.getCanal().getPrivado());
+        
+        Usuario us = new Usuario (u.getNickname(), u.getContraseña(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen(),CanalViejo);
+       
+        mu.modificarUsuario(us, canal);
+    }
    
+    @Override
     public void inicioBase(){
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         mu.iniciarConexionInicial();
