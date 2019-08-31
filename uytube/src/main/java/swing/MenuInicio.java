@@ -1533,11 +1533,11 @@ public class MenuInicio extends javax.swing.JFrame {
         Central2_3_1.add(AgregarFoto1);
         AgregarFoto1.setBounds(170, 180, 30, 30);
 
-        Modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_2.png"))); // NOI18N
+        Modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_modificar_2.png"))); // NOI18N
         Modificar.setBorder(null);
         Modificar.setBorderPainted(false);
         Modificar.setContentAreaFilled(false);
-        Modificar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_1.png"))); // NOI18N
+        Modificar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_modificar_1.png"))); // NOI18N
         Modificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ModificarActionPerformed(evt);
