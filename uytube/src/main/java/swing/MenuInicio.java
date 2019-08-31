@@ -2055,7 +2055,7 @@ public class MenuInicio extends javax.swing.JFrame {
 
     private void SeleccionarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeleccionarUsuarioActionPerformed
         Item = comboConsulta.getSelectedItem().toString();
-        Central3_1_Panel.add(Central2_2_1);
+        Central2_2_Panel.add(Central2_2_1);
         Panel_Central.revalidate();
         Panel_Central.repaint();
         List lista = u.listaUsuarios();
@@ -2188,7 +2188,7 @@ public class MenuInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_BackButton5ActionPerformed
 
     private void SeleccionarUsuario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeleccionarUsuario1ActionPerformed
-        Item = comboVideo.getSelectedItem().toString();
+        this.nickVideo = comboVideo.getSelectedItem().toString();
         Central3_1_Panel.add(Central3_3_1);
         Panel_Central.revalidate();
         Panel_Central.repaint();
@@ -2211,13 +2211,14 @@ public class MenuInicio extends javax.swing.JFrame {
         URLVideo.setText("");
     }//GEN-LAST:event_URLVideoFocusGained
 
+String nickVideo;
     private void RegistrarVideoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarVideoActionPerformed
-        
         String NombVideo = NombreVideo.getText();
         String duracion = Duracion.getText();
         String url = URLVideo.getText();
         String desc = VarDescripcion.getText();
         Date fechaPub = DateVideo.getDate();
+        
     }//GEN-LAST:event_RegistrarVideoActionPerformed
 
     private void VarDescripcionFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_VarDescripcionFocusGained
