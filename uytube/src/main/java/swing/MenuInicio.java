@@ -2212,7 +2212,12 @@ public class MenuInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_URLVideoFocusGained
 
     private void RegistrarVideoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarVideoActionPerformed
-        // TODO add your handling code here:
+        
+        String NombVideo = NombreVideo.getText();
+        String duracion = Duracion.getText();
+        String url = URLVideo.getText();
+        String desc = VarDescripcion.getText();
+        Date fechaPub = DateVideo.getDate();
     }//GEN-LAST:event_RegistrarVideoActionPerformed
 
     private void VarDescripcionFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_VarDescripcionFocusGained
