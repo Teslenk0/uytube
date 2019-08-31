@@ -29,6 +29,7 @@ public class SeleccionarImagen extends javax.swing.JFrame {
     /**
      * Creates new form SeleccionarImagen
      * @param frame
+     * @param berlin
      */
     
     public SeleccionarImagen(MenuInicio frame, Font berlin) {
@@ -212,16 +213,12 @@ public class SeleccionarImagen extends javax.swing.JFrame {
 
     int xx, xy;
     private void DragPanelMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DragPanelMouseDragged
-        // TODO add your handling code here:
-        //source to drag
         int x = evt.getXOnScreen();
         int y = evt.getYOnScreen();
         this.setLocation(x-xx,y-xy);
     }//GEN-LAST:event_DragPanelMouseDragged
 
     private void DragPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DragPanelMousePressed
-        // TODO add your handling code here:
-        //drag this pane
         xx = evt.getX();
         xy = evt.getY();
     }//GEN-LAST:event_DragPanelMousePressed

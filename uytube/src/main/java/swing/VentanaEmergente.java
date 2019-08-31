@@ -18,6 +18,7 @@ public class VentanaEmergente extends javax.swing.JDialog {
      * Creates new form UsuarioIncorrecto
      * @param parent
      * @param modal
+     * @param manjari
      */
     public VentanaEmergente(java.awt.Frame parent, boolean modal, Font manjari) {
         this.manjari = manjari;

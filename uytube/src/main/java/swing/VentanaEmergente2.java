@@ -148,29 +148,22 @@ public class VentanaEmergente2 extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     int xx, xy;
-    
     private void DragPanelMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DragPanelMouseDragged
-        // TODO add your handling code here:
-        //source to drag
         int x = evt.getXOnScreen();
         int y = evt.getYOnScreen();
         this.setLocation(x-xx,y-xy);
     }//GEN-LAST:event_DragPanelMouseDragged
 
     private void DragPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DragPanelMousePressed
-        // TODO add your handling code here:
-        //drag this pane
         xx = evt.getX();
         xy = evt.getY();
     }//GEN-LAST:event_DragPanelMousePressed
 
     private void BotonCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonCerrarActionPerformed
-        // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_BotonCerrarActionPerformed
 
     private void BotonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonCancelarActionPerformed
-        // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_BotonCancelarActionPerformed
 
@@ -178,7 +171,6 @@ public class VentanaEmergente2 extends javax.swing.JDialog {
         this.frame.setVisible(false);
         dispose();
         new Menu().setVisible(true);
-        // TODO add your handling code here:
     }//GEN-LAST:event_BotonAceptarActionPerformed
     
     
