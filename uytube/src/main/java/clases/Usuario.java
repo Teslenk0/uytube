@@ -42,7 +42,7 @@ public class Usuario implements Serializable{
     @Column(name = "imagen")
     private String imagen;
     
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     @JoinColumn(name = "canal")
     private Canal canal;     
     

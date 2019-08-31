@@ -11,6 +11,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.OneToOne;
 
 
 
@@ -34,7 +35,17 @@ public class Canal implements Serializable {
     @Column(name = "isPrivate")
     private Boolean privado;
     
+    @OneToOne(mappedBy = "canal")
+    private Usuario usuario;
+    
     public Canal() {
+    }
+
+    public Canal(String nombre_canal, String descripcion, Boolean privado, Usuario usuario) {
+        this.nombre_canal = nombre_canal;
+        this.descripcion = descripcion;
+        this.privado = privado;
+        this.usuario = usuario;
     }
 
     public Canal(String nombre_canal, String descripcion, Boolean privado) {
@@ -43,6 +54,8 @@ public class Canal implements Serializable {
         this.privado = privado;
     }
     
+    
+
     public String getNombre_canal() {
         return nombre_canal;
     }
@@ -67,10 +80,20 @@ public class Canal implements Serializable {
         this.privado = privado;
     }
 
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
     @Override
     public String toString() {
-        return "Canal{" + "nombre_canal=" + nombre_canal + ", descripcion=" + descripcion + ", privado=" + privado + '}';
+        return "Canal{" + "nombre_canal=" + nombre_canal + ", descripcion=" + descripcion + ", privado=" + privado + ", usuario=" + usuario + '}';
     }
+
+   
 
     
 }

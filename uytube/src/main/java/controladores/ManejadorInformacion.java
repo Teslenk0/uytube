@@ -19,27 +19,27 @@ import javax.persistence.TypedQuery;
  *
  * @author tecnologo
  */
-public class ManejadorInformacion{
-    
-    private boolean conexionIniciada = false;    
+public class ManejadorInformacion {
+
+    private boolean conexionIniciada = false;
     //private static EntityManager manager; //pido un manager
     private EntityManager manager;
 
-    
     private static EntityManagerFactory emf;  //pido una fabrica
-    
+
     private static ManejadorInformacion instancia;
-    
+
     public ManejadorInformacion() {
         emf = Persistence.createEntityManagerFactory("uytube-app");
     }
-    
+
     public static ManejadorInformacion getInstance() {
-        if (instancia == null)
+        if (instancia == null) {
             instancia = new ManejadorInformacion();
+        }
         return instancia;
     }
-   
+
     public void registrarUser(Usuario u) {
         manager = emf.createEntityManager();
         manager.getTransaction().begin();
@@ -48,8 +48,7 @@ public class ManejadorInformacion{
         manager.close();
 
     }
-    
-    
+
     public Usuario obtenerUsuario(DtUsuario u) {
         manager = emf.createEntityManager();
         if (manager.find(Usuario.class, u.getNickname()) != null) {
@@ -65,7 +64,7 @@ public class ManejadorInformacion{
         }
 
     }
-    
+
     public List ObtenerUsuarios() {
         manager = emf.createEntityManager();
         List<Usuario> usuarios = manager.createQuery("FROM Usuario u").getResultList();
@@ -75,34 +74,39 @@ public class ManejadorInformacion{
         return null;
 
     }
-    
-    public void crearCanal(Canal c){
+
+    public void crearCanal(Canal c) {
         manager = emf.createEntityManager();
         manager.getTransaction().begin();
         manager.persist(c);
         manager.getTransaction().commit();
         manager.close();
     }
-    
-    public void iniciarConexionInicial(){
+
+    public void iniciarConexionInicial() {
         manager = emf.createEntityManager();
-        if(!conexionIniciada){
+        if (!conexionIniciada) {
             manager.getTransaction().begin();
             manager.getTransaction().rollback();
             manager.close();
             this.conexionIniciada = true;
         }
     }
-    
-    public void modificarUsuario(Usuario u, Canal c){
+
+    public void modificarUsuario(Usuario u, Canal c) {
         manager = emf.createEntityManager();
         manager.getTransaction().begin();
-        Usuario user = manager.find(Usuario.class,u.getNickname());
-        Canal can = manager .find(Canal.class, user.getCanal().getNombre_canal());
-        //can.setNombre_canal(c.getNombre_canal());  
-        // No puedo cambiar el nombre del canal fk ?
-        can.setDescripcion(c.getDescripcion());
-        manager.merge(u);
+        Usuario user = manager.find(Usuario.class, u.getNickname());
+        manager.remove(user.getCanal());
+        user.setCanal(c);
+        manager.getTransaction().commit();
+        manager.close();
+    }
+
+    public void eliminarCanal(Canal c) {
+        manager = emf.createEntityManager();
+        manager.getTransaction().begin();
+        manager.remove(c);
         manager.getTransaction().commit();
         manager.close();
     }
