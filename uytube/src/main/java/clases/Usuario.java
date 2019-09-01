@@ -37,6 +37,7 @@ public class Usuario implements Serializable{
     private String email;
     
     @Column(name = "fechaNac")
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechaNac;
     
     @Column(name = "imagen")

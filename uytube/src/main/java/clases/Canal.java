@@ -5,15 +5,12 @@
  */
 package clases;
 
-
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.OneToOne;
-
-
 
 /**
  *
@@ -22,22 +19,22 @@ import javax.persistence.OneToOne;
 @Entity
 @Table(name = "canal_usuario")
 public class Canal implements Serializable {
-    
+
     private static final long serialVersionUID = 1L;
-    
+
     @Id
     @Column(name = "nombre_canal")
     private String nombre_canal;
-    
+
     @Column(name = "descripcion")
     private String descripcion;
-    
+
     @Column(name = "isPrivate")
     private Boolean privado;
-    
+
     @OneToOne(mappedBy = "canal")
     private Usuario usuario;
-    
+
     public Canal() {
     }
 
@@ -53,8 +50,6 @@ public class Canal implements Serializable {
         this.descripcion = descripcion;
         this.privado = privado;
     }
-    
-    
 
     public String getNombre_canal() {
         return nombre_canal;
@@ -93,7 +88,4 @@ public class Canal implements Serializable {
         return "Canal{" + "nombre_canal=" + nombre_canal + ", descripcion=" + descripcion + ", privado=" + privado + ", usuario=" + usuario + '}';
     }
 
-   
-
-    
 }

@@ -4,11 +4,11 @@
  * and open the template in the editor.
  */
 package clases;
-
 /**
  *
  * @author esteban
  */
+
 public enum Categoria {
-    Musica,Deporte,Juegos
+    Musica,Deporte,Juegos;
 }
