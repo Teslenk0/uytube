@@ -94,14 +94,16 @@ public class ManejadorInformacion {
     }
 
     public void modificarUsuario(Usuario u, Canal c) {
-        
-        
-        //esto cambia solo el canal, hay que hacer que cambie todos los datos ingresadis
         manager = emf.createEntityManager();
         manager.getTransaction().begin();
         Usuario user = manager.find(Usuario.class, u.getNickname());
         manager.remove(user.getCanal());
         user.setCanal(c);
+        user.setNombre(u.getNombre());
+        user.setApellido(u.getApellido());
+        user.setContraseña(u.getContraseña());
+        user.setFechaNac(u.getFechaNac());
+        user.setImagen(u.getImagen());
         manager.getTransaction().commit();
         manager.close();
     }
