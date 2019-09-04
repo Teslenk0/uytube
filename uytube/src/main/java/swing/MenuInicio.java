@@ -265,6 +265,27 @@ public class MenuInicio extends javax.swing.JFrame {
         VarDescripcion = new javax.swing.JTextField();
         jSeparator48 = new javax.swing.JSeparator();
         RegistrarVideo = new javax.swing.JButton();
+        Central4_1 = new javax.swing.JPanel();
+        CheckboxPorDefecto = new java.awt.Checkbox();
+        Privado3 = new javax.swing.JLabel();
+        Privado4 = new javax.swing.JLabel();
+        CheckboxParticular = new java.awt.Checkbox();
+        jLabel1 = new javax.swing.JLabel();
+        NombreLista = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        NombreUser = new javax.swing.JTextField();
+        CheckboxPublica = new java.awt.Checkbox();
+        Privado5 = new javax.swing.JLabel();
+        Privado6 = new javax.swing.JLabel();
+        ComboBoxCategorias = new javax.swing.JComboBox<>();
+        jSeparator34 = new javax.swing.JSeparator();
+        jSeparator35 = new javax.swing.JSeparator();
+        jSeparator36 = new javax.swing.JSeparator();
+        jSeparator37 = new javax.swing.JSeparator();
+        jSeparator38 = new javax.swing.JSeparator();
+        jSeparator39 = new javax.swing.JSeparator();
+        CrearLista = new javax.swing.JButton();
+        BackButton6 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -716,6 +737,11 @@ public class MenuInicio extends javax.swing.JFrame {
         crearPlaylist_Button.setBorderPainted(false);
         crearPlaylist_Button.setContentAreaFilled(false);
         crearPlaylist_Button.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/AgregarPlaylist2.png"))); // NOI18N
+        crearPlaylist_Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                crearPlaylist_ButtonActionPerformed(evt);
+            }
+        });
         Central4.add(crearPlaylist_Button);
         crearPlaylist_Button.setBounds(100, 40, 230, 210);
 
@@ -1822,6 +1848,146 @@ public class MenuInicio extends javax.swing.JFrame {
         Panel_Central.add(Central3_3_1);
         Central3_3_1.setBounds(0, 0, 720, 350);
 
+        Central4_1.setLayout(null);
+
+        CheckboxPorDefecto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CheckboxPorDefectoMouseClicked(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                CheckboxPorDefectoMouseReleased(evt);
+            }
+        });
+        Central4_1.add(CheckboxPorDefecto);
+        CheckboxPorDefecto.setBounds(320, 140, 20, 20);
+
+        Privado3.setFont(berlin);
+        Privado3.setForeground(new java.awt.Color(102, 102, 102));
+        Privado3.setText("Lista por defecto");
+        Central4_1.add(Privado3);
+        Privado3.setBounds(160, 140, 230, 20);
+        Privado3.getAccessibleContext().setAccessibleDescription("Lista por defecto");
+
+        Privado4.setFont(berlin);
+        Privado4.setForeground(new java.awt.Color(102, 102, 102));
+        Privado4.setText("Lista particular");
+        Central4_1.add(Privado4);
+        Privado4.setBounds(160, 100, 160, 20);
+
+        CheckboxParticular.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CheckboxParticularMouseClicked(evt);
+            }
+        });
+        Central4_1.add(CheckboxParticular);
+        CheckboxParticular.setBounds(320, 100, 20, 20);
+
+        jLabel1.setFont(berlin);
+        jLabel1.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel1.setText("Nombre lista");
+        Central4_1.add(jLabel1);
+        jLabel1.setBounds(160, 190, 100, 18);
+
+        Varnick.setEditable(false);
+        NombreLista.setEditable(false);
+        NombreLista.setFont(berlin);
+        NombreLista.setForeground(new java.awt.Color(102, 102, 102));
+        NombreLista.setText("Ingrese Nombre de la Lista");
+        NombreLista.setBorder(null);
+        NombreLista.setOpaque(false);
+        NombreLista.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                NombreListaFocusGained(evt);
+            }
+        });
+        NombreLista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NombreListaActionPerformed(evt);
+            }
+        });
+        Central4_1.add(NombreLista);
+        NombreLista.setBounds(310, 180, 220, 30);
+
+        jLabel2.setFont(berlin);
+        jLabel2.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel2.setText("Nombre usuario");
+        Central4_1.add(jLabel2);
+        jLabel2.setBounds(160, 240, 130, 18);
+
+        Varnick.setEditable(false);
+        NombreUser.setEditable(false);
+        NombreUser.setFont(berlin);
+        NombreUser.setForeground(new java.awt.Color(102, 102, 102));
+        NombreUser.setText("Ingrese Nombre de Usuario");
+        NombreUser.setBorder(null);
+        NombreUser.setOpaque(false);
+        NombreUser.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                NombreUserFocusGained(evt);
+            }
+        });
+        Central4_1.add(NombreUser);
+        NombreUser.setBounds(310, 230, 220, 30);
+
+        CheckboxPublica.setEnabled(false);
+        Central4_1.add(CheckboxPublica);
+        CheckboxPublica.setBounds(320, 280, 20, 20);
+
+        Privado5.setFont(berlin);
+        Privado5.setForeground(new java.awt.Color(102, 102, 102));
+        Privado5.setText("Categoria");
+        Central4_1.add(Privado5);
+        Privado5.setBounds(160, 320, 130, 20);
+
+        Privado6.setFont(berlin);
+        Privado6.setForeground(new java.awt.Color(102, 102, 102));
+        Privado6.setText("Lista privada");
+        Central4_1.add(Privado6);
+        Privado6.setBounds(160, 280, 130, 20);
+
+        ComboBoxCategorias.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        ComboBoxCategorias.setEnabled(false);
+        Central4_1.add(ComboBoxCategorias);
+        ComboBoxCategorias.setBounds(310, 320, 220, 28);
+        Central4_1.add(jSeparator34);
+        jSeparator34.setBounds(310, 120, 220, 20);
+        Central4_1.add(jSeparator35);
+        jSeparator35.setBounds(310, 210, 220, 20);
+        Central4_1.add(jSeparator36);
+        jSeparator36.setBounds(310, 260, 220, 20);
+        Central4_1.add(jSeparator37);
+        jSeparator37.setBounds(310, 300, 220, 20);
+        Central4_1.add(jSeparator38);
+        jSeparator38.setBounds(310, 350, 220, 20);
+        Central4_1.add(jSeparator39);
+        jSeparator39.setBounds(310, 160, 220, 20);
+
+        CrearLista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_2.png"))); // NOI18N
+        CrearLista.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_1.png"))); // NOI18N
+        CrearLista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CrearListaActionPerformed(evt);
+            }
+        });
+        Central4_1.add(CrearLista);
+        CrearLista.setBounds(310, 410, 70, 40);
+
+        BackButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back.png"))); // NOI18N
+        BackButton6.setBorder(null);
+        BackButton6.setBorderPainted(false);
+        BackButton6.setContentAreaFilled(false);
+        BackButton6.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back2.png"))); // NOI18N
+        BackButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackButton6ActionPerformed(evt);
+            }
+        });
+        Central4_1.add(BackButton6);
+        BackButton6.setBounds(0, 11, 101, 50);
+
+        Panel_Central.add(Central4_1);
+        Central4_1.setBounds(0, 0, 720, 550);
+
         getContentPane().add(Panel_Central, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 720, 550));
 
         pack();
@@ -2084,10 +2250,6 @@ public class MenuInicio extends javax.swing.JFrame {
         Panel_Central.repaint();
     }//GEN-LAST:event_btn_CategoriasMousePressed
 
-    private void consultaPlaylist_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultaPlaylist_buttonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_consultaPlaylist_buttonActionPerformed
-
     private void BackButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButton2ActionPerformed
         Panel_Central.removeAll();
         Panel_Central.add(Central2);
@@ -2280,6 +2442,65 @@ String nickVideo;
         VarDescripcion.setText("");
     }//GEN-LAST:event_VarDescripcionFocusGained
 
+    private void consultaPlaylist_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultaPlaylist_buttonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_consultaPlaylist_buttonActionPerformed
+
+    private void crearPlaylist_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearPlaylist_ButtonActionPerformed
+        Panel_Central.removeAll();
+        Panel_Central.add(Central4_1);
+        Panel_Central.revalidate();
+        Panel_Central.repaint();
+    }//GEN-LAST:event_crearPlaylist_ButtonActionPerformed
+
+    private void NombreListaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_NombreListaFocusGained
+      
+    }//GEN-LAST:event_NombreListaFocusGained
+
+    private void NombreUserFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_NombreUserFocusGained
+    
+    }//GEN-LAST:event_NombreUserFocusGained
+
+    private void CheckboxParticularMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CheckboxParticularMouseClicked
+        this.NombreUser.setEditable(true);
+        this.NombreLista.setEditable(true);
+        this.CheckboxPublica.setEnabled(true);
+        this.ComboBoxCategorias.setEnabled(true);
+    }//GEN-LAST:event_CheckboxParticularMouseClicked
+
+    private void CheckboxPorDefectoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CheckboxPorDefectoMouseClicked
+        this.NombreLista.setEditable(true);
+        this.NombreUser.setEditable(false);
+        this.CheckboxPublica.setEnabled(false);
+        this.ComboBoxCategorias.setEnabled(false);
+        
+    }//GEN-LAST:event_CheckboxPorDefectoMouseClicked
+
+    private void CheckboxPorDefectoMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CheckboxPorDefectoMouseReleased
+
+    }//GEN-LAST:event_CheckboxPorDefectoMouseReleased
+
+    private void NombreListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreListaActionPerformed
+
+    }//GEN-LAST:event_NombreListaActionPerformed
+
+    private void BackButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButton6ActionPerformed
+        Panel_Central.removeAll();
+        Panel_Central.add(Central4);
+        Panel_Central.revalidate();
+        Panel_Central.repaint();
+    }//GEN-LAST:event_BackButton6ActionPerformed
+
+    private void CrearListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearListaActionPerformed
+        Boolean defecto = CheckboxPorDefecto.getState();
+        Boolean particular = CheckboxParticular.getState();
+        if(defecto == true  && particular == true){
+            VentanaEmergente ventana = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
+            ventana.CambioTexto("Solo puedes seleccionar un tipo de lista");
+            ventana.setVisible(true);
+        }
+    }//GEN-LAST:event_CrearListaActionPerformed
+
     
     private void setColor(JPanel pane)
     {
@@ -2330,6 +2551,7 @@ String nickVideo;
     private javax.swing.JButton BackButton3;
     private javax.swing.JButton BackButton4;
     private javax.swing.JButton BackButton5;
+    private javax.swing.JButton BackButton6;
     private javax.swing.JPanel Barra_Superior;
     private javax.swing.JTextField CampoApellido;
     private javax.swing.JTextField CampoCanal;
@@ -2357,14 +2579,20 @@ String nickVideo;
     private javax.swing.JPanel Central3_1_Panel;
     private javax.swing.JPanel Central3_3_1;
     private javax.swing.JPanel Central4;
+    private javax.swing.JPanel Central4_1;
     private javax.swing.JPanel Central5;
+    private java.awt.Checkbox CheckboxParticular;
+    private java.awt.Checkbox CheckboxPorDefecto;
     private java.awt.Checkbox CheckboxPrivado;
     private java.awt.Checkbox CheckboxPrivado1;
     private java.awt.Checkbox CheckboxPrivado2;
+    private java.awt.Checkbox CheckboxPublica;
+    private javax.swing.JComboBox<String> ComboBoxCategorias;
     private javax.swing.JButton ConsultarUsuarios;
     private javax.swing.JLabel ConsultarUsuariosText;
     private javax.swing.JLabel Contraseña;
     private javax.swing.JLabel Correo;
+    private javax.swing.JButton CrearLista;
     private com.toedter.calendar.JDateChooser DateChoose;
     private com.toedter.calendar.JDateChooser DateChoose1;
     private com.toedter.calendar.JDateChooser DateVideo;
@@ -2389,12 +2617,18 @@ String nickVideo;
     private javax.swing.JLabel NomVideo;
     private javax.swing.JLabel Nombre;
     private javax.swing.JLabel NombreCanal;
+    private javax.swing.JTextField NombreLista;
+    private javax.swing.JTextField NombreUser;
     private javax.swing.JTextField NombreVideo;
     private javax.swing.JPanel Panel_Central;
     private javax.swing.JPanel Panel_Lateral;
     private javax.swing.JLabel Privado;
     private javax.swing.JLabel Privado1;
     private javax.swing.JLabel Privado2;
+    private javax.swing.JLabel Privado3;
+    private javax.swing.JLabel Privado4;
+    private javax.swing.JLabel Privado5;
+    private javax.swing.JLabel Privado6;
     private javax.swing.JButton Registrar;
     private javax.swing.JButton RegistrarVideo;
     private javax.swing.JScrollPane Scroll4;
@@ -2463,9 +2697,11 @@ String nickVideo;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JSeparator jSeparator1;
@@ -2495,6 +2731,12 @@ String nickVideo;
     private javax.swing.JSeparator jSeparator31;
     private javax.swing.JSeparator jSeparator32;
     private javax.swing.JSeparator jSeparator33;
+    private javax.swing.JSeparator jSeparator34;
+    private javax.swing.JSeparator jSeparator35;
+    private javax.swing.JSeparator jSeparator36;
+    private javax.swing.JSeparator jSeparator37;
+    private javax.swing.JSeparator jSeparator38;
+    private javax.swing.JSeparator jSeparator39;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator41;
     private javax.swing.JSeparator jSeparator42;

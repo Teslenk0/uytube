@@ -37,9 +37,6 @@ public class ControladorUsuario implements IControladorUsuario{
             throw new UsuarioRepetidoException("El usuario " + user.getNickname() + " ya existe");
         }
        
-        //Canal canal = new Canal(u.getCanal().getNombre_canal(),u.getCanal().getDescripcion(),u.getCanal().getPrivado());
-        //mu.crearCanal(canal);
-        
         user = new Usuario(u.getNickname(), u.getContraseña(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen(), new Canal(u.getCanal().getNombre_canal(),u.getCanal().getDescripcion(),u.getCanal().getPrivado()));
               
         mu.registrarUser(user);
