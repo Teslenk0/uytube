@@ -98,13 +98,16 @@ public class ManejadorInformacion {
         manager.getTransaction().begin();
         Usuario user = manager.find(Usuario.class, u.getNickname());
         manager.remove(user.getCanal());
+        
+        user = manager.merge(u);
         user.setCanal(c);
-        user.setNombre(u.getNombre());
+        manager.merge(user);
+        /*user.setNombre(u.getNombre());
         user.setApellido(u.getApellido());
         user.setContraseña(u.getContraseña());
         user.setFechaNac(u.getFechaNac());
         user.setImagen(u.getImagen());
-        manager.getTransaction().commit();
+        */manager.getTransaction().commit();
         manager.close();
     }
 
