@@ -34,4 +34,6 @@ public interface IControladorUsuario {
     public abstract void DejarSeguir_Usuario(DtUsuario u, String s);
     
     public abstract List listaSeguidos(String nick);
+    
+    public abstract List listaSeguidores(String nick);
 }

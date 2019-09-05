@@ -74,8 +74,7 @@ public class ControladorUsuario implements IControladorUsuario{
         return null;
     }
     
-    @Override
-    public void modificarUsuario(DtUsuario u, DtCanal c, BufferedImage imagen){
+    public void modificarUsuario(DtUsuario u, DtCanal c){
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         
         Canal canal = new Canal (c.getNombre_canal(),c.getDescripcion(),c.getPrivado());
@@ -84,16 +83,6 @@ public class ControladorUsuario implements IControladorUsuario{
         
         Usuario us = new Usuario (u.getNickname(), u.getContraseña(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen(),CanalViejo);
        
-        if(!u.getImagen().equals("/imagenesUsuarios/Defecto.png") && imagen!=null){
-            String path = System.getProperty("user.dir");
-            path = path + "/src/main/resources/imagenesUsuarios/" + u.getNickname() + ".png";
-            File file = new File(path);
-            try {
-                ImageIO.write(imagen, "png", file);
-            } catch (IOException ex) {
-                Logger.getLogger(ControladorUsuario.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }   
         mu.modificarUsuario(us, canal);
     }
    
@@ -134,5 +123,24 @@ public class ControladorUsuario implements IControladorUsuario{
         ManejadorInformacion mu = ManejadorInformacion.getInstance(); //pido una instancia del manejador
         List lista = mu.ObtenerSeguidos(nick);
         return lista;
+    }
+    
+    public List listaSeguidores(String nick) {
+        ManejadorInformacion mu = ManejadorInformacion.getInstance(); 
+        List lista = mu.ObtenerSeguidores(nick);
+         if (lista != null) {
+            List aux = new LinkedList();
+            DtUsuario dtaux;
+            for (int x = 0; x < lista.size(); x++) {
+                dtaux = new DtUsuario((Usuario) lista.get(x));
+                aux.add(dtaux);
+            }
+            return aux;
+        }
+        return null;
+    }
+
+    public void modificarUsuario(DtUsuario modUser, DtCanal modCanal, BufferedImage imagen) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

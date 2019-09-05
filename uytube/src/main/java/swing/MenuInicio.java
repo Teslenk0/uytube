@@ -237,9 +237,40 @@ public class MenuInicio extends javax.swing.JFrame {
         jSeparator27 = new javax.swing.JSeparator();
         CheckboxPrivado2 = new java.awt.Checkbox();
         Privado2 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         jSeparator33 = new javax.swing.JSeparator();
+        Central2_2_2 = new javax.swing.JPanel();
+        nick2 = new javax.swing.JLabel();
+        nombre2 = new javax.swing.JLabel();
+        apellido2 = new javax.swing.JLabel();
+        fecha2 = new javax.swing.JLabel();
+        mail2 = new javax.swing.JLabel();
+        NomCanalListar1 = new javax.swing.JLabel();
+        DescListar1 = new javax.swing.JLabel();
+        Imagen2 = new javax.swing.JLabel();
+        Varnick2 = new javax.swing.JTextField();
+        Varnom2 = new javax.swing.JTextField();
+        Varape2 = new javax.swing.JTextField();
+        Varfech1 = new javax.swing.JTextField();
+        Varmail2 = new javax.swing.JTextField();
+        Varcanal2 = new javax.swing.JTextField();
+        VarDescr2 = new javax.swing.JTextField();
+        jSeparator40 = new javax.swing.JSeparator();
+        jSeparator43 = new javax.swing.JSeparator();
+        jSeparator46 = new javax.swing.JSeparator();
+        jSeparator47 = new javax.swing.JSeparator();
+        jSeparator49 = new javax.swing.JSeparator();
+        jSeparator50 = new javax.swing.JSeparator();
+        jSeparator51 = new javax.swing.JSeparator();
+        jSeparator52 = new javax.swing.JSeparator();
+        CheckboxPrivado3 = new java.awt.Checkbox();
+        Privado7 = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jSeparator53 = new javax.swing.JSeparator();
+        Privado8 = new javax.swing.JLabel();
+        Privado9 = new javax.swing.JLabel();
+        ComboSeguidores = new javax.swing.JComboBox<>();
+        ComboSiguiendo = new javax.swing.JComboBox<>();
         Central2_3_1 = new javax.swing.JPanel();
         nick1 = new javax.swing.JLabel();
         mail1 = new javax.swing.JLabel();
@@ -641,7 +672,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2.add(AgregarUsuario);
-        AgregarUsuario.setBounds(90, 40, 243, 221);
+        AgregarUsuario.setBounds(90, 40, 223, 225);
 
         SeguirUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Seguir.png"))); // NOI18N
         SeguirUsuario.setBorderPainted(false);
@@ -653,7 +684,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2.add(SeguirUsuario);
-        SeguirUsuario.setBounds(90, 540, 243, 221);
+        SeguirUsuario.setBounds(90, 540, 223, 225);
 
         ListarUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Listar.png"))); // NOI18N
         ListarUsuarios.setBorderPainted(false);
@@ -665,7 +696,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2.add(ListarUsuarios);
-        ListarUsuarios.setBounds(390, 290, 243, 221);
+        ListarUsuarios.setBounds(390, 290, 223, 225);
 
         ConsultarUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ConsultarUser.png"))); // NOI18N
         ConsultarUsuarios.setBorderPainted(false);
@@ -677,7 +708,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2.add(ConsultarUsuarios);
-        ConsultarUsuarios.setBounds(390, 40, 243, 221);
+        ConsultarUsuarios.setBounds(390, 40, 223, 225);
 
         ModificarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ModificarUser.png"))); // NOI18N
         ModificarUsuario.setBorderPainted(false);
@@ -689,7 +720,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2.add(ModificarUsuario);
-        ModificarUsuario.setBounds(90, 290, 243, 221);
+        ModificarUsuario.setBounds(90, 290, 223, 225);
 
         DejarSeguirUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/DejarSeguir.png"))); // NOI18N
         DejarSeguirUsuario.setBorder(null);
@@ -915,32 +946,32 @@ public class MenuInicio extends javax.swing.JFrame {
         Usuario.setFont(berlin.deriveFont(20f));
         Usuario.setText("Usuario");
         Central2_1.add(Usuario);
-        Usuario.setBounds(170, 40, 100, 14);
+        Usuario.setBounds(170, 40, 100, 18);
 
         Nickname.setFont(berlin);
         Nickname.setText("Nickname(*)");
         Central2_1.add(Nickname);
-        Nickname.setBounds(40, 100, 100, 14);
+        Nickname.setBounds(40, 100, 100, 18);
 
         Contraseña.setFont(berlin);
         Contraseña.setText("Contraseña(*)");
         Central2_1.add(Contraseña);
-        Contraseña.setBounds(40, 140, 110, 14);
+        Contraseña.setBounds(40, 140, 110, 18);
 
         Nombre.setFont(berlin);
         Nombre.setText("Nombre(*)");
         Central2_1.add(Nombre);
-        Nombre.setBounds(40, 180, 90, 14);
+        Nombre.setBounds(40, 180, 90, 18);
 
         Apellido.setFont(berlin);
         Apellido.setText("Apellido(*)");
         Central2_1.add(Apellido);
-        Apellido.setBounds(40, 220, 90, 14);
+        Apellido.setBounds(40, 220, 90, 18);
 
         Correo.setFont(berlin);
         Correo.setText("Correo(*)");
         Central2_1.add(Correo);
-        Correo.setBounds(40, 260, 90, 14);
+        Correo.setBounds(40, 260, 90, 18);
 
         FechaNac.setFont(berlin);
         FechaNac.setText("Fecha de nacimiento(*)");
@@ -994,7 +1025,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2_1.add(CampoContraseña);
-        CampoContraseña.setBounds(160, 140, 220, 16);
+        CampoContraseña.setBounds(160, 140, 220, 15);
 
         CampoNombre.setBackground(new java.awt.Color(153, 153, 153));
         CampoNombre.setFont(berlin);
@@ -1080,7 +1111,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2_1.add(AgregarFoto);
-        AgregarFoto.setBounds(340, 420, 40, 35);
+        AgregarFoto.setBounds(340, 420, 40, 39);
 
         Registrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_regist_2.png"))); // NOI18N
         Registrar.setBorderPainted(false);
@@ -1178,7 +1209,7 @@ public class MenuInicio extends javax.swing.JFrame {
         Central2_2.setLayout(null);
 
         Central2_2.add(comboConsulta);
-        comboConsulta.setBounds(120, 80, 456, 22);
+        comboConsulta.setBounds(120, 80, 456, 28);
 
         BackButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back.png"))); // NOI18N
         BackButton3.setBorder(null);
@@ -1191,7 +1222,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2_2.add(BackButton3);
-        BackButton3.setBounds(0, 11, 101, 51);
+        BackButton3.setBounds(0, 11, 101, 50);
 
         SeleccionarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_seleccionar_2.png"))); // NOI18N
         SeleccionarUsuario.setBorderPainted(false);
@@ -1233,7 +1264,7 @@ public class MenuInicio extends javax.swing.JFrame {
         Central2_3.setLayout(null);
 
         Central2_3.add(comboModificar);
-        comboModificar.setBounds(120, 80, 456, 22);
+        comboModificar.setBounds(120, 80, 456, 28);
 
         BackButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back.png"))); // NOI18N
         BackButton4.setBorder(null);
@@ -1246,7 +1277,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2_3.add(BackButton4);
-        BackButton4.setBounds(0, 11, 101, 51);
+        BackButton4.setBounds(0, 11, 101, 50);
 
         SeleccionarUsuarioModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_seleccionar_2.png"))); // NOI18N
         SeleccionarUsuarioModificar.setBorderPainted(false);
@@ -1329,11 +1360,11 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2_5.add(UsuarioBox);
-        UsuarioBox.setBounds(248, 110, 186, 22);
+        UsuarioBox.setBounds(248, 110, 186, 28);
 
         UsuarioText.setText("Usuario:");
         Central2_5.add(UsuarioText);
-        UsuarioText.setBounds(127, 118, 41, 14);
+        UsuarioText.setBounds(127, 118, 57, 18);
 
         SeleccionarButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_seleccionar_1.png"))); // NOI18N
         SeleccionarButton.setBorder(null);
@@ -1359,7 +1390,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2_5.add(BotonBack);
-        BotonBack.setBounds(12, 23, 101, 51);
+        BotonBack.setBounds(12, 23, 101, 50);
 
         Panel_Central.add(Central2_5);
         Central2_5.setBounds(0, 0, 720, 550);
@@ -1377,7 +1408,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2_6.add(BotonBack1);
-        BotonBack1.setBounds(12, 23, 101, 51);
+        BotonBack1.setBounds(12, 23, 101, 50);
 
         UsuarioBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1385,11 +1416,11 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2_6.add(UsuarioBox1);
-        UsuarioBox1.setBounds(248, 110, 186, 22);
+        UsuarioBox1.setBounds(248, 110, 186, 28);
 
         UsuarioText1.setText("Usuario:");
         Central2_6.add(UsuarioText1);
-        UsuarioText1.setBounds(127, 118, 41, 14);
+        UsuarioText1.setBounds(127, 118, 57, 18);
 
         SeleccionarButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_seleccionar_1.png"))); // NOI18N
         SeleccionarButton1.setBorder(null);
@@ -1411,7 +1442,7 @@ public class MenuInicio extends javax.swing.JFrame {
 
         jLabel4.setText("Sigue a:");
         Central2_5_1.add(jLabel4);
-        jLabel4.setBounds(130, 200, 70, 14);
+        jLabel4.setBounds(130, 200, 70, 18);
 
         SeguidorBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1419,7 +1450,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2_5_1.add(SeguidorBox);
-        SeguidorBox.setBounds(250, 190, 186, 22);
+        SeguidorBox.setBounds(250, 190, 186, 28);
 
         AceptarButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_1.png"))); // NOI18N
         AceptarButton.setBorder(null);
@@ -1454,7 +1485,7 @@ public class MenuInicio extends javax.swing.JFrame {
 
         jLabel3.setText("Sigue a:");
         Central2_6_1.add(jLabel3);
-        jLabel3.setBounds(131, 200, 40, 14);
+        jLabel3.setBounds(131, 200, 53, 18);
 
         SeguidorBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1462,7 +1493,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2_6_1.add(SeguidorBox1);
-        SeguidorBox1.setBounds(250, 190, 186, 22);
+        SeguidorBox1.setBounds(250, 190, 186, 28);
 
         Panel_Central.add(Central2_6_1);
         Central2_6_1.setBounds(0, 0, 720, 550);
@@ -1482,37 +1513,37 @@ public class MenuInicio extends javax.swing.JFrame {
         nombre.setForeground(new java.awt.Color(102, 102, 102));
         nombre.setText("Nombre");
         Central2_2_1.add(nombre);
-        nombre.setBounds(280, 50, 70, 14);
+        nombre.setBounds(280, 50, 70, 18);
 
         apellido.setFont(berlin);
         apellido.setForeground(new java.awt.Color(102, 102, 102));
         apellido.setText("Apellido");
         Central2_2_1.add(apellido);
-        apellido.setBounds(280, 90, 70, 14);
+        apellido.setBounds(280, 90, 70, 18);
 
         fecha.setFont(berlin);
         fecha.setForeground(new java.awt.Color(102, 102, 102));
         fecha.setText("Fecha de nacimiento");
         Central2_2_1.add(fecha);
-        fecha.setBounds(280, 130, 140, 14);
+        fecha.setBounds(280, 130, 140, 18);
 
         mail.setFont(berlin);
         mail.setForeground(new java.awt.Color(102, 102, 102));
         mail.setText("Correo electronico");
         Central2_2_1.add(mail);
-        mail.setBounds(280, 170, 120, 14);
+        mail.setBounds(280, 170, 120, 18);
 
         NomCanalListar.setFont(berlin);
         NomCanalListar.setForeground(new java.awt.Color(102, 102, 102));
         NomCanalListar.setText("Nombre canal");
         Central2_2_1.add(NomCanalListar);
-        NomCanalListar.setBounds(280, 210, 120, 14);
+        NomCanalListar.setBounds(280, 210, 120, 18);
 
         DescListar.setFont(berlin);
         DescListar.setForeground(new java.awt.Color(102, 102, 102));
         DescListar.setText("Descripción");
         Central2_2_1.add(DescListar);
-        DescListar.setBounds(280, 250, 120, 14);
+        DescListar.setBounds(280, 250, 120, 18);
 
         Imagen.setBackground(new java.awt.Color(255, 255, 255));
         Imagen.setForeground(new java.awt.Color(255, 255, 255));
@@ -1528,35 +1559,35 @@ public class MenuInicio extends javax.swing.JFrame {
         Varnick.setBorder(null);
         Varnick.setOpaque(false);
         Central2_2_1.add(Varnick);
-        Varnick.setBounds(460, 10, 150, 14);
+        Varnick.setBounds(460, 10, 150, 18);
 
         Varnom.setEditable(false);
         Varnom.setFont(berlin);
         Varnom.setBorder(null);
         Varnom.setOpaque(false);
         Central2_2_1.add(Varnom);
-        Varnom.setBounds(460, 50, 150, 14);
+        Varnom.setBounds(460, 50, 150, 18);
 
         Varape.setEditable(false);
         Varape.setFont(berlin);
         Varape.setBorder(null);
         Varape.setOpaque(false);
         Central2_2_1.add(Varape);
-        Varape.setBounds(460, 90, 150, 14);
+        Varape.setBounds(460, 90, 150, 18);
 
         Varfech.setEditable(false);
         Varfech.setFont(berlin);
         Varfech.setBorder(null);
         Varfech.setOpaque(false);
         Central2_2_1.add(Varfech);
-        Varfech.setBounds(460, 130, 150, 14);
+        Varfech.setBounds(460, 130, 150, 18);
 
         Varmail.setEditable(false);
         Varmail.setFont(berlin);
         Varmail.setBorder(null);
         Varmail.setOpaque(false);
         Central2_2_1.add(Varmail);
-        Varmail.setBounds(460, 170, 150, 14);
+        Varmail.setBounds(460, 170, 150, 18);
 
         Varmail.setEditable(false);
         Varcanal.setEditable(false);
@@ -1594,7 +1625,7 @@ public class MenuInicio extends javax.swing.JFrame {
         Central2_2_1.add(jSeparator15);
         jSeparator15.setBounds(280, 190, 330, 16);
         Central2_2_1.add(jSeparator16);
-        jSeparator16.setBounds(190, 70, 0, 254);
+        jSeparator16.setBounds(190, 70, 4, 254);
 
         jSeparator17.setBackground(new java.awt.Color(153, 153, 153));
         jSeparator17.setForeground(new java.awt.Color(153, 153, 153));
@@ -1621,18 +1652,202 @@ public class MenuInicio extends javax.swing.JFrame {
         Central2_2_1.add(Privado2);
         Privado2.setBounds(280, 290, 90, 20);
 
-        jButton3.setText("Videos");
-        Central2_2_1.add(jButton3);
-        jButton3.setBounds(40, 270, 70, 40);
-
-        jButton4.setText("Listas");
-        Central2_2_1.add(jButton4);
-        jButton4.setBounds(120, 270, 70, 40);
-
         jSeparator33.setBackground(new java.awt.Color(153, 153, 153));
         jSeparator33.setForeground(new java.awt.Color(153, 153, 153));
         Central2_2_1.add(jSeparator33);
         jSeparator33.setBounds(280, 270, 330, 16);
+
+        Central2_2_2.setMaximumSize(new java.awt.Dimension(403, 550));
+        Central2_2_2.setMinimumSize(new java.awt.Dimension(403, 550));
+        Central2_2_2.setLayout(null);
+
+        nick2.setFont(berlin);
+        nick2.setForeground(new java.awt.Color(102, 102, 102));
+        nick2.setText("Nickname");
+        Central2_2_2.add(nick2);
+        nick2.setBounds(280, 10, 70, 20);
+
+        nombre2.setFont(berlin);
+        nombre2.setForeground(new java.awt.Color(102, 102, 102));
+        nombre2.setText("Nombre");
+        Central2_2_2.add(nombre2);
+        nombre2.setBounds(280, 50, 70, 18);
+
+        apellido2.setFont(berlin);
+        apellido2.setForeground(new java.awt.Color(102, 102, 102));
+        apellido2.setText("Apellido");
+        Central2_2_2.add(apellido2);
+        apellido2.setBounds(280, 90, 70, 18);
+
+        fecha2.setFont(berlin);
+        fecha2.setForeground(new java.awt.Color(102, 102, 102));
+        fecha2.setText("Fecha de nacimiento");
+        Central2_2_2.add(fecha2);
+        fecha2.setBounds(280, 130, 140, 18);
+
+        mail2.setFont(berlin);
+        mail2.setForeground(new java.awt.Color(102, 102, 102));
+        mail2.setText("Correo electronico");
+        Central2_2_2.add(mail2);
+        mail2.setBounds(280, 170, 120, 18);
+
+        NomCanalListar1.setFont(berlin);
+        NomCanalListar1.setForeground(new java.awt.Color(102, 102, 102));
+        NomCanalListar1.setText("Nombre canal");
+        Central2_2_2.add(NomCanalListar1);
+        NomCanalListar1.setBounds(280, 210, 120, 18);
+
+        DescListar1.setFont(berlin);
+        DescListar1.setForeground(new java.awt.Color(102, 102, 102));
+        DescListar1.setText("Descripción");
+        Central2_2_2.add(DescListar1);
+        DescListar1.setBounds(280, 250, 120, 18);
+
+        Imagen2.setBackground(new java.awt.Color(255, 255, 255));
+        Imagen2.setForeground(new java.awt.Color(255, 255, 255));
+        Imagen2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153), 2));
+        Imagen2.setMaximumSize(new java.awt.Dimension(160, 160));
+        Imagen2.setMinimumSize(new java.awt.Dimension(160, 160));
+        Imagen2.setPreferredSize(new java.awt.Dimension(160, 160));
+        Central2_2_2.add(Imagen2);
+        Imagen2.setBounds(40, 10, 160, 160);
+
+        Varnick.setEditable(false);
+        Varnick2.setFont(berlin);
+        Varnick2.setBorder(null);
+        Varnick2.setOpaque(false);
+        Central2_2_2.add(Varnick2);
+        Varnick2.setBounds(460, 10, 150, 18);
+
+        Varnom.setEditable(false);
+        Varnom2.setFont(berlin);
+        Varnom2.setBorder(null);
+        Varnom2.setOpaque(false);
+        Central2_2_2.add(Varnom2);
+        Varnom2.setBounds(460, 50, 150, 18);
+
+        Varape.setEditable(false);
+        Varape2.setFont(berlin);
+        Varape2.setBorder(null);
+        Varape2.setOpaque(false);
+        Central2_2_2.add(Varape2);
+        Varape2.setBounds(460, 90, 150, 18);
+
+        Varfech.setEditable(false);
+        Varfech1.setFont(berlin);
+        Varfech1.setBorder(null);
+        Varfech1.setOpaque(false);
+        Central2_2_2.add(Varfech1);
+        Varfech1.setBounds(460, 130, 150, 18);
+
+        Varmail.setEditable(false);
+        Varmail2.setFont(berlin);
+        Varmail2.setBorder(null);
+        Varmail2.setOpaque(false);
+        Central2_2_2.add(Varmail2);
+        Varmail2.setBounds(460, 170, 150, 18);
+
+        Varmail.setEditable(false);
+        Varcanal2.setEditable(false);
+        Varcanal2.setFont(berlin);
+        Varcanal2.setBorder(null);
+        Varcanal2.setOpaque(false);
+        Central2_2_2.add(Varcanal2);
+        Varcanal2.setBounds(460, 210, 150, 15);
+
+        Varmail.setEditable(false);
+        VarDescr2.setEditable(false);
+        VarDescr2.setFont(berlin);
+        VarDescr2.setBorder(null);
+        VarDescr2.setOpaque(false);
+        Central2_2_2.add(VarDescr2);
+        VarDescr2.setBounds(460, 250, 150, 15);
+
+        jSeparator40.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator40.setForeground(new java.awt.Color(153, 153, 153));
+        Central2_2_2.add(jSeparator40);
+        jSeparator40.setBounds(280, 30, 330, 16);
+
+        jSeparator43.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator43.setForeground(new java.awt.Color(153, 153, 153));
+        Central2_2_2.add(jSeparator43);
+        jSeparator43.setBounds(280, 70, 330, 16);
+
+        jSeparator46.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator46.setForeground(new java.awt.Color(153, 153, 153));
+        Central2_2_2.add(jSeparator46);
+        jSeparator46.setBounds(280, 110, 330, 16);
+
+        jSeparator47.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator47.setForeground(new java.awt.Color(153, 153, 153));
+        Central2_2_2.add(jSeparator47);
+        jSeparator47.setBounds(280, 190, 330, 16);
+        Central2_2_2.add(jSeparator49);
+        jSeparator49.setBounds(190, 70, 4, 254);
+
+        jSeparator50.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator50.setForeground(new java.awt.Color(153, 153, 153));
+        Central2_2_2.add(jSeparator50);
+        jSeparator50.setBounds(280, 150, 330, 16);
+
+        jSeparator51.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator51.setForeground(new java.awt.Color(153, 153, 153));
+        Central2_2_2.add(jSeparator51);
+        jSeparator51.setBounds(280, 230, 330, 16);
+
+        jSeparator52.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator52.setForeground(new java.awt.Color(153, 153, 153));
+        Central2_2_2.add(jSeparator52);
+        jSeparator52.setBounds(280, 310, 330, 16);
+
+        CheckboxPrivado3.setEnabled(false);
+        Central2_2_2.add(CheckboxPrivado3);
+        CheckboxPrivado3.setBounds(460, 290, 20, 20);
+
+        Privado7.setFont(berlin);
+        Privado7.setForeground(new java.awt.Color(102, 102, 102));
+        Privado7.setText("Seguidores");
+        Central2_2_2.add(Privado7);
+        Privado7.setBounds(20, 310, 90, 20);
+
+        jButton5.setText("Videos");
+        Central2_2_2.add(jButton5);
+        jButton5.setBounds(30, 210, 70, 40);
+
+        jButton6.setText("Listas");
+        Central2_2_2.add(jButton6);
+        jButton6.setBounds(120, 210, 70, 40);
+
+        jSeparator53.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator53.setForeground(new java.awt.Color(153, 153, 153));
+        Central2_2_2.add(jSeparator53);
+        jSeparator53.setBounds(280, 270, 330, 16);
+
+        Privado8.setFont(berlin);
+        Privado8.setForeground(new java.awt.Color(102, 102, 102));
+        Privado8.setText("Privado");
+        Central2_2_2.add(Privado8);
+        Privado8.setBounds(280, 290, 90, 20);
+
+        Privado9.setFont(berlin);
+        Privado9.setForeground(new java.awt.Color(102, 102, 102));
+        Privado9.setText("Siguiendo");
+        Central2_2_2.add(Privado9);
+        Privado9.setBounds(20, 280, 90, 20);
+
+        Central2_2_2.add(ComboSeguidores);
+        ComboSeguidores.setBounds(120, 310, 100, 28);
+
+        ComboSiguiendo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboSiguiendoActionPerformed(evt);
+            }
+        });
+        Central2_2_2.add(ComboSiguiendo);
+        ComboSiguiendo.setBounds(120, 270, 100, 28);
+
+        Central2_2_1.add(Central2_2_2);
+        Central2_2_2.setBounds(0, 0, 720, 350);
 
         Panel_Central.add(Central2_2_1);
         Central2_2_1.setBounds(0, 0, 720, 350);
@@ -1649,37 +1864,37 @@ public class MenuInicio extends javax.swing.JFrame {
         mail1.setFont(berlin);
         mail1.setText("Correo electronico");
         Central2_3_1.add(mail1);
-        mail1.setBounds(280, 40, 150, 14);
+        mail1.setBounds(280, 40, 150, 18);
 
         nombre1.setFont(berlin);
         nombre1.setText("Nombre");
         Central2_3_1.add(nombre1);
-        nombre1.setBounds(280, 80, 100, 14);
+        nombre1.setBounds(280, 80, 100, 18);
 
         apellido1.setFont(berlin);
         apellido1.setText("Apellido");
         Central2_3_1.add(apellido1);
-        apellido1.setBounds(280, 120, 90, 14);
+        apellido1.setBounds(280, 120, 90, 18);
 
         contraseña.setFont(berlin);
         contraseña.setText("Contraseña");
         Central2_3_1.add(contraseña);
-        contraseña.setBounds(280, 160, 130, 14);
+        contraseña.setBounds(280, 160, 130, 18);
 
         NomCanal.setFont(berlin);
         NomCanal.setText("Nombre canal");
         Central2_3_1.add(NomCanal);
-        NomCanal.setBounds(280, 240, 120, 14);
+        NomCanal.setBounds(280, 240, 120, 18);
 
         DescModif.setFont(berlin);
         DescModif.setText("Descripción");
         Central2_3_1.add(DescModif);
-        DescModif.setBounds(280, 280, 120, 14);
+        DescModif.setBounds(280, 280, 120, 18);
 
         fecha1.setFont(berlin);
         fecha1.setText("Fecha de nacimiento ");
         Central2_3_1.add(fecha1);
-        fecha1.setBounds(280, 200, 160, 14);
+        fecha1.setBounds(280, 200, 160, 18);
 
         Imagen1.setBackground(new java.awt.Color(255, 255, 255));
         Imagen1.setForeground(new java.awt.Color(255, 255, 255));
@@ -1702,7 +1917,7 @@ public class MenuInicio extends javax.swing.JFrame {
         Varnick1.setBorder(null);
         Varnick1.setOpaque(false);
         Central2_3_1.add(Varnick1);
-        Varnick1.setBounds(430, 0, 220, 14);
+        Varnick1.setBounds(430, 0, 220, 18);
 
         Varmail.setEditable(false);
         Varmail1.setEditable(false);
@@ -1711,7 +1926,7 @@ public class MenuInicio extends javax.swing.JFrame {
         Varmail1.setBorder(null);
         Varmail1.setOpaque(false);
         Central2_3_1.add(Varmail1);
-        Varmail1.setBounds(430, 40, 220, 14);
+        Varmail1.setBounds(430, 40, 220, 18);
 
         Varnom.setEditable(false);
         Varnom1.setFont(berlin);
@@ -1719,7 +1934,7 @@ public class MenuInicio extends javax.swing.JFrame {
         Varnom1.setBorder(null);
         Varnom1.setOpaque(false);
         Central2_3_1.add(Varnom1);
-        Varnom1.setBounds(430, 80, 220, 14);
+        Varnom1.setBounds(430, 80, 220, 18);
 
         Varape.setEditable(false);
         VarPass.setFont(berlin);
@@ -1727,7 +1942,7 @@ public class MenuInicio extends javax.swing.JFrame {
         VarPass.setBorder(null);
         VarPass.setOpaque(false);
         Central2_3_1.add(VarPass);
-        VarPass.setBounds(430, 160, 220, 14);
+        VarPass.setBounds(430, 160, 220, 18);
 
         Varape.setEditable(false);
         Varape1.setFont(berlin);
@@ -1735,7 +1950,7 @@ public class MenuInicio extends javax.swing.JFrame {
         Varape1.setBorder(null);
         Varape1.setOpaque(false);
         Central2_3_1.add(Varape1);
-        Varape1.setBounds(430, 120, 220, 14);
+        Varape1.setBounds(430, 120, 220, 18);
 
         Varmail.setEditable(false);
         Varcanal1.setFont(berlin);
@@ -1782,7 +1997,7 @@ public class MenuInicio extends javax.swing.JFrame {
         Central2_3_1.add(jSeparator23);
         jSeparator23.setBounds(430, 60, 220, 16);
         Central2_3_1.add(jSeparator24);
-        jSeparator24.setBounds(200, 90, 0, 254);
+        jSeparator24.setBounds(200, 90, 4, 254);
 
         jSeparator25.setBackground(new java.awt.Color(153, 153, 153));
         jSeparator25.setForeground(new java.awt.Color(153, 153, 153));
@@ -1862,7 +2077,7 @@ public class MenuInicio extends javax.swing.JFrame {
         Central3_1.setLayout(null);
 
         Central3_1.add(comboVideo);
-        comboVideo.setBounds(120, 70, 456, 22);
+        comboVideo.setBounds(120, 70, 456, 28);
 
         BackButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back.png"))); // NOI18N
         BackButton5.setBorder(null);
@@ -1875,7 +2090,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central3_1.add(BackButton5);
-        BackButton5.setBounds(0, 11, 101, 51);
+        BackButton5.setBounds(0, 11, 101, 50);
 
         SeleccionarUsuario1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_seleccionar_2.png"))); // NOI18N
         SeleccionarUsuario1.setBorderPainted(false);
@@ -2004,7 +2219,7 @@ public class MenuInicio extends javax.swing.JFrame {
         Central3_3_1.add(jSeparator42);
         jSeparator42.setBounds(340, 90, 220, 20);
         Central3_3_1.add(jSeparator44);
-        jSeparator44.setBounds(196, 94, 0, 254);
+        jSeparator44.setBounds(196, 94, 4, 254);
 
         jSeparator45.setBackground(new java.awt.Color(153, 153, 153));
         jSeparator45.setForeground(new java.awt.Color(153, 153, 153));
@@ -2084,7 +2299,7 @@ public class MenuInicio extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(102, 102, 102));
         jLabel1.setText("Nombre lista");
         Central4_1.add(jLabel1);
-        jLabel1.setBounds(160, 190, 100, 14);
+        jLabel1.setBounds(160, 190, 100, 18);
 
         Varnick.setEditable(false);
         NombreLista.setEditable(false);
@@ -2110,7 +2325,7 @@ public class MenuInicio extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setText("Nombre usuario");
         Central4_1.add(jLabel2);
-        jLabel2.setBounds(160, 240, 130, 14);
+        jLabel2.setBounds(160, 240, 130, 18);
 
         Varnick.setEditable(false);
         NombreUser.setEditable(false);
@@ -2146,7 +2361,7 @@ public class MenuInicio extends javax.swing.JFrame {
         ComboBoxCategorias.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         ComboBoxCategorias.setEnabled(false);
         Central4_1.add(ComboBoxCategorias);
-        ComboBoxCategorias.setBounds(310, 320, 220, 20);
+        ComboBoxCategorias.setBounds(310, 320, 220, 28);
         Central4_1.add(jSeparator34);
         jSeparator34.setBounds(310, 120, 220, 20);
         Central4_1.add(jSeparator35);
@@ -2181,7 +2396,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central4_1.add(BackButton6);
-        BackButton6.setBounds(0, 11, 101, 51);
+        BackButton6.setBounds(0, 11, 101, 50);
 
         Panel_Central.add(Central4_1);
         Central4_1.setBounds(0, 0, 720, 550);
@@ -2399,10 +2614,12 @@ public class MenuInicio extends javax.swing.JFrame {
         Panel_Central.add(Scroll2);
         Panel_Central.revalidate();
         Panel_Central.repaint();
-        Central3_1_Panel.removeAll();
-        Central3_1_Panel.revalidate();
-        Central3_1_Panel.repaint();
+        Central2_2_Panel.removeAll();
+        Central2_2_Panel.revalidate();
+        Central2_2_Panel.repaint();
         comboConsulta.removeAllItems();
+        ComboSeguidores.removeAllItems();
+        ComboSiguiendo.removeAllItems();
     }//GEN-LAST:event_BackButton3ActionPerformed
 
     private void SeleccionarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeleccionarUsuarioActionPerformed
@@ -2410,29 +2627,38 @@ public class MenuInicio extends javax.swing.JFrame {
         Central2_2_Panel.add(Central2_2_1);
         Panel_Central.revalidate();
         Panel_Central.repaint();
-        List lista = u.listaUsuarios();
-        DtUsuario user;
+        
+        DtUsuario user = u.buscarUsuario(Item);
         String fechaN;
         Integer num;
-        for(int x=0; x<=lista.size()-1; x++){
-            user = (DtUsuario) lista.get(x);
-            if(Item.equals(user.getNickname())){
-               this.Varnick.setText(Item);
-               this.Varnom.setText(user.getNombre());
-               this.Varape.setText(user.getApellido());
-               fechaN = user.getFechaNac().toString();
-               fechaN = fechaN.substring(0, 10);
-               num = Integer.parseInt(fechaN.substring(8,10)) + 1;
-               fechaN = fechaN.substring(0, 8) + num.toString();
-               this.Varfech.setText(fechaN);
-               this.Varmail.setText(user.getEmail());
-               this.Imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource(user.getImagen())));
-               this.Varcanal.setText(user.getCanal().getNombre_canal());
-               this.VarDescr.setText(user.getCanal().getDescripcion());
-               CheckboxPrivado2.setState(user.getCanal().getPrivado());
-            }
-        }                        
+        this.Varnick.setText(Item);
+        this.Varnom.setText(user.getNombre());
+        this.Varape.setText(user.getApellido());
+        fechaN = user.getFechaNac().toString();
+        fechaN = fechaN.substring(0, 10);
+        num = Integer.parseInt(fechaN.substring(8,10)) + 1;
+        fechaN = fechaN.substring(0, 8) + num.toString();
+        this.Varfech.setText(fechaN);
+        this.Varmail.setText(user.getEmail());
+        this.Imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource(user.getImagen())));
+        this.Varcanal.setText(user.getCanal().getNombre_canal());
+        this.VarDescr.setText(user.getCanal().getDescripcion());
+        CheckboxPrivado2.setState(user.getCanal().getPrivado());
         
+        List listaS = u.listaSeguidos(Varnick.getText());
+        for(int x=0; x<=listaS.size()-1; x++){
+                if(listaS.get(x) != null){
+                    ComboSiguiendo.addItem((String) listaS.get(x));
+                }
+            }
+        
+        List listaSe = u.listaSeguidores(Varnick.getText());
+        for(int x=0; x<=listaSe.size()-1; x++){
+            DtUsuario us = (DtUsuario)listaSe.get(x);
+                if(listaSe.get(x) != null){
+                    ComboSeguidores.addItem(us.getNickname());
+                }
+            }
     }//GEN-LAST:event_SeleccionarUsuarioActionPerformed
 
     private void BackButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButton4ActionPerformed
@@ -2859,6 +3085,10 @@ public class MenuInicio extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_DejarSeguirUsuarioActionPerformed
 
+    private void ComboSiguiendoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboSiguiendoActionPerformed
+
+    }//GEN-LAST:event_ComboSiguiendoActionPerformed
+
     
     private void setColor(JPanel pane)
     {
@@ -2940,6 +3170,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JPanel Central2_1;
     private javax.swing.JPanel Central2_2;
     private javax.swing.JPanel Central2_2_1;
+    private javax.swing.JPanel Central2_2_2;
     private javax.swing.JPanel Central2_2_Panel;
     private javax.swing.JPanel Central2_3;
     private javax.swing.JPanel Central2_3_1;
@@ -2961,8 +3192,11 @@ public class MenuInicio extends javax.swing.JFrame {
     private java.awt.Checkbox CheckboxPrivado;
     private java.awt.Checkbox CheckboxPrivado1;
     private java.awt.Checkbox CheckboxPrivado2;
+    private java.awt.Checkbox CheckboxPrivado3;
     private java.awt.Checkbox CheckboxPublica;
     private javax.swing.JComboBox<String> ComboBoxCategorias;
+    private javax.swing.JComboBox<String> ComboSeguidores;
+    private javax.swing.JComboBox<String> ComboSiguiendo;
     private javax.swing.JButton ConsultarUsuarios;
     private javax.swing.JLabel ConsultarUsuariosText;
     private javax.swing.JLabel Contraseña;
@@ -2974,6 +3208,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JButton DejarSeguirUsuario;
     private javax.swing.JLabel DejarSeguirUsuarioText;
     private javax.swing.JLabel DescListar;
+    private javax.swing.JLabel DescListar1;
     private javax.swing.JLabel DescModif;
     private javax.swing.JLabel Descripcion;
     private javax.swing.JLabel DescripcionVideo;
@@ -2983,6 +3218,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JLabel FechaPubVideo;
     private javax.swing.JLabel Imagen;
     private javax.swing.JLabel Imagen1;
+    private javax.swing.JLabel Imagen2;
     private javax.swing.JButton ListarUsuarios;
     private javax.swing.JLabel ListarUsuariosText;
     private javax.swing.JButton Modificar;
@@ -2991,6 +3227,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JLabel Nickname;
     private javax.swing.JLabel NomCanal;
     private javax.swing.JLabel NomCanalListar;
+    private javax.swing.JLabel NomCanalListar1;
     private javax.swing.JLabel NomVideo;
     private javax.swing.JLabel Nombre;
     private javax.swing.JLabel NombreCanal;
@@ -3006,6 +3243,9 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JLabel Privado4;
     private javax.swing.JLabel Privado5;
     private javax.swing.JLabel Privado6;
+    private javax.swing.JLabel Privado7;
+    private javax.swing.JLabel Privado8;
+    private javax.swing.JLabel Privado9;
     private javax.swing.JButton Registrar;
     private javax.swing.JButton RegistrarVideo;
     private javax.swing.JScrollPane Scroll2;
@@ -3030,19 +3270,26 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JLabel UsuarioText1;
     private javax.swing.JTextField VarDescr;
     private javax.swing.JTextField VarDescr1;
+    private javax.swing.JTextField VarDescr2;
     private javax.swing.JTextField VarDescripcion;
     private javax.swing.JTextField VarPass;
     private javax.swing.JTextField Varape;
     private javax.swing.JTextField Varape1;
+    private javax.swing.JTextField Varape2;
     private javax.swing.JTextField Varcanal;
     private javax.swing.JTextField Varcanal1;
+    private javax.swing.JTextField Varcanal2;
     private javax.swing.JTextField Varfech;
+    private javax.swing.JTextField Varfech1;
     private javax.swing.JTextField Varmail;
     private javax.swing.JTextField Varmail1;
+    private javax.swing.JTextField Varmail2;
     private javax.swing.JTextField Varnick;
     private javax.swing.JTextField Varnick1;
+    private javax.swing.JTextField Varnick2;
     private javax.swing.JTextField Varnom;
     private javax.swing.JTextField Varnom1;
+    private javax.swing.JTextField Varnom2;
     private javax.swing.JButton agrVid_Button;
     private javax.swing.JLabel agregarCat;
     private javax.swing.JButton agregarCat_Button;
@@ -3052,6 +3299,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JButton agregarVideo_Button;
     private javax.swing.JLabel apellido;
     private javax.swing.JLabel apellido1;
+    private javax.swing.JLabel apellido2;
     private javax.swing.JPanel btn_Categorias;
     private javax.swing.JPanel btn_CerrarSesion;
     private javax.swing.JPanel btn_Inicio;
@@ -3074,6 +3322,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JButton crearPlaylist_Button;
     private javax.swing.JLabel fecha;
     private javax.swing.JLabel fecha1;
+    private javax.swing.JLabel fecha2;
     private javax.swing.JLabel fondo;
     private javax.swing.JPanel ind_1;
     private javax.swing.JPanel ind_2;
@@ -3083,8 +3332,8 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JPanel ind_6;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -3128,12 +3377,21 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator38;
     private javax.swing.JSeparator jSeparator39;
     private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator40;
     private javax.swing.JSeparator jSeparator41;
     private javax.swing.JSeparator jSeparator42;
+    private javax.swing.JSeparator jSeparator43;
     private javax.swing.JSeparator jSeparator44;
     private javax.swing.JSeparator jSeparator45;
+    private javax.swing.JSeparator jSeparator46;
+    private javax.swing.JSeparator jSeparator47;
     private javax.swing.JSeparator jSeparator48;
+    private javax.swing.JSeparator jSeparator49;
     private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator50;
+    private javax.swing.JSeparator jSeparator51;
+    private javax.swing.JSeparator jSeparator52;
+    private javax.swing.JSeparator jSeparator53;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
@@ -3142,6 +3400,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JButton listarCat_Button;
     private javax.swing.JLabel mail;
     private javax.swing.JLabel mail1;
+    private javax.swing.JLabel mail2;
     private javax.swing.JButton minimizar;
     private javax.swing.JButton modVid_Button;
     private javax.swing.JLabel modificarPlaylist;
@@ -3149,8 +3408,10 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JLabel modificarVid;
     private javax.swing.JLabel nick;
     private javax.swing.JLabel nick1;
+    private javax.swing.JLabel nick2;
     private javax.swing.JLabel nombre;
     private javax.swing.JLabel nombre1;
+    private javax.swing.JLabel nombre2;
     private javax.swing.JLabel quitarVideo;
     private javax.swing.JButton quitarVideo_Button;
     // End of variables declaration//GEN-END:variables

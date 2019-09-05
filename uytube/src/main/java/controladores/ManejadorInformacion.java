@@ -134,7 +134,13 @@ public class ManejadorInformacion {
     
     public List ObtenerSeguidos(String nickname) {
         manager=emf.createEntityManager();
-        return manager.createQuery("SELECT s.seguidos FROM Seguir s WHERE s.usuario = '" + nickname + "'")
+        return manager.createQuery("SELECT s.seguidos FROM Seguir s WHERE s.us = '" + nickname + "'")
+                .getResultList();
+    }
+    
+    public List ObtenerSeguidores(String nick) {
+        manager=emf.createEntityManager();
+        return manager.createQuery("SELECT s.us FROM Seguir s WHERE s.seguidos = '" + nick + "'")
                 .getResultList();
     }
     

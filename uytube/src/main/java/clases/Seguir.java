@@ -18,7 +18,7 @@ public class Seguir implements Serializable {
     @Id
     @ManyToOne
     @JoinColumn(name = "nickname")
-    private Usuario usuario;
+    private Usuario us;
     
     @Column(name = "seguido")
     private String seguidos;
@@ -28,16 +28,16 @@ public class Seguir implements Serializable {
     }
 
     public Seguir(Usuario usuario, String seguidos) {
-        this.usuario = usuario;
+        this.us = usuario;
         this.seguidos = seguidos;
     }
 
     public Usuario getUsuario() {
-        return usuario;
+        return us;
     }
 
     public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+        this.us = usuario;
     }
 
     public String getSeguidos() {
@@ -50,7 +50,7 @@ public class Seguir implements Serializable {
 
     @Override
     public String toString() {
-        return "Seguir{" + "usuario=" + usuario + ", seguidos=" + seguidos + '}';
+        return "Seguir{" + "usuario=" + us + ", seguidos=" + seguidos + '}';
     }
     
 }
