@@ -92,4 +92,37 @@ public class ControladorUsuario implements IControladorUsuario{
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         mu.iniciarConexionInicial();
     }
+    
+    @Override
+    public DtUsuario buscarUsuario(String nick) {
+        ManejadorInformacion mu = ManejadorInformacion.getInstance();
+        Usuario u;
+        u = mu.buscadorUsuario(nick);
+        DtCanal canal = new DtCanal(u.getCanal().getNombre_canal(),u.getCanal().getDescripcion(),u.getCanal().getPrivado());
+        DtUsuario user = new DtUsuario(u.getNickname(), u.getContraseña(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen(),canal);
+        return user;
+    }
+    
+    @Override
+    public void seguirUsuario(DtUsuario u, String s) {
+        ManejadorInformacion mu = ManejadorInformacion.getInstance();
+        Canal canal = new Canal(u.getCanal().getNombre_canal(),u.getCanal().getDescripcion(),u.getCanal().getPrivado());
+        Usuario user = new Usuario(u.getNickname(), u.getContraseña(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen(),canal);
+        mu.seguirUsuario(user, s);
+    }
+    
+    @Override
+    public void DejarSeguir_Usuario(DtUsuario u, String s) {
+        ManejadorInformacion mu = ManejadorInformacion.getInstance();
+        Canal canal = new Canal(u.getCanal().getNombre_canal(),u.getCanal().getDescripcion(),u.getCanal().getPrivado());
+        Usuario user = new Usuario(u.getNickname(), u.getContraseña(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen(),canal);
+        mu.dejarSeguir(user, s);
+    }
+    
+    @Override
+    public List listaSeguidos(String nick) {
+        ManejadorInformacion mu = ManejadorInformacion.getInstance(); //pido una instancia del manejador
+        List lista = mu.ObtenerSeguidos(nick);
+        return lista;
+    }
 }
