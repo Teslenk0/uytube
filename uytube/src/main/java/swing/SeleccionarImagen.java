@@ -23,7 +23,7 @@ public class SeleccionarImagen extends javax.swing.JFrame {
 
     private final JFileChooser openFileChooser;
     private BufferedImage originalBI;
-    private String direccion;
+    private String direccion = "No se ha seleccionado una imágen";
     private final MenuInicio mi;
     Font berlin;
     /**
@@ -224,10 +224,12 @@ public class SeleccionarImagen extends javax.swing.JFrame {
     }//GEN-LAST:event_DragPanelMousePressed
 
     private void BotonCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonCerrarActionPerformed
+        mi.setPathImagen(direccion,originalBI);
         dispose();
     }//GEN-LAST:event_BotonCerrarActionPerformed
 
     private void BotonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonCancelarActionPerformed
+        mi.setPathImagen(direccion,originalBI);
         dispose();
     }//GEN-LAST:event_BotonCancelarActionPerformed
 
@@ -257,7 +259,6 @@ public class SeleccionarImagen extends javax.swing.JFrame {
            }
        }
        else{
-           direccion = "No se ha seleccionado una imágen";
            CampoFile.setText(direccion);
        }
     }//GEN-LAST:event_AbrirArchivoActionPerformed
