@@ -224,7 +224,7 @@ public class Menu extends javax.swing.JFrame {
         else{ //Usuario incorrecto
             VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled,manjari);
             
-            error.CambioTexto("Los datos ingresados son incorrectos");
+            error.CambioTexto("     Los datos ingresados son incorrectos");
             error.setVisible(true);
            
         }
@@ -244,7 +244,7 @@ public class Menu extends javax.swing.JFrame {
             }
             else{ //Usuario incorrecto
                 VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled,manjari);
-                error.CambioTexto("Los datos ingresados son incorrectos");
+                error.CambioTexto("     Los datos ingresados son incorrectos");
                 error.setVisible(true);
             }
         }
@@ -289,7 +289,7 @@ int xx,xy;
             }
             else{ //Usuario incorrecto
                 VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled,manjari);
-                error.CambioTexto("Los datos ingresados son incorrectos");
+                error.CambioTexto("     Los datos ingresados son incorrectos");
                 error.setVisible(true);
             }
         }

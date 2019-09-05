@@ -2288,27 +2288,29 @@ public class MenuInicio extends javax.swing.JFrame {
 
     private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButtonActionPerformed
         Panel_Central.removeAll();
-        Panel_Central.add(Central2);
+        Panel_Central.add(Scroll2);
         Panel_Central.revalidate();
         Panel_Central.repaint();
         resetRegistro();
     }//GEN-LAST:event_BackButtonActionPerformed
 
     private void RegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarActionPerformed
-       String nickname = CampoNickname.getText();
-       String pass = CampoContraseña.getText();
-       String nombreText = CampoNombre.getText();
-       String apellidoText = CampoApellido.getText();
-       String correo = CampoCorreo.getText();
-       Boolean privado = CheckboxPrivado.getState();
-       Date fechaText = DateChoose.getDate();
-       String nombreCanal = CampoCanal.getText();
-       String descripcion = CampoDescripcion.getText();
-       VentanaEmergente mensaje = new VentanaEmergente(this, rootPaneCheckingEnabled,manjari);
-       if(!nickname.equals("Ingrese Nickname") || !pass.equals("*********") || !nombreText.equals("Ingrese Nombre") || !apellidoText.equals("Ingrese Apellido") || !correo.equals("Ingrese Correo")){
-        if(nombreCanal.isBlank() || nombreCanal.equals("Ingrese Nombre de Canal"))
+        String nickname = CampoNickname.getText();
+        String pass = CampoContraseña.getText();
+        String nombreText = CampoNombre.getText();
+        String apellidoText = CampoApellido.getText();
+        String correo = CampoCorreo.getText();
+        Boolean privado = CheckboxPrivado.getState();
+        Date fechaText = DateChoose.getDate();
+        String nombreCanal = CampoCanal.getText();
+        String descripcion = CampoDescripcion.getText();
+        VentanaEmergente mensaje = new VentanaEmergente(this, rootPaneCheckingEnabled,manjari);
+        if(nickname.equals("Ingrese Nickname") || pass.equals("password") || nombreText.equals("Ingrese Nombre") || apellidoText.equals("Ingrese Apellido") || correo.equals("Ingrese Correo") ){
+            mensaje.CambioTexto("Debes llenar todos los campos obligatorios");
+        }
+        if(nombreCanal.isEmpty() || nombreCanal.equals("Ingrese Nombre de Canal"))
           nombreCanal = nickname;
-        if(nickname.isBlank() || pass.isBlank() || nombreText.isBlank() || apellidoText.isBlank() || correo.isBlank() || fechaText.toString().isBlank() || descripcion.isBlank()){
+        if(nickname.isEmpty() || pass.isEmpty() || nombreText.isEmpty() || apellidoText.isEmpty() || correo.isEmpty() || fechaText==null || descripcion.isEmpty()){
              mensaje.CambioTexto("Debes llenar todos los campos obligatorios");
         }
         else{
@@ -2329,12 +2331,7 @@ public class MenuInicio extends javax.swing.JFrame {
           } catch (UsuarioRepetidoException ex) {
               mensaje.CambioTexto("El nickname o email ya existe");
           }
-        }
-      }
-      else{
-        VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled,manjari);
-        mensaje.CambioTexto("Debes llenar todos los campos obligatorios");
-      }
+        }   
       mensaje.setVisible(true);
     }//GEN-LAST:event_RegistrarActionPerformed
 
@@ -2389,7 +2386,7 @@ public class MenuInicio extends javax.swing.JFrame {
 
     private void BackButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButton2ActionPerformed
         Panel_Central.removeAll();
-        Panel_Central.add(Central2);
+        Panel_Central.add(Scroll2);
         Panel_Central.revalidate();
         Panel_Central.repaint();
         comboLista.removeAllItems();
@@ -2397,7 +2394,7 @@ public class MenuInicio extends javax.swing.JFrame {
 
     private void BackButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButton3ActionPerformed
         Panel_Central.removeAll();
-        Panel_Central.add(Central2);
+        Panel_Central.add(Scroll2);
         Panel_Central.revalidate();
         Panel_Central.repaint();
         Central3_1_Panel.removeAll();
@@ -2438,7 +2435,7 @@ public class MenuInicio extends javax.swing.JFrame {
 
     private void BackButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButton4ActionPerformed
         Panel_Central.removeAll();
-        Panel_Central.add(Central2);
+        Panel_Central.add(Scroll2);
         Panel_Central.revalidate();
         Panel_Central.repaint();
         Central2_3_Panel.removeAll();
@@ -2586,13 +2583,13 @@ public class MenuInicio extends javax.swing.JFrame {
         else{
             try {
                 c.registrarVideo(video);
+                resetRegistrarVideo();
                 mensaje.CambioTexto("Video registrado con exito");
             } catch (VideoRepetidoException ex) {
                 mensaje.CambioTexto("El nombre del video ya existe en este canal");
             } 
         }
         mensaje.setVisible(true);
-        resetRegistrarVideo();
     }//GEN-LAST:event_RegistrarVideoActionPerformed
 
     private void VarDescripcionFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_VarDescripcionFocusGained
