@@ -112,4 +112,34 @@ public class ManejadorInformacion {
         manager.getTransaction().commit();
         manager.close();
     }
+    
+    public void seguirUsuario(Usuario u, String s) {
+        manager = emf.createEntityManager();
+        manager.getTransaction().begin();
+        Seguir seg = new Seguir(u, s);
+        manager.persist(seg);
+        manager.getTransaction().commit();
+        manager.close();
+    }
+
+    public void dejarSeguir(Usuario u, String s) {
+        manager = emf.createEntityManager();
+        manager.getTransaction().begin();
+        Query query = manager.createQuery("delete from Seguir s where nickname = '" + u.getNickname() + "' and seguido = '" + s + "'"); 
+        query.executeUpdate();
+        manager.getTransaction().commit();
+        manager.close();
+    }
+    
+    public List ObtenerSeguidos(String nickname) {
+        manager=emf.createEntityManager();
+        return manager.createQuery("SELECT s.seguidos FROM Seguir s WHERE s.usuario = '" + nickname + "'")
+                .getResultList();
+    }
+    
+    public Usuario buscadorUsuario(String nick) {
+        manager = emf.createEntityManager();
+        Usuario user = manager.find(Usuario.class, nick);
+        return user;
+    }
 }
