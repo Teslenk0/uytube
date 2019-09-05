@@ -19,38 +19,43 @@ public class DtVideo implements Serializable{
      
       private final  String nombre;
       
-      private final String descripcion;
-      
-      private final int duracion;
+      private final DtCanal canal;
       
       private final Date fechaPublicacion;
       
       private final String url;
       
-      private final boolean privado;
+      private final String descripcion;
       
-      private final Categoria cat;
+      private final String categoria;
+      
+      private final String duracion;
+      
+      private final boolean privado;
 
-    public DtVideo(String nombre, String descripcion, int duracion, Date fechaPublicacion, String url, boolean privado, Categoria cat) {
+    public DtVideo(String nombre, DtCanal canal, Date fechaPublicacion, String url, String descripcion, String categoria, String duracion, boolean privado) {
         this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.duracion = duracion;
+        this.canal = canal;
         this.fechaPublicacion = fechaPublicacion;
         this.url = url;
+        this.descripcion = descripcion;
+        this.categoria = categoria;
+        this.duracion = duracion;
         this.privado = privado;
-        this.cat = cat;
+    }
+
+    
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
 
     public String getNombre() {
         return nombre;
     }
 
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public int getDuracion() {
-        return duracion;
+    public DtCanal getCanal() {
+        return canal;
     }
 
     public Date getFechaPublicacion() {
@@ -61,13 +66,20 @@ public class DtVideo implements Serializable{
         return url;
     }
 
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public String getDuracion() {
+        return duracion;
+    }
+
     public boolean isPrivado() {
         return privado;
     }
-
-    public Categoria getCat() {
-        return cat;
-    }
-      
-      
+    
 }

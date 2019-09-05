@@ -13,9 +13,10 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 
 /**
@@ -24,78 +25,65 @@ import javax.persistence.Temporal;
  */
 @Entity
 @Table(name = "videos_canal")
-@IdClass(PkVideo.class)
 public class Video implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
     @Column(name = "nombre")
-    private String nombreVideo;
-
-    @Id
-    @OneToOne
+    private String nombre;
+    
+    @ManyToOne
     @JoinColumn(name = "nombre_canal")
-    private Canal nombreCanal;
-
-    @Column(name = "descripcion")
-    private String descripcion;
-
-    @Column(name = "duracion")
-    private int duracion;
+    private Canal canal;
 
     @Column(name = "fecha_publicacion")
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechaPublicacion;
-
+    
     @Column(name = "url")
     private String url;
+    
+    @Column(name = "descripcion")
+    private String descripcion;
 
-    /*@Enumerated(EnumType.STRING)
-    private Categoria cat;*/
-    public Video() {
+    @Column(name = "categoria")
+    private String categoria;
+    
+    @Column(name = "duracion")
+    private String duracion;
+
+    @Column(name = "isPrivate")
+    private Boolean privado;
+    
+    public Video(){
     }
 
-    public Video(String nombreVideo, Canal nombreCanal, String descripcion, int duracion, Date fechaPublicacion, String url, Categoria cat) {
-        this.nombreVideo = nombreVideo;
-        this.nombreCanal = nombreCanal;
-        this.descripcion = descripcion;
-        this.duracion = duracion;
+    public Video(String nombre, Canal canal, Date fechaPublicacion, String url, String descripcion, String categoria, String duracion, Boolean privado) {
+        this.nombre = nombre;
+        this.canal = canal;
         this.fechaPublicacion = fechaPublicacion;
         this.url = url;
-        //this.cat = cat;
-    }
-
-    public String getNombreVideo() {
-        return nombreVideo;
-    }
-
-    public void setNombreVideo(String nombreVideo) {
-        this.nombreVideo = nombreVideo;
-    }
-
-    public Canal getNombreCanal() {
-        return nombreCanal;
-    }
-
-    public void setNombreCanal(Canal nombreCanal) {
-        this.nombreCanal = nombreCanal;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
-    }
-
-    public int getDuracion() {
-        return duracion;
-    }
-
-    public void setDuracion(int duracion) {
+        this.categoria = categoria;
         this.duracion = duracion;
+        this.privado = privado;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public Canal getCanal() {
+        return canal;
+    }
+
+    public void setCanal(Canal canal) {
+        this.canal = canal;
     }
 
     public Date getFechaPublicacion() {
@@ -114,15 +102,35 @@ public class Video implements Serializable {
         this.url = url;
     }
 
-    /*public Categoria getCat() {
-        return cat;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setCat(Categoria cat) {
-        this.cat = cat;
-    }*/
-    @Override
-    public String toString() {
-        return "Video{" + "nombreVideo=" + nombreVideo + ", nombreCanal=" + nombreCanal + ", descripcion=" + descripcion + ", duracion=" + duracion + ", fechaPublicacion=" + fechaPublicacion + ", url=" + url + '}';
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public String getDuracion() {
+        return duracion;
+    }
+
+    public void setDuracion(String duracion) {
+        this.duracion = duracion;
+    }
+
+    public Boolean getPrivado() {
+        return privado;
+    }
+
+    public void setPrivado(Boolean privado) {
+        this.privado = privado;
     }
 }

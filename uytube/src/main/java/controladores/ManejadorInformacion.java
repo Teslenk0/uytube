@@ -10,6 +10,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import clases.*;
 import DataTypes.*;
+import excepciones.VideoRepetidoException;
 import java.util.List;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
@@ -141,5 +142,13 @@ public class ManejadorInformacion {
         manager = emf.createEntityManager();
         Usuario user = manager.find(Usuario.class, nick);
         return user;
+    }
+    
+    public void altaVideo(Video video){
+        manager = emf.createEntityManager();
+        manager.getTransaction().begin();
+        manager.persist(video);
+        manager.getTransaction().commit();
+        manager.close();
     }
 }

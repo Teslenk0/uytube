@@ -6,9 +6,12 @@
 package clases;
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.OneToOne;
 
@@ -34,7 +37,7 @@ public class Canal implements Serializable {
 
     @OneToOne(mappedBy = "canal")
     private Usuario usuario;
-
+    
     public Canal() {
     }
 

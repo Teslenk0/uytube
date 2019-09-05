@@ -5,12 +5,15 @@
  */
 package interfaces;
 
+import DataTypes.DtVideo;
+import excepciones.VideoRepetidoException;
+
 /**
  *
  * @author esteban
  */
 public interface IControladorCanal {
     
-    
+    public abstract void registrarVideo(DtVideo video) throws VideoRepetidoException;
     
 }
