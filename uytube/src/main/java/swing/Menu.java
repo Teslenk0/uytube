@@ -80,7 +80,7 @@ public class Menu extends javax.swing.JFrame {
 
         Password.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
         Password.setForeground(new java.awt.Color(102, 102, 102));
-        Password.setText("000000000*");
+        Password.setText("password");
         Password.setBorder(null);
         Password.setOpaque(false);
         Password.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -270,10 +270,12 @@ int xx,xy;
     }//GEN-LAST:event_DragPanelMousePressed
 
     private void UsernameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_UsernameFocusGained
+        if(Username.getText().equals("Username"))
         Username.setText("");
     }//GEN-LAST:event_UsernameFocusGained
 
     private void PasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_PasswordFocusGained
+         if(Password.getText().equals("password"))
         Password.setText("");
     }//GEN-LAST:event_PasswordFocusGained
 

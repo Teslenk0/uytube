@@ -254,8 +254,8 @@ public class MenuInicio extends javax.swing.JFrame {
         Varnick1 = new javax.swing.JTextField();
         Varmail1 = new javax.swing.JTextField();
         Varnom1 = new javax.swing.JTextField();
-        Varape1 = new javax.swing.JTextField();
         VarPass = new javax.swing.JTextField();
+        Varape1 = new javax.swing.JTextField();
         Varcanal1 = new javax.swing.JTextField();
         VarDescr1 = new javax.swing.JTextField();
         CampoImagen1 = new javax.swing.JTextField();
@@ -588,8 +588,8 @@ public class MenuInicio extends javax.swing.JFrame {
         Panel_Central.add(Central1);
         Central1.setBounds(0, 0, 720, 550);
 
-        Scroll2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-        Scroll2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        Scroll2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        Scroll2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
         Central2.setForeground(new java.awt.Color(255, 255, 255));
         Central2.setPreferredSize(new java.awt.Dimension(720, 780));
@@ -984,7 +984,7 @@ public class MenuInicio extends javax.swing.JFrame {
 
         CampoContraseña.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
         CampoContraseña.setForeground(new java.awt.Color(153, 153, 153));
-        CampoContraseña.setText("*********");
+        CampoContraseña.setText("password");
         CampoContraseña.setBorder(null);
         CampoContraseña.setNextFocusableComponent(CampoNombre);
         CampoContraseña.setOpaque(false);
@@ -1642,27 +1642,27 @@ public class MenuInicio extends javax.swing.JFrame {
         Central2_3_1.setLayout(null);
 
         nick1.setFont(berlin);
-        nick1.setText("Nickname(*)");
+        nick1.setText("Nickname");
         Central2_3_1.add(nick1);
         nick1.setBounds(280, 0, 100, 20);
 
         mail1.setFont(berlin);
-        mail1.setText("Correo electronico(*)");
+        mail1.setText("Correo electronico");
         Central2_3_1.add(mail1);
         mail1.setBounds(280, 40, 150, 14);
 
         nombre1.setFont(berlin);
-        nombre1.setText("Nombre(*)");
+        nombre1.setText("Nombre");
         Central2_3_1.add(nombre1);
         nombre1.setBounds(280, 80, 100, 14);
 
         apellido1.setFont(berlin);
-        apellido1.setText("Apellido(*)");
+        apellido1.setText("Apellido");
         Central2_3_1.add(apellido1);
         apellido1.setBounds(280, 120, 90, 14);
 
         contraseña.setFont(berlin);
-        contraseña.setText("Contraseña(*)");
+        contraseña.setText("Contraseña");
         Central2_3_1.add(contraseña);
         contraseña.setBounds(280, 160, 130, 14);
 
@@ -1672,7 +1672,7 @@ public class MenuInicio extends javax.swing.JFrame {
         NomCanal.setBounds(280, 240, 120, 14);
 
         DescModif.setFont(berlin);
-        DescModif.setText("Descripción(*)");
+        DescModif.setText("Descripción");
         Central2_3_1.add(DescModif);
         DescModif.setBounds(280, 280, 120, 14);
 
@@ -1718,50 +1718,30 @@ public class MenuInicio extends javax.swing.JFrame {
         Varnom1.setForeground(new java.awt.Color(102, 102, 102));
         Varnom1.setBorder(null);
         Varnom1.setOpaque(false);
-        Varnom1.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                Varnom1FocusGained(evt);
-            }
-        });
         Central2_3_1.add(Varnom1);
         Varnom1.setBounds(430, 80, 220, 14);
-
-        Varape.setEditable(false);
-        Varape1.setFont(berlin);
-        Varape1.setForeground(new java.awt.Color(102, 102, 102));
-        Varape1.setBorder(null);
-        Varape1.setOpaque(false);
-        Varape1.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                Varape1FocusGained(evt);
-            }
-        });
-        Central2_3_1.add(Varape1);
-        Varape1.setBounds(430, 120, 220, 14);
 
         Varape.setEditable(false);
         VarPass.setFont(berlin);
         VarPass.setForeground(new java.awt.Color(102, 102, 102));
         VarPass.setBorder(null);
         VarPass.setOpaque(false);
-        VarPass.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                VarPassFocusGained(evt);
-            }
-        });
         Central2_3_1.add(VarPass);
         VarPass.setBounds(430, 160, 220, 14);
+
+        Varape.setEditable(false);
+        Varape1.setFont(berlin);
+        Varape1.setForeground(new java.awt.Color(102, 102, 102));
+        Varape1.setBorder(null);
+        Varape1.setOpaque(false);
+        Central2_3_1.add(Varape1);
+        Varape1.setBounds(430, 120, 220, 14);
 
         Varmail.setEditable(false);
         Varcanal1.setFont(berlin);
         Varcanal1.setForeground(new java.awt.Color(102, 102, 102));
         Varcanal1.setBorder(null);
         Varcanal1.setOpaque(false);
-        Varcanal1.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                Varcanal1FocusGained(evt);
-            }
-        });
         Central2_3_1.add(Varcanal1);
         Varcanal1.setBounds(430, 240, 220, 15);
 
@@ -1770,11 +1750,6 @@ public class MenuInicio extends javax.swing.JFrame {
         VarDescr1.setForeground(new java.awt.Color(102, 102, 102));
         VarDescr1.setBorder(null);
         VarDescr1.setOpaque(false);
-        VarDescr1.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                VarDescr1FocusGained(evt);
-            }
-        });
         Central2_3_1.add(VarDescr1);
         VarDescr1.setBounds(430, 280, 220, 15);
 
@@ -1866,7 +1841,7 @@ public class MenuInicio extends javax.swing.JFrame {
         Privado1.setFont(berlin);
         Privado1.setText("¿Desea hacer el canal privado?");
         Central2_3_1.add(Privado1);
-        Privado1.setBounds(270, 320, 230, 20);
+        Privado1.setBounds(280, 320, 230, 20);
 
         jSeparator32.setBackground(new java.awt.Color(153, 153, 153));
         jSeparator32.setForeground(new java.awt.Color(153, 153, 153));
@@ -2287,22 +2262,27 @@ public class MenuInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_PlaylistMousePressed
 
     private void CampoCanalFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CampoCanalFocusGained
+        if(CampoCanal.getText().equals("Ingrese Nombre de Canal"))
         CampoCanal.setText("");
     }//GEN-LAST:event_CampoCanalFocusGained
 
     private void CampoCorreoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CampoCorreoFocusGained
+        if(CampoCorreo.getText().equals("Ingrese Correo"))
         CampoCorreo.setText("");
     }//GEN-LAST:event_CampoCorreoFocusGained
 
     private void CampoApellidoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CampoApellidoFocusGained
+        if(CampoApellido.getText().equals("Ingrese Apellido"))
         CampoApellido.setText("");
     }//GEN-LAST:event_CampoApellidoFocusGained
 
     private void CampoNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CampoNombreFocusGained
+        if(CampoNombre.getText().equals("Ingrese Nombre"))
         CampoNombre.setText("");
     }//GEN-LAST:event_CampoNombreFocusGained
 
     private void CampoNicknameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CampoNicknameFocusGained
+        if(CampoNickname.getText().equals("Ingrese Nickname"))
         CampoNickname.setText("");
     }//GEN-LAST:event_CampoNicknameFocusGained
 
@@ -2330,7 +2310,6 @@ public class MenuInicio extends javax.swing.JFrame {
           nombreCanal = nickname;
         if(nickname.isBlank() || pass.isBlank() || nombreText.isBlank() || apellidoText.isBlank() || correo.isBlank() || fechaText.toString().isBlank() || descripcion.isBlank()){
              mensaje.CambioTexto("Debes llenar todos los campos obligatorios");
-             mensaje.setVisible(true);
         }
         else{
          if(imagen==null)
@@ -2345,20 +2324,18 @@ public class MenuInicio extends javax.swing.JFrame {
               addUser = new DtUsuario(nickname,pass,nombreText,apellidoText,correo,fechaText,rutaImagen,addCanal);
               u.registrarUsuario(addUser, imagen);
               mensaje.CambioTexto("El usuario ha sido registrado con exito");
-              mensaje.setVisible(true);
               resetRegistro();
 
           } catch (UsuarioRepetidoException ex) {
               mensaje.CambioTexto("El nickname o email ya existe");
-              mensaje.setVisible(true);
           }
         }
       }
       else{
         VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled,manjari);
         mensaje.CambioTexto("Debes llenar todos los campos obligatorios");
-        mensaje.setVisible(true);
-       }
+      }
+      mensaje.setVisible(true);
     }//GEN-LAST:event_RegistrarActionPerformed
 
     private void AgregarFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarFotoActionPerformed
@@ -2367,6 +2344,7 @@ public class MenuInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_AgregarFotoActionPerformed
 
     private void CampoContraseñaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CampoContraseñaFocusGained
+        if(CampoContraseña.getText().equals("password"))
         CampoContraseña.setText("");
     }//GEN-LAST:event_CampoContraseñaFocusGained
 
@@ -2546,26 +2524,6 @@ public class MenuInicio extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_ModificarActionPerformed
 
-    private void Varnom1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_Varnom1FocusGained
-        Varnom1.setText("");
-    }//GEN-LAST:event_Varnom1FocusGained
-
-    private void Varape1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_Varape1FocusGained
-        Varape1.setText("");
-    }//GEN-LAST:event_Varape1FocusGained
-
-    private void VarPassFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_VarPassFocusGained
-        VarPass.setText("");
-    }//GEN-LAST:event_VarPassFocusGained
-
-    private void Varcanal1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_Varcanal1FocusGained
-        Varcanal1.setText("");
-    }//GEN-LAST:event_Varcanal1FocusGained
-
-    private void VarDescr1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_VarDescr1FocusGained
-        VarDescr1.setText("");
-    }//GEN-LAST:event_VarDescr1FocusGained
-
     private void BackButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButton5ActionPerformed
         Panel_Central.removeAll();
         Panel_Central.add(Central3);
@@ -2575,6 +2533,7 @@ public class MenuInicio extends javax.swing.JFrame {
         Central3_1_Panel.revalidate();
         Central3_1_Panel.repaint();
         comboConsulta.removeAllItems();
+        resetRegistrarVideo();
     }//GEN-LAST:event_BackButton5ActionPerformed
 
     private void SeleccionarUsuario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeleccionarUsuario1ActionPerformed
@@ -2589,14 +2548,17 @@ public class MenuInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_AgregarFoto1ActionPerformed
 
     private void NombreVideoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_NombreVideoFocusGained
-       NombreVideo.setText("");
+        if(NombreVideo.getText().equals("Ingrese Nombre de Video"))
+        NombreVideo.setText("");
     }//GEN-LAST:event_NombreVideoFocusGained
 
     private void DuracionFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_DuracionFocusGained
+        if(Duracion.getText().equals("Ingrese Duración"))
         Duracion.setText("");
     }//GEN-LAST:event_DuracionFocusGained
 
     private void URLVideoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_URLVideoFocusGained
+        if(URLVideo.getText().equals("Ingrese URL de video"))
         URLVideo.setText("");
     }//GEN-LAST:event_URLVideoFocusGained
 
@@ -2615,17 +2577,26 @@ public class MenuInicio extends javax.swing.JFrame {
         DtUsuario user = (DtUsuario) u.buscarUsuario(nickUsuario);
         DtVideo video = new DtVideo(nombVideo,user.getCanal(),fechaPub,url,desc,cat,duracion,true);
         VentanaEmergente mensaje = new VentanaEmergente(this, rootPaneCheckingEnabled,manjari);
-        try {
-            c.registrarVideo(video);
-            mensaje.CambioTexto("Video registrado con exito");
-            mensaje.setVisible(true);
-        } catch (VideoRepetidoException ex) {
-            mensaje.CambioTexto("El nombre del video ya existe en este canal");
-            mensaje.setVisible(true);
-        }       
+        if(nombVideo.equals("Ingrese Nombre de Video") || duracion.equals("Ingrese Duración") || url.equals("Ingrese URL") || desc.equals("Ingrese Descripción")){
+            mensaje.CambioTexto("          Debes llenar todos los campos");   
+        }
+        else if(nombVideo.isEmpty() || duracion.isEmpty() || url.isEmpty() || desc.isEmpty() || desc.isEmpty() || fechaPub==null){
+            mensaje.CambioTexto("          Debes llenar todos los campos");
+        }
+        else{
+            try {
+                c.registrarVideo(video);
+                mensaje.CambioTexto("Video registrado con exito");
+            } catch (VideoRepetidoException ex) {
+                mensaje.CambioTexto("El nombre del video ya existe en este canal");
+            } 
+        }
+        mensaje.setVisible(true);
+        resetRegistrarVideo();
     }//GEN-LAST:event_RegistrarVideoActionPerformed
 
     private void VarDescripcionFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_VarDescripcionFocusGained
+        if(VarDescripcion.getText().equals("Ingrese Descripción"))
         VarDescripcion.setText("");
     }//GEN-LAST:event_VarDescripcionFocusGained
 
@@ -2921,7 +2892,7 @@ public class MenuInicio extends javax.swing.JFrame {
 
      public void resetRegistro(){
         CampoNickname.setText("Ingrese Nickname");
-        CampoContraseña.setText("*********");
+        CampoContraseña.setText("password");
         CampoNombre.setText("Ingrese Nombre");
         CampoApellido.setText("Ingrese Apellido");
         CampoCorreo.setText("Ingrese Correo");
@@ -2931,6 +2902,14 @@ public class MenuInicio extends javax.swing.JFrame {
         CampoImagen.setText("Imágen seleccionada");
         DateChoose.setDate(null);
     }
+     
+    public void resetRegistrarVideo(){
+        NombreVideo.setText("Ingrese Nombre de Video");
+        Duracion.setText("Ingrese Duración");
+        URLVideo.setText("Ingrese URL de video");
+        VarDescripcion.setText("Ingrese Descripción");
+        DateVideo.setDate(null);
+    } 
      
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AceptarButton;
