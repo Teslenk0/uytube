@@ -26,4 +26,12 @@ public interface IControladorUsuario {
     public abstract void inicioBase();
     
     public abstract void modificarUsuario(DtUsuario modUser, DtCanal modCanal);
+    
+    public abstract DtUsuario buscarUsuario(String nick);
+    
+    public abstract void seguirUsuario(DtUsuario u, String s);
+    
+    public abstract void DejarSeguir_Usuario(DtUsuario u, String s);
+    
+    public abstract List listaSeguidos(String nick);
 }
