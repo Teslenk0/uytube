@@ -75,7 +75,7 @@ public class ControladorUsuario implements IControladorUsuario{
     }
     
     @Override
-    public void modificarUsuario(DtUsuario u, DtCanal c){
+    public void modificarUsuario(DtUsuario u, DtCanal c, BufferedImage imagen){
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         
         Canal canal = new Canal (c.getNombre_canal(),c.getDescripcion(),c.getPrivado());
@@ -84,6 +84,16 @@ public class ControladorUsuario implements IControladorUsuario{
         
         Usuario us = new Usuario (u.getNickname(), u.getContraseña(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen(),CanalViejo);
        
+        if(!u.getImagen().equals("/imagenesUsuarios/Defecto.png") && imagen!=null){
+            String path = System.getProperty("user.dir");
+            path = path + "/src/main/resources/imagenesUsuarios/" + u.getNickname() + ".png";
+            File file = new File(path);
+            try {
+                ImageIO.write(imagen, "png", file);
+            } catch (IOException ex) {
+                Logger.getLogger(ControladorUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }   
         mu.modificarUsuario(us, canal);
     }
    

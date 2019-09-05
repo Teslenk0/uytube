@@ -25,7 +25,7 @@ public interface IControladorUsuario {
     
     public abstract void inicioBase();
     
-    public abstract void modificarUsuario(DtUsuario modUser, DtCanal modCanal);
+    public abstract void modificarUsuario(DtUsuario modUser, DtCanal modCanal, BufferedImage imagen);
     
     public abstract DtUsuario buscarUsuario(String nick);
     

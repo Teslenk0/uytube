@@ -653,7 +653,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2.add(SeguirUsuario);
-        SeguirUsuario.setBounds(80, 540, 243, 221);
+        SeguirUsuario.setBounds(90, 540, 243, 221);
 
         ListarUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Listar.png"))); // NOI18N
         ListarUsuarios.setBorderPainted(false);
@@ -702,7 +702,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2.add(DejarSeguirUsuario);
-        DejarSeguirUsuario.setBounds(390, 540, 220, 220);
+        DejarSeguirUsuario.setBounds(390, 540, 240, 220);
 
         Scroll2.setViewportView(Central2);
 
@@ -2295,6 +2295,7 @@ public class MenuInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_BackButtonActionPerformed
 
     private void RegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarActionPerformed
+        resetRegistro();
         String nickname = CampoNickname.getText();
         String pass = CampoContraseña.getText();
         String nombreText = CampoNombre.getText();
@@ -2333,6 +2334,7 @@ public class MenuInicio extends javax.swing.JFrame {
           }
         }   
       mensaje.setVisible(true);
+      imagen=null;
     }//GEN-LAST:event_RegistrarActionPerformed
 
     private void AgregarFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarFotoActionPerformed
@@ -2434,6 +2436,8 @@ public class MenuInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_SeleccionarUsuarioActionPerformed
 
     private void BackButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButton4ActionPerformed
+        CampoImagen1.setText("Imágen Seleccionada");
+        Panel_Central.removeAll();
         Panel_Central.removeAll();
         Panel_Central.add(Scroll2);
         Panel_Central.revalidate();
@@ -2451,23 +2455,18 @@ public class MenuInicio extends javax.swing.JFrame {
         Central2_3_Panel.add(Central2_3_1);
         Panel_Central.revalidate();
         Panel_Central.repaint();
-        List lista = u.listaUsuarios();
-        DtUsuario user;
-        for(int x=0; x<=lista.size()-1; x++){
-            user = (DtUsuario) lista.get(x);
-            if(Item.equals(user.getNickname())){
-               this.Varnick1.setText(Item);
-               this.Varnom1.setText(user.getNombre());
-               this.Varape1.setText(user.getApellido());
-               this.Varmail1.setText(user.getEmail());
-               this.Imagen1.setIcon(new javax.swing.ImageIcon(getClass().getResource(user.getImagen())));
-               this.Varcanal1.setText(user.getCanal().getNombre_canal());
-               this.VarDescr1.setText(user.getCanal().getDescripcion());
-               this.VarPass.setText(user.getContraseña());
-               CheckboxPrivado1.setState(user.getCanal().getPrivado());
-               DateChoose1.setDate(user.getFechaNac());
-            }
-        }                        
+
+        DtUsuario user = (DtUsuario) u.buscarUsuario(Item);   
+        this.Varnick1.setText(Item);
+        this.Varnom1.setText(user.getNombre());
+        this.Varape1.setText(user.getApellido());
+        this.Varmail1.setText(user.getEmail());
+        this.Imagen1.setIcon(new javax.swing.ImageIcon(getClass().getResource(user.getImagen())));
+        this.Varcanal1.setText(user.getCanal().getNombre_canal());
+        this.VarDescr1.setText(user.getCanal().getDescripcion());
+        this.VarPass.setText(user.getContraseña());
+        CheckboxPrivado1.setState(user.getCanal().getPrivado());
+        DateChoose1.setDate(user.getFechaNac());                       
     }//GEN-LAST:event_SeleccionarUsuarioModificarActionPerformed
 
     private void ModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarActionPerformed
@@ -2478,47 +2477,44 @@ public class MenuInicio extends javax.swing.JFrame {
         Date nuevafecha = DateChoose1.getDate();
         String pass = VarPass.getText();
         Boolean privado1 = CheckboxPrivado1.getState();
-        List lista = u.listaUsuarios();
-        for(int x=0; x<=lista.size()-1; x++){
-            DtUsuario user = (DtUsuario) lista.get(x);
-            if(user.getNickname().equals(Varnick1.getText())){
-               VentanaEmergente mensaje = new VentanaEmergente(this, rootPaneCheckingEnabled,manjari);
-               if(CampoImagen1.getText().equals("No se ha seleccionado una imágen") && user.getImagen().equals("/imagenesUsuarios/Defecto.png")){
-                   rutaImagen = user.getImagen();
-               }
-               else{
-                   rutaImagen = "/imagenesUsuarios/" + user.getNickname() + ".png";
-                   if(!user.getImagen().equals("/imagenesUsuarios/Defecto.png")){
-                        String home = System.getProperty("user.dir") + "/src/main/resources/imagenesUsuarios/" + user.getNickname() + ".png";
-                        Path path = Paths.get(home);
-                        try {
-                            Files.delete(path);
-                        } catch (IOException ex) {
-                            Logger.getLogger(MenuInicio.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                   }
-               }
-               if(nuevafecha == null || pass.isBlank() || nom.isBlank() || ape.isBlank() || descripcion.isBlank() || descripcion.isBlank()){
-                    mensaje.CambioTexto("Debes llenar todos los campos obligatorios");
-                    mensaje.setVisible(true);
-                }
-               else if(user.getCanal().getPrivado().equals(privado1) && user.getNombre().equals(nom) && user.getApellido().equals(ape) && user.getContraseña().equals(pass) && user.getCanal().getNombre_canal().equals(nomCanal) && user.getCanal().getDescripcion().equals(descripcion) && (CampoImagen1.getText().equals("Imágen seleccionada") || CampoImagen1.getText().equals("No se ha seleccionado una imágen")) ){
-                    mensaje.CambioTexto("No se realizo ninguna modificacion");
-                    mensaje.setVisible(true);
-               }
-               else{
-                    if(nomCanal == null){
-                        nomCanal = user.getNickname();
-                    }
-                    DtUsuario modUser;
-                    DtCanal modCanal = new DtCanal (nomCanal, descripcion, privado1);
-                    modUser = new DtUsuario(user.getNickname(),pass, nom, ape, user.getEmail(), nuevafecha, rutaImagen, user.getCanal());
-                    u.modificarUsuario(modUser, modCanal);
-                    mensaje.CambioTexto("Modificaciones realizadas con exito");
-                    mensaje.setVisible(true);
-               }
+        
+        DtUsuario user = (DtUsuario) u.buscarUsuario(Varnick1.getText());   
+        VentanaEmergente mensaje = new VentanaEmergente(this, rootPaneCheckingEnabled,manjari);
+        if(CampoImagen1.getText().equals("No se ha seleccionado una imágen") && user.getImagen().equals("/imagenesUsuarios/Defecto.png")){
+            rutaImagen = user.getImagen();
+        }
+        else{
+            rutaImagen = "/imagenesUsuarios/" + user.getNickname() + ".png";
+            if(!user.getImagen().equals("/imagenesUsuarios/Defecto.png")){
+                 String home = System.getProperty("user.dir") + "/src/main/resources/imagenesUsuarios/" + user.getNickname() + ".png";
+                 Path path = Paths.get(home);
+                 try {
+                     Files.delete(path);
+                 } catch (IOException ex) {
+                     Logger.getLogger(MenuInicio.class.getName()).log(Level.SEVERE, null, ex);
+                 }
             }
         }
+        if(nuevafecha == null || pass.isBlank() || nom.isBlank() || ape.isBlank() || descripcion.isBlank() || descripcion.isBlank()){
+             mensaje.CambioTexto("Debes llenar todos los campos obligatorios");
+             mensaje.setVisible(true);
+         }
+        else if(user.getCanal().getPrivado().equals(privado1) && user.getNombre().equals(nom) && user.getApellido().equals(ape) && user.getContraseña().equals(pass) && user.getCanal().getNombre_canal().equals(nomCanal) && user.getCanal().getDescripcion().equals(descripcion) && (CampoImagen1.getText().equals("Imágen seleccionada") || CampoImagen1.getText().equals("No se ha seleccionado una imágen")) ){
+             mensaje.CambioTexto("No se realizo ninguna modificacion");
+             mensaje.setVisible(true);
+        }
+        else{
+             if(nomCanal == null){
+                 nomCanal = user.getNickname();
+             }
+             DtUsuario modUser;
+             DtCanal modCanal = new DtCanal (nomCanal, descripcion, privado1);
+             modUser = new DtUsuario(user.getNickname(),pass, nom, ape, user.getEmail(), nuevafecha, rutaImagen, user.getCanal());
+             u.modificarUsuario(modUser, modCanal, imagen);
+             mensaje.CambioTexto("Modificaciones realizadas con exito");
+             mensaje.setVisible(true);
+        }
+        imagen=null;
     }//GEN-LAST:event_ModificarActionPerformed
 
     private void BackButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButton5ActionPerformed
@@ -2827,6 +2823,7 @@ public class MenuInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_ConsultarUsuariosActionPerformed
 
     private void ModificarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarUsuarioActionPerformed
+        CampoImagen1.setText("Imágen Seleccionada");
         Panel_Central.removeAll();
         Panel_Central.add(Central2_3);
         Panel_Central.revalidate();
