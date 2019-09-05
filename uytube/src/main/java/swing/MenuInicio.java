@@ -583,6 +583,8 @@ public class MenuInicio extends javax.swing.JFrame {
         Panel_Central.add(Central1);
         Central1.setBounds(0, 0, 720, 550);
 
+        Scroll2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
         Central2.setForeground(new java.awt.Color(255, 255, 255));
         Central2.setPreferredSize(new java.awt.Dimension(720, 780));
         Central2.setLayout(null);
@@ -2710,15 +2712,22 @@ String nickVideo;
     }//GEN-LAST:event_UsuarioBox1ActionPerformed
 
     private void SeleccionarButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeleccionarButton1ActionPerformed
-        Central2_6.add(Central2_6_1);
-        Central2_6.revalidate();
-        Central2_6.repaint();
-        SeguidorBox1.removeAllItems();
         String nickUser = (String) UsuarioBox1.getSelectedItem();
         List lista = u.listaSeguidos(nickUser);
-        for(int x=0; x<=lista.size()-1; x++){
-            if(lista.get(x) != null){
-                SeguidorBox1.addItem((String) lista.get(x));
+        if(lista.isEmpty()) {
+            VentanaEmergente mensaje = new VentanaEmergente(this, rootPaneCheckingEnabled,manjari);
+            mensaje.CambioTexto("Este usuario no sigue a nadie.");
+            mensaje.setVisible(true);
+        }
+        else {
+            Central2_6.add(Central2_6_1);
+            Central2_6.revalidate();
+            Central2_6.repaint();
+            SeguidorBox1.removeAllItems();
+            for(int x=0; x<=lista.size()-1; x++){
+                if(lista.get(x) != null){
+                    SeguidorBox1.addItem((String) lista.get(x));
+                }
             }
         }
     }//GEN-LAST:event_SeleccionarButton1ActionPerformed
@@ -2731,33 +2740,33 @@ String nickVideo;
         String nickUser = (String) UsuarioBox.getSelectedItem();
         List lista = u.listaUsuarios();
         List listaUsu = new ArrayList();
-        if (lista != null) {
-            DtUsuario user;
-            for (int x = 0; x <= lista.size() - 1; x++) {
-                if (lista.get(x) != null) {
-                    user = (DtUsuario) lista.get(x);
-                    listaUsu.add(user.getNickname());
-                }
+        DtUsuario user;
+        for (int x = 0; x <= lista.size() - 1; x++) {
+            if (lista.get(x) != null) {
+                user = (DtUsuario) lista.get(x);
+                listaUsu.add(user.getNickname());
             }
         }
         List listaS = u.listaSeguidos(nickUser);
         ArrayList<String> listaSeg = new ArrayList<>();
-        listaSeg.addAll(listaS);
-        for(int i =0; i< listaUsu.size(); i++){
-            for(int j = 0; j < listaSeg.size(); j++){
-                if(listaUsu.get(i).equals(listaSeg.get(j))){
-                    listaUsu.remove(i);
-                }
-            }
+        listaSeg.addAll(listaS);            
+        listaUsu.removeAll(listaSeg);
+        listaUsu.remove(nickUser);
+        if(listaUsu.isEmpty()) {
+            VentanaEmergente mensaje = new VentanaEmergente(this, rootPaneCheckingEnabled,manjari);
+            mensaje.CambioTexto("Ese usuario ya sigue a todos.");
+            mensaje.setVisible(true);
         }
-        Central2_5.add(Central2_5_1);
-        Central2_5.revalidate();
-        Central2_5.repaint();
-        SeguidorBox.removeAllItems();
-        for(int z=0; z<=listaUsu.size()-1; z++){
-            if(listaUsu.get(z) != null){
-                if(!listaUsu.get(z).equals(nickUser))
-                SeguidorBox.addItem((String) listaUsu.get(z));
+        else {
+            Central2_5.add(Central2_5_1);
+            Central2_5.revalidate();
+            Central2_5.repaint();
+            SeguidorBox.removeAllItems();
+            for(int z=0; z<=listaUsu.size()-1; z++){
+                if(listaUsu.get(z) != null){
+                    if(!listaUsu.get(z).equals(nickUser))
+                        SeguidorBox.addItem((String) listaUsu.get(z));
+                }
             }
         }
     }//GEN-LAST:event_SeleccionarButtonActionPerformed
