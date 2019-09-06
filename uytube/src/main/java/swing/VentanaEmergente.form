@@ -33,7 +33,7 @@
     <Container class="javax.swing.JPanel" name="BarraSuperior">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="90" green="90" red="35" type="rgb"/>
+          <Color blue="81" green="81" red="c" type="rgb"/>
         </Property>
       </Properties>
       <Constraints>

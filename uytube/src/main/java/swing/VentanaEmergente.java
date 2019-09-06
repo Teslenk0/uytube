@@ -48,7 +48,7 @@ public class VentanaEmergente extends javax.swing.JDialog {
         setResizable(false);
         getContentPane().setLayout(null);
 
-        BarraSuperior.setBackground(new java.awt.Color(53, 144, 144));
+        BarraSuperior.setBackground(new java.awt.Color(12, 129, 129));
 
         BotonCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/IconCerrar.png"))); // NOI18N
         BotonCerrar.setBorder(null);
