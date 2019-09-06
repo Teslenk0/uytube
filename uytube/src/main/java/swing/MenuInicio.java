@@ -202,14 +202,6 @@ public class MenuInicio extends javax.swing.JFrame {
         UsuarioBox1 = new javax.swing.JComboBox<>();
         UsuarioText1 = new javax.swing.JLabel();
         SeleccionarButton1 = new javax.swing.JButton();
-        Central2_5_1 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        SeguidorBox = new javax.swing.JComboBox<>();
-        AceptarButton = new javax.swing.JButton();
-        Central2_6_1 = new javax.swing.JPanel();
-        AceptarButton1 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        SeguidorBox1 = new javax.swing.JComboBox<>();
         Central2_2_1 = new javax.swing.JPanel();
         nick = new javax.swing.JLabel();
         nombre = new javax.swing.JLabel();
@@ -270,6 +262,14 @@ public class MenuInicio extends javax.swing.JFrame {
         ComboSiguiendo = new javax.swing.JComboBox<>();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        Central2_5_1 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        SeguidorBox = new javax.swing.JComboBox<>();
+        AceptarButton = new javax.swing.JButton();
+        Central2_6_1 = new javax.swing.JPanel();
+        AceptarButton1 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        SeguidorBox1 = new javax.swing.JComboBox<>();
         Central2_3_1 = new javax.swing.JPanel();
         nick1 = new javax.swing.JLabel();
         mail1 = new javax.swing.JLabel();
@@ -1497,71 +1497,8 @@ public class MenuInicio extends javax.swing.JFrame {
         Panel_Central.add(Central2_6);
         Central2_6.setBounds(0, 0, 720, 550);
 
-        Central2_5_1.setLayout(null);
-
-        jLabel4.setText("Sigue a:");
-        Central2_5_1.add(jLabel4);
-        jLabel4.setBounds(130, 200, 70, 14);
-
-        SeguidorBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SeguidorBoxActionPerformed(evt);
-            }
-        });
-        Central2_5_1.add(SeguidorBox);
-        SeguidorBox.setBounds(250, 190, 186, 22);
-
-        AceptarButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_1.png"))); // NOI18N
-        AceptarButton.setBorder(null);
-        AceptarButton.setBorderPainted(false);
-        AceptarButton.setContentAreaFilled(false);
-        AceptarButton.setFocusable(false);
-        AceptarButton.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_2.png"))); // NOI18N
-        AceptarButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AceptarButtonActionPerformed(evt);
-            }
-        });
-        Central2_5_1.add(AceptarButton);
-        AceptarButton.setBounds(440, 180, 80, 40);
-
-        Panel_Central.add(Central2_5_1);
-        Central2_5_1.setBounds(0, 0, 720, 550);
-
-        Central2_6_1.setLayout(null);
-
-        AceptarButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_1.png"))); // NOI18N
-        AceptarButton1.setBorder(null);
-        AceptarButton1.setBorderPainted(false);
-        AceptarButton1.setContentAreaFilled(false);
-        AceptarButton1.setFocusable(false);
-        AceptarButton1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_2.png"))); // NOI18N
-        AceptarButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AceptarButton1ActionPerformed(evt);
-            }
-        });
-        Central2_6_1.add(AceptarButton1);
-        AceptarButton1.setBounds(446, 177, 101, 60);
-
-        jLabel3.setText("Sigue a:");
-        Central2_6_1.add(jLabel3);
-        jLabel3.setBounds(131, 200, 40, 14);
-
-        SeguidorBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SeguidorBox1ActionPerformed(evt);
-            }
-        });
-        Central2_6_1.add(SeguidorBox1);
-        SeguidorBox1.setBounds(250, 190, 186, 22);
-
-        Panel_Central.add(Central2_6_1);
-        Central2_6_1.setBounds(0, 0, 720, 550);
-
         Central2_2_1.setMaximumSize(new java.awt.Dimension(403, 550));
         Central2_2_1.setMinimumSize(new java.awt.Dimension(403, 550));
-        Central2_2_1.setPreferredSize(new java.awt.Dimension(403, 550));
         Central2_2_1.setLayout(null);
 
         nick.setFont(berlin);
@@ -1717,9 +1654,6 @@ public class MenuInicio extends javax.swing.JFrame {
         jSeparator33.setForeground(new java.awt.Color(153, 153, 153));
         Central2_2_1.add(jSeparator33);
         jSeparator33.setBounds(280, 270, 330, 16);
-
-        Panel_Central.add(Central2_2_1);
-        Central2_2_1.setBounds(0, 0, 720, 350);
 
         Central2_2_2.setMaximumSize(new java.awt.Dimension(403, 550));
         Central2_2_2.setMinimumSize(new java.awt.Dimension(403, 550));
@@ -1906,7 +1840,6 @@ public class MenuInicio extends javax.swing.JFrame {
         jButton3.setBorder(null);
         jButton3.setBorderPainted(false);
         jButton3.setContentAreaFilled(false);
-        jButton3.setFocusable(false);
         jButton3.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_video_1.png"))); // NOI18N
         Central2_2_2.add(jButton3);
         jButton3.setBounds(30, 210, 80, 40);
@@ -1915,13 +1848,77 @@ public class MenuInicio extends javax.swing.JFrame {
         jButton4.setBorder(null);
         jButton4.setBorderPainted(false);
         jButton4.setContentAreaFilled(false);
-        jButton4.setFocusable(false);
         jButton4.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_listas_1.png"))); // NOI18N
         Central2_2_2.add(jButton4);
         jButton4.setBounds(130, 210, 80, 40);
 
-        Panel_Central.add(Central2_2_2);
+        Central2_2_1.add(Central2_2_2);
         Central2_2_2.setBounds(0, 0, 720, 350);
+
+        Panel_Central.add(Central2_2_1);
+        Central2_2_1.setBounds(0, 0, 720, 350);
+
+        Central2_5_1.setLayout(null);
+
+        jLabel4.setText("Sigue a:");
+        Central2_5_1.add(jLabel4);
+        jLabel4.setBounds(130, 200, 70, 14);
+
+        SeguidorBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SeguidorBoxActionPerformed(evt);
+            }
+        });
+        Central2_5_1.add(SeguidorBox);
+        SeguidorBox.setBounds(250, 190, 186, 22);
+
+        AceptarButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_1.png"))); // NOI18N
+        AceptarButton.setBorder(null);
+        AceptarButton.setBorderPainted(false);
+        AceptarButton.setContentAreaFilled(false);
+        AceptarButton.setFocusable(false);
+        AceptarButton.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_2.png"))); // NOI18N
+        AceptarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AceptarButtonActionPerformed(evt);
+            }
+        });
+        Central2_5_1.add(AceptarButton);
+        AceptarButton.setBounds(440, 180, 80, 40);
+
+        Panel_Central.add(Central2_5_1);
+        Central2_5_1.setBounds(0, 0, 720, 550);
+
+        Central2_6_1.setLayout(null);
+
+        AceptarButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_1.png"))); // NOI18N
+        AceptarButton1.setBorder(null);
+        AceptarButton1.setBorderPainted(false);
+        AceptarButton1.setContentAreaFilled(false);
+        AceptarButton1.setFocusable(false);
+        AceptarButton1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_2.png"))); // NOI18N
+        AceptarButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AceptarButton1ActionPerformed(evt);
+            }
+        });
+        Central2_6_1.add(AceptarButton1);
+        AceptarButton1.setBounds(446, 177, 101, 60);
+
+        jLabel3.setText("Sigue a:");
+        Central2_6_1.add(jLabel3);
+        jLabel3.setBounds(131, 200, 40, 14);
+
+        SeguidorBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SeguidorBox1ActionPerformed(evt);
+            }
+        });
+        Central2_6_1.add(SeguidorBox1);
+        SeguidorBox1.setBounds(250, 190, 186, 22);
+
+        Panel_Central.add(Central2_6_1);
+        Central2_6_1.setBounds(0, 0, 720, 550);
 
         Central2_3_1.setMaximumSize(new java.awt.Dimension(750, 400));
         Central2_3_1.setMinimumSize(new java.awt.Dimension(750, 400));
@@ -2920,6 +2917,7 @@ public class MenuInicio extends javax.swing.JFrame {
              mensaje.CambioTexto("      Modificaciones realizadas con éxito");
              mensaje.setVisible(true);
         }
+        
         imagen=null;
     }//GEN-LAST:event_ModificarActionPerformed
 
