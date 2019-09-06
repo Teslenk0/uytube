@@ -15,11 +15,15 @@ import clases.Canal;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
+import swing.MenuInicio;
 
 /**
  *
@@ -74,16 +78,38 @@ public class ControladorUsuario implements IControladorUsuario{
         return null;
     }
     
-    public void modificarUsuario(DtUsuario u, DtCanal c){
+    @Override
+    public void modificarUsuario(DtUsuario u, DtCanal c, BufferedImage imagen, Boolean cambio){
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
-        
-        Canal canal = new Canal (c.getNombre_canal(),c.getDescripcion(),c.getPrivado());
-        
-        Canal CanalViejo = new Canal (u.getCanal().getNombre_canal(),u.getCanal().getDescripcion(),u.getCanal().getPrivado());
-        
-        Usuario us = new Usuario (u.getNickname(), u.getContraseña(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen(),CanalViejo);
-       
+
+        Canal canal = new Canal(c.getNombre_canal(), c.getDescripcion(), c.getPrivado());
+
+        Canal CanalViejo = new Canal(u.getCanal().getNombre_canal(), u.getCanal().getDescripcion(), u.getCanal().getPrivado());
+
+        Usuario us = new Usuario(u.getNickname(), u.getContraseña(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen(), CanalViejo);
+
         mu.modificarUsuario(us, canal);
+
+        if (cambio) {
+            String home = System.getProperty("user.dir") + "/src/main/resources/imagenesUsuarios/" + us.getNickname() + ".png";
+            Path path = Paths.get(home);
+            try {
+                Files.delete(path);
+            } catch (IOException ex) {
+                Logger.getLogger(MenuInicio.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            if (!u.getImagen().equals("/imagenesUsuarios/Defecto.png") && imagen != null) {
+                String ruta = System.getProperty("user.dir");
+                ruta = ruta + "/src/main/resources/imagenesUsuarios/" + u.getNickname() + ".png";
+                File file = new File(ruta);
+                try {
+                    ImageIO.write(imagen, "png", file);
+                } catch (IOException ex) {
+                    System.out.println("CREAR");
+                    Logger.getLogger(ControladorUsuario.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
     }
    
     @Override
@@ -125,6 +151,7 @@ public class ControladorUsuario implements IControladorUsuario{
         return lista;
     }
     
+    @Override
     public List listaSeguidores(String nick) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance(); 
         List lista = mu.ObtenerSeguidores(nick);
@@ -138,9 +165,5 @@ public class ControladorUsuario implements IControladorUsuario{
             return aux;
         }
         return null;
-    }
-
-    public void modificarUsuario(DtUsuario modUser, DtCanal modCanal, BufferedImage imagen) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

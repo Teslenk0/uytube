@@ -2703,25 +2703,20 @@ public class MenuInicio extends javax.swing.JFrame {
         Date nuevafecha = DateChoose1.getDate();
         String pass = VarPass.getText();
         Boolean privado1 = CheckboxPrivado1.getState();
+        Boolean cambio = true;
         
         DtUsuario user = (DtUsuario) u.buscarUsuario(Varnick1.getText());   
         VentanaEmergente mensaje = new VentanaEmergente(this, rootPaneCheckingEnabled,manjari);
-        if(CampoImagen1.getText().equals("No se ha seleccionado una imágen") && user.getImagen().equals("/imagenesUsuarios/Defecto.png")){
-            rutaImagen = user.getImagen();
+        if(CampoImagen1.getText().equals("No se ha seleccionado una imágen")  || CampoImagen1.getText().equals("Imágen Seleccionada")){
+            cambio = false;
+        }
+        if((CampoImagen1.getText().equals("No se ha seleccionado una imágen")  || CampoImagen1.getText().equals("Imágen Seleccionada")) && user.getImagen().equals("/imagenesUsuarios/Defecto.png")){
+            rutaImagen = user.getImagen(); 
         }
         else{
             rutaImagen = "/imagenesUsuarios/" + user.getNickname() + ".png";
-            if(!user.getImagen().equals("/imagenesUsuarios/Defecto.png")){
-                 String home = System.getProperty("user.dir") + "/src/main/resources/imagenesUsuarios/" + user.getNickname() + ".png";
-                 Path path = Paths.get(home);
-                 try {
-                     Files.delete(path);
-                 } catch (IOException ex) {
-                     Logger.getLogger(MenuInicio.class.getName()).log(Level.SEVERE, null, ex);
-                 }
-            }
         }
-        if(nuevafecha == null || pass.isBlank() || nom.isBlank() || ape.isBlank() || descripcion.isBlank() || descripcion.isBlank()){
+        if(nuevafecha == null || pass.isEmpty() || nom.isEmpty()|| ape.isEmpty()|| descripcion.isEmpty()|| descripcion.isEmpty()){
              mensaje.CambioTexto("Debes llenar todos los campos obligatorios");
              mensaje.setVisible(true);
          }
@@ -2736,7 +2731,7 @@ public class MenuInicio extends javax.swing.JFrame {
              DtUsuario modUser;
              DtCanal modCanal = new DtCanal (nomCanal, descripcion, privado1);
              modUser = new DtUsuario(user.getNickname(),pass, nom, ape, user.getEmail(), nuevafecha, rutaImagen, user.getCanal());
-             u.modificarUsuario(modUser, modCanal, imagen);
+             u.modificarUsuario(modUser, modCanal, imagen, cambio);
              mensaje.CambioTexto("Modificaciones realizadas con exito");
              mensaje.setVisible(true);
         }

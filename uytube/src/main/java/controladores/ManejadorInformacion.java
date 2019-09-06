@@ -98,10 +98,9 @@ public class ManejadorInformacion {
         manager = emf.createEntityManager();
         manager.getTransaction().begin();
         Usuario user = manager.find(Usuario.class, u.getNickname());
-        manager.remove(user.getCanal()); 
-        user = manager.merge(u);
-        user.setCanal(c);
-        manager.merge(user);
+        manager.remove(user);
+        user = new Usuario(u.getNickname(), u.getContraseña(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen(),c);
+        manager.persist(user);
         manager.getTransaction().commit();
         manager.close();
     }

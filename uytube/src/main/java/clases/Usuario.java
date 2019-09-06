@@ -7,6 +7,7 @@ package clases;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Objects;
 import javax.persistence.*;
 
 /**
@@ -43,7 +44,7 @@ public class Usuario implements Serializable{
     @Column(name = "imagen")
     private String imagen;
     
-    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+    @OneToOne(cascade = {CascadeType.ALL},targetEntity = Canal.class)
     @JoinColumn(name = "canal")
     private Canal canal;     
     
@@ -135,6 +136,59 @@ public class Usuario implements Serializable{
 
     public void setCanal(Canal canal) {
         this.canal = canal;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 31 * hash + Objects.hashCode(this.nickname);
+        hash = 31 * hash + Objects.hashCode(this.contraseña);
+        hash = 31 * hash + Objects.hashCode(this.nombre);
+        hash = 31 * hash + Objects.hashCode(this.apellido);
+        hash = 31 * hash + Objects.hashCode(this.email);
+        hash = 31 * hash + Objects.hashCode(this.fechaNac);
+        hash = 31 * hash + Objects.hashCode(this.imagen);
+        hash = 31 * hash + Objects.hashCode(this.canal);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Usuario other = (Usuario) obj;
+        if (!Objects.equals(this.nickname, other.nickname)) {
+            return false;
+        }
+        if (!Objects.equals(this.contraseña, other.contraseña)) {
+            return false;
+        }
+        if (!Objects.equals(this.nombre, other.nombre)) {
+            return false;
+        }
+        if (!Objects.equals(this.apellido, other.apellido)) {
+            return false;
+        }
+        if (!Objects.equals(this.email, other.email)) {
+            return false;
+        }
+        if (!Objects.equals(this.imagen, other.imagen)) {
+            return false;
+        }
+        if (!Objects.equals(this.fechaNac, other.fechaNac)) {
+            return false;
+        }
+        if (!Objects.equals(this.canal, other.canal)) {
+            return false;
+        }
+        return true;
     }
     
     
