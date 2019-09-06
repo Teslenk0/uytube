@@ -5,11 +5,14 @@
  */
 package controladores;
 
+import DataTypes.DtCanal;
 import DataTypes.DtVideo;
 import clases.Canal;
 import clases.Video;
 import excepciones.VideoRepetidoException;
 import interfaces.IControladorCanal;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  *
@@ -29,4 +32,11 @@ public class ControladorCanal implements IControladorCanal{
         }
     }
     
+    @Override
+    public List listaVideos(DtCanal c){
+        ManejadorInformacion mu = ManejadorInformacion.getInstance();
+        Canal canal = new Canal(c.getNombre_canal(),c.getDescripcion(),c.getPrivado());
+        List lista = mu.listaVid(canal);
+        return lista;
+    }
 }

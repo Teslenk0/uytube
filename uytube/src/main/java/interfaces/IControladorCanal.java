@@ -5,8 +5,10 @@
  */
 package interfaces;
 
+import DataTypes.DtCanal;
 import DataTypes.DtVideo;
 import excepciones.VideoRepetidoException;
+import java.util.List;
 
 /**
  *
@@ -15,5 +17,7 @@ import excepciones.VideoRepetidoException;
 public interface IControladorCanal {
     
     public abstract void registrarVideo(DtVideo video) throws VideoRepetidoException;
+    
+    public abstract List listaVideos(DtCanal canal);
     
 }

@@ -156,4 +156,10 @@ public class ManejadorInformacion {
         manager.getTransaction().commit();
         manager.close();
     }
+    
+    public List listaVid(Canal c){
+        manager = emf.createEntityManager();
+        return manager.createQuery("SELECT v.nombre FROM Video v WHERE v.canal = '" + c.getNombre_canal() + "'")
+                .getResultList();
+    }
 }

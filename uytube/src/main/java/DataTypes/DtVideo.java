@@ -6,6 +6,7 @@
 package DataTypes;
 
 import clases.Categoria;
+import clases.Video;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -44,7 +45,9 @@ public class DtVideo implements Serializable{
         this.privado = privado;
     }
 
-    
+    public DtVideo(Video v) {
+        this(v.getNombre(), new DtCanal(v.getCanal().getNombre_canal(), v.getCanal().getDescripcion(), v.getCanal().getPrivado()), v.getFechaPublicacion(), v.getUrl(), v.getDescripcion(), v.getCategoria(), v.getDuracion(), v.getPrivado());
+    }
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
