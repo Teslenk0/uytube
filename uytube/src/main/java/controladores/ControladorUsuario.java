@@ -91,23 +91,21 @@ public class ControladorUsuario implements IControladorUsuario{
         mu.modificarUsuario(us, canal);
 
         if (cambio) {
-            String home = System.getProperty("user.dir") + "/src/main/resources/imagenesUsuarios/" + us.getNickname() + ".png";
-            Path path = Paths.get(home);
+            String ruta = System.getProperty("user.dir") + "/src/main/resources/imagenesUsuarios/" + us.getNickname() + ".png";
+            Path path = Paths.get(ruta);
             try {
-                Files.delete(path);
+                File file = new File(ruta);
+                if(file.exists() && !file.isDirectory())
+                    Files.delete(path);
+                if (!u.getImagen().equals("/imagenesUsuarios/Defecto.png") && imagen != null) {
+                    try {
+                        ImageIO.write(imagen, "png", file);
+                    } catch (IOException ex) {
+                        Logger.getLogger(ControladorUsuario.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
             } catch (IOException ex) {
                 Logger.getLogger(MenuInicio.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            if (!u.getImagen().equals("/imagenesUsuarios/Defecto.png") && imagen != null) {
-                String ruta = System.getProperty("user.dir");
-                ruta = ruta + "/src/main/resources/imagenesUsuarios/" + u.getNickname() + ".png";
-                File file = new File(ruta);
-                try {
-                    ImageIO.write(imagen, "png", file);
-                } catch (IOException ex) {
-                    System.out.println("CREAR");
-                    Logger.getLogger(ControladorUsuario.class.getName()).log(Level.SEVERE, null, ex);
-                }
             }
         }
     }
