@@ -50,12 +50,13 @@ public class VentanaEmergente2 extends javax.swing.JDialog {
         setResizable(false);
         getContentPane().setLayout(null);
 
-        BarraSuperior.setBackground(new java.awt.Color(73, 73, 73));
+        BarraSuperior.setBackground(new java.awt.Color(12, 129, 129));
 
         BotonCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/IconCerrar.png"))); // NOI18N
         BotonCerrar.setBorder(null);
         BotonCerrar.setBorderPainted(false);
         BotonCerrar.setContentAreaFilled(false);
+        BotonCerrar.setFocusable(false);
         BotonCerrar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/IconCerrar2.png"))); // NOI18N
         BotonCerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,18 +83,21 @@ public class VentanaEmergente2 extends javax.swing.JDialog {
         getContentPane().add(BarraSuperior);
         BarraSuperior.setBounds(0, 0, 360, 33);
 
+        Panel.setBackground(new java.awt.Color(73, 73, 73));
         Panel.setLayout(null);
 
         Texto.setFont(manjari);
+        Texto.setForeground(new java.awt.Color(255, 255, 255));
         Texto.setText("¿Seguro que desea cerrar sesion?");
         Panel.add(Texto);
         Texto.setBounds(60, 40, 240, 50);
 
-        BotonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_cancel_3.png"))); // NOI18N
+        BotonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_cancel_4.png"))); // NOI18N
         BotonCancelar.setBorder(null);
         BotonCancelar.setBorderPainted(false);
         BotonCancelar.setContentAreaFilled(false);
-        BotonCancelar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_cancel_4.png"))); // NOI18N
+        BotonCancelar.setFocusable(false);
+        BotonCancelar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_cancel_5.png"))); // NOI18N
         BotonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonCancelarActionPerformed(evt);
@@ -102,11 +106,12 @@ public class VentanaEmergente2 extends javax.swing.JDialog {
         Panel.add(BotonCancelar);
         BotonCancelar.setBounds(180, 90, 80, 40);
 
-        BotonAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_2.png"))); // NOI18N
+        BotonAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_1.png"))); // NOI18N
         BotonAceptar.setBorder(null);
         BotonAceptar.setBorderPainted(false);
         BotonAceptar.setContentAreaFilled(false);
-        BotonAceptar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_1.png"))); // NOI18N
+        BotonAceptar.setFocusable(false);
+        BotonAceptar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_3.png"))); // NOI18N
         BotonAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonAceptarActionPerformed(evt);

@@ -48,12 +48,13 @@ public class VentanaEmergente extends javax.swing.JDialog {
         setResizable(false);
         getContentPane().setLayout(null);
 
-        BarraSuperior.setBackground(new java.awt.Color(73, 73, 73));
+        BarraSuperior.setBackground(new java.awt.Color(53, 144, 144));
 
         BotonCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/IconCerrar.png"))); // NOI18N
         BotonCerrar.setBorder(null);
         BotonCerrar.setBorderPainted(false);
         BotonCerrar.setContentAreaFilled(false);
+        BotonCerrar.setFocusable(false);
         BotonCerrar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/IconCerrar2.png"))); // NOI18N
         BotonCerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,17 +81,20 @@ public class VentanaEmergente extends javax.swing.JDialog {
         getContentPane().add(BarraSuperior);
         BarraSuperior.setBounds(0, 0, 360, 33);
 
+        Panel.setBackground(new java.awt.Color(73, 73, 73));
         Panel.setLayout(null);
 
         Texto.setFont(manjari);
+        Texto.setForeground(new java.awt.Color(255, 255, 255));
         Panel.add(Texto);
         Texto.setBounds(34, 43, 305, 40);
 
-        BotonAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_2.png"))); // NOI18N
+        BotonAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_1.png"))); // NOI18N
         BotonAceptar.setBorder(null);
         BotonAceptar.setBorderPainted(false);
         BotonAceptar.setContentAreaFilled(false);
-        BotonAceptar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_1.png"))); // NOI18N
+        BotonAceptar.setFocusable(false);
+        BotonAceptar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_3.png"))); // NOI18N
         BotonAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonAceptarActionPerformed(evt);

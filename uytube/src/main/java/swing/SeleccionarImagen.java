@@ -71,12 +71,13 @@ public class SeleccionarImagen extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(null);
 
-        BarraSuperior.setBackground(new java.awt.Color(73, 73, 73));
+        BarraSuperior.setBackground(new java.awt.Color(12, 129, 129));
 
         BotonCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/IconCerrar.png"))); // NOI18N
         BotonCerrar.setBorder(null);
         BotonCerrar.setBorderPainted(false);
         BotonCerrar.setContentAreaFilled(false);
+        BotonCerrar.setFocusable(false);
         BotonCerrar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/IconCerrar2.png"))); // NOI18N
         BotonCerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,13 +104,15 @@ public class SeleccionarImagen extends javax.swing.JFrame {
         getContentPane().add(BarraSuperior);
         BarraSuperior.setBounds(0, 0, 400, 33);
 
+        PanelFondo.setBackground(new java.awt.Color(73, 73, 73));
         PanelFondo.setLayout(null);
 
-        AbrirArchivo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_abrirarchivo_2.png"))); // NOI18N
+        AbrirArchivo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_abrirarchivo_1.png"))); // NOI18N
         AbrirArchivo.setBorder(null);
         AbrirArchivo.setBorderPainted(false);
         AbrirArchivo.setContentAreaFilled(false);
-        AbrirArchivo.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_abrirarchivo_1.png"))); // NOI18N
+        AbrirArchivo.setFocusable(false);
+        AbrirArchivo.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_abrirarchivo_3.png"))); // NOI18N
         AbrirArchivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AbrirArchivoActionPerformed(evt);
@@ -118,11 +121,12 @@ public class SeleccionarImagen extends javax.swing.JFrame {
         PanelFondo.add(AbrirArchivo);
         AbrirArchivo.setBounds(30, 50, 80, 40);
 
-        BotonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_cancel_3.png"))); // NOI18N
+        BotonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_cancel_4.png"))); // NOI18N
         BotonCancelar.setBorder(null);
         BotonCancelar.setBorderPainted(false);
         BotonCancelar.setContentAreaFilled(false);
-        BotonCancelar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_cancel_4.png"))); // NOI18N
+        BotonCancelar.setFocusable(false);
+        BotonCancelar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_cancel_5.png"))); // NOI18N
         BotonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonCancelarActionPerformed(evt);
@@ -131,11 +135,12 @@ public class SeleccionarImagen extends javax.swing.JFrame {
         PanelFondo.add(BotonCancelar);
         BotonCancelar.setBounds(220, 310, 80, 40);
 
-        BotonAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_2.png"))); // NOI18N
+        BotonAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_1.png"))); // NOI18N
         BotonAceptar.setBorder(null);
         BotonAceptar.setBorderPainted(false);
         BotonAceptar.setContentAreaFilled(false);
-        BotonAceptar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_1.png"))); // NOI18N
+        BotonAceptar.setFocusable(false);
+        BotonAceptar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_3.png"))); // NOI18N
         BotonAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonAceptarActionPerformed(evt);
@@ -145,34 +150,34 @@ public class SeleccionarImagen extends javax.swing.JFrame {
         BotonAceptar.setBounds(100, 310, 80, 40);
 
         CampoFile.setEditable(false);
-        CampoFile.setBackground(new java.awt.Color(153, 153, 153));
+        CampoFile.setBackground(new java.awt.Color(255, 255, 255));
         CampoFile.setFont(berlin);
-        CampoFile.setForeground(new java.awt.Color(102, 102, 102));
+        CampoFile.setForeground(new java.awt.Color(204, 204, 204));
         CampoFile.setText("Imágen seleccionada");
         CampoFile.setBorder(null);
         CampoFile.setOpaque(false);
         PanelFondo.add(CampoFile);
         CampoFile.setBounds(120, 60, 260, 20);
 
-        jSeparator5.setBackground(new java.awt.Color(153, 153, 153));
-        jSeparator5.setForeground(new java.awt.Color(153, 153, 153));
+        jSeparator5.setBackground(new java.awt.Color(204, 204, 204));
+        jSeparator5.setForeground(new java.awt.Color(204, 204, 204));
         PanelFondo.add(jSeparator5);
         jSeparator5.setBounds(100, 290, 210, 30);
 
         jLabel1.setFont(berlin);
-        jLabel1.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
         jLabel1.setText("Tamaño máximo 160x160");
         PanelFondo.add(jLabel1);
         jLabel1.setBounds(120, 270, 190, 20);
 
-        jSeparator6.setBackground(new java.awt.Color(153, 153, 153));
-        jSeparator6.setForeground(new java.awt.Color(153, 153, 153));
+        jSeparator6.setBackground(new java.awt.Color(204, 204, 204));
+        jSeparator6.setForeground(new java.awt.Color(204, 204, 204));
         PanelFondo.add(jSeparator6);
         jSeparator6.setBounds(120, 80, 260, 30);
 
-        Imagen1.setBackground(new java.awt.Color(255, 255, 255));
-        Imagen1.setForeground(new java.awt.Color(255, 255, 255));
-        Imagen1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153), 2));
+        Imagen1.setBackground(new java.awt.Color(204, 204, 204));
+        Imagen1.setForeground(new java.awt.Color(204, 204, 204));
+        Imagen1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204), 2));
         Imagen1.setMaximumSize(new java.awt.Dimension(160, 160));
         Imagen1.setMinimumSize(new java.awt.Dimension(160, 160));
         Imagen1.setPreferredSize(new java.awt.Dimension(160, 160));
