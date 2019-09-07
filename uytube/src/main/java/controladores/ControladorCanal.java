@@ -39,4 +39,11 @@ public class ControladorCanal implements IControladorCanal{
         List lista = mu.listaVid(canal);
         return lista;
     }
+    
+    @Override
+    public List listaComentarios(String video){
+        ManejadorInformacion mu = ManejadorInformacion.getInstance();
+        List lista = mu.listaCom(video);
+        return lista;
+    }
 }

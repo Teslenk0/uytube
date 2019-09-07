@@ -20,4 +20,6 @@ public interface IControladorCanal {
     
     public abstract List listaVideos(DtCanal canal);
     
+    public List listaComentarios(String video);
+    
 }

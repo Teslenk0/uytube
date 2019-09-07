@@ -21,12 +21,16 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+import javax.swing.JTree;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 /**
  *
@@ -320,9 +324,25 @@ public class MenuInicio extends javax.swing.JFrame {
         Central3_4_Panel = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         Central3_4_1 = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
         comboVideos = new javax.swing.JComboBox<>();
         SeleccionarVideo = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
+        Central3_4_1_1 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        DateChoose2 = new com.toedter.calendar.JDateChooser();
+        jLabel15 = new javax.swing.JLabel();
+        ScroolDescripcion1 = new javax.swing.JScrollPane();
+        CampoDescripcion1 = new javax.swing.JTextArea();
+        jLabel16 = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
+        CampoNick = new javax.swing.JTextField();
+        jSeparator55 = new javax.swing.JSeparator();
+        jSeparator56 = new javax.swing.JSeparator();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTree1 = new javax.swing.JTree();
         Central3_3_1 = new javax.swing.JPanel();
         NomVideo = new javax.swing.JLabel();
         DuraVideo = new javax.swing.JLabel();
@@ -2276,8 +2296,7 @@ public class MenuInicio extends javax.swing.JFrame {
         Central3_4_1.setMinimumSize(new java.awt.Dimension(403, 550));
         Central3_4_1.setLayout(null);
 
-        Central3_4_1.add(comboVideos);
-        comboVideos.setBounds(266, 70, 240, 28);
+        jLabel6.setText("Videos :");
 
         SeleccionarVideo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_seleccionar_2.png"))); // NOI18N
         SeleccionarVideo.setBorderPainted(false);
@@ -2289,15 +2308,117 @@ public class MenuInicio extends javax.swing.JFrame {
                 SeleccionarVideoActionPerformed(evt);
             }
         });
-        Central3_4_1.add(SeleccionarVideo);
-        SeleccionarVideo.setBounds(540, 60, 90, 40);
 
-        jLabel6.setText("Videos :");
-        Central3_4_1.add(jLabel6);
-        jLabel6.setBounds(170, 70, 80, 30);
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(172, Short.MAX_VALUE)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16)
+                .addComponent(comboVideos, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addComponent(SeleccionarVideo, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(118, 118, 118))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(comboVideos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(SeleccionarVideo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(498, Short.MAX_VALUE))
+        );
+
+        Central3_4_1.add(jPanel1);
+        jPanel1.setBounds(0, 0, 750, 550);
 
         Panel_Central.add(Central3_4_1);
         Central3_4_1.setBounds(0, 0, 750, 550);
+
+        Central3_4_1_1.setMaximumSize(new java.awt.Dimension(403, 550));
+        Central3_4_1_1.setMinimumSize(new java.awt.Dimension(403, 550));
+        Central3_4_1_1.setLayout(null);
+
+        jLabel7.setText("INGRESA  COMENTARIO");
+        Central3_4_1_1.add(jLabel7);
+        jLabel7.setBounds(130, 100, 310, 18);
+
+        jLabel13.setText("SELECCIONAR COMENTARIO");
+        jLabel13.setEnabled(false);
+        Central3_4_1_1.add(jLabel13);
+        jLabel13.setBounds(460, 100, 210, 18);
+
+        jLabel14.setFont(berlin);
+        jLabel14.setText("Comentario");
+        Central3_4_1_1.add(jLabel14);
+        jLabel14.setBounds(60, 230, 100, 18);
+
+        DateChoose2.setNextFocusableComponent(Descripcion);
+        Central3_4_1_1.add(DateChoose2);
+        DateChoose2.setBounds(160, 180, 250, 20);
+
+        jLabel15.setFont(berlin);
+        jLabel15.setText("Usuario");
+        Central3_4_1_1.add(jLabel15);
+        jLabel15.setBounds(60, 140, 70, 18);
+
+        CampoDescripcion1.setColumns(20);
+        CampoDescripcion1.setRows(5);
+        ScroolDescripcion1.setViewportView(CampoDescripcion1);
+
+        Central3_4_1_1.add(ScroolDescripcion1);
+        ScroolDescripcion1.setBounds(160, 230, 220, 80);
+
+        jLabel16.setFont(berlin);
+        jLabel16.setText("Fecha");
+        Central3_4_1_1.add(jLabel16);
+        jLabel16.setBounds(60, 180, 70, 18);
+
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_2.png"))); // NOI18N
+        jButton5.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_1.png"))); // NOI18N
+        Central3_4_1_1.add(jButton5);
+        jButton5.setBounds(320, 350, 70, 30);
+
+        CampoNick.setBackground(new java.awt.Color(153, 153, 153));
+        CampoNick.setFont(berlin);
+        CampoNick.setForeground(new java.awt.Color(102, 102, 102));
+        CampoNick.setText("Ingrese Nickname");
+        CampoNick.setBorder(null);
+        CampoNick.setNextFocusableComponent(CampoContraseña);
+        CampoNick.setOpaque(false);
+        CampoNick.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                CampoNickFocusGained(evt);
+            }
+        });
+        Central3_4_1_1.add(CampoNick);
+        CampoNick.setBounds(160, 140, 220, 20);
+        Central3_4_1_1.add(jSeparator55);
+        jSeparator55.setBounds(160, 200, 220, 20);
+        Central3_4_1_1.add(jSeparator56);
+        jSeparator56.setBounds(160, 160, 220, 20);
+
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Video :: Comentarios");
+        javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("(Usuario1)buanarda");
+        javax.swing.tree.DefaultMutableTreeNode treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("(Usuario2) malasa");
+        treeNode2.add(treeNode3);
+        treeNode1.add(treeNode2);
+        jTree1.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane1.setViewportView(jTree1);
+
+        Central3_4_1_1.add(jScrollPane1);
+        jScrollPane1.setBounds(460, 140, 200, 170);
+
+        Panel_Central.add(Central3_4_1_1);
+        Central3_4_1_1.setBounds(0, 0, 750, 550);
 
         Central3_3_1.setMaximumSize(new java.awt.Dimension(403, 550));
         Central3_3_1.setMinimumSize(new java.awt.Dimension(403, 550));
@@ -3320,12 +3441,32 @@ public class MenuInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_SeleccionarUsuario2ActionPerformed
 
     private void SeleccionarVideoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeleccionarVideoActionPerformed
-        // TODO add your handling code here:
+       String video = comboVideos.getSelectedItem().toString();
+       jPanel1.add(Central3_4_1_1);
+       Panel_Central.revalidate();
+       Panel_Central.repaint();
+       List listaCom = c.listaComentarios(video);
+       if(!listaCom.isEmpty()){
+            DefaultMutableTreeNode raiz = new DefaultMutableTreeNode ("video::Comentarios");
+            DefaultMutableTreeNode us = new DefaultMutableTreeNode ();
+            us.setUserObject(video);
+            raiz.add(us);
+           
+            DefaultTreeModel modelo = new DefaultTreeModel (raiz);
+            //this.setModel(modelo);
+            
+       }
+       
+       
     }//GEN-LAST:event_SeleccionarVideoActionPerformed
 
     private void ComboSiguiendoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboSiguiendoActionPerformed
 
     }//GEN-LAST:event_ComboSiguiendoActionPerformed
+
+    private void CampoNickFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CampoNickFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CampoNickFocusGained
 
     
     private void setColor(JPanel pane)
@@ -3398,8 +3539,10 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JPasswordField CampoContraseña;
     private javax.swing.JTextField CampoCorreo;
     private javax.swing.JTextArea CampoDescripcion;
+    private javax.swing.JTextArea CampoDescripcion1;
     private javax.swing.JTextField CampoImagen;
     private javax.swing.JTextField CampoImagen1;
+    private javax.swing.JTextField CampoNick;
     private javax.swing.JTextField CampoNickname;
     private javax.swing.JTextField CampoNombre;
     private javax.swing.JLabel Canal;
@@ -3425,6 +3568,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JPanel Central3_3_1;
     private javax.swing.JPanel Central3_4;
     private javax.swing.JPanel Central3_4_1;
+    private javax.swing.JPanel Central3_4_1_1;
     private javax.swing.JPanel Central3_4_Panel;
     private javax.swing.JPanel Central4;
     private javax.swing.JPanel Central4_1;
@@ -3446,6 +3590,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JButton CrearLista;
     private com.toedter.calendar.JDateChooser DateChoose;
     private com.toedter.calendar.JDateChooser DateChoose1;
+    private com.toedter.calendar.JDateChooser DateChoose2;
     private com.toedter.calendar.JDateChooser DateVideo;
     private javax.swing.JButton DejarSeguirUsuario;
     private javax.swing.JLabel DejarSeguirUsuarioText;
@@ -3493,6 +3638,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JScrollPane Scroll2;
     private javax.swing.JScrollPane Scroll4;
     private javax.swing.JScrollPane ScroolDescripcion;
+    private javax.swing.JScrollPane ScroolDescripcion1;
     private javax.swing.JComboBox<String> SeguidorBox;
     private javax.swing.JComboBox<String> SeguidorBox1;
     private javax.swing.JButton SeguirUsuario;
@@ -3582,17 +3728,25 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
@@ -3643,10 +3797,13 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator52;
     private javax.swing.JSeparator jSeparator53;
     private javax.swing.JSeparator jSeparator54;
+    private javax.swing.JSeparator jSeparator55;
+    private javax.swing.JSeparator jSeparator56;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
+    private javax.swing.JTree jTree1;
     private javax.swing.JLabel listarCat;
     private javax.swing.JButton listarCat_Button;
     private javax.swing.JLabel mail;

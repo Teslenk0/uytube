@@ -162,4 +162,10 @@ public class ManejadorInformacion {
         return manager.createQuery("SELECT v.nombre FROM Video v WHERE v.canal = '" + c.getNombre_canal() + "'")
                 .getResultList();
     }
+    
+    public List listaCom(String v){
+        manager = emf.createEntityManager();
+        return manager.createQuery("SELECT c.comentario FROM Comentario c WHERE c.video = '" + v + "'")
+                .getResultList();
+    }
 }

@@ -8,25 +8,47 @@ package clases;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
 
 /**
  *
  * @author esteban
  */
+@Entity
+@Table(name = "comentarios_video")
 public class Comentario implements Serializable{
     
-    protected static final long serialVersionUID = 1L; 
+    private static final long serialVersionUID = 1L; 
     
-    protected String comentario;
+    @Id
+    @Column(name = "nickname" )
+    private String nick;
     
-    protected Set<Comentario> comentarios;
+    @Column(name = "comentario")
+    private String comentario;
     
-    protected Date fecha;
+    @Column(name = "fecha")
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date fecha;
+    
+    @ManyToOne
+    @JoinColumn(name = "Video")
+    private Video video;
+    
+    public Comentario() {
+    }
 
-    public Comentario(String comentario, Set<Comentario> comentarios, Date fecha) {
+    public Comentario(String nick, String comentario, Date fecha, Video video) {
+        this.nick = nick;
         this.comentario = comentario;
-        this.comentarios = comentarios;
         this.fecha = fecha;
+        this.video = video;
     }
 
     public String getComentario() {
@@ -37,14 +59,6 @@ public class Comentario implements Serializable{
         this.comentario = comentario;
     }
 
-    public Set<Comentario> getComentarios() {
-        return comentarios;
-    }
-
-    public void setComentarios(Set<Comentario> comentarios) {
-        this.comentarios = comentarios;
-    }
-
     public Date getFecha() {
         return fecha;
     }
@@ -53,9 +67,26 @@ public class Comentario implements Serializable{
         this.fecha = fecha;
     }
 
+    public String getNick() {
+        return nick;
+    }
+
+    public void setNick(String nick) {
+        this.nick = nick;
+    }
+
+    public Video getVideo() {
+        return video;
+    }
+
+    public void setVideo(Video video) {
+        this.video = video;
+    }
+
     @Override
     public String toString() {
-        return "Comentario{" + "comentario=" + comentario + ", comentarios=" + comentarios + ", fecha=" + fecha + '}';
+        return "Comentario{" + "nick=" + nick + ", comentario=" + comentario + ", fecha=" + fecha + ", video=" + video + '}';
     }
+
     
 }
