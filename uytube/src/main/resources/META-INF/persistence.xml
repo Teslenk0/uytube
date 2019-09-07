@@ -4,6 +4,11 @@
       
     <class>clases.Usuario</class>
     <class>clases.Canal</class>
+    <class>clases.ListaReproduccion</class>
+    <class>clases.ListaporDefecto</class>
+    <class>clases.ListaDefectoVideos</class>
+    <class>clases.Seguir</class>
+    <class>clases.Video</class>
     
     <properties>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
