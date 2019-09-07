@@ -16,30 +16,38 @@ import java.util.List;
  */
 public class DtComentario implements Serializable {
     
-    protected static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
     
-    protected String comentario;
+    private final String nick;
     
-    protected List<Comentario> comentarios;
+    private final String comentario;
     
-    protected Date fecha;
+    private final Date fecha;
+    
+    private final DtVideo video;
 
-    public DtComentario(String comentario, List<Comentario> comentarios, Date fecha) {
+    public DtComentario(String nick, String comentario, Date fecha, DtVideo video) {
+        this.nick = nick;
         this.comentario = comentario;
-        this.comentarios = comentarios;
         this.fecha = fecha;
+        this.video = video;
     }
 
     public String getComentario() {
         return comentario;
     }
 
-    public List<Comentario> getComentarios() {
-        return comentarios;
-    }
-
     public Date getFecha() {
         return fecha;
     }
+
+    public String getNick() {
+        return nick;
+    }
+
+    public DtVideo getVideo() {
+        return video;
+    }
+    
     
 }
