@@ -6,9 +6,13 @@
 package controladores;
 
 import DataTypes.DtCanal;
+import DataTypes.DtListaporDefecto;
 import DataTypes.DtVideo;
 import clases.Canal;
+import clases.ListaReproduccion;
+import clases.ListaporDefecto;
 import clases.Video;
+import excepciones.ListaRepetidaException;
 import excepciones.VideoRepetidoException;
 import interfaces.IControladorCanal;
 import java.util.LinkedList;
@@ -45,5 +49,16 @@ public class ControladorCanal implements IControladorCanal{
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         List lista = mu.listaCom(video);
         return lista;
+    }
+    
+    @Override
+    public void crearListaDefecto(DtListaporDefecto lista) throws ListaRepetidaException {
+        ManejadorInformacion mu = ManejadorInformacion.getInstance();
+        try {
+            ListaReproduccion list = new ListaporDefecto(lista);
+            mu.crearListaDefecto(list);
+        } catch (Exception e) {
+            throw new ListaRepetidaException("La lista por defecto ya existe");
+        }
     }
 }

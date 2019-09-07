@@ -20,12 +20,23 @@ public class DtCanal implements Serializable {
     private final String descripcion;
     
     private final Boolean privado;
+    
+    private final DtUsuario usuario;
+
 
     public DtCanal(String nombre_canal, String descripcion, Boolean privado) {
         
         this.nombre_canal = nombre_canal;
         this.descripcion = descripcion;
         this.privado = privado;
+        this.usuario = null;
+    }
+    
+    public DtCanal(String nombre_canal, String descripcion, Boolean privado, DtUsuario usuario) {
+        this.nombre_canal = nombre_canal;
+        this.descripcion = descripcion;
+        this.privado = privado;
+        this.usuario = usuario;
     }
 
     public String getNombre_canal() {
@@ -38,6 +49,10 @@ public class DtCanal implements Serializable {
 
     public Boolean getPrivado() {
         return privado;
+    }
+    
+    public DtUsuario getUsuario() {
+        return usuario;
     }
 }
     

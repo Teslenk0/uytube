@@ -15,7 +15,8 @@ import java.util.List;
  */
 public class DtListaParticulares extends DtListaReproduccion{
 
-    public DtListaParticulares(String nombreLista, List<Video> videosLista, Categoria categoria) {
-        super(nombreLista, videosLista, categoria);
+    public DtListaParticulares(String nombreLista, DtCanal canal) {
+        super(nombreLista, canal);
     }
+
 }

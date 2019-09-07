@@ -14,32 +14,39 @@ import java.util.List;
  *
  * @author esteban
  */
-public class DtListaReproduccion implements Serializable{
+public abstract class DtListaReproduccion implements Serializable{
     
     protected static final long serialVersionUID = 1L;
     
     protected String nombreLista;
     
-    protected List<Video> videosLista;
-    
-    protected Categoria categoria;
+    protected DtCanal canal;
 
-    public DtListaReproduccion(String nombreLista, List<Video> videosLista, Categoria categoria) {
+    public DtListaReproduccion(String nombreLista, DtCanal canal) {
         this.nombreLista = nombreLista;
-        this.videosLista = videosLista;
-        this.categoria = categoria;
+        this.canal = canal;
     }
 
     public String getNombreLista() {
         return nombreLista;
     }
 
-    public List<Video> getVideosLista() {
-        return videosLista;
+    public void setNombreLista(String nombreLista) {
+        this.nombreLista = nombreLista;
     }
 
-    public Categoria getCategoria() {
-        return categoria;
+    public DtCanal getCanal() {
+        return canal;
     }
+
+    public void setCanal(DtCanal canal) {
+        this.canal = canal;
+    }
+
+    @Override
+    public String toString() {
+        return "DtListaReproduccion{" + "nombreLista=" + nombreLista + ", canal=" + canal + '}';
+    }
+    
     
 }

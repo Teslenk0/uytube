@@ -5,6 +5,7 @@
  */
 package clases;
 
+import DataTypes.DtCanal;
 import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.CascadeType;
@@ -54,7 +55,14 @@ public class Canal implements Serializable {
         this.descripcion = descripcion;
         this.privado = privado;
     }
-
+    
+    public Canal(DtCanal canal){
+        this.nombre_canal = canal.getNombre_canal();
+        this.descripcion = canal.getDescripcion();
+        this.privado = canal.getPrivado();
+        this.usuario = new Usuario(canal.getUsuario());
+    }
+    
     public String getNombre_canal() {
         return nombre_canal;
     }

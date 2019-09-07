@@ -11,12 +11,12 @@ import java.util.List;
 
 /**
  *
- * @author esteban
+ * @author Tesla
  */
 public class DtListaporDefecto extends DtListaReproduccion {
 
-    public DtListaporDefecto(String nombreLista, List<Video> videosLista, Categoria categoria) {
-        super(nombreLista, videosLista, categoria);
+    public DtListaporDefecto(String nombreLista, DtCanal canal) {
+        super(nombreLista, canal);
     }
-    
 }
+

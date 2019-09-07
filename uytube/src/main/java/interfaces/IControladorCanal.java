@@ -6,7 +6,9 @@
 package interfaces;
 
 import DataTypes.DtCanal;
+import DataTypes.DtListaporDefecto;
 import DataTypes.DtVideo;
+import excepciones.ListaRepetidaException;
 import excepciones.VideoRepetidoException;
 import java.util.List;
 
@@ -20,6 +22,8 @@ public interface IControladorCanal {
     
     public abstract List listaVideos(DtCanal canal);
     
-    public List listaComentarios(String video);
+    public abstract List listaComentarios(String video);
     
+    public abstract void crearListaDefecto(DtListaporDefecto lista) throws ListaRepetidaException;
+
 }

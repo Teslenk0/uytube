@@ -168,4 +168,12 @@ public class ManejadorInformacion {
         return manager.createQuery("SELECT c.comentario FROM Comentario c WHERE c.video = '" + v + "'")
                 .getResultList();
     }
+    
+    public void crearListaDefecto(ListaReproduccion list){
+        manager = emf.createEntityManager();
+        manager.getTransaction().begin();
+        manager.persist(list);
+        manager.getTransaction().commit();
+        manager.close();
+    }
 }

@@ -3,16 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package clases;
-
-import java.util.List;
+package excepciones;
 
 /**
  *
- * @author esteban
+ * @author tesla
  */
-public class ListaParticulares extends ListaReproduccion {
+public class ListaRepetidaException extends Exception{
     
-  
-    
+    public ListaRepetidaException(String message) {
+        super(message);
+    }
 }

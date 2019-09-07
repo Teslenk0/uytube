@@ -5,6 +5,7 @@
  */
 package clases;
 
+import DataTypes.DtUsuario;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
@@ -72,7 +73,17 @@ public class Usuario implements Serializable{
         this.canal = canal;
     }
     
-    
+    public Usuario(DtUsuario usuario){
+        this.nickname = usuario.getNickname();
+        this.email = usuario.getEmail();
+        this.contraseña = usuario.getContraseña();
+        this.nombre = usuario.getNombre();
+        this.apellido = usuario.getApellido();
+        this.fechaNac = usuario.getFechaNac();
+        this.imagen = usuario.getImagen();
+        this.canal = new Canal(usuario.getCanal());
+    }
+
 
     public String getContraseña() {
         return contraseña;
