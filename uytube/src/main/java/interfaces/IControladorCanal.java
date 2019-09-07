@@ -6,8 +6,10 @@
 package interfaces;
 
 import DataTypes.DtCanal;
+import DataTypes.DtListaParticulares;
 import DataTypes.DtListaReproduccion;
 import DataTypes.DtListaporDefecto;
+import DataTypes.DtUsuario;
 import DataTypes.DtVideo;
 import excepciones.ListaRepetidaException;
 import excepciones.VideoRepetidoException;
@@ -29,4 +31,5 @@ public interface IControladorCanal {
     
     public abstract void crearListaDefecto(DtListaReproduccion lista)throws ListaRepetidaException;
 
+    public void crearListaParticular(DtListaParticulares lista, DtUsuario user) throws ListaRepetidaException;
 }

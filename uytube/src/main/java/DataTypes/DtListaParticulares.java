@@ -14,9 +14,21 @@ import java.util.List;
  * @author esteban
  */
 public class DtListaParticulares extends DtListaReproduccion{
+    
+    private final Boolean privado;
 
-    public DtListaParticulares(String nombreLista, DtCanal canal) {
+    public DtListaParticulares(Boolean privado, String nombreLista, DtCanal canal) {
         super(nombreLista, canal);
+        this.privado = privado;
     }
 
+    public DtListaParticulares(Boolean privado, String nombreLista) {
+        super(nombreLista);
+        this.privado = privado;
+    }
+
+    public Boolean getPrivado() {
+        return privado;
+    }
+    
 }

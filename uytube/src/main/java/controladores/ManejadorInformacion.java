@@ -169,7 +169,7 @@ public class ManejadorInformacion {
                 .getResultList();
     }
     
-    public void crearListaDefecto(ListaReproduccion list){
+    public void crearLista(ListaReproduccion list){
         manager = emf.createEntityManager();
         manager.getTransaction().begin();
         manager.persist(list);
@@ -189,6 +189,14 @@ public class ManejadorInformacion {
     public Boolean buscoListaDefecto(String nombre){
         manager = emf.createEntityManager();
         int resultado = manager.createQuery("FROM ListaporDefecto l WHERE l.nombreLista='"+nombre+"'").getResultList().size(); //busco si ya existe
+        if(resultado != 0)
+            return true;
+        return false;
+    }
+    
+    public Boolean buscoListaParticular(String nombreLista,String nombreCanal){
+        manager = emf.createEntityManager();
+        int resultado = manager.createQuery("FROM ListaParticulares l WHERE l.nombreLista='"+nombreLista+"' and l.canal='"+nombreCanal+"'").getResultList().size(); //busco si ya existe
         if(resultado != 0)
             return true;
         return false;

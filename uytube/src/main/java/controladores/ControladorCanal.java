@@ -6,12 +6,16 @@
 package controladores;
 
 import DataTypes.DtCanal;
+import DataTypes.DtListaParticulares;
 import DataTypes.DtListaReproduccion;
 import DataTypes.DtListaporDefecto;
+import DataTypes.DtUsuario;
 import DataTypes.DtVideo;
 import clases.Canal;
+import clases.ListaParticulares;
 import clases.ListaReproduccion;
 import clases.ListaporDefecto;
+import clases.Usuario;
 import clases.Video;
 import excepciones.ListaRepetidaException;
 import excepciones.VideoRepetidoException;
@@ -76,9 +80,28 @@ public class ControladorCanal implements IControladorCanal{
                 System.out.println(aux.getNombre_canal());
                 list = new ListaporDefecto(lista.getNombreLista());
                 list.setCanal(aux);
-                mu.crearListaDefecto(list);
+                mu.crearLista(list);
             }
         }
 
+    }
+    
+    @Override
+    public void crearListaParticular(DtListaParticulares lista, DtUsuario user) throws ListaRepetidaException{
+        ManejadorInformacion mu = ManejadorInformacion.getInstance();
+ 
+        if (mu.buscoListaParticular(lista.getNombreLista(),user.getCanal().getNombre_canal())) {
+            throw new ListaRepetidaException("La lista por defecto ya existe");
+        }
+        //para que no rompa con las referencias cruzadas
+        //*******************************************************************
+        Canal aux = new Canal(user.getCanal().getNombre_canal(),user.getCanal().getDescripcion(),user.getCanal().getPrivado());
+        Usuario u = new Usuario(user.getNickname(),user.getContraseña(),user.getNombre(),user.getApellido(),user.getEmail(),user.getFechaNac(),user.getImagen());
+        u.setCanal(aux);
+        aux.setUsuario(u);
+        //***************************************************
+        ListaReproduccion list = new ListaParticulares(lista.getPrivado(), lista.getNombreLista(), aux);
+        
+        mu.crearLista(list);
     }
 }

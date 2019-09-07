@@ -7,10 +7,12 @@ package swing;
 
 
 import DataTypes.DtCanal;
+import DataTypes.DtListaParticulares;
 import DataTypes.DtListaReproduccion;
 import DataTypes.DtListaporDefecto;
 import DataTypes.DtUsuario;
 import DataTypes.DtVideo;
+import clases.ListaParticulares;
 import excepciones.ListaRepetidaException;
 import excepciones.UsuarioRepetidoException;
 import excepciones.VideoRepetidoException;
@@ -372,7 +374,6 @@ public class MenuInicio extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         NombreLista = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        NombreUser = new javax.swing.JTextField();
         CheckboxPublica = new java.awt.Checkbox();
         Privado5 = new javax.swing.JLabel();
         Privado6 = new javax.swing.JLabel();
@@ -385,6 +386,7 @@ public class MenuInicio extends javax.swing.JFrame {
         jSeparator39 = new javax.swing.JSeparator();
         CrearLista = new javax.swing.JButton();
         BackButton6 = new javax.swing.JButton();
+        NombreUserLista = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -2236,6 +2238,11 @@ public class MenuInicio extends javax.swing.JFrame {
 
         Central3_4.setLayout(null);
 
+        comboUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboUsuariosActionPerformed(evt);
+            }
+        });
         Central3_4.add(comboUsuarios);
         comboUsuarios.setBounds(260, 70, 240, 29);
 
@@ -2621,21 +2628,6 @@ public class MenuInicio extends javax.swing.JFrame {
         Central4_1.add(jLabel2);
         jLabel2.setBounds(160, 240, 130, 17);
 
-        Varnick.setEditable(false);
-        NombreUser.setEditable(false);
-        NombreUser.setFont(berlin);
-        NombreUser.setForeground(new java.awt.Color(102, 102, 102));
-        NombreUser.setText("Ingrese Nombre de Usuario");
-        NombreUser.setBorder(null);
-        NombreUser.setOpaque(false);
-        NombreUser.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                NombreUserFocusGained(evt);
-            }
-        });
-        Central4_1.add(NombreUser);
-        NombreUser.setBounds(310, 230, 220, 30);
-
         CheckboxPublica.setEnabled(false);
         Central4_1.add(CheckboxPublica);
         CheckboxPublica.setBounds(320, 280, 20, 20);
@@ -2693,6 +2685,10 @@ public class MenuInicio extends javax.swing.JFrame {
         });
         Central4_1.add(BackButton6);
         BackButton6.setBounds(0, 11, 101, 50);
+
+        NombreUserLista.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Central4_1.add(NombreUserLista);
+        NombreUserLista.setBounds(310, 230, 220, 29);
 
         Panel_Central.add(Central4_1);
         Central4_1.setBounds(0, 0, 720, 550);
@@ -3147,26 +3143,36 @@ public class MenuInicio extends javax.swing.JFrame {
         Panel_Central.add(Central4_1);
         Panel_Central.revalidate();
         Panel_Central.repaint();
+        NombreUserLista.removeAllItems();
     }//GEN-LAST:event_crearPlaylist_ButtonActionPerformed
 
     private void NombreListaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_NombreListaFocusGained
       
     }//GEN-LAST:event_NombreListaFocusGained
 
-    private void NombreUserFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_NombreUserFocusGained
-    
-    }//GEN-LAST:event_NombreUserFocusGained
-
     private void CheckboxParticularMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CheckboxParticularMouseClicked
-        this.NombreUser.setEditable(true);
+        //this.NombreUser.setEditable(true);
         this.NombreLista.setEditable(true);
         this.CheckboxPublica.setEnabled(true);
+        this.NombreUserLista.setEnabled(true);
+        List lista = u.listaUsuarios();
+        if(NombreUserLista.getItemCount() != 0)
+            NombreUserLista.removeAllItems();
+        if (lista != null) {
+            DtUsuario user;
+            for (int x = 0; x <= lista.size() - 1; x++) {
+                if (lista.get(x) != null) {
+                    user = (DtUsuario) lista.get(x);
+                    NombreUserLista.addItem(user.getNickname());
+                }
+            }
+        }
         this.ComboBoxCategorias.setEnabled(true);
     }//GEN-LAST:event_CheckboxParticularMouseClicked
 
     private void CheckboxPorDefectoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CheckboxPorDefectoMouseClicked
         this.NombreLista.setEditable(true);
-        this.NombreUser.setEditable(false);
+        this.NombreUserLista.setEnabled(false);
         this.CheckboxPublica.setEnabled(false);
         this.ComboBoxCategorias.setEnabled(false);  
     }//GEN-LAST:event_CheckboxPorDefectoMouseClicked
@@ -3193,12 +3199,28 @@ public class MenuInicio extends javax.swing.JFrame {
         if (defecto == true && particular == true) {
             ventana.CambioTexto("   Solo puedes seleccionar un tipo de lista");
             ventana.setVisible(true);
+        } else if (defecto == false && particular == false) {
+            ventana.CambioTexto("   Debes seleccionar un tipo de lista");
+            ventana.setVisible(true);
         } else {
             String nombre = NombreLista.getText();
-            if (defecto == true) {
-                DtListaReproduccion lista = new DtListaporDefecto(nombre);
+            DtListaReproduccion lista;
+            if (defecto) { //aca creo una lista por defecto
+                lista = new DtListaporDefecto(nombre);
                 try {
                     c.crearListaDefecto(lista);
+                    ventana.CambioTexto("La lista se creo exitosamente");
+                    ventana.setVisible(true);
+                } catch (ListaRepetidaException e) {
+                    ventana.CambioTexto("La lista ya existe");
+                    ventana.setVisible(true);
+                }
+            }else{//aca creo una lista particular
+                DtUsuario user = u.buscarUsuario(NombreUserLista.getSelectedItem().toString());
+                lista = new DtListaParticulares(CheckboxPublica.getState(), nombre);
+                //System.out.println(lista.getCanal().getUsuario().getNombre());
+                try {
+                    c.crearListaParticular((DtListaParticulares)lista,user);
                     ventana.CambioTexto("La lista se creo exitosamente");
                     ventana.setVisible(true);
                 } catch (ListaRepetidaException e) {
@@ -3482,6 +3504,10 @@ public class MenuInicio extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_CampoNickFocusGained
 
+    private void comboUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboUsuariosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboUsuariosActionPerformed
+
     
     private void setColor(JPanel pane)
     {
@@ -3633,7 +3659,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JLabel Nombre;
     private javax.swing.JLabel NombreCanal;
     private javax.swing.JTextField NombreLista;
-    private javax.swing.JTextField NombreUser;
+    private javax.swing.JComboBox<String> NombreUserLista;
     private javax.swing.JTextField NombreVideo;
     private javax.swing.JPanel Panel_Central;
     private javax.swing.JPanel Panel_Lateral;
