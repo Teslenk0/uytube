@@ -27,6 +27,6 @@ public interface IControladorCanal {
     
     public abstract List getCanales();
     
-    public abstract void crearListaDefecto(DtListaReproduccion lista);
+    public abstract void crearListaDefecto(DtListaReproduccion lista)throws ListaRepetidaException;
 
 }

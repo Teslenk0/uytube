@@ -3197,14 +3197,14 @@ public class MenuInicio extends javax.swing.JFrame {
             String nombre = NombreLista.getText();
             if (defecto == true) {
                 DtListaReproduccion lista = new DtListaporDefecto(nombre);
-                //try {
+                try {
                     c.crearListaDefecto(lista);
                     ventana.CambioTexto("La lista se creo exitosamente");
                     ventana.setVisible(true);
-                //} catch (ListaRepetidaException e) {
-                    //ventana.CambioTexto("La lista ya existe");
-                    //ventana.setVisible(true);
-                //}
+                } catch (ListaRepetidaException e) {
+                    ventana.CambioTexto("La lista ya existe");
+                    ventana.setVisible(true);
+                }
             }
         }
     }//GEN-LAST:event_CrearListaActionPerformed

@@ -61,23 +61,24 @@ public class ControladorCanal implements IControladorCanal{
     }
     
     @Override
-    public void crearListaDefecto(DtListaReproduccion lista) {
+    public void crearListaDefecto(DtListaReproduccion lista) throws ListaRepetidaException{
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         List canales = mu.obtenerCanales();
-        ListaReproduccion list = null;
-        Canal aux = null;
-        //try {
-            for(int x=0; x<canales.size(); x++){
-                if(canales.get(x) != null){
-                    aux = (Canal)canales.get(x);
-                    System.out.println(aux.getNombre_canal());
-                    list = new ListaporDefecto(lista.getNombreLista()); 
-                    list.setCanal(aux);
-                    mu.crearListaDefecto(list);
-                }
-            }
-        /*} catch (Exception e) {
+        ListaReproduccion list;
+        Canal aux;
+        if (mu.buscoListaDefecto(lista.getNombreLista())) {
             throw new ListaRepetidaException("La lista por defecto ya existe");
-        }*/
+        }
+
+        for (int x = 0; x < canales.size(); x++) {
+            if (canales.get(x) != null) {
+                aux = (Canal) canales.get(x);
+                System.out.println(aux.getNombre_canal());
+                list = new ListaporDefecto(lista.getNombreLista());
+                list.setCanal(aux);
+                mu.crearListaDefecto(list);
+            }
+        }
+
     }
 }
