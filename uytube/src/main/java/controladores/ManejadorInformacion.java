@@ -176,4 +176,13 @@ public class ManejadorInformacion {
         manager.getTransaction().commit();
         manager.close();
     }
+    
+    public List obtenerCanales(){
+        manager = emf.createEntityManager();
+        List <Canal> canales = manager.createQuery("FROM Canal").getResultList();
+        if(canales != null){
+            return canales;
+        }
+        return null;
+    }
 }

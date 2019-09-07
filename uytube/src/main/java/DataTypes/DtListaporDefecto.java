@@ -18,5 +18,10 @@ public class DtListaporDefecto extends DtListaReproduccion {
     public DtListaporDefecto(String nombreLista, DtCanal canal) {
         super(nombreLista, canal);
     }
+
+    public DtListaporDefecto(String nombreLista) {
+        super(nombreLista);
+    }
+    
 }
 

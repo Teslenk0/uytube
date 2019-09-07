@@ -6,6 +6,7 @@
 package controladores;
 
 import DataTypes.DtCanal;
+import DataTypes.DtListaReproduccion;
 import DataTypes.DtListaporDefecto;
 import DataTypes.DtVideo;
 import clases.Canal;
@@ -52,13 +53,31 @@ public class ControladorCanal implements IControladorCanal{
     }
     
     @Override
-    public void crearListaDefecto(DtListaporDefecto lista) throws ListaRepetidaException {
+    public List getCanales(){
+        List canales = new LinkedList();
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
-        try {
-            ListaReproduccion list = new ListaporDefecto(lista);
-            mu.crearListaDefecto(list);
-        } catch (Exception e) {
+        canales = mu.obtenerCanales();
+        return canales;
+    }
+    
+    @Override
+    public void crearListaDefecto(DtListaReproduccion lista) {
+        ManejadorInformacion mu = ManejadorInformacion.getInstance();
+        List canales = mu.obtenerCanales();
+        ListaReproduccion list = null;
+        Canal aux = null;
+        //try {
+            for(int x=0; x<canales.size(); x++){
+                if(canales.get(x) != null){
+                    aux = (Canal)canales.get(x);
+                    System.out.println(aux.getNombre_canal());
+                    list = new ListaporDefecto(lista.getNombreLista()); 
+                    list.setCanal(aux);
+                    mu.crearListaDefecto(list);
+                }
+            }
+        /*} catch (Exception e) {
             throw new ListaRepetidaException("La lista por defecto ya existe");
-        }
+        }*/
     }
 }

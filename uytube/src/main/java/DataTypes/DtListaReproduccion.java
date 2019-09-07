@@ -27,6 +27,13 @@ public abstract class DtListaReproduccion implements Serializable{
         this.canal = canal;
     }
 
+    public DtListaReproduccion(String nombreLista) {
+        this.nombreLista = nombreLista;
+        this.canal = null;
+    }
+    
+    
+
     public String getNombreLista() {
         return nombreLista;
     }

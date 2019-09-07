@@ -30,7 +30,7 @@ public class ListaporDefecto extends ListaReproduccion{
     }
 
     public ListaporDefecto(String nombreLista) {
-        super(nombreLista);
+        super(nombreLista,null);
     }
 
     public ListaporDefecto(String nombreLista, Canal canal) {
