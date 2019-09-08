@@ -1,6 +1,6 @@
 # **UYTUBE**
 
-## **Plataforma uruguaya de reproduccion de video**
+## **Plataforma uruguaya de reproduccion de videos**
 
 ### **Breve descripcion del projecto**
 UyTube es una plataforma uruguaya de reproduccion de videos, en proceso de desarrollo y testing.
