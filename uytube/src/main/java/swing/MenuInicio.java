@@ -400,12 +400,13 @@ public class MenuInicio extends javax.swing.JFrame {
         jSeparator58 = new javax.swing.JSeparator();
         jSeparator59 = new javax.swing.JSeparator();
         jSeparator62 = new javax.swing.JSeparator();
-        botonAceptarModificarLista = new javax.swing.JButton();
         BackButton8 = new javax.swing.JButton();
         comboCategoriaModificarLista = new javax.swing.JComboBox<>();
         comboUsuarioModificarLista = new javax.swing.JComboBox<>();
         comboListaModificarLista = new javax.swing.JComboBox<>();
         categoriaModificarListaLabel = new javax.swing.JLabel();
+        botonAceptarModificarLista1 = new javax.swing.JButton();
+        botonSeleccionarModificarLista = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -2743,17 +2744,6 @@ public class MenuInicio extends javax.swing.JFrame {
         Central4_2.add(jSeparator62);
         jSeparator62.setBounds(310, 170, 220, 20);
 
-        botonAceptarModificarLista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_2.png"))); // NOI18N
-        botonAceptarModificarLista.setFocusable(false);
-        botonAceptarModificarLista.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_1.png"))); // NOI18N
-        botonAceptarModificarLista.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonAceptarModificarListaActionPerformed(evt);
-            }
-        });
-        Central4_2.add(botonAceptarModificarLista);
-        botonAceptarModificarLista.setBounds(310, 410, 70, 40);
-
         BackButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back.png"))); // NOI18N
         BackButton8.setBorder(null);
         BackButton8.setBorderPainted(false);
@@ -2785,6 +2775,26 @@ public class MenuInicio extends javax.swing.JFrame {
         categoriaModificarListaLabel.setText("Categoria");
         Central4_2.add(categoriaModificarListaLabel);
         categoriaModificarListaLabel.setBounds(160, 200, 100, 17);
+
+        botonAceptarModificarLista1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_2.png"))); // NOI18N
+        botonAceptarModificarLista1.setFocusable(false);
+        botonAceptarModificarLista1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_1.png"))); // NOI18N
+        botonAceptarModificarLista1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAceptarModificarLista1ActionPerformed(evt);
+            }
+        });
+        Central4_2.add(botonAceptarModificarLista1);
+        botonAceptarModificarLista1.setBounds(310, 410, 70, 40);
+
+        botonSeleccionarModificarLista.setText("Seleccionar");
+        botonSeleccionarModificarLista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonSeleccionarModificarListaActionPerformed(evt);
+            }
+        });
+        Central4_2.add(botonSeleccionarModificarLista);
+        botonSeleccionarModificarLista.setBounds(570, 90, 140, 31);
 
         Panel_Central.add(Central4_2);
         Central4_2.setBounds(0, 0, 720, 550);
@@ -3625,10 +3635,6 @@ public class MenuInicio extends javax.swing.JFrame {
         // me falta chequear cuando es una respuesta para agregar respuesta;
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void botonAceptarModificarListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAceptarModificarListaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botonAceptarModificarListaActionPerformed
-
     private void BackButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButton8ActionPerformed
         Panel_Central.removeAll();
         Panel_Central.add(Scroll4);
@@ -3662,6 +3668,25 @@ public class MenuInicio extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_modificarPlaylist_ButtonActionPerformed
+
+    private void botonAceptarModificarLista1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAceptarModificarLista1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonAceptarModificarLista1ActionPerformed
+
+    private void botonSeleccionarModificarListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSeleccionarModificarListaActionPerformed
+        // TODO add your handling code here:
+        List lista = c.getListasReproduccion(comboUsuarioModificarLista.getSelectedItem().toString());
+        DtUsuario user;
+        for (int x = 0; x <= lista.size() - 1; x++) {
+            if (lista.get(x) != null) {
+                user = (DtUsuario) lista.get(x);
+                comboLista.addItem(user.getNickname());
+            }
+        }
+        
+        
+        
+    }//GEN-LAST:event_botonSeleccionarModificarListaActionPerformed
 
     private void setColor(JPanel pane) {
         pane.setBackground(new Color(114, 114, 114));
@@ -3885,7 +3910,8 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JLabel apellido;
     private javax.swing.JLabel apellido1;
     private javax.swing.JLabel apellido2;
-    private javax.swing.JButton botonAceptarModificarLista;
+    private javax.swing.JButton botonAceptarModificarLista1;
+    private javax.swing.JButton botonSeleccionarModificarLista;
     private javax.swing.JPanel btn_Categorias;
     private javax.swing.JPanel btn_CerrarSesion;
     private javax.swing.JPanel btn_Inicio;

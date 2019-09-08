@@ -90,8 +90,18 @@ public class ControladorCanal implements IControladorCanal{
     public List getCanales(){
         List canales = new LinkedList();
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
+        List<DtCanal> aux = new LinkedList<>();
+        Canal tmp;
+        DtCanal temp;
         canales = mu.obtenerCanales();
-        return canales;
+        for (int x = 0; x < canales.size(); x++) {
+            if (canales.get(x) != null) {
+                tmp = (Canal) canales.get(x);
+                temp = new DtCanal(tmp.getNombre_canal(),tmp.getDescripcion(), tmp.getPrivado());
+                aux.add(temp);
+            }
+        }
+        return aux;
     }
     
     @Override
@@ -133,5 +143,10 @@ public class ControladorCanal implements IControladorCanal{
         ListaReproduccion list = new ListaParticulares(lista.getPrivado(), lista.getNombreLista(), aux);
         
         mu.crearLista(list);
+    }
+    
+    @Override
+    public List getListasReproduccion(String nick){
+        return null;
     }
 }

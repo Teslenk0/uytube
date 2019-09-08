@@ -36,6 +36,8 @@ public interface IControladorCanal {
     
     public abstract List getCanales();
     
+    public abstract List getListasReproduccion(String nick);
+    
     public abstract void crearListaDefecto(DtListaReproduccion lista)throws ListaRepetidaException;
 
     public void crearListaParticular(DtListaParticulares lista, DtUsuario user) throws ListaRepetidaException;
