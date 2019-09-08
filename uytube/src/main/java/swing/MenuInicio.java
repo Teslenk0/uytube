@@ -2785,7 +2785,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central4_2.add(botonAceptarModificarLista1);
-        botonAceptarModificarLista1.setBounds(310, 410, 70, 40);
+        botonAceptarModificarLista1.setBounds(320, 410, 70, 40);
 
         botonSeleccionarModificarLista.setText("Seleccionar");
         botonSeleccionarModificarLista.addActionListener(new java.awt.event.ActionListener() {
@@ -3671,18 +3671,33 @@ public class MenuInicio extends javax.swing.JFrame {
 
     private void botonAceptarModificarLista1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAceptarModificarLista1ActionPerformed
         // TODO add your handling code here:
+        
+         Boolean privado = checkPrivadaModificarLista.getState();
+         /*ACA VA LO DE 
+         CATEGORIA
+         AGREGAR DESPUES
+         */
+         
+         DtListaReproduccion tmp = new DtListaParticulares(privado, comboListaModificarLista.getSelectedItem().toString());
+         c.modificarListaParticular(tmp);
     }//GEN-LAST:event_botonAceptarModificarLista1ActionPerformed
 
     private void botonSeleccionarModificarListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSeleccionarModificarListaActionPerformed
         // TODO add your handling code here:
         comboListaModificarLista.removeAllItems();
         List lista = c.getListasReproduccion(comboUsuarioModificarLista.getSelectedItem().toString());
-        DtListaParticulares aux;
-        for (int x = 0; x <= lista.size() - 1; x++) {
-            if (lista.get(x) != null) {
-                aux = (DtListaParticulares) lista.get(x);
-                comboListaModificarLista.addItem(aux.getNombreLista());
+        if (lista != null) {
+            DtListaParticulares aux;
+            for (int x = 0; x <= lista.size() - 1; x++) {
+                if (lista.get(x) != null) {
+                    aux = (DtListaParticulares) lista.get(x);
+                    comboListaModificarLista.addItem(aux.getNombreLista());
+                }
             }
+        }else{
+            VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
+            error.CambioTexto("  El usuario seleccionado no tiene listas de reproduccion asociadas");
+            error.setVisible(true);
         }
         
         

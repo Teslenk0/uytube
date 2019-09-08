@@ -147,7 +147,7 @@ public class ControladorCanal implements IControladorCanal{
     
     @Override
     public List getListasReproduccion(String nick){
-        List listasParticulares = new LinkedList();
+        List listasParticulares;
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         List<DtListaParticulares> aux = new LinkedList<>();
         ListaParticulares tmp;
@@ -163,5 +163,8 @@ public class ControladorCanal implements IControladorCanal{
         return aux;
     }
     
-    
+    @Override
+    public void modificarListaParticular(DtListaReproduccion lista){
+        
+    }
 }

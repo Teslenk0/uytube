@@ -40,5 +40,7 @@ public interface IControladorCanal {
     
     public abstract void crearListaDefecto(DtListaReproduccion lista)throws ListaRepetidaException;
 
-    public void crearListaParticular(DtListaParticulares lista, DtUsuario user) throws ListaRepetidaException;
+    public abstract void crearListaParticular(DtListaParticulares lista, DtUsuario user) throws ListaRepetidaException;
+    
+    public abstract void modificarListaParticular(DtListaReproduccion lista);
 }
