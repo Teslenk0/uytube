@@ -169,6 +169,26 @@ public class ManejadorInformacion {
                 .getResultList();
     }
     
+    public List listaResp(String com){
+        manager = emf.createEntityManager();
+        return manager.createQuery("SELECT r FROM Respuestas r WHERE r.comentario = '" + com + "'")
+                .getResultList();
+    }
+    
+    public void addComentario (Comentario c){
+        manager = emf.createEntityManager();
+        manager.getTransaction().begin();
+        manager.persist(c);
+        manager.getTransaction().commit();
+        manager.close();
+    }
+    
+    
+    public Video buscadorVideo(String v){
+        manager = emf.createEntityManager();
+         return manager.find(Video.class, v);
+    }
+    
     public void crearLista(ListaReproduccion list){
         manager = emf.createEntityManager();
         manager.getTransaction().begin();

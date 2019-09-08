@@ -6,12 +6,14 @@
 package controladores;
 
 import DataTypes.DtCanal;
+import DataTypes.DtComentario;
 import DataTypes.DtListaParticulares;
 import DataTypes.DtListaReproduccion;
 import DataTypes.DtListaporDefecto;
 import DataTypes.DtUsuario;
 import DataTypes.DtVideo;
 import clases.Canal;
+import clases.Comentario;
 import clases.ListaParticulares;
 import clases.ListaReproduccion;
 import clases.ListaporDefecto;
@@ -49,11 +51,39 @@ public class ControladorCanal implements IControladorCanal{
         return lista;
     }
     
+    public DtVideo obtenerVideo(String v){
+        ManejadorInformacion mu = ManejadorInformacion.getInstance();
+        Video video = mu.buscadorVideo(v);
+        
+        DtCanal canal = new DtCanal(video.getCanal().getNombre_canal(),video.getCanal().getDescripcion(),video.getCanal().getPrivado());
+        DtVideo vid = new DtVideo(video.getNombre(),canal, video.getFechaPublicacion(), video.getUrl(), video.getDescripcion(), video.getCategoria(), video.getDuracion(), video.getPrivado());
+        if(vid != null){
+             return vid;
+         } 
+        return null;
+        
+    }
+    
     @Override
     public List listaComentarios(String video){
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         List lista = mu.listaCom(video);
         return lista;
+    }
+    @Override
+    public List listaRespuestas(String comentario){
+        ManejadorInformacion mu = ManejadorInformacion.getInstance();
+        List lista = mu.listaResp(comentario);
+        return lista;
+    }
+    
+    @Override
+    public void agregarComentario(DtComentario c){
+        ManejadorInformacion mu = ManejadorInformacion.getInstance();
+        Canal canal = new Canal (c.getVideo().getCanal().getNombre_canal(), c.getVideo().getCanal().getDescripcion(), c.getVideo().getCanal().getPrivado());
+        Video vid = new Video(c.getVideo().getNombre(),canal, c.getVideo().getFechaPublicacion(), c.getVideo().getUrl(), c.getVideo().getDescripcion(), c.getVideo().getCategoria(), c.getVideo().getDuracion(), c.getVideo().isPrivado());
+        Comentario com = new Comentario(c.getNick(), c.getComentario(), c.getFecha(), vid);
+        mu.addComentario(com);
     }
     
     @Override

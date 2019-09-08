@@ -48,6 +48,12 @@ public class DtComentario implements Serializable {
     public DtVideo getVideo() {
         return video;
     }
+
+    public class getVideo {
+
+        public getVideo() {
+        }
+    }
     
     
 }

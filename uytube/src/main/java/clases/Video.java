@@ -121,13 +121,13 @@ public class Video implements Serializable {
     public String getDuracion() {
         return duracion;
     }
+    
+    public Boolean getPrivado() {
+        return privado;
+    }
 
     public void setDuracion(String duracion) {
         this.duracion = duracion;
-    }
-
-    public Boolean getPrivado() {
-        return privado;
     }
 
     public void setPrivado(Boolean privado) {

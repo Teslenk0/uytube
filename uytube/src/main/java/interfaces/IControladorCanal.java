@@ -6,6 +6,7 @@
 package interfaces;
 
 import DataTypes.DtCanal;
+import DataTypes.DtComentario;
 import DataTypes.DtListaParticulares;
 import DataTypes.DtListaReproduccion;
 import DataTypes.DtListaporDefecto;
@@ -25,7 +26,13 @@ public interface IControladorCanal {
     
     public abstract List listaVideos(DtCanal canal);
     
+    public abstract DtVideo obtenerVideo(String v);
+    
     public abstract List listaComentarios(String video);
+    
+    public abstract List listaRespuestas(String comentario);
+    
+    public abstract void agregarComentario(DtComentario c);
     
     public abstract List getCanales();
     
