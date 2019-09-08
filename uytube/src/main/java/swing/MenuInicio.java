@@ -3798,42 +3798,45 @@ public class MenuInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_botonSeleccionarModificarListaActionPerformed
 
     private void Modificar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Modificar1ActionPerformed
-        /*String nomVideo = Varnom1.getText();
-        String ape = Varape1.getText();
-        String nomCanal = Varcanal1.getText();
-        String descripcion = VarDescr1.getText();
-        Date nuevafecha = DateChoose1.getDate();
-        String pass = VarPass.getText();
-        Boolean privado1 = CheckboxPrivado1.getState();
-        Boolean cambio = true;
+        String nomV = VarNomvideo.getText();
+        String durV = VarDuracion.getText();
+        String urlV = VarUrl.getText();
+        String catV = VarCategoria.getText();
+        String desV = VarDescrvideo.getText();
+        Date fechaV = DateVideo2.getDate();
+        Boolean privadoV = CheckboxPrivado4.getState();
 
-        DtUsuario user = (DtUsuario) u.buscarUsuario(Varnick1.getText());
+        String nomVideo = comboVideo2.getSelectedItem().toString();
+        DtVideo video = c.obtenerVideo(nomVideo);
+        
         VentanaEmergente mensaje = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-        if (CampoImagen1.getText().equals("No se ha seleccionado una imágen") || CampoImagen1.getText().equals("Imágen Seleccionada")) {
-            cambio = false;
-        }
-        if ((CampoImagen1.getText().equals("No se ha seleccionado una imágen") || CampoImagen1.getText().equals("Imágen Seleccionada")) && user.getImagen().equals("/imagenesUsuarios/Defecto.png")) {
-            rutaImagen = user.getImagen();
-        } else {
-            rutaImagen = "/imagenesUsuarios/" + user.getNickname() + ".png";
-        }
-        if (nuevafecha == null || pass.isEmpty() || nom.isEmpty() || ape.isEmpty() || descripcion.isEmpty() || descripcion.isEmpty()) {
-            mensaje.CambioTexto("Debes llenar todos los campos obligatorios");
-            mensaje.setVisible(true);
-        } else if (user.getCanal().getPrivado().equals(privado1) && user.getNombre().equals(nom) && user.getApellido().equals(ape) && user.getContraseña().equals(pass) && user.getCanal().getNombre_canal().equals(nomCanal) && user.getCanal().getDescripcion().equals(descripcion) && (CampoImagen1.getText().equals("Imágen seleccionada") || CampoImagen1.getText().equals("No se ha seleccionado una imágen"))) {
+        if (video.getNombre().equals(nomV) && video.getDuracion().equals(durV) && video.getUrl().equals(urlV) && video.getCategoria().equals(catV) && video.getDescripcion().equals(desV) && video.getFechaPublicacion().equals(fechaV) && video.getPrivado()==privadoV) {
             mensaje.CambioTexto("        No se realizo ninguna modificación");
-            mensaje.setVisible(true);
-        } else {
-            if (nomCanal == null) {
-                nomCanal = user.getNickname();
+        }
+        else{
+            DtVideo vid = new DtVideo(nomV,video.getCanal(),fechaV,urlV,desV,catV,durV,privadoV);
+            try {
+                c.modificarVideo(vid,video.getNombre());
+                mensaje.CambioTexto("      Modificaciones realizadas con éxito");
+                Central3_2_1_Panel.removeAll();
+                Central3_2_1_Panel.revalidate();
+                Central3_2_1_Panel.repaint();
+                String usuario = comboVideo1.getSelectedItem().toString();
+                DtUsuario user = u.buscarUsuario(usuario);
+                List lista = c.listaVideos(user.getCanal());
+                if (!lista.isEmpty()) {
+                    comboVideo2.removeAllItems();
+                    for (int x = 0; x <= lista.size() - 1; x++) {
+                        if (lista.get(x) != null) {
+                            comboVideo2.addItem((String) lista.get(x));
+                        }
+                    }
+                }
+            } catch (VideoRepetidoException ex) {
+                mensaje.CambioTexto("   El nuevo nombre de video indicado ya existe");
             }
-            DtUsuario modUser;
-            DtCanal modCanal = new DtCanal(nomCanal, descripcion, privado1);
-            modUser = new DtUsuario(user.getNickname(), pass, nom, ape, user.getEmail(), nuevafecha, rutaImagen, user.getCanal());
-            u.modificarUsuario(modUser, modCanal, imagen, cambio);
-            mensaje.CambioTexto("      Modificaciones realizadas con éxito");
-            mensaje.setVisible(true);
-        }*/
+        }
+        mensaje.setVisible(true);
     }//GEN-LAST:event_Modificar1ActionPerformed
 
     private void BackButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButton9ActionPerformed
@@ -3844,10 +3847,19 @@ public class MenuInicio extends javax.swing.JFrame {
         Central3_2_Panel.removeAll();
         Central3_2_Panel.revalidate();
         Central3_2_Panel.repaint();
+        Central3_2_1_Panel.removeAll();
+        Central3_2_1_Panel.revalidate();
+        Central3_2_1_Panel.repaint();
         comboVideo1.removeAllItems();
     }//GEN-LAST:event_BackButton9ActionPerformed
 
     private void SeleccionarUsuario3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeleccionarUsuario3ActionPerformed
+        Central3_2_Panel.removeAll();
+        Central3_2_Panel.revalidate();
+        Central3_2_Panel.repaint();
+        Central3_2_1_Panel.removeAll();
+        Central3_2_1_Panel.revalidate();
+        Central3_2_1_Panel.repaint();
         String usuario = comboVideo1.getSelectedItem().toString();
         DtUsuario user = u.buscarUsuario(usuario);
         List lista = c.listaVideos(user.getCanal());
@@ -3863,7 +3875,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         } else {
             VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-            error.CambioTexto("              No hay videos ingresados.");
+            error.CambioTexto("  Este usuario no contiene videos registrados");
             error.setVisible(true);
         }
     }//GEN-LAST:event_SeleccionarUsuario3ActionPerformed

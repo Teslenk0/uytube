@@ -44,6 +44,19 @@ public class ControladorCanal implements IControladorCanal{
     }
     
     @Override
+    public void modificarVideo(DtVideo v, String oldV) throws VideoRepetidoException{
+        ManejadorInformacion mu = ManejadorInformacion.getInstance();
+        Canal canal = new Canal(v.getCanal().getNombre_canal(),v.getCanal().getDescripcion(),v.getCanal().getPrivado());
+        Video video = new Video(v.getNombre(),canal,v.getFechaPublicacion(),v.getUrl(),v.getDescripcion(),v.getCategoria(),v.getDuracion(),v.getPrivado());
+        try{
+            mu.modificarVideo(video, oldV);
+        }catch(Exception c){
+            throw new VideoRepetidoException("El video ya existe");
+        }
+    }
+    
+    
+    @Override
     public List listaVideos(DtCanal c){
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         Canal canal = new Canal(c.getNombre_canal(),c.getDescripcion(),c.getPrivado());

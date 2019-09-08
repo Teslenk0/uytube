@@ -157,6 +157,16 @@ public class ManejadorInformacion {
         manager.close();
     }
     
+     public void modificarVideo(Video video, String oldV){
+        manager = emf.createEntityManager();
+        manager.getTransaction().begin();
+        Video vid = manager.find(Video.class, oldV);
+        manager.remove(vid);
+        manager.merge(video);
+        manager.getTransaction().commit();
+        manager.close();
+    }
+    
     public List listaVid(Canal c){
         manager = emf.createEntityManager();
         return manager.createQuery("SELECT v.nombre FROM Video v WHERE v.canal = '" + c.getNombre_canal() + "'")

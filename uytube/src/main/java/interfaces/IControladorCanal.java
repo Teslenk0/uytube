@@ -24,6 +24,8 @@ public interface IControladorCanal {
     
     public abstract void registrarVideo(DtVideo video) throws VideoRepetidoException;
     
+    public abstract void modificarVideo(DtVideo video, String oldV) throws VideoRepetidoException;
+    
     public abstract List listaVideos(DtCanal canal);
     
     public abstract DtVideo obtenerVideo(String v);
