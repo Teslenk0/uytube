@@ -221,4 +221,14 @@ public class ManejadorInformacion {
             return true;
         return false;
     }
+    
+    public List obtenerListasParticulares(String nick){
+        manager = emf.createEntityManager();
+        Usuario u = this.buscadorUsuario(nick);
+        List aux = manager.createQuery("FROM ListaParticulares l WHERE l.canal='"+u.getCanal().getNombre_canal()+"'").getResultList(); //busco si ya existe
+        if(aux != null)
+            return aux;
+        return null;
+        
+    }
 }

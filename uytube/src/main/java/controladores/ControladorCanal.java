@@ -87,7 +87,7 @@ public class ControladorCanal implements IControladorCanal{
     }
     
     @Override
-    public List getCanales(){
+    public List getCanales() {
         List canales = new LinkedList();
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         List<DtCanal> aux = new LinkedList<>();
@@ -97,7 +97,7 @@ public class ControladorCanal implements IControladorCanal{
         for (int x = 0; x < canales.size(); x++) {
             if (canales.get(x) != null) {
                 tmp = (Canal) canales.get(x);
-                temp = new DtCanal(tmp.getNombre_canal(),tmp.getDescripcion(), tmp.getPrivado());
+                temp = new DtCanal(tmp.getNombre_canal(), tmp.getDescripcion(), tmp.getPrivado());
                 aux.add(temp);
             }
         }
@@ -147,6 +147,21 @@ public class ControladorCanal implements IControladorCanal{
     
     @Override
     public List getListasReproduccion(String nick){
-        return null;
+        List listasParticulares = new LinkedList();
+        ManejadorInformacion mu = ManejadorInformacion.getInstance();
+        List<DtListaParticulares> aux = new LinkedList<>();
+        ListaParticulares tmp;
+        DtListaParticulares temp;
+        listasParticulares = mu.obtenerListasParticulares(nick);
+        for (int x = 0; x < listasParticulares.size(); x++) {
+            if (listasParticulares.get(x) != null) {
+                tmp = (ListaParticulares) listasParticulares.get(x);
+                temp = new DtListaParticulares(tmp.getPrivado(), tmp.getNombreLista());
+                aux.add(temp);
+            }
+        }
+        return aux;
     }
+    
+    
 }

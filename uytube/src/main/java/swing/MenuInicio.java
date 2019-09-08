@@ -3675,12 +3675,13 @@ public class MenuInicio extends javax.swing.JFrame {
 
     private void botonSeleccionarModificarListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSeleccionarModificarListaActionPerformed
         // TODO add your handling code here:
+        comboListaModificarLista.removeAllItems();
         List lista = c.getListasReproduccion(comboUsuarioModificarLista.getSelectedItem().toString());
-        DtUsuario user;
+        DtListaParticulares aux;
         for (int x = 0; x <= lista.size() - 1; x++) {
             if (lista.get(x) != null) {
-                user = (DtUsuario) lista.get(x);
-                comboLista.addItem(user.getNickname());
+                aux = (DtListaParticulares) lista.get(x);
+                comboListaModificarLista.addItem(aux.getNombreLista());
             }
         }
         
