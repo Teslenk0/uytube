@@ -5,7 +5,6 @@
  */
 package DataTypes;
 
-import clases.Categoria;
 import clases.Video;
 import java.io.Serializable;
 import java.util.Date;
@@ -81,7 +80,7 @@ public class DtVideo implements Serializable{
         return duracion;
     }
 
-    public boolean isPrivado() {
+    public boolean getPrivado() {
         return privado;
     }
     

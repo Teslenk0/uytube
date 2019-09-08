@@ -99,42 +99,4 @@ public class Canal implements Serializable {
     public String toString() {
         return "Canal{" + "nombre_canal=" + nombre_canal + ", descripcion=" + descripcion + ", privado=" + privado + ", usuario=" + usuario + '}';
     }
-
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 79 * hash + Objects.hashCode(this.nombre_canal);
-        hash = 79 * hash + Objects.hashCode(this.descripcion);
-        hash = 79 * hash + Objects.hashCode(this.privado);
-        hash = 79 * hash + Objects.hashCode(this.usuario);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Canal other = (Canal) obj;
-        if (!Objects.equals(this.nombre_canal, other.nombre_canal)) {
-            return false;
-        }
-        if (!Objects.equals(this.descripcion, other.descripcion)) {
-            return false;
-        }
-        if (!Objects.equals(this.privado, other.privado)) {
-            return false;
-        }
-        if (!Objects.equals(this.usuario, other.usuario)) {
-            return false;
-        }
-        return true;
-    }
-    
 }

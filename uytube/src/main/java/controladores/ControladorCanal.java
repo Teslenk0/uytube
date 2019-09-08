@@ -35,7 +35,7 @@ public class ControladorCanal implements IControladorCanal{
     public void registrarVideo(DtVideo v) throws VideoRepetidoException{
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         Canal canal = new Canal(v.getCanal().getNombre_canal(),v.getCanal().getDescripcion(),v.getCanal().getPrivado());
-        Video video = new Video(v.getNombre(),canal,v.getFechaPublicacion(),v.getUrl(),v.getDescripcion(),v.getCategoria(),v.getDuracion(),v.isPrivado());
+        Video video = new Video(v.getNombre(),canal,v.getFechaPublicacion(),v.getUrl(),v.getDescripcion(),v.getCategoria(),v.getDuracion(),v.getPrivado());
         try{
             mu.altaVideo(video);
         }catch(Exception c){
@@ -51,6 +51,7 @@ public class ControladorCanal implements IControladorCanal{
         return lista;
     }
     
+    @Override
     public DtVideo obtenerVideo(String v){
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         Video video = mu.buscadorVideo(v);
@@ -81,7 +82,7 @@ public class ControladorCanal implements IControladorCanal{
     public void agregarComentario(DtComentario c){
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         Canal canal = new Canal (c.getVideo().getCanal().getNombre_canal(), c.getVideo().getCanal().getDescripcion(), c.getVideo().getCanal().getPrivado());
-        Video vid = new Video(c.getVideo().getNombre(),canal, c.getVideo().getFechaPublicacion(), c.getVideo().getUrl(), c.getVideo().getDescripcion(), c.getVideo().getCategoria(), c.getVideo().getDuracion(), c.getVideo().isPrivado());
+        Video vid = new Video(c.getVideo().getNombre(),canal, c.getVideo().getFechaPublicacion(), c.getVideo().getUrl(), c.getVideo().getDescripcion(), c.getVideo().getCategoria(), c.getVideo().getDuracion(), c.getVideo().getPrivado());
         Comentario com = new Comentario(c.getNick(), c.getComentario(), c.getFecha(), vid);
         mu.addComentario(com);
     }
