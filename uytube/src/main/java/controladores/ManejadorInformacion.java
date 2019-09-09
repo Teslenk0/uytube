@@ -99,7 +99,7 @@ public class ManejadorInformacion {
         manager.getTransaction().begin();
         Usuario user = manager.find(Usuario.class, u.getNickname());
         manager.remove(user);
-        user = new Usuario(u.getNickname(), u.getContraseña(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen(),c);
+        user = new Usuario(u.getNickname(), u.getContraseña(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen(), c);
         manager.persist(user);
         manager.getTransaction().commit();
         manager.close();
@@ -112,7 +112,7 @@ public class ManejadorInformacion {
         manager.getTransaction().commit();
         manager.close();
     }
-    
+
     public void seguirUsuario(Usuario u, String s) {
         manager = emf.createEntityManager();
         manager.getTransaction().begin();
@@ -125,39 +125,39 @@ public class ManejadorInformacion {
     public void dejarSeguir(Usuario u, String s) {
         manager = emf.createEntityManager();
         manager.getTransaction().begin();
-        Query query = manager.createQuery("delete from Seguir s where nickname = '" + u.getNickname() + "' and seguido = '" + s + "'"); 
+        Query query = manager.createQuery("delete from Seguir s where nickname = '" + u.getNickname() + "' and seguido = '" + s + "'");
         query.executeUpdate();
         manager.getTransaction().commit();
         manager.close();
     }
-    
+
     public List ObtenerSeguidos(String nickname) {
-        manager=emf.createEntityManager();
+        manager = emf.createEntityManager();
         return manager.createQuery("SELECT s.seguidos FROM Seguir s WHERE s.us = '" + nickname + "'")
                 .getResultList();
     }
-    
+
     public List ObtenerSeguidores(String nick) {
-        manager=emf.createEntityManager();
+        manager = emf.createEntityManager();
         return manager.createQuery("SELECT s.us FROM Seguir s WHERE s.seguidos = '" + nick + "'")
                 .getResultList();
     }
-    
+
     public Usuario buscadorUsuario(String nick) {
         manager = emf.createEntityManager();
         Usuario user = manager.find(Usuario.class, nick);
         return user;
     }
-    
-    public void altaVideo(Video video){
+
+    public void altaVideo(Video video) {
         manager = emf.createEntityManager();
         manager.getTransaction().begin();
         manager.persist(video);
         manager.getTransaction().commit();
         manager.close();
     }
-    
-     public void modificarVideo(Video video, String oldV){
+
+    public void modificarVideo(Video video, String oldV) {
         manager = emf.createEntityManager();
         manager.getTransaction().begin();
         Video vid = manager.find(Video.class, oldV);
@@ -166,82 +166,84 @@ public class ManejadorInformacion {
         manager.getTransaction().commit();
         manager.close();
     }
-    
-    public List listaVid(Canal c){
+
+    public List listaVid(Canal c) {
         manager = emf.createEntityManager();
         return manager.createQuery("SELECT v.nombre FROM Video v WHERE v.canal = '" + c.getNombre_canal() + "'")
                 .getResultList();
     }
-    
-    public List listaCom(String v){
+
+    public List listaCom(String v) {
         manager = emf.createEntityManager();
         return manager.createQuery("SELECT c.comentario FROM Comentario c WHERE c.video = '" + v + "'")
                 .getResultList();
     }
-    
-    public List listaResp(String com){
+
+    public List listaResp(String com) {
         manager = emf.createEntityManager();
         return manager.createQuery("SELECT r FROM Respuestas r WHERE r.comentario = '" + com + "'")
                 .getResultList();
     }
-    
-    public void addComentario (Comentario c){
+
+    public void addComentario(Comentario c) {
         manager = emf.createEntityManager();
         manager.getTransaction().begin();
         manager.persist(c);
         manager.getTransaction().commit();
         manager.close();
     }
-    
-    
-    public Video buscadorVideo(String v){
+
+    public Video buscadorVideo(String v) {
         manager = emf.createEntityManager();
-         return manager.find(Video.class, v);
+        return manager.find(Video.class, v);
     }
-    
-    public void crearLista(ListaReproduccion list){
+
+    public void crearLista(ListaReproduccion list) {
         manager = emf.createEntityManager();
         manager.getTransaction().begin();
         manager.persist(list);
         manager.getTransaction().commit();
         manager.close();
     }
-    
-    public List obtenerCanales(){
+
+    public List obtenerCanales() {
         manager = emf.createEntityManager();
-        List <Canal> canales = manager.createQuery("FROM Canal").getResultList();
-        if(canales != null){
+        List<Canal> canales = manager.createQuery("FROM Canal").getResultList();
+        if (canales != null) {
             return canales;
         }
         return null;
     }
 
-    public Boolean buscoListaDefecto(String nombre){
+    public Boolean buscoListaDefecto(String nombre) {
         manager = emf.createEntityManager();
-        int resultado = manager.createQuery("FROM ListaporDefecto l WHERE l.nombreLista='"+nombre+"'").getResultList().size(); //busco si ya existe
-        if(resultado != 0)
+        int resultado = manager.createQuery("FROM ListaporDefecto l WHERE l.nombreLista='" + nombre + "'").getResultList().size(); //busco si ya existe
+        if (resultado != 0) {
             return true;
+        }
         return false;
     }
-    
-    public Boolean buscoListaParticular(String nombreLista,String nombreCanal){
+
+    public Boolean buscoListaParticular(String nombreLista, String nombreCanal) {
         manager = emf.createEntityManager();
-        int resultado = manager.createQuery("FROM ListaParticulares l WHERE l.nombreLista='"+nombreLista+"' and l.canal='"+nombreCanal+"'").getResultList().size(); //busco si ya existe
-        if(resultado != 0)
+        int resultado = manager.createQuery("FROM ListaParticulares l WHERE l.nombreLista='" + nombreLista + "' and l.canal='" + nombreCanal + "'").getResultList().size(); //busco si ya existe
+        if (resultado != 0) {
             return true;
+        }
         return false;
     }
-    
-    public List obtenerListasParticulares(String nick){
+
+    public List obtenerListasParticulares(String nick) {
         manager = emf.createEntityManager();
         Usuario u = this.buscadorUsuario(nick);
-        List aux = manager.createQuery("FROM ListaParticulares l WHERE l.canal='"+u.getCanal().getNombre_canal()+"'").getResultList(); //busco si ya existe
-        if(aux != null)
+        List aux = manager.createQuery("FROM ListaParticulares l WHERE l.canal='" + u.getCanal().getNombre_canal() + "'").getResultList(); //busco si ya existe
+        if (aux != null) {
             return aux;
+        }
         return null;
-        
+
     }
-    
+
     public void registrarCategoria(Categoria c) {
         manager = emf.createEntityManager();
         manager.getTransaction().begin();
@@ -250,12 +252,24 @@ public class ManejadorInformacion {
         manager.close();
 
     }
-    
-    public List obtenerCategorias(){
+
+    public List obtenerCategorias() {
         manager = emf.createEntityManager();
         List aux = manager.createQuery("FROM Categoria c").getResultList(); //busco si ya existe
-        if(aux != null)
+        if (aux != null) {
             return aux;
+        }
         return null;
+    }
+
+    public void modificarListaParticular(ListaParticulares list) {
+        manager = emf.createEntityManager();
+        manager.getTransaction().begin();
+        ListaParticulares aux = (ListaParticulares) manager.createQuery("FROM ListaParticulares l WHERE l.nombreLista='" + list.getNombreLista() + "' and l.canal='" + list.getCanal().getNombre_canal() + "'").getSingleResult();
+        aux.setCategoria(list.getCategoria());
+        //System.out.println(list.getCategoria().getNombreCategoria());
+        aux.setPrivado(list.getPrivado());
+        manager.getTransaction().commit();
+        manager.close();
     }
 }

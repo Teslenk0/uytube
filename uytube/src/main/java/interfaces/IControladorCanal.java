@@ -45,7 +45,7 @@ public interface IControladorCanal {
 
     public abstract void crearListaParticular(DtListaParticulares lista, DtUsuario user) throws ListaRepetidaException;
     
-    public abstract void modificarListaParticular(DtListaReproduccion lista);
+    public abstract void modificarListaParticular(DtListaParticulares lista, DtUsuario user);
     
     public abstract void registrarCategoria(DtCategoria c);
     

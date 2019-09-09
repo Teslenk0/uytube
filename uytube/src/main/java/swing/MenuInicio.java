@@ -4162,18 +4162,18 @@ public class MenuInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_modificarPlaylist_ButtonActionPerformed
 
     private void botonAceptarModificarLista1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAceptarModificarLista1ActionPerformed
-        // TODO add your handling code here:
-        
+        // TODO add your handling code here:        
         Boolean privado = checkPrivadaModificarLista.getState();
         DtListaReproduccion tmp;
         String aux = "";
-        if(comboCategoriaModificarLista.getSelectedItem().toString().equals(aux)){
+        DtUsuario user = u.buscarUsuario(comboUsuarioModificarLista.getSelectedItem().toString());
+        if (!comboCategoriaModificarLista.getSelectedItem().toString().equals(aux)) {
             DtCategoria cat = new DtCategoria(comboCategoriaModificarLista.getSelectedItem().toString());
-            tmp = new DtListaParticulares(privado, new DtCategoria(comboListaModificarLista.getSelectedItem().toString()),comboListaModificarLista.getSelectedItem().toString());
-        }else{
-            tmp = new DtListaParticulares(privado, null,comboListaModificarLista.getSelectedItem().toString());
+            tmp = new DtListaParticulares(privado,cat, comboListaModificarLista.getSelectedItem().toString());
+        } else {
+            tmp = new DtListaParticulares(privado, null, comboListaModificarLista.getSelectedItem().toString());
         }
-        c.modificarListaParticular(tmp);
+        c.modificarListaParticular((DtListaParticulares)tmp,user);
     }//GEN-LAST:event_botonAceptarModificarLista1ActionPerformed
 
     private void botonSeleccionarModificarListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSeleccionarModificarListaActionPerformed

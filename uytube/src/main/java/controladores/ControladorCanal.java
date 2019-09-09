@@ -173,11 +173,12 @@ public class ControladorCanal implements IControladorCanal {
         for (int x = 0; x < listasParticulares.size(); x++) {
             if (listasParticulares.get(x) != null) {
                 tmp = (ListaParticulares) listasParticulares.get(x);
-                
-                if(tmp.getCategoria() != null)
+
+                if (tmp.getCategoria() != null) {
                     temp = new DtListaParticulares(tmp.getPrivado(), new DtCategoria(tmp.getCategoria().getNombreCategoria()), tmp.getNombreLista());
-                else
-                    temp = new DtListaParticulares(tmp.getPrivado(), null,tmp.getNombreLista());
+                } else {
+                    temp = new DtListaParticulares(tmp.getPrivado(), null, tmp.getNombreLista());
+                }
                 aux.add(temp);
             }
         }
@@ -192,9 +193,21 @@ public class ControladorCanal implements IControladorCanal {
     }
 
     @Override
-    public void modificarListaParticular(DtListaReproduccion lista) {
+    public void modificarListaParticular(DtListaParticulares lista, DtUsuario user) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
-        //ListaReproduccion aux = new ListaParticulares(lista.getNombreLista(),)
+        Canal aux = new Canal(user.getCanal().getNombre_canal(), user.getCanal().getDescripcion(), user.getCanal().getPrivado());
+        Usuario u = new Usuario(user.getNickname(), user.getContraseña(), user.getNombre(), user.getApellido(), user.getEmail(), user.getFechaNac(), user.getImagen());
+        u.setCanal(aux);
+        aux.setUsuario(u);
+        ListaReproduccion list;
+        System.out.println(lista.getCategoria().getnombreCategoria());
+        if (lista.getCategoria() == null) {
+            list = new ListaParticulares(lista.getPrivado(), lista.getNombreLista(), null, aux);
+        } else {
+            list = new ListaParticulares(lista.getPrivado(), lista.getNombreLista(), new Categoria(lista.getCategoria().getnombreCategoria()), aux);
+        }
+        mu.modificarListaParticular((ListaParticulares) list);
+
     }
 
     @Override
