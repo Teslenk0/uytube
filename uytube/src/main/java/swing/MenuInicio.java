@@ -422,9 +422,14 @@ public class MenuInicio extends javax.swing.JFrame {
         CampoDescripcion1 = new javax.swing.JTextArea();
         jLabel16 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
-        CampoNick = new javax.swing.JTextField();
+        CampoCom = new javax.swing.JTextField();
         jSeparator55 = new javax.swing.JSeparator();
         jSeparator56 = new javax.swing.JSeparator();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTree1 = new javax.swing.JTree();
+        jButton6 = new javax.swing.JButton();
+        CampoNick1 = new javax.swing.JTextField();
+        jSeparator79 = new javax.swing.JSeparator();
         Central4_1 = new javax.swing.JPanel();
         CheckboxPorDefecto = new java.awt.Checkbox();
         Privado3 = new javax.swing.JLabel();
@@ -2989,26 +2994,62 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central3_4_1_1.add(jButton5);
-        jButton5.setBounds(320, 350, 70, 30);
+        jButton5.setBounds(320, 330, 70, 30);
 
-        CampoNick.setBackground(new java.awt.Color(153, 153, 153));
-        CampoNick.setFont(berlin);
-        CampoNick.setForeground(new java.awt.Color(102, 102, 102));
-        CampoNick.setText("Ingrese Nickname");
-        CampoNick.setBorder(null);
-        CampoNick.setNextFocusableComponent(CampoContraseña);
-        CampoNick.setOpaque(false);
-        CampoNick.addFocusListener(new java.awt.event.FocusAdapter() {
+        CampoCom.setBackground(new java.awt.Color(153, 153, 153));
+        CampoCom.setFont(berlin);
+        CampoCom.setForeground(new java.awt.Color(102, 102, 102));
+        CampoCom.setBorder(null);
+        CampoCom.setNextFocusableComponent(CampoContraseña);
+        CampoCom.setOpaque(false);
+        CampoCom.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                CampoNickFocusGained(evt);
+                CampoComFocusGained(evt);
             }
         });
-        Central3_4_1_1.add(CampoNick);
-        CampoNick.setBounds(160, 140, 220, 20);
+        Central3_4_1_1.add(CampoCom);
+        CampoCom.setBounds(460, 300, 220, 20);
         Central3_4_1_1.add(jSeparator55);
         jSeparator55.setBounds(160, 200, 220, 20);
         Central3_4_1_1.add(jSeparator56);
-        jSeparator56.setBounds(160, 160, 220, 20);
+        jSeparator56.setBounds(460, 320, 220, 20);
+
+        jTree1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTree1MouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTree1);
+
+        Central3_4_1_1.add(jScrollPane1);
+        jScrollPane1.setBounds(480, 130, 160, 160);
+
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_seleccionar_2.png"))); // NOI18N
+        jButton6.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_seleccionar_1.png"))); // NOI18N
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        Central3_4_1_1.add(jButton6);
+        jButton6.setBounds(520, 330, 70, 30);
+
+        CampoNick1.setBackground(new java.awt.Color(153, 153, 153));
+        CampoNick1.setFont(berlin);
+        CampoNick1.setForeground(new java.awt.Color(102, 102, 102));
+        CampoNick1.setText("Ingrese Nickname");
+        CampoNick1.setBorder(null);
+        CampoNick1.setNextFocusableComponent(CampoContraseña);
+        CampoNick1.setOpaque(false);
+        CampoNick1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                CampoNick1FocusGained(evt);
+            }
+        });
+        Central3_4_1_1.add(CampoNick1);
+        CampoNick1.setBounds(160, 140, 220, 20);
+        Central3_4_1_1.add(jSeparator79);
+        jSeparator79.setBounds(160, 160, 220, 20);
 
         Panel_Central.add(Central3_4_1_1);
         Central3_4_1_1.setBounds(0, 0, 750, 550);
@@ -4066,17 +4107,18 @@ public class MenuInicio extends javax.swing.JFrame {
         List listaCom = c.listaComentarios(video);
         if (!listaCom.isEmpty()) {
             DtComentario com;
-            // Construccion del arbol
+            
             DefaultMutableTreeNode abuelo = new DefaultMutableTreeNode(video + "::Comentarios");
             DefaultTreeModel modelo = new DefaultTreeModel(abuelo);
-            JTree tree = new JTree(modelo);
-
+            jTree1.setModel(modelo);
+            
             // Construccion de los datos del arbol
             for (int x = 0; x <= listaCom.size() - 1; x++) {
                 if (listaCom.get(x) != null) {
                     com = (DtComentario) listaCom.get(x);
                     DefaultMutableTreeNode aux = new DefaultMutableTreeNode(com.getNick() +"::"+ com.getComentario());
                     modelo.insertNodeInto(aux, abuelo, x);
+                    
                     /*List listaResp = c.listaRespuestas(com.getComentario());
                     if(!listaResp.isEmpty()){
                         DtRespuestas r;
@@ -4085,46 +4127,50 @@ public class MenuInicio extends javax.swing.JFrame {
                                 r = (DtRespuestas) listaResp.get(y);
                                 DefaultMutableTreeNode aux1 = new DefaultMutableTreeNode(r.getRespuesta());
                                 modelo.insertNodeInto(aux1, aux, y);
-                            } //revisar clase respuesta manytoone y chequear query de lista resp
+                            } //revisar clase respuesta manytoone 
                         }
                     }*/
                 }
             }
-
-            // Construccion y visualizacion de la ventana
-            JFrame v = new JFrame();
-            JScrollPane scroll = new JScrollPane(tree);
-            v.getContentPane().add(scroll);
-            v.setLocationRelativeTo(null);
-            v.pack();
-            v.setVisible(true);
         }
     }//GEN-LAST:event_SeleccionarVideoActionPerformed
 
-    private void CampoNickFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CampoNickFocusGained
+    private void CampoComFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CampoComFocusGained
         // TODO add your handling code here:
-    }//GEN-LAST:event_CampoNickFocusGained
+    }//GEN-LAST:event_CampoComFocusGained
 
     private void comboUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboUsuariosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_comboUsuariosActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        String nom = CampoNick.getText();
+        String nom = CampoNick1.getText();
         String com = CampoDescripcion1.getText();
         Date fecha = DateChoose2.getDate();
+        String selecciona = CampoCom.getText();
         String video = comboVideos.getSelectedItem().toString();
-        DtVideo v = c.obtenerVideo(video);
+        int aux = 0;
+        
         List lista = u.listaUsuarios();
         DtUsuario user;
-        int aux = 0;
         for (int y = 0; y <= lista.size() - 1; y++) {
             user = (DtUsuario) lista.get(y);
             if(nom.equals(user.getNickname()) || nom.equals(user.getNombre())){
-                DtComentario co = new DtComentario(nom, com, fecha, v);
-                c.agregarComentario(co);
-                aux = 1;
-                // me falta chequear cuando es una respuesta para agregar respuesta;
+                if(selecciona.isEmpty()){
+                    aux = 1;
+                    DtVideo v = c.obtenerVideo(video);
+                    DtComentario co = new DtComentario(nom, com, fecha, v);
+                    c.agregarComentario(co);
+                    
+                }
+                else{
+                    aux = 2;
+                    /*String [] dividir = selecciona.split("::");
+                    selecciona = dividir [1];
+                    DtComentario comentarioRef = c.obtenerComentario(selecciona);
+                    DtRespuestas re = new DtRespuestas(nom, com, fecha, comentarioRef);
+                    c.agregarRespuesta(re);*/
+                }
             }
         }
         if ( aux == 1){
@@ -4132,9 +4178,14 @@ public class MenuInicio extends javax.swing.JFrame {
             error.CambioTexto(" Comentario agregado ");
             error.setVisible(true);
         }
-        else{
+        else if(aux == 2){
             VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-            error.CambioTexto(" No existen el usuario. ");
+            error.CambioTexto(" Respuesta agregada ");
+            error.setVisible(true);
+        }
+        else if(aux == 0){
+            VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
+            error.CambioTexto(" No existe el usuario. ");
             error.setVisible(true);
         }
            
@@ -4398,6 +4449,25 @@ public class MenuInicio extends javax.swing.JFrame {
             Estado.setText("Público");
     }//GEN-LAST:event_SeleccionarVideoL1ActionPerformed
 
+    private void jTree1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTree1MouseClicked
+        
+    }//GEN-LAST:event_jTree1MouseClicked
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        DefaultMutableTreeNode seleccionar = (DefaultMutableTreeNode) jTree1.getSelectionPath().getLastPathComponent();
+        String aux = null;
+        aux = seleccionar.getUserObject().toString();
+        String [] dividir = aux.split("::");
+        aux = dividir [1];
+        if(aux != null){
+            CampoCom.setText(aux);
+        }
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void CampoNick1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CampoNick1FocusGained
+        CampoNick1.setText("");
+    }//GEN-LAST:event_CampoNick1FocusGained
+
     private void setColor(JPanel pane) {
         pane.setBackground(new Color(114, 114, 114));
     }
@@ -4466,6 +4536,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JButton BotonBack1;
     private javax.swing.JTextField CampoApellido;
     private javax.swing.JTextField CampoCanal;
+    private javax.swing.JTextField CampoCom;
     private javax.swing.JPasswordField CampoContraseña;
     private javax.swing.JTextField CampoCorreo;
     private javax.swing.JTextArea CampoDescripcion;
@@ -4477,7 +4548,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JTextArea CampoDescripcion6;
     private javax.swing.JTextField CampoImagen;
     private javax.swing.JTextField CampoImagen1;
-    private javax.swing.JTextField CampoNick;
+    private javax.swing.JTextField CampoNick1;
     private javax.swing.JTextField CampoNickname;
     private javax.swing.JTextField CampoNombre;
     private javax.swing.JLabel Canal;
@@ -4700,6 +4771,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -4717,6 +4789,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
@@ -4782,8 +4855,10 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator76;
     private javax.swing.JSeparator jSeparator77;
     private javax.swing.JSeparator jSeparator78;
+    private javax.swing.JSeparator jSeparator79;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
+    private javax.swing.JTree jTree1;
     private javax.swing.JLabel listaModificarListaLabel;
     private javax.swing.JLabel listarCat;
     private javax.swing.JButton listarCat_Button;

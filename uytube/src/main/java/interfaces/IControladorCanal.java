@@ -11,6 +11,7 @@ import DataTypes.DtComentario;
 import DataTypes.DtListaParticulares;
 import DataTypes.DtListaReproduccion;
 import DataTypes.DtListaporDefecto;
+import DataTypes.DtRespuestas;
 import DataTypes.DtUsuario;
 import DataTypes.DtVideo;
 import excepciones.ListaRepetidaException;
@@ -36,6 +37,10 @@ public interface IControladorCanal {
     public abstract List listaRespuestas(String comentario);
     
     public abstract void agregarComentario(DtComentario c);
+    
+    public abstract void agregarRespuesta(DtRespuestas r);
+    
+    public abstract DtComentario obtenerComentario(String comentario);
     
     public abstract List getCanales();
     

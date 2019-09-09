@@ -5,6 +5,7 @@
  */
 package clases;
 
+import DataTypes.DtRespuestas;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
@@ -37,7 +38,7 @@ public class Respuestas implements Serializable{
     private Date fecha;
     
     @ManyToOne
-    @JoinColumn (name = "comentario")
+    @JoinColumn (name = "comentarioRef")
     private Comentario com;
 
     public Respuestas() {
@@ -49,7 +50,7 @@ public class Respuestas implements Serializable{
         this.fecha = fecha;
         this.com = com;
     }
-
+    
     public String getNick() {
         return nick;
     }
@@ -81,5 +82,5 @@ public class Respuestas implements Serializable{
     public void setCom(Comentario com) {
         this.com = com;
     }
-    
+
 }

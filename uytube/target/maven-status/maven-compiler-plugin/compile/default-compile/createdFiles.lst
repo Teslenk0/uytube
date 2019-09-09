@@ -30,6 +30,7 @@ swing/MenuInicio$41.class
 swing/Main.class
 clases/Comentario.class
 swing/MenuInicio$36.class
+swing/MenuInicio$81.class
 controladores/ControladorUsuario.class
 DataTypes/DtListaReproduccion.class
 swing/SeleccionarImagen.class
@@ -87,6 +88,7 @@ swing/SeleccionarImagen$2.class
 swing/MenuInicio$3.class
 swing/VentanaEmergente2$5.class
 clases/Video.class
+swing/MenuInicio$80.class
 swing/MenuInicio$40.class
 swing/MenuInicio$37.class
 clases/ListaReproduccion.class
@@ -139,3 +141,4 @@ DataTypes/DtListaporDefecto.class
 swing/MenuInicio$56.class
 swing/MenuInicio$61.class
 swing/VentanaEmergente$2.class
+swing/MenuInicio$79.class
