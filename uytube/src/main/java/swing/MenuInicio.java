@@ -3670,7 +3670,7 @@ public class MenuInicio extends javax.swing.JFrame {
             mensaje.CambioTexto("        No se realizo ninguna modificación");
             mensaje.setVisible(true);
         } else {
-            if (nomCanal == null) {
+            if (nomCanal.isEmpty()) {
                 nomCanal = user.getNickname();
             }
             DtUsuario modUser;
