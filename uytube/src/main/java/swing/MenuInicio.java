@@ -4075,7 +4075,7 @@ public class MenuInicio extends javax.swing.JFrame {
             for (int x = 0; x <= listaCom.size() - 1; x++) {
                 if (listaCom.get(x) != null) {
                     com = (DtComentario) listaCom.get(x);
-                    DefaultMutableTreeNode aux = new DefaultMutableTreeNode(com.getComentario());
+                    DefaultMutableTreeNode aux = new DefaultMutableTreeNode(com.getNick() +"::"+ com.getComentario());
                     modelo.insertNodeInto(aux, abuelo, x);
                     /*List listaResp = c.listaRespuestas(com.getComentario());
                     if(!listaResp.isEmpty()){
@@ -4115,9 +4115,29 @@ public class MenuInicio extends javax.swing.JFrame {
         Date fecha = DateChoose2.getDate();
         String video = comboVideos.getSelectedItem().toString();
         DtVideo v = c.obtenerVideo(video);
-        DtComentario co = new DtComentario(nom, com, fecha, v);
-        c.agregarComentario(co);
-        // me falta chequear cuando es una respuesta para agregar respuesta;
+        List lista = u.listaUsuarios();
+        DtUsuario user;
+        int aux = 0;
+        for (int y = 0; y <= lista.size() - 1; y++) {
+            user = (DtUsuario) lista.get(y);
+            if(nom.equals(user.getNickname()) || nom.equals(user.getNombre())){
+                DtComentario co = new DtComentario(nom, com, fecha, v);
+                c.agregarComentario(co);
+                aux = 1;
+                // me falta chequear cuando es una respuesta para agregar respuesta;
+            }
+        }
+        if ( aux == 1){
+            VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
+            error.CambioTexto(" Comentario agregado ");
+            error.setVisible(true);
+        }
+        else{
+            VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
+            error.CambioTexto(" No existen el usuario. ");
+            error.setVisible(true);
+        }
+           
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void BackButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButton8ActionPerformed
