@@ -4045,9 +4045,11 @@ public class MenuInicio extends javax.swing.JFrame {
             Panel_Central.revalidate();
             Panel_Central.repaint();
             comboVideos.removeAllItems();
+            DtVideo v;
             for (int x = 0; x <= lista.size() - 1; x++) {
                 if (lista.get(x) != null) {
-                    comboVideos.addItem((String) lista.get(x));
+                    v = (DtVideo) lista.get(x);
+                    comboVideos.addItem(v.getNombre());
                 }
             }
         } else {
@@ -4223,11 +4225,13 @@ public class MenuInicio extends javax.swing.JFrame {
                 String usuario = comboVideo1.getSelectedItem().toString();
                 DtUsuario user = u.buscarUsuario(usuario);
                 List lista = c.listaVideos(user.getCanal());
+                DtVideo v;
                 if (!lista.isEmpty()) {
                     comboVideo2.removeAllItems();
                     for (int x = 0; x <= lista.size() - 1; x++) {
+                        v = (DtVideo) lista.get(x);
                         if (lista.get(x) != null) {
-                            comboVideo2.addItem((String) lista.get(x));
+                            comboVideo2.addItem(v.getNombre());
                         }
                     }
                 }
@@ -4262,6 +4266,7 @@ public class MenuInicio extends javax.swing.JFrame {
         String usuario = comboVideo1.getSelectedItem().toString();
         DtUsuario user = u.buscarUsuario(usuario);
         List lista = c.listaVideos(user.getCanal());
+        DtVideo v;
         if (!lista.isEmpty()) {
             Central3_2_Panel.add(Central3_2_1);
             Panel_Central.revalidate();
@@ -4269,7 +4274,8 @@ public class MenuInicio extends javax.swing.JFrame {
             comboVideo2.removeAllItems();
             for (int x = 0; x <= lista.size() - 1; x++) {
                 if (lista.get(x) != null) {
-                    comboVideo2.addItem((String) lista.get(x));
+                    v = (DtVideo) lista.get(x);
+                    comboVideo2.addItem(v.getNombre());
                 }
             }
         } else {
@@ -4323,6 +4329,7 @@ public class MenuInicio extends javax.swing.JFrame {
         String usuario = comboVideo4.getSelectedItem().toString();
         DtUsuario user = u.buscarUsuario(usuario);
         List lista = c.listaVideos(user.getCanal());
+        DtVideo v;
         if (!lista.isEmpty()) {
             Central3_3_Panel.add(Central3_3_1);
             Panel_Central.revalidate();
@@ -4330,7 +4337,8 @@ public class MenuInicio extends javax.swing.JFrame {
             comboVideo5.removeAllItems();
             for (int x = 0; x <= lista.size() - 1; x++) {
                 if (lista.get(x) != null) {
-                    comboVideo5.addItem((String) lista.get(x));
+                    v = (DtVideo) lista.get(x);
+                    comboVideo5.addItem(v.getNombre());
                 }
             }
         } else {

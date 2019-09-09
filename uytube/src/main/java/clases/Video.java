@@ -5,6 +5,7 @@
  */
 package clases;
 
+import DataTypes.DtVideo;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
@@ -68,6 +69,17 @@ public class Video implements Serializable {
         this.categoria = categoria;
         this.duracion = duracion;
         this.privado = privado;
+    }
+    
+    public Video(DtVideo v){
+        this.nombre = v.getNombre();
+        this.canal = new Canal (v.getCanal());
+        this.fechaPublicacion = v.getFechaPublicacion();
+        this.url = v.getUrl();
+        this.descripcion = v.getDescripcion();
+        this.categoria = v.getCategoria();
+        this.duracion = v.getDuracion();
+        this.privado = v.getPrivado();
     }
 
     public String getNombre() {

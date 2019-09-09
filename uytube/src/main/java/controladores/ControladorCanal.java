@@ -62,7 +62,16 @@ public class ControladorCanal implements IControladorCanal {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         Canal canal = new Canal(c.getNombre_canal(), c.getDescripcion(), c.getPrivado());
         List lista = mu.listaVid(canal);
-        return lista;
+        if (lista != null) {
+            List aux = new LinkedList();
+            DtVideo dtaux;
+            for (int x = 0; x < lista.size(); x++) {
+                dtaux = new DtVideo( (Video) lista.get(x));
+                aux.add(dtaux);
+            }
+            return aux;
+        }
+        return null;
     }
 
     @Override

@@ -45,7 +45,14 @@ public class DtVideo implements Serializable{
     }
 
     public DtVideo(Video v) {
-        this(v.getNombre(), new DtCanal(v.getCanal().getNombre_canal(), v.getCanal().getDescripcion(), v.getCanal().getPrivado()), v.getFechaPublicacion(), v.getUrl(), v.getDescripcion(), v.getCategoria(), v.getDuracion(), v.getPrivado());
+        this.nombre = v.getNombre();
+        this.canal = new DtCanal(v.getCanal().getNombre_canal(), v.getCanal().getDescripcion(), v.getCanal().getPrivado());
+        this.fechaPublicacion = v.getFechaPublicacion();
+        this.url = v.getUrl();
+        this.descripcion = v.getDescripcion();
+        this.categoria = v.getCategoria();
+        this.duracion = v.getDuracion();
+        this.privado = v.getPrivado();
     }
 
     public static long getSerialVersionUID() {
