@@ -241,4 +241,13 @@ public class ManejadorInformacion {
         return null;
         
     }
+    
+    public void registrarCategoria(Categoria c) {
+        manager = emf.createEntityManager();
+        manager.getTransaction().begin();
+        manager.persist(c);
+        manager.getTransaction().commit();
+        manager.close();
+
+    }
 }

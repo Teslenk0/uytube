@@ -6,6 +6,7 @@
 package interfaces;
 
 import DataTypes.DtCanal;
+import DataTypes.DtCategoria;
 import DataTypes.DtComentario;
 import DataTypes.DtListaParticulares;
 import DataTypes.DtListaReproduccion;
@@ -45,4 +46,6 @@ public interface IControladorCanal {
     public abstract void crearListaParticular(DtListaParticulares lista, DtUsuario user) throws ListaRepetidaException;
     
     public abstract void modificarListaParticular(DtListaReproduccion lista);
+    
+    public abstract void registrarCategoria(DtCategoria c);
 }

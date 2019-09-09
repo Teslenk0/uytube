@@ -6,6 +6,7 @@
 package controladores;
 
 import DataTypes.DtCanal;
+import DataTypes.DtCategoria;
 import DataTypes.DtComentario;
 import DataTypes.DtListaParticulares;
 import DataTypes.DtListaReproduccion;
@@ -13,6 +14,7 @@ import DataTypes.DtListaporDefecto;
 import DataTypes.DtUsuario;
 import DataTypes.DtVideo;
 import clases.Canal;
+import clases.Categoria;
 import clases.Comentario;
 import clases.ListaParticulares;
 import clases.ListaReproduccion;
@@ -178,7 +180,15 @@ public class ControladorCanal implements IControladorCanal{
     }
     
     @Override
+    public void registrarCategoria(DtCategoria c) {
+        ManejadorInformacion mu = ManejadorInformacion.getInstance();
+        Categoria cat = new Categoria(c.getnombreCategoria());
+        mu.registrarCategoria(cat);
+    }
+    
+    @Override
     public void modificarListaParticular(DtListaReproduccion lista){
-        
+        ManejadorInformacion mu = ManejadorInformacion.getInstance();
+        //ListaReproduccion aux = new ListaParticulares(Boolean.TRUE, nombreLista)
     }
 }
