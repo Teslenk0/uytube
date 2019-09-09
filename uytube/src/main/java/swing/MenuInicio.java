@@ -4142,6 +4142,21 @@ public class MenuInicio extends javax.swing.JFrame {
             error.CambioTexto("  No existen usuarios en la base de datos.");
             error.setVisible(true);
         }
+        
+        List categorias = c.getCategorias();
+        if (comboCategoriaModificarLista.getItemCount() != 0) {
+            comboCategoriaModificarLista.removeAllItems();
+        }
+        if (categorias != null) {
+            DtCategoria cat;
+            for (int x = 0; x <= categorias.size() - 1; x++) {
+                if (categorias.get(x) != null) {
+                    cat = (DtCategoria) categorias.get(x);
+                    comboCategoriaModificarLista.addItem(cat.getnombreCategoria());
+                }
+            }
+        }
+        this.comboCategoriasCrearLista.setEnabled(true);
 
     }//GEN-LAST:event_modificarPlaylist_ButtonActionPerformed
 

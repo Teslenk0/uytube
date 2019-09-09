@@ -173,8 +173,11 @@ public class ControladorCanal implements IControladorCanal {
         for (int x = 0; x < listasParticulares.size(); x++) {
             if (listasParticulares.get(x) != null) {
                 tmp = (ListaParticulares) listasParticulares.get(x);
-
-                temp = new DtListaParticulares(tmp.getPrivado(), new DtCategoria(tmp.getCategoria().getNombreCategoria()), tmp.getNombreLista());
+                
+                if(tmp.getCategoria() != null)
+                    temp = new DtListaParticulares(tmp.getPrivado(), new DtCategoria(tmp.getCategoria().getNombreCategoria()), tmp.getNombreLista());
+                else
+                    temp = new DtListaParticulares(tmp.getPrivado(), null,tmp.getNombreLista());
                 aux.add(temp);
             }
         }
