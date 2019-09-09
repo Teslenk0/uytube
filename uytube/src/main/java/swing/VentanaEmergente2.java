@@ -177,13 +177,7 @@ public class VentanaEmergente2 extends javax.swing.JDialog {
         dispose();
         new Menu().setVisible(true);
     }//GEN-LAST:event_BotonAceptarActionPerformed
-    
-    
-   
-    
-public void CambioTexto(String texto){
-    Texto.setText(texto);
-}
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BarraSuperior;
