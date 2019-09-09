@@ -4147,6 +4147,7 @@ public class MenuInicio extends javax.swing.JFrame {
         if (comboCategoriaModificarLista.getItemCount() != 0) {
             comboCategoriaModificarLista.removeAllItems();
         }
+        comboCategoriaModificarLista.insertItemAt("", 0);
         if (categorias != null) {
             DtCategoria cat;
             for (int x = 0; x <= categorias.size() - 1; x++) {
@@ -4162,15 +4163,17 @@ public class MenuInicio extends javax.swing.JFrame {
 
     private void botonAceptarModificarLista1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAceptarModificarLista1ActionPerformed
         // TODO add your handling code here:
-
+        
         Boolean privado = checkPrivadaModificarLista.getState();
-        /*ACA VA LO DE 
-         CATEGORIA
-         AGREGAR DESPUES
-         */
-
-        //DtListaReproduccion tmp = new DtListaParticulares(privado, comboListaModificarLista.getSelectedItem().toString());
-        //c.modificarListaParticular(tmp);
+        DtListaReproduccion tmp;
+        String aux = "";
+        if(comboCategoriaModificarLista.getSelectedItem().toString().equals(aux)){
+            DtCategoria cat = new DtCategoria(comboCategoriaModificarLista.getSelectedItem().toString());
+            tmp = new DtListaParticulares(privado, new DtCategoria(comboListaModificarLista.getSelectedItem().toString()),comboListaModificarLista.getSelectedItem().toString());
+        }else{
+            tmp = new DtListaParticulares(privado, null,comboListaModificarLista.getSelectedItem().toString());
+        }
+        c.modificarListaParticular(tmp);
     }//GEN-LAST:event_botonAceptarModificarLista1ActionPerformed
 
     private void botonSeleccionarModificarListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSeleccionarModificarListaActionPerformed

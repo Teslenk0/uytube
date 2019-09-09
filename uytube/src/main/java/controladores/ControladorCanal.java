@@ -194,7 +194,7 @@ public class ControladorCanal implements IControladorCanal {
     @Override
     public void modificarListaParticular(DtListaReproduccion lista) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
-        //ListaReproduccion aux = new ListaParticulares(Boolean.TRUE, nombreLista)
+        //ListaReproduccion aux = new ListaParticulares(lista.getNombreLista(),)
     }
 
     @Override
