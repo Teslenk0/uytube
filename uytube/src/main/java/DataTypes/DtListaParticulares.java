@@ -4,11 +4,6 @@
  * and open the template in the editor.
  */
 package DataTypes;
-
-import clases.Categoria;
-import clases.Video;
-import java.util.List;
-
 /**
  *
  * @author esteban
@@ -16,19 +11,26 @@ import java.util.List;
 public class DtListaParticulares extends DtListaReproduccion{
     
     private final Boolean privado;
+    
+    private final DtCategoria categoria;
 
-    public DtListaParticulares(Boolean privado, String nombreLista, DtCanal canal) {
+    public DtListaParticulares(Boolean privado, String nombreLista, DtCategoria categoria, DtCanal canal) {
         super(nombreLista, canal);
         this.privado = privado;
+        this.categoria = categoria;
     }
 
-    public DtListaParticulares(Boolean privado, String nombreLista) {
+    public DtListaParticulares(Boolean privado, DtCategoria categoria,String nombreLista) {
         super(nombreLista);
         this.privado = privado;
+        this.categoria = categoria;
     }
 
     public Boolean getPrivado() {
         return privado;
     }
-    
+
+    public DtCategoria getCategoria() {
+        return categoria;
+    }
 }

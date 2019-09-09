@@ -250,4 +250,12 @@ public class ManejadorInformacion {
         manager.close();
 
     }
+    
+    public List obtenerCategorias(){
+        manager = emf.createEntityManager();
+        List aux = manager.createQuery("FROM Categoria c").getResultList(); //busco si ya existe
+        if(aux != null)
+            return aux;
+        return null;
+    }
 }

@@ -11,6 +11,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -29,9 +31,9 @@ public class ListaParticulares extends ListaReproduccion {
     @Column(name = "privada")
     private Boolean privado;
     
-    
-    
-    //private Categoria categoria;
+    @ManyToOne
+    @JoinColumn(name = "categoria")
+    private Categoria categoria;
 
     public ListaParticulares() {
     }
@@ -40,14 +42,17 @@ public class ListaParticulares extends ListaReproduccion {
         this.privado = privado;
     }
 
-    public ListaParticulares(Boolean privado, String nombreLista) {
+    public ListaParticulares(Boolean privado, Categoria categoria,String nombreLista) {
         super(nombreLista);
         this.privado = privado;
+        this.categoria=categoria;
     }
-
-    public ListaParticulares(Boolean privado, String nombreLista, Canal canal) {
+    
+    
+    public ListaParticulares(Boolean privado, String nombreLista, Categoria categoria, Canal canal) {
         super(nombreLista, canal);
         this.privado = privado;
+        this.categoria = categoria;
     }
    
     public int getId() {
@@ -66,11 +71,20 @@ public class ListaParticulares extends ListaReproduccion {
         this.privado = privado;
     }
 
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 71 * hash + this.id;
-        hash = 71 * hash + Objects.hashCode(this.privado);
+        hash = 97 * hash + this.id;
+        hash = 97 * hash + Objects.hashCode(this.privado);
+        hash = 97 * hash + Objects.hashCode(this.categoria);
         return hash;
     }
 
@@ -86,16 +100,12 @@ public class ListaParticulares extends ListaReproduccion {
             return false;
         }
         final ListaParticulares other = (ListaParticulares) obj;
-        if (this.id != other.id) {
-            return false;
-        }
-        if (!Objects.equals(this.privado, other.privado)) {
-            return false;
-        }
         return true;
     }
-    
-    
-    
+
+    @Override
+    public String toString() {
+        return "ListaParticulares{" + "id=" + id + ", privado=" + privado + ", categoria=" + categoria + '}';
+    }
     
 }

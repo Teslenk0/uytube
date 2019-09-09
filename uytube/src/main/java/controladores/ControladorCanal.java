@@ -31,77 +31,77 @@ import java.util.List;
  *
  * @author tecnologo
  */
-public class ControladorCanal implements IControladorCanal{
-    
+public class ControladorCanal implements IControladorCanal {
+
     @Override
-    public void registrarVideo(DtVideo v) throws VideoRepetidoException{
+    public void registrarVideo(DtVideo v) throws VideoRepetidoException {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
-        Canal canal = new Canal(v.getCanal().getNombre_canal(),v.getCanal().getDescripcion(),v.getCanal().getPrivado());
-        Video video = new Video(v.getNombre(),canal,v.getFechaPublicacion(),v.getUrl(),v.getDescripcion(),v.getCategoria(),v.getDuracion(),v.getPrivado());
-        try{
+        Canal canal = new Canal(v.getCanal().getNombre_canal(), v.getCanal().getDescripcion(), v.getCanal().getPrivado());
+        Video video = new Video(v.getNombre(), canal, v.getFechaPublicacion(), v.getUrl(), v.getDescripcion(), v.getCategoria(), v.getDuracion(), v.getPrivado());
+        try {
             mu.altaVideo(video);
-        }catch(Exception c){
+        } catch (Exception c) {
             throw new VideoRepetidoException("El video ya existe");
         }
     }
-    
+
     @Override
-    public void modificarVideo(DtVideo v, String oldV) throws VideoRepetidoException{
+    public void modificarVideo(DtVideo v, String oldV) throws VideoRepetidoException {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
-        Canal canal = new Canal(v.getCanal().getNombre_canal(),v.getCanal().getDescripcion(),v.getCanal().getPrivado());
-        Video video = new Video(v.getNombre(),canal,v.getFechaPublicacion(),v.getUrl(),v.getDescripcion(),v.getCategoria(),v.getDuracion(),v.getPrivado());
-        try{
+        Canal canal = new Canal(v.getCanal().getNombre_canal(), v.getCanal().getDescripcion(), v.getCanal().getPrivado());
+        Video video = new Video(v.getNombre(), canal, v.getFechaPublicacion(), v.getUrl(), v.getDescripcion(), v.getCategoria(), v.getDuracion(), v.getPrivado());
+        try {
             mu.modificarVideo(video, oldV);
-        }catch(Exception c){
+        } catch (Exception c) {
             throw new VideoRepetidoException("El video ya existe");
         }
     }
-    
-    
+
     @Override
-    public List listaVideos(DtCanal c){
+    public List listaVideos(DtCanal c) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
-        Canal canal = new Canal(c.getNombre_canal(),c.getDescripcion(),c.getPrivado());
+        Canal canal = new Canal(c.getNombre_canal(), c.getDescripcion(), c.getPrivado());
         List lista = mu.listaVid(canal);
         return lista;
     }
-    
+
     @Override
-    public DtVideo obtenerVideo(String v){
+    public DtVideo obtenerVideo(String v) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         Video video = mu.buscadorVideo(v);
-        
-        DtCanal canal = new DtCanal(video.getCanal().getNombre_canal(),video.getCanal().getDescripcion(),video.getCanal().getPrivado());
-        DtVideo vid = new DtVideo(video.getNombre(),canal, video.getFechaPublicacion(), video.getUrl(), video.getDescripcion(), video.getCategoria(), video.getDuracion(), video.getPrivado());
-        if(vid != null){
-             return vid;
-         } 
+
+        DtCanal canal = new DtCanal(video.getCanal().getNombre_canal(), video.getCanal().getDescripcion(), video.getCanal().getPrivado());
+        DtVideo vid = new DtVideo(video.getNombre(), canal, video.getFechaPublicacion(), video.getUrl(), video.getDescripcion(), video.getCategoria(), video.getDuracion(), video.getPrivado());
+        if (vid != null) {
+            return vid;
+        }
         return null;
-        
+
     }
-    
+
     @Override
-    public List listaComentarios(String video){
+    public List listaComentarios(String video) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         List lista = mu.listaCom(video);
         return lista;
     }
+
     @Override
-    public List listaRespuestas(String comentario){
+    public List listaRespuestas(String comentario) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         List lista = mu.listaResp(comentario);
         return lista;
     }
-    
+
     @Override
-    public void agregarComentario(DtComentario c){
+    public void agregarComentario(DtComentario c) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
-        Canal canal = new Canal (c.getVideo().getCanal().getNombre_canal(), c.getVideo().getCanal().getDescripcion(), c.getVideo().getCanal().getPrivado());
-        Video vid = new Video(c.getVideo().getNombre(),canal, c.getVideo().getFechaPublicacion(), c.getVideo().getUrl(), c.getVideo().getDescripcion(), c.getVideo().getCategoria(), c.getVideo().getDuracion(), c.getVideo().getPrivado());
+        Canal canal = new Canal(c.getVideo().getCanal().getNombre_canal(), c.getVideo().getCanal().getDescripcion(), c.getVideo().getCanal().getPrivado());
+        Video vid = new Video(c.getVideo().getNombre(), canal, c.getVideo().getFechaPublicacion(), c.getVideo().getUrl(), c.getVideo().getDescripcion(), c.getVideo().getCategoria(), c.getVideo().getDuracion(), c.getVideo().getPrivado());
         Comentario com = new Comentario(c.getNick(), c.getComentario(), c.getFecha(), vid);
         mu.addComentario(com);
     }
-    
+
     @Override
     public List getCanales() {
         List canales = new LinkedList();
@@ -119,9 +119,9 @@ public class ControladorCanal implements IControladorCanal{
         }
         return aux;
     }
-    
+
     @Override
-    public void crearListaDefecto(DtListaReproduccion lista) throws ListaRepetidaException{
+    public void crearListaDefecto(DtListaReproduccion lista) throws ListaRepetidaException {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         List canales = mu.obtenerCanales();
         ListaReproduccion list;
@@ -141,28 +141,29 @@ public class ControladorCanal implements IControladorCanal{
         }
 
     }
-    
+
     @Override
-    public void crearListaParticular(DtListaParticulares lista, DtUsuario user) throws ListaRepetidaException{
+    public void crearListaParticular(DtListaParticulares lista, DtUsuario user) throws ListaRepetidaException {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
- 
-        if (mu.buscoListaParticular(lista.getNombreLista(),user.getCanal().getNombre_canal())) {
+
+        if (mu.buscoListaParticular(lista.getNombreLista(), user.getCanal().getNombre_canal())) {
             throw new ListaRepetidaException("La lista por defecto ya existe");
         }
         //para que no rompa con las referencias cruzadas
         //*******************************************************************
-        Canal aux = new Canal(user.getCanal().getNombre_canal(),user.getCanal().getDescripcion(),user.getCanal().getPrivado());
-        Usuario u = new Usuario(user.getNickname(),user.getContraseña(),user.getNombre(),user.getApellido(),user.getEmail(),user.getFechaNac(),user.getImagen());
+        Canal aux = new Canal(user.getCanal().getNombre_canal(), user.getCanal().getDescripcion(), user.getCanal().getPrivado());
+        Usuario u = new Usuario(user.getNickname(), user.getContraseña(), user.getNombre(), user.getApellido(), user.getEmail(), user.getFechaNac(), user.getImagen());
         u.setCanal(aux);
         aux.setUsuario(u);
+        Categoria cat = new Categoria(lista.getCategoria().getnombreCategoria());
         //***************************************************
-        ListaReproduccion list = new ListaParticulares(lista.getPrivado(), lista.getNombreLista(), aux);
-        
+        ListaReproduccion list = new ListaParticulares(lista.getPrivado(), lista.getNombreLista(), cat, aux);
+
         mu.crearLista(list);
     }
-    
+
     @Override
-    public List getListasReproduccion(String nick){
+    public List getListasReproduccion(String nick) {
         List listasParticulares;
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         List<DtListaParticulares> aux = new LinkedList<>();
@@ -172,23 +173,42 @@ public class ControladorCanal implements IControladorCanal{
         for (int x = 0; x < listasParticulares.size(); x++) {
             if (listasParticulares.get(x) != null) {
                 tmp = (ListaParticulares) listasParticulares.get(x);
-                temp = new DtListaParticulares(tmp.getPrivado(), tmp.getNombreLista());
+
+                temp = new DtListaParticulares(tmp.getPrivado(), new DtCategoria(tmp.getCategoria().getNombreCategoria()), tmp.getNombreLista());
                 aux.add(temp);
             }
         }
         return aux;
     }
-    
+
     @Override
     public void registrarCategoria(DtCategoria c) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         Categoria cat = new Categoria(c.getnombreCategoria());
         mu.registrarCategoria(cat);
     }
-    
+
     @Override
-    public void modificarListaParticular(DtListaReproduccion lista){
+    public void modificarListaParticular(DtListaReproduccion lista) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         //ListaReproduccion aux = new ListaParticulares(Boolean.TRUE, nombreLista)
+    }
+
+    @Override
+    public List getCategorias() {
+        List categorias;
+        ManejadorInformacion mu = ManejadorInformacion.getInstance();
+        List<DtCategoria> aux = new LinkedList<>();
+        Categoria tmp;
+        DtCategoria temp;
+        categorias = mu.obtenerCategorias();
+        for (int x = 0; x < categorias.size(); x++) {
+            if (categorias.get(x) != null) {
+                tmp = (Categoria) categorias.get(x);
+                temp = new DtCategoria(tmp.getNombreCategoria());
+                aux.add(temp);
+            }
+        }
+        return aux;
     }
 }

@@ -48,4 +48,6 @@ public interface IControladorCanal {
     public abstract void modificarListaParticular(DtListaReproduccion lista);
     
     public abstract void registrarCategoria(DtCategoria c);
+    
+    public abstract List getCategorias();
 }
