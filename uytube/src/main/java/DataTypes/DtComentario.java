@@ -32,6 +32,10 @@ public class DtComentario implements Serializable {
         this.fecha = fecha;
         this.video = video;
     }
+    
+    public DtComentario(Comentario c){
+        this(c.getNick(), c.getComentario(), c.getFecha(), new DtVideo(c.getVideo()));
+    }
 
     public String getComentario() {
         return comentario;

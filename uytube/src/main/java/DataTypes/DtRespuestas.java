@@ -6,6 +6,7 @@
 package DataTypes;
 
 import clases.Comentario;
+import clases.Respuestas;
 import java.util.Date;
 
 /**
@@ -20,15 +21,19 @@ public class DtRespuestas {
     
     private Date fecha;
     
-    private Comentario com;
+    private DtComentario com;
 
-    public DtRespuestas(String nick, String respuesta, Date fecha, Comentario com) {
+    public DtRespuestas(String nick, String respuesta, Date fecha, DtComentario com) {
         this.nick = nick;
         this.respuesta = respuesta;
         this.fecha = fecha;
         this.com = com;
     }
-
+    
+    public DtRespuestas(Respuestas r){
+        this(r.getNick(), r.getRespuesta(), r.getFecha(), new DtComentario(r.getCom()));
+    }
+    
     public String getNick() {
         return nick;
     }
@@ -41,7 +46,7 @@ public class DtRespuestas {
         return fecha;
     }
 
-    public Comentario getCom() {
+    public DtComentario getCom() {
         return com;
     }
     

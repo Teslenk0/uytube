@@ -11,6 +11,7 @@ import DataTypes.DtComentario;
 import DataTypes.DtListaParticulares;
 import DataTypes.DtListaReproduccion;
 import DataTypes.DtListaporDefecto;
+import DataTypes.DtRespuestas;
 import DataTypes.DtUsuario;
 import DataTypes.DtVideo;
 import clases.Canal;
@@ -19,6 +20,7 @@ import clases.Comentario;
 import clases.ListaParticulares;
 import clases.ListaReproduccion;
 import clases.ListaporDefecto;
+import clases.Respuestas;
 import clases.Usuario;
 import clases.Video;
 import excepciones.ListaRepetidaException;
@@ -92,14 +94,32 @@ public class ControladorCanal implements IControladorCanal {
     public List listaComentarios(String video) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         List lista = mu.listaCom(video);
-        return lista;
+        if (lista != null) {
+            List aux = new LinkedList();
+            DtComentario dtaux;
+            for (int x = 0; x < lista.size(); x++) {
+                dtaux = new DtComentario((Comentario) lista.get(x));
+                aux.add(dtaux);
+            }
+            return aux;
+        }
+        return null;
     }
 
     @Override
     public List listaRespuestas(String comentario) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         List lista = mu.listaResp(comentario);
-        return lista;
+        if (lista != null) {
+            List aux = new LinkedList();
+            DtRespuestas dtaux;
+            for (int x = 0; x < lista.size(); x++) {
+                dtaux = new DtRespuestas((Respuestas) lista.get(x));
+                aux.add(dtaux);
+            }
+            return aux;
+        }
+        return null;
     }
 
     @Override

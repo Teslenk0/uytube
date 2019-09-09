@@ -175,7 +175,7 @@ public class ManejadorInformacion {
 
     public List listaCom(String v) {
         manager = emf.createEntityManager();
-        return manager.createQuery("SELECT c.comentario FROM Comentario c WHERE c.video = '" + v + "'")
+        return manager.createQuery("SELECT c FROM Comentario c WHERE c.video = '" + v + "'")
                 .getResultList();
     }
 

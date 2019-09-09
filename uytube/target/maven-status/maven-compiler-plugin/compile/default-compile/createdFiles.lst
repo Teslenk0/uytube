@@ -6,7 +6,6 @@ swing/MenuInicio$55.class
 swing/MenuInicio$6.class
 swing/MenuInicio$62.class
 swing/MenuInicio$42.class
-swing/VentanaEmergente2$2.class
 swing/MenuInicio$15.class
 swing/MenuInicio$35.class
 clases/Seguir.class
@@ -25,7 +24,6 @@ swing/Menu$3.class
 swing/MenuInicio$23.class
 swing/MenuInicio$76.class
 swing/VentanaEmergente.class
-swing/VentanaEmergente2$3.class
 swing/MenuInicio$41.class
 swing/Main.class
 clases/Comentario.class
@@ -38,7 +36,6 @@ DataTypes/DtListaParticulares.class
 fabrica/Fabrica.class
 swing/MenuInicio$66.class
 swing/MenuInicio$71.class
-swing/VentanaEmergente2$1.class
 swing/MenuInicio$7.class
 swing/MenuInicio$51.class
 swing/MenuInicio$46.class
@@ -55,7 +52,6 @@ swing/MenuInicio$17.class
 swing/Menu$6.class
 excepciones/VideoRepetidoException.class
 swing/MenuInicio$73.class
-swing/VentanaEmergente2.class
 interfaces/IControladorUsuario.class
 swing/MenuInicio$20.class
 clases/ListaDefectoVideos.class
@@ -85,7 +81,6 @@ swing/MenuInicio$9.class
 swing/MenuInicio$38.class
 swing/SeleccionarImagen$2.class
 swing/MenuInicio$3.class
-swing/VentanaEmergente2$5.class
 clases/Video.class
 swing/MenuInicio$40.class
 swing/MenuInicio$37.class
@@ -94,7 +89,6 @@ clases/Canal.class
 clases/ListaParticulares.class
 swing/MenuInicio$53.class
 swing/MenuInicio$13.class
-swing/VentanaEmergente2$4.class
 swing/MenuInicio$18.class
 swing/MenuInicio$2.class
 DataTypes/DtVideo.class
@@ -110,7 +104,6 @@ swing/MenuInicio$29.class
 swing/VentanaEmergente$1.class
 swing/SeleccionarImagen$3.class
 swing/VentanaEmergente$4.class
-DataTypes/DtRespuestas.class
 swing/MenuInicio$31.class
 swing/MenuInicio.class
 swing/MenuInicio$11.class
