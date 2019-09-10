@@ -985,7 +985,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central3.add(comenVid_Button);
-        comenVid_Button.setBounds(400, 290, 230, 220);
+        comenVid_Button.setBounds(390, 290, 240, 220);
 
         agregarVid3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         agregarVid3.setForeground(new java.awt.Color(255, 255, 255));
@@ -4735,15 +4735,16 @@ public class MenuInicio extends javax.swing.JFrame {
         String selecciona = CampoCom.getText();
         String video = comboVideos.getSelectedItem().toString();
         int aux = 0;
-
-        List lista = u.listaUsuarios();
         DtUsuario user;
+        user = u.buscarUsuario((String) comboUsuarios.getSelectedItem());
+        DtVideo v = c.obtenerVideo(video,user.getCanal().getNombre_canal());
+        
+        List lista = u.listaUsuarios();
         for (int y = 0; y <= lista.size() - 1; y++) {
             user = (DtUsuario) lista.get(y);
             if (nom.equals(user.getNickname())) {
                 aux = 1;
                 if (selecciona.isEmpty()) {
-                    DtVideo v = c.obtenerVideo(video);
                     List listaCom = c.listaComentarios(video);
                     if (listaCom.isEmpty()) {
                         DtComentario co = new DtComentario(nom, com, fecha, v, null, 1);
@@ -4761,7 +4762,6 @@ public class MenuInicio extends javax.swing.JFrame {
                     String[] dividir = auxiliar.split("::");
                     auxiliar = dividir[0];
                     aux1 = dividir[1];
-                    DtVideo v = c.obtenerVideo(video);
                     List listaCom = c.listaComentarios(video);
                     DtComentario come;
                     for (int x = 0; x <= listaCom.size() - 1; x++) {
@@ -4884,7 +4884,9 @@ public class MenuInicio extends javax.swing.JFrame {
         Date fechaV = DateVideo2.getDate();
         Boolean privadoV = Si2.isSelected();
         String nomVideo = comboVideo2.getSelectedItem().toString();
-        DtVideo video = c.obtenerVideo(nomVideo);
+        DtUsuario user;
+        user = u.buscarUsuario((String) comboVideo1.getSelectedItem());
+        DtVideo video = c.obtenerVideo(nomVideo,user.getCanal().getNombre_canal());
 
         VentanaEmergente mensaje = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
         if (video.getNombre().equals(nomV) && video.getDuracion().equals(durV) && video.getUrl().equals(urlV) && video.getCategoria().equals(catV) && video.getDescripcion().equals(desV) && video.getFechaPublicacion().equals(fechaV) && video.getPrivado() == privadoV) {
@@ -4901,8 +4903,6 @@ public class MenuInicio extends javax.swing.JFrame {
                 Panel_Central.revalidate();
                 Panel_Central.repaint();
                 
-                String usuario = comboVideo1.getSelectedItem().toString();
-                DtUsuario user = u.buscarUsuario(usuario);
                 List lista = c.listaVideos(user.getCanal());
                 DtVideo v;
                 if (!lista.isEmpty()) {
@@ -4972,7 +4972,9 @@ public class MenuInicio extends javax.swing.JFrame {
         Panel_Central.revalidate();
         Panel_Central.repaint();
         String nomVideo = comboVideo2.getSelectedItem().toString();
-        DtVideo video = c.obtenerVideo(nomVideo);
+        DtUsuario user;
+        user = u.buscarUsuario((String) comboVideo1.getSelectedItem());
+        DtVideo video = c.obtenerVideo(nomVideo,user.getCanal().getNombre_canal());
         VarNomvideo.setText(video.getNombre());
         VarDuracion.setText(video.getDuracion());
         VarUrl.setText(video.getUrl());
@@ -5059,7 +5061,9 @@ public class MenuInicio extends javax.swing.JFrame {
         Panel_Central.revalidate();
         Panel_Central.repaint();
         String nomVideo = comboVideo5.getSelectedItem().toString();
-        DtVideo video = c.obtenerVideo(nomVideo);
+        DtUsuario user;
+        user = u.buscarUsuario((String) comboVideo1.getSelectedItem());
+        DtVideo video = c.obtenerVideo(nomVideo,user.getCanal().getNombre_canal());;
         String fechaN = video.getFechaPublicacion().toString();
         fechaN = fechaN.substring(0, 10);
         Integer num = Integer.parseInt(fechaN.substring(8, 10)) + 1;

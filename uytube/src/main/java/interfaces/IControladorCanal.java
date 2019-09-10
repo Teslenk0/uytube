@@ -29,7 +29,7 @@ public interface IControladorCanal {
     
     public abstract List listaVideos(DtCanal canal);
     
-    public abstract DtVideo obtenerVideo(String v);
+    public abstract DtVideo obtenerVideo(String nomV, String canal);
     
     public abstract List listaComentarios(String video);
     

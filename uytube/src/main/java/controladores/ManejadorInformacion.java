@@ -187,9 +187,15 @@ public class ManejadorInformacion {
         manager.close();
     }
     
-    public Video buscadorVideo(String v) {
+    public Video buscadorVideo(String nom, String canal) {
         manager = emf.createEntityManager();
-        return manager.find(Video.class, v);
+        Video video;
+        try{
+            video = (Video) manager.createQuery("select v from Video v where v.canal='" + canal + "' and v.nombre='" + nom + "'").getSingleResult();
+        }catch(Exception e){
+            video = null;
+        }
+        return video;
     }
     
     public Comentario buscadorComentario(String c) {
