@@ -37,7 +37,9 @@ public interface IControladorCanal {
     
     public abstract DtComentario obtenerComentario(String comentario);
     
-    public DtComentario obtenerComentarioRef(String padre);
+    public abstract DtComentario obtenerComentarioRef(String padre);
+    
+    public abstract String comentarioEsp(Integer num);
     
     public abstract List getCanales();
     

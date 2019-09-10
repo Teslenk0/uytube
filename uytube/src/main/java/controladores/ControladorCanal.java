@@ -112,6 +112,18 @@ public class ControladorCanal implements IControladorCanal {
         }
         return null;
     }
+    
+    @Override
+    public String comentarioEsp(Integer num){
+        ManejadorInformacion mu = ManejadorInformacion.getInstance();
+        String com = mu.comEsp(num);
+        
+        //String c = new DtComentario(com);
+        if (com != null) {
+            return com;
+        }
+        return null;
+    }
 
     @Override
     public List listaComentarios(String video) {

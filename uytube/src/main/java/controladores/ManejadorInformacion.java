@@ -177,6 +177,11 @@ public class ManejadorInformacion {
         Comentario c = (Comentario) manager.createQuery("FROM Comentario c WHERE c.ref = '" + padre + "'").getSingleResult();
         return c;
     }
+    
+    public String comEsp(Integer num){
+        String c = (String) manager.createQuery("SELECT c.comentario FROM Comentario c WHERE c.ref ='" + num + "'").getSingleResult();
+        return c;
+    }
 
     public void addComentario(Comentario c) {
         manager = emf.createEntityManager();

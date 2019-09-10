@@ -26,6 +26,7 @@ import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.time.Year;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Enumeration;
@@ -4696,35 +4697,38 @@ public class MenuInicio extends javax.swing.JFrame {
             DefaultMutableTreeNode abuelo = new DefaultMutableTreeNode(video + "::Comentarios");
             DefaultTreeModel modelo = new DefaultTreeModel(abuelo);
             jTree1.setModel(modelo);
-
             // Construccion de los datos del arbol
-            for (int x = 0; x <= listaCom.size() - 1; x++) {
+            int y = 1;
+            for (int x = 0; x < listaCom.size() ; x++) {
+                com = (DtComentario) listaCom.get(x);
                 if (listaCom.get(x) != null) {
-
-                    com = (DtComentario) listaCom.get(x);
+                    String coment = c.comentarioEsp(y);
+                    y++;
                     String padre = com.getPadre();
                     DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) jTree1.getModel().getRoot();
                     if (padre == null) {
 
                         int hijos = jTree1.getModel().getChildCount(raiz);
-                        DefaultMutableTreeNode aux = new DefaultMutableTreeNode(com.getNick() + "::" + com.getComentario());
+                        DefaultMutableTreeNode aux = new DefaultMutableTreeNode(com.getNick() + "::" + coment);
                         modelo.insertNodeInto(aux, abuelo, hijos);
 
                     } else {
 
                         DtComentario comentario = c.obtenerComentarioRef(com.getPadre());
                         DefaultMutableTreeNode viejo = findNode(comentario.getNick() + "::" + comentario.getComentario());
+                        
                         if (viejo != null) {
 
                             int hijos = jTree1.getModel().getChildCount(viejo);
-                            DefaultMutableTreeNode nuevo = new DefaultMutableTreeNode(com.getNick() + "::" + com.getComentario());
+                            DefaultMutableTreeNode nuevo = new DefaultMutableTreeNode(com.getNick() + "::" + coment);
                             modelo.insertNodeInto(nuevo, viejo, hijos);
 
                         }
                     }
                 }
             }
-        } else {
+        }
+        else {
             DefaultMutableTreeNode abuelo = new DefaultMutableTreeNode(video + "::Sin Comentarios");
             DefaultTreeModel modelo = new DefaultTreeModel(abuelo);
             jTree1.setModel(modelo);
