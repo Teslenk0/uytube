@@ -357,7 +357,6 @@ public class MenuInicio extends javax.swing.JFrame {
         descvideo = new javax.swing.JLabel();
         fechavideo = new javax.swing.JLabel();
         Privado10 = new javax.swing.JLabel();
-        CheckboxPrivado4 = new java.awt.Checkbox();
         VarNomvideo = new javax.swing.JTextField();
         VarDuracion = new javax.swing.JTextField();
         VarUrl = new javax.swing.JTextField();
@@ -372,6 +371,8 @@ public class MenuInicio extends javax.swing.JFrame {
         ScroolDescripcion5 = new javax.swing.JScrollPane();
         CampoDescripcion5 = new javax.swing.JTextArea();
         jSeparator65 = new javax.swing.JSeparator();
+        No2 = new javax.swing.JRadioButton();
+        Si2 = new javax.swing.JRadioButton();
         Central3_3 = new javax.swing.JPanel();
         comboVideo4 = new javax.swing.JComboBox<>();
         BackButton10 = new javax.swing.JButton();
@@ -1323,7 +1324,7 @@ public class MenuInicio extends javax.swing.JFrame {
         CampoImagen.setBounds(390, 420, 260, 30);
 
         DateChoose.setMaxSelectableDate(new java.util.Date(1577851315000L));
-        DateChoose.setNextFocusableComponent(Descripcion);
+        DateChoose.setNextFocusableComponent(CampoCanal);
         Central2_1.add(DateChoose);
         DateChoose.setBounds(220, 350, 150, 20);
 
@@ -1441,6 +1442,7 @@ public class MenuInicio extends javax.swing.JFrame {
         No.setText("No");
         No.setBorder(null);
         No.setFocusable(false);
+        No.setNextFocusableComponent(CampoDescripcion);
         Central2_1.add(No);
         No.setBounds(560, 210, 50, 15);
 
@@ -1449,6 +1451,7 @@ public class MenuInicio extends javax.swing.JFrame {
         Si.setText("Si");
         Si.setBorder(null);
         Si.setFocusable(false);
+        Si.setNextFocusableComponent(CampoDescripcion);
         Central2_1.add(Si);
         Si.setBounds(490, 210, 50, 15);
 
@@ -1736,6 +1739,7 @@ public class MenuInicio extends javax.swing.JFrame {
 
         Central2_3.setLayout(null);
 
+        comboModificar.setNextFocusableComponent(Varnom1);
         Central2_3.add(comboModificar);
         comboModificar.setBounds(130, 60, 456, 22);
 
@@ -1889,6 +1893,7 @@ public class MenuInicio extends javax.swing.JFrame {
         Varnom1.setFont(berlin);
         Varnom1.setForeground(new java.awt.Color(102, 102, 102));
         Varnom1.setBorder(null);
+        Varnom1.setNextFocusableComponent(Varape1);
         Varnom1.setOpaque(false);
         Central2_3_1.add(Varnom1);
         Varnom1.setBounds(450, 90, 220, 14);
@@ -1897,6 +1902,7 @@ public class MenuInicio extends javax.swing.JFrame {
         VarPass.setFont(berlin);
         VarPass.setForeground(new java.awt.Color(102, 102, 102));
         VarPass.setBorder(null);
+        VarPass.setNextFocusableComponent(Varcanal1);
         VarPass.setOpaque(false);
         Central2_3_1.add(VarPass);
         VarPass.setBounds(450, 170, 220, 14);
@@ -1905,6 +1911,7 @@ public class MenuInicio extends javax.swing.JFrame {
         Varape1.setFont(berlin);
         Varape1.setForeground(new java.awt.Color(102, 102, 102));
         Varape1.setBorder(null);
+        Varape1.setNextFocusableComponent(VarPass);
         Varape1.setOpaque(false);
         Central2_3_1.add(Varape1);
         Varape1.setBounds(450, 130, 220, 14);
@@ -1913,6 +1920,7 @@ public class MenuInicio extends javax.swing.JFrame {
         Varcanal1.setFont(berlin);
         Varcanal1.setForeground(new java.awt.Color(102, 102, 102));
         Varcanal1.setBorder(null);
+        Varcanal1.setNextFocusableComponent(CampoDescripcion3);
         Varcanal1.setOpaque(false);
         Central2_3_1.add(Varcanal1);
         Varcanal1.setBounds(450, 210, 220, 15);
@@ -1928,7 +1936,7 @@ public class MenuInicio extends javax.swing.JFrame {
         CampoImagen1.setBounds(20, 210, 250, 30);
 
         DateChoose1.setMaxSelectableDate(new java.util.Date(1577851315000L));
-        DateChoose1.setNextFocusableComponent(Descripcion);
+        DateChoose1.setNextFocusableComponent(CampoDescripcion3);
         Central2_3_1.add(DateChoose1);
         DateChoose1.setBounds(450, 250, 190, 20);
 
@@ -2386,7 +2394,7 @@ public class MenuInicio extends javax.swing.JFrame {
         FechaPubVideo.setBounds(510, 80, 160, 20);
 
         DateVideo.setMaxSelectableDate(new java.util.Date(1577851315000L));
-        DateVideo.setNextFocusableComponent(Descripcion);
+        DateVideo.setNextFocusableComponent(CampoDescripcion4);
         Central3_1_1.add(DateVideo);
         DateVideo.setBounds(490, 100, 200, 20);
 
@@ -2395,6 +2403,7 @@ public class MenuInicio extends javax.swing.JFrame {
         NombreVideo.setForeground(new java.awt.Color(102, 102, 102));
         NombreVideo.setText("Ingrese Nombre de Video");
         NombreVideo.setBorder(null);
+        NombreVideo.setNextFocusableComponent(Duracion);
         NombreVideo.setOpaque(false);
         NombreVideo.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -2409,6 +2418,7 @@ public class MenuInicio extends javax.swing.JFrame {
         Duracion.setForeground(new java.awt.Color(102, 102, 102));
         Duracion.setText("Ingrese Duración");
         Duracion.setBorder(null);
+        Duracion.setNextFocusableComponent(URLVideo);
         Duracion.setOpaque(false);
         Duracion.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -2423,6 +2433,7 @@ public class MenuInicio extends javax.swing.JFrame {
         URLVideo.setForeground(new java.awt.Color(102, 102, 102));
         URLVideo.setText("Ingrese URL de video");
         URLVideo.setBorder(null);
+        URLVideo.setNextFocusableComponent(DateVideo);
         URLVideo.setOpaque(false);
         URLVideo.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -2664,14 +2675,13 @@ public class MenuInicio extends javax.swing.JFrame {
         Privado10.setFont(berlin);
         Privado10.setText("¿Desea hacer el video privado?:");
         Central3_2_1_1.add(Privado10);
-        Privado10.setBounds(40, 200, 220, 20);
-        Central3_2_1_1.add(CheckboxPrivado4);
-        CheckboxPrivado4.setBounds(280, 200, 20, 20);
+        Privado10.setBounds(40, 200, 210, 20);
 
         Varnom.setEditable(false);
         VarNomvideo.setFont(berlin);
         VarNomvideo.setForeground(new java.awt.Color(102, 102, 102));
         VarNomvideo.setBorder(null);
+        VarNomvideo.setNextFocusableComponent(VarDuracion);
         VarNomvideo.setOpaque(false);
         Central3_2_1_1.add(VarNomvideo);
         VarNomvideo.setBounds(180, 40, 210, 14);
@@ -2680,6 +2690,7 @@ public class MenuInicio extends javax.swing.JFrame {
         VarDuracion.setFont(berlin);
         VarDuracion.setForeground(new java.awt.Color(102, 102, 102));
         VarDuracion.setBorder(null);
+        VarDuracion.setNextFocusableComponent(VarUrl);
         VarDuracion.setOpaque(false);
         Central3_2_1_1.add(VarDuracion);
         VarDuracion.setBounds(180, 80, 210, 14);
@@ -2688,6 +2699,7 @@ public class MenuInicio extends javax.swing.JFrame {
         VarUrl.setFont(berlin);
         VarUrl.setForeground(new java.awt.Color(102, 102, 102));
         VarUrl.setBorder(null);
+        VarUrl.setNextFocusableComponent(VarCategoria);
         VarUrl.setOpaque(false);
         Central3_2_1_1.add(VarUrl);
         VarUrl.setBounds(180, 120, 210, 14);
@@ -2696,12 +2708,13 @@ public class MenuInicio extends javax.swing.JFrame {
         VarCategoria.setFont(berlin);
         VarCategoria.setForeground(new java.awt.Color(102, 102, 102));
         VarCategoria.setBorder(null);
+        VarCategoria.setNextFocusableComponent(DateVideo2);
         VarCategoria.setOpaque(false);
         Central3_2_1_1.add(VarCategoria);
         VarCategoria.setBounds(180, 160, 210, 15);
 
         DateVideo2.setMaxSelectableDate(new java.util.Date(1577851315000L));
-        DateVideo2.setNextFocusableComponent(Descripcion);
+        DateVideo2.setNextFocusableComponent(CampoDescripcion5);
         Central3_2_1_1.add(DateVideo2);
         DateVideo2.setBounds(480, 60, 210, 20);
 
@@ -2759,6 +2772,24 @@ public class MenuInicio extends javax.swing.JFrame {
         jSeparator65.setForeground(new java.awt.Color(153, 153, 153));
         Central3_2_1_1.add(jSeparator65);
         jSeparator65.setBounds(180, 140, 210, 16);
+
+        TrueFalse.add(No2);
+        No2.setFont(berlin);
+        No2.setText("No");
+        No2.setBorder(null);
+        No2.setFocusable(false);
+        No2.setNextFocusableComponent(CampoDescripcion);
+        Central3_2_1_1.add(No2);
+        No2.setBounds(330, 200, 50, 15);
+
+        TrueFalse.add(Si2);
+        Si2.setFont(berlin);
+        Si2.setText("Si");
+        Si2.setBorder(null);
+        Si2.setFocusable(false);
+        Si2.setNextFocusableComponent(CampoDescripcion);
+        Central3_2_1_1.add(Si2);
+        Si2.setBounds(260, 200, 50, 15);
 
         Panel_Central.add(Central3_2_1_1);
         Central3_2_1_1.setBounds(0, 0, 710, 550);
@@ -4842,8 +4873,7 @@ public class MenuInicio extends javax.swing.JFrame {
         String catV = VarCategoria.getText();
         String desV = CampoDescripcion5.getText();
         Date fechaV = DateVideo2.getDate();
-        Boolean privadoV = CheckboxPrivado4.getState();
-
+        Boolean privadoV = Si2.isSelected();
         String nomVideo = comboVideo2.getSelectedItem().toString();
         DtVideo video = c.obtenerVideo(nomVideo);
 
@@ -4855,9 +4885,13 @@ public class MenuInicio extends javax.swing.JFrame {
             try {
                 c.modificarVideo(vid, video.getNombre());
                 mensaje.CambioTexto("      Modificaciones realizadas con éxito");
+                Central3_2_1.remove(CambiarUsuarioL);
+                Central3_2_1.add(SeleccionarVideoL);
+                comboVideo2.setEnabled(true);
                 Central3_2_1_Panel.removeAll();
-                Central3_2_1_Panel.revalidate();
-                Central3_2_1_Panel.repaint();
+                Panel_Central.revalidate();
+                Panel_Central.repaint();
+                
                 String usuario = comboVideo1.getSelectedItem().toString();
                 DtUsuario user = u.buscarUsuario(usuario);
                 List lista = c.listaVideos(user.getCanal());
@@ -4936,7 +4970,10 @@ public class MenuInicio extends javax.swing.JFrame {
         VarCategoria.setText(video.getCategoria());
         CampoDescripcion5.setText(video.getDescripcion());
         DateVideo2.setDate(video.getFechaPublicacion());
-        CheckboxPrivado4.setState(video.getPrivado());
+        if(video.getPrivado())
+        Si2.setSelected(true);
+        else
+        No2.setSelected(true);
     }//GEN-LAST:event_SeleccionarVideoLActionPerformed
 
     private void ComboSiguiendoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboSiguiendoActionPerformed
@@ -5443,7 +5480,6 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JPanel Central5;
     private java.awt.Checkbox CheckboxParticular;
     private java.awt.Checkbox CheckboxPorDefecto;
-    private java.awt.Checkbox CheckboxPrivado4;
     private java.awt.Checkbox CheckboxPublica;
     private javax.swing.JComboBox<String> ComboSeguidores;
     private javax.swing.JComboBox<String> ComboSiguiendo;
@@ -5480,6 +5516,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JLabel Nickname;
     private javax.swing.JRadioButton No;
     private javax.swing.JRadioButton No1;
+    private javax.swing.JRadioButton No2;
     private javax.swing.JLabel NomCanal;
     private javax.swing.JLabel NomCanalListar;
     private javax.swing.JLabel NomVideo;
@@ -5527,6 +5564,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JButton SeleccionarVideoL1;
     private javax.swing.JRadioButton Si;
     private javax.swing.JRadioButton Si1;
+    private javax.swing.JRadioButton Si2;
     private javax.swing.JButton Sobrecarga;
     private javax.swing.ButtonGroup TrueFalse;
     private javax.swing.JTextField URLVideo;
