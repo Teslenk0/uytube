@@ -194,6 +194,7 @@ public class MenuInicio extends javax.swing.JFrame {
         comboConsulta = new javax.swing.JComboBox<>();
         BackButton3 = new javax.swing.JButton();
         SeleccionarUsuario = new javax.swing.JButton();
+        CambiarUsuario5 = new javax.swing.JButton();
         jSeparator18 = new javax.swing.JSeparator();
         Central2_2_Panel = new javax.swing.JPanel();
         nombre6 = new javax.swing.JLabel();
@@ -234,6 +235,7 @@ public class MenuInicio extends javax.swing.JFrame {
         comboModificar = new javax.swing.JComboBox<>();
         BackButton4 = new javax.swing.JButton();
         SeleccionarUsuarioModificar = new javax.swing.JButton();
+        CambiarUsuario6 = new javax.swing.JButton();
         Central2_3_Panel = new javax.swing.JPanel();
         jSeparator19 = new javax.swing.JSeparator();
         nombre7 = new javax.swing.JLabel();
@@ -1477,6 +1479,19 @@ public class MenuInicio extends javax.swing.JFrame {
         Central2_2.add(SeleccionarUsuario);
         SeleccionarUsuario.setBounds(590, 60, 90, 40);
 
+        CambiarUsuario5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_cambiar_1.png"))); // NOI18N
+        CambiarUsuario5.setBorderPainted(false);
+        CambiarUsuario5.setContentAreaFilled(false);
+        CambiarUsuario5.setFocusable(false);
+        CambiarUsuario5.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_cambiar_2.png"))); // NOI18N
+        CambiarUsuario5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CambiarUsuario5ActionPerformed(evt);
+            }
+        });
+        Central2_2.add(CambiarUsuario5);
+        CambiarUsuario5.setBounds(590, 60, 90, 40);
+
         jSeparator18.setBackground(new java.awt.Color(153, 153, 153));
         jSeparator18.setForeground(new java.awt.Color(153, 153, 153));
         Central2_2.add(jSeparator18);
@@ -1741,7 +1756,20 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2_3.add(SeleccionarUsuarioModificar);
-        SeleccionarUsuarioModificar.setBounds(590, 50, 100, 40);
+        SeleccionarUsuarioModificar.setBounds(590, 50, 90, 40);
+
+        CambiarUsuario6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_cambiar_1.png"))); // NOI18N
+        CambiarUsuario6.setBorderPainted(false);
+        CambiarUsuario6.setContentAreaFilled(false);
+        CambiarUsuario6.setFocusable(false);
+        CambiarUsuario6.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_cambiar_2.png"))); // NOI18N
+        CambiarUsuario6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CambiarUsuario6ActionPerformed(evt);
+            }
+        });
+        Central2_3.add(CambiarUsuario6);
+        CambiarUsuario6.setBounds(590, 50, 90, 40);
 
         Central2_3_Panel.setMaximumSize(new java.awt.Dimension(750, 400));
         Central2_3_Panel.setMinimumSize(new java.awt.Dimension(750, 400));
@@ -3910,13 +3938,14 @@ public class MenuInicio extends javax.swing.JFrame {
         Central2_2_Panel.revalidate();
         Central2_2_Panel.repaint();
         comboConsulta.removeAllItems();
-        ComboSeguidores.removeAllItems();
-        ComboSiguiendo.removeAllItems();
     }//GEN-LAST:event_BackButton3ActionPerformed
 
     private void SeleccionarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeleccionarUsuarioActionPerformed
         Item = comboConsulta.getSelectedItem().toString();
         DtUsuario user = u.buscarUsuario(Item);
+        comboConsulta.setEnabled(false);
+        Central2_2.remove(SeleccionarUsuario);
+        Central2_2.add(CambiarUsuario5);
         Central2_2_Panel.add(Central2_2_1);
         Panel_Central.revalidate();
         Panel_Central.repaint();
@@ -3980,6 +4009,9 @@ public class MenuInicio extends javax.swing.JFrame {
     private void SeleccionarUsuarioModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeleccionarUsuarioModificarActionPerformed
         DateChoose1.setDate(null);
         Item = comboModificar.getSelectedItem().toString();
+        Central2_3.remove(SeleccionarUsuarioModificar);
+        Central2_3.add(CambiarUsuario6);
+        comboModificar.setEnabled(false);
         Central2_3_Panel.add(Central2_3_1);
         Panel_Central.revalidate();
         Panel_Central.repaint();
@@ -4382,6 +4414,9 @@ public class MenuInicio extends javax.swing.JFrame {
         Panel_Central.add(Central2_2);
         Panel_Central.revalidate();
         Panel_Central.repaint();
+        Central2_2.remove(CambiarUsuario5);
+        Central2_2.add(SeleccionarUsuario);
+        comboConsulta.setEnabled(true);
         List lista = u.listaUsuarios();
         if (lista != null) {
             DtUsuario user;
@@ -4401,6 +4436,9 @@ public class MenuInicio extends javax.swing.JFrame {
     private void ModificarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarUsuarioActionPerformed
         CampoImagen1.setText("Imágen Seleccionada");
         Panel_Central.removeAll();
+        Central2_3.remove(CambiarUsuario6);
+        Central2_3.add(SeleccionarUsuarioModificar);
+        comboModificar.setEnabled(true);
         Panel_Central.add(Central2_3);
         Panel_Central.revalidate();
         Panel_Central.repaint();
@@ -5091,11 +5129,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private void CambiarUsuario3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CambiarUsuario3ActionPerformed
         comboVideo1.setEnabled(true);
         Central3_2_Panel.removeAll();
-        Central3_2_Panel.revalidate();
-        Central3_2_Panel.repaint();
         Central3_2_1_Panel.removeAll();
-        Central3_2_1_Panel.revalidate();
-        Central3_2_1_Panel.repaint();
         Central3_2.remove(CambiarUsuario3);
         Central3_2.add(SeleccionarUsuario3);
         Panel_Central.revalidate();
@@ -5107,8 +5141,6 @@ public class MenuInicio extends javax.swing.JFrame {
         Central3_2_1.remove(CambiarUsuarioL);
         Central3_2_1.add(SeleccionarVideoL);
         Central3_2_1_Panel.removeAll();
-        Central3_2_1_Panel.revalidate();
-        Central3_2_1_Panel.repaint();
         Panel_Central.revalidate();
         Panel_Central.repaint();
     }//GEN-LAST:event_CambiarUsuarioLActionPerformed
@@ -5116,11 +5148,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private void CambiarUsuario4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CambiarUsuario4ActionPerformed
         comboVideo4.setEnabled(true);
         Central3_3_Panel.removeAll();
-        Central3_3_Panel.revalidate();
-        Central3_3_Panel.repaint();
         Central3_3_1_Panel.removeAll();
-        Central3_3_1_Panel.revalidate();
-        Central3_3_1_Panel.repaint();
         Central3_3.remove(CambiarUsuario4);
         Central3_3.add(SeleccionarUsuario4);
         Panel_Central.revalidate();
@@ -5132,11 +5160,27 @@ public class MenuInicio extends javax.swing.JFrame {
         Central3_3_1.remove(CambiarUsuarioL1);
         Central3_3_1.add(SeleccionarVideoL1);
         Central3_3_1_Panel.removeAll();
-        Central3_3_1_Panel.revalidate();
-        Central3_3_1_Panel.repaint();
         Panel_Central.revalidate();
         Panel_Central.repaint();
     }//GEN-LAST:event_CambiarUsuarioL1ActionPerformed
+
+    private void CambiarUsuario5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CambiarUsuario5ActionPerformed
+        comboConsulta.setEnabled(true);
+        Central2_2.remove(CambiarUsuario5);
+        Central2_2.add(SeleccionarUsuario);
+        Central2_2_Panel.removeAll();
+        Panel_Central.revalidate();
+        Panel_Central.repaint();    
+    }//GEN-LAST:event_CambiarUsuario5ActionPerformed
+
+    private void CambiarUsuario6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CambiarUsuario6ActionPerformed
+        comboModificar.setEnabled(true);
+        Central2_3.remove(CambiarUsuario6);
+        Central2_3.add(SeleccionarUsuarioModificar);
+        Central2_3_Panel.removeAll();
+        Panel_Central.revalidate();
+        Panel_Central.repaint();
+    }//GEN-LAST:event_CambiarUsuario6ActionPerformed
 
     private void setColor(JPanel pane) {
         pane.setBackground(new Color(114, 114, 114));
@@ -5209,6 +5253,8 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JButton CambiarUsuario1;
     private javax.swing.JButton CambiarUsuario3;
     private javax.swing.JButton CambiarUsuario4;
+    private javax.swing.JButton CambiarUsuario5;
+    private javax.swing.JButton CambiarUsuario6;
     private javax.swing.JButton CambiarUsuarioL;
     private javax.swing.JButton CambiarUsuarioL1;
     private javax.swing.JTextField CampoApellido;
