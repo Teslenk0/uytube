@@ -334,6 +334,7 @@ public class MenuInicio extends javax.swing.JFrame {
         ScroolDescripcion4 = new javax.swing.JScrollPane();
         CampoDescripcion4 = new javax.swing.JTextArea();
         comboVideoCat = new javax.swing.JComboBox<>();
+        jSeparator49 = new javax.swing.JSeparator();
         Central3_2 = new javax.swing.JPanel();
         comboVideo1 = new javax.swing.JComboBox<>();
         BackButton9 = new javax.swing.JButton();
@@ -360,7 +361,6 @@ public class MenuInicio extends javax.swing.JFrame {
         VarNomvideo = new javax.swing.JTextField();
         VarDuracion = new javax.swing.JTextField();
         VarUrl = new javax.swing.JTextField();
-        VarCategoria = new javax.swing.JTextField();
         DateVideo2 = new com.toedter.calendar.JDateChooser();
         jSeparator61 = new javax.swing.JSeparator();
         jSeparator63 = new javax.swing.JSeparator();
@@ -373,6 +373,7 @@ public class MenuInicio extends javax.swing.JFrame {
         jSeparator65 = new javax.swing.JSeparator();
         No2 = new javax.swing.JRadioButton();
         Si2 = new javax.swing.JRadioButton();
+        comboVideoCat1 = new javax.swing.JComboBox<>();
         Central3_3 = new javax.swing.JPanel();
         comboVideo4 = new javax.swing.JComboBox<>();
         BackButton10 = new javax.swing.JButton();
@@ -2464,7 +2465,7 @@ public class MenuInicio extends javax.swing.JFrame {
         jSeparator48.setBackground(new java.awt.Color(153, 153, 153));
         jSeparator48.setForeground(new java.awt.Color(153, 153, 153));
         Central3_1_1.add(jSeparator48);
-        jSeparator48.setBounds(180, 190, 230, 20);
+        jSeparator48.setBounds(180, 230, 230, 20);
 
         RegistrarVideo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_regist_2.png"))); // NOI18N
         RegistrarVideo.setBorder(null);
@@ -2495,6 +2496,11 @@ public class MenuInicio extends javax.swing.JFrame {
 
         Central3_1_1.add(comboVideoCat);
         comboVideoCat.setBounds(180, 210, 230, 22);
+
+        jSeparator49.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator49.setForeground(new java.awt.Color(153, 153, 153));
+        Central3_1_1.add(jSeparator49);
+        jSeparator49.setBounds(180, 190, 230, 20);
 
         Panel_Central.add(Central3_1_1);
         Central3_1_1.setBounds(0, 0, 720, 450);
@@ -2699,19 +2705,9 @@ public class MenuInicio extends javax.swing.JFrame {
         VarUrl.setFont(berlin);
         VarUrl.setForeground(new java.awt.Color(102, 102, 102));
         VarUrl.setBorder(null);
-        VarUrl.setNextFocusableComponent(VarCategoria);
         VarUrl.setOpaque(false);
         Central3_2_1_1.add(VarUrl);
         VarUrl.setBounds(180, 120, 210, 14);
-
-        Varmail.setEditable(false);
-        VarCategoria.setFont(berlin);
-        VarCategoria.setForeground(new java.awt.Color(102, 102, 102));
-        VarCategoria.setBorder(null);
-        VarCategoria.setNextFocusableComponent(DateVideo2);
-        VarCategoria.setOpaque(false);
-        Central3_2_1_1.add(VarCategoria);
-        VarCategoria.setBounds(180, 160, 210, 15);
 
         DateVideo2.setMaxSelectableDate(new java.util.Date(1577851315000L));
         DateVideo2.setNextFocusableComponent(CampoDescripcion5);
@@ -2790,6 +2786,9 @@ public class MenuInicio extends javax.swing.JFrame {
         Si2.setNextFocusableComponent(CampoDescripcion);
         Central3_2_1_1.add(Si2);
         Si2.setBounds(260, 200, 50, 15);
+
+        Central3_2_1_1.add(comboVideoCat1);
+        comboVideoCat1.setBounds(180, 160, 210, 22);
 
         Panel_Central.add(Central3_2_1_1);
         Central3_2_1_1.setBounds(0, 0, 710, 550);
@@ -4880,7 +4879,7 @@ public class MenuInicio extends javax.swing.JFrame {
         String nomV = VarNomvideo.getText();
         String durV = VarDuracion.getText();
         String urlV = VarUrl.getText();
-        String catV = VarCategoria.getText();
+        String catV = (String) comboVideoCat1.getSelectedItem();
         String desV = CampoDescripcion5.getText();
         Date fechaV = DateVideo2.getDate();
         Boolean privadoV = Si2.isSelected();
@@ -4977,7 +4976,20 @@ public class MenuInicio extends javax.swing.JFrame {
         VarNomvideo.setText(video.getNombre());
         VarDuracion.setText(video.getDuracion());
         VarUrl.setText(video.getUrl());
-        VarCategoria.setText(video.getCategoria());
+        
+        List categorias = c.getCategorias();
+        if (categorias != null) {
+            DtCategoria cat;
+            comboVideoCat1.removeAllItems();
+            for (int x = 0; x <= categorias.size() - 1; x++) {
+                if (categorias.get(x) != null) {
+                    cat = (DtCategoria) categorias.get(x);
+                    comboVideoCat1.addItem(cat.getnombreCategoria());
+                }
+            }
+        }
+        comboVideoCat1.setSelectedItem(video.getCategoria());
+        
         CampoDescripcion5.setText(video.getDescripcion());
         DateVideo2.setDate(video.getFechaPublicacion());
         if(video.getPrivado())
@@ -5195,8 +5207,6 @@ public class MenuInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_radioDefectoActionPerformed
 
     private void BackButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButton12ActionPerformed
-        // TODO add your handling code here:
-        // TODO add your handling code here:
         Panel_Central.removeAll();
         Panel_Central.add(Scroll4);
         Panel_Central.revalidate();
@@ -5587,7 +5597,6 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> UsuarioBox1;
     private javax.swing.JLabel UsuarioText;
     private javax.swing.JLabel UsuarioText2;
-    private javax.swing.JTextField VarCategoria;
     private javax.swing.JTextField VarCategoria1;
     private javax.swing.JTextField VarDuracion;
     private javax.swing.JTextField VarDuracion1;
@@ -5656,6 +5665,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> comboVideo4;
     private javax.swing.JComboBox<String> comboVideo5;
     private javax.swing.JComboBox<String> comboVideoCat;
+    private javax.swing.JComboBox<String> comboVideoCat1;
     private javax.swing.JComboBox<String> comboVideoOrigen;
     private javax.swing.JComboBox<String> comboVideoSacarVideo;
     private javax.swing.JComboBox<String> comboVideos;
@@ -5752,6 +5762,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator46;
     private javax.swing.JSeparator jSeparator47;
     private javax.swing.JSeparator jSeparator48;
+    private javax.swing.JSeparator jSeparator49;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator54;
     private javax.swing.JSeparator jSeparator55;
