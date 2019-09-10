@@ -10,6 +10,7 @@ swing/MenuInicio$62.class
 swing/MenuInicio$15.class
 swing/MenuInicio$35.class
 clases/Seguir.class
+swing/MenuInicio$88.class
 swing/MenuInicio$68.class
 swing/MenuInicio$28.class
 swing/MenuInicio$48.class
@@ -47,6 +48,7 @@ swing/MenuInicio$7.class
 swing/MenuInicio$51.class
 swing/MenuInicio$46.class
 swing/MenuInicio$69.class
+swing/MenuInicio$89.class
 swing/Menu$9.class
 swing/MenuInicio$14.class
 swing/MenuInicio$74.class
@@ -99,9 +101,11 @@ clases/ListaReproduccion.class
 clases/Canal.class
 swing/MenuInicio$53.class
 clases/ListaParticulares.class
+swing/MenuInicio$93.class
 swing/MenuInicio$13.class
 swing/VentanaEmergente2$4.class
 swing/MenuInicio$18.class
+swing/MenuInicio$92.class
 swing/MenuInicio$2.class
 DataTypes/DtVideo.class
 swing/MenuInicio$8.class
@@ -121,6 +125,7 @@ swing/MenuInicio.class
 swing/MenuInicio$11.class
 clases/Categoria.class
 swing/MenuInicio$86.class
+swing/MenuInicio$91.class
 swing/MenuInicio$26.class
 swing/MenuInicio$34.class
 swing/MenuInicio$54.class
@@ -133,6 +138,7 @@ swing/MenuInicio$60.class
 DataTypes/DtCanal.class
 swing/MenuInicio$27.class
 swing/MenuInicio$57.class
+swing/MenuInicio$90.class
 swing/VentanaEmergente$3.class
 DataTypes/DtCategoria.class
 clases/DefectoPK.class

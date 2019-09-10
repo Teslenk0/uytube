@@ -491,6 +491,24 @@ public class MenuInicio extends javax.swing.JFrame {
         radioParticular = new javax.swing.JRadioButton();
         radioDefecto = new javax.swing.JRadioButton();
         usuarioModificarListaLabel2 = new javax.swing.JLabel();
+        Central4_4 = new javax.swing.JPanel();
+        listaModificarListaLabel2 = new javax.swing.JLabel();
+        usuarioModificarListaLabel3 = new javax.swing.JLabel();
+        jSeparator84 = new javax.swing.JSeparator();
+        jSeparator85 = new javax.swing.JSeparator();
+        jSeparator87 = new javax.swing.JSeparator();
+        BackButton12 = new javax.swing.JButton();
+        comboUsuarioSacarVideo = new javax.swing.JComboBox<>();
+        comboVideoSacarVideo = new javax.swing.JComboBox<>();
+        botonAceptarModificarLista3 = new javax.swing.JButton();
+        botonSelectListaSacarVideo = new javax.swing.JButton();
+        radioParticularSacarVideo = new javax.swing.JRadioButton();
+        radioDefectoSacarVideo = new javax.swing.JRadioButton();
+        usuarioModificarListaLabel4 = new javax.swing.JLabel();
+        comboListaSacarVideo = new javax.swing.JComboBox<>();
+        listaModificarListaLabel3 = new javax.swing.JLabel();
+        botonSelectUsuarioSacarVideo = new javax.swing.JButton();
+        jSeparator88 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -1049,6 +1067,11 @@ public class MenuInicio extends javax.swing.JFrame {
         quitarVideo_Button.setContentAreaFilled(false);
         quitarVideo_Button.setFocusable(false);
         quitarVideo_Button.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BorrarVideoPlaylist2.png"))); // NOI18N
+        quitarVideo_Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                quitarVideo_ButtonActionPerformed(evt);
+            }
+        });
         Central4.add(quitarVideo_Button);
         quitarVideo_Button.setBounds(390, 290, 230, 210);
 
@@ -3451,6 +3474,119 @@ public class MenuInicio extends javax.swing.JFrame {
         Panel_Central.add(Central4_3);
         Central4_3.setBounds(0, 0, 720, 550);
 
+        Central4_4.setLayout(null);
+
+        listaModificarListaLabel2.setFont(berlin);
+        listaModificarListaLabel2.setForeground(new java.awt.Color(102, 102, 102));
+        listaModificarListaLabel2.setText("Video");
+        Central4_4.add(listaModificarListaLabel2);
+        listaModificarListaLabel2.setBounds(220, 370, 100, 30);
+
+        usuarioModificarListaLabel3.setFont(berlin);
+        usuarioModificarListaLabel3.setForeground(new java.awt.Color(102, 102, 102));
+        usuarioModificarListaLabel3.setText("Tipo de lista");
+        Central4_4.add(usuarioModificarListaLabel3);
+        usuarioModificarListaLabel3.setBounds(370, 140, 90, 20);
+        Central4_4.add(jSeparator84);
+        jSeparator84.setBounds(310, 120, 220, 20);
+        Central4_4.add(jSeparator85);
+        jSeparator85.setBounds(310, 290, 220, 20);
+        Central4_4.add(jSeparator87);
+        jSeparator87.setBounds(310, 400, 220, 20);
+
+        BackButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back.png"))); // NOI18N
+        BackButton12.setBorder(null);
+        BackButton12.setBorderPainted(false);
+        BackButton12.setContentAreaFilled(false);
+        BackButton12.setFocusable(false);
+        BackButton12.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back2.png"))); // NOI18N
+        BackButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackButton12ActionPerformed(evt);
+            }
+        });
+        Central4_4.add(BackButton12);
+        BackButton12.setBounds(0, 11, 101, 50);
+
+        comboUsuarioSacarVideo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Central4_4.add(comboUsuarioSacarVideo);
+        comboUsuarioSacarVideo.setBounds(310, 90, 220, 29);
+
+        comboVideoSacarVideo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Central4_4.add(comboVideoSacarVideo);
+        comboVideoSacarVideo.setBounds(310, 370, 220, 29);
+
+        botonAceptarModificarLista3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_2.png"))); // NOI18N
+        botonAceptarModificarLista3.setFocusable(false);
+        botonAceptarModificarLista3.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_1.png"))); // NOI18N
+        botonAceptarModificarLista3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAceptarModificarLista3ActionPerformed(evt);
+            }
+        });
+        Central4_4.add(botonAceptarModificarLista3);
+        botonAceptarModificarLista3.setBounds(370, 450, 70, 40);
+
+        botonSelectListaSacarVideo.setText("Seleccionar");
+        botonSelectListaSacarVideo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonSelectListaSacarVideoActionPerformed(evt);
+            }
+        });
+        Central4_4.add(botonSelectListaSacarVideo);
+        botonSelectListaSacarVideo.setBounds(340, 320, 140, 31);
+
+        TrueFalse.add(radioParticularSacarVideo);
+        radioParticularSacarVideo.setFont(berlin);
+        radioParticularSacarVideo.setText("Particular");
+        radioParticularSacarVideo.setBorder(null);
+        radioParticularSacarVideo.setFocusable(false);
+        Central4_4.add(radioParticularSacarVideo);
+        radioParticularSacarVideo.setBounds(430, 170, 90, 19);
+
+        TrueFalse.add(radioDefectoSacarVideo);
+        radioDefectoSacarVideo.setFont(berlin);
+        radioDefectoSacarVideo.setText("Defecto");
+        radioDefectoSacarVideo.setBorder(null);
+        radioDefectoSacarVideo.setFocusable(false);
+        radioDefectoSacarVideo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radioDefectoSacarVideoActionPerformed(evt);
+            }
+        });
+        Central4_4.add(radioDefectoSacarVideo);
+        radioDefectoSacarVideo.setBounds(320, 170, 90, 19);
+
+        usuarioModificarListaLabel4.setFont(berlin);
+        usuarioModificarListaLabel4.setForeground(new java.awt.Color(102, 102, 102));
+        usuarioModificarListaLabel4.setText("Usuario");
+        Central4_4.add(usuarioModificarListaLabel4);
+        usuarioModificarListaLabel4.setBounds(210, 100, 160, 20);
+
+        comboListaSacarVideo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Central4_4.add(comboListaSacarVideo);
+        comboListaSacarVideo.setBounds(310, 260, 220, 29);
+
+        listaModificarListaLabel3.setFont(berlin);
+        listaModificarListaLabel3.setForeground(new java.awt.Color(102, 102, 102));
+        listaModificarListaLabel3.setText("Lista");
+        Central4_4.add(listaModificarListaLabel3);
+        listaModificarListaLabel3.setBounds(220, 260, 100, 30);
+
+        botonSelectUsuarioSacarVideo.setText("Seleccionar");
+        botonSelectUsuarioSacarVideo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonSelectUsuarioSacarVideoActionPerformed(evt);
+            }
+        });
+        Central4_4.add(botonSelectUsuarioSacarVideo);
+        botonSelectUsuarioSacarVideo.setBounds(340, 200, 140, 31);
+        Central4_4.add(jSeparator88);
+        jSeparator88.setBounds(310, 240, 220, 20);
+
+        Panel_Central.add(Central4_4);
+        Central4_4.setBounds(0, 0, 720, 550);
+
         getContentPane().add(Panel_Central, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 720, 550));
 
         pack();
@@ -4679,6 +4815,12 @@ public class MenuInicio extends javax.swing.JFrame {
 
     private void botonAceptarModificarLista2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAceptarModificarLista2ActionPerformed
         // TODO add your handling code here:
+
+        if (radioDefecto.isSelected()) {
+            //aca agregar video a lista defecto 
+        } else {
+            //aca agregar video a lista particular 
+        }
     }//GEN-LAST:event_botonAceptarModificarLista2ActionPerformed
 
     private void botonSelectUsuarioDestinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSelectUsuarioDestinoActionPerformed
@@ -4774,6 +4916,81 @@ public class MenuInicio extends javax.swing.JFrame {
 
     }//GEN-LAST:event_radioDefectoActionPerformed
 
+    private void BackButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButton12ActionPerformed
+        // TODO add your handling code here:
+        // TODO add your handling code here:
+        Panel_Central.removeAll();
+        Panel_Central.add(Scroll4);
+        Panel_Central.revalidate();
+        Panel_Central.repaint();
+    }//GEN-LAST:event_BackButton12ActionPerformed
+
+    private void botonAceptarModificarLista3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAceptarModificarLista3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonAceptarModificarLista3ActionPerformed
+
+    private void botonSelectListaSacarVideoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSelectListaSacarVideoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonSelectListaSacarVideoActionPerformed
+
+    private void radioDefectoSacarVideoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioDefectoSacarVideoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_radioDefectoSacarVideoActionPerformed
+
+    private void botonSelectUsuarioSacarVideoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSelectUsuarioSacarVideoActionPerformed
+        // TODO add your handling code here:
+
+        comboListaSacarVideo.removeAllItems();
+        if (radioDefectoSacarVideo.isSelected()) {
+            List lista = c.getListasDefecto(comboUsuarioSacarVideo.getSelectedItem().toString());
+            if (lista != null) {
+                DtListaporDefecto aux;
+                for (int x = 0; x <= lista.size() - 1; x++) {
+                    if (lista.get(x) != null) {
+                        aux = (DtListaporDefecto) lista.get(x);
+                        comboListaSacarVideo.addItem(aux.getNombreLista());
+                    }
+                }
+            }
+        } else {
+            List lista = c.getListasReproduccion(comboUsuarioSacarVideo.getSelectedItem().toString());
+            if (lista != null) {
+                DtListaParticulares aux;
+                for (int x = 0; x <= lista.size() - 1; x++) {
+                    if (lista.get(x) != null) {
+                        aux = (DtListaParticulares) lista.get(x);
+                        comboListaSacarVideo.addItem(aux.getNombreLista());
+                    }
+                }
+            }
+        }
+    }//GEN-LAST:event_botonSelectUsuarioSacarVideoActionPerformed
+
+    private void quitarVideo_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitarVideo_ButtonActionPerformed
+        // TODO add your handling code here:
+        Panel_Central.removeAll();
+        Panel_Central.add(Central4_4);
+        Panel_Central.revalidate();
+        Panel_Central.repaint();
+        comboUsuarioSacarVideo.removeAllItems();
+        comboListaSacarVideo.removeAllItems();
+        comboVideoSacarVideo.removeAllItems();        // TODO add your handling code here:
+        List lista = u.listaUsuarios();
+        if (lista != null) {
+            DtUsuario user;
+            for (int x = 0; x <= lista.size() - 1; x++) {
+                if (lista.get(x) != null) {
+                    user = (DtUsuario) lista.get(x);
+                    comboUsuarioSacarVideo.addItem(user.getNickname());
+                }
+            }
+        } else {
+            VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
+            error.CambioTexto("  No existen usuarios en la base de datos.");
+            error.setVisible(true);
+        }
+    }//GEN-LAST:event_quitarVideo_ButtonActionPerformed
+
     private void setColor(JPanel pane) {
         pane.setBackground(new Color(114, 114, 114));
     }
@@ -4830,6 +5047,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JButton BackButton;
     private javax.swing.JButton BackButton10;
     private javax.swing.JButton BackButton11;
+    private javax.swing.JButton BackButton12;
     private javax.swing.JButton BackButton2;
     private javax.swing.JButton BackButton3;
     private javax.swing.JButton BackButton4;
@@ -4896,6 +5114,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JPanel Central4_1;
     private javax.swing.JPanel Central4_2;
     private javax.swing.JPanel Central4_3;
+    private javax.swing.JPanel Central4_4;
     private javax.swing.JPanel Central5;
     private java.awt.Checkbox CheckboxParticular;
     private java.awt.Checkbox CheckboxPorDefecto;
@@ -5025,9 +5244,12 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JLabel apellido1;
     private javax.swing.JButton botonAceptarModificarLista1;
     private javax.swing.JButton botonAceptarModificarLista2;
+    private javax.swing.JButton botonAceptarModificarLista3;
     private javax.swing.JButton botonSeleccionarModificarLista;
+    private javax.swing.JButton botonSelectListaSacarVideo;
     private javax.swing.JButton botonSelectUsuarioDestino;
     private javax.swing.JButton botonSelectUsuarioOrigen;
+    private javax.swing.JButton botonSelectUsuarioSacarVideo;
     private javax.swing.JPanel btn_Categorias;
     private javax.swing.JPanel btn_CerrarSesion;
     private javax.swing.JPanel btn_Inicio;
@@ -5046,10 +5268,12 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> comboLista;
     private javax.swing.JComboBox<String> comboListaDestino;
     private javax.swing.JComboBox<String> comboListaModificarLista;
+    private javax.swing.JComboBox<String> comboListaSacarVideo;
     private javax.swing.JComboBox<String> comboModificar;
     private javax.swing.JComboBox<String> comboUsuarioDestino;
     private javax.swing.JComboBox<String> comboUsuarioModificarLista;
     private javax.swing.JComboBox<String> comboUsuarioOrigen;
+    private javax.swing.JComboBox<String> comboUsuarioSacarVideo;
     private javax.swing.JComboBox<String> comboUsuarios;
     private javax.swing.JComboBox<String> comboVideo;
     private javax.swing.JComboBox<String> comboVideo1;
@@ -5058,6 +5282,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> comboVideo4;
     private javax.swing.JComboBox<String> comboVideo5;
     private javax.swing.JComboBox<String> comboVideoOrigen;
+    private javax.swing.JComboBox<String> comboVideoSacarVideo;
     private javax.swing.JComboBox<String> comboVideos;
     private javax.swing.JButton comenVid_Button;
     private javax.swing.JLabel comentarVid;
@@ -5180,10 +5405,16 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator81;
     private javax.swing.JSeparator jSeparator82;
     private javax.swing.JSeparator jSeparator83;
+    private javax.swing.JSeparator jSeparator84;
+    private javax.swing.JSeparator jSeparator85;
+    private javax.swing.JSeparator jSeparator87;
+    private javax.swing.JSeparator jSeparator88;
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTree jTree1;
     private javax.swing.JLabel listaModificarListaLabel;
     private javax.swing.JLabel listaModificarListaLabel1;
+    private javax.swing.JLabel listaModificarListaLabel2;
+    private javax.swing.JLabel listaModificarListaLabel3;
     private javax.swing.JLabel listarCat;
     private javax.swing.JButton listarCat_Button;
     private javax.swing.JLabel mail;
@@ -5212,7 +5443,9 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JLabel quitarVideo;
     private javax.swing.JButton quitarVideo_Button;
     private javax.swing.JRadioButton radioDefecto;
+    private javax.swing.JRadioButton radioDefectoSacarVideo;
     private javax.swing.JRadioButton radioParticular;
+    private javax.swing.JRadioButton radioParticularSacarVideo;
     private javax.swing.JLabel seguidores;
     private javax.swing.JLabel siguiendo;
     private javax.swing.JLabel url;
@@ -5220,5 +5453,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JLabel usuarioModificarListaLabel;
     private javax.swing.JLabel usuarioModificarListaLabel1;
     private javax.swing.JLabel usuarioModificarListaLabel2;
+    private javax.swing.JLabel usuarioModificarListaLabel3;
+    private javax.swing.JLabel usuarioModificarListaLabel4;
     // End of variables declaration//GEN-END:variables
 }
