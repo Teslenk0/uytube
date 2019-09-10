@@ -11,7 +11,6 @@ import DataTypes.DtComentario;
 import DataTypes.DtListaParticulares;
 import DataTypes.DtListaReproduccion;
 import DataTypes.DtListaporDefecto;
-import DataTypes.DtRespuestas;
 import DataTypes.DtUsuario;
 import DataTypes.DtVideo;
 import clases.Canal;
@@ -20,7 +19,6 @@ import clases.Comentario;
 import clases.ListaParticulares;
 import clases.ListaReproduccion;
 import clases.ListaporDefecto;
-import clases.Respuestas;
 import clases.Usuario;
 import clases.Video;
 import excepciones.ListaRepetidaException;
@@ -120,38 +118,14 @@ public class ControladorCanal implements IControladorCanal {
     }
 
     @Override
-    public List listaRespuestas(String comentario) {
-        ManejadorInformacion mu = ManejadorInformacion.getInstance();
-        List lista = mu.listaResp(comentario);
-        if (lista != null) {
-            List aux = new LinkedList();
-            DtRespuestas dtaux;
-            for (int x = 0; x < lista.size(); x++) {
-                dtaux = new DtRespuestas((Respuestas) lista.get(x));
-                aux.add(dtaux);
-            }
-            return aux;
-        }
-        return null;
-    }
-
-    @Override
     public void agregarComentario(DtComentario c) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         Canal canal = new Canal(c.getVideo().getCanal().getNombre_canal(), c.getVideo().getCanal().getDescripcion(), c.getVideo().getCanal().getPrivado());
         Video vid = new Video(c.getVideo().getNombre(), canal, c.getVideo().getFechaPublicacion(), c.getVideo().getUrl(), c.getVideo().getDescripcion(), c.getVideo().getCategoria(), c.getVideo().getDuracion(), c.getVideo().getPrivado());
-        Comentario com = new Comentario(c.getNick(), c.getComentario(), c.getFecha(), vid);
+        Comentario com = new Comentario(c.getNick(), c.getComentario(), c.getFecha(), vid, c.getPadre(), c.getRef());
         mu.addComentario(com);
     }
     
-    public void agregarRespuesta(DtRespuestas r) {
-        ManejadorInformacion mu = ManejadorInformacion.getInstance();
-        Video v = new Video (r.getCom().getVideo());
-        Comentario c = new Comentario (r.getCom().getNick(), r.getCom().getComentario(), r.getCom().getFecha(), v);
-        Respuestas resp = new Respuestas (r.getNick(), r.getRespuesta(), r.getFecha(), c);
-        mu.addRespuesta(resp);
-    }
-
     @Override
     public List getCanales() {
         List canales = new LinkedList();

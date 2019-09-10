@@ -7,11 +7,13 @@
 /home/esteban/Escritorio/Uytube/uytube/src/main/java/controladores/ControladorCanal.java
 /home/esteban/Escritorio/Uytube/uytube/src/main/java/controladores/ManejadorInformacion.java
 /home/esteban/Escritorio/Uytube/uytube/src/main/java/swing/VentanaEmergente.java
+/home/esteban/Escritorio/Uytube/uytube/src/main/java/excepciones/CanalRepetidoException.java
 /home/esteban/Escritorio/Uytube/uytube/src/main/java/excepciones/ListaRepetidaException.java
 /home/esteban/Escritorio/Uytube/uytube/src/main/java/clases/ListaDefectoVideos.java
 /home/esteban/Escritorio/Uytube/uytube/src/main/java/clases/Categoria.java
 /home/esteban/Escritorio/Uytube/uytube/src/main/java/DataTypes/DtListaParticulares.java
 /home/esteban/Escritorio/Uytube/uytube/src/main/java/DataTypes/DtListaporDefecto.java
+/home/esteban/Escritorio/Uytube/uytube/src/main/java/excepciones/EmailRepetidoException.java
 /home/esteban/Escritorio/Uytube/uytube/src/main/java/DataTypes/DtCategoria.java
 /home/esteban/Escritorio/Uytube/uytube/src/main/java/clases/Comentario.java
 /home/esteban/Escritorio/Uytube/uytube/src/main/java/swing/Menu.java
@@ -24,8 +26,6 @@
 /home/esteban/Escritorio/Uytube/uytube/src/main/java/interfaces/IControladorCanal.java
 /home/esteban/Escritorio/Uytube/uytube/src/main/java/controladores/ControladorUsuario.java
 /home/esteban/Escritorio/Uytube/uytube/src/main/java/clases/Usuario.java
-/home/esteban/Escritorio/Uytube/uytube/src/main/java/clases/Respuestas.java
-/home/esteban/Escritorio/Uytube/uytube/src/main/java/DataTypes/DtRespuestas.java
 /home/esteban/Escritorio/Uytube/uytube/src/main/java/excepciones/UsuarioRepetidoException.java
 /home/esteban/Escritorio/Uytube/uytube/src/main/java/interfaces/IControladorUsuario.java
 /home/esteban/Escritorio/Uytube/uytube/src/main/java/DataTypes/DtListaReproduccion.java

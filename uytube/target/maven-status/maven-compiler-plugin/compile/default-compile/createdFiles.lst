@@ -35,6 +35,7 @@ controladores/ControladorUsuario.class
 DataTypes/DtListaReproduccion.class
 swing/SeleccionarImagen.class
 swing/Menu.class
+excepciones/EmailRepetidoException.class
 DataTypes/DtListaParticulares.class
 fabrica/Fabrica.class
 swing/MenuInicio$66.class
@@ -79,11 +80,11 @@ swing/MenuInicio$45.class
 swing/Menu$10.class
 swing/MenuInicio$25.class
 swing/Menu$5.class
-clases/Respuestas.class
 swing/MenuInicio$78.class
 swing/MenuInicio$58.class
 swing/MenuInicio$9.class
 swing/MenuInicio$38.class
+excepciones/CanalRepetidoException.class
 swing/SeleccionarImagen$2.class
 swing/MenuInicio$3.class
 swing/VentanaEmergente2$5.class
@@ -112,7 +113,6 @@ swing/MenuInicio$29.class
 swing/VentanaEmergente$1.class
 swing/SeleccionarImagen$3.class
 swing/VentanaEmergente$4.class
-DataTypes/DtRespuestas.class
 swing/MenuInicio$31.class
 swing/MenuInicio.class
 swing/MenuInicio$11.class

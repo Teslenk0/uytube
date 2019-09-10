@@ -187,14 +187,6 @@ public class ManejadorInformacion {
         manager.close();
     }
     
-    public void addRespuesta(Respuestas r) {
-        manager = emf.createEntityManager();
-        manager.getTransaction().begin();
-        manager.persist(r);
-        manager.getTransaction().commit();
-        manager.close();
-    }
-
     public Video buscadorVideo(String v) {
         manager = emf.createEntityManager();
         return manager.find(Video.class, v);
