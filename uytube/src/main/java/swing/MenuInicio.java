@@ -28,6 +28,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Enumeration;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -4366,7 +4367,7 @@ public class MenuInicio extends javax.swing.JFrame {
             Central2_6.add(SeleccionarButton1);
             Panel_Central.revalidate();
             Panel_Central.repaint();
-        } else {  
+        } else {
             SeguidorBox1.removeAllItems();
             for (int x = 0; x <= lista.size() - 1; x++) {
                 if (lista.get(x) != null) {
@@ -4385,7 +4386,7 @@ public class MenuInicio extends javax.swing.JFrame {
         u.seguirUsuario(user, nickSeg);
         VentanaEmergente mensaje = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
         mensaje.CambioTexto("            Se siguió a usuario con éxito");
-        
+
         List lista = u.listaUsuarios();
         List listaUsu = new ArrayList();
         for (int x = 0; x <= lista.size() - 1; x++) {
@@ -4692,7 +4693,6 @@ public class MenuInicio extends javax.swing.JFrame {
         List listaCom = c.listaComentarios(video);
         if (!listaCom.isEmpty()) {
             DtComentario com;
-
             DefaultMutableTreeNode abuelo = new DefaultMutableTreeNode(video + "::Comentarios");
             DefaultTreeModel modelo = new DefaultTreeModel(abuelo);
             jTree1.setModel(modelo);
@@ -4700,23 +4700,34 @@ public class MenuInicio extends javax.swing.JFrame {
             // Construccion de los datos del arbol
             for (int x = 0; x <= listaCom.size() - 1; x++) {
                 if (listaCom.get(x) != null) {
-                    com = (DtComentario) listaCom.get(x);
-                    DefaultMutableTreeNode aux = new DefaultMutableTreeNode(com.getNick() + "::" + com.getComentario());
-                    modelo.insertNodeInto(aux, abuelo, x);
 
-                    /*List listaResp = c.listaRespuestas(com.getComentario());
-                    if(!listaResp.isEmpty()){
-                        DtRespuestas r;
-                        for (int y = 0; y <= listaResp.size() - 1; y++) {
-                            if (listaResp.get(y) != null) {
-                                r = (DtRespuestas) listaResp.get(y);
-                                DefaultMutableTreeNode aux1 = new DefaultMutableTreeNode(r.getRespuesta());
-                                modelo.insertNodeInto(aux1, aux, y);
-                            } //revisar clase respuesta manytoone 
+                    com = (DtComentario) listaCom.get(x);
+                    String padre = com.getPadre();
+                    DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) jTree1.getModel().getRoot();
+                    if (padre == null) {
+
+                        int hijos = jTree1.getModel().getChildCount(raiz);
+                        DefaultMutableTreeNode aux = new DefaultMutableTreeNode(com.getNick() + "::" + com.getComentario());
+                        modelo.insertNodeInto(aux, abuelo, hijos);
+
+                    } else {
+
+                        DtComentario comentario = c.obtenerComentarioRef(com.getPadre());
+                        DefaultMutableTreeNode viejo = findNode(comentario.getNick() + "::" + comentario.getComentario());
+                        if (viejo != null) {
+
+                            int hijos = jTree1.getModel().getChildCount(viejo);
+                            DefaultMutableTreeNode nuevo = new DefaultMutableTreeNode(com.getNick() + "::" + com.getComentario());
+                            modelo.insertNodeInto(nuevo, viejo, hijos);
+
                         }
-                    }*/
+                    }
                 }
             }
+        } else {
+            DefaultMutableTreeNode abuelo = new DefaultMutableTreeNode(video + "::Sin Comentarios");
+            DefaultTreeModel modelo = new DefaultTreeModel(abuelo);
+            jTree1.setModel(modelo);
         }
     }//GEN-LAST:event_SeleccionarVideoActionPerformed
 
@@ -4737,8 +4748,8 @@ public class MenuInicio extends javax.swing.JFrame {
         int aux = 0;
         DtUsuario user;
         user = u.buscarUsuario((String) comboUsuarios.getSelectedItem());
-        DtVideo v = c.obtenerVideo(video,user.getCanal().getNombre_canal());
-        
+        DtVideo v = c.obtenerVideo(video, user.getCanal().getNombre_canal());
+
         List lista = u.listaUsuarios();
         for (int y = 0; y <= lista.size() - 1; y++) {
             user = (DtUsuario) lista.get(y);
@@ -4771,7 +4782,7 @@ public class MenuInicio extends javax.swing.JFrame {
                             Integer r = referencia.getRef();
                             String padre = r.toString();
                             Integer re = listaCom.size();
-                            re = r + 1;
+                            re = re + 1;
                             DtComentario co = new DtComentario(nom, com, fecha, v, padre, re);
                             c.agregarComentario(co);
                         }
@@ -4886,7 +4897,7 @@ public class MenuInicio extends javax.swing.JFrame {
         String nomVideo = comboVideo2.getSelectedItem().toString();
         DtUsuario user;
         user = u.buscarUsuario((String) comboVideo1.getSelectedItem());
-        DtVideo video = c.obtenerVideo(nomVideo,user.getCanal().getNombre_canal());
+        DtVideo video = c.obtenerVideo(nomVideo, user.getCanal().getNombre_canal());
 
         VentanaEmergente mensaje = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
         if (video.getNombre().equals(nomV) && video.getDuracion().equals(durV) && video.getUrl().equals(urlV) && video.getCategoria().equals(catV) && video.getDescripcion().equals(desV) && video.getFechaPublicacion().equals(fechaV) && video.getPrivado() == privadoV) {
@@ -4902,7 +4913,7 @@ public class MenuInicio extends javax.swing.JFrame {
                 Central3_2_1_Panel.removeAll();
                 Panel_Central.revalidate();
                 Panel_Central.repaint();
-                
+
                 List lista = c.listaVideos(user.getCanal());
                 DtVideo v;
                 if (!lista.isEmpty()) {
@@ -4974,11 +4985,11 @@ public class MenuInicio extends javax.swing.JFrame {
         String nomVideo = comboVideo2.getSelectedItem().toString();
         DtUsuario user;
         user = u.buscarUsuario((String) comboVideo1.getSelectedItem());
-        DtVideo video = c.obtenerVideo(nomVideo,user.getCanal().getNombre_canal());
+        DtVideo video = c.obtenerVideo(nomVideo, user.getCanal().getNombre_canal());
         VarNomvideo.setText(video.getNombre());
         VarDuracion.setText(video.getDuracion());
         VarUrl.setText(video.getUrl());
-        
+
         List categorias = c.getCategorias();
         if (categorias != null) {
             DtCategoria cat;
@@ -4991,13 +5002,13 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         }
         comboVideoCat1.setSelectedItem(video.getCategoria());
-        
+
         CampoDescripcion5.setText(video.getDescripcion());
         DateVideo2.setDate(video.getFechaPublicacion());
-        if(video.getPrivado())
-        Si2.setSelected(true);
+        if (video.getPrivado())
+            Si2.setSelected(true);
         else
-        No2.setSelected(true);
+            No2.setSelected(true);
     }//GEN-LAST:event_SeleccionarVideoLActionPerformed
 
     private void ComboSiguiendoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboSiguiendoActionPerformed
@@ -5063,7 +5074,7 @@ public class MenuInicio extends javax.swing.JFrame {
         String nomVideo = comboVideo5.getSelectedItem().toString();
         DtUsuario user;
         user = u.buscarUsuario((String) comboVideo1.getSelectedItem());
-        DtVideo video = c.obtenerVideo(nomVideo,user.getCanal().getNombre_canal());;
+        DtVideo video = c.obtenerVideo(nomVideo, user.getCanal().getNombre_canal());;
         String fechaN = video.getFechaPublicacion().toString();
         fechaN = fechaN.substring(0, 10);
         Integer num = Integer.parseInt(fechaN.substring(8, 10)) + 1;
@@ -5338,7 +5349,7 @@ public class MenuInicio extends javax.swing.JFrame {
         Central2_2.add(SeleccionarUsuario);
         Central2_2_Panel.removeAll();
         Panel_Central.revalidate();
-        Panel_Central.repaint();    
+        Panel_Central.repaint();
     }//GEN-LAST:event_CambiarUsuario5ActionPerformed
 
     private void CambiarUsuario6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CambiarUsuario6ActionPerformed
@@ -5411,6 +5422,45 @@ public class MenuInicio extends javax.swing.JFrame {
         DateVideo.setDate(null);
         CampoDescripcion4.setText("");
         comboVideoCat.setSelectedIndex(0);
+    }
+
+    public final DefaultMutableTreeNode findNode(String searchString) {
+        List<DefaultMutableTreeNode> searchNodes = getSearchNodes((DefaultMutableTreeNode) jTree1.getModel().getRoot());
+        DefaultMutableTreeNode currentNode = (DefaultMutableTreeNode) jTree1.getLastSelectedPathComponent();
+        DefaultMutableTreeNode foundNode = null;
+        int bookmark = -1;
+        if (currentNode != null) {
+            for (int index = 0; index < searchNodes.size(); index++) {
+                if (searchNodes.get(index) == currentNode) {
+                    bookmark = index;
+                    break;
+                }
+            }
+        }
+        for (int index = bookmark + 1; index < searchNodes.size(); index++) {
+            if (searchNodes.get(index).toString().toLowerCase().contains(searchString.toLowerCase())) {
+                foundNode = searchNodes.get(index);
+                break;
+            }
+        }
+        if (foundNode == null) {
+            for (int index = 0; index <= bookmark; index++) {
+                if (searchNodes.get(index).toString().toLowerCase().contains(searchString.toLowerCase())) {
+                    foundNode = searchNodes.get(index);
+                    break;
+                }
+            }
+        }
+        return foundNode;
+    }
+
+    private List<DefaultMutableTreeNode> getSearchNodes(DefaultMutableTreeNode root) {
+        List<DefaultMutableTreeNode> searchNodes = new ArrayList<DefaultMutableTreeNode>();
+        Enumeration<?> e = root.preorderEnumeration();
+        while (e.hasMoreElements()) {
+            searchNodes.add((DefaultMutableTreeNode) e.nextElement());
+        }
+        return searchNodes;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

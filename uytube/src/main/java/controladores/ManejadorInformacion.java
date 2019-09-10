@@ -172,11 +172,10 @@ public class ManejadorInformacion {
         return manager.createQuery("SELECT c FROM Comentario c WHERE c.video = '" + v + "'")
                 .getResultList();
     }
-
-    public List listaResp(String com) {
-        manager = emf.createEntityManager();
-        return manager.createQuery("SELECT r FROM Respuestas r WHERE r.comentario = '" + com + "'")
-                .getResultList();
+    
+    public Comentario BuscarComentarioRef(String padre){
+        Comentario c = (Comentario) manager.createQuery("FROM Comentario c WHERE c.ref = '" + padre + "'").getSingleResult();
+        return c;
     }
 
     public void addComentario(Comentario c) {

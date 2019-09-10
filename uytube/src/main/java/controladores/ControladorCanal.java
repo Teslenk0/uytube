@@ -100,6 +100,18 @@ public class ControladorCanal implements IControladorCanal {
         return null;
 
     }
+    
+    @Override
+    public DtComentario obtenerComentarioRef(String padre){
+        ManejadorInformacion mu = ManejadorInformacion.getInstance();
+        Comentario com = mu.BuscarComentarioRef(padre);
+
+        DtComentario c = new DtComentario(com);
+        if (c != null) {
+            return c;
+        }
+        return null;
+    }
 
     @Override
     public List listaComentarios(String video) {
