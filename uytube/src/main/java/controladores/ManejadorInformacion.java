@@ -271,9 +271,18 @@ public class ManejadorInformacion {
         manager.getTransaction().begin();
         ListaParticulares aux = (ListaParticulares) manager.createQuery("FROM ListaParticulares l WHERE l.nombreLista='" + list.getNombreLista() + "' and l.canal='" + list.getCanal().getNombre_canal() + "'").getSingleResult();
         aux.setCategoria(list.getCategoria());
-        //System.out.println(list.getCategoria().getNombreCategoria());
         aux.setPrivado(list.getPrivado());
         manager.getTransaction().commit();
         manager.close();
+    }
+    
+    public List obtenerListasDefecto(String nick){
+        manager = emf.createEntityManager();
+        Usuario u = this.buscadorUsuario(nick);
+        List aux = manager.createQuery("FROM ListaporDefecto l WHERE l.canal='" + u.getCanal().getNombre_canal() + "'").getResultList(); //busco si ya existe
+        if (aux != null) {
+            return aux;
+        }
+        return null;
     }
 }

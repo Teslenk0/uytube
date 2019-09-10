@@ -66,7 +66,7 @@ public class ControladorCanal implements IControladorCanal {
             List aux = new LinkedList();
             DtVideo dtaux;
             for (int x = 0; x < lista.size(); x++) {
-                dtaux = new DtVideo( (Video) lista.get(x));
+                dtaux = new DtVideo((Video) lista.get(x));
                 aux.add(dtaux);
             }
             return aux;
@@ -87,12 +87,12 @@ public class ControladorCanal implements IControladorCanal {
         return null;
 
     }
-    
+
     @Override
     public DtComentario obtenerComentario(String comentario) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         Comentario c = mu.buscadorComentario(comentario);
-        
+
         DtComentario com = new DtComentario(c);
         if (com != null) {
             return com;
@@ -125,7 +125,7 @@ public class ControladorCanal implements IControladorCanal {
         Comentario com = new Comentario(c.getNick(), c.getComentario(), c.getFecha(), vid, c.getPadre(), c.getRef());
         mu.addComentario(com);
     }
-    
+
     @Override
     public List getCanales() {
         List canales = new LinkedList();
@@ -246,6 +246,22 @@ public class ControladorCanal implements IControladorCanal {
             if (categorias.get(x) != null) {
                 tmp = (Categoria) categorias.get(x);
                 temp = new DtCategoria(tmp.getNombreCategoria());
+                aux.add(temp);
+            }
+        }
+        return aux;
+    }
+
+    public List getListasDefecto(String nick) {
+        ManejadorInformacion mu = ManejadorInformacion.getInstance();
+        List<DtListaporDefecto> aux = new LinkedList<>();
+        ListaporDefecto tmp;
+        DtListaporDefecto temp;
+        List listas = mu.obtenerListasDefecto(nick);
+        for (int x = 0; x < listas.size(); x++) {
+            if (listas.get(x) != null) {
+                tmp = (ListaporDefecto) listas.get(x);
+                temp = new DtListaporDefecto(tmp.getNombreLista());
                 aux.add(temp);
             }
         }

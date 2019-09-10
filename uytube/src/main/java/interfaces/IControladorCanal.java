@@ -50,4 +50,6 @@ public interface IControladorCanal {
     public abstract void registrarCategoria(DtCategoria c);
     
     public abstract List getCategorias();
+    
+    public abstract List getListasDefecto(String canal);
 }
