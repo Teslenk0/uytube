@@ -49,20 +49,10 @@ public class ManejadorInformacion {
 
     }
 
-    public Usuario obtenerUsuario(DtUsuario u) {
+    public Usuario buscadorEmail(String email) {
         manager = emf.createEntityManager();
-        if (manager.find(Usuario.class, u.getNickname()) != null) {
-            return manager.find(Usuario.class, u.getNickname());
-        } else {
-            try {
-                String query = "select u from Usuario u where u.email='" + u.getEmail() + "'";
-                TypedQuery<Usuario> consulta = manager.createQuery(query, Usuario.class);
-                return consulta.getSingleResult();
-            } catch (NoResultException e) {
-                return null;
-            }
-        }
-
+        return (Usuario) manager.createQuery("select u from Usuario u where u.email='" + email + "'")
+                .getSingleResult();
     }
 
     public List ObtenerUsuarios() {

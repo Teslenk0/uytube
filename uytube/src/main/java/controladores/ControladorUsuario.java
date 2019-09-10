@@ -13,6 +13,7 @@ import DataTypes.DtUsuario;
 import DataTypes.DtCanal;
 import clases.Canal;
 import excepciones.CanalRepetidoException;
+import excepciones.EmailRepetidoException;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -34,11 +35,15 @@ public class ControladorUsuario implements IControladorUsuario{
     
     
     @Override
-    public void registrarUsuario(DtUsuario u, BufferedImage imagen) throws UsuarioRepetidoException,CanalRepetidoException{
+    public void registrarUsuario(DtUsuario u, BufferedImage imagen) throws UsuarioRepetidoException, CanalRepetidoException, EmailRepetidoException{
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         Usuario user = mu.buscadorUsuario(u.getNickname());
         if (user != null) {
             throw new UsuarioRepetidoException("El usuario ya existe");
+        }
+        user = mu.buscadorEmail(u.getEmail());
+        if (user != null) {
+            throw new EmailRepetidoException("El email ya existe");
         }
         Canal canal = mu.buscadorCanal(u.getCanal().getNombre_canal());
         if(canal != null){
