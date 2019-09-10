@@ -51,8 +51,13 @@ public class ManejadorInformacion {
 
     public Usuario buscadorEmail(String email) {
         manager = emf.createEntityManager();
-        return (Usuario) manager.createQuery("select u from Usuario u where u.email='" + email + "'")
-                .getSingleResult();
+        Usuario user;
+        try{
+            user = (Usuario) manager.createQuery("select u from Usuario u where u.email='" + email + "'").getSingleResult();
+        }catch(Exception e){
+            user = null;
+        }
+        return user;
     }
 
     public List ObtenerUsuarios() {
