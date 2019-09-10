@@ -333,7 +333,7 @@ public class MenuInicio extends javax.swing.JFrame {
         RegistrarVideo = new javax.swing.JButton();
         ScroolDescripcion4 = new javax.swing.JScrollPane();
         CampoDescripcion4 = new javax.swing.JTextArea();
-        comboVideo3 = new javax.swing.JComboBox<>();
+        comboVideoCat = new javax.swing.JComboBox<>();
         Central3_2 = new javax.swing.JPanel();
         comboVideo1 = new javax.swing.JComboBox<>();
         BackButton9 = new javax.swing.JButton();
@@ -2386,7 +2386,7 @@ public class MenuInicio extends javax.swing.JFrame {
         CategoriaVideo.setFont(berlin);
         CategoriaVideo.setText("Categoría:");
         Central3_1_1.add(CategoriaVideo);
-        CategoriaVideo.setBounds(40, 220, 150, 20);
+        CategoriaVideo.setBounds(40, 210, 150, 20);
 
         FechaPubVideo.setFont(berlin);
         FechaPubVideo.setText("Fecha de publicación:");
@@ -2493,8 +2493,8 @@ public class MenuInicio extends javax.swing.JFrame {
         Central3_1_1.add(ScroolDescripcion4);
         ScroolDescripcion4.setBounds(490, 160, 200, 80);
 
-        Central3_1_1.add(comboVideo3);
-        comboVideo3.setBounds(180, 220, 230, 22);
+        Central3_1_1.add(comboVideoCat);
+        comboVideoCat.setBounds(180, 210, 230, 22);
 
         Panel_Central.add(Central3_1_1);
         Central3_1_1.setBounds(0, 0, 720, 450);
@@ -3931,6 +3931,7 @@ public class MenuInicio extends javax.swing.JFrame {
             comboVideo.setEnabled(true);
             Panel_Central.add(Central3_1);
             Panel_Central.revalidate();
+            Panel_Central.repaint();
             DtUsuario user;
             for (int x = 0; x <= lista.size() - 1; x++) {
                 if (lista.get(x) != null) {
@@ -4165,6 +4166,17 @@ public class MenuInicio extends javax.swing.JFrame {
         Central3_1_Panel.add(Central3_1_1);
         Panel_Central.revalidate();
         Panel_Central.repaint();
+        List categorias = c.getCategorias();
+        if (categorias != null) {
+            DtCategoria cat;
+            comboVideoCat.removeAllItems();
+            for (int x = 0; x <= categorias.size() - 1; x++) {
+                if (categorias.get(x) != null) {
+                    cat = (DtCategoria) categorias.get(x);
+                    comboVideoCat.addItem(cat.getnombreCategoria());
+                }
+            }
+        }
     }//GEN-LAST:event_SeleccionarUsuario1ActionPerformed
 
     private void AgregarFoto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarFoto1ActionPerformed
@@ -4195,9 +4207,7 @@ public class MenuInicio extends javax.swing.JFrame {
         String desc = CampoDescripcion4.getText();
         Date fechaPub = DateVideo.getDate();
         String nickUsuario = (String) comboVideo.getSelectedItem();
-
-        // CATEGORIA TEMPORAL
-        String cat = "Musica";
+        String cat = (String) comboVideoCat.getSelectedItem();
 
         DtUsuario user = (DtUsuario) u.buscarUsuario(nickUsuario);
         DtVideo video = new DtVideo(nombVideo, user.getCanal(), fechaPub, urlV, desc, cat, duracionR, true);
@@ -5385,6 +5395,8 @@ public class MenuInicio extends javax.swing.JFrame {
         Duracion.setText("Ingrese Duración");
         URLVideo.setText("Ingrese URL de video");
         DateVideo.setDate(null);
+        CampoDescripcion4.setText("");
+        comboVideoCat.setSelectedIndex(0);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -5641,9 +5653,9 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> comboVideo;
     private javax.swing.JComboBox<String> comboVideo1;
     private javax.swing.JComboBox<String> comboVideo2;
-    private javax.swing.JComboBox<String> comboVideo3;
     private javax.swing.JComboBox<String> comboVideo4;
     private javax.swing.JComboBox<String> comboVideo5;
+    private javax.swing.JComboBox<String> comboVideoCat;
     private javax.swing.JComboBox<String> comboVideoOrigen;
     private javax.swing.JComboBox<String> comboVideoSacarVideo;
     private javax.swing.JComboBox<String> comboVideos;

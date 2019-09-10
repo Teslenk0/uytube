@@ -252,6 +252,7 @@ public class ControladorCanal implements IControladorCanal {
         return aux;
     }
 
+    @Override
     public List getListasDefecto(String nick) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         List<DtListaporDefecto> aux = new LinkedList<>();
