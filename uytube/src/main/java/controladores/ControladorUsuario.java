@@ -12,6 +12,7 @@ import interfaces.IControladorUsuario;
 import DataTypes.DtUsuario;
 import DataTypes.DtCanal;
 import clases.Canal;
+import excepciones.CanalRepetidoException;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -33,22 +34,19 @@ public class ControladorUsuario implements IControladorUsuario{
     
     
     @Override
-    public void registrarUsuario(DtUsuario u, BufferedImage imagen) throws UsuarioRepetidoException{
-        ManejadorInformacion mu = ManejadorInformacion.getInstance(); //pido una instancia del manejador
-        
-        Usuario user = mu.obtenerUsuario(u); //busco si esta o no
+    public void registrarUsuario(DtUsuario u, BufferedImage imagen) throws UsuarioRepetidoException,CanalRepetidoException{
+        ManejadorInformacion mu = ManejadorInformacion.getInstance();
+        Usuario user = mu.buscadorUsuario(u.getNickname());
         if (user != null) {
-            throw new UsuarioRepetidoException("El usuario " + user.getNickname() + " ya existe");
-        }
-       
-        user = new Usuario(u.getNickname(), u.getContraseña(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen(), new Canal(u.getCanal().getNombre_canal(),u.getCanal().getDescripcion(),u.getCanal().getPrivado()));
-        try{     
-            mu.registrarUser(user);
-        }catch(Exception c){
             throw new UsuarioRepetidoException("El usuario ya existe");
         }
-            
-        if(imagen != null){
+        Canal canal = mu.buscadorCanal(u.getCanal().getNombre_canal());
+        if(canal != null){
+            throw new CanalRepetidoException("El canal ya existe");
+        }
+        user = new Usuario(u.getNickname(), u.getContraseña(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen(), new Canal(u.getCanal().getNombre_canal(), u.getCanal().getDescripcion(), u.getCanal().getPrivado()));  
+        mu.registrarUser(user);
+        if (imagen != null) {
             String path = System.getProperty("user.dir");
             path = path + "/src/main/resources/imagenesUsuarios/" + u.getNickname() + ".png";
             File file = new File(path);
@@ -57,7 +55,6 @@ public class ControladorUsuario implements IControladorUsuario{
             } catch (IOException ex) {
                 Logger.getLogger(ControladorUsuario.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
         }
     }
     

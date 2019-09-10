@@ -15,6 +15,7 @@ import DataTypes.DtRespuestas;
 import DataTypes.DtUsuario;
 import DataTypes.DtVideo;
 import clases.ListaParticulares;
+import excepciones.CanalRepetidoException;
 import excepciones.ListaRepetidaException;
 import excepciones.UsuarioRepetidoException;
 import excepciones.VideoRepetidoException;
@@ -3444,7 +3445,9 @@ public class MenuInicio extends javax.swing.JFrame {
                 mensaje.CambioTexto("     El usuario ha sido registrado con éxito");
                 resetRegistro();
             } catch (UsuarioRepetidoException ex) {
-                mensaje.CambioTexto("             El nickname o email ya existe");
+                mensaje.CambioTexto("        El nickname o email ya esta en uso");
+            } catch (CanalRepetidoException ex) {
+                mensaje.CambioTexto("          El nombre del canal ya esta en uso");
             }
         }
         mensaje.setVisible(true);

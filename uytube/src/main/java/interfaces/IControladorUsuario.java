@@ -8,6 +8,7 @@ package interfaces;
 import DataTypes.DtCanal;
 import excepciones.UsuarioRepetidoException;
 import DataTypes.DtUsuario;
+import excepciones.CanalRepetidoException;
 import java.awt.image.BufferedImage;
 import java.util.Date;
 import java.util.List;
@@ -19,7 +20,7 @@ import java.util.List;
  */
 public interface IControladorUsuario {
     
-    public abstract void registrarUsuario(DtUsuario u, BufferedImage imagen) throws UsuarioRepetidoException;
+    public abstract void registrarUsuario(DtUsuario u, BufferedImage imagen) throws UsuarioRepetidoException, CanalRepetidoException;
     
     public abstract List listaUsuarios();
     

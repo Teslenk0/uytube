@@ -23,10 +23,9 @@ import javax.persistence.TypedQuery;
 public class ManejadorInformacion {
 
     private boolean conexionIniciada = false;
-    //private static EntityManager manager; //pido un manager
     private EntityManager manager;
 
-    private static EntityManagerFactory emf;  //pido una fabrica
+    private static EntityManagerFactory emf;
 
     private static ManejadorInformacion instancia;
 
@@ -228,6 +227,11 @@ public class ManejadorInformacion {
         return null;
     }
 
+    public Canal buscadorCanal(String v) {
+        manager = emf.createEntityManager();
+        return manager.find(Canal.class, v);
+    }
+    
     public Boolean buscoListaDefecto(String nombre) {
         manager = emf.createEntityManager();
         int resultado = manager.createQuery("FROM ListaporDefecto l WHERE l.nombreLista='" + nombre + "'").getResultList().size(); //busco si ya existe
