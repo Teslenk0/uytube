@@ -3200,7 +3200,7 @@ public class MenuInicio extends javax.swing.JFrame {
         jLabel13.setForeground(new java.awt.Color(102, 102, 102));
         jLabel13.setText("Seleciona un comentario");
         Central3_4_1_1.add(jLabel13);
-        jLabel13.setBounds(470, 100, 210, 18);
+        jLabel13.setBounds(490, 100, 210, 18);
 
         jLabel14.setFont(berlin);
         jLabel14.setText("Comentario");
@@ -3236,8 +3236,9 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central3_4_1_1.add(jButton5);
-        jButton5.setBounds(320, 330, 70, 30);
+        jButton5.setBounds(250, 330, 70, 30);
 
+        CampoCom.setEditable(false);
         CampoCom.setBackground(new java.awt.Color(153, 153, 153));
         CampoCom.setFont(berlin);
         CampoCom.setForeground(new java.awt.Color(102, 102, 102));
@@ -3266,7 +3267,7 @@ public class MenuInicio extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTree1);
 
         Central3_4_1_1.add(jScrollPane1);
-        jScrollPane1.setBounds(480, 130, 160, 160);
+        jScrollPane1.setBounds(480, 130, 180, 160);
 
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_seleccionar_2.png"))); // NOI18N
         jButton6.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_seleccionar_1.png"))); // NOI18N
@@ -3299,7 +3300,7 @@ public class MenuInicio extends javax.swing.JFrame {
         jSeparator52.setForeground(new java.awt.Color(153, 153, 153));
         jSeparator52.setOrientation(javax.swing.SwingConstants.VERTICAL);
         Central3_4_1_1.add(jSeparator52);
-        jSeparator52.setBounds(420, 120, 30, 200);
+        jSeparator52.setBounds(430, 120, 30, 200);
 
         Panel_Central.add(Central3_4_1_1);
         Central3_4_1_1.setBounds(0, 0, 750, 550);
@@ -5104,17 +5105,6 @@ public class MenuInicio extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jTree1MouseClicked
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        DefaultMutableTreeNode seleccionar = (DefaultMutableTreeNode) jTree1.getSelectionPath().getLastPathComponent();
-        String aux = null;
-        aux = seleccionar.getUserObject().toString();
-        String[] dividir = aux.split("::");
-        aux = dividir[1];
-        if (aux != null) {
-            CampoCom.setText(aux);
-        }
-    }//GEN-LAST:event_jButton6ActionPerformed
-
     private void CampoNick1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CampoNick1FocusGained
         CampoNick1.setText("");
     }//GEN-LAST:event_CampoNick1FocusGained
@@ -5386,6 +5376,20 @@ public class MenuInicio extends javax.swing.JFrame {
         Panel_Central.revalidate();
         Panel_Central.repaint();
     }//GEN-LAST:event_CambiarUsuario8ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        DefaultMutableTreeNode seleccionar = (DefaultMutableTreeNode) jTree1.getSelectionPath().getLastPathComponent();
+        String aux = null;
+        aux = seleccionar.getUserObject().toString();
+        String[] dividir = aux.split("::");
+        aux = dividir[1];
+        if (aux != null) {
+            if(!aux.equals("Comentarios") && !aux.equals("Sin Comentarios")){
+                CampoCom.setText(aux);
+            } else {
+            }
+        }
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     private void setColor(JPanel pane) {
         pane.setBackground(new Color(114, 114, 114));
