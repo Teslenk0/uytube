@@ -2086,11 +2086,6 @@ public class MenuInicio extends javax.swing.JFrame {
 
         Central2_5.setLayout(null);
 
-        UsuarioBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UsuarioBoxActionPerformed(evt);
-            }
-        });
         Central2_5.add(UsuarioBox);
         UsuarioBox.setBounds(180, 150, 310, 22);
 
@@ -2160,11 +2155,6 @@ public class MenuInicio extends javax.swing.JFrame {
         Central2_5_1.add(jLabel4);
         jLabel4.setBounds(310, 210, 70, 14);
 
-        SeguidorBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SeguidorBoxActionPerformed(evt);
-            }
-        });
         Central2_5_1.add(SeguidorBox);
         SeguidorBox.setBounds(180, 230, 310, 22);
 
@@ -2211,11 +2201,6 @@ public class MenuInicio extends javax.swing.JFrame {
         Central2_6.add(BotonBack1);
         BotonBack1.setBounds(12, 23, 101, 51);
 
-        UsuarioBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UsuarioBox1ActionPerformed(evt);
-            }
-        });
         Central2_6.add(UsuarioBox1);
         UsuarioBox1.setBounds(180, 150, 310, 22);
 
@@ -2275,11 +2260,6 @@ public class MenuInicio extends javax.swing.JFrame {
         Central2_6_1.add(AceptarButton1);
         AceptarButton1.setBounds(500, 220, 80, 40);
 
-        SeguidorBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SeguidorBox1ActionPerformed(evt);
-            }
-        });
         Central2_6_1.add(SeguidorBox1);
         SeguidorBox1.setBounds(180, 230, 310, 22);
 
@@ -3912,15 +3892,14 @@ public class MenuInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_CampoContraseñaFocusGained
 
     private void agrVid_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agrVid_ButtonActionPerformed
-        Panel_Central.removeAll();
-        Central3_1.add(SeleccionarUsuario1);
-        Central3_1.remove(CambiarUsuario1);
-        comboVideo.setEnabled(true);
-        Panel_Central.add(Central3_1);
-        Panel_Central.revalidate();
-        Panel_Central.repaint();
         List lista = u.listaUsuarios();
         if (lista != null) {
+            Panel_Central.removeAll();
+            Central3_1.add(SeleccionarUsuario1);
+            Central3_1.remove(CambiarUsuario1);
+            comboVideo.setEnabled(true);
+            Panel_Central.add(Central3_1);
+            Panel_Central.revalidate();
             DtUsuario user;
             for (int x = 0; x <= lista.size() - 1; x++) {
                 if (lista.get(x) != null) {
@@ -3936,12 +3915,12 @@ public class MenuInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_agrVid_ButtonActionPerformed
 
     private void comenVid_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comenVid_ButtonActionPerformed
-        Panel_Central.removeAll();
-        Panel_Central.add(Central3_4);
-        Panel_Central.revalidate();
-        Panel_Central.repaint();
         List lista = u.listaUsuarios();
         if (lista != null) {
+            Panel_Central.removeAll();
+            Panel_Central.add(Central3_4);
+            Panel_Central.revalidate();
+            Panel_Central.repaint();
             DtUsuario user;
             for (int x = 0; x <= lista.size() - 1; x++) {
                 if (lista.get(x) != null) {
@@ -3957,15 +3936,15 @@ public class MenuInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_comenVid_ButtonActionPerformed
 
     private void modVid_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modVid_ButtonActionPerformed
-        Panel_Central.removeAll();
-        comboVideo1.setEnabled(true);
-        Central3_2.remove(CambiarUsuario3);
-        Central3_2.add(SeleccionarUsuario3);
-        Panel_Central.add(Central3_2);
-        Panel_Central.revalidate();
-        Panel_Central.repaint();
         List lista = u.listaUsuarios();
         if (lista != null) {
+            Panel_Central.removeAll();
+            comboVideo1.setEnabled(true);
+            Central3_2.remove(CambiarUsuario3);
+            Central3_2.add(SeleccionarUsuario3);
+            Panel_Central.add(Central3_2);
+            Panel_Central.revalidate();
+            Panel_Central.repaint();
             DtUsuario user;
             for (int x = 0; x <= lista.size() - 1; x++) {
                 if (lista.get(x) != null) {
@@ -4000,12 +3979,10 @@ public class MenuInicio extends javax.swing.JFrame {
 
     private void BackButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButton3ActionPerformed
         Panel_Central.removeAll();
+        Central2_2_Panel.removeAll();
         Panel_Central.add(Scroll2);
         Panel_Central.revalidate();
         Panel_Central.repaint();
-        Central2_2_Panel.removeAll();
-        Central2_2_Panel.revalidate();
-        Central2_2_Panel.repaint();
         comboConsulta.removeAllItems();
     }//GEN-LAST:event_BackButton3ActionPerformed
 
@@ -4125,10 +4102,8 @@ public class MenuInicio extends javax.swing.JFrame {
         }
         if (nuevafecha == null || pass.isEmpty() || nom.isEmpty() || ape.isEmpty() || descripcion.isEmpty() || nomCanal.isEmpty()) {
             mensaje.CambioTexto("Debes llenar todos los campos obligatorios");
-            mensaje.setVisible(true);
         } else if (user.getCanal().getPrivado().equals(privado1) && user.getNombre().equals(nom) && user.getApellido().equals(ape) && user.getContraseña().equals(pass) && user.getCanal().getNombre_canal().equals(nomCanal) && user.getCanal().getDescripcion().equals(descripcion) && !cambio) {
             mensaje.CambioTexto("        No se realizo ninguna modificación");
-            mensaje.setVisible(true);
         } else {
             if (nomCanal.isEmpty()) {
                 nomCanal = user.getNickname();
@@ -4137,21 +4112,17 @@ public class MenuInicio extends javax.swing.JFrame {
             DtCanal modCanal = new DtCanal(nomCanal, descripcion, privado1);
             modUser = new DtUsuario(user.getNickname(), pass, nom, ape, user.getEmail(), nuevafecha, rutaImagen, user.getCanal());
             u.modificarUsuario(modUser, modCanal, imagen, cambio);
-            mensaje.CambioTexto("      Modificaciones realizadas con éxito");
-            mensaje.setVisible(true);
         }
-
+        mensaje.setVisible(true);
         imagen = null;
     }//GEN-LAST:event_ModificarActionPerformed
 
     private void BackButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButton5ActionPerformed
+        Central3_1_Panel.removeAll();
         Panel_Central.removeAll();
         Panel_Central.add(Central3);
         Panel_Central.revalidate();
         Panel_Central.repaint();
-        Central3_1_Panel.removeAll();
-        Central3_1_Panel.revalidate();
-        Central3_1_Panel.repaint();
         comboVideo.removeAllItems();
         resetRegistrarVideo();
     }//GEN-LAST:event_BackButton5ActionPerformed
@@ -4221,12 +4192,19 @@ public class MenuInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_consultaPlaylist_buttonActionPerformed
 
     private void crearPlaylist_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearPlaylist_ButtonActionPerformed
-        Panel_Central.removeAll();
-        Panel_Central.add(Central4_1);
-        Panel_Central.revalidate();
-        Panel_Central.repaint();
-        NombreUserLista.removeAllItems();
-        comboCategoriasCrearLista.removeAllItems();
+        List lista = u.listaUsuarios();
+        if (lista != null) {
+            Panel_Central.removeAll();
+            Panel_Central.add(Central4_1);
+            Panel_Central.revalidate();
+            Panel_Central.repaint();
+            NombreUserLista.removeAllItems();
+            comboCategoriasCrearLista.removeAllItems();
+        } else {
+            VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
+            error.CambioTexto("  No existen usuarios en la base de datos.");
+            error.setVisible(true);
+        }
     }//GEN-LAST:event_crearPlaylist_ButtonActionPerformed
 
     private void NombreListaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_NombreListaFocusGained
@@ -4341,7 +4319,7 @@ public class MenuInicio extends javax.swing.JFrame {
         List lista = u.listaSeguidos(nickUser);
         if (lista.isEmpty()) {
             mensaje = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-            mensaje.CambioTexto("        Este usuario ahora ya no sigue a nadie");
+            mensaje.CambioTexto("     Este usuario ahora ya no sigue a nadie");
             UsuarioBox1.setEnabled(true);
             Central2_6.remove(Central2_6_1);
             Central2_6.remove(CambiarUsuario8);
@@ -4358,14 +4336,6 @@ public class MenuInicio extends javax.swing.JFrame {
         }
         mensaje.setVisible(true);
     }//GEN-LAST:event_AceptarButton1ActionPerformed
-
-    private void SeguidorBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeguidorBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SeguidorBox1ActionPerformed
-
-    private void SeguidorBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeguidorBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SeguidorBoxActionPerformed
 
     private void AceptarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AceptarButtonActionPerformed
         String nickSeg = (String) SeguidorBox.getSelectedItem();
@@ -4420,10 +4390,6 @@ public class MenuInicio extends javax.swing.JFrame {
         UsuarioBox1.removeAllItems();
     }//GEN-LAST:event_BotonBack1ActionPerformed
 
-    private void UsuarioBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuarioBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_UsuarioBox1ActionPerformed
-
     private void SeleccionarButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeleccionarButton1ActionPerformed
         String nickUser = (String) UsuarioBox1.getSelectedItem();
         List lista = u.listaSeguidos(nickUser);
@@ -4446,10 +4412,6 @@ public class MenuInicio extends javax.swing.JFrame {
             Panel_Central.repaint();
         }
     }//GEN-LAST:event_SeleccionarButton1ActionPerformed
-
-    private void UsuarioBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuarioBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_UsuarioBoxActionPerformed
 
     private void SeleccionarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeleccionarButtonActionPerformed
         String nickUser = (String) UsuarioBox.getSelectedItem();
@@ -4506,48 +4468,60 @@ public class MenuInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_AgregarUsuarioActionPerformed
 
     private void SeguirUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeguirUsuarioActionPerformed
-        Panel_Central.removeAll();
-        Central2_5.remove(CambiarUsuario7);
-        Central2_5.add(SeleccionarButton);
-        UsuarioBox.setEnabled(true);
-        Panel_Central.add(Central2_5);
-        Panel_Central.revalidate();
-        Panel_Central.repaint();
         List lista = u.listaUsuarios();
         DtUsuario user;
-        for (int x = 0; x <= lista.size() - 1; x++) {
-            if (lista.get(x) != null) {
-                user = (DtUsuario) lista.get(x);
-                UsuarioBox.addItem(user.getNickname());
+        if (lista != null) {
+            Panel_Central.removeAll();
+            Central2_5.remove(CambiarUsuario7);
+            Central2_5.add(SeleccionarButton);
+            UsuarioBox.setEnabled(true);
+            Panel_Central.add(Central2_5);
+            Panel_Central.revalidate();
+            Panel_Central.repaint();
+            for (int x = 0; x <= lista.size() - 1; x++) {
+                if (lista.get(x) != null) {
+                    user = (DtUsuario) lista.get(x);
+                    UsuarioBox.addItem(user.getNickname());
+                }
             }
+        } else {
+            VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
+            error.CambioTexto("  No existen usuarios en la base de datos.");
+            error.setVisible(true);
         }
     }//GEN-LAST:event_SeguirUsuarioActionPerformed
 
     private void ListarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarUsuariosActionPerformed
-        Panel_Central.removeAll();
-        Panel_Central.add(Central2_4);
-        Panel_Central.revalidate();
-        Panel_Central.repaint();
         List lista = u.listaUsuarios();
         DtUsuario user;
-        for (int x = 0; x <= lista.size() - 1; x++) {
-            if (lista.get(x) != null) {
-                user = (DtUsuario) lista.get(x);
-                comboLista.addItem(user.getNickname());
+        if (lista != null) {
+            Panel_Central.removeAll();
+            Panel_Central.add(Central2_4);
+            Panel_Central.revalidate();
+            Panel_Central.repaint();
+            for (int x = 0; x <= lista.size() - 1; x++) {
+                if (lista.get(x) != null) {
+                    user = (DtUsuario) lista.get(x);
+                    comboLista.addItem(user.getNickname());
+                }
             }
+        } else {
+            VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
+            error.CambioTexto("  No existen usuarios en la base de datos.");
+            error.setVisible(true);
         }
     }//GEN-LAST:event_ListarUsuariosActionPerformed
 
     private void ConsultarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarUsuariosActionPerformed
-        Panel_Central.removeAll();
-        Panel_Central.add(Central2_2);
-        Panel_Central.revalidate();
-        Panel_Central.repaint();
-        Central2_2.remove(CambiarUsuario5);
-        Central2_2.add(SeleccionarUsuario);
-        comboConsulta.setEnabled(true);
         List lista = u.listaUsuarios();
         if (lista != null) {
+            Panel_Central.removeAll();
+            Panel_Central.add(Central2_2);
+            Panel_Central.revalidate();
+            Panel_Central.repaint();
+            Central2_2.remove(CambiarUsuario5);
+            Central2_2.add(SeleccionarUsuario);
+            comboConsulta.setEnabled(true);
             DtUsuario user;
             for (int x = 0; x <= lista.size() - 1; x++) {
                 if (lista.get(x) != null) {
@@ -4563,16 +4537,16 @@ public class MenuInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_ConsultarUsuariosActionPerformed
 
     private void ModificarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarUsuarioActionPerformed
-        CampoImagen1.setText("Imágen Seleccionada");
-        Panel_Central.removeAll();
-        Central2_3.remove(CambiarUsuario6);
-        Central2_3.add(SeleccionarUsuarioModificar);
-        comboModificar.setEnabled(true);
-        Panel_Central.add(Central2_3);
-        Panel_Central.revalidate();
-        Panel_Central.repaint();
         List lista = u.listaUsuarios();
         if (lista != null) {
+            CampoImagen1.setText("Imágen Seleccionada");
+            Panel_Central.removeAll();
+            Central2_3.remove(CambiarUsuario6);
+            Central2_3.add(SeleccionarUsuarioModificar);
+            comboModificar.setEnabled(true);
+            Panel_Central.add(Central2_3);
+            Panel_Central.revalidate();
+            Panel_Central.repaint();
             DtUsuario user;
             for (int x = 0; x <= lista.size() - 1; x++) {
                 if (lista.get(x) != null) {
@@ -4588,33 +4562,39 @@ public class MenuInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_ModificarUsuarioActionPerformed
 
     private void DejarSeguirUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DejarSeguirUsuarioActionPerformed
-        Panel_Central.removeAll();
-        Central2_6.remove(CambiarUsuario8);
-        Central2_6.add(SeleccionarButton1);
-        UsuarioBox1.setEnabled(true);
-        Panel_Central.add(Central2_6);
-        Panel_Central.revalidate();
-        Panel_Central.repaint();
         List lista = u.listaUsuarios();
-        DtUsuario user;
-        for (int x = 0; x <= lista.size() - 1; x++) {
-            if (lista.get(x) != null) {
-                user = (DtUsuario) lista.get(x);
-                UsuarioBox1.addItem(user.getNickname());
+        if (lista != null) {
+            Panel_Central.removeAll();
+            Central2_6.remove(CambiarUsuario8);
+            Central2_6.add(SeleccionarButton1);
+            UsuarioBox1.setEnabled(true);
+            Panel_Central.add(Central2_6);
+            Panel_Central.revalidate();
+            Panel_Central.repaint();
+            DtUsuario user;
+            for (int x = 0; x <= lista.size() - 1; x++) {
+                if (lista.get(x) != null) {
+                    user = (DtUsuario) lista.get(x);
+                    UsuarioBox1.addItem(user.getNickname());
+                }
             }
+        } else {
+            VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
+            error.CambioTexto("  No existen usuarios en la base de datos.");
+            error.setVisible(true);
         }
     }//GEN-LAST:event_DejarSeguirUsuarioActionPerformed
 
     private void consVid_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consVid_ButtonActionPerformed
-        Panel_Central.removeAll();
-        comboVideo4.setEnabled(true);
-        Central3_3.remove(CambiarUsuario4);
-        Central3_3.add(SeleccionarUsuario4);
-        Panel_Central.add(Central3_3);
-        Panel_Central.revalidate();
-        Panel_Central.repaint();
         List lista = u.listaUsuarios();
         if (lista != null) {
+            Panel_Central.removeAll();
+            comboVideo4.setEnabled(true);
+            Central3_3.remove(CambiarUsuario4);
+            Central3_3.add(SeleccionarUsuario4);
+            Panel_Central.add(Central3_3);
+            Panel_Central.revalidate();
+            Panel_Central.repaint();
             DtUsuario user;
             for (int x = 0; x <= lista.size() - 1; x++) {
                 if (lista.get(x) != null) {
@@ -4781,15 +4761,15 @@ public class MenuInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_BackButton8ActionPerformed
 
     private void modificarPlaylist_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarPlaylist_ButtonActionPerformed
-        Panel_Central.removeAll();
-        Panel_Central.add(Central4_2);
-        Panel_Central.revalidate();
-        Panel_Central.repaint();
-        comboUsuarioModificarLista.removeAllItems();
-        comboListaModificarLista.removeAllItems();
-        comboCategoriaModificarLista.removeAllItems();        // TODO add your handling code here:
         List lista = u.listaUsuarios();
         if (lista != null) {
+            Panel_Central.removeAll();
+            Panel_Central.add(Central4_2);
+            Panel_Central.revalidate();
+            Panel_Central.repaint();
+            comboUsuarioModificarLista.removeAllItems();
+            comboListaModificarLista.removeAllItems();
+            comboCategoriaModificarLista.removeAllItems();
             DtUsuario user;
             for (int x = 0; x <= lista.size() - 1; x++) {
                 if (lista.get(x) != null) {
@@ -4797,28 +4777,26 @@ public class MenuInicio extends javax.swing.JFrame {
                     comboUsuarioModificarLista.addItem(user.getNickname());
                 }
             }
+            List categorias = c.getCategorias();
+            if (comboCategoriaModificarLista.getItemCount() != 0) {
+                comboCategoriaModificarLista.removeAllItems();
+            }
+            comboCategoriaModificarLista.insertItemAt("", 0);
+            if (categorias != null) {
+                DtCategoria cat;
+                for (int x = 0; x <= categorias.size() - 1; x++) {
+                    if (categorias.get(x) != null) {
+                        cat = (DtCategoria) categorias.get(x);
+                        comboCategoriaModificarLista.addItem(cat.getnombreCategoria());
+                    }
+                }
+            }
+            this.comboCategoriasCrearLista.setEnabled(true);
         } else {
             VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
             error.CambioTexto("  No existen usuarios en la base de datos.");
             error.setVisible(true);
         }
-
-        List categorias = c.getCategorias();
-        if (comboCategoriaModificarLista.getItemCount() != 0) {
-            comboCategoriaModificarLista.removeAllItems();
-        }
-        comboCategoriaModificarLista.insertItemAt("", 0);
-        if (categorias != null) {
-            DtCategoria cat;
-            for (int x = 0; x <= categorias.size() - 1; x++) {
-                if (categorias.get(x) != null) {
-                    cat = (DtCategoria) categorias.get(x);
-                    comboCategoriaModificarLista.addItem(cat.getnombreCategoria());
-                }
-            }
-        }
-        this.comboCategoriasCrearLista.setEnabled(true);
-
     }//GEN-LAST:event_modificarPlaylist_ButtonActionPerformed
 
     private void botonAceptarModificarLista1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAceptarModificarLista1ActionPerformed
@@ -5140,18 +5118,16 @@ public class MenuInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_botonSelectUsuarioOrigenActionPerformed
 
     private void agregarVideo_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarVideo_ButtonActionPerformed
-        // TODO add your handling code here:
-
-        Panel_Central.removeAll();
-        Panel_Central.add(Central4_3);
-        Panel_Central.revalidate();
-        Panel_Central.repaint();
-        comboUsuarioOrigen.removeAllItems();
-        comboUsuarioDestino.removeAllItems();
-        comboVideoOrigen.removeAllItems();        // TODO add your handling code here:
-        comboListaDestino.removeAllItems();
         List lista = u.listaUsuarios();
         if (lista != null) {
+            Panel_Central.removeAll();
+            Panel_Central.add(Central4_3);
+            Panel_Central.revalidate();
+            Panel_Central.repaint();
+            comboUsuarioOrigen.removeAllItems();
+            comboUsuarioDestino.removeAllItems();
+            comboVideoOrigen.removeAllItems();
+            comboListaDestino.removeAllItems();
             DtUsuario user;
             for (int x = 0; x <= lista.size() - 1; x++) {
                 if (lista.get(x) != null) {
@@ -5222,16 +5198,15 @@ public class MenuInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_botonSelectUsuarioSacarVideoActionPerformed
 
     private void quitarVideo_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitarVideo_ButtonActionPerformed
-        // TODO add your handling code here:
-        Panel_Central.removeAll();
-        Panel_Central.add(Central4_4);
-        Panel_Central.revalidate();
-        Panel_Central.repaint();
-        comboUsuarioSacarVideo.removeAllItems();
-        comboListaSacarVideo.removeAllItems();
-        comboVideoSacarVideo.removeAllItems();        // TODO add your handling code here:
         List lista = u.listaUsuarios();
         if (lista != null) {
+            Panel_Central.removeAll();
+            Panel_Central.add(Central4_4);
+            Panel_Central.revalidate();
+            Panel_Central.repaint();
+            comboUsuarioSacarVideo.removeAllItems();
+            comboListaSacarVideo.removeAllItems();
+            comboVideoSacarVideo.removeAllItems();
             DtUsuario user;
             for (int x = 0; x <= lista.size() - 1; x++) {
                 if (lista.get(x) != null) {
