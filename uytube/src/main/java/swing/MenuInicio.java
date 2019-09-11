@@ -5674,7 +5674,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private void SeleccionarButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeleccionarButton2ActionPerformed
         DtCategoria cat = new DtCategoria(CampoCategoria.getText());
         VentanaEmergente mensaje = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-        if(!CampoCategoria.getText().equals("Ingrese Nombre de Categoría")){
+        if(!CampoCategoria.getText().equals("Ingrese Nombre de Categoría") && !CampoCategoria.getText().isBlank()){
             try {
                 c.registrarCategoria(cat);
                 mensaje.CambioTexto("        La categoría se registro con éxito");
@@ -5695,6 +5695,7 @@ public class MenuInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_BotonBack2ActionPerformed
 
     private void agregarCat_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarCat_ButtonActionPerformed
+        CampoCategoria.setText("Ingrese Nombre de Categoría");
         Panel_Central.removeAll();
         Panel_Central.add(Central5_1);
         Panel_Central.revalidate();
