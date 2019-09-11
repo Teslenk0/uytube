@@ -16,6 +16,7 @@ import DataTypes.DtVideo;
 import excepciones.CategoriaRepetidaException;
 import excepciones.ListaRepetidaException;
 import excepciones.VideoRepetidoException;
+import excepciones.VideoYaExisteEnListaException;
 import java.util.List;
 
 /**
@@ -57,4 +58,6 @@ public interface IControladorCanal {
     public abstract List getCategorias();
     
     public abstract List getListasDefecto(String canal);
+    
+    public abstract void agregarVideoLista(String nombreVideo, String listaDestino, String usuarioDestino, String usuarioOrigen, Boolean isParticular) throws VideoYaExisteEnListaException;
 }

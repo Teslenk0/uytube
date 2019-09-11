@@ -21,16 +21,16 @@ import javax.persistence.Table;
  * @author tesla
  */
 @Entity
-@Table(name = "lista_defecto_video")
+@Table(name = "lista_particular_video")
 @IdClass(DefectoPK.class)
-public class ListaDefectoVideos implements Serializable {
+public class ListaParticularVideos implements Serializable {
 
     protected static final long serialVersionUID = 1L;
 
     @Id
-    @ManyToOne(targetEntity = ListaporDefecto.class)
+    @ManyToOne(targetEntity = ListaParticulares.class)
     @JoinColumn(name = "id")
-    private ListaporDefecto id;
+    private ListaParticulares id;
 
     @Id
     @Column(name = "nombre_video")
@@ -40,25 +40,25 @@ public class ListaDefectoVideos implements Serializable {
     @Column(name = "nombre_canal_video_origen")
     private String canal;
 
-    public ListaDefectoVideos() {
+    public ListaParticularVideos() {
     }
 
-    public ListaDefectoVideos(ListaporDefecto id, String video) {
+    public ListaParticularVideos(ListaParticulares id, String video) {
         this.id = id;
         this.video = video;
     }
 
-    public ListaDefectoVideos(ListaporDefecto id, String video, String canal) {
+    public ListaParticularVideos(ListaParticulares id, String video, String canal) {
         this.id = id;
         this.video = video;
         this.canal = canal;
     }
 
-    public ListaporDefecto getId() {
+    public ListaParticulares getId() {
         return id;
     }
 
-    public void setId(ListaporDefecto id) {
+    public void setId(ListaParticulares id) {
         this.id = id;
     }
 
@@ -80,10 +80,10 @@ public class ListaDefectoVideos implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 89 * hash + Objects.hashCode(this.id);
-        hash = 89 * hash + Objects.hashCode(this.video);
-        hash = 89 * hash + Objects.hashCode(this.canal);
+        int hash = 7;
+        hash = 37 * hash + Objects.hashCode(this.id);
+        hash = 37 * hash + Objects.hashCode(this.video);
+        hash = 37 * hash + Objects.hashCode(this.canal);
         return hash;
     }
 
@@ -98,7 +98,7 @@ public class ListaDefectoVideos implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final ListaDefectoVideos other = (ListaDefectoVideos) obj;
+        final ListaParticularVideos other = (ListaParticularVideos) obj;
         if (!Objects.equals(this.video, other.video)) {
             return false;
         }

@@ -4836,7 +4836,7 @@ public class MenuInicio extends javax.swing.JFrame {
             jTree1.setModel(modelo);
             // Construccion de los datos del arbol
             int y = 1;
-            for (int x = 0; x < listaCom.size() ; x++) {
+            for (int x = 0; x < listaCom.size(); x++) {
                 com = (DtComentario) listaCom.get(x);
                 if (listaCom.get(x) != null) {
                     String coment = c.comentarioEsp(y);
@@ -4853,7 +4853,7 @@ public class MenuInicio extends javax.swing.JFrame {
 
                         DtComentario comentario = c.obtenerComentarioRef(com.getPadre());
                         DefaultMutableTreeNode viejo = findNode(comentario.getNick() + "::" + comentario.getComentario());
-                        
+
                         if (viejo != null) {
 
                             int hijos = jTree1.getModel().getChildCount(viejo);
@@ -4864,8 +4864,7 @@ public class MenuInicio extends javax.swing.JFrame {
                     }
                 }
             }
-        }
-        else {
+        } else {
             DefaultMutableTreeNode abuelo = new DefaultMutableTreeNode(video + "::Sin Comentarios");
             DefaultTreeModel modelo = new DefaultTreeModel(abuelo);
             jTree1.setModel(modelo);
@@ -5217,7 +5216,7 @@ public class MenuInicio extends javax.swing.JFrame {
         Panel_Central.repaint();
         String nomVideo = comboVideo5.getSelectedItem().toString();
         DtUsuario user;
-        user = u.buscarUsuario((String) comboVideo1.getSelectedItem());
+        user = u.buscarUsuario((String) comboVideo4.getSelectedItem());
         DtVideo video = c.obtenerVideo(nomVideo, user.getCanal().getNombre_canal());;
         String fechaN = video.getFechaPublicacion().toString();
         fechaN = fechaN.substring(0, 10);
@@ -5255,11 +5254,32 @@ public class MenuInicio extends javax.swing.JFrame {
 
     private void botonAceptarModificarLista2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAceptarModificarLista2ActionPerformed
         // TODO add your handling code here:
-
+        String nombreVideo = comboVideoOrigen.getSelectedItem().toString();
+        String usuarioOrigen = comboUsuarioOrigen.getSelectedItem().toString();
+        String usuarioDestino = comboUsuarioDestino.getSelectedItem().toString();
+        String listaDestino = comboListaDestino.getSelectedItem().toString();
         if (radioDefecto.isSelected()) {
-            //aca agregar video a lista defecto 
+            try {
+                c.agregarVideoLista(nombreVideo, listaDestino, usuarioDestino, usuarioOrigen, false);
+                VentanaEmergente ok = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
+                ok.CambioTexto("  Se ha ingresado el video a la lista correctamente");
+                ok.setVisible(true);
+            } catch (Exception e) {
+                VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
+                error.CambioTexto("  Ya existe el video en la lista");
+                error.setVisible(true);
+            }
         } else {
-            //aca agregar video a lista particular 
+            try {
+                c.agregarVideoLista(nombreVideo, listaDestino, usuarioDestino, usuarioOrigen, true);
+                VentanaEmergente ok = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
+                ok.CambioTexto("  Se ha ingresado el video a la lista correctamente");
+                ok.setVisible(true);
+            } catch (Exception e) {
+                VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
+                error.CambioTexto("  Ya existe el video en la lista");
+                error.setVisible(true);
+            }
         }
     }//GEN-LAST:event_botonAceptarModificarLista2ActionPerformed
 
@@ -5519,7 +5539,7 @@ public class MenuInicio extends javax.swing.JFrame {
         String[] dividir = aux.split("::");
         aux = dividir[1];
         if (aux != null) {
-            if(!aux.equals("Comentarios") && !aux.equals("Sin Comentarios")){
+            if (!aux.equals("Comentarios") && !aux.equals("Sin Comentarios")) {
                 CampoCom.setText(aux);
             } else {
             }
@@ -5737,7 +5757,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private void SeleccionarButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeleccionarButton2ActionPerformed
         DtCategoria cat = new DtCategoria(CampoCategoria.getText());
         VentanaEmergente mensaje = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-        if(!CampoCategoria.getText().equals("Ingrese Nombre de Categoría") && !CampoCategoria.getText().isBlank()){
+        if (!CampoCategoria.getText().equals("Ingrese Nombre de Categoría") && !CampoCategoria.getText().isBlank()) {
             try {
                 c.registrarCategoria(cat);
                 mensaje.CambioTexto("        La categoría se registro con éxito");
@@ -5752,7 +5772,7 @@ public class MenuInicio extends javax.swing.JFrame {
 
     private void CampoCategoriaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CampoCategoriaFocusGained
         if (CampoCategoria.getText().equals("Ingrese Nombre de Categoría"))
-        CampoCategoria.setText("");
+            CampoCategoria.setText("");
     }//GEN-LAST:event_CampoCategoriaFocusGained
 
     private void BotonBack4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBack4ActionPerformed

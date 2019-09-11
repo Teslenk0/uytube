@@ -17,18 +17,30 @@ public class DefectoPK implements Serializable{
    
     private int id;
   
-    private Video video;
+    private String video;
+    
+    private String canal;
 
-    public DefectoPK(int id, Video video) {
+    public DefectoPK() {
+    }
+
+    public DefectoPK(int id, String video, String canal) {
+        this.id = id;
+        this.video = video;
+        this.canal = canal;
+    }
+    
+    public DefectoPK(int id, String video) {
         this.id = id;
         this.video = video;
     }
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 17 * hash + this.id;
-        hash = 17 * hash + Objects.hashCode(this.video);
+        int hash = 5;
+        hash = 73 * hash + this.id;
+        hash = 73 * hash + Objects.hashCode(this.video);
+        hash = 73 * hash + Objects.hashCode(this.canal);
         return hash;
     }
 
@@ -50,8 +62,12 @@ public class DefectoPK implements Serializable{
         if (!Objects.equals(this.video, other.video)) {
             return false;
         }
+        if (!Objects.equals(this.canal, other.canal)) {
+            return false;
+        }
         return true;
     }
+
     
     
 }

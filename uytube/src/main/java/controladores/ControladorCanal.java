@@ -16,6 +16,8 @@ import DataTypes.DtVideo;
 import clases.Canal;
 import clases.Categoria;
 import clases.Comentario;
+import clases.ListaDefectoVideos;
+import clases.ListaParticularVideos;
 import clases.ListaParticulares;
 import clases.ListaReproduccion;
 import clases.ListaporDefecto;
@@ -24,6 +26,7 @@ import clases.Video;
 import excepciones.CategoriaRepetidaException;
 import excepciones.ListaRepetidaException;
 import excepciones.VideoRepetidoException;
+import excepciones.VideoYaExisteEnListaException;
 import interfaces.IControladorCanal;
 import java.util.LinkedList;
 import java.util.List;
@@ -296,5 +299,24 @@ public class ControladorCanal implements IControladorCanal {
             }
         }
         return aux;
+    }
+    
+    @Override
+    public void agregarVideoLista(String nombreVideo, String listaDestino, String usuarioDestino, String usuarioOrigen, Boolean isParticular) throws VideoYaExisteEnListaException{
+        ManejadorInformacion mu = ManejadorInformacion.getInstance();
+        Usuario userDestino = mu.buscadorUsuario(usuarioDestino);
+        Usuario userOrigen = mu.buscadorUsuario(usuarioOrigen);
+        if(mu.buscoVideoEnLista(nombreVideo,listaDestino,usuarioDestino,usuarioOrigen,isParticular)){
+            throw new VideoYaExisteEnListaException("El video ya existe en la lista");
+        }
+        if(!isParticular){
+            ListaporDefecto list = mu.buscadorListaDefecto(userDestino.getCanal().getNombre_canal(),listaDestino);
+            ListaDefectoVideos l = new ListaDefectoVideos(list,nombreVideo,userOrigen.getCanal().getNombre_canal());
+            mu.agregarVideoListaDefecto(l);
+        }else{
+            ListaParticulares list = mu.buscadorListaParticular(userDestino.getCanal().getNombre_canal(),listaDestino);
+            ListaParticularVideos l = new ListaParticularVideos(list,nombreVideo,userOrigen.getCanal().getNombre_canal());
+            mu.agregarVideoListaParticular(l);
+        }
     }
 }
