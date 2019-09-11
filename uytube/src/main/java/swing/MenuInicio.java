@@ -531,6 +531,12 @@ public class MenuInicio extends javax.swing.JFrame {
         altacat = new javax.swing.JLabel();
         CampoCategoria = new javax.swing.JTextField();
         jSeparator86 = new javax.swing.JSeparator();
+        Central5_3 = new javax.swing.JPanel();
+        BotonBack4 = new javax.swing.JButton();
+        jSeparator92 = new javax.swing.JSeparator();
+        jSeparator93 = new javax.swing.JSeparator();
+        altacat2 = new javax.swing.JLabel();
+        comboCategorias = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -1166,6 +1172,11 @@ public class MenuInicio extends javax.swing.JFrame {
         listarCat_Button.setContentAreaFilled(false);
         listarCat_Button.setFocusable(false);
         listarCat_Button.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ListarCategorias2.png"))); // NOI18N
+        listarCat_Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listarCat_ButtonActionPerformed(evt);
+            }
+        });
         Central5.add(listarCat_Button);
         listarCat_Button.setBounds(100, 300, 230, 210);
 
@@ -3844,6 +3855,43 @@ public class MenuInicio extends javax.swing.JFrame {
         Panel_Central.add(Central5_1);
         Central5_1.setBounds(0, 0, 720, 550);
 
+        Central5_3.setLayout(null);
+
+        BotonBack4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back.png"))); // NOI18N
+        BotonBack4.setBorder(null);
+        BotonBack4.setBorderPainted(false);
+        BotonBack4.setContentAreaFilled(false);
+        BotonBack4.setFocusable(false);
+        BotonBack4.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back2.png"))); // NOI18N
+        BotonBack4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonBack4ActionPerformed(evt);
+            }
+        });
+        Central5_3.add(BotonBack4);
+        BotonBack4.setBounds(12, 23, 101, 51);
+
+        jSeparator92.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator92.setForeground(new java.awt.Color(153, 153, 153));
+        Central5_3.add(jSeparator92);
+        jSeparator92.setBounds(20, 120, 675, 30);
+
+        jSeparator93.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator93.setForeground(new java.awt.Color(153, 153, 153));
+        Central5_3.add(jSeparator93);
+        jSeparator93.setBounds(20, 200, 675, 30);
+
+        altacat2.setFont(berlin.deriveFont(20f));
+        altacat2.setText("Lista de Categorías");
+        Central5_3.add(altacat2);
+        altacat2.setBounds(250, 90, 220, 20);
+
+        Central5_3.add(comboCategorias);
+        comboCategorias.setBounds(120, 150, 456, 22);
+
+        Panel_Central.add(Central5_3);
+        Central5_3.setBounds(0, 0, 720, 550);
+
         getContentPane().add(Panel_Central, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 720, 550));
 
         pack();
@@ -5671,6 +5719,21 @@ public class MenuInicio extends javax.swing.JFrame {
         mensaje.setVisible(true);*/
     }//GEN-LAST:event_SobrecargaActionPerformed
 
+    private void BotonBack2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBack2ActionPerformed
+        Panel_Central.removeAll();
+        Panel_Central.add(Central5);
+        Panel_Central.revalidate();
+        Panel_Central.repaint();
+    }//GEN-LAST:event_BotonBack2ActionPerformed
+
+    private void agregarCat_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarCat_ButtonActionPerformed
+        CampoCategoria.setText("Ingrese Nombre de Categoría");
+        Panel_Central.removeAll();
+        Panel_Central.add(Central5_1);
+        Panel_Central.revalidate();
+        Panel_Central.repaint();
+    }//GEN-LAST:event_agregarCat_ButtonActionPerformed
+
     private void SeleccionarButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeleccionarButton2ActionPerformed
         DtCategoria cat = new DtCategoria(CampoCategoria.getText());
         VentanaEmergente mensaje = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
@@ -5687,25 +5750,39 @@ public class MenuInicio extends javax.swing.JFrame {
         mensaje.setVisible(true);
     }//GEN-LAST:event_SeleccionarButton2ActionPerformed
 
-    private void BotonBack2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBack2ActionPerformed
+    private void CampoCategoriaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CampoCategoriaFocusGained
+        if (CampoCategoria.getText().equals("Ingrese Nombre de Categoría"))
+        CampoCategoria.setText("");
+    }//GEN-LAST:event_CampoCategoriaFocusGained
+
+    private void BotonBack4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBack4ActionPerformed
         Panel_Central.removeAll();
         Panel_Central.add(Central5);
         Panel_Central.revalidate();
         Panel_Central.repaint();
-    }//GEN-LAST:event_BotonBack2ActionPerformed
+    }//GEN-LAST:event_BotonBack4ActionPerformed
 
-    private void agregarCat_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarCat_ButtonActionPerformed
-        CampoCategoria.setText("Ingrese Nombre de Categoría");
-        Panel_Central.removeAll();
-        Panel_Central.add(Central5_1);
-        Panel_Central.revalidate();
-        Panel_Central.repaint();
-    }//GEN-LAST:event_agregarCat_ButtonActionPerformed
-
-    private void CampoCategoriaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CampoCategoriaFocusGained
-        if (CampoCategoria.getText().equals("Ingrese Nombre de Categoría"))
-            CampoCategoria.setText("");
-    }//GEN-LAST:event_CampoCategoriaFocusGained
+    private void listarCat_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarCat_ButtonActionPerformed
+        List lista = c.getCategorias();
+        if (lista != null) {
+            Panel_Central.removeAll();
+            Panel_Central.add(Central5_3);
+            Panel_Central.revalidate();
+            Panel_Central.repaint();
+            comboCategorias.removeAllItems();
+            DtCategoria cat;
+            for (int x = 0; x <= lista.size() - 1; x++) {
+                if (lista.get(x) != null) {
+                    cat = (DtCategoria) lista.get(x);
+                    comboCategorias.addItem(cat.getnombreCategoria());
+                }
+            }
+        } else {
+            VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
+            error.CambioTexto("  No existen categorías en la base de datos.");
+            error.setVisible(true);
+        }
+    }//GEN-LAST:event_listarCat_ButtonActionPerformed
 
     private void setColor(JPanel pane) {
         pane.setBackground(new Color(114, 114, 114));
@@ -5817,6 +5894,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JButton BotonBack;
     private javax.swing.JButton BotonBack1;
     private javax.swing.JButton BotonBack2;
+    private javax.swing.JButton BotonBack4;
     private javax.swing.JButton CambiarUsuario1;
     private javax.swing.JButton CambiarUsuario3;
     private javax.swing.JButton CambiarUsuario4;
@@ -5885,6 +5963,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JPanel Central4_4;
     private javax.swing.JPanel Central5;
     private javax.swing.JPanel Central5_1;
+    private javax.swing.JPanel Central5_3;
     private java.awt.Checkbox CheckboxParticular;
     private java.awt.Checkbox CheckboxPorDefecto;
     private java.awt.Checkbox CheckboxPublica;
@@ -6011,6 +6090,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JLabel agregarVideo;
     private javax.swing.JButton agregarVideo_Button;
     private javax.swing.JLabel altacat;
+    private javax.swing.JLabel altacat2;
     private javax.swing.JLabel apellido;
     private javax.swing.JLabel apellido1;
     private javax.swing.JButton botonAceptarModificarLista1;
@@ -6034,6 +6114,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JButton cerrar;
     private java.awt.Checkbox checkPrivadaModificarLista;
     private javax.swing.JComboBox<String> comboCategoriaModificarLista;
+    private javax.swing.JComboBox<String> comboCategorias;
     private javax.swing.JComboBox<String> comboCategoriasCrearLista;
     private javax.swing.JComboBox<String> comboConsulta;
     private javax.swing.JComboBox<String> comboLista;
@@ -6194,6 +6275,8 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator87;
     private javax.swing.JSeparator jSeparator88;
     private javax.swing.JSeparator jSeparator9;
+    private javax.swing.JSeparator jSeparator92;
+    private javax.swing.JSeparator jSeparator93;
     private javax.swing.JTree jTree1;
     private javax.swing.JLabel listaModificarListaLabel;
     private javax.swing.JLabel listaModificarListaLabel1;
