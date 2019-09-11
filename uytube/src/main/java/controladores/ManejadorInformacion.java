@@ -375,13 +375,19 @@ public class ManejadorInformacion {
     
     public void removerVideoLista(int id, String video, String canalOrigen,Boolean isParticular){
         manager = emf.createEntityManager();
+        
         if(isParticular){
             ListaParticularVideos aux =(ListaParticularVideos) manager.createQuery("FROM ListaParticularVideos l WHERE l.id='" + id + "' and l.video='"+video+"' and l.canal='"+canalOrigen+"'").getSingleResult(); 
+            manager.getTransaction().begin();
             manager.remove(aux);
+            manager.getTransaction().commit();
         }else{
             ListaDefectoVideos aux = (ListaDefectoVideos) manager.createQuery("FROM ListaDefectoVideos l WHERE l.id='" + id + "' and l.video='"+video+"' and l.canal='"+canalOrigen+"'").getSingleResult(); 
+            manager.getTransaction().begin();
             manager.remove(aux);
+            manager.getTransaction().commit();
         }
+        manager.close();
     }
 
 }

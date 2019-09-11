@@ -53,6 +53,7 @@ public class MenuInicio extends javax.swing.JFrame {
      */
     String Item;
     Fabrica fabrica = Fabrica.getInstance();
+    private List listaVideosaSacar;
     IControladorUsuario u = fabrica.getControladorUsuario();
     IControladorCanal c = fabrica.getControladorCanal();
     Font manjari, berlin;
@@ -3718,6 +3719,11 @@ public class MenuInicio extends javax.swing.JFrame {
         comboUsuarioSacarVideo.setBounds(310, 90, 220, 29);
 
         comboVideoSacarVideo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboVideoSacarVideo.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                comboVideoSacarVideoItemStateChanged(evt);
+            }
+        });
         Central4_4.add(comboVideoSacarVideo);
         comboVideoSacarVideo.setBounds(310, 370, 220, 29);
 
@@ -5393,6 +5399,7 @@ public class MenuInicio extends javax.swing.JFrame {
 
     private void BackButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButton12ActionPerformed
         Panel_Central.removeAll();
+        listaVideosaSacar = null;
         Panel_Central.add(Scroll4);
         Panel_Central.revalidate();
         Panel_Central.repaint();
@@ -5403,53 +5410,58 @@ public class MenuInicio extends javax.swing.JFrame {
         String usuario = comboUsuarioSacarVideo.getSelectedItem().toString();
         String nombreLista = comboListaSacarVideo.getSelectedItem().toString();
         String video = comboVideoSacarVideo.getSelectedItem().toString();
-        if(!radioDefectoSacarVideo.isSelected()){
-            //c.sacarVideoLista(usuario,nombreLista,video,true);
-        }else{
-            //c.sacarVideoLista(usuario,nombreLista,video,false);
+        String canalOrigen = textCanalOrigenSacarVideo.getText();
+        if (!radioDefectoSacarVideo.isSelected()) {
+            c.sacarVideoLista(usuario, nombreLista, video, canalOrigen, true);
+        } else {
+            c.sacarVideoLista(usuario, nombreLista, video, canalOrigen, false);
         }
+
+        VentanaEmergente ok = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
+        ok.CambioTexto("El video se removio de la lista correctamente");
+        ok.setVisible(true);
     }//GEN-LAST:event_botonAceptarModificarLista3ActionPerformed
 
     private void botonSelectListaSacarVideoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSelectListaSacarVideoActionPerformed
         // TODO add your handling code here:
+        textCanalOrigenSacarVideo.setText("");
         comboVideoSacarVideo.removeAllItems();
         String nombre = comboUsuarioSacarVideo.getSelectedItem().toString();
         String nombreLista = comboListaSacarVideo.getSelectedItem().toString();
-        List lista;
         if (radioDefectoSacarVideo.isSelected()) {
             DtListaDefectoVideos videosxlista;
-            lista = c.getVideosListaDefecto(nombre,nombreLista);
-            if (!lista.isEmpty()) {
+            listaVideosaSacar = c.getVideosListaDefecto(nombre, nombreLista);
+            if (!listaVideosaSacar.isEmpty()) {
                 DtListaDefectoVideos aux;
-                for (int x = 0; x <= lista.size() - 1; x++) {
-                    if (lista.get(x) != null) {
-                        aux = (DtListaDefectoVideos) lista.get(x);
+                for (int x = 0; x <= listaVideosaSacar.size() - 1; x++) {
+                    if (listaVideosaSacar.get(x) != null) {
+                        aux = (DtListaDefectoVideos) listaVideosaSacar.get(x);
                         comboVideoSacarVideo.addItem(aux.getVideo());
                     }
                 }
-            }else{
+            } else {
                 VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
                 error.CambioTexto("El usuario seleccionado no tienen videos en esa lista.");
                 error.setVisible(true);
             }
         } else {
             DtListaParticularVideos videosxlista;
-            lista = c.getVideosListaParticular(nombre,nombreLista);
-            if (!lista.isEmpty()) {
+            listaVideosaSacar = c.getVideosListaParticular(nombre, nombreLista);
+            if (!listaVideosaSacar.isEmpty()) {
                 DtListaParticularVideos aux;
-                for (int x = 0; x <= lista.size() - 1; x++) {
-                    if (lista.get(x) != null) {
-                        aux = (DtListaParticularVideos) lista.get(x);
+                for (int x = 0; x <= listaVideosaSacar.size() - 1; x++) {
+                    if (listaVideosaSacar.get(x) != null) {
+                        aux = (DtListaParticularVideos) listaVideosaSacar.get(x);
                         comboVideoSacarVideo.addItem(aux.getVideo());
                     }
                 }
-            }else{
+            } else {
                 VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
                 error.CambioTexto("El usuario seleccionado no tienen videos en esa lista.");
                 error.setVisible(true);
             }
         }
-        
+
     }//GEN-LAST:event_botonSelectListaSacarVideoActionPerformed
 
     private void radioDefectoSacarVideoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioDefectoSacarVideoActionPerformed
@@ -5866,6 +5878,21 @@ public class MenuInicio extends javax.swing.JFrame {
             error.setVisible(true);
         }
     }//GEN-LAST:event_listarCat_ButtonActionPerformed
+
+    private void comboVideoSacarVideoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboVideoSacarVideoItemStateChanged
+        // TODO add your handling code here:
+        if (listaVideosaSacar != null && comboVideoSacarVideo.getSelectedIndex() >= 0 && comboListaSacarVideo.getSelectedIndex() >= 0 && comboUsuarioSacarVideo.getSelectedIndex() >= 0) {
+            if (radioDefectoSacarVideo.isSelected()) {
+                DtListaDefectoVideos aux = (DtListaDefectoVideos) listaVideosaSacar.get(comboVideoSacarVideo.getSelectedIndex());
+                textCanalOrigenSacarVideo.setText(aux.getCanal());
+            } else {
+                DtListaParticularVideos aux = (DtListaParticularVideos) listaVideosaSacar.get(comboVideoSacarVideo.getSelectedIndex());
+                textCanalOrigenSacarVideo.setText(aux.getCanal());
+            }
+        }
+
+
+    }//GEN-LAST:event_comboVideoSacarVideoItemStateChanged
 
     private void setColor(JPanel pane) {
         pane.setBackground(new Color(114, 114, 114));
