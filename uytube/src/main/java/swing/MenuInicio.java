@@ -558,12 +558,15 @@ public class MenuInicio extends javax.swing.JFrame {
         usuarioModificarListaLabel6 = new javax.swing.JLabel();
         Central4_5panel = new javax.swing.JPanel();
         Central4_5_1 = new javax.swing.JPanel();
-        nombre15 = new javax.swing.JLabel();
-        SeleccionarVideo1 = new javax.swing.JButton();
+        SeleccionarListas = new javax.swing.JButton();
         CambiarUsuario11 = new javax.swing.JButton();
-        comboVideos1 = new javax.swing.JComboBox<>();
         jSeparator95 = new javax.swing.JSeparator();
-        Central4_5_2_Panel1 = new javax.swing.JPanel();
+        Central4_5_1Panel = new javax.swing.JPanel();
+        nombre16 = new javax.swing.JLabel();
+        comboListasParticulares1 = new javax.swing.JComboBox<>();
+        Central4_5_2 = new javax.swing.JPanel();
+        jLabel18 = new javax.swing.JLabel();
+        jButton7 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -4034,7 +4037,7 @@ public class MenuInicio extends javax.swing.JFrame {
 
         Central4_5.setLayout(null);
         Central4_5.add(jSeparator94);
-        jSeparator94.setBounds(30, 130, 650, 40);
+        jSeparator94.setBounds(30, 110, 650, 40);
 
         BackButton14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back.png"))); // NOI18N
         BackButton14.setBorder(null);
@@ -4078,11 +4081,11 @@ public class MenuInicio extends javax.swing.JFrame {
         );
         Central4_5panelLayout.setVerticalGroup(
             Central4_5panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 410, Short.MAX_VALUE)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
 
         Central4_5.add(Central4_5panel);
-        Central4_5panel.setBounds(0, 140, 720, 410);
+        Central4_5panel.setBounds(0, 150, 720, 400);
 
         Panel_Central.add(Central4_5);
         Central4_5.setBounds(0, 0, 720, 550);
@@ -4091,23 +4094,18 @@ public class MenuInicio extends javax.swing.JFrame {
         Central4_5_1.setMinimumSize(new java.awt.Dimension(750, 500));
         Central4_5_1.setLayout(null);
 
-        nombre15.setFont(berlin);
-        nombre15.setText("Lista de videos");
-        Central4_5_1.add(nombre15);
-        nombre15.setBounds(290, 30, 130, 18);
-
-        SeleccionarVideo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_seleccionar_2.png"))); // NOI18N
-        SeleccionarVideo1.setBorderPainted(false);
-        SeleccionarVideo1.setContentAreaFilled(false);
-        SeleccionarVideo1.setFocusable(false);
-        SeleccionarVideo1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_seleccionar_1.png"))); // NOI18N
-        SeleccionarVideo1.addActionListener(new java.awt.event.ActionListener() {
+        SeleccionarListas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_seleccionar_2.png"))); // NOI18N
+        SeleccionarListas.setBorderPainted(false);
+        SeleccionarListas.setContentAreaFilled(false);
+        SeleccionarListas.setFocusable(false);
+        SeleccionarListas.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_seleccionar_1.png"))); // NOI18N
+        SeleccionarListas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SeleccionarVideo1ActionPerformed(evt);
+                SeleccionarListasActionPerformed(evt);
             }
         });
-        Central4_5_1.add(SeleccionarVideo1);
-        SeleccionarVideo1.setBounds(510, 40, 90, 40);
+        Central4_5_1.add(SeleccionarListas);
+        SeleccionarListas.setBounds(510, 30, 90, 40);
 
         CambiarUsuario11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_cambiar_1.png"))); // NOI18N
         CambiarUsuario11.setBorderPainted(false);
@@ -4120,24 +4118,52 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central4_5_1.add(CambiarUsuario11);
-        CambiarUsuario11.setBounds(510, 40, 90, 40);
-
-        Central4_5_1.add(comboVideos1);
-        comboVideos1.setBounds(200, 50, 290, 28);
+        CambiarUsuario11.setBounds(510, 30, 90, 40);
 
         jSeparator95.setBackground(new java.awt.Color(153, 153, 153));
         jSeparator95.setForeground(new java.awt.Color(153, 153, 153));
         Central4_5_1.add(jSeparator95);
-        jSeparator95.setBounds(30, 100, 675, 50);
+        jSeparator95.setBounds(30, 80, 675, 50);
 
-        Central4_5_2_Panel1.setMaximumSize(new java.awt.Dimension(750, 420));
-        Central4_5_2_Panel1.setMinimumSize(new java.awt.Dimension(750, 420));
-        Central4_5_2_Panel1.setLayout(null);
-        Central4_5_1.add(Central4_5_2_Panel1);
-        Central4_5_2_Panel1.setBounds(0, 130, 750, 420);
+        Central4_5_1Panel.setMaximumSize(new java.awt.Dimension(750, 420));
+        Central4_5_1Panel.setMinimumSize(new java.awt.Dimension(750, 420));
+        Central4_5_1Panel.setLayout(null);
+        Central4_5_1.add(Central4_5_1Panel);
+        Central4_5_1Panel.setBounds(0, 130, 750, 420);
+
+        nombre16.setFont(berlin);
+        nombre16.setText("Listas de Reproduccion : ");
+        Central4_5_1.add(nombre16);
+        nombre16.setBounds(250, 20, 190, 18);
+
+        Central4_5_1.add(comboListasParticulares1);
+        comboListasParticulares1.setBounds(190, 40, 290, 28);
 
         Panel_Central.add(Central4_5_1);
         Central4_5_1.setBounds(0, -20, 750, 500);
+
+        Central4_5_2.setMaximumSize(new java.awt.Dimension(403, 550));
+        Central4_5_2.setMinimumSize(new java.awt.Dimension(403, 550));
+        Central4_5_2.setLayout(null);
+
+        jLabel18.setFont(berlin);
+        jLabel18.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel18.setText("DATOS DE LA LISTA jaja Saludos");
+        Central4_5_2.add(jLabel18);
+        jLabel18.setBounds(270, 90, 240, 18);
+
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_2.png"))); // NOI18N
+        jButton7.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_1.png"))); // NOI18N
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        Central4_5_2.add(jButton7);
+        jButton7.setBounds(350, 160, 70, 30);
+
+        Panel_Central.add(Central4_5_2);
+        Central4_5_2.setBounds(0, 0, 750, 550);
 
         getContentPane().add(Panel_Central, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 720, 550));
 
@@ -6200,33 +6226,39 @@ public class MenuInicio extends javax.swing.JFrame {
     private void SelecionarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelecionarUsuarioActionPerformed
         String user = ComboUsuariosLista.getSelectedItem().toString();
         DtUsuario us = u.buscarUsuario(user);
-        List lista = c.listaVideos(us.getCanal());
+        List lista = c.getListasReproduccion(user);
         if(lista != null){
             ComboUsuariosLista.setEnabled(false);
             Central4_5panel.add(Central4_5_1);
             Panel_Central.revalidate();
             Panel_Central.repaint();
-            comboVideo1.removeAllItems();
-            DtVideo video;
+            comboListasParticulares1.removeAllItems();
+            DtListaReproduccion l;
             for(int x = 0; x <lista.size(); x++){
-                video = (DtVideo) lista.get(x);
-                comboVideos1.addItem(video.getNombre());
+                l = (DtListaReproduccion) lista.get(x);
+                comboListasParticulares1.addItem(l.getNombreLista());
             }
         }
         else {
             VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-            error.CambioTexto("              No hay videos ingresados.");
+            error.CambioTexto("              No hay listas ingresados.");
             error.setVisible(true);
         }
     }//GEN-LAST:event_SelecionarUsuarioActionPerformed
 
-    private void SeleccionarVideo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeleccionarVideo1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SeleccionarVideo1ActionPerformed
+    private void SeleccionarListasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeleccionarListasActionPerformed
+            Central4_5_1Panel.add(Central4_5_2);
+            Panel_Central.revalidate();
+            Panel_Central.repaint();
+    }//GEN-LAST:event_SeleccionarListasActionPerformed
 
     private void CambiarUsuario11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CambiarUsuario11ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CambiarUsuario11ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     private void setColor(JPanel pane) {
         pane.setBackground(new Color(114, 114, 114));
@@ -6414,7 +6446,8 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JPanel Central4_4;
     private javax.swing.JPanel Central4_5;
     private javax.swing.JPanel Central4_5_1;
-    private javax.swing.JPanel Central4_5_2_Panel1;
+    private javax.swing.JPanel Central4_5_1Panel;
+    private javax.swing.JPanel Central4_5_2;
     private javax.swing.JPanel Central4_5panel;
     private javax.swing.JPanel Central5;
     private javax.swing.JPanel Central5_1;
@@ -6496,6 +6529,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JButton SeleccionarButton;
     private javax.swing.JButton SeleccionarButton1;
     private javax.swing.JButton SeleccionarButton2;
+    private javax.swing.JButton SeleccionarListas;
     private javax.swing.JButton SeleccionarUsuario;
     private javax.swing.JButton SeleccionarUsuario1;
     private javax.swing.JButton SeleccionarUsuario2;
@@ -6503,7 +6537,6 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JButton SeleccionarUsuario4;
     private javax.swing.JButton SeleccionarUsuarioModificar;
     private javax.swing.JButton SeleccionarVideo;
-    private javax.swing.JButton SeleccionarVideo1;
     private javax.swing.JButton SeleccionarVideoL;
     private javax.swing.JButton SeleccionarVideoL1;
     private javax.swing.JButton SelecionarUsuario;
@@ -6581,6 +6614,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> comboListaDestino;
     private javax.swing.JComboBox<String> comboListaModificarLista;
     private javax.swing.JComboBox<String> comboListaSacarVideo;
+    private javax.swing.JComboBox<String> comboListasParticulares1;
     private javax.swing.JComboBox<String> comboModificar;
     private javax.swing.JComboBox<String> comboUsuarioDestino;
     private javax.swing.JComboBox<String> comboUsuarioModificarLista;
@@ -6597,7 +6631,6 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> comboVideoOrigen;
     private javax.swing.JComboBox<String> comboVideoSacarVideo;
     private javax.swing.JComboBox<String> comboVideos;
-    private javax.swing.JComboBox<String> comboVideos1;
     private javax.swing.JButton comenVid_Button;
     private javax.swing.JLabel comentarVid;
     private javax.swing.JButton consVid_Button;
@@ -6629,6 +6662,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -6638,6 +6672,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel7;
@@ -6763,7 +6798,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JLabel nombre12;
     private javax.swing.JLabel nombre13;
     private javax.swing.JLabel nombre14;
-    private javax.swing.JLabel nombre15;
+    private javax.swing.JLabel nombre16;
     private javax.swing.JLabel nombre3;
     private javax.swing.JLabel nombre4;
     private javax.swing.JLabel nombre5;
