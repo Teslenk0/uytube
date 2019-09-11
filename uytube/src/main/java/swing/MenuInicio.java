@@ -5881,6 +5881,7 @@ public class MenuInicio extends javax.swing.JFrame {
 
     private void comboVideoSacarVideoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboVideoSacarVideoItemStateChanged
         // TODO add your handling code here:
+        textCanalOrigenSacarVideo.setText("");
         if (listaVideosaSacar != null && comboVideoSacarVideo.getSelectedIndex() >= 0 && comboListaSacarVideo.getSelectedIndex() >= 0 && comboUsuarioSacarVideo.getSelectedIndex() >= 0) {
             if (radioDefectoSacarVideo.isSelected()) {
                 DtListaDefectoVideos aux = (DtListaDefectoVideos) listaVideosaSacar.get(comboVideoSacarVideo.getSelectedIndex());
