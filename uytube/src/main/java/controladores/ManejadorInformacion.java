@@ -153,9 +153,9 @@ public class ManejadorInformacion {
 
     public void modificarVideo(Video video, String oldV) {
         manager = emf.createEntityManager();
-        Video vid = buscadorVideo(oldV, video.getCanal().getNombre_canal());
         manager.getTransaction().begin();
-        manager.remove(vid);
+        Query query = manager.createQuery("delete from Video v where v.canal='" + video.getCanal().getNombre_canal() + "' and v.nombre='" + oldV + "'");
+        query.executeUpdate();
         manager.persist(video);
         manager.getTransaction().commit();
         manager.close();
