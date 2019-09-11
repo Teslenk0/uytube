@@ -21,6 +21,7 @@ import clases.ListaReproduccion;
 import clases.ListaporDefecto;
 import clases.Usuario;
 import clases.Video;
+import excepciones.CategoriaRepetidaException;
 import excepciones.ListaRepetidaException;
 import excepciones.VideoRepetidoException;
 import interfaces.IControladorCanal;
@@ -234,10 +235,14 @@ public class ControladorCanal implements IControladorCanal {
     }
 
     @Override
-    public void registrarCategoria(DtCategoria c) {
+    public void registrarCategoria(DtCategoria c) throws CategoriaRepetidaException{
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         Categoria cat = new Categoria(c.getnombreCategoria());
-        mu.registrarCategoria(cat);
+        try{
+            mu.registrarCategoria(cat);
+        } catch(Exception e){
+            throw new CategoriaRepetidaException("Categoria repetida");
+        }
     }
 
     @Override

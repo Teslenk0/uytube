@@ -13,6 +13,7 @@ import DataTypes.DtListaReproduccion;
 import DataTypes.DtListaporDefecto;
 import DataTypes.DtUsuario;
 import DataTypes.DtVideo;
+import excepciones.CategoriaRepetidaException;
 import excepciones.ListaRepetidaException;
 import excepciones.VideoRepetidoException;
 import java.util.List;
@@ -45,13 +46,13 @@ public interface IControladorCanal {
     
     public abstract List getListasReproduccion(String nick);
     
-    public abstract void crearListaDefecto(DtListaReproduccion lista)throws ListaRepetidaException;
+    public abstract void crearListaDefecto(DtListaReproduccion lista) throws ListaRepetidaException;
 
     public abstract void crearListaParticular(DtListaParticulares lista, DtUsuario user) throws ListaRepetidaException;
     
     public abstract void modificarListaParticular(DtListaParticulares lista, DtUsuario user);
     
-    public abstract void registrarCategoria(DtCategoria c);
+    public abstract void registrarCategoria(DtCategoria c) throws CategoriaRepetidaException;
     
     public abstract List getCategorias();
     

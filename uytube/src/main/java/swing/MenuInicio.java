@@ -14,6 +14,7 @@ import DataTypes.DtListaporDefecto;
 import DataTypes.DtUsuario;
 import DataTypes.DtVideo;
 import excepciones.CanalRepetidoException;
+import excepciones.CategoriaRepetidaException;
 import excepciones.EmailRepetidoException;
 import excepciones.ListaRepetidaException;
 import excepciones.UsuarioRepetidoException;
@@ -522,6 +523,14 @@ public class MenuInicio extends javax.swing.JFrame {
         listaModificarListaLabel3 = new javax.swing.JLabel();
         botonSelectUsuarioSacarVideo = new javax.swing.JButton();
         jSeparator88 = new javax.swing.JSeparator();
+        Central5_1 = new javax.swing.JPanel();
+        SeleccionarButton2 = new javax.swing.JButton();
+        BotonBack2 = new javax.swing.JButton();
+        jSeparator50 = new javax.swing.JSeparator();
+        jSeparator53 = new javax.swing.JSeparator();
+        altacat = new javax.swing.JLabel();
+        CampoCategoria = new javax.swing.JTextField();
+        jSeparator86 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -1165,6 +1174,11 @@ public class MenuInicio extends javax.swing.JFrame {
         agregarCat_Button.setContentAreaFilled(false);
         agregarCat_Button.setFocusable(false);
         agregarCat_Button.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/AgregarCategoria2.png"))); // NOI18N
+        agregarCat_Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agregarCat_ButtonActionPerformed(evt);
+            }
+        });
         Central5.add(agregarCat_Button);
         agregarCat_Button.setBounds(100, 50, 230, 210);
 
@@ -3762,6 +3776,74 @@ public class MenuInicio extends javax.swing.JFrame {
         Panel_Central.add(Central4_4);
         Central4_4.setBounds(0, 0, 720, 550);
 
+        Central5_1.setLayout(null);
+
+        SeleccionarButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_regist_2.png"))); // NOI18N
+        SeleccionarButton2.setBorder(null);
+        SeleccionarButton2.setBorderPainted(false);
+        SeleccionarButton2.setContentAreaFilled(false);
+        SeleccionarButton2.setFocusable(false);
+        SeleccionarButton2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_regist_1.png"))); // NOI18N
+        SeleccionarButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SeleccionarButton2ActionPerformed(evt);
+            }
+        });
+        Central5_1.add(SeleccionarButton2);
+        SeleccionarButton2.setBounds(280, 260, 100, 60);
+
+        BotonBack2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back.png"))); // NOI18N
+        BotonBack2.setBorder(null);
+        BotonBack2.setBorderPainted(false);
+        BotonBack2.setContentAreaFilled(false);
+        BotonBack2.setFocusable(false);
+        BotonBack2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back2.png"))); // NOI18N
+        BotonBack2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonBack2ActionPerformed(evt);
+            }
+        });
+        Central5_1.add(BotonBack2);
+        BotonBack2.setBounds(12, 23, 101, 51);
+
+        jSeparator50.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator50.setForeground(new java.awt.Color(153, 153, 153));
+        Central5_1.add(jSeparator50);
+        jSeparator50.setBounds(20, 150, 675, 30);
+
+        jSeparator53.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator53.setForeground(new java.awt.Color(153, 153, 153));
+        Central5_1.add(jSeparator53);
+        jSeparator53.setBounds(20, 230, 675, 30);
+
+        altacat.setFont(berlin.deriveFont(20f));
+        altacat.setText("Alta de Categoría");
+        Central5_1.add(altacat);
+        altacat.setBounds(250, 90, 220, 20);
+
+        CampoCategoria.setBackground(new java.awt.Color(153, 153, 153));
+        CampoCategoria.setFont(berlin);
+        CampoCategoria.setForeground(new java.awt.Color(102, 102, 102));
+        CampoCategoria.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        CampoCategoria.setText("Ingrese Nombre de Categoría");
+        CampoCategoria.setBorder(null);
+        CampoCategoria.setOpaque(false);
+        CampoCategoria.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                CampoCategoriaFocusGained(evt);
+            }
+        });
+        Central5_1.add(CampoCategoria);
+        CampoCategoria.setBounds(200, 180, 260, 20);
+
+        jSeparator86.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator86.setForeground(new java.awt.Color(153, 153, 153));
+        Central5_1.add(jSeparator86);
+        jSeparator86.setBounds(200, 200, 260, 30);
+
+        Panel_Central.add(Central5_1);
+        Central5_1.setBounds(0, 0, 720, 550);
+
         getContentPane().add(Panel_Central, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 720, 550));
 
         pack();
@@ -5589,6 +5671,41 @@ public class MenuInicio extends javax.swing.JFrame {
         mensaje.setVisible(true);*/
     }//GEN-LAST:event_SobrecargaActionPerformed
 
+    private void SeleccionarButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeleccionarButton2ActionPerformed
+        DtCategoria cat = new DtCategoria(CampoCategoria.getText());
+        VentanaEmergente mensaje = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
+        if(!CampoCategoria.getText().equals("Ingrese Nombre de Categoría")){
+            try {
+                c.registrarCategoria(cat);
+                mensaje.CambioTexto("        La categoría se registro con éxito");
+            } catch (CategoriaRepetidaException ex) {
+                mensaje.CambioTexto("         La categoría ingresada ya existe");
+            }
+        } else {
+            mensaje.CambioTexto("            Debes ingresar la categoría");
+        }
+        mensaje.setVisible(true);
+    }//GEN-LAST:event_SeleccionarButton2ActionPerformed
+
+    private void BotonBack2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBack2ActionPerformed
+        Panel_Central.removeAll();
+        Panel_Central.add(Central5);
+        Panel_Central.revalidate();
+        Panel_Central.repaint();
+    }//GEN-LAST:event_BotonBack2ActionPerformed
+
+    private void agregarCat_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarCat_ButtonActionPerformed
+        Panel_Central.removeAll();
+        Panel_Central.add(Central5_1);
+        Panel_Central.revalidate();
+        Panel_Central.repaint();
+    }//GEN-LAST:event_agregarCat_ButtonActionPerformed
+
+    private void CampoCategoriaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CampoCategoriaFocusGained
+        if (CampoCategoria.getText().equals("Ingrese Nombre de Categoría"))
+            CampoCategoria.setText("");
+    }//GEN-LAST:event_CampoCategoriaFocusGained
+
     private void setColor(JPanel pane) {
         pane.setBackground(new Color(114, 114, 114));
     }
@@ -5698,6 +5815,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JPanel Barra_Superior;
     private javax.swing.JButton BotonBack;
     private javax.swing.JButton BotonBack1;
+    private javax.swing.JButton BotonBack2;
     private javax.swing.JButton CambiarUsuario1;
     private javax.swing.JButton CambiarUsuario3;
     private javax.swing.JButton CambiarUsuario4;
@@ -5709,6 +5827,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JButton CambiarUsuarioL1;
     private javax.swing.JTextField CampoApellido;
     private javax.swing.JTextField CampoCanal;
+    private javax.swing.JTextField CampoCategoria;
     private javax.swing.JTextField CampoCom;
     private javax.swing.JPasswordField CampoContraseña;
     private javax.swing.JTextField CampoCorreo;
@@ -5764,6 +5883,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JPanel Central4_3;
     private javax.swing.JPanel Central4_4;
     private javax.swing.JPanel Central5;
+    private javax.swing.JPanel Central5_1;
     private java.awt.Checkbox CheckboxParticular;
     private java.awt.Checkbox CheckboxPorDefecto;
     private java.awt.Checkbox CheckboxPublica;
@@ -5839,6 +5959,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JLabel SeguirUsuarioText;
     private javax.swing.JButton SeleccionarButton;
     private javax.swing.JButton SeleccionarButton1;
+    private javax.swing.JButton SeleccionarButton2;
     private javax.swing.JButton SeleccionarUsuario;
     private javax.swing.JButton SeleccionarUsuario1;
     private javax.swing.JButton SeleccionarUsuario2;
@@ -5888,6 +6009,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JLabel agregarVid3;
     private javax.swing.JLabel agregarVideo;
     private javax.swing.JButton agregarVideo_Button;
+    private javax.swing.JLabel altacat;
     private javax.swing.JLabel apellido;
     private javax.swing.JLabel apellido1;
     private javax.swing.JButton botonAceptarModificarLista1;
@@ -6028,8 +6150,10 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator48;
     private javax.swing.JSeparator jSeparator49;
     private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator50;
     private javax.swing.JSeparator jSeparator51;
     private javax.swing.JSeparator jSeparator52;
+    private javax.swing.JSeparator jSeparator53;
     private javax.swing.JSeparator jSeparator54;
     private javax.swing.JSeparator jSeparator55;
     private javax.swing.JSeparator jSeparator56;
@@ -6065,6 +6189,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator83;
     private javax.swing.JSeparator jSeparator84;
     private javax.swing.JSeparator jSeparator85;
+    private javax.swing.JSeparator jSeparator86;
     private javax.swing.JSeparator jSeparator87;
     private javax.swing.JSeparator jSeparator88;
     private javax.swing.JSeparator jSeparator9;
