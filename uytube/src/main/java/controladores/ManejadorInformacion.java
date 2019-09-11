@@ -153,10 +153,10 @@ public class ManejadorInformacion {
 
     public void modificarVideo(Video video, String oldV) {
         manager = emf.createEntityManager();
+        Video vid = buscadorVideo(oldV, video.getCanal().getNombre_canal());
         manager.getTransaction().begin();
-        Video vid = manager.find(Video.class, oldV);
         manager.remove(vid);
-        manager.merge(video);
+        manager.persist(video);
         manager.getTransaction().commit();
         manager.close();
     }

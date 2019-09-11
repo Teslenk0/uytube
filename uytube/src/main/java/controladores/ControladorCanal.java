@@ -56,11 +56,11 @@ public class ControladorCanal implements IControladorCanal {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         Canal canal = new Canal(v.getCanal().getNombre_canal(), v.getCanal().getDescripcion(), v.getCanal().getPrivado());
         Video video = new Video(v.getNombre(), canal, v.getFechaPublicacion(), v.getUrl(), v.getDescripcion(), v.getCategoria(), v.getDuracion(), v.getPrivado());
-        try {
+        //try {
             mu.modificarVideo(video, oldV);
-        } catch (Exception c) {
+        /*} catch (Exception c) {
             throw new VideoRepetidoException("El video ya existe");
-        }
+        }*/
     }
 
     @Override
