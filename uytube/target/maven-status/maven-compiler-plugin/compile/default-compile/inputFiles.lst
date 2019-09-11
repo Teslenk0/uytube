@@ -2,6 +2,7 @@
 /home/tesla/Documentos/Java/uytube/uytube/src/main/java/DataTypes/DtListaParticulares.java
 /home/tesla/Documentos/Java/uytube/uytube/src/main/java/fabrica/Fabrica.java
 /home/tesla/Documentos/Java/uytube/uytube/src/main/java/clases/DefectoPK.java
+/home/tesla/Documentos/Java/uytube/uytube/src/main/java/DataTypes/DtListaDefectoVideos.java
 /home/tesla/Documentos/Java/uytube/uytube/src/main/java/DataTypes/DtListaReproduccion.java
 /home/tesla/Documentos/Java/uytube/uytube/src/main/java/interfaces/IControladorUsuario.java
 /home/tesla/Documentos/Java/uytube/uytube/src/main/java/DataTypes/DtCategoria.java
@@ -28,6 +29,7 @@
 /home/tesla/Documentos/Java/uytube/uytube/src/main/java/clases/Categoria.java
 /home/tesla/Documentos/Java/uytube/uytube/src/main/java/excepciones/VideoYaExisteEnListaException.java
 /home/tesla/Documentos/Java/uytube/uytube/src/main/java/interfaces/IControladorCanal.java
+/home/tesla/Documentos/Java/uytube/uytube/src/main/java/DataTypes/DtListaParticularVideos.java
 /home/tesla/Documentos/Java/uytube/uytube/src/main/java/swing/Main.java
 /home/tesla/Documentos/Java/uytube/uytube/src/main/java/clases/ListaporDefecto.java
 /home/tesla/Documentos/Java/uytube/uytube/src/main/java/excepciones/VideoRepetidoException.java

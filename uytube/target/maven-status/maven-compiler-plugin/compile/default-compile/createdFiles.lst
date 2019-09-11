@@ -26,6 +26,7 @@ excepciones/CategoriaRepetidaException.class
 clases/ListaporDefecto.class
 swing/MenuInicio$63.class
 swing/MenuInicio$1.class
+DataTypes/DtListaDefectoVideos.class
 swing/Menu$3.class
 swing/MenuInicio$30.class
 swing/MenuInicio$23.class
@@ -37,6 +38,7 @@ swing/Main.class
 clases/Comentario.class
 swing/MenuInicio$36.class
 swing/MenuInicio$81.class
+DataTypes/DtListaParticularVideos.class
 controladores/ControladorUsuario.class
 swing/MenuInicio$87.class
 DataTypes/DtListaReproduccion.class

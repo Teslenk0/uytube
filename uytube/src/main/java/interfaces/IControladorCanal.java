@@ -60,4 +60,10 @@ public interface IControladorCanal {
     public abstract List getListasDefecto(String canal);
     
     public abstract void agregarVideoLista(String nombreVideo, String listaDestino, String usuarioDestino, String usuarioOrigen, Boolean isParticular) throws VideoYaExisteEnListaException;
+
+    public abstract List getVideosListaDefecto(String nombre,String nombreLista);
+    
+    public abstract List getVideosListaParticular(String nombre,String nombreLista);
+    
+    public abstract void sacarVideoLista(String usuario,String nombreLista, String video,String canalOrigen, Boolean isParticular);
 }

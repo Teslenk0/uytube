@@ -8,6 +8,8 @@ package controladores;
 import DataTypes.DtCanal;
 import DataTypes.DtCategoria;
 import DataTypes.DtComentario;
+import DataTypes.DtListaDefectoVideos;
+import DataTypes.DtListaParticularVideos;
 import DataTypes.DtListaParticulares;
 import DataTypes.DtListaReproduccion;
 import DataTypes.DtListaporDefecto;
@@ -317,6 +319,64 @@ public class ControladorCanal implements IControladorCanal {
             ListaParticulares list = mu.buscadorListaParticular(userDestino.getCanal().getNombre_canal(),listaDestino);
             ListaParticularVideos l = new ListaParticularVideos(list,nombreVideo,userOrigen.getCanal().getNombre_canal());
             mu.agregarVideoListaParticular(l);
+        }
+    }
+    
+    @Override
+    public List getVideosListaDefecto(String nombre,String nombreLista){
+        ManejadorInformacion mu = ManejadorInformacion.getInstance();
+        Usuario user = mu.buscadorUsuario(nombre);
+        ListaporDefecto list = mu.buscadorListaDefecto(user.getCanal().getNombre_canal(), nombreLista);
+        List listaxvideos = mu.getVideosListaDefecto(list.getId());
+        List aux = new LinkedList();
+        ListaDefectoVideos tmp;
+        DtListaDefectoVideos temp;
+        for (int x = 0; x < listaxvideos.size(); x++) {
+            if (listaxvideos.get(x) != null) {
+                tmp = (ListaDefectoVideos) listaxvideos.get(x);
+                temp = new DtListaDefectoVideos(new DtListaporDefecto(nombreLista),tmp.getVideo(),tmp.getCanal());
+                aux.add(temp);
+            }
+        }
+        return aux;
+        
+    }
+    
+    @Override
+    public List getVideosListaParticular(String nombre,String nombreLista){
+        ManejadorInformacion mu = ManejadorInformacion.getInstance();
+        Usuario user = mu.buscadorUsuario(nombre);
+        ListaParticulares list = mu.buscadorListaParticular(user.getCanal().getNombre_canal(), nombreLista);
+        List listaxvideos = mu.getVideosListaParticular(list.getId());
+        List aux = new LinkedList();
+        ListaParticularVideos tmp;
+        DtListaParticulares listaParticular;
+        DtListaParticularVideos temp;
+        for (int x = 0; x < listaxvideos.size(); x++) {
+            if (listaxvideos.get(x) != null) {
+                tmp = (ListaParticularVideos) listaxvideos.get(x);
+                if(list.getCategoria() != null){
+                    listaParticular = new DtListaParticulares(list.getPrivado(),new DtCategoria(list.getCategoria().getNombreCategoria()),nombreLista);
+                }else{
+                    listaParticular = new DtListaParticulares(list.getPrivado(),null,nombreLista);
+                }
+                temp = new DtListaParticularVideos(listaParticular,tmp.getVideo(),tmp.getCanal());
+                aux.add(temp);
+            }
+        }
+        return aux;
+        
+    }
+    
+    public void sacarVideoLista(String usuario,String nombreLista, String video,String canalOrigen, Boolean isParticular){
+        ManejadorInformacion mu = ManejadorInformacion.getInstance();
+        Usuario user = mu.buscadorUsuario(usuario);
+        if(isParticular){
+            ListaParticulares list = mu.buscadorListaParticular(user.getCanal().getNombre_canal(), nombreLista);
+            mu.removerVideoLista(list.getId(),video,canalOrigen,isParticular);
+        }else{
+            ListaporDefecto list = mu.buscadorListaDefecto(user.getCanal().getNombre_canal(), nombreLista);
+            mu.removerVideoLista(list.getId(),video,canalOrigen,isParticular);
         }
     }
 }

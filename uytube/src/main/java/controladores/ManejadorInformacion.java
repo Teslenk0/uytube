@@ -52,9 +52,9 @@ public class ManejadorInformacion {
     public Usuario buscadorEmail(String email) {
         manager = emf.createEntityManager();
         Usuario user;
-        try{
+        try {
             user = (Usuario) manager.createQuery("select u from Usuario u where u.email='" + email + "'").getSingleResult();
-        }catch(Exception e){
+        } catch (Exception e) {
             user = null;
         }
         return user;
@@ -161,7 +161,7 @@ public class ManejadorInformacion {
         manager.close();
     }
 
-    public List listaVid(Canal c){
+    public List listaVid(Canal c) {
         manager = emf.createEntityManager();
         return manager.createQuery("SELECT v FROM Video v WHERE v.canal = '" + c.getNombre_canal() + "'")
                 .getResultList();
@@ -172,13 +172,13 @@ public class ManejadorInformacion {
         return manager.createQuery("SELECT c FROM Comentario c WHERE c.video = '" + v + "'")
                 .getResultList();
     }
-    
-    public Comentario BuscarComentarioRef(String padre){
+
+    public Comentario BuscarComentarioRef(String padre) {
         Comentario c = (Comentario) manager.createQuery("FROM Comentario c WHERE c.ref = '" + padre + "'").getSingleResult();
         return c;
     }
-    
-    public String comEsp(Integer num){
+
+    public String comEsp(Integer num) {
         String c = (String) manager.createQuery("SELECT c.comentario FROM Comentario c WHERE c.ref ='" + num + "'").getSingleResult();
         return c;
     }
@@ -190,18 +190,18 @@ public class ManejadorInformacion {
         manager.getTransaction().commit();
         manager.close();
     }
-    
+
     public Video buscadorVideo(String nom, String canal) {
         manager = emf.createEntityManager();
         Video video;
-        try{
+        try {
             video = (Video) manager.createQuery("select v from Video v where v.canal='" + canal + "' and v.nombre='" + nom + "'").getSingleResult();
-        }catch(Exception e){
+        } catch (Exception e) {
             video = null;
         }
         return video;
     }
-    
+
     public Comentario buscadorComentario(String c) {
         manager = emf.createEntityManager();
         return manager.find(Comentario.class, c);
@@ -228,7 +228,7 @@ public class ManejadorInformacion {
         manager = emf.createEntityManager();
         return manager.find(Canal.class, v);
     }
-    
+
     public Boolean buscoListaDefecto(String nombre) {
         manager = emf.createEntityManager();
         int resultado = manager.createQuery("FROM ListaporDefecto l WHERE l.nombreLista='" + nombre + "'").getResultList().size(); //busco si ya existe
@@ -285,8 +285,8 @@ public class ManejadorInformacion {
         manager.getTransaction().commit();
         manager.close();
     }
-    
-    public List obtenerListasDefecto(String nick){
+
+    public List obtenerListasDefecto(String nick) {
         manager = emf.createEntityManager();
         Usuario u = this.buscadorUsuario(nick);
         List aux = manager.createQuery("FROM ListaporDefecto l WHERE l.canal='" + u.getCanal().getNombre_canal() + "'").getResultList(); //busco si ya existe
@@ -295,8 +295,8 @@ public class ManejadorInformacion {
         }
         return null;
     }
-    
-    public ListaporDefecto buscadorListaDefecto(String canal, String lista){
+
+    public ListaporDefecto buscadorListaDefecto(String canal, String lista) {
         manager = emf.createEntityManager();
         ListaporDefecto aux = (ListaporDefecto) manager.createQuery("FROM ListaporDefecto l WHERE l.canal='" + canal + "' and l.nombreLista='" + lista + "'").getSingleResult();
         if (aux != null) {
@@ -304,8 +304,8 @@ public class ManejadorInformacion {
         }
         return null;
     }
-    
-    public ListaParticulares buscadorListaParticular(String canal, String lista){
+
+    public ListaParticulares buscadorListaParticular(String canal, String lista) {
         manager = emf.createEntityManager();
         ListaParticulares aux = (ListaParticulares) manager.createQuery("FROM ListaParticulares l WHERE l.canal='" + canal + "' and l.nombreLista='" + lista + "'").getSingleResult();
         if (aux != null) {
@@ -313,41 +313,41 @@ public class ManejadorInformacion {
         }
         return null;
     }
-    
-    public void agregarVideoListaDefecto(ListaDefectoVideos l){
+
+    public void agregarVideoListaDefecto(ListaDefectoVideos l) {
         manager = emf.createEntityManager();
-        ListaporDefecto aux = manager.find(ListaporDefecto.class,l.getId().getId());
+        ListaporDefecto aux = manager.find(ListaporDefecto.class, l.getId().getId());
         l.setId(aux);
         manager.getTransaction().begin();
         manager.persist(l);
         manager.getTransaction().commit();
         manager.close();
     }
-    
-    public void agregarVideoListaParticular(ListaParticularVideos l){
+
+    public void agregarVideoListaParticular(ListaParticularVideos l) {
         manager = emf.createEntityManager();
-        ListaParticulares aux = manager.find(ListaParticulares.class,l.getId().getId());
+        ListaParticulares aux = manager.find(ListaParticulares.class, l.getId().getId());
         l.setId(aux);
         manager.getTransaction().begin();
         manager.persist(l);
         manager.getTransaction().commit();
         manager.close();
     }
-    
+
     public boolean buscoVideoEnLista(String nombreVideo, String listaDestino, String usuarioDestino, String usuarioOrigen, Boolean isParticular) {
         manager = emf.createEntityManager();
         Usuario origen = manager.find(Usuario.class, usuarioOrigen);
         Usuario destino = manager.find(Usuario.class, usuarioDestino);
         if (!isParticular) {
             ListaporDefecto l = buscadorListaDefecto(destino.getCanal().getNombre_canal(), listaDestino);
-            int resultado = manager.createQuery("FROM ListaDefectoVideos l WHERE l.id='" + l.getId() + "' and l.canal='" + origen.getCanal().getNombre_canal() + "' and l.video='"+nombreVideo+"'").getResultList().size(); //busco si ya existe
+            int resultado = manager.createQuery("FROM ListaDefectoVideos l WHERE l.id='" + l.getId() + "' and l.canal='" + origen.getCanal().getNombre_canal() + "' and l.video='" + nombreVideo + "'").getResultList().size(); //busco si ya existe
             if (resultado != 0) {
                 return true;
             }
             return false;
         } else {
             ListaParticulares l = buscadorListaParticular(destino.getCanal().getNombre_canal(), listaDestino);
-            int resultado = manager.createQuery("FROM ListaParticularVideos l WHERE l.id='" + l.getId() + "' and l.canal='" + origen.getCanal().getNombre_canal() + "' and l.video='"+nombreVideo+"'").getResultList().size(); //busco si ya existe
+            int resultado = manager.createQuery("FROM ListaParticularVideos l WHERE l.id='" + l.getId() + "' and l.canal='" + origen.getCanal().getNombre_canal() + "' and l.video='" + nombreVideo + "'").getResultList().size(); //busco si ya existe
             if (resultado != 0) {
                 return true;
             }
@@ -355,5 +355,33 @@ public class ManejadorInformacion {
         }
     }
 
+    public List getVideosListaDefecto(int id) {
+        manager = emf.createEntityManager();
+        List aux = manager.createQuery("FROM ListaDefectoVideos l WHERE l.id='" + id + "'").getResultList(); 
+        if (aux != null) {
+            return aux;
+        }
+        return null;
+    }
     
+    public List getVideosListaParticular(int id) {
+        manager = emf.createEntityManager();
+        List aux = manager.createQuery("FROM ListaParticularVideos l WHERE l.id='" + id + "'").getResultList(); 
+        if (aux != null) {
+            return aux;
+        }
+        return null;
+    }
+    
+    public void removerVideoLista(int id, String video, String canalOrigen,Boolean isParticular){
+        manager = emf.createEntityManager();
+        if(isParticular){
+            ListaParticularVideos aux =(ListaParticularVideos) manager.createQuery("FROM ListaParticularVideos l WHERE l.id='" + id + "' and l.video='"+video+"' and l.canal='"+canalOrigen+"'").getSingleResult(); 
+            manager.remove(aux);
+        }else{
+            ListaDefectoVideos aux = (ListaDefectoVideos) manager.createQuery("FROM ListaDefectoVideos l WHERE l.id='" + id + "' and l.video='"+video+"' and l.canal='"+canalOrigen+"'").getSingleResult(); 
+            manager.remove(aux);
+        }
+    }
+
 }
