@@ -3396,6 +3396,9 @@ public class MenuInicio extends javax.swing.JFrame {
         jLabel16.setBounds(60, 80, 70, 18);
 
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_2.png"))); // NOI18N
+        jButton5.setBorderPainted(false);
+        jButton5.setContentAreaFilled(false);
+        jButton5.setFocusPainted(false);
         jButton5.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_1.png"))); // NOI18N
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3403,7 +3406,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central3_4_1_1.add(jButton5);
-        jButton5.setBounds(250, 230, 70, 30);
+        jButton5.setBounds(240, 230, 80, 40);
 
         CampoCom.setEditable(false);
         CampoCom.setBackground(new java.awt.Color(153, 153, 153));
@@ -3437,6 +3440,9 @@ public class MenuInicio extends javax.swing.JFrame {
         jScrollPane1.setBounds(480, 30, 180, 160);
 
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_seleccionar_2.png"))); // NOI18N
+        jButton6.setBorderPainted(false);
+        jButton6.setContentAreaFilled(false);
+        jButton6.setFocusPainted(false);
         jButton6.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_seleccionar_1.png"))); // NOI18N
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3444,7 +3450,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central3_4_1_1.add(jButton6);
-        jButton6.setBounds(520, 230, 70, 30);
+        jButton6.setBounds(510, 230, 80, 40);
 
         CampoNick1.setBackground(new java.awt.Color(153, 153, 153));
         CampoNick1.setFont(berlin);
@@ -3572,6 +3578,9 @@ public class MenuInicio extends javax.swing.JFrame {
         jSeparator39.setBounds(310, 160, 220, 20);
 
         CrearLista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_2.png"))); // NOI18N
+        CrearLista.setBorderPainted(false);
+        CrearLista.setContentAreaFilled(false);
+        CrearLista.setFocusPainted(false);
         CrearLista.setFocusable(false);
         CrearLista.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_1.png"))); // NOI18N
         CrearLista.addActionListener(new java.awt.event.ActionListener() {
@@ -3666,6 +3675,9 @@ public class MenuInicio extends javax.swing.JFrame {
         categoriaModificarListaLabel.setBounds(160, 200, 100, 18);
 
         botonAceptarModificarLista1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_2.png"))); // NOI18N
+        botonAceptarModificarLista1.setBorderPainted(false);
+        botonAceptarModificarLista1.setContentAreaFilled(false);
+        botonAceptarModificarLista1.setFocusPainted(false);
         botonAceptarModificarLista1.setFocusable(false);
         botonAceptarModificarLista1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_1.png"))); // NOI18N
         botonAceptarModificarLista1.addActionListener(new java.awt.event.ActionListener() {
@@ -3676,14 +3688,18 @@ public class MenuInicio extends javax.swing.JFrame {
         Central4_2.add(botonAceptarModificarLista1);
         botonAceptarModificarLista1.setBounds(320, 410, 70, 40);
 
-        botonSeleccionarModificarLista.setText("Seleccionar");
+        botonSeleccionarModificarLista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_seleccionar_2.png"))); // NOI18N
+        botonSeleccionarModificarLista.setBorderPainted(false);
+        botonSeleccionarModificarLista.setContentAreaFilled(false);
+        botonSeleccionarModificarLista.setFocusPainted(false);
+        botonSeleccionarModificarLista.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_seleccionar_1.png"))); // NOI18N
         botonSeleccionarModificarLista.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonSeleccionarModificarListaActionPerformed(evt);
             }
         });
         Central4_2.add(botonSeleccionarModificarLista);
-        botonSeleccionarModificarLista.setBounds(570, 90, 140, 30);
+        botonSeleccionarModificarLista.setBounds(570, 70, 80, 62);
 
         Panel_Central.add(Central4_2);
         Central4_2.setBounds(0, 0, 720, 550);
@@ -3694,7 +3710,7 @@ public class MenuInicio extends javax.swing.JFrame {
         listaModificarListaLabel1.setForeground(new java.awt.Color(102, 102, 102));
         listaModificarListaLabel1.setText("Video");
         Central4_3.add(listaModificarListaLabel1);
-        listaModificarListaLabel1.setBounds(160, 150, 230, 20);
+        listaModificarListaLabel1.setBounds(160, 150, 150, 20);
 
         usuarioModificarListaLabel1.setFont(berlin);
         usuarioModificarListaLabel1.setForeground(new java.awt.Color(102, 102, 102));
@@ -3730,15 +3746,17 @@ public class MenuInicio extends javax.swing.JFrame {
         Central4_3.add(BackButton11);
         BackButton11.setBounds(0, 11, 101, 50);
 
-        comboListaDestino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         Central4_3.add(comboListaDestino);
         comboListaDestino.setBounds(310, 360, 220, 28);
 
-        comboUsuarioOrigen.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         Central4_3.add(comboUsuarioOrigen);
         comboUsuarioOrigen.setBounds(310, 90, 220, 28);
 
-        comboVideoOrigen.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboVideoOrigen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboVideoOrigenActionPerformed(evt);
+            }
+        });
         Central4_3.add(comboVideoOrigen);
         comboVideoOrigen.setBounds(310, 140, 220, 28);
 
@@ -3749,6 +3767,9 @@ public class MenuInicio extends javax.swing.JFrame {
         categoriaModificarListaLabel1.setBounds(160, 200, 110, 18);
 
         botonAceptarModificarLista2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_2.png"))); // NOI18N
+        botonAceptarModificarLista2.setBorderPainted(false);
+        botonAceptarModificarLista2.setContentAreaFilled(false);
+        botonAceptarModificarLista2.setFocusPainted(false);
         botonAceptarModificarLista2.setFocusable(false);
         botonAceptarModificarLista2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_1.png"))); // NOI18N
         botonAceptarModificarLista2.addActionListener(new java.awt.event.ActionListener() {
@@ -3759,27 +3780,35 @@ public class MenuInicio extends javax.swing.JFrame {
         Central4_3.add(botonAceptarModificarLista2);
         botonAceptarModificarLista2.setBounds(320, 460, 70, 40);
 
-        botonSelectUsuarioDestino.setText("Seleccionar");
+        botonSelectUsuarioDestino.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_seleccionar_2.png"))); // NOI18N
+        botonSelectUsuarioDestino.setBorderPainted(false);
+        botonSelectUsuarioDestino.setContentAreaFilled(false);
+        botonSelectUsuarioDestino.setFocusPainted(false);
+        botonSelectUsuarioDestino.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_seleccionar_1.png"))); // NOI18N
         botonSelectUsuarioDestino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonSelectUsuarioDestinoActionPerformed(evt);
             }
         });
         Central4_3.add(botonSelectUsuarioDestino);
-        botonSelectUsuarioDestino.setBounds(350, 310, 140, 30);
+        botonSelectUsuarioDestino.setBounds(370, 300, 80, 40);
 
-        comboUsuarioDestino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         Central4_3.add(comboUsuarioDestino);
         comboUsuarioDestino.setBounds(310, 190, 220, 28);
 
-        botonSelectUsuarioOrigen.setText("Seleccionar");
+        botonSelectUsuarioOrigen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_seleccionar_2.png"))); // NOI18N
+        botonSelectUsuarioOrigen.setToolTipText("");
+        botonSelectUsuarioOrigen.setBorderPainted(false);
+        botonSelectUsuarioOrigen.setContentAreaFilled(false);
+        botonSelectUsuarioOrigen.setFocusPainted(false);
+        botonSelectUsuarioOrigen.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_seleccionar_1.png"))); // NOI18N
         botonSelectUsuarioOrigen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonSelectUsuarioOrigenActionPerformed(evt);
             }
         });
         Central4_3.add(botonSelectUsuarioOrigen);
-        botonSelectUsuarioOrigen.setBounds(560, 90, 140, 30);
+        botonSelectUsuarioOrigen.setBounds(550, 80, 80, 50);
 
         TrueFalse.add(radioParticular);
         radioParticular.setFont(berlin);
@@ -3849,7 +3878,6 @@ public class MenuInicio extends javax.swing.JFrame {
         Central4_4.add(comboUsuarioSacarVideo);
         comboUsuarioSacarVideo.setBounds(310, 90, 220, 28);
 
-        comboVideoSacarVideo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         comboVideoSacarVideo.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 comboVideoSacarVideoItemStateChanged(evt);
@@ -3859,6 +3887,9 @@ public class MenuInicio extends javax.swing.JFrame {
         comboVideoSacarVideo.setBounds(310, 370, 220, 28);
 
         botonAceptarModificarLista3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_2.png"))); // NOI18N
+        botonAceptarModificarLista3.setBorderPainted(false);
+        botonAceptarModificarLista3.setContentAreaFilled(false);
+        botonAceptarModificarLista3.setFocusPainted(false);
         botonAceptarModificarLista3.setFocusable(false);
         botonAceptarModificarLista3.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_1.png"))); // NOI18N
         botonAceptarModificarLista3.addActionListener(new java.awt.event.ActionListener() {
@@ -3869,14 +3900,18 @@ public class MenuInicio extends javax.swing.JFrame {
         Central4_4.add(botonAceptarModificarLista3);
         botonAceptarModificarLista3.setBounds(370, 480, 70, 40);
 
-        botonSelectListaSacarVideo.setText("Seleccionar");
+        botonSelectListaSacarVideo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_seleccionar_2.png"))); // NOI18N
+        botonSelectListaSacarVideo.setBorderPainted(false);
+        botonSelectListaSacarVideo.setContentAreaFilled(false);
+        botonSelectListaSacarVideo.setFocusPainted(false);
+        botonSelectListaSacarVideo.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_seleccionar_1.png"))); // NOI18N
         botonSelectListaSacarVideo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonSelectListaSacarVideoActionPerformed(evt);
             }
         });
         Central4_4.add(botonSelectListaSacarVideo);
-        botonSelectListaSacarVideo.setBounds(340, 320, 140, 30);
+        botonSelectListaSacarVideo.setBounds(370, 310, 80, 40);
 
         TrueFalse.add(radioParticularSacarVideo);
         radioParticularSacarVideo.setFont(berlin);
@@ -3905,7 +3940,6 @@ public class MenuInicio extends javax.swing.JFrame {
         Central4_4.add(usuarioModificarListaLabel4);
         usuarioModificarListaLabel4.setBounds(210, 100, 160, 20);
 
-        comboListaSacarVideo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         Central4_4.add(comboListaSacarVideo);
         comboListaSacarVideo.setBounds(310, 260, 220, 28);
 
@@ -3915,14 +3949,18 @@ public class MenuInicio extends javax.swing.JFrame {
         Central4_4.add(listaModificarListaLabel3);
         listaModificarListaLabel3.setBounds(210, 260, 100, 30);
 
-        botonSelectUsuarioSacarVideo.setText("Seleccionar");
+        botonSelectUsuarioSacarVideo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_seleccionar_2.png"))); // NOI18N
+        botonSelectUsuarioSacarVideo.setBorderPainted(false);
+        botonSelectUsuarioSacarVideo.setContentAreaFilled(false);
+        botonSelectUsuarioSacarVideo.setFocusPainted(false);
+        botonSelectUsuarioSacarVideo.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_seleccionar_1.png"))); // NOI18N
         botonSelectUsuarioSacarVideo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonSelectUsuarioSacarVideoActionPerformed(evt);
             }
         });
         Central4_4.add(botonSelectUsuarioSacarVideo);
-        botonSelectUsuarioSacarVideo.setBounds(340, 200, 140, 30);
+        botonSelectUsuarioSacarVideo.setBounds(360, 200, 90, 40);
         Central4_4.add(jSeparator88);
         jSeparator88.setBounds(310, 240, 220, 20);
 
@@ -4068,6 +4106,9 @@ public class MenuInicio extends javax.swing.JFrame {
         ComboUsuariosLista.setBounds(170, 70, 390, 28);
 
         SelecionarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_seleccionar_2.png"))); // NOI18N
+        SelecionarUsuario.setBorderPainted(false);
+        SelecionarUsuario.setContentAreaFilled(false);
+        SelecionarUsuario.setFocusPainted(false);
         SelecionarUsuario.setFocusable(false);
         SelecionarUsuario.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_seleccionar_1.png"))); // NOI18N
         SelecionarUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -4076,7 +4117,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central4_5.add(SelecionarUsuario);
-        SelecionarUsuario.setBounds(590, 70, 70, 30);
+        SelecionarUsuario.setBounds(570, 60, 80, 40);
 
         usuarioModificarListaLabel6.setFont(berlin);
         usuarioModificarListaLabel6.setForeground(new java.awt.Color(102, 102, 102));
@@ -6407,6 +6448,10 @@ public class MenuInicio extends javax.swing.JFrame {
     private void CampoNom1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CampoNom1FocusGained
         // TODO add your handling code here:
     }//GEN-LAST:event_CampoNom1FocusGained
+
+    private void comboVideoOrigenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboVideoOrigenActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboVideoOrigenActionPerformed
 
     private void setColor(JPanel pane) {
         pane.setBackground(new Color(114, 114, 114));
