@@ -45,6 +45,7 @@ controladores/ControladorUsuario.class
 swing/MenuInicio$87.class
 DataTypes/DtListaReproduccion.class
 swing/MenuInicio$107.class
+swing/MenuInicio$111.class
 swing/MenuInicio$101.class
 swing/SeleccionarImagen.class
 swing/Menu.class
@@ -95,6 +96,7 @@ swing/MenuInicio$85.class
 swing/MenuInicio$12.class
 DataTypes/DtUsuario.class
 swing/MenuInicio$32.class
+swing/MenuInicio$118.class
 swing/MenuInicio$52.class
 swing/MenuInicio$65.class
 swing/MenuInicio$45.class
@@ -122,9 +124,12 @@ swing/MenuInicio$53.class
 swing/MenuInicio$106.class
 swing/MenuInicio$93.class
 swing/MenuInicio$13.class
+swing/MenuInicio$113.class
 swing/VentanaEmergente2$4.class
 swing/MenuInicio$18.class
+swing/MenuInicio$112.class
 swing/MenuInicio$100.class
+swing/MenuInicio$119.class
 swing/MenuInicio$92.class
 swing/MenuInicio$2.class
 DataTypes/DtVideo.class
@@ -151,11 +156,13 @@ swing/MenuInicio$109.class
 swing/MenuInicio$26.class
 swing/MenuInicio$34.class
 swing/MenuInicio$54.class
+swing/MenuInicio$114.class
 swing/SeleccionarImagen$6.class
 DataTypes/DtComentario.class
 swing/MenuInicio$49.class
 swing/MenuInicio$77.class
 interfaces/IControladorCanal.class
+swing/MenuInicio$117.class
 swing/MenuInicio$60.class
 DataTypes/DtCanal.class
 swing/MenuInicio$27.class
@@ -165,6 +172,7 @@ swing/VentanaEmergente$3.class
 DataTypes/DtCategoria.class
 clases/DefectoPK.class
 swing/MenuInicio$10.class
+swing/MenuInicio$116.class
 excepciones/UsuarioNoExisteException.class
 swing/SeleccionarImagen$5.class
 swing/MenuInicio$33.class
@@ -174,5 +182,6 @@ DataTypes/DtListaporDefecto.class
 swing/MenuInicio$56.class
 swing/MenuInicio$61.class
 swing/VentanaEmergente$2.class
+swing/MenuInicio$115.class
 swing/MenuInicio$79.class
 swing/MenuInicio$84.class
