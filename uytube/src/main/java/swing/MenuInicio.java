@@ -5279,19 +5279,31 @@ public class MenuInicio extends javax.swing.JFrame {
         Panel_Central.revalidate();
         Panel_Central.repaint();
         String video = comboVideos.getSelectedItem().toString();
-        List listaCom = c.listaComentarios(video);
+        String usuario = comboUsuarios.getSelectedItem().toString();
+        DtUsuario user = u.buscarUsuario(usuario);
+        DtVideo v = c.obtenerVideo(video,user.getCanal().getNombre_canal());
+        List listaCom = c.listaComentarios(v);
         if (!listaCom.isEmpty()) {
             DtComentario com;
             DefaultMutableTreeNode abuelo = new DefaultMutableTreeNode(video + "::Comentarios");
             DefaultTreeModel modelo = new DefaultTreeModel(abuelo);
             jTree1.setModel(modelo);
             // Construccion de los datos del arbol
-            int y = 1;
+            //int y = listaCom.size();
+            //y = y - y +1;
             for (int x = 0; x < listaCom.size(); x++) {
                 com = (DtComentario) listaCom.get(x);
                 if (listaCom.get(x) != null) {
-                    String coment = c.comentarioEsp(y);
-                    y++;
+                    //int referencia = listaCom.get(x);
+                    String coment = c.comentarioEsp(com.getRef());
+                    /*if(x == listaCom.size() - 1){
+                        x = x +1;
+                        com = (DtComentario) listaCom.get(x);
+                        coment = c.comentarioEsp(com.getRef());
+                    }*/
+                    //y++;
+                    //DtComentario coment;
+                    //coment = (DtComentario) listaCom.get(x);
                     String padre = com.getPadre();
                     DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) jTree1.getModel().getRoot();
                     if (padre == null) {
@@ -5340,19 +5352,18 @@ public class MenuInicio extends javax.swing.JFrame {
         DtUsuario user;
         user = u.buscarUsuario((String) comboUsuarios.getSelectedItem());
         DtVideo v = c.obtenerVideo(video, user.getCanal().getNombre_canal());
-
         List lista = u.listaUsuarios();
         for (int y = 0; y <= lista.size() - 1; y++) {
             user = (DtUsuario) lista.get(y);
             if (nom.equals(user.getNickname())) {
                 aux = 1;
                 if (selecciona.isEmpty()) {
-                    List listaCom = c.listaComentarios(video);
-                    if (listaCom.isEmpty()) {
+                    List listaTotal = c.listaComentariosTodos();
+                    if (listaTotal.isEmpty()) {
                         DtComentario co = new DtComentario(nom, com, fecha, v, null, 1);
                         c.agregarComentario(co);
                     } else {
-                        Integer r = listaCom.size();
+                        Integer r = listaTotal.size();
                         r = r + 1;
                         DtComentario co = new DtComentario(nom, com, fecha, v, null, r);
                         c.agregarComentario(co);
@@ -5364,7 +5375,8 @@ public class MenuInicio extends javax.swing.JFrame {
                     String[] dividir = auxiliar.split("::");
                     auxiliar = dividir[0];
                     aux1 = dividir[1];
-                    List listaCom = c.listaComentarios(video);
+                    List listaCom = c.listaComentarios(v);
+                    List listaTotal = c.listaComentariosTodos();
                     DtComentario come;
                     for (int x = 0; x <= listaCom.size() - 1; x++) {
                         come = (DtComentario) listaCom.get(x);
@@ -5372,7 +5384,7 @@ public class MenuInicio extends javax.swing.JFrame {
                             DtComentario referencia = (DtComentario) listaCom.get(x);
                             Integer r = referencia.getRef();
                             String padre = r.toString();
-                            Integer re = listaCom.size();
+                            Integer re = listaTotal.size();
                             re = re + 1;
                             DtComentario co = new DtComentario(nom, com, fecha, v, padre, re);
                             c.agregarComentario(co);

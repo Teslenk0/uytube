@@ -167,9 +167,9 @@ public class ManejadorInformacion {
                 .getResultList();
     }
 
-    public List listaCom(String v) {
+    public List listaCom(DtVideo v) {
         manager = emf.createEntityManager();
-        return manager.createQuery("SELECT c FROM Comentario c WHERE c.video = '" + v + "'")
+        return manager.createQuery("SELECT c FROM Comentario c WHERE c.video = '" + v.getNombre() + "'")
                 .getResultList();
     }
 
@@ -183,6 +183,12 @@ public class ManejadorInformacion {
         return c;
     }
 
+    public List listaTotalComentarios(){
+        manager = emf.createEntityManager();
+        List<Comentario> comentarios = manager.createQuery("FROM Comentario c").getResultList();
+        return comentarios;
+    }
+    
     public void addComentario(Comentario c) {
         manager = emf.createEntityManager();
         manager.getTransaction().begin();

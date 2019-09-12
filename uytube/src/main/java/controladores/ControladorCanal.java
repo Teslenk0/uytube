@@ -124,7 +124,6 @@ public class ControladorCanal implements IControladorCanal {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         String com = mu.comEsp(num);
         
-        //String c = new DtComentario(com);
         if (com != null) {
             return com;
         }
@@ -132,7 +131,7 @@ public class ControladorCanal implements IControladorCanal {
     }
 
     @Override
-    public List listaComentarios(String video) {
+    public List listaComentarios(DtVideo video) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         List lista = mu.listaCom(video);
         if (lista != null) {
@@ -147,6 +146,22 @@ public class ControladorCanal implements IControladorCanal {
         return null;
     }
 
+    @Override
+    public List listaComentariosTodos() {
+        ManejadorInformacion mu = ManejadorInformacion.getInstance();
+        List lista = mu.listaTotalComentarios();
+        if (lista != null) {
+            List aux = new LinkedList();
+            DtComentario dtaux;
+            for (int x = 0; x < lista.size(); x++) {
+                dtaux = new DtComentario((Comentario) lista.get(x));
+                aux.add(dtaux);
+            }
+            return aux;
+        }
+        return null;
+    }
+    
     @Override
     public void agregarComentario(DtComentario c) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();

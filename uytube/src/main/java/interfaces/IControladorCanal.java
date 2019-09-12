@@ -33,7 +33,7 @@ public interface IControladorCanal {
     
     public abstract DtVideo obtenerVideo(String nomV, String canal);
     
-    public abstract List listaComentarios(String video);
+    public abstract List listaComentarios(DtVideo video);
     
     public abstract void agregarComentario(DtComentario c);
     
@@ -42,6 +42,8 @@ public interface IControladorCanal {
     public abstract DtComentario obtenerComentarioRef(String padre);
     
     public abstract String comentarioEsp(Integer num);
+    
+    public abstract List listaComentariosTodos();
     
     public abstract List getCanales();
     
