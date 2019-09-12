@@ -30,9 +30,9 @@ public class DtComentario implements Serializable {
 
     private final Integer ref;
     
-    private final DtCanal canal;
+    private final String canal;
     
-    public DtComentario(String nick, String comentario, Date fecha, DtVideo video, String padre, Integer ref, DtCanal canal) {
+    public DtComentario(String nick, String comentario, Date fecha, DtVideo video, String padre, Integer ref, String canal) {
         this.nick = nick;
         this.comentario = comentario;
         this.fecha = fecha;
@@ -43,7 +43,7 @@ public class DtComentario implements Serializable {
     }
     
     public DtComentario(Comentario c){
-        this(c.getNick(), c.getComentario(), c.getFecha(), new DtVideo(c.getVideo()), c.getPadre(), c.getRef(), new DtCanal(c.getCanal().getNombre_canal(), c.getCanal().getDescripcion(), c.getCanal().getPrivado(), new DtUsuario (c.getCanal().getUsuario())));
+        this(c.getNick(), c.getComentario(), c.getFecha(), new DtVideo(c.getVideo()), c.getPadre(), c.getRef(), c.getCanal());
     }
 
     public String getPadre() {

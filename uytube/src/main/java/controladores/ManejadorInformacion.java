@@ -10,11 +10,9 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import clases.*;
 import DataTypes.*;
-import excepciones.VideoRepetidoException;
+import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.NoResultException;
 import javax.persistence.Query;
-import javax.persistence.TypedQuery;
 
 /**
  *
@@ -169,8 +167,13 @@ public class ManejadorInformacion {
 
     public List listaCom(DtVideo v) {
         manager = emf.createEntityManager();
-        return manager.createQuery("SELECT c FROM Comentario c WHERE c.video = '" + v.getNombre() + "'")
-                .getResultList();
+         List<Object[]> comentario = manager.createNativeQuery("SELECT comentario, Referencia, Padre, nickname FROM comentarios_video where Video='" + v.getNombre() +"';").getResultList();
+         List<DtAuxiliar> comentarios = new ArrayList<>();
+         for(var row : comentario) {
+             
+             comentarios.add(new DtAuxiliar((String)row[0], (Integer)row[1], (String) row[2], (String) row[3]));
+           }
+         return comentarios;
     }
 
     public Comentario BuscarComentarioRef(String padre) {

@@ -5,6 +5,7 @@
  */
 package swing;
 
+import DataTypes.DtAuxiliar;
 import DataTypes.DtCanal;
 import DataTypes.DtCategoria;
 import DataTypes.DtComentario;
@@ -5284,39 +5285,23 @@ public class MenuInicio extends javax.swing.JFrame {
         DtVideo v = c.obtenerVideo(video,user.getCanal().getNombre_canal());
         List listaCom = c.listaComentarios(v);
         if (!listaCom.isEmpty()) {
-            DtComentario com;
+            DtAuxiliar com;
             DefaultMutableTreeNode abuelo = new DefaultMutableTreeNode(video + "::Comentarios");
             DefaultTreeModel modelo = new DefaultTreeModel(abuelo);
             jTree1.setModel(modelo);
             // Construccion de los datos del arbol
-            //int y = listaCom.size();
-            //y = y - y +1;
-            for (int x = 0; x < listaCom.size(); x++) {
-                com = (DtComentario) listaCom.get(x);
+           for (int x = 0; x < listaCom.size(); x++) {
+                com = (DtAuxiliar) listaCom.get(x);
                 if (listaCom.get(x) != null) {
-                    System.out.println("La equis: "+x);
-                    System.out.println("Referencia: "+com.getRef());
-                    System.out.println(com.getComentario());
-                    //int referencia = listaCom.get(x);
-                    String coment = c.comentarioEsp(com.getRef());
-                    /*if(x == listaCom.size() - 1){
-                        x = x +1;
-                        com = (DtComentario) listaCom.get(x);
-                        coment = c.comentarioEsp(com.getRef());
-                    }*/
-                    //y++;
-                    //DtComentario coment;
-                    //coment = (DtComentario) listaCom.get(x);
+                    String coment = c.comentarioEsp(com.getReferencia());
                     String padre = com.getPadre();
                     DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) jTree1.getModel().getRoot();
                     if (padre == null) {
-
                         int hijos = jTree1.getModel().getChildCount(raiz);
                         DefaultMutableTreeNode aux = new DefaultMutableTreeNode(com.getNick() + "::" + coment);
                         modelo.insertNodeInto(aux, abuelo, hijos);
-
                     } else {
-
+                        
                         DtComentario comentario = c.obtenerComentarioRef(com.getPadre());
                         DefaultMutableTreeNode viejo = findNode(comentario.getNick() + "::" + comentario.getComentario());
 
@@ -5363,12 +5348,12 @@ public class MenuInicio extends javax.swing.JFrame {
                 if (selecciona.isEmpty()) {
                     List listaTotal = c.listaComentariosTodos();
                     if (listaTotal.isEmpty()) {
-                        DtComentario co = new DtComentario(nom, com, fecha, v, null, 1, v.getCanal());
+                        DtComentario co = new DtComentario(nom, com, fecha, v, null, 1, v.getCanal().getNombre_canal());
                         c.agregarComentario(co);
                     } else {
                         Integer r = listaTotal.size();
                         r = r + 1;
-                        DtComentario co = new DtComentario(nom, com, fecha, v, null, r, v.getCanal());
+                        DtComentario co = new DtComentario(nom, com, fecha, v, null, r, v.getCanal().getNombre_canal());
                         c.agregarComentario(co);
                     }
                 } else {
@@ -5380,16 +5365,16 @@ public class MenuInicio extends javax.swing.JFrame {
                     aux1 = dividir[1];
                     List listaCom = c.listaComentarios(v);
                     List listaTotal = c.listaComentariosTodos();
-                    DtComentario come;
+                    DtAuxiliar come;
                     for (int x = 0; x <= listaCom.size() - 1; x++) {
-                        come = (DtComentario) listaCom.get(x);
+                        come = (DtAuxiliar) listaCom.get(x);
                         if (aux1.equals(come.getComentario())) {
-                            DtComentario referencia = (DtComentario) listaCom.get(x);
-                            Integer r = referencia.getRef();
+                            DtAuxiliar referencia = (DtAuxiliar) listaCom.get(x);
+                            Integer r = referencia.getReferencia();
                             String padre = r.toString();
                             Integer re = listaTotal.size();
                             re = re + 1;
-                            DtComentario co = new DtComentario(nom, com, fecha, v, padre, re, v.getCanal());
+                            DtComentario co = new DtComentario(nom, com, fecha, v, padre, re, v.getCanal().getNombre_canal());
                             c.agregarComentario(co);
                         }
                     }
