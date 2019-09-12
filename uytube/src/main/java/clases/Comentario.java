@@ -46,16 +46,28 @@ public class Comentario implements Serializable{
     @Column (name = "Referencia")
     private Integer ref;
     
+    @Column (name = "Canal_video")
+    private Canal canal;
+    
     public Comentario() {
     }
 
-    public Comentario(String nick, String comentario, Date fecha, Video video, String padre, Integer ref) {
+    public Comentario(String nick, String comentario, Date fecha, Video video, String padre, Integer ref, Canal canal) {
         this.nick = nick;
         this.comentario = comentario;
         this.fecha = fecha;
         this.video = video;
         this.padre = padre;
         this.ref = ref;
+        this.canal = canal;
+    }
+
+    public Canal getCanal() {
+        return canal;
+    }
+
+    public void setCanal(Canal canal) {
+        this.canal = canal;
     }
 
     public String getPadre() {

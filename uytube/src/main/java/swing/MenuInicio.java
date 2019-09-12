@@ -5294,6 +5294,9 @@ public class MenuInicio extends javax.swing.JFrame {
             for (int x = 0; x < listaCom.size(); x++) {
                 com = (DtComentario) listaCom.get(x);
                 if (listaCom.get(x) != null) {
+                    System.out.println("La equis: "+x);
+                    System.out.println("Referencia: "+com.getRef());
+                    System.out.println(com.getComentario());
                     //int referencia = listaCom.get(x);
                     String coment = c.comentarioEsp(com.getRef());
                     /*if(x == listaCom.size() - 1){
@@ -5360,12 +5363,12 @@ public class MenuInicio extends javax.swing.JFrame {
                 if (selecciona.isEmpty()) {
                     List listaTotal = c.listaComentariosTodos();
                     if (listaTotal.isEmpty()) {
-                        DtComentario co = new DtComentario(nom, com, fecha, v, null, 1);
+                        DtComentario co = new DtComentario(nom, com, fecha, v, null, 1, v.getCanal());
                         c.agregarComentario(co);
                     } else {
                         Integer r = listaTotal.size();
                         r = r + 1;
-                        DtComentario co = new DtComentario(nom, com, fecha, v, null, r);
+                        DtComentario co = new DtComentario(nom, com, fecha, v, null, r, v.getCanal());
                         c.agregarComentario(co);
                     }
                 } else {
@@ -5386,7 +5389,7 @@ public class MenuInicio extends javax.swing.JFrame {
                             String padre = r.toString();
                             Integer re = listaTotal.size();
                             re = re + 1;
-                            DtComentario co = new DtComentario(nom, com, fecha, v, padre, re);
+                            DtComentario co = new DtComentario(nom, com, fecha, v, padre, re, v.getCanal());
                             c.agregarComentario(co);
                         }
                     }
