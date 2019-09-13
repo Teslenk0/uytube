@@ -180,13 +180,17 @@ public class ControladorUsuario implements IControladorUsuario{
         Valorar v = new Valorar(user, video, user_val, val);
         if(!lista.isEmpty()) {
             Valorar dtaux;
+            Boolean b = false;
+            
             for(int x = 0; x < lista.size(); x++) {
                 dtaux = (Valorar)lista.get(x);
                 if(dtaux.getVid().equals(video)&&dtaux.getUser().equals(user_val)&&!dtaux.getVal().equals(val)) {
                     mu.modificoVal(v);
+                    b=true;
                 }
-                
             }
+            if(b == false)
+                mu.valorarVid(v);
         }
         else {
             mu.valorarVid(v);

@@ -408,7 +408,6 @@ public class ManejadorInformacion {
         Usuario u = this.buscadorUsuario(nick);
         List<Valorar> aux;
         aux = manager.createQuery("FROM Valorar v WHERE v.dueño='" + u.getNickname() + "'").getResultList();
-        System.out.println(aux);
         if(aux != null)
             return aux;
         return null;
@@ -425,10 +424,8 @@ public class ManejadorInformacion {
     public void modificoVal(Valorar v) {
         manager = emf.createEntityManager();
         manager.getTransaction().begin();
-        Query query = manager.createQuery("update from Valorar v set v.val='" + v.getVal() + "' where v.dueño='" + v.getDueño().getCanal().getNombre_canal() + "' and v.vid='" + v.getVid() + "' and v.user='" + v.getUser() + "'");
+        Query query = manager.createQuery("delete from Valorar val where val.dueño='" + v.getDueño().getNickname() + "' and val.vid='" + v.getVid() + "' and val.user='" + v.getUser() + "'");
         query.executeUpdate();
-        Valorar val = manager.find(Valorar.class, v.getDueño().getNickname());
-        manager.remove(val);
         manager.persist(v);
         manager.getTransaction().commit();
         manager.close();
