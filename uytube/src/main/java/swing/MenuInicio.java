@@ -513,11 +513,6 @@ public class MenuInicio extends javax.swing.JFrame {
         listaModificarListaLabel = new javax.swing.JLabel();
         usuarioModificarListaLabel = new javax.swing.JLabel();
         privadaModificarListaLabel = new javax.swing.JLabel();
-        checkPrivadaModificarLista = new java.awt.Checkbox();
-        jSeparator57 = new javax.swing.JSeparator();
-        jSeparator58 = new javax.swing.JSeparator();
-        jSeparator59 = new javax.swing.JSeparator();
-        jSeparator62 = new javax.swing.JSeparator();
         BackButton8 = new javax.swing.JButton();
         comboCategoriaModificarLista = new javax.swing.JComboBox<>();
         comboUsuarioModificarLista = new javax.swing.JComboBox<>();
@@ -525,6 +520,9 @@ public class MenuInicio extends javax.swing.JFrame {
         categoriaModificarListaLabel = new javax.swing.JLabel();
         botonAceptarModificarLista1 = new javax.swing.JButton();
         botonSeleccionarModificarLista = new javax.swing.JButton();
+        No4 = new javax.swing.JRadioButton();
+        Si4 = new javax.swing.JRadioButton();
+        jSeparator114 = new javax.swing.JSeparator();
         Central4_3 = new javax.swing.JPanel();
         listaModificarListaLabel1 = new javax.swing.JLabel();
         usuarioModificarListaLabel1 = new javax.swing.JLabel();
@@ -3767,7 +3765,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central4_1.add(CrearLista);
-        CrearLista.setBounds(310, 370, 70, 40);
+        CrearLista.setBounds(310, 370, 80, 40);
 
         BackButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back.png"))); // NOI18N
         BackButton6.setBorder(null);
@@ -3865,29 +3863,19 @@ public class MenuInicio extends javax.swing.JFrame {
         listaModificarListaLabel.setForeground(new java.awt.Color(102, 102, 102));
         listaModificarListaLabel.setText("Lista a editar");
         Central4_2.add(listaModificarListaLabel);
-        listaModificarListaLabel.setBounds(160, 150, 230, 20);
+        listaModificarListaLabel.setBounds(160, 160, 230, 20);
 
         usuarioModificarListaLabel.setFont(berlin);
         usuarioModificarListaLabel.setForeground(new java.awt.Color(102, 102, 102));
         usuarioModificarListaLabel.setText("Usuario");
         Central4_2.add(usuarioModificarListaLabel);
-        usuarioModificarListaLabel.setBounds(160, 100, 160, 20);
+        usuarioModificarListaLabel.setBounds(160, 110, 160, 20);
 
         privadaModificarListaLabel.setFont(berlin);
         privadaModificarListaLabel.setForeground(new java.awt.Color(102, 102, 102));
-        privadaModificarListaLabel.setText("Privada");
+        privadaModificarListaLabel.setText("¿Desea hacerla privada?");
         Central4_2.add(privadaModificarListaLabel);
-        privadaModificarListaLabel.setBounds(160, 250, 100, 14);
-        Central4_2.add(checkPrivadaModificarLista);
-        checkPrivadaModificarLista.setBounds(320, 250, 20, 20);
-        Central4_2.add(jSeparator57);
-        jSeparator57.setBounds(310, 120, 220, 20);
-        Central4_2.add(jSeparator58);
-        jSeparator58.setBounds(310, 230, 220, 20);
-        Central4_2.add(jSeparator59);
-        jSeparator59.setBounds(310, 270, 220, 20);
-        Central4_2.add(jSeparator62);
-        jSeparator62.setBounds(310, 170, 220, 20);
+        privadaModificarListaLabel.setBounds(170, 280, 160, 20);
 
         BackButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back.png"))); // NOI18N
         BackButton8.setBorder(null);
@@ -3903,23 +3891,23 @@ public class MenuInicio extends javax.swing.JFrame {
         Central4_2.add(BackButton8);
         BackButton8.setBounds(0, 11, 101, 51);
 
-        comboCategoriaModificarLista.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboCategoriaModificarLista.setFont(berlin);
         Central4_2.add(comboCategoriaModificarLista);
-        comboCategoriaModificarLista.setBounds(310, 200, 220, 20);
+        comboCategoriaModificarLista.setBounds(310, 220, 220, 22);
 
-        comboUsuarioModificarLista.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboUsuarioModificarLista.setFont(berlin);
         Central4_2.add(comboUsuarioModificarLista);
-        comboUsuarioModificarLista.setBounds(310, 90, 220, 20);
+        comboUsuarioModificarLista.setBounds(310, 110, 220, 22);
 
-        comboListaModificarLista.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboListaModificarLista.setFont(berlin);
         Central4_2.add(comboListaModificarLista);
-        comboListaModificarLista.setBounds(310, 140, 220, 20);
+        comboListaModificarLista.setBounds(310, 160, 220, 22);
 
         categoriaModificarListaLabel.setFont(berlin);
         categoriaModificarListaLabel.setForeground(new java.awt.Color(102, 102, 102));
         categoriaModificarListaLabel.setText("Categoria");
         Central4_2.add(categoriaModificarListaLabel);
-        categoriaModificarListaLabel.setBounds(160, 200, 100, 14);
+        categoriaModificarListaLabel.setBounds(160, 220, 100, 20);
 
         botonAceptarModificarLista1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_2.png"))); // NOI18N
         botonAceptarModificarLista1.setBorderPainted(false);
@@ -3933,7 +3921,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central4_2.add(botonAceptarModificarLista1);
-        botonAceptarModificarLista1.setBounds(320, 410, 70, 40);
+        botonAceptarModificarLista1.setBounds(310, 330, 80, 40);
 
         botonSeleccionarModificarLista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_seleccionar_2.png"))); // NOI18N
         botonSeleccionarModificarLista.setBorderPainted(false);
@@ -3946,7 +3934,30 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central4_2.add(botonSeleccionarModificarLista);
-        botonSeleccionarModificarLista.setBounds(570, 70, 80, 58);
+        botonSeleccionarModificarLista.setBounds(570, 90, 80, 58);
+
+        VoT.add(No4);
+        No4.setFont(berlin);
+        No4.setText("No");
+        No4.setBorder(null);
+        No4.setFocusable(false);
+        No4.setNextFocusableComponent(CampoDescripcion);
+        Central4_2.add(No4);
+        No4.setBounds(440, 280, 50, 20);
+
+        VoT.add(Si4);
+        Si4.setFont(berlin);
+        Si4.setText("Si");
+        Si4.setBorder(null);
+        Si4.setFocusable(false);
+        Si4.setNextFocusableComponent(CampoDescripcion);
+        Central4_2.add(Si4);
+        Si4.setBounds(350, 280, 50, 20);
+
+        jSeparator114.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator114.setForeground(new java.awt.Color(153, 153, 153));
+        Central4_2.add(jSeparator114);
+        jSeparator114.setBounds(160, 260, 370, 30);
 
         Panel_Central.add(Central4_2);
         Central4_2.setBounds(0, 0, 720, 550);
@@ -5155,29 +5166,33 @@ public class MenuInicio extends javax.swing.JFrame {
             ventana.CambioTexto("    Debes seleccionar un tipo de lista");
             ventana.setVisible(true);
         } else {
-            String nombreL = NombreLista.getText();
-            DtListaReproduccion lista;
-            if (radioDefecto1.isSelected()) { 
-                lista = new DtListaporDefecto(nombreL);
-                try {
-                    c.crearListaDefecto(lista);
-                    ventana.CambioTexto("          La lista se creo exitosamente");
-                    ventana.setVisible(true);
-                } catch (ListaRepetidaException e) {
-                    ventana.CambioTexto("                  La lista ya existe");
-                    ventana.setVisible(true);
+                String nombreL = NombreLista.getText();
+                DtListaReproduccion lista;
+                if (radioDefecto1.isSelected()) { 
+                    lista = new DtListaporDefecto(nombreL);
+                    try {
+                        c.crearListaDefecto(lista);
+                        ventana.CambioTexto("          La lista se creo exitosamente");
+                        ventana.setVisible(true);
+                    } catch (ListaRepetidaException e) {
+                        ventana.CambioTexto("                     La lista ya existe");
+                        ventana.setVisible(true);
+                    }
+                } else {
+                    if(!Si3.isSelected() && !No3.isSelected()){
+                         ventana.CambioTexto("        Debes llenar todos los campos");
+                    } else {
+                        DtUsuario user = u.buscarUsuario(NombreUserLista.getSelectedItem().toString());
+                        DtCategoria cat = new DtCategoria(comboCategoriasCrearLista.getSelectedItem().toString());
+                        lista = new DtListaParticulares(Si3.isSelected(), cat, nombreL);
+                        try {
+                            c.crearListaParticular((DtListaParticulares) lista, user);
+                            ventana.CambioTexto("             La lista se creo exitosamente");
+                        } catch (ListaRepetidaException e) {
+                            ventana.CambioTexto("                   La lista ya existe");
+                        }
+                    }
                 }
-            } else {
-                DtUsuario user = u.buscarUsuario(NombreUserLista.getSelectedItem().toString());
-                DtCategoria cat = new DtCategoria(comboCategoriasCrearLista.getSelectedItem().toString());
-                lista = new DtListaParticulares(Si3.isSelected(), cat, nombreL);
-                try {
-                    c.crearListaParticular((DtListaParticulares) lista, user);
-                    ventana.CambioTexto("             La lista se creo exitosamente");
-                } catch (ListaRepetidaException e) {
-                    ventana.CambioTexto("                La lista ya existe");
-                }
-            }
         }
         ventana.setVisible(true);
     }//GEN-LAST:event_CrearListaActionPerformed
@@ -5659,7 +5674,7 @@ public class MenuInicio extends javax.swing.JFrame {
 
     private void botonAceptarModificarLista1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAceptarModificarLista1ActionPerformed
         // TODO add your handling code here:        
-        Boolean privado = checkPrivadaModificarLista.getState();
+        Boolean privado = Si4.isSelected();
         DtListaReproduccion tmp;
         String aux = "";
         DtUsuario user = u.buscarUsuario(comboUsuarioModificarLista.getSelectedItem().toString());
@@ -7335,6 +7350,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JRadioButton No1;
     private javax.swing.JRadioButton No2;
     private javax.swing.JRadioButton No3;
+    private javax.swing.JRadioButton No4;
     private javax.swing.JLabel NomCanal;
     private javax.swing.JLabel NomCanalListar;
     private javax.swing.JLabel NomVideo;
@@ -7388,6 +7404,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JRadioButton Si1;
     private javax.swing.JRadioButton Si2;
     private javax.swing.JRadioButton Si3;
+    private javax.swing.JRadioButton Si4;
     private javax.swing.JButton Sobrecarga;
     private javax.swing.ButtonGroup TrueFalse;
     private javax.swing.JTextField URLVideo;
@@ -7459,7 +7476,6 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JLabel categoriaModificarListaLabel;
     private javax.swing.JLabel categoriaModificarListaLabel1;
     private javax.swing.JButton cerrar;
-    private java.awt.Checkbox checkPrivadaModificarLista;
     private javax.swing.JComboBox<String> comboCategoriaModificarLista;
     private javax.swing.JComboBox<String> comboCategorias;
     private javax.swing.JComboBox<String> comboCategoriasConsultaCategoria;
@@ -7556,6 +7572,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator111;
     private javax.swing.JSeparator jSeparator112;
     private javax.swing.JSeparator jSeparator113;
+    private javax.swing.JSeparator jSeparator114;
     private javax.swing.JSeparator jSeparator115;
     private javax.swing.JSeparator jSeparator12;
     private javax.swing.JSeparator jSeparator13;
@@ -7599,13 +7616,9 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator54;
     private javax.swing.JSeparator jSeparator55;
     private javax.swing.JSeparator jSeparator56;
-    private javax.swing.JSeparator jSeparator57;
-    private javax.swing.JSeparator jSeparator58;
-    private javax.swing.JSeparator jSeparator59;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator60;
     private javax.swing.JSeparator jSeparator61;
-    private javax.swing.JSeparator jSeparator62;
     private javax.swing.JSeparator jSeparator63;
     private javax.swing.JSeparator jSeparator64;
     private javax.swing.JSeparator jSeparator65;
