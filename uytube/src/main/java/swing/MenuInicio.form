@@ -6168,9 +6168,6 @@
                   <StringArray count="0"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboUsuariosActionPerformed"/>
-              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
@@ -6613,9 +6610,6 @@
                 </Property>
                 <Property name="opaque" type="boolean" value="false"/>
               </Properties>
-              <Events>
-                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="CampoComFocusGained"/>
-              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="460" y="200" width="220" height="20"/>
@@ -7764,9 +7758,6 @@
                   <StringArray count="0"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboVideoOrigenActionPerformed"/>
-              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
@@ -7906,9 +7897,6 @@
                 </Property>
                 <Property name="focusable" type="boolean" value="false"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="radioDefectoActionPerformed"/>
-              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="320" y="270" width="90" height="-1"/>
@@ -8136,9 +8124,6 @@
                 </Property>
                 <Property name="focusable" type="boolean" value="false"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="radioDefectoSacarVideoActionPerformed"/>
-              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="320" y="170" width="90" height="-1"/>

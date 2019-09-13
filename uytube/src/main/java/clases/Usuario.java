@@ -8,7 +8,6 @@ package clases;
 import DataTypes.DtUsuario;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.Objects;
 import javax.persistence.*;
 
 /**

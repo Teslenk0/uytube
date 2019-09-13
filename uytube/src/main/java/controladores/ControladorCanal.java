@@ -195,7 +195,6 @@ public class ControladorCanal implements IControladorCanal {
         for (int x = 0; x < canales.size(); x++) {
             if (canales.get(x) != null) {
                 aux = (Canal) canales.get(x);
-                System.out.println(aux.getNombre_canal());
                 list = new ListaporDefecto(lista.getNombreLista());
                 list.setCanal(aux);
                 mu.crearLista(list);
@@ -266,7 +265,6 @@ public class ControladorCanal implements IControladorCanal {
         u.setCanal(aux);
         aux.setUsuario(u);
         ListaReproduccion list;
-        System.out.println(lista.getCategoria().getnombreCategoria());
         if (lista.getCategoria() == null) {
             list = new ListaParticulares(lista.getPrivado(), lista.getNombreLista(), null, aux);
         } else {

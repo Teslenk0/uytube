@@ -5,10 +5,7 @@
  */
 package DataTypes;
 
-import clases.Categoria;
-import clases.Video;
 import java.io.Serializable;
-import java.util.List;
 
 /**
  *

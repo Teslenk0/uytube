@@ -11,7 +11,6 @@ import excepciones.UsuarioRepetidoException;
 import interfaces.IControladorUsuario;
 import DataTypes.DtUsuario;
 import DataTypes.DtCanal;
-import DataTypes.DtValorar;
 import clases.Canal;
 import clases.Valorar;
 import excepciones.CanalRepetidoException;

@@ -75,7 +75,10 @@ public class MenuInicio extends javax.swing.JFrame {
         setColor(btn_Inicio);
         ind_1.setOpaque(true);
         resetColor(new JPanel[]{btn_Playlist, btn_Usuario, btn_Video, btn_CerrarSesion}, new JPanel[]{ind_2, ind_3, ind_4, ind_5});
-  
+        
+        List list = u.listaUsuarios();
+        if(!list.isEmpty())
+            Sobrecarga.setEnabled(false);        
         Panel_Central.removeAll();
         Panel_Central.add(Central1);
         Panel_Central.revalidate();
@@ -3316,11 +3319,6 @@ public class MenuInicio extends javax.swing.JFrame {
         Central3_4.setLayout(null);
 
         comboUsuarios.setFont(berlin);
-        comboUsuarios.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboUsuariosActionPerformed(evt);
-            }
-        });
         Central3_4.add(comboUsuarios);
         comboUsuarios.setBounds(120, 70, 460, 22);
 
@@ -3518,11 +3516,6 @@ public class MenuInicio extends javax.swing.JFrame {
         CampoCom.setBorder(null);
         CampoCom.setNextFocusableComponent(CampoContraseña);
         CampoCom.setOpaque(false);
-        CampoCom.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                CampoComFocusGained(evt);
-            }
-        });
         Central3_4_1_1.add(CampoCom);
         CampoCom.setBounds(460, 200, 220, 20);
         Central3_4_1_1.add(jSeparator56);
@@ -3987,11 +3980,6 @@ public class MenuInicio extends javax.swing.JFrame {
         Central4_3.add(comboUsuarioOrigen);
         comboUsuarioOrigen.setBounds(310, 90, 220, 22);
 
-        comboVideoOrigen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboVideoOrigenActionPerformed(evt);
-            }
-        });
         Central4_3.add(comboVideoOrigen);
         comboVideoOrigen.setBounds(310, 140, 220, 22);
 
@@ -4058,11 +4046,6 @@ public class MenuInicio extends javax.swing.JFrame {
         radioDefecto.setText("Defecto");
         radioDefecto.setBorder(null);
         radioDefecto.setFocusable(false);
-        radioDefecto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                radioDefectoActionPerformed(evt);
-            }
-        });
         Central4_3.add(radioDefecto);
         radioDefecto.setBounds(320, 270, 90, 15);
 
@@ -4161,11 +4144,6 @@ public class MenuInicio extends javax.swing.JFrame {
         radioDefectoSacarVideo.setText("Defecto");
         radioDefectoSacarVideo.setBorder(null);
         radioDefectoSacarVideo.setFocusable(false);
-        radioDefectoSacarVideo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                radioDefectoSacarVideoActionPerformed(evt);
-            }
-        });
         Central4_4.add(radioDefectoSacarVideo);
         radioDefectoSacarVideo.setBounds(320, 170, 90, 15);
 
@@ -5116,7 +5094,6 @@ public class MenuInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_BackButton6ActionPerformed
 
     private void CrearListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearListaActionPerformed
-
         VentanaEmergente ventana = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
 
         if (!radioDefecto1.isSelected() && !radioParticular1.isSelected()) {
@@ -5129,26 +5106,25 @@ public class MenuInicio extends javax.swing.JFrame {
                 lista = new DtListaporDefecto(nombreL);
                 try {
                     c.crearListaDefecto(lista);
-                    ventana.CambioTexto("La lista se creo exitosamente");
+                    ventana.CambioTexto("          La lista se creo exitosamente");
                     ventana.setVisible(true);
                 } catch (ListaRepetidaException e) {
-                    ventana.CambioTexto("La lista ya existe");
+                    ventana.CambioTexto("                  La lista ya existe");
                     ventana.setVisible(true);
                 }
-            } else {//aca creo una lista particular
+            } else {
                 DtUsuario user = u.buscarUsuario(NombreUserLista.getSelectedItem().toString());
                 DtCategoria cat = new DtCategoria(comboCategoriasCrearLista.getSelectedItem().toString());
                 lista = new DtListaParticulares(Si3.isSelected(), cat, nombreL);
                 try {
                     c.crearListaParticular((DtListaParticulares) lista, user);
-                    ventana.CambioTexto("La lista se creo exitosamente");
-                    ventana.setVisible(true);
+                    ventana.CambioTexto("             La lista se creo exitosamente");
                 } catch (ListaRepetidaException e) {
-                    ventana.CambioTexto("La lista ya existe");
-                    ventana.setVisible(true);
+                    ventana.CambioTexto("                La lista ya existe");
                 }
             }
         }
+        ventana.setVisible(true);
     }//GEN-LAST:event_CrearListaActionPerformed
 
     private void AceptarButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AceptarButton1ActionPerformed
@@ -5517,14 +5493,6 @@ public class MenuInicio extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_SeleccionarVideoActionPerformed
-
-    private void CampoComFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CampoComFocusGained
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CampoComFocusGained
-
-    private void comboUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboUsuariosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_comboUsuariosActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         String nom = CampoNick1.getText();
@@ -5934,10 +5902,7 @@ public class MenuInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_botonSelectUsuarioDestinoActionPerformed
 
     private void botonSelectUsuarioOrigenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSelectUsuarioOrigenActionPerformed
-        // TODO add your handling code here:
-
         DtUsuario user = u.buscarUsuario(comboUsuarioOrigen.getSelectedItem().toString());
-        System.out.println(user.getCanal().getNombre_canal());
         List lista = c.listaVideos(user.getCanal());
         comboVideoOrigen.removeAllItems();
         if (lista != null) {
@@ -5990,11 +5955,6 @@ public class MenuInicio extends javax.swing.JFrame {
             error.setVisible(true);
         }
     }//GEN-LAST:event_agregarVideo_ButtonActionPerformed
-
-    private void radioDefectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioDefectoActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_radioDefectoActionPerformed
 
     private void BackButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButton12ActionPerformed
         Panel_Central.removeAll();
@@ -6061,10 +6021,6 @@ public class MenuInicio extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_botonSelectListaSacarVideoActionPerformed
-
-    private void radioDefectoSacarVideoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioDefectoSacarVideoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_radioDefectoSacarVideoActionPerformed
 
     private void botonSelectUsuarioSacarVideoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSelectUsuarioSacarVideoActionPerformed
         // TODO add your handling code here:
@@ -6743,10 +6699,6 @@ public class MenuInicio extends javax.swing.JFrame {
                 Estado.setText("Público");
         }
     }//GEN-LAST:event_SeleccionarVideossActionPerformed
-
-    private void comboVideoOrigenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboVideoOrigenActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_comboVideoOrigenActionPerformed
 
     private void BackButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButton15ActionPerformed
         Panel_Central.removeAll();

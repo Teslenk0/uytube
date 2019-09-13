@@ -11,7 +11,6 @@ import DataTypes.DtCategoria;
 import DataTypes.DtComentario;
 import DataTypes.DtListaParticulares;
 import DataTypes.DtListaReproduccion;
-import DataTypes.DtListaporDefecto;
 import DataTypes.DtUsuario;
 import DataTypes.DtVideo;
 import excepciones.CategoriaRepetidaException;

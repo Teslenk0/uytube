@@ -5,10 +5,6 @@
  */
 package DataTypes;
 
-import clases.Categoria;
-import clases.Video;
-import java.util.List;
-
 /**
  *
  * @author Tesla

@@ -11,7 +11,6 @@ import javax.persistence.Persistence;
 import clases.*;
 import DataTypes.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import javax.persistence.Query;
 
@@ -52,7 +51,8 @@ public class ManejadorInformacion {
         manager = emf.createEntityManager();
         Usuario user;
         try {
-            user = (Usuario) manager.createQuery("select u from Usuario u where u.email='" + email + "'").getSingleResult();
+            String query = "select u from Usuario u where u.email='" + email + "'";
+            user = (Usuario) manager.createQuery(query).getSingleResult();
         } catch (Exception e) {
             user = null;
         }
@@ -132,14 +132,14 @@ public class ManejadorInformacion {
 
     public List ObtenerSeguidos(String nickname) {
         manager = emf.createEntityManager();
-        return manager.createQuery("SELECT s.seguidos FROM Seguir s WHERE s.us = '" + nickname + "'")
-                .getResultList();
+        String query = "SELECT s.seguidos FROM Seguir s WHERE s.us = '" + nickname + "'";
+        return manager.createQuery(query).getResultList();
     }
 
     public List ObtenerSeguidores(String nick) {
         manager = emf.createEntityManager();
-        return manager.createQuery("SELECT s.us FROM Seguir s WHERE s.seguidos = '" + nick + "'")
-                .getResultList();
+        String query = "SELECT s.us FROM Seguir s WHERE s.seguidos = '" + nick + "'";
+        return manager.createQuery(query).getResultList();
     }
 
     public Usuario buscadorUsuario(String nick) {
@@ -168,17 +168,17 @@ public class ManejadorInformacion {
 
     public List listaVid(Canal c) {
         manager = emf.createEntityManager();
-        return manager.createQuery("SELECT v FROM Video v WHERE v.canal = '" + c.getNombre_canal() + "'")
-                .getResultList();
+        String query = "SELECT v FROM Video v WHERE v.canal = '" + c.getNombre_canal() + "'";
+        return manager.createQuery(query).getResultList();
     }
 
     public List listaCom(DtVideo v) {
         manager = emf.createEntityManager();
          List<Object[]> comentario = manager.createNativeQuery("SELECT comentario, Referencia, Padre, nickname FROM comentarios_video where Video='" + v.getNombre() +"';").getResultList();
          List<DtAuxiliar> comentarios = new ArrayList<>();
-         for(Object[] row : comentario) {
+         comentario.forEach((row) -> {
              comentarios.add(new DtAuxiliar((String)row[0], (Integer)row[1], (String) row[2], (String) row[3]));
-           }
+        });
          return comentarios;
     }
 
@@ -193,8 +193,8 @@ public class ManejadorInformacion {
     }
 
     public String comEsp(Integer num) {
-        String c = (String) manager.createQuery("SELECT c.comentario FROM Comentario c WHERE c.ref ='" + num + "'").getSingleResult();
-        return c;
+        String query = "SELECT c.comentario FROM Comentario c WHERE c.ref ='" + num + "'";
+        return (String) manager.createQuery(query).getSingleResult();
     }
 
     public List listaTotalComentarios(){
@@ -237,7 +237,8 @@ public class ManejadorInformacion {
 
     public List obtenerCanales() {
         manager = emf.createEntityManager();
-        List<Canal> canales = manager.createQuery("FROM Canal").getResultList();
+        String query = "FROM Canal";
+        List<Canal> canales = manager.createQuery(query).getResultList();
         if (canales != null) {
             return canales;
         }
@@ -252,19 +253,13 @@ public class ManejadorInformacion {
     public Boolean buscoListaDefecto(String nombre) {
         manager = emf.createEntityManager();
         int resultado = manager.createQuery("FROM ListaporDefecto l WHERE l.nombreLista='" + nombre + "'").getResultList().size(); //busco si ya existe
-        if (resultado != 0) {
-            return true;
-        }
-        return false;
+        return resultado != 0;
     }
 
     public Boolean buscoListaParticular(String nombreLista, String nombreCanal) {
         manager = emf.createEntityManager();
         int resultado = manager.createQuery("FROM ListaParticulares l WHERE l.nombreLista='" + nombreLista + "' and l.canal='" + nombreCanal + "'").getResultList().size(); //busco si ya existe
-        if (resultado != 0) {
-            return true;
-        }
-        return false;
+        return resultado != 0;
     }
 
     public List obtenerListasParticulares(String nick) {
@@ -360,23 +355,18 @@ public class ManejadorInformacion {
         if (!isParticular) {
             ListaporDefecto l = buscadorListaDefecto(destino.getCanal().getNombre_canal(), listaDestino);
             int resultado = manager.createQuery("FROM ListaDefectoVideos l WHERE l.id='" + l.getId() + "' and l.canal='" + origen.getCanal().getNombre_canal() + "' and l.video='" + nombreVideo + "'").getResultList().size(); //busco si ya existe
-            if (resultado != 0) {
-                return true;
-            }
-            return false;
+            return resultado != 0;
         } else {
             ListaParticulares l = buscadorListaParticular(destino.getCanal().getNombre_canal(), listaDestino);
             int resultado = manager.createQuery("FROM ListaParticularVideos l WHERE l.id='" + l.getId() + "' and l.canal='" + origen.getCanal().getNombre_canal() + "' and l.video='" + nombreVideo + "'").getResultList().size(); //busco si ya existe
-            if (resultado != 0) {
-                return true;
-            }
-            return false;
+            return resultado != 0;
         }
     }
 
     public List getVideosListaDefecto(int id) {
         manager = emf.createEntityManager();
-        List aux = manager.createQuery("FROM ListaDefectoVideos l WHERE l.id='" + id + "'").getResultList(); 
+        String query = "FROM ListaDefectoVideos l WHERE l.id='" + id + "'";
+        List aux = manager.createQuery(query).getResultList(); 
         if (aux != null) {
             return aux;
         }
@@ -385,7 +375,8 @@ public class ManejadorInformacion {
     
     public List getVideosListaParticular(int id) {
         manager = emf.createEntityManager();
-        List aux = manager.createQuery("FROM ListaParticularVideos l WHERE l.id='" + id + "'").getResultList(); 
+        String query = "FROM ListaParticularVideos l WHERE l.id='" + id + "'";
+        List aux = manager.createQuery(query).getResultList(); 
         if (aux != null) {
             return aux;
         }
@@ -413,7 +404,8 @@ public class ManejadorInformacion {
         manager = emf.createEntityManager();
         Usuario u = this.buscadorUsuario(nick);
         List<Valorar> aux;
-        aux = manager.createQuery("FROM Valorar v WHERE v.dueño='" + u.getNickname() + "'").getResultList();
+        String query = "FROM Valorar v WHERE v.dueño='" + u.getNickname() + "'";
+        aux = manager.createQuery(query).getResultList();
         if(aux != null)
             return aux;
         return null;

@@ -5,7 +5,6 @@
  */
 package DataTypes;
 
-import clases.Valorar;
 import java.io.Serializable;
 
 /**

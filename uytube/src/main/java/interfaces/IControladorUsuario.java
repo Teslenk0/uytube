@@ -11,7 +11,6 @@ import DataTypes.DtUsuario;
 import excepciones.CanalRepetidoException;
 import excepciones.EmailRepetidoException;
 import java.awt.image.BufferedImage;
-import java.util.Date;
 import java.util.List;
 
 
