@@ -8,7 +8,7 @@
     <class>clases.ListaDefectoVideos</class>
     <class>clases.Seguir</class>
     <class>clases.Video</class>
-    <shared-cache-mode>NONE</shared-cache-mode>
+    <class>clases.Valorar</class>
     <properties>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://18.229.112.97:33066/uytubeAPP"/>

@@ -170,7 +170,6 @@ public class ManejadorInformacion {
          List<Object[]> comentario = manager.createNativeQuery("SELECT comentario, Referencia, Padre, nickname FROM comentarios_video where Video='" + v.getNombre() +"';").getResultList();
          List<DtAuxiliar> comentarios = new ArrayList<>();
          for(var row : comentario) {
-             
              comentarios.add(new DtAuxiliar((String)row[0], (Integer)row[1], (String) row[2], (String) row[3]));
            }
          return comentarios;
@@ -273,7 +272,6 @@ public class ManejadorInformacion {
         manager.persist(c);
         manager.getTransaction().commit();
         manager.close();
-
     }
 
     public List obtenerCategorias() {
@@ -398,5 +396,35 @@ public class ManejadorInformacion {
         }
         manager.close();
     }
-
+    
+    public List obtenerVal(String nick) {
+        manager = emf.createEntityManager();
+        Usuario u = this.buscadorUsuario(nick);
+        List<Valorar> aux;
+        aux = manager.createQuery("FROM Valorar v WHERE v.dueño='" + u.getNickname() + "'").getResultList();
+        System.out.println(aux);
+        if(aux != null)
+            return aux;
+        return null;
+    }
+    
+    public void valorarVid(Valorar v) {
+        manager = emf.createEntityManager();
+        manager.getTransaction().begin();
+        manager.persist(v);
+        manager.getTransaction().commit();
+        manager.close();
+    }
+    
+    public void modificoVal(Valorar v) {
+        manager = emf.createEntityManager();
+        manager.getTransaction().begin();
+        Query query = manager.createQuery("update from Valorar v set v.val='" + v.getVal() + "' where v.dueño='" + v.getDueño().getCanal().getNombre_canal() + "' and v.vid='" + v.getVid() + "' and v.user='" + v.getUser() + "'");
+        query.executeUpdate();
+        Valorar val = manager.find(Valorar.class, v.getDueño().getNickname());
+        manager.remove(val);
+        manager.persist(v);
+        manager.getTransaction().commit();
+        manager.close();
+    }
 }

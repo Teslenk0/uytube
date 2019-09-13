@@ -11,7 +11,9 @@ import excepciones.UsuarioRepetidoException;
 import interfaces.IControladorUsuario;
 import DataTypes.DtUsuario;
 import DataTypes.DtCanal;
+import DataTypes.DtValorar;
 import clases.Canal;
+import clases.Valorar;
 import excepciones.CanalRepetidoException;
 import excepciones.EmailRepetidoException;
 import java.awt.image.BufferedImage;
@@ -168,5 +170,26 @@ public class ControladorUsuario implements IControladorUsuario{
             return aux;
         }
         return null;
+    }
+    
+    @Override
+    public void valorarVideo(String u, String video, String user_val, String val) {
+        ManejadorInformacion mu = ManejadorInformacion.getInstance();
+        Usuario user = mu.buscadorUsuario(u);
+        List lista = mu.obtenerVal(u);
+        Valorar v = new Valorar(user, video, user_val, val);
+        if(!lista.isEmpty()) {
+            Valorar dtaux;
+            for(int x = 0; x < lista.size(); x++) {
+                dtaux = (Valorar)lista.get(x);
+                if(dtaux.getVid().equals(video)&&dtaux.getUser().equals(user_val)&&!dtaux.getVal().equals(val)) {
+                    mu.modificoVal(v);
+                }
+                
+            }
+        }
+        else {
+            mu.valorarVid(v);
+        }
     }
 }
