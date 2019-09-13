@@ -489,6 +489,7 @@ public class MenuInicio extends javax.swing.JFrame {
         jSeparator104 = new javax.swing.JSeparator();
         jSeparator108 = new javax.swing.JSeparator();
         Central4_1 = new javax.swing.JPanel();
+        altacat6 = new javax.swing.JLabel();
         Privado4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         NombreLista = new javax.swing.JTextField();
@@ -506,6 +507,8 @@ public class MenuInicio extends javax.swing.JFrame {
         Si3 = new javax.swing.JRadioButton();
         No3 = new javax.swing.JRadioButton();
         jSeparator111 = new javax.swing.JSeparator();
+        jSeparator98 = new javax.swing.JSeparator();
+        jSeparator100 = new javax.swing.JSeparator();
         Central4_2 = new javax.swing.JPanel();
         listaModificarListaLabel = new javax.swing.JLabel();
         usuarioModificarListaLabel = new javax.swing.JLabel();
@@ -526,10 +529,6 @@ public class MenuInicio extends javax.swing.JFrame {
         listaModificarListaLabel1 = new javax.swing.JLabel();
         usuarioModificarListaLabel1 = new javax.swing.JLabel();
         privadaModificarListaLabel1 = new javax.swing.JLabel();
-        jSeparator80 = new javax.swing.JSeparator();
-        jSeparator81 = new javax.swing.JSeparator();
-        jSeparator82 = new javax.swing.JSeparator();
-        jSeparator83 = new javax.swing.JSeparator();
         BackButton11 = new javax.swing.JButton();
         comboListaDestino = new javax.swing.JComboBox<>();
         comboUsuarioOrigen = new javax.swing.JComboBox<>();
@@ -539,9 +538,14 @@ public class MenuInicio extends javax.swing.JFrame {
         botonSelectUsuarioDestino = new javax.swing.JButton();
         comboUsuarioDestino = new javax.swing.JComboBox<>();
         botonSelectUsuarioOrigen = new javax.swing.JButton();
+        CambiarUsuario13 = new javax.swing.JButton();
         radioParticular = new javax.swing.JRadioButton();
         radioDefecto = new javax.swing.JRadioButton();
         usuarioModificarListaLabel2 = new javax.swing.JLabel();
+        jSeparator112 = new javax.swing.JSeparator();
+        jSeparator113 = new javax.swing.JSeparator();
+        altacat8 = new javax.swing.JLabel();
+        jSeparator115 = new javax.swing.JSeparator();
         Central4_4 = new javax.swing.JPanel();
         listaModificarListaLabel2 = new javax.swing.JLabel();
         usuarioModificarListaLabel3 = new javax.swing.JLabel();
@@ -2224,7 +2228,7 @@ public class MenuInicio extends javax.swing.JFrame {
         No1.setBorder(null);
         No1.setFocusable(false);
         Central2_3_1.add(No1);
-        No1.setBounds(590, 400, 50, 15);
+        No1.setBounds(590, 395, 50, 20);
 
         TrueFalse.add(Si1);
         Si1.setFont(berlin);
@@ -2232,7 +2236,7 @@ public class MenuInicio extends javax.swing.JFrame {
         Si1.setBorder(null);
         Si1.setFocusable(false);
         Central2_3_1.add(Si1);
-        Si1.setBounds(520, 400, 50, 15);
+        Si1.setBounds(520, 395, 50, 20);
 
         Panel_Central.add(Central2_3_1);
         Central2_3_1.setBounds(0, 0, 720, 500);
@@ -2883,37 +2887,37 @@ public class MenuInicio extends javax.swing.JFrame {
         Central3_2_1_1.setLayout(null);
 
         nombre3.setFont(berlin);
-        nombre3.setText("Nombre de video:");
+        nombre3.setText("Nombre de video");
         Central3_2_1_1.add(nombre3);
         nombre3.setBounds(40, 40, 130, 14);
 
         duracion.setFont(berlin);
-        duracion.setText("Duración:");
+        duracion.setText("Duración");
         Central3_2_1_1.add(duracion);
         duracion.setBounds(40, 80, 90, 14);
 
         url.setFont(berlin);
-        url.setText("URL:");
+        url.setText("URL");
         Central3_2_1_1.add(url);
         url.setBounds(40, 120, 90, 14);
 
         categoria.setFont(berlin);
-        categoria.setText("Categoria:");
+        categoria.setText("Categoria");
         Central3_2_1_1.add(categoria);
         categoria.setBounds(40, 160, 120, 14);
 
         descvideo.setFont(berlin);
-        descvideo.setText("Descripción:");
+        descvideo.setText("Descripción");
         Central3_2_1_1.add(descvideo);
         descvideo.setBounds(520, 90, 120, 14);
 
         fechavideo.setFont(berlin);
-        fechavideo.setText("Fecha de publicación:");
+        fechavideo.setText("Fecha de publicación");
         Central3_2_1_1.add(fechavideo);
         fechavideo.setBounds(510, 40, 150, 14);
 
         Privado10.setFont(berlin);
-        Privado10.setText("¿Desea hacer el video privado?:");
+        Privado10.setText("¿Desea hacer el video privado?");
         Central3_2_1_1.add(Privado10);
         Privado10.setBounds(40, 200, 210, 20);
 
@@ -3007,7 +3011,7 @@ public class MenuInicio extends javax.swing.JFrame {
         No2.setFocusable(false);
         No2.setNextFocusableComponent(CampoDescripcion);
         Central3_2_1_1.add(No2);
-        No2.setBounds(330, 200, 50, 15);
+        No2.setBounds(330, 200, 50, 20);
 
         TrueFalse.add(Si2);
         Si2.setFont(berlin);
@@ -3016,7 +3020,7 @@ public class MenuInicio extends javax.swing.JFrame {
         Si2.setFocusable(false);
         Si2.setNextFocusableComponent(CampoDescripcion);
         Central3_2_1_1.add(Si2);
-        Si2.setBounds(260, 200, 50, 15);
+        Si2.setBounds(260, 200, 50, 20);
 
         comboVideoCat1.setFont(berlin);
         comboVideoCat1.setForeground(new java.awt.Color(102, 102, 102));
@@ -3697,17 +3701,22 @@ public class MenuInicio extends javax.swing.JFrame {
 
         Central4_1.setLayout(null);
 
+        altacat6.setFont(berlin.deriveFont(20f));
+        altacat6.setText("Crear Playlist");
+        Central4_1.add(altacat6);
+        altacat6.setBounds(290, 40, 220, 20);
+
         Privado4.setFont(berlin);
         Privado4.setForeground(new java.awt.Color(102, 102, 102));
         Privado4.setText("Tipo de Lista:");
         Central4_1.add(Privado4);
-        Privado4.setBounds(160, 120, 160, 20);
+        Privado4.setBounds(180, 120, 160, 20);
 
         jLabel1.setFont(berlin);
         jLabel1.setForeground(new java.awt.Color(102, 102, 102));
         jLabel1.setText("Nombre lista:");
         Central4_1.add(jLabel1);
-        jLabel1.setBounds(160, 180, 100, 20);
+        jLabel1.setBounds(180, 180, 100, 20);
 
         Varnick.setEditable(false);
         NombreLista.setEditable(false);
@@ -3722,29 +3731,29 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central4_1.add(NombreLista);
-        NombreLista.setBounds(310, 180, 220, 20);
+        NombreLista.setBounds(330, 180, 220, 20);
 
         jLabel2.setFont(berlin);
         jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setText("Usuario:");
         Central4_1.add(jLabel2);
-        jLabel2.setBounds(160, 280, 130, 20);
+        jLabel2.setBounds(180, 280, 130, 20);
 
         Privado5.setFont(berlin);
         Privado5.setForeground(new java.awt.Color(102, 102, 102));
         Privado5.setText("Categoria:");
         Central4_1.add(Privado5);
-        Privado5.setBounds(160, 320, 130, 20);
+        Privado5.setBounds(180, 320, 130, 20);
 
         Privado6.setFont(berlin);
         Privado6.setForeground(new java.awt.Color(102, 102, 102));
         Privado6.setText("Lista privada:");
         Central4_1.add(Privado6);
-        Privado6.setBounds(160, 220, 130, 20);
+        Privado6.setBounds(180, 220, 130, 20);
 
         comboCategoriasCrearLista.setFont(berlin);
         Central4_1.add(comboCategoriasCrearLista);
-        comboCategoriasCrearLista.setBounds(300, 320, 220, 22);
+        comboCategoriasCrearLista.setBounds(320, 320, 220, 22);
 
         CrearLista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_2.png"))); // NOI18N
         CrearLista.setBorderPainted(false);
@@ -3758,7 +3767,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central4_1.add(CrearLista);
-        CrearLista.setBounds(290, 370, 70, 40);
+        CrearLista.setBounds(310, 370, 70, 40);
 
         BackButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back.png"))); // NOI18N
         BackButton6.setBorder(null);
@@ -3776,7 +3785,7 @@ public class MenuInicio extends javax.swing.JFrame {
 
         NombreUserLista.setFont(berlin);
         Central4_1.add(NombreUserLista);
-        NombreUserLista.setBounds(300, 280, 220, 22);
+        NombreUserLista.setBounds(320, 280, 220, 22);
 
         TrueFalse.add(radioParticular1);
         radioParticular1.setFont(berlin);
@@ -3789,7 +3798,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central4_1.add(radioParticular1);
-        radioParticular1.setBounds(400, 120, 90, 20);
+        radioParticular1.setBounds(420, 120, 90, 20);
 
         TrueFalse.add(radioDefecto1);
         radioDefecto1.setFont(berlin);
@@ -3802,17 +3811,17 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central4_1.add(radioDefecto1);
-        radioDefecto1.setBounds(310, 120, 90, 20);
+        radioDefecto1.setBounds(330, 120, 90, 20);
 
         jSeparator109.setBackground(new java.awt.Color(153, 153, 153));
         jSeparator109.setForeground(new java.awt.Color(153, 153, 153));
         Central4_1.add(jSeparator109);
-        jSeparator109.setBounds(310, 200, 210, 20);
+        jSeparator109.setBounds(330, 200, 210, 20);
 
         jSeparator110.setBackground(new java.awt.Color(153, 153, 153));
         jSeparator110.setForeground(new java.awt.Color(153, 153, 153));
         Central4_1.add(jSeparator110);
-        jSeparator110.setBounds(160, 260, 360, 30);
+        jSeparator110.setBounds(180, 260, 360, 30);
 
         VoT.add(Si3);
         Si3.setFont(berlin);
@@ -3821,7 +3830,7 @@ public class MenuInicio extends javax.swing.JFrame {
         Si3.setFocusable(false);
         Si3.setNextFocusableComponent(CampoDescripcion);
         Central4_1.add(Si3);
-        Si3.setBounds(310, 220, 50, 20);
+        Si3.setBounds(330, 220, 50, 20);
 
         VoT.add(No3);
         No3.setFont(berlin);
@@ -3830,12 +3839,22 @@ public class MenuInicio extends javax.swing.JFrame {
         No3.setFocusable(false);
         No3.setNextFocusableComponent(CampoDescripcion);
         Central4_1.add(No3);
-        No3.setBounds(400, 220, 50, 20);
+        No3.setBounds(420, 220, 50, 20);
 
         jSeparator111.setBackground(new java.awt.Color(153, 153, 153));
         jSeparator111.setForeground(new java.awt.Color(153, 153, 153));
         Central4_1.add(jSeparator111);
-        jSeparator111.setBounds(160, 150, 360, 30);
+        jSeparator111.setBounds(180, 150, 360, 30);
+
+        jSeparator98.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator98.setForeground(new java.awt.Color(153, 153, 153));
+        Central4_1.add(jSeparator98);
+        jSeparator98.setBounds(20, 450, 675, 30);
+
+        jSeparator100.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator100.setForeground(new java.awt.Color(153, 153, 153));
+        Central4_1.add(jSeparator100);
+        jSeparator100.setBounds(20, 90, 675, 30);
 
         Panel_Central.add(Central4_1);
         Central4_1.setBounds(0, 0, 720, 550);
@@ -3938,27 +3957,19 @@ public class MenuInicio extends javax.swing.JFrame {
         listaModificarListaLabel1.setForeground(new java.awt.Color(102, 102, 102));
         listaModificarListaLabel1.setText("Video");
         Central4_3.add(listaModificarListaLabel1);
-        listaModificarListaLabel1.setBounds(160, 150, 150, 20);
+        listaModificarListaLabel1.setBounds(130, 170, 150, 20);
 
         usuarioModificarListaLabel1.setFont(berlin);
         usuarioModificarListaLabel1.setForeground(new java.awt.Color(102, 102, 102));
         usuarioModificarListaLabel1.setText("Tipo de lista de destino");
         Central4_3.add(usuarioModificarListaLabel1);
-        usuarioModificarListaLabel1.setBounds(340, 240, 160, 20);
+        usuarioModificarListaLabel1.setBounds(330, 270, 160, 20);
 
         privadaModificarListaLabel1.setFont(berlin);
         privadaModificarListaLabel1.setForeground(new java.awt.Color(102, 102, 102));
         privadaModificarListaLabel1.setText("Lista destino");
         Central4_3.add(privadaModificarListaLabel1);
-        privadaModificarListaLabel1.setBounds(160, 360, 100, 14);
-        Central4_3.add(jSeparator80);
-        jSeparator80.setBounds(310, 120, 220, 20);
-        Central4_3.add(jSeparator81);
-        jSeparator81.setBounds(310, 220, 220, 20);
-        Central4_3.add(jSeparator82);
-        jSeparator82.setBounds(310, 390, 220, 20);
-        Central4_3.add(jSeparator83);
-        jSeparator83.setBounds(310, 170, 220, 20);
+        privadaModificarListaLabel1.setBounds(130, 410, 100, 20);
 
         BackButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back.png"))); // NOI18N
         BackButton11.setBorder(null);
@@ -3974,24 +3985,30 @@ public class MenuInicio extends javax.swing.JFrame {
         Central4_3.add(BackButton11);
         BackButton11.setBounds(0, 11, 101, 51);
 
+        comboListaDestino.setFont(berlin);
+        comboListaDestino.setEnabled(false);
         Central4_3.add(comboListaDestino);
-        comboListaDestino.setBounds(310, 360, 220, 22);
+        comboListaDestino.setBounds(280, 410, 220, 22);
 
+        comboUsuarioOrigen.setFont(berlin);
         Central4_3.add(comboUsuarioOrigen);
-        comboUsuarioOrigen.setBounds(310, 90, 220, 22);
+        comboUsuarioOrigen.setBounds(280, 120, 220, 22);
 
+        comboVideoOrigen.setFont(berlin);
+        comboVideoOrigen.setEnabled(false);
         Central4_3.add(comboVideoOrigen);
-        comboVideoOrigen.setBounds(310, 140, 220, 22);
+        comboVideoOrigen.setBounds(280, 170, 220, 22);
 
         categoriaModificarListaLabel1.setFont(berlin);
         categoriaModificarListaLabel1.setForeground(new java.awt.Color(102, 102, 102));
         categoriaModificarListaLabel1.setText("Usuario destino");
         Central4_3.add(categoriaModificarListaLabel1);
-        categoriaModificarListaLabel1.setBounds(160, 200, 110, 14);
+        categoriaModificarListaLabel1.setBounds(130, 220, 110, 20);
 
         botonAceptarModificarLista2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_2.png"))); // NOI18N
         botonAceptarModificarLista2.setBorderPainted(false);
         botonAceptarModificarLista2.setContentAreaFilled(false);
+        botonAceptarModificarLista2.setEnabled(false);
         botonAceptarModificarLista2.setFocusPainted(false);
         botonAceptarModificarLista2.setFocusable(false);
         botonAceptarModificarLista2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_1.png"))); // NOI18N
@@ -4001,11 +4018,12 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central4_3.add(botonAceptarModificarLista2);
-        botonAceptarModificarLista2.setBounds(320, 460, 70, 40);
+        botonAceptarModificarLista2.setBounds(320, 470, 80, 40);
 
         botonSelectUsuarioDestino.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_seleccionar_2.png"))); // NOI18N
         botonSelectUsuarioDestino.setBorderPainted(false);
         botonSelectUsuarioDestino.setContentAreaFilled(false);
+        botonSelectUsuarioDestino.setEnabled(false);
         botonSelectUsuarioDestino.setFocusPainted(false);
         botonSelectUsuarioDestino.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_seleccionar_1.png"))); // NOI18N
         botonSelectUsuarioDestino.addActionListener(new java.awt.event.ActionListener() {
@@ -4014,10 +4032,12 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central4_3.add(botonSelectUsuarioDestino);
-        botonSelectUsuarioDestino.setBounds(370, 300, 80, 40);
+        botonSelectUsuarioDestino.setBounds(350, 330, 80, 40);
 
+        comboUsuarioDestino.setFont(berlin);
+        comboUsuarioDestino.setEnabled(false);
         Central4_3.add(comboUsuarioDestino);
-        comboUsuarioDestino.setBounds(310, 190, 220, 22);
+        comboUsuarioDestino.setBounds(280, 220, 220, 22);
 
         botonSelectUsuarioOrigen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_seleccionar_2.png"))); // NOI18N
         botonSelectUsuarioOrigen.setToolTipText("");
@@ -4031,29 +4051,64 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central4_3.add(botonSelectUsuarioOrigen);
-        botonSelectUsuarioOrigen.setBounds(550, 80, 80, 50);
+        botonSelectUsuarioOrigen.setBounds(520, 110, 80, 40);
+
+        CambiarUsuario13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_cambiar_1.png"))); // NOI18N
+        CambiarUsuario13.setBorderPainted(false);
+        CambiarUsuario13.setContentAreaFilled(false);
+        CambiarUsuario13.setFocusable(false);
+        CambiarUsuario13.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_cambiar_2.png"))); // NOI18N
+        CambiarUsuario13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CambiarUsuario13ActionPerformed(evt);
+            }
+        });
+        Central4_3.add(CambiarUsuario13);
+        CambiarUsuario13.setBounds(520, 110, 80, 40);
 
         TrueFalse.add(radioParticular);
         radioParticular.setFont(berlin);
         radioParticular.setText("Particular");
         radioParticular.setBorder(null);
+        radioParticular.setEnabled(false);
         radioParticular.setFocusable(false);
         Central4_3.add(radioParticular);
-        radioParticular.setBounds(430, 270, 90, 15);
+        radioParticular.setBounds(420, 300, 90, 15);
 
         TrueFalse.add(radioDefecto);
         radioDefecto.setFont(berlin);
         radioDefecto.setText("Defecto");
         radioDefecto.setBorder(null);
+        radioDefecto.setEnabled(false);
         radioDefecto.setFocusable(false);
         Central4_3.add(radioDefecto);
-        radioDefecto.setBounds(320, 270, 90, 15);
+        radioDefecto.setBounds(300, 300, 90, 15);
 
         usuarioModificarListaLabel2.setFont(berlin);
         usuarioModificarListaLabel2.setForeground(new java.awt.Color(102, 102, 102));
         usuarioModificarListaLabel2.setText("Usuario");
         Central4_3.add(usuarioModificarListaLabel2);
-        usuarioModificarListaLabel2.setBounds(160, 100, 160, 20);
+        usuarioModificarListaLabel2.setBounds(130, 120, 160, 20);
+
+        jSeparator112.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator112.setForeground(new java.awt.Color(153, 153, 153));
+        Central4_3.add(jSeparator112);
+        jSeparator112.setBounds(280, 380, 220, 20);
+
+        jSeparator113.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator113.setForeground(new java.awt.Color(153, 153, 153));
+        Central4_3.add(jSeparator113);
+        jSeparator113.setBounds(280, 260, 220, 20);
+
+        altacat8.setFont(berlin.deriveFont(20f));
+        altacat8.setText("Agregar Video a Playlist");
+        Central4_3.add(altacat8);
+        altacat8.setBounds(260, 30, 220, 20);
+
+        jSeparator115.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator115.setForeground(new java.awt.Color(153, 153, 153));
+        Central4_3.add(jSeparator115);
+        jSeparator115.setBounds(20, 80, 675, 30);
 
         Panel_Central.add(Central4_3);
         Central4_3.setBounds(0, 0, 720, 550);
@@ -5874,11 +5929,12 @@ public class MenuInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_botonAceptarModificarLista2ActionPerformed
 
     private void botonSelectUsuarioDestinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSelectUsuarioDestinoActionPerformed
-        // TODO add your handling code here:
         comboListaDestino.removeAllItems();
         if (radioDefecto.isSelected()) {
             List lista = c.getListasDefecto(comboUsuarioDestino.getSelectedItem().toString());
-            if (lista != null) {
+            if (!lista.isEmpty()) {
+                comboListaDestino.setEnabled(true);
+                botonAceptarModificarLista2.setEnabled(true);
                 DtListaporDefecto aux;
                 for (int x = 0; x <= lista.size() - 1; x++) {
                     if (lista.get(x) != null) {
@@ -5886,10 +5942,18 @@ public class MenuInicio extends javax.swing.JFrame {
                         comboListaDestino.addItem(aux.getNombreLista());
                     }
                 }
+            } else {
+                comboListaDestino.setEnabled(false);
+                botonAceptarModificarLista2.setEnabled(false);
+                VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
+                error.CambioTexto("       Este usuario no tiene listas defecto");
+                error.setVisible(true);
             }
         } else {
             List lista = c.getListasReproduccion(comboUsuarioDestino.getSelectedItem().toString());
-            if (lista != null) {
+            if (!lista.isEmpty()) {
+                comboListaDestino.setEnabled(true);
+                botonAceptarModificarLista2.setEnabled(true);
                 DtListaParticulares aux;
                 for (int x = 0; x <= lista.size() - 1; x++) {
                     if (lista.get(x) != null) {
@@ -5898,14 +5962,31 @@ public class MenuInicio extends javax.swing.JFrame {
                     }
                 }
             }
+            else {
+                comboListaDestino.setEnabled(false);
+                botonAceptarModificarLista2.setEnabled(false);
+                VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
+                error.CambioTexto("   Este usuario no tiene listas particulares");
+                error.setVisible(true);
+            }
         }
     }//GEN-LAST:event_botonSelectUsuarioDestinoActionPerformed
 
     private void botonSelectUsuarioOrigenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSelectUsuarioOrigenActionPerformed
         DtUsuario user = u.buscarUsuario(comboUsuarioOrigen.getSelectedItem().toString());
         List lista = c.listaVideos(user.getCanal());
-        comboVideoOrigen.removeAllItems();
-        if (lista != null) {
+        if (!lista.isEmpty()) {
+            Central4_3.add(CambiarUsuario13);
+            Central4_3.remove(botonSelectUsuarioOrigen);
+            comboUsuarioOrigen.setEnabled(false);
+            comboVideoOrigen.setEnabled(true);
+            comboUsuarioDestino.setEnabled(true);
+            radioDefecto.setEnabled(true);
+            radioParticular.setEnabled(true);
+            botonSelectUsuarioDestino.setEnabled(true);
+            Panel_Central.revalidate();
+            Panel_Central.repaint();
+            comboVideoOrigen.removeAllItems();
             DtVideo video;
             for (int x = 0; x <= lista.size() - 1; x++) {
                 if (lista.get(x) != null) {
@@ -5913,27 +5994,42 @@ public class MenuInicio extends javax.swing.JFrame {
                     comboVideoOrigen.addItem(video.getNombre());
                 }
             }
-        }
+            lista = u.listaUsuarios();
+            comboUsuarioDestino.removeAllItems();
+            if (lista != null) {
+                DtUsuario auxUser;
+                for (int x = 0; x <= lista.size() - 1; x++) {
+                    if (lista.get(x) != null) {
+                        auxUser = (DtUsuario) lista.get(x);
+                        if (!auxUser.getNickname().equals(comboUsuarioOrigen.getSelectedItem().toString())) {
+                            comboUsuarioDestino.addItem(auxUser.getNickname());
+                        }
 
-        lista = u.listaUsuarios();
-        comboUsuarioDestino.removeAllItems();
-        if (lista != null) {
-            DtUsuario auxUser;
-            for (int x = 0; x <= lista.size() - 1; x++) {
-                if (lista.get(x) != null) {
-                    auxUser = (DtUsuario) lista.get(x);
-                    if (!auxUser.getNickname().equals(comboUsuarioOrigen.getSelectedItem().toString())) {
-                        comboUsuarioDestino.addItem(auxUser.getNickname());
                     }
-
                 }
             }
         }
+        else{
+            VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
+            error.CambioTexto("  Este usuario no contiene videos registrados");
+            error.setVisible(true);
+        }
+
     }//GEN-LAST:event_botonSelectUsuarioOrigenActionPerformed
 
     private void agregarVideo_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarVideo_ButtonActionPerformed
         List lista = u.listaUsuarios();
         if (lista != null) {
+            comboVideoOrigen.setEnabled(false);
+            comboUsuarioDestino.setEnabled(false);
+            radioDefecto.setEnabled(false);
+            radioParticular.setEnabled(false);
+            botonSelectUsuarioDestino.setEnabled(false);
+            comboListaDestino.setEnabled(false);
+            botonAceptarModificarLista2.setEnabled(false);
+            Central4_3.remove(CambiarUsuario13);
+            Central4_3.add(botonSelectUsuarioOrigen);
+            comboUsuarioOrigen.setEnabled(true);
             Panel_Central.removeAll();
             Panel_Central.add(Central4_3);
             Panel_Central.revalidate();
@@ -5964,7 +6060,6 @@ public class MenuInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_BackButton12ActionPerformed
 
     private void botonAceptarModificarLista3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAceptarModificarLista3ActionPerformed
-        // TODO add your handling code here:
         String usuario = comboUsuarioSacarVideo.getSelectedItem().toString();
         String nombreLista = comboListaSacarVideo.getSelectedItem().toString();
         String video = comboVideoSacarVideo.getSelectedItem().toString();
@@ -5981,7 +6076,6 @@ public class MenuInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_botonAceptarModificarLista3ActionPerformed
 
     private void botonSelectListaSacarVideoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSelectListaSacarVideoActionPerformed
-        // TODO add your handling code here:
         textCanalOrigenSacarVideo.setText("");
         comboVideoSacarVideo.removeAllItems();
         String nombreN = comboUsuarioSacarVideo.getSelectedItem().toString();
@@ -6407,7 +6501,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private void SeleccionarButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeleccionarButton2ActionPerformed
         DtCategoria cat = new DtCategoria(CampoCategoria.getText());
         VentanaEmergente mensaje = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-        if (!CampoCategoria.getText().equals("Ingrese Nombre de Categoría") && !CampoCategoria.getText().isBlank()) {
+        if (!CampoCategoria.getText().equals("Ingrese Nombre de Categoría") && !CampoCategoria.getText().isEmpty()) {
             try {
                 c.registrarCategoria(cat);
                 mensaje.CambioTexto("        La categoría se registro con éxito");
@@ -6982,6 +7076,21 @@ public class MenuInicio extends javax.swing.JFrame {
         this.comboCategoriasCrearLista.setEnabled(true);
     }//GEN-LAST:event_radioParticular1ActionPerformed
 
+    private void CambiarUsuario13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CambiarUsuario13ActionPerformed
+        comboVideoOrigen.setEnabled(false);
+        comboUsuarioDestino.setEnabled(false);
+        radioDefecto.setEnabled(false);
+        radioParticular.setEnabled(false);
+        botonSelectUsuarioDestino.setEnabled(false);
+        comboListaDestino.setEnabled(false);
+        botonAceptarModificarLista2.setEnabled(false);
+        Central4_3.remove(CambiarUsuario13);
+        Central4_3.add(botonSelectUsuarioOrigen);
+        comboUsuarioOrigen.setEnabled(true);
+        Panel_Central.revalidate();
+        Panel_Central.repaint();
+    }//GEN-LAST:event_CambiarUsuario13ActionPerformed
+
     private void setColor(JPanel pane) {
         pane.setBackground(new Color(114, 114, 114));
     }
@@ -7101,6 +7210,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JButton CambiarUsuario10;
     private javax.swing.JButton CambiarUsuario11;
     private javax.swing.JButton CambiarUsuario12;
+    private javax.swing.JButton CambiarUsuario13;
     private javax.swing.JButton CambiarUsuario3;
     private javax.swing.JButton CambiarUsuario4;
     private javax.swing.JButton CambiarUsuario5;
@@ -7323,7 +7433,9 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JLabel altacat3;
     private javax.swing.JLabel altacat4;
     private javax.swing.JLabel altacat5;
+    private javax.swing.JLabel altacat6;
     private javax.swing.JLabel altacat7;
+    private javax.swing.JLabel altacat8;
     private javax.swing.JLabel apellido;
     private javax.swing.JLabel apellido1;
     private javax.swing.JButton botonAceptarModificarLista1;
@@ -7429,6 +7541,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
+    private javax.swing.JSeparator jSeparator100;
     private javax.swing.JSeparator jSeparator101;
     private javax.swing.JSeparator jSeparator102;
     private javax.swing.JSeparator jSeparator103;
@@ -7441,6 +7554,9 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator11;
     private javax.swing.JSeparator jSeparator110;
     private javax.swing.JSeparator jSeparator111;
+    private javax.swing.JSeparator jSeparator112;
+    private javax.swing.JSeparator jSeparator113;
+    private javax.swing.JSeparator jSeparator115;
     private javax.swing.JSeparator jSeparator12;
     private javax.swing.JSeparator jSeparator13;
     private javax.swing.JSeparator jSeparator14;
@@ -7509,10 +7625,6 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator78;
     private javax.swing.JSeparator jSeparator79;
     private javax.swing.JSeparator jSeparator8;
-    private javax.swing.JSeparator jSeparator80;
-    private javax.swing.JSeparator jSeparator81;
-    private javax.swing.JSeparator jSeparator82;
-    private javax.swing.JSeparator jSeparator83;
     private javax.swing.JSeparator jSeparator84;
     private javax.swing.JSeparator jSeparator85;
     private javax.swing.JSeparator jSeparator86;
@@ -7528,6 +7640,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator95;
     private javax.swing.JSeparator jSeparator96;
     private javax.swing.JSeparator jSeparator97;
+    private javax.swing.JSeparator jSeparator98;
     private javax.swing.JSeparator jSeparator99;
     private javax.swing.JTable jTable1;
     private javax.swing.JTree jTree1;
