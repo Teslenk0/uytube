@@ -5,6 +5,7 @@
  */
 package controladores;
 
+import DataTypes.DtAuxiliar;
 import DataTypes.DtCanal;
 import DataTypes.DtCategoria;
 import DataTypes.DtComentario;
@@ -108,13 +109,11 @@ public class ControladorCanal implements IControladorCanal {
     }
     
     @Override
-    public DtComentario obtenerComentarioRef(String padre){
+    public DtAuxiliar obtenerComentarioRef(String padre){
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
-        Comentario com = mu.BuscarComentarioRef(padre);
-
-        DtComentario c = new DtComentario(com);
-        if (c != null) {
-            return c;
+        DtAuxiliar aux = mu.BuscarComentarioRef(padre);
+        if (aux != null) {
+            return aux;
         }
         return null;
     }

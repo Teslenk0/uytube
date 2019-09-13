@@ -4983,7 +4983,6 @@ public class MenuInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_NombreListaFocusGained
 
     private void CheckboxParticularMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CheckboxParticularMouseClicked
-        //this.NombreUser.setEditable(true);
         this.NombreLista.setEditable(true);
         this.CheckboxPublica.setEnabled(true);
         this.NombreUserLista.setEnabled(true);
@@ -5066,7 +5065,6 @@ public class MenuInicio extends javax.swing.JFrame {
                 DtUsuario user = u.buscarUsuario(NombreUserLista.getSelectedItem().toString());
                 DtCategoria cat = new DtCategoria(comboCategoriasCrearLista.getSelectedItem().toString());
                 lista = new DtListaParticulares(CheckboxPublica.getState(), cat, nombre);
-                //System.out.println(lista.getCanal().getUsuario().getNombre());
                 try {
                     c.crearListaParticular((DtListaParticulares) lista, user);
                     ventana.CambioTexto("La lista se creo exitosamente");
@@ -5418,6 +5416,7 @@ public class MenuInicio extends javax.swing.JFrame {
                 if (listaCom.get(x) != null) {
                     String coment = c.comentarioEsp(com.getReferencia());
                     String padre = com.getPadre();
+                    String ref = com.getReferencia().toString();
                     DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) jTree1.getModel().getRoot();
                     if (padre == null) {
                         int hijos = jTree1.getModel().getChildCount(raiz);
@@ -5425,11 +5424,10 @@ public class MenuInicio extends javax.swing.JFrame {
                         modelo.insertNodeInto(aux, abuelo, hijos);
                     } else {
                         
-                        DtComentario comentario = c.obtenerComentarioRef(com.getPadre());
+                        DtAuxiliar comentario = c.obtenerComentarioRef(padre);
                         DefaultMutableTreeNode viejo = findNode(comentario.getNick() + "::" + comentario.getComentario());
-
+                        
                         if (viejo != null) {
-
                             int hijos = jTree1.getModel().getChildCount(viejo);
                             DefaultMutableTreeNode nuevo = new DefaultMutableTreeNode(com.getNick() + "::" + coment);
                             modelo.insertNodeInto(nuevo, viejo, hijos);
@@ -5443,6 +5441,7 @@ public class MenuInicio extends javax.swing.JFrame {
             DefaultTreeModel modelo = new DefaultTreeModel(abuelo);
             jTree1.setModel(modelo);
         }
+
     }//GEN-LAST:event_SeleccionarVideoActionPerformed
 
     private void CampoComFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CampoComFocusGained
@@ -5513,7 +5512,6 @@ public class MenuInicio extends javax.swing.JFrame {
             error.CambioTexto(" No existe el usuario. ");
             error.setVisible(true);
         }
-
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void BackButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButton8ActionPerformed

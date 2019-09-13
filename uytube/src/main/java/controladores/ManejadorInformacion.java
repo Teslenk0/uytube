@@ -11,6 +11,7 @@ import javax.persistence.Persistence;
 import clases.*;
 import DataTypes.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import javax.persistence.Query;
 
@@ -175,15 +176,20 @@ public class ManejadorInformacion {
         manager = emf.createEntityManager();
          List<Object[]> comentario = manager.createNativeQuery("SELECT comentario, Referencia, Padre, nickname FROM comentarios_video where Video='" + v.getNombre() +"';").getResultList();
          List<DtAuxiliar> comentarios = new ArrayList<>();
-         for(var row : comentario) {
+         for(Object[] row : comentario) {
              comentarios.add(new DtAuxiliar((String)row[0], (Integer)row[1], (String) row[2], (String) row[3]));
            }
          return comentarios;
     }
 
-    public Comentario BuscarComentarioRef(String padre) {
-        Comentario c = (Comentario) manager.createQuery("FROM Comentario c WHERE c.ref = '" + padre + "'").getSingleResult();
-        return c;
+    public DtAuxiliar BuscarComentarioRef(String padre) {
+        manager = emf.createEntityManager();
+        Object[] comentario = ((List<Object[]>)manager.createNativeQuery("SELECT comentario, Referencia, Padre, nickname FROM comentarios_video where Referencia='" + padre +"';").getResultList()).get(0);
+        if (comentario != null){
+            DtAuxiliar c = new DtAuxiliar( (String)comentario[0], (Integer) comentario[1] , (String)comentario[2], (String)comentario[3]);
+            return c;
+        }
+        return null;
     }
 
     public String comEsp(Integer num) {

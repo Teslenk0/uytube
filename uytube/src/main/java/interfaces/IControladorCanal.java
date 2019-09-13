@@ -5,6 +5,7 @@
  */
 package interfaces;
 
+import DataTypes.DtAuxiliar;
 import DataTypes.DtCanal;
 import DataTypes.DtCategoria;
 import DataTypes.DtComentario;
@@ -39,7 +40,7 @@ public interface IControladorCanal {
     
     public abstract DtComentario obtenerComentario(String comentario);
     
-    public abstract DtComentario obtenerComentarioRef(String padre);
+    public abstract DtAuxiliar obtenerComentarioRef(String padre);
     
     public abstract String comentarioEsp(Integer num);
     
