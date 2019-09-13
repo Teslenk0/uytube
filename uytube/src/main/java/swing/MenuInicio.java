@@ -22,6 +22,7 @@ import excepciones.EmailRepetidoException;
 import excepciones.ListaRepetidaException;
 import excepciones.UsuarioRepetidoException;
 import excepciones.VideoRepetidoException;
+import excepciones.VideoYaExisteEnListaException;
 import fabrica.Fabrica;
 import interfaces.IControladorCanal;
 import interfaces.IControladorUsuario;
@@ -92,6 +93,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private void initComponents() {
 
         TrueFalse = new javax.swing.ButtonGroup();
+        VoT = new javax.swing.ButtonGroup();
         Panel_Lateral = new javax.swing.JPanel();
         btn_Categorias = new javax.swing.JPanel();
         ind_6 = new javax.swing.JPanel();
@@ -484,26 +486,23 @@ public class MenuInicio extends javax.swing.JFrame {
         jSeparator104 = new javax.swing.JSeparator();
         jSeparator108 = new javax.swing.JSeparator();
         Central4_1 = new javax.swing.JPanel();
-        CheckboxPorDefecto = new java.awt.Checkbox();
-        Privado3 = new javax.swing.JLabel();
         Privado4 = new javax.swing.JLabel();
-        CheckboxParticular = new java.awt.Checkbox();
         jLabel1 = new javax.swing.JLabel();
         NombreLista = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        CheckboxPublica = new java.awt.Checkbox();
         Privado5 = new javax.swing.JLabel();
         Privado6 = new javax.swing.JLabel();
         comboCategoriasCrearLista = new javax.swing.JComboBox<>();
-        jSeparator34 = new javax.swing.JSeparator();
-        jSeparator35 = new javax.swing.JSeparator();
-        jSeparator36 = new javax.swing.JSeparator();
-        jSeparator37 = new javax.swing.JSeparator();
-        jSeparator38 = new javax.swing.JSeparator();
-        jSeparator39 = new javax.swing.JSeparator();
         CrearLista = new javax.swing.JButton();
         BackButton6 = new javax.swing.JButton();
         NombreUserLista = new javax.swing.JComboBox<>();
+        radioParticular1 = new javax.swing.JRadioButton();
+        radioDefecto1 = new javax.swing.JRadioButton();
+        jSeparator109 = new javax.swing.JSeparator();
+        jSeparator110 = new javax.swing.JSeparator();
+        Si3 = new javax.swing.JRadioButton();
+        No3 = new javax.swing.JRadioButton();
+        jSeparator111 = new javax.swing.JSeparator();
         Central4_2 = new javax.swing.JPanel();
         listaModificarListaLabel = new javax.swing.JLabel();
         usuarioModificarListaLabel = new javax.swing.JLabel();
@@ -3705,43 +3704,17 @@ public class MenuInicio extends javax.swing.JFrame {
 
         Central4_1.setLayout(null);
 
-        CheckboxPorDefecto.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                CheckboxPorDefectoMouseClicked(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                CheckboxPorDefectoMouseReleased(evt);
-            }
-        });
-        Central4_1.add(CheckboxPorDefecto);
-        CheckboxPorDefecto.setBounds(320, 140, 20, 20);
-
-        Privado3.setFont(berlin);
-        Privado3.setForeground(new java.awt.Color(102, 102, 102));
-        Privado3.setText("Lista por defecto");
-        Central4_1.add(Privado3);
-        Privado3.setBounds(160, 140, 230, 20);
-        Privado3.getAccessibleContext().setAccessibleDescription("Lista por defecto");
-
         Privado4.setFont(berlin);
         Privado4.setForeground(new java.awt.Color(102, 102, 102));
-        Privado4.setText("Lista particular");
+        Privado4.setText("Tipo de Lista:");
         Central4_1.add(Privado4);
-        Privado4.setBounds(160, 100, 160, 20);
-
-        CheckboxParticular.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                CheckboxParticularMouseClicked(evt);
-            }
-        });
-        Central4_1.add(CheckboxParticular);
-        CheckboxParticular.setBounds(320, 100, 20, 20);
+        Privado4.setBounds(160, 120, 160, 20);
 
         jLabel1.setFont(berlin);
         jLabel1.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel1.setText("Nombre lista");
+        jLabel1.setText("Nombre lista:");
         Central4_1.add(jLabel1);
-        jLabel1.setBounds(160, 190, 100, 14);
+        jLabel1.setBounds(160, 180, 100, 20);
 
         Varnick.setEditable(false);
         NombreLista.setEditable(false);
@@ -3755,52 +3728,30 @@ public class MenuInicio extends javax.swing.JFrame {
                 NombreListaFocusGained(evt);
             }
         });
-        NombreLista.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NombreListaActionPerformed(evt);
-            }
-        });
         Central4_1.add(NombreLista);
-        NombreLista.setBounds(310, 180, 220, 30);
+        NombreLista.setBounds(310, 180, 220, 20);
 
         jLabel2.setFont(berlin);
         jLabel2.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel2.setText("Nombre usuario");
+        jLabel2.setText("Usuario:");
         Central4_1.add(jLabel2);
-        jLabel2.setBounds(160, 240, 130, 14);
-
-        CheckboxPublica.setEnabled(false);
-        Central4_1.add(CheckboxPublica);
-        CheckboxPublica.setBounds(320, 280, 20, 20);
+        jLabel2.setBounds(160, 280, 130, 20);
 
         Privado5.setFont(berlin);
         Privado5.setForeground(new java.awt.Color(102, 102, 102));
-        Privado5.setText("Categoria");
+        Privado5.setText("Categoria:");
         Central4_1.add(Privado5);
         Privado5.setBounds(160, 320, 130, 20);
 
         Privado6.setFont(berlin);
         Privado6.setForeground(new java.awt.Color(102, 102, 102));
-        Privado6.setText("Lista privada");
+        Privado6.setText("Lista privada:");
         Central4_1.add(Privado6);
-        Privado6.setBounds(160, 280, 130, 20);
+        Privado6.setBounds(160, 220, 130, 20);
 
         comboCategoriasCrearLista.setFont(berlin);
-        comboCategoriasCrearLista.setEnabled(false);
         Central4_1.add(comboCategoriasCrearLista);
-        comboCategoriasCrearLista.setBounds(310, 320, 220, 22);
-        Central4_1.add(jSeparator34);
-        jSeparator34.setBounds(310, 120, 220, 20);
-        Central4_1.add(jSeparator35);
-        jSeparator35.setBounds(310, 210, 220, 20);
-        Central4_1.add(jSeparator36);
-        jSeparator36.setBounds(310, 260, 220, 20);
-        Central4_1.add(jSeparator37);
-        jSeparator37.setBounds(310, 300, 220, 20);
-        Central4_1.add(jSeparator38);
-        jSeparator38.setBounds(310, 350, 220, 20);
-        Central4_1.add(jSeparator39);
-        jSeparator39.setBounds(310, 160, 220, 20);
+        comboCategoriasCrearLista.setBounds(300, 320, 220, 22);
 
         CrearLista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_2.png"))); // NOI18N
         CrearLista.setBorderPainted(false);
@@ -3814,7 +3765,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central4_1.add(CrearLista);
-        CrearLista.setBounds(310, 410, 70, 40);
+        CrearLista.setBounds(290, 370, 70, 40);
 
         BackButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back.png"))); // NOI18N
         BackButton6.setBorder(null);
@@ -3832,7 +3783,66 @@ public class MenuInicio extends javax.swing.JFrame {
 
         NombreUserLista.setFont(berlin);
         Central4_1.add(NombreUserLista);
-        NombreUserLista.setBounds(310, 230, 220, 22);
+        NombreUserLista.setBounds(300, 280, 220, 22);
+
+        TrueFalse.add(radioParticular1);
+        radioParticular1.setFont(berlin);
+        radioParticular1.setText("Particular");
+        radioParticular1.setBorder(null);
+        radioParticular1.setFocusable(false);
+        radioParticular1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radioParticular1ActionPerformed(evt);
+            }
+        });
+        Central4_1.add(radioParticular1);
+        radioParticular1.setBounds(400, 120, 90, 20);
+
+        TrueFalse.add(radioDefecto1);
+        radioDefecto1.setFont(berlin);
+        radioDefecto1.setText("Defecto");
+        radioDefecto1.setBorder(null);
+        radioDefecto1.setFocusable(false);
+        radioDefecto1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radioDefecto1ActionPerformed(evt);
+            }
+        });
+        Central4_1.add(radioDefecto1);
+        radioDefecto1.setBounds(310, 120, 90, 20);
+
+        jSeparator109.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator109.setForeground(new java.awt.Color(153, 153, 153));
+        Central4_1.add(jSeparator109);
+        jSeparator109.setBounds(310, 200, 210, 20);
+
+        jSeparator110.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator110.setForeground(new java.awt.Color(153, 153, 153));
+        Central4_1.add(jSeparator110);
+        jSeparator110.setBounds(160, 260, 360, 30);
+
+        VoT.add(Si3);
+        Si3.setFont(berlin);
+        Si3.setText("Si");
+        Si3.setBorder(null);
+        Si3.setFocusable(false);
+        Si3.setNextFocusableComponent(CampoDescripcion);
+        Central4_1.add(Si3);
+        Si3.setBounds(310, 220, 50, 20);
+
+        VoT.add(No3);
+        No3.setFont(berlin);
+        No3.setText("No");
+        No3.setBorder(null);
+        No3.setFocusable(false);
+        No3.setNextFocusableComponent(CampoDescripcion);
+        Central4_1.add(No3);
+        No3.setBounds(400, 220, 50, 20);
+
+        jSeparator111.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator111.setForeground(new java.awt.Color(153, 153, 153));
+        Central4_1.add(jSeparator111);
+        jSeparator111.setBounds(160, 150, 360, 30);
 
         Panel_Central.add(Central4_1);
         Central4_1.setBounds(0, 0, 720, 550);
@@ -5094,57 +5104,9 @@ public class MenuInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_crearPlaylist_ButtonActionPerformed
 
     private void NombreListaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_NombreListaFocusGained
-
+        if(NombreLista.getText().equals("Ingrese Nombre de la Lista"))
+            NombreLista.setText("");
     }//GEN-LAST:event_NombreListaFocusGained
-
-    private void CheckboxParticularMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CheckboxParticularMouseClicked
-        this.NombreLista.setEditable(true);
-        this.CheckboxPublica.setEnabled(true);
-        this.NombreUserLista.setEnabled(true);
-        List lista = u.listaUsuarios();
-        List categorias = c.getCategorias();
-        if (NombreUserLista.getItemCount() != 0) {
-            NombreUserLista.removeAllItems();
-        }
-        if (comboCategoriasCrearLista.getItemCount() != 0) {
-            comboCategoriasCrearLista.removeAllItems();
-        }
-
-        if (lista != null) {
-            DtUsuario user;
-            for (int x = 0; x <= lista.size() - 1; x++) {
-                if (lista.get(x) != null) {
-                    user = (DtUsuario) lista.get(x);
-                    NombreUserLista.addItem(user.getNickname());
-                }
-            }
-        }
-        if (categorias != null) {
-            DtCategoria cat;
-            for (int x = 0; x <= categorias.size() - 1; x++) {
-                if (categorias.get(x) != null) {
-                    cat = (DtCategoria) categorias.get(x);
-                    comboCategoriasCrearLista.addItem(cat.getnombreCategoria());
-                }
-            }
-        }
-        this.comboCategoriasCrearLista.setEnabled(true);
-    }//GEN-LAST:event_CheckboxParticularMouseClicked
-
-    private void CheckboxPorDefectoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CheckboxPorDefectoMouseClicked
-        this.NombreLista.setEditable(true);
-        this.NombreUserLista.setEnabled(false);
-        this.CheckboxPublica.setEnabled(false);
-        this.comboCategoriasCrearLista.setEnabled(false);
-    }//GEN-LAST:event_CheckboxPorDefectoMouseClicked
-
-    private void CheckboxPorDefectoMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CheckboxPorDefectoMouseReleased
-
-    }//GEN-LAST:event_CheckboxPorDefectoMouseReleased
-
-    private void NombreListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreListaActionPerformed
-
-    }//GEN-LAST:event_NombreListaActionPerformed
 
     private void BackButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButton6ActionPerformed
         Panel_Central.removeAll();
@@ -5154,20 +5116,17 @@ public class MenuInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_BackButton6ActionPerformed
 
     private void CrearListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearListaActionPerformed
-        Boolean defecto = CheckboxPorDefecto.getState();
-        Boolean particular = CheckboxParticular.getState();
+
         VentanaEmergente ventana = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-        if (defecto == true && particular == true) {
-            ventana.CambioTexto("   Solo puedes seleccionar un tipo de lista");
-            ventana.setVisible(true);
-        } else if (defecto == false && particular == false) {
-            ventana.CambioTexto("   Debes seleccionar un tipo de lista");
+
+        if (!radioDefecto1.isSelected() && !radioParticular1.isSelected()) {
+            ventana.CambioTexto("    Debes seleccionar un tipo de lista");
             ventana.setVisible(true);
         } else {
-            String nombre = NombreLista.getText();
+            String nombreL = NombreLista.getText();
             DtListaReproduccion lista;
-            if (defecto) { //aca creo una lista por defecto
-                lista = new DtListaporDefecto(nombre);
+            if (radioDefecto1.isSelected()) { 
+                lista = new DtListaporDefecto(nombreL);
                 try {
                     c.crearListaDefecto(lista);
                     ventana.CambioTexto("La lista se creo exitosamente");
@@ -5179,7 +5138,7 @@ public class MenuInicio extends javax.swing.JFrame {
             } else {//aca creo una lista particular
                 DtUsuario user = u.buscarUsuario(NombreUserLista.getSelectedItem().toString());
                 DtCategoria cat = new DtCategoria(comboCategoriasCrearLista.getSelectedItem().toString());
-                lista = new DtListaParticulares(CheckboxPublica.getState(), cat, nombre);
+                lista = new DtListaParticulares(Si3.isSelected(), cat, nombreL);
                 try {
                     c.crearListaParticular((DtListaParticulares) lista, user);
                     ventana.CambioTexto("La lista se creo exitosamente");
@@ -5570,7 +5529,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         String nom = CampoNick1.getText();
         String com = CampoDescripcion1.getText();
-        Date fecha = DateChoose2.getDate();
+        Date fechaN = DateChoose2.getDate();
         String selecciona = CampoCom.getText();
         String video = comboVideos.getSelectedItem().toString();
         int aux = 0;
@@ -5585,12 +5544,12 @@ public class MenuInicio extends javax.swing.JFrame {
                 if (selecciona.isEmpty()) {
                     List listaTotal = c.listaComentariosTodos();
                     if (listaTotal.isEmpty()) {
-                        DtComentario co = new DtComentario(nom, com, fecha, v, null, 1, v.getCanal().getNombre_canal());
+                        DtComentario co = new DtComentario(nom, com, fechaN, v, null, 1, v.getCanal().getNombre_canal());
                         c.agregarComentario(co);
                     } else {
                         Integer r = listaTotal.size();
                         r = r + 1;
-                        DtComentario co = new DtComentario(nom, com, fecha, v, null, r, v.getCanal().getNombre_canal());
+                        DtComentario co = new DtComentario(nom, com, fechaN, v, null, r, v.getCanal().getNombre_canal());
                         c.agregarComentario(co);
                     }
                 } else {
@@ -5611,7 +5570,7 @@ public class MenuInicio extends javax.swing.JFrame {
                             String padre = r.toString();
                             Integer re = listaTotal.size();
                             re = re + 1;
-                            DtComentario co = new DtComentario(nom, com, fecha, v, padre, re, v.getCanal().getNombre_canal());
+                            DtComentario co = new DtComentario(nom, com, fechaN, v, padre, re, v.getCanal().getNombre_canal());
                             c.agregarComentario(co);
                         }
                     }
@@ -5927,7 +5886,7 @@ public class MenuInicio extends javax.swing.JFrame {
                 VentanaEmergente ok = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
                 ok.CambioTexto("  Se ha ingresado el video a la lista correctamente");
                 ok.setVisible(true);
-            } catch (Exception e) {
+            } catch (VideoYaExisteEnListaException e) {
                 VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
                 error.CambioTexto("  Ya existe el video en la lista");
                 error.setVisible(true);
@@ -5938,7 +5897,7 @@ public class MenuInicio extends javax.swing.JFrame {
                 VentanaEmergente ok = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
                 ok.CambioTexto("  Se ha ingresado el video a la lista correctamente");
                 ok.setVisible(true);
-            } catch (Exception e) {
+            } catch (VideoYaExisteEnListaException e) {
                 VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
                 error.CambioTexto("  Ya existe el video en la lista");
                 error.setVisible(true);
@@ -6065,11 +6024,11 @@ public class MenuInicio extends javax.swing.JFrame {
         // TODO add your handling code here:
         textCanalOrigenSacarVideo.setText("");
         comboVideoSacarVideo.removeAllItems();
-        String nombre = comboUsuarioSacarVideo.getSelectedItem().toString();
+        String nombreN = comboUsuarioSacarVideo.getSelectedItem().toString();
         String nombreLista = comboListaSacarVideo.getSelectedItem().toString();
         if (radioDefectoSacarVideo.isSelected()) {
             DtListaDefectoVideos videosxlista;
-            listaVideosaSacar = c.getVideosListaDefecto(nombre, nombreLista);
+            listaVideosaSacar = c.getVideosListaDefecto(nombreN, nombreLista);
             if (!listaVideosaSacar.isEmpty()) {
                 DtListaDefectoVideos aux;
                 for (int x = 0; x <= listaVideosaSacar.size() - 1; x++) {
@@ -6085,7 +6044,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         } else {
             DtListaParticularVideos videosxlista;
-            listaVideosaSacar = c.getVideosListaParticular(nombre, nombreLista);
+            listaVideosaSacar = c.getVideosListaParticular(nombreN, nombreLista);
             if (!listaVideosaSacar.isEmpty()) {
                 DtListaParticularVideos aux;
                 for (int x = 0; x <= listaVideosaSacar.size() - 1; x++) {
@@ -6652,7 +6611,7 @@ public class MenuInicio extends javax.swing.JFrame {
         DtUsuario us = u.buscarUsuario(user);
         List listaParticulates = c.getListasReproduccion(user);
         List listaDefecto = c.getListasDefecto(user);
-        if(listaParticulates != null && listaDefecto != null){
+        if(!listaParticulates.isEmpty() && !listaDefecto.isEmpty()){
             comboListas1.setEnabled(true);
             Central4_5_1.remove(CambiarUsuario11);
             Central4_5_1.add(SeleccionarListas);
@@ -6665,13 +6624,13 @@ public class MenuInicio extends javax.swing.JFrame {
             comboListas1.removeAllItems();
             DtListaReproduccion l;
             DtListaporDefecto ld;
-            if(listaParticulates != null){
+            if(!listaParticulates.isEmpty()){
                 for(int x = 0; x <listaParticulates.size(); x++){
                     l = (DtListaReproduccion) listaParticulates.get(x);
                     comboListas1.addItem(l.getNombreLista());
                 }
             }
-            if(listaDefecto != null){
+            if(!listaDefecto.isEmpty()){
                 for(int x = 0; x <listaDefecto.size(); x++){
                     ld = (DtListaporDefecto) listaDefecto.get(x);
                     comboListas1.addItem(ld.getNombreLista());
@@ -7028,6 +6987,49 @@ public class MenuInicio extends javax.swing.JFrame {
         Panel_Central.repaint();
     }//GEN-LAST:event_CambiarUsuario12ActionPerformed
 
+    private void radioDefecto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioDefecto1ActionPerformed
+        this.NombreLista.setEditable(true);
+        Si3.setEnabled(false);
+        No3.setEnabled(false);
+        this.NombreUserLista.setEnabled(false);
+        this.comboCategoriasCrearLista.setEnabled(false);
+    }//GEN-LAST:event_radioDefecto1ActionPerformed
+
+    private void radioParticular1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioParticular1ActionPerformed
+        this.NombreLista.setEditable(true);
+        this.NombreUserLista.setEnabled(true);
+        Si3.setEnabled(true);
+        No3.setEnabled(true);
+        List lista = u.listaUsuarios();
+        List categorias = c.getCategorias();
+        if (NombreUserLista.getItemCount() != 0) {
+            NombreUserLista.removeAllItems();
+        }
+        if (comboCategoriasCrearLista.getItemCount() != 0) {
+            comboCategoriasCrearLista.removeAllItems();
+        }
+
+        if (lista != null) {
+            DtUsuario user;
+            for (int x = 0; x <= lista.size() - 1; x++) {
+                if (lista.get(x) != null) {
+                    user = (DtUsuario) lista.get(x);
+                    NombreUserLista.addItem(user.getNickname());
+                }
+            }
+        }
+        if (categorias != null) {
+            DtCategoria cat;
+            for (int x = 0; x <= categorias.size() - 1; x++) {
+                if (categorias.get(x) != null) {
+                    cat = (DtCategoria) categorias.get(x);
+                    comboCategoriasCrearLista.addItem(cat.getnombreCategoria());
+                }
+            }
+        }
+        this.comboCategoriasCrearLista.setEnabled(true);
+    }//GEN-LAST:event_radioParticular1ActionPerformed
+
     private void setColor(JPanel pane) {
         pane.setBackground(new Color(114, 114, 114));
     }
@@ -7232,9 +7234,6 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JPanel Central5_1;
     private javax.swing.JPanel Central5_2;
     private javax.swing.JPanel Central5_3;
-    private java.awt.Checkbox CheckboxParticular;
-    private java.awt.Checkbox CheckboxPorDefecto;
-    private java.awt.Checkbox CheckboxPublica;
     private javax.swing.JComboBox<String> ComboSeguidores;
     private javax.swing.JComboBox<String> ComboSiguiendo;
     private javax.swing.JComboBox<String> ComboUsuariosLista;
@@ -7273,6 +7272,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JRadioButton No;
     private javax.swing.JRadioButton No1;
     private javax.swing.JRadioButton No2;
+    private javax.swing.JRadioButton No3;
     private javax.swing.JLabel NomCanal;
     private javax.swing.JLabel NomCanalListar;
     private javax.swing.JLabel NomVideo;
@@ -7288,7 +7288,6 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JLabel Privado10;
     private javax.swing.JLabel Privado11;
     private javax.swing.JLabel Privado2;
-    private javax.swing.JLabel Privado3;
     private javax.swing.JLabel Privado4;
     private javax.swing.JLabel Privado5;
     private javax.swing.JLabel Privado6;
@@ -7326,6 +7325,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JRadioButton Si;
     private javax.swing.JRadioButton Si1;
     private javax.swing.JRadioButton Si2;
+    private javax.swing.JRadioButton Si3;
     private javax.swing.JButton Sobrecarga;
     private javax.swing.ButtonGroup TrueFalse;
     private javax.swing.JTextField URLVideo;
@@ -7356,6 +7356,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JTextField Varnick1;
     private javax.swing.JTextField Varnom;
     private javax.swing.JTextField Varnom1;
+    private javax.swing.ButtonGroup VoT;
     private javax.swing.JButton aceptar_Button;
     private javax.swing.JButton agrVid_Button;
     private javax.swing.JLabel agregarCat;
@@ -7484,7 +7485,10 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator106;
     private javax.swing.JSeparator jSeparator107;
     private javax.swing.JSeparator jSeparator108;
+    private javax.swing.JSeparator jSeparator109;
     private javax.swing.JSeparator jSeparator11;
+    private javax.swing.JSeparator jSeparator110;
+    private javax.swing.JSeparator jSeparator111;
     private javax.swing.JSeparator jSeparator12;
     private javax.swing.JSeparator jSeparator13;
     private javax.swing.JSeparator jSeparator14;
@@ -7509,12 +7513,6 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator31;
     private javax.swing.JSeparator jSeparator32;
     private javax.swing.JSeparator jSeparator33;
-    private javax.swing.JSeparator jSeparator34;
-    private javax.swing.JSeparator jSeparator35;
-    private javax.swing.JSeparator jSeparator36;
-    private javax.swing.JSeparator jSeparator37;
-    private javax.swing.JSeparator jSeparator38;
-    private javax.swing.JSeparator jSeparator39;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator40;
     private javax.swing.JSeparator jSeparator41;
@@ -7617,8 +7615,10 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JLabel quitarVideo;
     private javax.swing.JButton quitarVideo_Button;
     private javax.swing.JRadioButton radioDefecto;
+    private javax.swing.JRadioButton radioDefecto1;
     private javax.swing.JRadioButton radioDefectoSacarVideo;
     private javax.swing.JRadioButton radioParticular;
+    private javax.swing.JRadioButton radioParticular1;
     private javax.swing.JRadioButton radioParticularSacarVideo;
     private javax.swing.JLabel seguidores;
     private javax.swing.JButton seleccionar_Button;
