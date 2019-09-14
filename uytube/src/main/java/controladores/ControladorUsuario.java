@@ -127,9 +127,12 @@ public class ControladorUsuario implements IControladorUsuario{
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         Usuario u;
         u = mu.buscadorUsuario(nick);
-        DtCanal canal = new DtCanal(u.getCanal().getNombre_canal(),u.getCanal().getDescripcion(),u.getCanal().getPrivado());
-        DtUsuario user = new DtUsuario(u.getNickname(), u.getContraseña(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen(),canal);
-        return user;
+        if(u != null){
+            DtCanal canal = new DtCanal(u.getCanal().getNombre_canal(),u.getCanal().getDescripcion(),u.getCanal().getPrivado());
+            DtUsuario user = new DtUsuario(u.getNickname(), u.getContraseña(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen(),canal);
+            return user;
+        }
+       return null;
     }
     
     @Override

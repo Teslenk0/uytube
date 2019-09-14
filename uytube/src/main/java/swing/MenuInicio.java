@@ -5605,38 +5605,41 @@ public class MenuInicio extends javax.swing.JFrame {
         DtUsuario user;
         user = u.buscarUsuario((String) comboUsuarios.getSelectedItem());
         DtVideo v = c.obtenerVideo(video, user.getCanal().getNombre_canal());
-        if (nom.equals(user.getNickname())) {
-            aux = 1;
-            if (selecciona.isEmpty()) {
-                List listaTotal = c.listaComentariosTodos();
-                if (listaTotal.isEmpty()) {
-                    DtComentario co = new DtComentario(nom, com, fechaN, v, null, 1, v.getCanal().getNombre_canal());
-                    c.agregarComentario(co);
-                } else {
-                    Integer r = listaTotal.size();
-                    r = r + 1;
-                    DtComentario co = new DtComentario(nom, com, fechaN, v, null, r, v.getCanal().getNombre_canal());
-                    c.agregarComentario(co);
-                }
-            } else {
-                DefaultMutableTreeNode seleccionar = (DefaultMutableTreeNode) jTree1.getSelectionPath().getLastPathComponent();
-                String auxiliar, aux1;
-                auxiliar = seleccionar.getUserObject().toString();
-                String[] dividir = auxiliar.split("::");
-                aux1 = dividir[1];
-                List listaCom = c.listaComentarios(v);
-                List listaTotal = c.listaComentariosTodos();
-                DtAuxiliar come;
-                for (int x = 0; x <= listaCom.size() - 1; x++) {
-                    come = (DtAuxiliar) listaCom.get(x);
-                    if (aux1.equals(come.getComentario())) {
-                        DtAuxiliar referencia = (DtAuxiliar) listaCom.get(x);
-                        Integer r = referencia.getReferencia();
-                        String padre = r.toString();
-                        Integer re = listaTotal.size();
-                        re = re + 1;
-                        DtComentario co = new DtComentario(nom, com, fechaN, v, padre, re, v.getCanal().getNombre_canal());
+        DtUsuario usuarioComenta = u.buscarUsuario(nom);
+        if(usuarioComenta != null){
+            if (usuarioComenta.getNickname().equals(nom)) {
+                aux = 1;
+                if (selecciona.isEmpty()) {
+                    List listaTotal = c.listaComentariosTodos();
+                    if (listaTotal.isEmpty()) {
+                        DtComentario co = new DtComentario(nom, com, fechaN, v, null, 1, v.getCanal().getNombre_canal());
                         c.agregarComentario(co);
+                    } else {
+                        Integer r = listaTotal.size();
+                        r = r + 1;
+                        DtComentario co = new DtComentario(nom, com, fechaN, v, null, r, v.getCanal().getNombre_canal());
+                        c.agregarComentario(co);
+                    }
+                } else {
+                    DefaultMutableTreeNode seleccionar = (DefaultMutableTreeNode) jTree1.getSelectionPath().getLastPathComponent();
+                    String auxiliar, aux1;
+                    auxiliar = seleccionar.getUserObject().toString();
+                    String[] dividir = auxiliar.split("::");
+                    aux1 = dividir[1];
+                    List listaCom = c.listaComentarios(v);
+                    List listaTotal = c.listaComentariosTodos();
+                    DtAuxiliar come;
+                    for (int x = 0; x <= listaCom.size() - 1; x++) {
+                        come = (DtAuxiliar) listaCom.get(x);
+                        if (aux1.equals(come.getComentario())) {
+                            DtAuxiliar referencia = (DtAuxiliar) listaCom.get(x);
+                            Integer r = referencia.getReferencia();
+                            String padre = r.toString();
+                            Integer re = listaTotal.size();
+                            re = re + 1;
+                            DtComentario co = new DtComentario(nom, com, fechaN, v, padre, re, v.getCanal().getNombre_canal());
+                            c.agregarComentario(co);
+                        }
                     }
                 }
             }
