@@ -70,4 +70,6 @@ public interface IControladorCanal {
     public abstract void sacarVideoLista(String usuario,String nombreLista, String video,String canalOrigen, Boolean isParticular);
     
     public abstract List listaMeGustas(String usuario);
+    
+    public abstract List listarVideosPorCategoria(String categoria);
 }

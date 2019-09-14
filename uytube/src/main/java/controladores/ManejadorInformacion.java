@@ -430,4 +430,14 @@ public class ManejadorInformacion {
         manager.close();
     }
     
+    public List obtenerVideosPorCategoria(String categoria){
+        manager = emf.createEntityManager();
+        String query = "FROM Video v WHERE v.categoria='" + categoria + "'";
+        List aux = manager.createQuery(query).getResultList(); 
+        if (aux != null) {
+            return aux;
+        }
+        return null;
+    }
+    
 }

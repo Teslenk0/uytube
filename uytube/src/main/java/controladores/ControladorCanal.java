@@ -88,7 +88,7 @@ public class ControladorCanal implements IControladorCanal {
     @Override
     public DtVideo obtenerVideo(String nomV, String c) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
-        Video video = mu.buscadorVideo(nomV,c);
+        Video video = mu.buscadorVideo(nomV, c);
 
         DtCanal canal = new DtCanal(video.getCanal().getNombre_canal(), video.getCanal().getDescripcion(), video.getCanal().getPrivado());
         DtVideo vid = new DtVideo(video.getNombre(), canal, video.getFechaPublicacion(), video.getUrl(), video.getDescripcion(), video.getCategoria(), video.getDuracion(), video.getPrivado());
@@ -111,9 +111,9 @@ public class ControladorCanal implements IControladorCanal {
         return null;
 
     }
-    
+
     @Override
-    public DtAuxiliar obtenerComentarioRef(String padre){
+    public DtAuxiliar obtenerComentarioRef(String padre) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         DtAuxiliar aux = mu.BuscarComentarioRef(padre);
         if (aux != null) {
@@ -121,12 +121,12 @@ public class ControladorCanal implements IControladorCanal {
         }
         return null;
     }
-    
+
     @Override
-    public String comentarioEsp(Integer num){
+    public String comentarioEsp(Integer num) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         String com = mu.comEsp(num);
-        
+
         if (com != null) {
             return com;
         }
@@ -138,7 +138,7 @@ public class ControladorCanal implements IControladorCanal {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         List lista = mu.listaCom(video);
         if (lista != null) {
-           return lista;
+            return lista;
         }
         return null;
     }
@@ -158,7 +158,7 @@ public class ControladorCanal implements IControladorCanal {
         }
         return null;
     }
-    
+
     @Override
     public void agregarComentario(DtComentario c) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
@@ -251,12 +251,12 @@ public class ControladorCanal implements IControladorCanal {
     }
 
     @Override
-    public void registrarCategoria(DtCategoria c) throws CategoriaRepetidaException{
+    public void registrarCategoria(DtCategoria c) throws CategoriaRepetidaException {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         Categoria cat = new Categoria(c.getnombreCategoria());
-        try{
+        try {
             mu.registrarCategoria(cat);
-        } catch(Exception e){
+        } catch (Exception e) {
             throw new CategoriaRepetidaException("Categoria repetida");
         }
     }
@@ -312,28 +312,28 @@ public class ControladorCanal implements IControladorCanal {
         }
         return aux;
     }
-    
+
     @Override
-    public void agregarVideoLista(String nombreVideo, String listaDestino, String usuarioDestino, String usuarioOrigen, Boolean isParticular) throws VideoYaExisteEnListaException{
+    public void agregarVideoLista(String nombreVideo, String listaDestino, String usuarioDestino, String usuarioOrigen, Boolean isParticular) throws VideoYaExisteEnListaException {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         Usuario userDestino = mu.buscadorUsuario(usuarioDestino);
         Usuario userOrigen = mu.buscadorUsuario(usuarioOrigen);
-        if(mu.buscoVideoEnLista(nombreVideo,listaDestino,usuarioDestino,usuarioOrigen,isParticular)){
+        if (mu.buscoVideoEnLista(nombreVideo, listaDestino, usuarioDestino, usuarioOrigen, isParticular)) {
             throw new VideoYaExisteEnListaException("El video ya existe en la lista");
         }
-        if(!isParticular){
-            ListaporDefecto list = mu.buscadorListaDefecto(userDestino.getCanal().getNombre_canal(),listaDestino);
-            ListaDefectoVideos l = new ListaDefectoVideos(list,nombreVideo,userOrigen.getCanal().getNombre_canal());
+        if (!isParticular) {
+            ListaporDefecto list = mu.buscadorListaDefecto(userDestino.getCanal().getNombre_canal(), listaDestino);
+            ListaDefectoVideos l = new ListaDefectoVideos(list, nombreVideo, userOrigen.getCanal().getNombre_canal());
             mu.agregarVideoListaDefecto(l);
-        }else{
-            ListaParticulares list = mu.buscadorListaParticular(userDestino.getCanal().getNombre_canal(),listaDestino);
-            ListaParticularVideos l = new ListaParticularVideos(list,nombreVideo,userOrigen.getCanal().getNombre_canal());
+        } else {
+            ListaParticulares list = mu.buscadorListaParticular(userDestino.getCanal().getNombre_canal(), listaDestino);
+            ListaParticularVideos l = new ListaParticularVideos(list, nombreVideo, userOrigen.getCanal().getNombre_canal());
             mu.agregarVideoListaParticular(l);
         }
     }
-    
+
     @Override
-    public List getVideosListaDefecto(String nombre,String nombreLista){
+    public List getVideosListaDefecto(String nombre, String nombreLista) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         Usuario user = mu.buscadorUsuario(nombre);
         ListaporDefecto list = mu.buscadorListaDefecto(user.getCanal().getNombre_canal(), nombreLista);
@@ -344,16 +344,16 @@ public class ControladorCanal implements IControladorCanal {
         for (int x = 0; x < listaxvideos.size(); x++) {
             if (listaxvideos.get(x) != null) {
                 tmp = (ListaDefectoVideos) listaxvideos.get(x);
-                temp = new DtListaDefectoVideos(new DtListaporDefecto(nombreLista),tmp.getVideo(),tmp.getCanal());
+                temp = new DtListaDefectoVideos(new DtListaporDefecto(nombreLista), tmp.getVideo(), tmp.getCanal());
                 aux.add(temp);
             }
         }
         return aux;
-        
+
     }
-    
+
     @Override
-    public List getVideosListaParticular(String nombre,String nombreLista){
+    public List getVideosListaParticular(String nombre, String nombreLista) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         Usuario user = mu.buscadorUsuario(nombre);
         ListaParticulares list = mu.buscadorListaParticular(user.getCanal().getNombre_canal(), nombreLista);
@@ -365,36 +365,36 @@ public class ControladorCanal implements IControladorCanal {
         for (int x = 0; x < listaxvideos.size(); x++) {
             if (listaxvideos.get(x) != null) {
                 tmp = (ListaParticularVideos) listaxvideos.get(x);
-                if(list.getCategoria() != null){
-                    listaParticular = new DtListaParticulares(list.getPrivado(),new DtCategoria(list.getCategoria().getNombreCategoria()),nombreLista);
-                }else{
-                    listaParticular = new DtListaParticulares(list.getPrivado(),null,nombreLista);
+                if (list.getCategoria() != null) {
+                    listaParticular = new DtListaParticulares(list.getPrivado(), new DtCategoria(list.getCategoria().getNombreCategoria()), nombreLista);
+                } else {
+                    listaParticular = new DtListaParticulares(list.getPrivado(), null, nombreLista);
                 }
-                temp = new DtListaParticularVideos(listaParticular,tmp.getVideo(),tmp.getCanal());
+                temp = new DtListaParticularVideos(listaParticular, tmp.getVideo(), tmp.getCanal());
                 aux.add(temp);
             }
         }
         return aux;
-        
+
     }
-    
-    public void sacarVideoLista(String usuario,String nombreLista, String video,String canalOrigen, Boolean isParticular){
+
+    public void sacarVideoLista(String usuario, String nombreLista, String video, String canalOrigen, Boolean isParticular) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         Usuario user = mu.buscadorUsuario(usuario);
-        if(isParticular){
+        if (isParticular) {
             ListaParticulares list = mu.buscadorListaParticular(user.getCanal().getNombre_canal(), nombreLista);
-            mu.removerVideoLista(list.getId(),video,canalOrigen,isParticular);
-        }else{
+            mu.removerVideoLista(list.getId(), video, canalOrigen, isParticular);
+        } else {
             ListaporDefecto list = mu.buscadorListaDefecto(user.getCanal().getNombre_canal(), nombreLista);
-            mu.removerVideoLista(list.getId(),video,canalOrigen,isParticular);
+            mu.removerVideoLista(list.getId(), video, canalOrigen, isParticular);
         }
     }
-    
+
     @Override
-    public List listaMeGustas(String usuario){
+    public List listaMeGustas(String usuario) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         List lista = mu.obtenerVal(usuario);
-        if(lista != null){
+        if (lista != null) {
             List aux = new LinkedList();
             DtAuxiliarValorar dtaux;
             for (int x = 0; x < lista.size(); x++) {
@@ -402,7 +402,23 @@ public class ControladorCanal implements IControladorCanal {
                 aux.add(dtaux);
             }
             return aux;
-        }  
+        }
+        return null;
+    }
+
+    @Override
+    public List listarVideosPorCategoria(String categoria) {
+        ManejadorInformacion mu = ManejadorInformacion.getInstance();
+        List lista = mu.obtenerVideosPorCategoria(categoria);
+        if (lista != null) {
+            List aux = new LinkedList();
+            DtVideo dtaux;
+            for (int x = 0; x < lista.size(); x++) {
+                dtaux = new DtVideo((Video)lista.get(x));
+                aux.add(dtaux);
+            }
+            return aux;
+        }
         return null;
     }
 }
