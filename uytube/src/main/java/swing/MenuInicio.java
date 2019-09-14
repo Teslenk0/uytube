@@ -80,10 +80,11 @@ public class MenuInicio extends javax.swing.JFrame {
         setColor(btn_Inicio);
         ind_1.setOpaque(true);
         resetColor(new JPanel[]{btn_Playlist, btn_Usuario, btn_Video, btn_CerrarSesion}, new JPanel[]{ind_2, ind_3, ind_4, ind_5});
-        
+
         List list = u.listaUsuarios();
-        if(!list.isEmpty())
-            Sobrecarga.setEnabled(false);        
+        if (!list.isEmpty()) {
+            Sobrecarga.setEnabled(false);
+        }
         Panel_Central.removeAll();
         Panel_Central.add(Central1);
         Panel_Central.revalidate();
@@ -4965,9 +4966,9 @@ public class MenuInicio extends javax.swing.JFrame {
         Varnick.setText(user.getNickname());
         Varnom.setText(user.getNombre());
         Varape.setText(user.getApellido());
-        
-        DateFormat dt = new SimpleDateFormat("dd/MM/yyyy");  
-        String fechaN = dt.format(user.getFechaNac());  
+
+        DateFormat dt = new SimpleDateFormat("dd/MM/yyyy");
+        String fechaN = dt.format(user.getFechaNac());
         Varfech.setText(fechaN);
         Varmail.setText(user.getEmail());
         try {
@@ -4986,7 +4987,7 @@ public class MenuInicio extends javax.swing.JFrame {
         }
 
         List listaS = u.listaSeguidos(Varnick.getText());
-        if(!listaS.isEmpty()){
+        if (!listaS.isEmpty()) {
             ComboSiguiendo.setEnabled(true);
             ComboSiguiendo.removeAllItems();
             for (int x = 0; x <= listaS.size() - 1; x++) {
@@ -4999,9 +5000,9 @@ public class MenuInicio extends javax.swing.JFrame {
             ComboSiguiendo.addItem("No sigue a nadie");
             ComboSiguiendo.setEnabled(false);
         }
-        
+
         List listaSe = u.listaSeguidores(Varnick.getText());
-        if(!listaSe.isEmpty()){
+        if (!listaSe.isEmpty()) {
             ComboSeguidores.setEnabled(true);
             ComboSeguidores.removeAllItems();
             for (int x = 0; x <= listaSe.size() - 1; x++) {
@@ -5183,9 +5184,9 @@ public class MenuInicio extends javax.swing.JFrame {
             lista = u.listaUsuarios();
             DtUsuario user;
             ComboUsuariosLista.removeAllItems();
-            for (int x = 0 ; x <lista.size()  ; x++){
-              user = (DtUsuario) lista.get(x);
-              ComboUsuariosLista.addItem(user.getNickname());
+            for (int x = 0; x < lista.size(); x++) {
+                user = (DtUsuario) lista.get(x);
+                ComboUsuariosLista.addItem(user.getNickname());
             }
         } else {
             VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
@@ -5211,7 +5212,7 @@ public class MenuInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_crearPlaylist_ButtonActionPerformed
 
     private void NombreListaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_NombreListaFocusGained
-        if(NombreLista.getText().equals("Ingrese Nombre de la Lista"))
+        if (NombreLista.getText().equals("Ingrese Nombre de la Lista"))
             NombreLista.setText("");
     }//GEN-LAST:event_NombreListaFocusGained
 
@@ -5229,33 +5230,33 @@ public class MenuInicio extends javax.swing.JFrame {
             ventana.CambioTexto("    Debes seleccionar un tipo de lista");
             ventana.setVisible(true);
         } else {
-                String nombreL = NombreLista.getText();
-                DtListaReproduccion lista;
-                if (radioDefecto1.isSelected()) { 
-                    lista = new DtListaporDefecto(nombreL);
-                    try {
-                        c.crearListaDefecto(lista);
-                        ventana.CambioTexto("          La lista se creo exitosamente");
-                        ventana.setVisible(true);
-                    } catch (ListaRepetidaException e) {
-                        ventana.CambioTexto("                     La lista ya existe");
-                        ventana.setVisible(true);
-                    }
+            String nombreL = NombreLista.getText();
+            DtListaReproduccion lista;
+            if (radioDefecto1.isSelected()) {
+                lista = new DtListaporDefecto(nombreL);
+                try {
+                    c.crearListaDefecto(lista);
+                    ventana.CambioTexto("          La lista se creo exitosamente");
+                    ventana.setVisible(true);
+                } catch (ListaRepetidaException e) {
+                    ventana.CambioTexto("                     La lista ya existe");
+                    ventana.setVisible(true);
+                }
+            } else {
+                if (!Si3.isSelected() && !No3.isSelected()) {
+                    ventana.CambioTexto("        Debes llenar todos los campos");
                 } else {
-                    if(!Si3.isSelected() && !No3.isSelected()){
-                         ventana.CambioTexto("        Debes llenar todos los campos");
-                    } else {
-                        DtUsuario user = u.buscarUsuario(NombreUserLista.getSelectedItem().toString());
-                        DtCategoria cat = new DtCategoria(comboCategoriasCrearLista.getSelectedItem().toString());
-                        lista = new DtListaParticulares(Si3.isSelected(), cat, nombreL);
-                        try {
-                            c.crearListaParticular((DtListaParticulares) lista, user);
-                            ventana.CambioTexto("             La lista se creo exitosamente");
-                        } catch (ListaRepetidaException e) {
-                            ventana.CambioTexto("                   La lista ya existe");
-                        }
+                    DtUsuario user = u.buscarUsuario(NombreUserLista.getSelectedItem().toString());
+                    DtCategoria cat = new DtCategoria(comboCategoriasCrearLista.getSelectedItem().toString());
+                    lista = new DtListaParticulares(Si3.isSelected(), cat, nombreL);
+                    try {
+                        c.crearListaParticular((DtListaParticulares) lista, user);
+                        ventana.CambioTexto("             La lista se creo exitosamente");
+                    } catch (ListaRepetidaException e) {
+                        ventana.CambioTexto("                   La lista ya existe");
                     }
                 }
+            }
         }
         ventana.setVisible(true);
     }//GEN-LAST:event_CrearListaActionPerformed
@@ -5589,9 +5590,9 @@ public class MenuInicio extends javax.swing.JFrame {
         String video = comboVideos.getSelectedItem().toString();
         String usuario = comboUsuarios.getSelectedItem().toString();
         DtUsuario user = u.buscarUsuario(usuario);
-        DtVideo v = c.obtenerVideo(video,user.getCanal().getNombre_canal());
+        DtVideo v = c.obtenerVideo(video, user.getCanal().getNombre_canal());
         mostrarComentarios(v, jTree1);
-        
+
     }//GEN-LAST:event_SeleccionarVideoActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -5645,7 +5646,7 @@ public class MenuInicio extends javax.swing.JFrame {
             error.CambioTexto(" Comentario agregado ");
             error.setVisible(true);
             mostrarComentarios(v, jTree1);
-         } else if (aux == 0) {
+        } else if (aux == 0) {
             VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
             error.CambioTexto(" No existe el usuario. ");
             error.setVisible(true);
@@ -5700,17 +5701,23 @@ public class MenuInicio extends javax.swing.JFrame {
 
     private void botonAceptarModificarLista1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAceptarModificarLista1ActionPerformed
         // TODO add your handling code here:        
-        Boolean privado = Si4.isSelected();
-        DtListaReproduccion tmp;
-        String aux = "";
-        DtUsuario user = u.buscarUsuario(comboUsuarioModificarLista.getSelectedItem().toString());
-        if (!comboCategoriaModificarLista.getSelectedItem().toString().equals(aux)) {
-            DtCategoria cat = new DtCategoria(comboCategoriaModificarLista.getSelectedItem().toString());
-            tmp = new DtListaParticulares(privado, cat, comboListaModificarLista.getSelectedItem().toString());
-        } else {
-            tmp = new DtListaParticulares(privado, null, comboListaModificarLista.getSelectedItem().toString());
+        if(comboListaModificarLista.getItemCount() != 0 && comboUsuarioModificarLista.getItemCount() != 0){
+            Boolean privado = Si4.isSelected();
+            DtListaReproduccion tmp;
+            String aux = "";
+            DtUsuario user = u.buscarUsuario(comboUsuarioModificarLista.getSelectedItem().toString());
+            if (!comboCategoriaModificarLista.getSelectedItem().toString().equals(aux)) {
+                DtCategoria cat = new DtCategoria(comboCategoriaModificarLista.getSelectedItem().toString());
+                tmp = new DtListaParticulares(privado, cat, comboListaModificarLista.getSelectedItem().toString());
+            } else {
+                tmp = new DtListaParticulares(privado, null, comboListaModificarLista.getSelectedItem().toString());
+            }
+            c.modificarListaParticular((DtListaParticulares) tmp, user);
+        }else{
+            VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
+            error.CambioTexto("  No hay listas o usuarios ingresados");
+            error.setVisible(true);
         }
-        c.modificarListaParticular((DtListaParticulares) tmp, user);
     }//GEN-LAST:event_botonAceptarModificarLista1ActionPerformed
 
     private void botonSeleccionarModificarListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSeleccionarModificarListaActionPerformed
@@ -5907,37 +5914,37 @@ public class MenuInicio extends javax.swing.JFrame {
         Panel_Central.repaint();
         jComboLesGusta.removeAllItems();
         jComboNoLesGusta.removeAllItems();
-        
+
         // Datos para crear el arbol en jtree
         String vid = comboVideo5.getSelectedItem().toString();
         String usuario = comboVideo4.getSelectedItem().toString();
         DtUsuario us = u.buscarUsuario(usuario);
-        DtVideo v = c.obtenerVideo(vid,us.getCanal().getNombre_canal());
+        DtVideo v = c.obtenerVideo(vid, us.getCanal().getNombre_canal());
         mostrarComentarios(v, jTree3);
-        
+
         //Valoraciones
         List listaMeGusta = c.listaMeGustas(us.getNickname());
-        if(listaMeGusta != null){
+        if (listaMeGusta != null) {
             DtAuxiliarValorar aux;
-            for(int x=0; x<listaMeGusta.size(); x++){
-                aux = (DtAuxiliarValorar) listaMeGusta.get(x);   
-                if(listaMeGusta.get(x) != null){
-                    if(v.getNombre().equals(aux.getVid()) && usuario.equals(aux.getDueño()) && aux.getVal().equals("Me gusta")){ 
+            for (int x = 0; x < listaMeGusta.size(); x++) {
+                aux = (DtAuxiliarValorar) listaMeGusta.get(x);
+                if (listaMeGusta.get(x) != null) {
+                    if (v.getNombre().equals(aux.getVid()) && usuario.equals(aux.getDueño()) && aux.getVal().equals("Me gusta")) {
                         jComboLesGusta.addItem(aux.getUser());
                     }
-                    if(v.getNombre().equals(aux.getVid()) && usuario.equals(aux.getDueño()) && aux.getVal().equals("No me gusta")){
+                    if (v.getNombre().equals(aux.getVid()) && usuario.equals(aux.getDueño()) && aux.getVal().equals("No me gusta")) {
                         jComboNoLesGusta.addItem(aux.getUser());
                     }
                 }
             }
         }
-        
+
         // Datos del video
         String nomVideo = comboVideo5.getSelectedItem().toString();
         DtUsuario user;
         user = u.buscarUsuario((String) comboVideo4.getSelectedItem());
         DtVideo video = c.obtenerVideo(nomVideo, user.getCanal().getNombre_canal());
-        DateFormat dt = new SimpleDateFormat("dd/MM/yyyy");  
+        DateFormat dt = new SimpleDateFormat("dd/MM/yyyy");
         String fechaN = dt.format(user.getFechaNac());
         VarNomvideo1.setText(video.getNombre());
         VarDuracion1.setText(video.getDuracion());
@@ -6030,8 +6037,7 @@ public class MenuInicio extends javax.swing.JFrame {
                         comboListaDestino.addItem(aux.getNombreLista());
                     }
                 }
-            }
-            else {
+            } else {
                 comboListaDestino.setEnabled(false);
                 botonAceptarModificarLista2.setEnabled(false);
                 VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
@@ -6077,8 +6083,7 @@ public class MenuInicio extends javax.swing.JFrame {
                     }
                 }
             }
-        }
-        else{
+        } else {
             VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
             error.CambioTexto("  Este usuario no contiene videos registrados");
             error.setVisible(true);
@@ -6129,19 +6134,26 @@ public class MenuInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_BackButton12ActionPerformed
 
     private void botonAceptarModificarLista3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAceptarModificarLista3ActionPerformed
-        String usuario = comboUsuarioSacarVideo.getSelectedItem().toString();
-        String nombreLista = comboListaSacarVideo.getSelectedItem().toString();
-        String video = comboVideoSacarVideo.getSelectedItem().toString();
-        String canalOrigen = textCanalOrigenSacarVideo.getText();
-        if (!radioDefectoSacarVideo.isSelected()) {
-            c.sacarVideoLista(usuario, nombreLista, video, canalOrigen, true);
-        } else {
-            c.sacarVideoLista(usuario, nombreLista, video, canalOrigen, false);
-        }
+        if (comboListaSacarVideo.getItemCount() != 0 && comboVideoSacarVideo.getItemCount() != 0) {
 
-        VentanaEmergente ok = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-        ok.CambioTexto("El video se removio de la lista correctamente");
-        ok.setVisible(true);
+            String usuario = comboUsuarioSacarVideo.getSelectedItem().toString();
+            String nombreLista = comboListaSacarVideo.getSelectedItem().toString();
+            String video = comboVideoSacarVideo.getSelectedItem().toString();
+            String canalOrigen = textCanalOrigenSacarVideo.getText();
+            if (!radioDefectoSacarVideo.isSelected()) {
+                c.sacarVideoLista(usuario, nombreLista, video, canalOrigen, true);
+            } else {
+                c.sacarVideoLista(usuario, nombreLista, video, canalOrigen, false);
+            }
+
+            VentanaEmergente ok = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
+            ok.CambioTexto("El video se removio de la lista correctamente");
+            ok.setVisible(true);
+        } else {
+            VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
+            error.CambioTexto("No se puede sacar video ya que no hay listas o videos en ella");
+            error.setVisible(true);
+        }
     }//GEN-LAST:event_botonAceptarModificarLista3ActionPerformed
 
     private void botonSelectListaSacarVideoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSelectListaSacarVideoActionPerformed
@@ -6341,7 +6353,7 @@ public class MenuInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void SobrecargaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SobrecargaActionPerformed
-       imagen = null;
+        imagen = null;
         VentanaEmergente mensaje = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
         try {
             DtCategoria cat = new DtCategoria("Música");
@@ -6369,41 +6381,41 @@ public class MenuInicio extends javax.swing.JFrame {
             cat = new DtCategoria("Viajes y eventos");
             c.registrarCategoria(cat);
             Date fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("1962-02-25");
-            DtCanal canal = new DtCanal("Canal Horacio","El canal de Horacio es para publicar contenido divertido",false);
+            DtCanal canal = new DtCanal("Canal Horacio", "El canal de Horacio es para publicar contenido divertido", false);
             DtUsuario user = new DtUsuario("hrubino", "HR", "Horacio", "Rubino", "horacio.rubino@guambia.com.uy", fechaU, "/imagenesUsuarios/hrubino.png", canal);
             u.registrarUsuario(user, imagen);
             u.seguirUsuario(user, "hectorg");
             u.seguirUsuario(user, "diegop");
-            
+
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("1972-06-14");
-            canal = new DtCanal("El bocha","Mi canal para colgar mis cosas",false);
+            canal = new DtCanal("El bocha", "Mi canal para colgar mis cosas", false);
             user = new DtUsuario("mbusca", "MB", "Martín", "Buscaglia", "Martin.bus@agadu.org.uy", fechaU, "/imagenesUsuarios/mbusca.png", canal);
             u.registrarUsuario(user, imagen);
             u.seguirUsuario(user, "tabarec");
             u.seguirUsuario(user, "cachilas");
             u.seguirUsuario(user, "kairoh");
-            
+
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("1954-01-07");
-            canal = new DtCanal("hectorg","Canal HG",false);
+            canal = new DtCanal("hectorg", "Canal HG", false);
             user = new DtUsuario("hectorg", "HG", "Héctor", "Guido", "hector.gui@elgalpon.org.uy", fechaU, "/imagenesUsuarios/Defecto.png", canal);
             u.registrarUsuario(user, imagen);
             u.seguirUsuario(user, "mbusca");
             u.seguirUsuario(user, "juliob");
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("2017-08-03");
-            DtVideo video = new DtVideo("100 años de FING", user.getCanal(), fechaU, "https://youtu.be/peGS4TBxSaI", "Del Ciclo más Universidad realizado por la UdelaR, compartimos con ustedes un audiovisual realizado en 2016 por los 100 años de la denominación Facultad de Ingeniería.\n" +
-            "\n" +
-            "Extraído del canal Teleuniversitaria UdelaR", "Noticias", "6:26", false);
+            DtVideo video = new DtVideo("100 años de FING", user.getCanal(), fechaU, "https://youtu.be/peGS4TBxSaI", "Del Ciclo más Universidad realizado por la UdelaR, compartimos con ustedes un audiovisual realizado en 2016 por los 100 años de la denominación Facultad de Ingeniería.\n"
+                    + "\n"
+                    + "Extraído del canal Teleuniversitaria UdelaR", "Noticias", "6:26", false);
             c.registrarVideo(video);
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("2017-11-24");
-            video = new DtVideo("50 años del InCo", user.getCanal(), fechaU, "https://youtu.be/GzOJSk4urlM", "50 años del Instituto de Computación. Facultad de Ingeniería. UDELAR. 22 de noviembre 2017.\n" +
-            "La mesa de apertura estuvo integrada por Simon, el rector de la Universidad de la República (Udelar).", "Noticias", "27:22", false);
+            video = new DtVideo("50 años del InCo", user.getCanal(), fechaU, "https://youtu.be/GzOJSk4urlM", "50 años del Instituto de Computación. Facultad de Ingeniería. UDELAR. 22 de noviembre 2017.\n"
+                    + "La mesa de apertura estuvo integrada por Simon, el rector de la Universidad de la República (Udelar).", "Noticias", "27:22", false);
             c.registrarVideo(video);
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("2017-10-25");
             video = new DtVideo("Ingeniería de Muestra 2017", user.getCanal(), fechaU, "https://youtu.be/RnaYRA1k5j4", "La muestra más grande de la ingeniería nacional se realizó el jueves 19, viernes 20 y sábado 21 de octubre de 2017. Ingeniería deMuestra fue organizada por la Facultad de Ingeniería de la Universidad de la República y su Fundación Julio Ricaldoni.", "Noticias", "1:00", false);
             c.registrarVideo(video);
-            
+
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("1971-07-24");
-            canal = new DtCanal("Tabaré","Mi música e ainda mais",false);
+            canal = new DtCanal("Tabaré", "Mi música e ainda mais", false);
             user = new DtUsuario("tabarec", "TC", "Tabaré", "Cardozo", "tabare.car@agadu.org.uy", fechaU, "/imagenesUsuarios/tabarec.png", canal);
             u.registrarUsuario(user, imagen);
             u.seguirUsuario(user, "hrubino");
@@ -6417,9 +6429,9 @@ public class MenuInicio extends javax.swing.JFrame {
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("2013-06-05");
             video = new DtVideo("Pacheco goles mas recordados", user.getCanal(), fechaU, "https://youtu.be/wlEd6-HsIxI", "Los goles más recordados de Antonio Pacheco", "Deporte", "5:48", true);
             c.registrarVideo(video);
-            
+
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("1947-01-01");
-            canal = new DtCanal("El Cachila","Para juntar cosas",true);
+            canal = new DtCanal("El Cachila", "Para juntar cosas", true);
             user = new DtUsuario("cachilas", "CS", "Waldemar \"Cachila\"", "Silva", "Cachila.sil@c1080.org.uy", fechaU, "/imagenesUsuarios/cachilas.png", canal);
             u.registrarUsuario(user, imagen);
             u.seguirUsuario(user, "hrubino");
@@ -6438,9 +6450,9 @@ public class MenuInicio extends javax.swing.JFrame {
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("2011-11-14");
             video = new DtVideo("Recoba 20 mejores goles", user.getCanal(), fechaU, "https://youtu.be/Gy3fZhWdLEQ", "Recoba - Top 20 Goals", "Deporte", "13:26", true);
             c.registrarVideo(video);
-            
+
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("1967-03-16");
-            canal = new DtCanal("juliob","Canal de JB",false);
+            canal = new DtCanal("juliob", "Canal de JB", false);
             user = new DtUsuario("juliob", "JB", "Julio", "Bocca", "juliobocca@sodre.com.uy", fechaU, "/imagenesUsuarios/Defecto.png", canal);
             u.registrarUsuario(user, imagen);
             u.seguirUsuario(user, "mbusca");
@@ -6455,18 +6467,18 @@ public class MenuInicio extends javax.swing.JFrame {
             video = new DtVideo("Show de goles", user.getCanal(), fechaU, "https://youtu.be/g46w4_kD_lA", "TORNEO CLAUSURA 2018", "Deporte", "4:23", false);
             c.registrarVideo(video);
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("2016-04-04");
-            video = new DtVideo("Inaguración Estadio Peñarol", user.getCanal(), fechaU, "https://youtu.be/U6XPJ8Vz72A", "Recordemos la ceremonia de inauguración del Estadio de Peñarol.\n" +
-            "\"Estadio Campeón del Siglo\".", "Deporte", "3:27:26", false);
+            video = new DtVideo("Inaguración Estadio Peñarol", user.getCanal(), fechaU, "https://youtu.be/U6XPJ8Vz72A", "Recordemos la ceremonia de inauguración del Estadio de Peñarol.\n"
+                    + "\"Estadio Campeón del Siglo\".", "Deporte", "3:27:26", false);
             c.registrarVideo(video);
-            
+
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("1975-01-01");
-            canal = new DtCanal("diegop","Canal de DP",false);
+            canal = new DtCanal("diegop", "Canal de DP", false);
             user = new DtUsuario("diegop", "DP", "Diego", "Parodi", "diego@efectocine.com", fechaU, "/imagenesUsuarios/Defecto.png", canal);
             u.registrarUsuario(user, imagen);
             u.seguirUsuario(user, "hectorg");
-            
+
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("1940-04-25");
-            canal = new DtCanal("Kairo música","Videos de grandes canciones de hoy y siempre",false);
+            canal = new DtCanal("Kairo música", "Videos de grandes canciones de hoy y siempre", false);
             user = new DtUsuario("kairoh", "KH", "Kairo", "Herrera", "kairoher@pilsenrock.com.uy", fechaU, "/imagenesUsuarios/kairoh.png", canal);
             u.registrarUsuario(user, imagen);
             u.seguirUsuario(user, "sergiop");
@@ -6479,59 +6491,59 @@ public class MenuInicio extends javax.swing.JFrame {
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("2009-10-02");
             video = new DtVideo("Thriller", user.getCanal(), fechaU, "https://youtu.be/sOnqjkJTMaA", "Michael Jackson's official music video for \"Thriller\"", "Música", "13:42", false);
             c.registrarVideo(video);
-            
+
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("1940-08-03");
-            canal = new DtCanal("robinh","Henderson",false);
+            canal = new DtCanal("robinh", "Henderson", false);
             user = new DtUsuario("robinh", "RH", "Robin", "Henderson", "robin.h@tinglesa.com.uy", fechaU, "/imagenesUsuarios/Defecto.png", canal);
             u.registrarUsuario(user, imagen);
             u.seguirUsuario(user, "hectorg");
             u.seguirUsuario(user, "juliob");
             u.seguirUsuario(user, "diegop");
-            
+
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("1960-04-01");
-            canal = new DtCanal("Tinelli total","Todo lo que querías y más!",false);
+            canal = new DtCanal("Tinelli total", "Todo lo que querías y más!", false);
             user = new DtUsuario("marcelot", "MT", "Marcelo", "Tinelli", "marcelot@ideasdelsur.com.ar", fechaU, "/imagenesUsuarios/Defecto.png", canal);
             u.registrarUsuario(user, imagen);
             u.seguirUsuario(user, "cachilas");
             u.seguirUsuario(user, "juliob");
             u.seguirUsuario(user, "kairoh");
-            
+
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("1952-07-17");
-            canal = new DtCanal("Con la gente","Preparando las elecciones",false);
+            canal = new DtCanal("Con la gente", "Preparando las elecciones", false);
             user = new DtUsuario("novick", "EN", "Edgardo", "Novick", "edgardo@novick.com.uy", fechaU, "/imagenesUsuarios/Defecto.png", canal);
             u.registrarUsuario(user, imagen);
             u.seguirUsuario(user, "hrubino");
             u.seguirUsuario(user, "tabarec");
             u.seguirUsuario(user, "cachilas");
-            
+
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("1950-01-28");
-            canal = new DtCanal("Puglia invita","Programas del ciclo y videos de cocina masterchef",false);
+            canal = new DtCanal("Puglia invita", "Programas del ciclo y videos de cocina masterchef", false);
             user = new DtUsuario("sergiop", "SP", "Sergio", "Puglia", "puglia@alpanpan.com.uy", fechaU, "/imagenesUsuarios/Defecto.png", canal);
             u.registrarUsuario(user, imagen);
             u.seguirUsuario(user, "mbusca");
             u.seguirUsuario(user, "juliob");
             u.seguirUsuario(user, "diegop");
-            
+
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("1976-03-17");
-            canal = new DtCanal("Chino Recoba","Canal de goles con Nacional",true);
+            canal = new DtCanal("Chino Recoba", "Canal de goles con Nacional", true);
             user = new DtUsuario("chino", "AR", "Alvaro", "Recoba", "chino@trico.org.uy", fechaU, "/imagenesUsuarios/chino.png", canal);
             u.registrarUsuario(user, imagen);
             u.seguirUsuario(user, "tonyp");
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("2011-11-14");
             video = new DtVideo("Recoba 20 mejores goles", user.getCanal(), fechaU, "https://youtu.be/Gy3fZhWdLEQ", "Recoba - Top 20 Goals", "Deporte", "13:26", true);
             c.registrarVideo(video);
-            
+
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("1955-02-14");
-            canal = new DtCanal("Tony Pacheco","Canal de goles con Peñarol",true);
+            canal = new DtCanal("Tony Pacheco", "Canal de goles con Peñarol", true);
             user = new DtUsuario("tonyp", "AP", "Antonio", "Pacheco", "eltony@manya.org.uy", fechaU, "/imagenesUsuarios/tonyp.png", canal);
             u.registrarUsuario(user, imagen);
             u.seguirUsuario(user, "chino");
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("2013-06-05");
             video = new DtVideo("Pacheco goles mas recordados", user.getCanal(), fechaU, "https://youtu.be/wlEd6-HsIxI", "Los goles más recordados de Antonio Pacheco", "Deporte", "5:48", true);
             c.registrarVideo(video);
-            
+
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("1960-08-09");
-            canal = new DtCanal("Desde Genexus","Canal información C y T",false);
+            canal = new DtCanal("Desde Genexus", "Canal información C y T", false);
             user = new DtUsuario("nicoJ", "NJ", "Nicolás", "Jodal", "jodal@artech.com.uy", fechaU, "/imagenesUsuarios/Defecto.png", canal);
             u.registrarUsuario(user, imagen);
             u.seguirUsuario(user, "diegop");
@@ -6541,7 +6553,7 @@ public class MenuInicio extends javax.swing.JFrame {
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("2016-07-20");
             video = new DtVideo("Ventana al futuro Uruguay y déficit de ingenieros", user.getCanal(), fechaU, "https://youtu.be/zBR2pnASlQE", "En Uruguay hay un ingeniero por cada tres abogados y cada seis médicos. Los datos se desprenden del Panorama de la Educación 2014 del anuario del Ministerio de Educación y Cultura. Ese año egresaron de la Universidad de la República 348 ingenieros.", "Ciencia y Tecnología", "19:21", false);
             c.registrarVideo(video);
-            
+
             Sobrecarga.setEnabled(false);
             mensaje.CambioTexto("    Datos sobrecargados correctamente");
         } catch (ParseException ex) {
@@ -6731,7 +6743,7 @@ public class MenuInicio extends javax.swing.JFrame {
         DtUsuario us = u.buscarUsuario(user);
         List listaParticulates = c.getListasReproduccion(user);
         List listaDefecto = c.getListasDefecto(user);
-        if(!listaParticulates.isEmpty() && !listaDefecto.isEmpty()){
+        if (!listaParticulates.isEmpty() && !listaDefecto.isEmpty()) {
             comboListas1.setEnabled(true);
             Central4_5_1.remove(CambiarUsuario11);
             Central4_5_1.add(SeleccionarListas);
@@ -6744,20 +6756,19 @@ public class MenuInicio extends javax.swing.JFrame {
             comboListas1.removeAllItems();
             DtListaReproduccion l;
             DtListaporDefecto ld;
-            if(!listaParticulates.isEmpty()){
-                for(int x = 0; x <listaParticulates.size(); x++){
+            if (!listaParticulates.isEmpty()) {
+                for (int x = 0; x < listaParticulates.size(); x++) {
                     l = (DtListaReproduccion) listaParticulates.get(x);
                     comboListas1.addItem(l.getNombreLista());
                 }
             }
-            if(!listaDefecto.isEmpty()){
-                for(int x = 0; x <listaDefecto.size(); x++){
+            if (!listaDefecto.isEmpty()) {
+                for (int x = 0; x < listaDefecto.size(); x++) {
                     ld = (DtListaporDefecto) listaDefecto.get(x);
                     comboListas1.addItem(ld.getNombreLista());
                 }
             }
-        }
-        else {
+        } else {
             VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
             error.CambioTexto("              No hay listas ingresadas.");
             error.setVisible(true);
@@ -6765,68 +6776,67 @@ public class MenuInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_SelecionarUsuarioActionPerformed
 
     private void SeleccionarListasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeleccionarListasActionPerformed
-            Central4_5_1_Panel.add(Central4_5_2);
-            Panel_Central.revalidate();
-            Panel_Central.repaint();
-            String user = ComboUsuariosLista.getSelectedItem().toString();
-            String nomLista = comboListas1.getSelectedItem().toString();
-            List lista = c.getListasReproduccion(user);
-            if(lista != null){
-                
-                DtListaParticulares lp;
-                for(int x =0; x<lista.size(); x++){
-                    lp = (DtListaParticulares) lista.get(x);
-                    if(lp.getNombreLista().equals(nomLista)){
-                        comboListas1.setEnabled(false);
-                        Central4_5_1.add(CambiarUsuario11);
-                        Central4_5_1.remove(SeleccionarListas);
-                        Panel_Central.revalidate();
-                        Panel_Central.repaint();
-                        CampoNom1.setText(nomLista);
-                        CampoTipo.setText("Particular");
-                        if(lp.getPrivado()){
-                            CampoPriv.setText("Privado");
-                        }
-                        else{
-                            CampoPriv.setText("Pública");
-                        }
-                        List videos = c.getVideosListaParticular(user, nomLista);
-                        if(videos != null){
-                            DtListaParticularVideos v;
-                            for(int y = 0; y < videos.size(); y++){
-                                v = (DtListaParticularVideos) videos.get(y);
-                                comboVideoCons.addItem(v.getVideo());
-                            }
+        Central4_5_1_Panel.add(Central4_5_2);
+        Panel_Central.revalidate();
+        Panel_Central.repaint();
+        String user = ComboUsuariosLista.getSelectedItem().toString();
+        String nomLista = comboListas1.getSelectedItem().toString();
+        List lista = c.getListasReproduccion(user);
+        if (lista != null) {
+
+            DtListaParticulares lp;
+            for (int x = 0; x < lista.size(); x++) {
+                lp = (DtListaParticulares) lista.get(x);
+                if (lp.getNombreLista().equals(nomLista)) {
+                    comboListas1.setEnabled(false);
+                    Central4_5_1.add(CambiarUsuario11);
+                    Central4_5_1.remove(SeleccionarListas);
+                    Panel_Central.revalidate();
+                    Panel_Central.repaint();
+                    CampoNom1.setText(nomLista);
+                    CampoTipo.setText("Particular");
+                    if (lp.getPrivado()) {
+                        CampoPriv.setText("Privado");
+                    } else {
+                        CampoPriv.setText("Pública");
+                    }
+                    List videos = c.getVideosListaParticular(user, nomLista);
+                    if (videos != null) {
+                        DtListaParticularVideos v;
+                        for (int y = 0; y < videos.size(); y++) {
+                            v = (DtListaParticularVideos) videos.get(y);
+                            comboVideoCons.addItem(v.getVideo());
                         }
                     }
                 }
             }
-            List listaD = c.getListasDefecto(user);
-            if(listaD != null){
-                DtListaporDefecto ld;
-                for(int x =0; x<listaD.size(); x++){
-                    ld = (DtListaporDefecto) listaD.get(x);
-                    if(ld.getNombreLista().equals(nomLista)){
-                        comboListas1.setEnabled(false);
-                        Central4_5_1.add(CambiarUsuario11);
-                        Central4_5_1.remove(SeleccionarListas);
-                        Panel_Central.revalidate();
-                        Panel_Central.repaint();
-                        CampoNom1.setText(nomLista);
-                        CampoTipo.setText("Por Defecto");
-                        CampoPriv.setText("");
-                        List videos = c.getVideosListaDefecto(user, nomLista);
-                        if(videos != null){
-                            DtListaDefectoVideos v;
-                            for(int y = 0; y < videos.size(); y++){
-                                v = (DtListaDefectoVideos) videos.get(y);
-                                comboVideoCons.addItem(v.getVideo());
-                            }
+        }
+        List listaD = c.getListasDefecto(user);
+        if (listaD != null) {
+            DtListaporDefecto ld;
+            for (int x = 0; x < listaD.size(); x++) {
+                ld = (DtListaporDefecto) listaD.get(x);
+                if (ld.getNombreLista().equals(nomLista)) {
+                    comboListas1.setEnabled(false);
+                    Central4_5_1.add(CambiarUsuario11);
+                    Central4_5_1.remove(SeleccionarListas);
+                    Panel_Central.revalidate();
+                    Panel_Central.repaint();
+                    CampoNom1.setText(nomLista);
+                    CampoTipo.setText("Por Defecto");
+                    CampoPriv.setText("");
+                    List videos = c.getVideosListaDefecto(user, nomLista);
+                    if (videos != null) {
+                        DtListaDefectoVideos v;
+                        for (int y = 0; y < videos.size(); y++) {
+                            v = (DtListaDefectoVideos) videos.get(y);
+                            comboVideoCons.addItem(v.getVideo());
                         }
                     }
                 }
             }
-            
+        }
+
     }//GEN-LAST:event_SeleccionarListasActionPerformed
 
     private void CambiarUsuario11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CambiarUsuario11ActionPerformed
@@ -6839,7 +6849,7 @@ public class MenuInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_CambiarUsuario11ActionPerformed
 
     private void SeleccionarVideossActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeleccionarVideossActionPerformed
-        if(comboVideoCons != null){
+        if (comboVideoCons != null) {
             Panel_Central.removeAll();
             Panel_Central.add(Central4_5_3);
             Central4_5_3_Panel.add(Central3_3_1_1);
@@ -6849,7 +6859,7 @@ public class MenuInicio extends javax.swing.JFrame {
             DtUsuario user;
             user = u.buscarUsuario((String) ComboUsuariosLista.getSelectedItem());
             DtVideo video = c.obtenerVideo(nomVideo, user.getCanal().getNombre_canal());
-            DateFormat dt = new SimpleDateFormat("dd/MM/yyyy");  
+            DateFormat dt = new SimpleDateFormat("dd/MM/yyyy");
             String fechaN = dt.format(user.getFechaNac());
             VarNomvideo1.setText(video.getNombre());
             VarDuracion1.setText(video.getDuracion());
@@ -6857,10 +6867,11 @@ public class MenuInicio extends javax.swing.JFrame {
             VarCategoria1.setText(video.getCategoria());
             CampoDescripcion6.setText(video.getDescripcion());
             VarFechaPub2.setText(fechaN);
-            if (video.getPrivado())
+            if (video.getPrivado()) {
                 Estado.setText("Privado");
-            else
+            } else {
                 Estado.setText("Público");
+            }
         }
     }//GEN-LAST:event_SeleccionarVideossActionPerformed
 
@@ -7015,7 +7026,7 @@ public class MenuInicio extends javax.swing.JFrame {
         String nomVideo = (String) videos_ComboBox.getSelectedItem();
         String nickUser = (String) userVal_ComboBox.getSelectedItem();
         String val = (String) val_ComboBox.getSelectedItem();
-      
+
         u.valorarVideo(nickDueño, nomVideo, nickUser, val);
         VentanaEmergente mensaje = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
         mensaje.CambioTexto("            Se valoró video con éxito");
@@ -7091,55 +7102,62 @@ public class MenuInicio extends javax.swing.JFrame {
 
     private void botonSeleccionarConsultaCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSeleccionarConsultaCategoriaActionPerformed
         // TODO add your handling code here:
-        tableVideoUsuario.removeAll();
-        tablePlaylist.removeAll();
-        String cat = comboCategoriasConsultaCategoria.getSelectedItem().toString();
-        List videos = c.listarVideosPorCategoria(cat);
-        List playlists = c.obtenerListasParticularesPorCategoria(cat);
-        List usuarios = u.listaUsuarios();
-        DefaultTableModel modelVideo = new DefaultTableModel(new String[]{"Usuario", "Video"}, 0);
-        DefaultTableModel modelPlaylist = new DefaultTableModel(new String[]{"Usuario", "Playlist"}, 0);
-        tableVideoUsuario.setModel(modelVideo);
-        tablePlaylist.setModel(modelPlaylist);
-        DtVideo aux;
-        DtUsuario userAux;
-        if (!videos.isEmpty() && !usuarios.isEmpty()) {
-            for (int x = 0; x < videos.size(); x++) {
-                aux = (DtVideo) videos.get(x);
-                if (videos.get(x) != null) {
-                    for (int y = 0; y < usuarios.size(); y++) {
-                        if (usuarios.get(y) != null) {
-                            userAux = (DtUsuario) usuarios.get(y);
-                            if (userAux.getCanal().getNombre_canal().equals(aux.getCanal().getNombre_canal())) {
-                                modelVideo.addRow(new Object[]{userAux.getNickname(), aux.getNombre()});
-                                break;
+        if (comboCategoriasConsultaCategoria.getItemCount() != 0) {
+            tableVideoUsuario.removeAll();
+            tablePlaylist.removeAll();
+            String cat = comboCategoriasConsultaCategoria.getSelectedItem().toString();
+            List videos = c.listarVideosPorCategoria(cat);
+            List playlists = c.obtenerListasParticularesPorCategoria(cat);
+            List usuarios = u.listaUsuarios();
+            DefaultTableModel modelVideo = new DefaultTableModel(new String[]{"Usuario", "Video"}, 0);
+            DefaultTableModel modelPlaylist = new DefaultTableModel(new String[]{"Usuario", "Playlist"}, 0);
+            tableVideoUsuario.setModel(modelVideo);
+            tablePlaylist.setModel(modelPlaylist);
+            DtVideo aux;
+            DtUsuario userAux;
+            if (!videos.isEmpty() && !usuarios.isEmpty()) {
+                for (int x = 0; x < videos.size(); x++) {
+                    aux = (DtVideo) videos.get(x);
+                    if (videos.get(x) != null) {
+                        for (int y = 0; y < usuarios.size(); y++) {
+                            if (usuarios.get(y) != null) {
+                                userAux = (DtUsuario) usuarios.get(y);
+                                if (userAux.getCanal().getNombre_canal().equals(aux.getCanal().getNombre_canal())) {
+                                    modelVideo.addRow(new Object[]{userAux.getNickname(), aux.getNombre()});
+                                    break;
+                                }
                             }
                         }
                     }
                 }
             }
-        }
-        userAux = null;
-        DtListaParticulares auxList;
-        if (!playlists.isEmpty() && !usuarios.isEmpty()) {
-            for (int x = 0; x < playlists.size(); x++) {
-                auxList = (DtListaParticulares) playlists.get(x);
-                if (playlists.get(x) != null) {
-                    for (int y = 0; y < usuarios.size(); y++) {
-                        if (usuarios.get(y) != null) {
-                            userAux = (DtUsuario) usuarios.get(y);
-                            if (auxList.getCanal().getNombre_canal().equals(userAux.getCanal().getNombre_canal())) {
-                                modelPlaylist.addRow(new Object[]{userAux.getNickname(), auxList.getNombreLista()});
-                                break;
+            userAux = null;
+            DtListaParticulares auxList;
+            if (!playlists.isEmpty() && !usuarios.isEmpty()) {
+                for (int x = 0; x < playlists.size(); x++) {
+                    auxList = (DtListaParticulares) playlists.get(x);
+                    if (playlists.get(x) != null) {
+                        for (int y = 0; y < usuarios.size(); y++) {
+                            if (usuarios.get(y) != null) {
+                                userAux = (DtUsuario) usuarios.get(y);
+                                if (auxList.getCanal().getNombre_canal().equals(userAux.getCanal().getNombre_canal())) {
+                                    modelPlaylist.addRow(new Object[]{userAux.getNickname(), auxList.getNombreLista()});
+                                    break;
+                                }
                             }
                         }
                     }
                 }
             }
-        }
-        if(playlists.isEmpty() && videos.isEmpty()){
+            if (playlists.isEmpty() && videos.isEmpty()) {
+                VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
+                error.CambioTexto("  No hay videos ni playlists con esa categoria");
+                error.setVisible(true);
+            }
+        } else {
+
             VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-            error.CambioTexto("  No hay videos ni playlists con esa categoria");
+            error.CambioTexto("  No hay categorias ingresadas");
             error.setVisible(true);
         }
     }//GEN-LAST:event_botonSeleccionarConsultaCategoriaActionPerformed
@@ -7260,7 +7278,7 @@ public class MenuInicio extends javax.swing.JFrame {
         CampoDescripcion4.setText("");
     }
 
-    public void mostrarComentarios(DtVideo video , JTree tree){
+    public void mostrarComentarios(DtVideo video, JTree tree) {
         List listaCom = c.listaComentarios(video);
         if (!listaCom.isEmpty()) {
             DtAuxiliar com;
@@ -7268,7 +7286,7 @@ public class MenuInicio extends javax.swing.JFrame {
             DefaultTreeModel modelo = new DefaultTreeModel(abuelo);
             tree.setModel(modelo);
             // Construccion de los datos del arbol
-           for (int x = 0; x < listaCom.size(); x++) {
+            for (int x = 0; x < listaCom.size(); x++) {
                 com = (DtAuxiliar) listaCom.get(x);
                 if (listaCom.get(x) != null) {
                     String coment = c.comentarioEsp(com.getReferencia());
@@ -7280,10 +7298,10 @@ public class MenuInicio extends javax.swing.JFrame {
                         DefaultMutableTreeNode aux = new DefaultMutableTreeNode(com.getNick() + "::" + coment);
                         modelo.insertNodeInto(aux, abuelo, hijos);
                     } else {
-                        
+
                         DtAuxiliar comentario = c.obtenerComentarioRef(padre);
                         DefaultMutableTreeNode viejo = findNode(comentario.getNick() + "::" + comentario.getComentario(), tree);
-                        
+
                         if (viejo != null) {
                             int hijos = tree.getModel().getChildCount(viejo);
                             DefaultMutableTreeNode nuevo = new DefaultMutableTreeNode(com.getNick() + "::" + coment);
@@ -7299,7 +7317,7 @@ public class MenuInicio extends javax.swing.JFrame {
             tree.setModel(modelo);
         }
     }
-    
+
     public final DefaultMutableTreeNode findNode(String searchString, JTree tree) {
         List<DefaultMutableTreeNode> searchNodes = getSearchNodes((DefaultMutableTreeNode) tree.getModel().getRoot());
         DefaultMutableTreeNode currentNode = (DefaultMutableTreeNode) tree.getLastSelectedPathComponent();
