@@ -6,6 +6,7 @@
 package controladores;
 
 
+import DataTypes.DtAuxiliarValorar;
 import clases.Usuario;
 import excepciones.UsuarioRepetidoException;
 import interfaces.IControladorUsuario;
@@ -178,11 +179,11 @@ public class ControladorUsuario implements IControladorUsuario{
         List lista = mu.obtenerVal(u);
         Valorar v = new Valorar(user, video, user_val, val);
         if(!lista.isEmpty()) {
-            Valorar dtaux;
+            DtAuxiliarValorar dtaux;
             Boolean b = false;
             
             for(int x = 0; x < lista.size(); x++) {
-                dtaux = (Valorar)lista.get(x);
+                dtaux = (DtAuxiliarValorar)lista.get(x);
                 if(dtaux.getVid().equals(video)&&dtaux.getUser().equals(user_val)&&!dtaux.getVal().equals(val)) {
                     mu.modificoVal(v);
                     b=true;

@@ -6,6 +6,7 @@
 package swing;
 
 import DataTypes.DtAuxiliar;
+import DataTypes.DtAuxiliarValorar;
 import DataTypes.DtCanal;
 import DataTypes.DtCategoria;
 import DataTypes.DtComentario;
@@ -15,6 +16,7 @@ import DataTypes.DtListaParticulares;
 import DataTypes.DtListaReproduccion;
 import DataTypes.DtListaporDefecto;
 import DataTypes.DtUsuario;
+import DataTypes.DtValorar;
 import DataTypes.DtVideo;
 import excepciones.CanalRepetidoException;
 import excepciones.CategoriaRepetidaException;
@@ -440,6 +442,10 @@ public class MenuInicio extends javax.swing.JFrame {
         nombre15 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTree3 = new javax.swing.JTree();
+        jComboNoLesGusta = new javax.swing.JComboBox<>();
+        jComboLesGusta = new javax.swing.JComboBox<>();
+        url2 = new javax.swing.JLabel();
+        url3 = new javax.swing.JLabel();
         Central3_4 = new javax.swing.JPanel();
         comboUsuarios = new javax.swing.JComboBox<>();
         BackButton7 = new javax.swing.JButton();
@@ -3180,7 +3186,7 @@ public class MenuInicio extends javax.swing.JFrame {
         nombre10.setForeground(new java.awt.Color(102, 102, 102));
         nombre10.setText("Comentarios:");
         Central3_3_1_1.add(nombre10);
-        nombre10.setBounds(510, 110, 130, 18);
+        nombre10.setBounds(510, 90, 130, 18);
 
         duracion1.setFont(berlin);
         duracion1.setForeground(new java.awt.Color(102, 102, 102));
@@ -3190,9 +3196,9 @@ public class MenuInicio extends javax.swing.JFrame {
 
         url1.setFont(berlin);
         url1.setForeground(new java.awt.Color(102, 102, 102));
-        url1.setText("URL:");
+        url1.setText("No me gusta:");
         Central3_3_1_1.add(url1);
-        url1.setBounds(40, 120, 90, 18);
+        url1.setBounds(590, 220, 100, 18);
 
         categoria1.setFont(berlin);
         categoria1.setForeground(new java.awt.Color(102, 102, 102));
@@ -3301,7 +3307,7 @@ public class MenuInicio extends javax.swing.JFrame {
         ScroolDescripcion6.setViewportView(CampoDescripcion6);
 
         Central3_3_1_1.add(ScroolDescripcion6);
-        ScroolDescripcion6.setBounds(480, 30, 210, 60);
+        ScroolDescripcion6.setBounds(480, 30, 210, 50);
 
         jSeparator74.setBackground(new java.awt.Color(153, 153, 153));
         jSeparator74.setForeground(new java.awt.Color(153, 153, 153));
@@ -3334,7 +3340,25 @@ public class MenuInicio extends javax.swing.JFrame {
         jScrollPane4.setViewportView(jTree3);
 
         Central3_3_1_1.add(jScrollPane4);
-        jScrollPane4.setBounds(490, 130, 180, 140);
+        jScrollPane4.setBounds(490, 110, 180, 100);
+
+        Central3_3_1_1.add(jComboNoLesGusta);
+        jComboNoLesGusta.setBounds(590, 240, 100, 28);
+
+        Central3_3_1_1.add(jComboLesGusta);
+        jComboLesGusta.setBounds(480, 240, 100, 28);
+
+        url2.setFont(berlin);
+        url2.setForeground(new java.awt.Color(102, 102, 102));
+        url2.setText("URL:");
+        Central3_3_1_1.add(url2);
+        url2.setBounds(40, 120, 90, 18);
+
+        url3.setFont(berlin);
+        url3.setForeground(new java.awt.Color(102, 102, 102));
+        url3.setText("Me gusta:");
+        Central3_3_1_1.add(url3);
+        url3.setBounds(490, 220, 80, 18);
 
         Panel_Central.add(Central3_3_1_1);
         Central3_3_1_1.setBounds(0, 0, 710, 550);
@@ -5864,15 +5888,34 @@ public class MenuInicio extends javax.swing.JFrame {
         Central3_3_1_Panel.add(Central3_3_1_1);
         Panel_Central.revalidate();
         Panel_Central.repaint();
+        jComboLesGusta.removeAllItems();
+        jComboNoLesGusta.removeAllItems();
         
         // Datos para crear el arbol en jtree
         String vid = comboVideo5.getSelectedItem().toString();
         String usuario = comboVideo4.getSelectedItem().toString();
-        DtUsuario user1 = u.buscarUsuario(usuario);
-        DtVideo v = c.obtenerVideo(vid,user1.getCanal().getNombre_canal());
-        List listaCom = c.listaComentarios(v);
+        DtUsuario us = u.buscarUsuario(usuario);
+        DtVideo v = c.obtenerVideo(vid,us.getCanal().getNombre_canal());
         mostrarComentarios(v, jTree3);
         
+        //Valoraciones
+        List listaMeGusta = c.listaMeGustas(us.getNickname());
+        if(listaMeGusta != null){
+            DtAuxiliarValorar aux;
+            for(int x=0; x<listaMeGusta.size(); x++){
+                aux = (DtAuxiliarValorar) listaMeGusta.get(x);   
+                if(listaMeGusta.get(x) != null){
+                    if(v.getNombre().equals(aux.getVid()) && usuario.equals(aux.getDueño()) && aux.getVal().equals("Me gusta")){ 
+                        jComboLesGusta.addItem(aux.getUser());
+                    }
+                    if(v.getNombre().equals(aux.getVid()) && usuario.equals(aux.getDueño()) && aux.getVal().equals("No me gusta")){
+                        jComboNoLesGusta.addItem(aux.getUser());
+                    }
+                }
+            }
+        }
+        
+        // Datos del video
         String nomVideo = comboVideo5.getSelectedItem().toString();
         DtUsuario user;
         user = u.buscarUsuario((String) comboVideo4.getSelectedItem());
@@ -7574,6 +7617,8 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JComboBox<String> jComboLesGusta;
+    private javax.swing.JComboBox<String> jComboNoLesGusta;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -7746,6 +7791,8 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JTextField textCanalOrigenSacarVideo;
     private javax.swing.JLabel url;
     private javax.swing.JLabel url1;
+    private javax.swing.JLabel url2;
+    private javax.swing.JLabel url3;
     private javax.swing.JLabel userLabel;
     private javax.swing.JComboBox<String> userVal_ComboBox;
     private javax.swing.JLabel userVal_Label;

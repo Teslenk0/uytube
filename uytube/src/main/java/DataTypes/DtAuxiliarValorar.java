@@ -5,18 +5,18 @@
  */
 package DataTypes;
 
-import clases.Valorar;
+import clases.AuxiliarValorar;
 import java.io.Serializable;
 
 /**
  *
- * @author caste
+ * @author esteban
  */
-public class DtValorar implements Serializable {
+public class DtAuxiliarValorar implements Serializable{
     
     private static final long serialVersionUID = 1L;
     
-    private final DtUsuario dueño;
+    private final String dueño;
     
     private final String vid;
      
@@ -24,25 +24,25 @@ public class DtValorar implements Serializable {
     
     private final String val;
 
-    public DtValorar(DtUsuario dueño, String vid, String user, String val) {
+    public DtAuxiliarValorar(String dueño, String vid, String user, String val) {
         this.dueño = dueño;
         this.vid = vid;
         this.user = user;
         this.val = val;
     }
-    
-    public DtValorar(Valorar v) {
-        this.dueño = new DtUsuario (v.getDueño());
+
+    public DtAuxiliarValorar(AuxiliarValorar v) {
+        this.dueño = v.getDueño();
         this.vid = v.getVid();
         this.user = v.getUser();
         this.val = v.getVal();
     }
-
+    
     public static long getSerialVersionUID() {
         return serialVersionUID;
     }
 
-    public DtUsuario getDueño() {
+    public String getDueño() {
         return dueño;
     }
 
@@ -56,6 +56,7 @@ public class DtValorar implements Serializable {
 
     public String getVal() {
         return val;
-    }    
+    }
+    
     
 }

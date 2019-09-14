@@ -403,12 +403,13 @@ public class ManejadorInformacion {
     public List obtenerVal(String nick) {
         manager = emf.createEntityManager();
         Usuario u = this.buscadorUsuario(nick);
-        List<Valorar> aux;
-        String query = "FROM Valorar v WHERE v.dueño='" + u.getNickname() + "'";
-        aux = manager.createQuery(query).getResultList();
-        if(aux != null)
-            return aux;
-        return null;
+        List<Object[]> valorar = manager.createNativeQuery("SELECT dueño_Vid, video, usuario, valoracion FROM valorar where dueño_Vid='" + u.getNickname() +"';").getResultList();
+        List<AuxiliarValorar> valoraciones = new ArrayList<>();
+         valorar.forEach((row) -> {
+             valoraciones.add(new AuxiliarValorar((String)row[0], (String)row[1], (String) row[2], (String) row[3]));
+        });
+         return valoraciones;
+     
     }
     
     public void valorarVid(Valorar v) {
@@ -428,4 +429,5 @@ public class ManejadorInformacion {
         manager.getTransaction().commit();
         manager.close();
     }
+    
 }

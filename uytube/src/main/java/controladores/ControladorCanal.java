@@ -6,6 +6,7 @@
 package controladores;
 
 import DataTypes.DtAuxiliar;
+import DataTypes.DtAuxiliarValorar;
 import DataTypes.DtCanal;
 import DataTypes.DtCategoria;
 import DataTypes.DtComentario;
@@ -15,7 +16,9 @@ import DataTypes.DtListaParticulares;
 import DataTypes.DtListaReproduccion;
 import DataTypes.DtListaporDefecto;
 import DataTypes.DtUsuario;
+import DataTypes.DtValorar;
 import DataTypes.DtVideo;
+import clases.AuxiliarValorar;
 import clases.Canal;
 import clases.Categoria;
 import clases.Comentario;
@@ -25,6 +28,7 @@ import clases.ListaParticulares;
 import clases.ListaReproduccion;
 import clases.ListaporDefecto;
 import clases.Usuario;
+import clases.Valorar;
 import clases.Video;
 import excepciones.CategoriaRepetidaException;
 import excepciones.ListaRepetidaException;
@@ -384,5 +388,21 @@ public class ControladorCanal implements IControladorCanal {
             ListaporDefecto list = mu.buscadorListaDefecto(user.getCanal().getNombre_canal(), nombreLista);
             mu.removerVideoLista(list.getId(),video,canalOrigen,isParticular);
         }
+    }
+    
+    @Override
+    public List listaMeGustas(String usuario){
+        ManejadorInformacion mu = ManejadorInformacion.getInstance();
+        List lista = mu.obtenerVal(usuario);
+        if(lista != null){
+            List aux = new LinkedList();
+            DtAuxiliarValorar dtaux;
+            for (int x = 0; x < lista.size(); x++) {
+                dtaux = new DtAuxiliarValorar((AuxiliarValorar) lista.get(x));
+                aux.add(dtaux);
+            }
+            return aux;
+        }  
+        return null;
     }
 }
