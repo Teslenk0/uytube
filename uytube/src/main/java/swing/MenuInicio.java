@@ -5542,48 +5542,15 @@ public class MenuInicio extends javax.swing.JFrame {
         Central3_4_1_Panel.add(Central3_4_1_1);
         Panel_Central.revalidate();
         Panel_Central.repaint();
+        CampoCom.setText("");
+        CampoNick1.setText("Ingrese Nickname");
+        CampoDescripcion1.setText("");
         String video = comboVideos.getSelectedItem().toString();
         String usuario = comboUsuarios.getSelectedItem().toString();
         DtUsuario user = u.buscarUsuario(usuario);
         DtVideo v = c.obtenerVideo(video,user.getCanal().getNombre_canal());
-        List listaCom = c.listaComentarios(v);
-        if (!listaCom.isEmpty()) {
-            DtAuxiliar com;
-            DefaultMutableTreeNode abuelo = new DefaultMutableTreeNode(video + "::Comentarios");
-            DefaultTreeModel modelo = new DefaultTreeModel(abuelo);
-            jTree1.setModel(modelo);
-            // Construccion de los datos del arbol
-           for (int x = 0; x < listaCom.size(); x++) {
-                com = (DtAuxiliar) listaCom.get(x);
-                if (listaCom.get(x) != null) {
-                    String coment = c.comentarioEsp(com.getReferencia());
-                    String padre = com.getPadre();
-                    String ref = com.getReferencia().toString();
-                    DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) jTree1.getModel().getRoot();
-                    if (padre == null) {
-                        int hijos = jTree1.getModel().getChildCount(raiz);
-                        DefaultMutableTreeNode aux = new DefaultMutableTreeNode(com.getNick() + "::" + coment);
-                        modelo.insertNodeInto(aux, abuelo, hijos);
-                    } else {
-                        
-                        DtAuxiliar comentario = c.obtenerComentarioRef(padre);
-                        DefaultMutableTreeNode viejo = findNode(comentario.getNick() + "::" + comentario.getComentario(), jTree1);
-                        
-                        if (viejo != null) {
-                            int hijos = jTree1.getModel().getChildCount(viejo);
-                            DefaultMutableTreeNode nuevo = new DefaultMutableTreeNode(com.getNick() + "::" + coment);
-                            modelo.insertNodeInto(nuevo, viejo, hijos);
-
-                        }
-                    }
-                }
-            }
-        } else {
-            DefaultMutableTreeNode abuelo = new DefaultMutableTreeNode(video + "::Sin Comentarios");
-            DefaultTreeModel modelo = new DefaultTreeModel(abuelo);
-            jTree1.setModel(modelo);
-        }
-
+        mostrarComentarios(v, jTree1);
+        
     }//GEN-LAST:event_SeleccionarVideoActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -5632,12 +5599,12 @@ public class MenuInicio extends javax.swing.JFrame {
                 }
             }
         }
-
         if (aux == 1) {
             VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
             error.CambioTexto(" Comentario agregado ");
             error.setVisible(true);
-        } else if (aux == 0) {
+            mostrarComentarios(v, jTree1);
+         } else if (aux == 0) {
             VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
             error.CambioTexto(" No existe el usuario. ");
             error.setVisible(true);
@@ -5897,44 +5864,14 @@ public class MenuInicio extends javax.swing.JFrame {
         Central3_3_1_Panel.add(Central3_3_1_1);
         Panel_Central.revalidate();
         Panel_Central.repaint();
+        
+        // Datos para crear el arbol en jtree
         String vid = comboVideo5.getSelectedItem().toString();
         String usuario = comboVideo4.getSelectedItem().toString();
         DtUsuario user1 = u.buscarUsuario(usuario);
         DtVideo v = c.obtenerVideo(vid,user1.getCanal().getNombre_canal());
         List listaCom = c.listaComentarios(v);
-        if (!listaCom.isEmpty()) {
-            DtAuxiliar com;
-            DefaultMutableTreeNode abuelo1 = new DefaultMutableTreeNode(vid + "::Comentarios");
-            DefaultTreeModel modelo1 = new DefaultTreeModel(abuelo1);
-            jTree3.setModel(modelo1);
-            // Construccion de los datos del arbol
-           for (int x = 0; x < listaCom.size(); x++) {
-                com = (DtAuxiliar) listaCom.get(x);
-                if (listaCom.get(x) != null) {
-                    String coment = c.comentarioEsp(com.getReferencia());
-                    String padre = com.getPadre();
-                    String ref = com.getReferencia().toString();
-                    DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) jTree3.getModel().getRoot();
-                    if (padre == null) {
-                        int hijos = jTree3.getModel().getChildCount(raiz);
-                        DefaultMutableTreeNode aux = new DefaultMutableTreeNode(com.getNick() + "::" + coment);
-                        modelo1.insertNodeInto(aux, abuelo1, hijos);
-                    } else {
-                        DtAuxiliar comentario = c.obtenerComentarioRef(padre);
-                        DefaultMutableTreeNode viejo = findNode(comentario.getNick() + "::" + comentario.getComentario(), jTree3);
-                        if (viejo != null) {
-                            int hijos = jTree3.getModel().getChildCount(viejo);
-                            DefaultMutableTreeNode nuevo = new DefaultMutableTreeNode(com.getNick() + "::" + coment);
-                            modelo1.insertNodeInto(nuevo, viejo, hijos);
-                        }
-                    }
-                }
-            }
-        } else {
-            DefaultMutableTreeNode abuelo1 = new DefaultMutableTreeNode(vid + "::Sin Comentarios");
-            DefaultTreeModel modelo1 = new DefaultTreeModel(abuelo1);
-            jTree3.setModel(modelo1);
-        }
+        mostrarComentarios(v, jTree3);
         
         String nomVideo = comboVideo5.getSelectedItem().toString();
         DtUsuario user;
@@ -6338,6 +6275,7 @@ public class MenuInicio extends javax.swing.JFrame {
             if (!aux.equals("Comentarios") && !aux.equals("Sin Comentarios")) {
                 CampoCom.setText(aux);
             } else {
+                CampoCom.setText("");
             }
         }
     }//GEN-LAST:event_jButton6ActionPerformed
@@ -7211,6 +7149,46 @@ public class MenuInicio extends javax.swing.JFrame {
         CampoDescripcion4.setText("");
     }
 
+    public void mostrarComentarios(DtVideo video , JTree tree){
+        List listaCom = c.listaComentarios(video);
+        if (!listaCom.isEmpty()) {
+            DtAuxiliar com;
+            DefaultMutableTreeNode abuelo = new DefaultMutableTreeNode(video.getNombre() + "::Comentarios");
+            DefaultTreeModel modelo = new DefaultTreeModel(abuelo);
+            tree.setModel(modelo);
+            // Construccion de los datos del arbol
+           for (int x = 0; x < listaCom.size(); x++) {
+                com = (DtAuxiliar) listaCom.get(x);
+                if (listaCom.get(x) != null) {
+                    String coment = c.comentarioEsp(com.getReferencia());
+                    String padre = com.getPadre();
+                    String ref = com.getReferencia().toString();
+                    DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) tree.getModel().getRoot();
+                    if (padre == null) {
+                        int hijos = tree.getModel().getChildCount(raiz);
+                        DefaultMutableTreeNode aux = new DefaultMutableTreeNode(com.getNick() + "::" + coment);
+                        modelo.insertNodeInto(aux, abuelo, hijos);
+                    } else {
+                        
+                        DtAuxiliar comentario = c.obtenerComentarioRef(padre);
+                        DefaultMutableTreeNode viejo = findNode(comentario.getNick() + "::" + comentario.getComentario(), tree);
+                        
+                        if (viejo != null) {
+                            int hijos = tree.getModel().getChildCount(viejo);
+                            DefaultMutableTreeNode nuevo = new DefaultMutableTreeNode(com.getNick() + "::" + coment);
+                            modelo.insertNodeInto(nuevo, viejo, hijos);
+
+                        }
+                    }
+                }
+            }
+        } else {
+            DefaultMutableTreeNode abuelo = new DefaultMutableTreeNode(video.getNombre() + "::Sin Comentarios");
+            DefaultTreeModel modelo = new DefaultTreeModel(abuelo);
+            tree.setModel(modelo);
+        }
+    }
+    
     public final DefaultMutableTreeNode findNode(String searchString, JTree tree) {
         List<DefaultMutableTreeNode> searchNodes = getSearchNodes((DefaultMutableTreeNode) tree.getModel().getRoot());
         DefaultMutableTreeNode currentNode = (DefaultMutableTreeNode) tree.getLastSelectedPathComponent();
