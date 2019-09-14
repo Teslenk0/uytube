@@ -440,4 +440,13 @@ public class ManejadorInformacion {
         return null;
     }
     
+    public List obtenerListasParticularesPorCategoria(String categoria){
+        manager = emf.createEntityManager();
+        String query = "FROM ListaParticulares l WHERE l.categoria='" + categoria + "'";
+        List aux = manager.createQuery(query).getResultList(); 
+        if (aux != null) {
+            return aux;
+        }
+        return null;
+    }
 }

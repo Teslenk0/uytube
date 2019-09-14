@@ -71,5 +71,7 @@ public interface IControladorCanal {
     
     public abstract List listaMeGustas(String usuario);
     
+    public abstract List obtenerListasParticularesPorCategoria(String categoria);
+    
     public abstract List listarVideosPorCategoria(String categoria);
 }
