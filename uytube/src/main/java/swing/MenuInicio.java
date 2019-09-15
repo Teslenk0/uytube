@@ -537,6 +537,7 @@ public class MenuInicio extends javax.swing.JFrame {
         usuarioModificarListaLabel = new javax.swing.JLabel();
         privadaModificarListaLabel = new javax.swing.JLabel();
         BackButton8 = new javax.swing.JButton();
+        BackButton18 = new javax.swing.JButton();
         comboCategoriaModificarLista = new javax.swing.JComboBox<>();
         comboUsuarioModificarLista = new javax.swing.JComboBox<>();
         comboListaModificarLista = new javax.swing.JComboBox<>();
@@ -2330,6 +2331,11 @@ public class MenuInicio extends javax.swing.JFrame {
         jButton2.setContentAreaFilled(false);
         jButton2.setFocusable(false);
         jButton2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_listas_1.png"))); // NOI18N
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         Central2_3_1.add(jButton2);
         jButton2.setBounds(150, 270, 80, 40);
 
@@ -4056,6 +4062,20 @@ public class MenuInicio extends javax.swing.JFrame {
         });
         Central4_2.add(BackButton8);
         BackButton8.setBounds(0, 11, 101, 51);
+
+        BackButton18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back.png"))); // NOI18N
+        BackButton18.setBorder(null);
+        BackButton18.setBorderPainted(false);
+        BackButton18.setContentAreaFilled(false);
+        BackButton18.setFocusable(false);
+        BackButton18.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back2.png"))); // NOI18N
+        BackButton18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackButton18ActionPerformed(evt);
+            }
+        });
+        Central4_2.add(BackButton18);
+        BackButton18.setBounds(0, 11, 101, 51);
 
         comboCategoriaModificarLista.setFont(berlin);
         comboCategoriaModificarLista.setEnabled(false);
@@ -5820,6 +5840,8 @@ public class MenuInicio extends javax.swing.JFrame {
     private void modificarPlaylist_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarPlaylist_ButtonActionPerformed
         List lista = u.listaUsuarios();
         if (lista != null) {
+            BackButton18.setVisible(false);
+            BackButton8.setVisible(true);
             Central4_2.add(botonSeleccionarModificarLista);
             Central4_2.remove(CambiarUsuario14);
             comboUsuarioModificarLista.setEnabled(true);
@@ -5828,7 +5850,9 @@ public class MenuInicio extends javax.swing.JFrame {
             Si4.setEnabled(false);
             No4.setEnabled(false);
             botonAceptarModificarLista1.setEnabled(false);
-            
+            comboUsuarioModificarLista.setVisible(true);
+            usuarioModificarListaLabel.setVisible(true);
+            botonSeleccionarModificarLista.setVisible(true);
             Panel_Central.removeAll();
             Panel_Central.add(Central4_2);
             Panel_Central.revalidate();
@@ -7537,6 +7561,63 @@ public class MenuInicio extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+         List lista = c.getListasReproduccion(comboModificar.getSelectedItem().toString());
+        if (!lista.isEmpty()) {
+            Panel_Central.removeAll();
+            Panel_Central.add(Central4_2);
+            BackButton8.setVisible(false);
+            BackButton18.setVisible(true);
+            comboUsuarioModificarLista.setVisible(false);
+            usuarioModificarListaLabel.setVisible(false);
+            botonSeleccionarModificarLista.setVisible(false);
+            Panel_Central.revalidate();
+            Panel_Central.repaint();
+            comboListaModificarLista.setEnabled(true);
+            comboCategoriaModificarLista.setEnabled(true);
+            botonAceptarModificarLista1.setEnabled(true);
+            Si4.setEnabled(true);
+            No4.setEnabled(true);
+            DtListaParticulares aux;
+            comboListaModificarLista.removeAllItems();
+            for (int x = 0; x <= lista.size() - 1; x++) {
+                if (lista.get(x) != null) {
+                    aux = (DtListaParticulares) lista.get(x);
+                    comboListaModificarLista.addItem(aux.getNombreLista());
+                }
+            }
+            List categorias = c.getCategorias();
+            if (categorias != null) {
+                DtCategoria cat;
+                comboCategoriaModificarLista.removeAllItems();
+                for (int x = 0; x <= categorias.size() - 1; x++) {
+                    if (categorias.get(x) != null) {
+                        cat = (DtCategoria) categorias.get(x);
+                        comboCategoriaModificarLista.addItem(cat.getnombreCategoria());
+                    }
+                }  
+            }
+        } else {
+            comboListaModificarLista.setEnabled(false);
+            comboCategoriaModificarLista.setEnabled(false);
+            Si4.setEnabled(false);
+            No4.setEnabled(false);
+            botonAceptarModificarLista1.setEnabled(false);
+            VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
+            error.CambioTexto("   El usuario no tiene listas de reproducción");
+            error.setVisible(true);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void BackButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButton18ActionPerformed
+        Panel_Central.removeAll();
+        BackButton8.setVisible(true);
+        BackButton18.setVisible(false);
+        Panel_Central.add(Central2_3);
+        Panel_Central.revalidate();
+        Panel_Central.repaint();
+    }//GEN-LAST:event_BackButton18ActionPerformed
+
     private void setColor(JPanel pane) {
         pane.setBackground(new Color(114, 114, 114));
     }
@@ -7679,6 +7760,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JButton BackButton15;
     private javax.swing.JButton BackButton16;
     private javax.swing.JButton BackButton17;
+    private javax.swing.JButton BackButton18;
     private javax.swing.JButton BackButton2;
     private javax.swing.JButton BackButton3;
     private javax.swing.JButton BackButton4;
