@@ -6588,14 +6588,14 @@ public class MenuInicio extends javax.swing.JFrame {
                     + "Extraído del canal Teleuniversitaria UdelaR", "Noticias", "6:26", false);
             c.registrarVideo(video);
             Date fechaC = new SimpleDateFormat("yyyy-MM-dd HH:MM:SS").parse("2017-09-07 04:56:00");
-            DtComentario com = new DtComentario("nicoJ","Felicitaciones FING!!!", fechaC, video,"",4,user.getCanal().getNombre_canal());
+            DtComentario com = new DtComentario("nicoJ","Felicitaciones FING!!!", fechaC, video,null,4,user.getCanal().getNombre_canal());
             c.agregarComentario(com);
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("2017-11-24");
             video = new DtVideo("50 años del InCo", user.getCanal(), fechaU, "https://youtu.be/GzOJSk4urlM", "50 años del Instituto de Computación. Facultad de Ingeniería. UDELAR. 22 de noviembre 2017.\n"
                     + "La mesa de apertura estuvo integrada por Simon, el rector de la Universidad de la República (Udelar).", "Noticias", "27:22", false);
             c.registrarVideo(video);
             fechaC = new SimpleDateFormat("yyyy-MM-dd HH:MM:SS").parse("2017-12-05 14:35:00");
-            com = new DtComentario("nicoJ","Fue in gran evento", fechaC, video,"",1,user.getCanal().getNombre_canal());
+            com = new DtComentario("nicoJ","Fue in gran evento", fechaC, video,null,1,user.getCanal().getNombre_canal());
             c.agregarComentario(com);
             fechaC = new SimpleDateFormat("yyyy-MM-dd HH:MM:SS").parse("2017-12-08 01:47:00");
             com = new DtComentario("hrubino","Para el proximo aniversario ofrezco vamo' con los Momo",fechaC,video,"1",2,user.getCanal().getNombre_canal());
@@ -6607,7 +6607,7 @@ public class MenuInicio extends javax.swing.JFrame {
             video = new DtVideo("Ingeniería de Muestra 2017", user.getCanal(), fechaU, "https://youtu.be/RnaYRA1k5j4", "La muestra más grande de la ingeniería nacional se realizó el jueves 19, viernes 20 y sábado 21 de octubre de 2017. Ingeniería deMuestra fue organizada por la Facultad de Ingeniería de la Universidad de la República y su Fundación Julio Ricaldoni.", "Noticias", "1:00", false);
             c.registrarVideo(video);
             fechaC = new SimpleDateFormat("yyyy-MM-dd HH:MM:SS").parse("2017-10-23 12:58:00");
-            com = new DtComentario("kairoh","Un gusto cubrir eventos como este.", fechaC, video,"",5,user.getCanal().getNombre_canal());
+            com = new DtComentario("kairoh","Un gusto cubrir eventos como este.", fechaC, video,null,5,user.getCanal().getNombre_canal());
             c.agregarComentario(com);
             DtListaParticulares lista = new DtListaParticulares(false, new DtCategoria("Noticias"), "Novedades FING");
             c.crearListaParticular((DtListaParticulares) lista, user);
@@ -6622,7 +6622,7 @@ public class MenuInicio extends javax.swing.JFrame {
             video = new DtVideo("Locura Celeste", user.getCanal(), fechaU, "https://youtu.be/PAfbzKcePx0", "Tema Oficial de la cobertura celeste de Monte Carlo Televisión Canal 4 para el Mundial de Futbol FIFA Rusia 2018", "Música", "3:04", true);
             c.registrarVideo(video);
             fechaC = new SimpleDateFormat("yyyy-MM-dd HH:MM:SS").parse("2017-09-11 03:45:00");
-            com = new DtComentario("marcelot","Me encanta este tema", fechaC, video,"",9,user.getCanal().getNombre_canal());
+            com = new DtComentario("marcelot","Me encanta este tema", fechaC, video,null,9,user.getCanal().getNombre_canal());
             c.agregarComentario(com);
             fechaC = new SimpleDateFormat("yyyy-MM-dd HH:MM:SS").parse("2017-09-15 12:29:00");
             com = new DtComentario("tabarec","Gracias Marce ;)", fechaC, video,"9",10,user.getCanal().getNombre_canal());
@@ -6672,7 +6672,7 @@ public class MenuInicio extends javax.swing.JFrame {
             video = new DtVideo("Thriller", user.getCanal(), fechaU, "https://youtu.be/sOnqjkJTMaA", "Michael Jackson's official music video for \"Thriller\"", "Música", "13:42", false);
             c.registrarVideo(video);
             fechaC = new SimpleDateFormat("yyyy-MM-dd HH:MM:SS").parse("2017-10-30 02:17:00");
-            com = new DtComentario("marcelot","Rock and Rolllll", fechaC, video,"",7,user.getCanal().getNombre_canal());
+            com = new DtComentario("marcelot","Rock and Rolllll", fechaC, video,null,7,user.getCanal().getNombre_canal());
             c.agregarComentario(com);
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("2018-07-23");
             video = new DtVideo("Show de goles", user.getCanal(), fechaU, "https://youtu.be/g46w4_kD_lA", "TORNEO CLAUSURA 2018", "Deporte", "4:23", false);
@@ -6682,7 +6682,7 @@ public class MenuInicio extends javax.swing.JFrame {
                     + "\"Estadio Campeón del Siglo\".", "Deporte", "3:27:26", false);
             c.registrarVideo(video);
             fechaC = new SimpleDateFormat("yyyy-MM-dd HH:MM:SS").parse("2016-11-14 05:34:00");
-            com = new DtComentario("kairoh","Peñarol peñarol!!!.", fechaC, video,"",6,user.getCanal().getNombre_canal());
+            com = new DtComentario("kairoh","Peñarol peñarol!!!.", fechaC, video,null,6,user.getCanal().getNombre_canal());
             c.agregarComentario(com);
             lista = new DtListaParticulares(false, new DtCategoria("Deporte"), "Solo deportes");
             c.crearListaParticular((DtListaParticulares) lista, user);
@@ -6707,7 +6707,7 @@ public class MenuInicio extends javax.swing.JFrame {
             video = new DtVideo("Dancing in the Dark", user.getCanal(), fechaU, "https://youtu.be/129kuDCQtHs", "Bruce Springsteen's official music video for 'Dancing In The Dark'.", "Música", "3:58", false);
             c.registrarVideo(video);
             fechaC = new SimpleDateFormat("yyyy-MM-dd HH:MM:SS").parse("2018-08-18 18:00:00");
-            com = new DtComentario("marcelot","Anoche explotó!!!", fechaC, video,"",8,user.getCanal().getNombre_canal());
+            com = new DtComentario("marcelot","Anoche explotó!!!", fechaC, video,null,8,user.getCanal().getNombre_canal());
             c.agregarComentario(com);
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("2009-10-02");
             video = new DtVideo("Thriller", user.getCanal(), fechaU, "https://youtu.be/sOnqjkJTMaA", "Michael Jackson's official music video for \"Thriller\"", "Música", "13:42", false);
