@@ -637,10 +637,10 @@ public class MenuInicio extends javax.swing.JFrame {
         CampoCategoria = new javax.swing.JTextField();
         jSeparator86 = new javax.swing.JSeparator();
         Central5_2 = new javax.swing.JPanel();
+        jLabel22 = new javax.swing.JLabel();
         BotonBack5 = new javax.swing.JButton();
         jSeparator105 = new javax.swing.JSeparator();
         jSeparator106 = new javax.swing.JSeparator();
-        altacat4 = new javax.swing.JLabel();
         comboCategoriasConsultaCategoria = new javax.swing.JComboBox<>();
         altacat5 = new javax.swing.JLabel();
         botonSeleccionarConsultaCategoria = new javax.swing.JButton();
@@ -4054,7 +4054,7 @@ public class MenuInicio extends javax.swing.JFrame {
         privadaModificarListaLabel.setForeground(new java.awt.Color(102, 102, 102));
         privadaModificarListaLabel.setText("¿Desea hacerla privada?");
         Central4_2.add(privadaModificarListaLabel);
-        privadaModificarListaLabel.setBounds(180, 310, 160, 20);
+        privadaModificarListaLabel.setBounds(170, 310, 190, 20);
 
         BackButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back.png"))); // NOI18N
         BackButton8.setBorder(null);
@@ -4863,6 +4863,11 @@ public class MenuInicio extends javax.swing.JFrame {
 
         Central5_2.setLayout(null);
 
+        jLabel22.setFont(berlin);
+        jLabel22.setText("Categoría");
+        Central5_2.add(jLabel22);
+        jLabel22.setBounds(290, 150, 100, 14);
+
         BotonBack5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back.png"))); // NOI18N
         BotonBack5.setBorder(null);
         BotonBack5.setBorderPainted(false);
@@ -4880,17 +4885,12 @@ public class MenuInicio extends javax.swing.JFrame {
         jSeparator105.setBackground(new java.awt.Color(153, 153, 153));
         jSeparator105.setForeground(new java.awt.Color(153, 153, 153));
         Central5_2.add(jSeparator105);
-        jSeparator105.setBounds(90, 120, 675, 30);
+        jSeparator105.setBounds(20, 120, 675, 30);
 
         jSeparator106.setBackground(new java.awt.Color(153, 153, 153));
         jSeparator106.setForeground(new java.awt.Color(153, 153, 153));
         Central5_2.add(jSeparator106);
-        jSeparator106.setBounds(90, 240, 675, 30);
-
-        altacat4.setFont(berlin.deriveFont(20f));
-        altacat4.setText("Categoria");
-        Central5_2.add(altacat4);
-        altacat4.setBounds(60, 140, 120, 20);
+        jSeparator106.setBounds(20, 240, 675, 30);
 
         comboCategoriasConsultaCategoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -4898,12 +4898,12 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central5_2.add(comboCategoriasConsultaCategoria);
-        comboCategoriasConsultaCategoria.setBounds(200, 140, 456, 22);
+        comboCategoriasConsultaCategoria.setBounds(100, 170, 456, 22);
 
         altacat5.setFont(berlin.deriveFont(20f));
         altacat5.setText("Consulta de categorias");
         Central5_2.add(altacat5);
-        altacat5.setBounds(310, 70, 220, 20);
+        altacat5.setBounds(240, 70, 220, 20);
 
         botonSeleccionarConsultaCategoria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_seleccionar_1.png"))); // NOI18N
         botonSeleccionarConsultaCategoria.setBorderPainted(false);
@@ -4915,7 +4915,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central5_2.add(botonSeleccionarConsultaCategoria);
-        botonSeleccionarConsultaCategoria.setBounds(340, 190, 80, 40);
+        botonSeleccionarConsultaCategoria.setBounds(570, 160, 80, 40);
 
         tablePlaylist.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -6212,7 +6212,7 @@ public class MenuInicio extends javax.swing.JFrame {
         user = u.buscarUsuario((String) comboVideo4.getSelectedItem());
         DtVideo video = c.obtenerVideo(nomVideo, user.getCanal().getNombre_canal());
         DateFormat dt = new SimpleDateFormat("dd/MM/yyyy");
-        String fechaN = dt.format(user.getFechaNac());
+        String fechaN = dt.format(video.getFechaPublicacion());
         VarNomvideo1.setText(video.getNombre());
         VarDuracion1.setText(video.getDuracion());
         VarUrl1.setText(video.getUrl());
@@ -6650,10 +6650,10 @@ public class MenuInicio extends javax.swing.JFrame {
             video = new DtVideo("Niño Payaso", user.getCanal(), fechaU, "https://youtu.be/K-uEIUnyZPg", "Niño Payaso Tabaré Cardozo", "Música", "4:18", true);
             c.registrarVideo(video);
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("2015-12-17");
-            video = new DtVideo("Etapa A contramano Linguilla", user.getCanal(), fechaU, "https://youtu.be/Es6GRMHXeCQ", "4A ETAPA A CONTRAMANO LIGUILLA", "Carnaval", "57:15", true);
+            video = new DtVideo("Etapa A contramano Liguilla", user.getCanal(), fechaU, "https://youtu.be/Es6GRMHXeCQ", "4A ETAPA A CONTRAMANO LIGUILLA", "Carnaval", "57:15", true);
             c.registrarVideo(video);
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("2015-12-18");
-            video = new DtVideo("Etapa Don Timoteo Linguilla", user.getCanal(), fechaU, "https://youtu.be/I_spHBU9ZsI", "2A ETAPA DON TIMOTEO LIGUILLA", "Carnaval", "51:38", true);
+            video = new DtVideo("Etapa Don Timoteo Liguilla", user.getCanal(), fechaU, "https://youtu.be/I_spHBU9ZsI", "2A ETAPA DON TIMOTEO LIGUILLA", "Carnaval", "51:38", true);
             c.registrarVideo(video);
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("2011-11-14");
             video = new DtVideo("Recoba 20 mejores goles", user.getCanal(), fechaU, "https://youtu.be/Gy3fZhWdLEQ", "Recoba - Top 20 Goals", "Deporte", "13:26", true);
@@ -6801,9 +6801,9 @@ public class MenuInicio extends javax.swing.JFrame {
             c.agregarVideoLista("50 años del InCo","Novedades FING","hectorg" ,"hectorg",true);
             c.agregarVideoLista("Ingeniería de Muestra 2017","Novedades FING","hectorg" ,"hectorg",true);
             
-            c.agregarVideoLista("Locula Celeste", "De todo un poco", "cachilas", "cachilas", true);
+            c.agregarVideoLista("Locura Celeste", "De todo un poco", "cachilas", "cachilas", true);
             c.agregarVideoLista("Niño Payaso", "De todo un poco", "cachilas", "cachilas", true);
-            c.agregarVideoLista("Etapa A contramano Linguilla", "De todo un poco", "cachilas", "cachilas", true);
+            c.agregarVideoLista("Etapa A contramano Liguilla", "De todo un poco", "cachilas", "cachilas", true);
             c.agregarVideoLista("Inauguración Estadio Peñarol", "De todo un poco", "cachilas", "juliob", true);
             
             c.agregarVideoLista("Show de goles", "Solo deportes", "juliob", "juliob", true);
@@ -7128,20 +7128,57 @@ public class MenuInicio extends javax.swing.JFrame {
             DtUsuario user;
             user = u.buscarUsuario((String) ComboUsuariosLista.getSelectedItem());
             DtVideo video = c.obtenerVideo(nomVideo, user.getCanal().getNombre_canal());
+            jComboLesGusta.removeAllItems();
+            jComboNoLesGusta.removeAllItems();
+
+            // Datos para crear el arbol en jtree
+            String vid = comboVideoCons.getSelectedItem().toString();
+            String usuario = ComboUsuariosLista.getSelectedItem().toString();
+            DtVideo v = c.obtenerVideo(vid, user.getCanal().getNombre_canal());
+            mostrarComentarios(v, jTree3);
+
+            //Valoraciones
+            Boolean megusta = true, nomegusta = true;
+            List listaMeGusta = c.listaMeGustas(user.getNickname());
+            if (listaMeGusta != null) {
+                DtAuxiliarValorar aux;
+                for (int x = 0; x < listaMeGusta.size(); x++) {
+                    aux = (DtAuxiliarValorar) listaMeGusta.get(x);
+                    jComboLesGusta.setEnabled(true);
+                    jComboNoLesGusta.setEnabled(true);
+                    if (listaMeGusta.get(x) != null) {
+                        if (v.getNombre().equals(aux.getVid()) && usuario.equals(aux.getDueño()) && aux.getVal().equals("Me gusta")) {
+                            megusta = false;
+                            jComboLesGusta.addItem(aux.getUser());
+                        }
+                        if (v.getNombre().equals(aux.getVid()) && usuario.equals(aux.getDueño()) && aux.getVal().equals("No me gusta")) {
+                            jComboNoLesGusta.addItem(aux.getUser());
+                            nomegusta = false;
+                        }
+                    }
+                }
+            }
+            if (megusta) {
+                jComboLesGusta.setEnabled(false);
+            }
+
+            if (nomegusta) {
+                jComboNoLesGusta.setEnabled(false);
+            }
+            // Datos del video
             DateFormat dt = new SimpleDateFormat("dd/MM/yyyy");
-            String fechaN = dt.format(user.getFechaNac());
+            String fechaN = dt.format(video.getFechaPublicacion());
             VarNomvideo1.setText(video.getNombre());
             VarDuracion1.setText(video.getDuracion());
             VarUrl1.setText(video.getUrl());
             VarCategoria1.setText(video.getCategoria());
             CampoDescripcion6.setText(video.getDescripcion());
             VarFechaPub2.setText(fechaN);
-            if (video.getPrivado()) {
+            if (video.getPrivado())
                 Estado.setText("Privado");
-            } else {
+            else
                 Estado.setText("Público");
             }
-        }
     }//GEN-LAST:event_SeleccionarVideossActionPerformed
 
     private void BackButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButton15ActionPerformed
@@ -7543,6 +7580,7 @@ public class MenuInicio extends javax.swing.JFrame {
 
     private void CambiarUsuario14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CambiarUsuario14ActionPerformed
         comboUsuarioModificarLista.setEnabled(true);
+        botonAceptarModificarLista1.setEnabled(false);
         Central4_2.add(botonSeleccionarModificarLista);
         Central4_2.remove(CambiarUsuario14);
         Panel_Central.revalidate();
@@ -8266,7 +8304,6 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JLabel altacat12;
     private javax.swing.JLabel altacat2;
     private javax.swing.JLabel altacat3;
-    private javax.swing.JLabel altacat4;
     private javax.swing.JLabel altacat5;
     private javax.swing.JLabel altacat6;
     private javax.swing.JLabel altacat7;
@@ -8370,6 +8407,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
