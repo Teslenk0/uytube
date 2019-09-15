@@ -6569,12 +6569,6 @@ public class MenuInicio extends javax.swing.JFrame {
             u.registrarUsuario(user, imagen);
             u.seguirUsuario(user, "hectorg");
             u.seguirUsuario(user, "diegop");
-            DtListaporDefecto listaD = new DtListaporDefecto("Escuchar más tarde");
-            c.crearListaDefecto(listaD);
-            listaD = new DtListaporDefecto("Deporte total");
-            c.crearListaDefecto(listaD);
-            listaD = new DtListaporDefecto("Novedades generales");
-            c.crearListaDefecto(listaD);
 
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("1972-06-14");
             canal = new DtCanal("El bocha", "Mi canal para colgar mis cosas", false);
@@ -6806,6 +6800,24 @@ public class MenuInicio extends javax.swing.JFrame {
             c.agregarVideoLista("100 años de FING","Novedades FING","hectorg" ,"hectorg",true);
             c.agregarVideoLista("50 años del InCo","Novedades FING","hectorg" ,"hectorg",true);
             c.agregarVideoLista("Ingeniería de Muestra 2017","Novedades FING","hectorg" ,"hectorg",true);
+            
+            c.agregarVideoLista("Locula Celeste", "De todo un poco", "cachilas", "cachilas", true);
+            c.agregarVideoLista("Niño Payaso", "De todo un poco", "cachilas", "cachilas", true);
+            c.agregarVideoLista("Etapa A contramano Linguilla", "De todo un poco", "cachilas", "cachilas", true);
+            c.agregarVideoLista("Inauguración Estadio Peñarol", "De todo un poco", "cachilas", "juliob", true);
+            
+            c.agregarVideoLista("Show de goles", "Solo deportes", "juliob", "juliob", true);
+            c.agregarVideoLista("Inaguración Estadio Peñarol", "Solo deportes", "juliob", "juliob", true);
+            
+            c.agregarVideoLista("Ventana al futuro Uruguay y déficit de ingenieros", "Noticias y CYT", "nicoJ", "nicoJ", true);
+            c.agregarVideoLista("Ingeniería de Muestra 2017", "Noticias y CYT", "nicoJ", "hectorg", true);
+            
+            DtListaporDefecto listaD = new DtListaporDefecto("Escuchar más tarde");
+            c.crearListaDefecto(listaD);
+            listaD = new DtListaporDefecto("Deporte total");
+            c.crearListaDefecto(listaD);
+            listaD = new DtListaporDefecto("Novedades generales");
+            c.crearListaDefecto(listaD);
             
             Sobrecarga.setEnabled(false);
             mensaje.CambioTexto("    Datos sobrecargados correctamente");
