@@ -159,9 +159,15 @@ public class ManejadorInformacion {
     public void modificarVideo(Video video, String oldV) {
         manager = emf.createEntityManager();
         manager.getTransaction().begin();
-        Query query = manager.createQuery("delete from Video v where v.canal='" + video.getCanal().getNombre_canal() + "' and v.nombre='" + oldV + "'");
-        query.executeUpdate();
-        manager.persist(video);
+        Video v = (Video) manager.createQuery("select v from Video v where v.canal='" + video.getCanal().getNombre_canal() + "' and v.nombre='" + oldV + "'").getSingleResult();
+        Query query = manager.createQuery("update Video v set v.nombre = '" + video.getNombre() + "' where v.nombre = '" + oldV + "'");     
+        query.executeUpdate();             
+        v.setCategoria(video.getCategoria());      
+        v.setDescripcion(video.getDescripcion());       
+        v.setDuracion(video.getDuracion());    
+        v.setFechaPublicacion(video.getFechaPublicacion());     
+        v.setUrl(video.getUrl());     
+        v.setPrivado(video.getPrivado());
         manager.getTransaction().commit();
         manager.close();
     }
