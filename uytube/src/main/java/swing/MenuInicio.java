@@ -260,6 +260,11 @@ public class MenuInicio extends javax.swing.JFrame {
         Central2_2_1_1_Panel = new javax.swing.JPanel();
         jSeparator116 = new javax.swing.JSeparator();
         altacat9 = new javax.swing.JLabel();
+        Central2_2_1_2 = new javax.swing.JPanel();
+        BackButton17 = new javax.swing.JButton();
+        Central2_2_1_2_Panel = new javax.swing.JPanel();
+        jSeparator119 = new javax.swing.JSeparator();
+        altacat11 = new javax.swing.JLabel();
         Central2_3 = new javax.swing.JPanel();
         comboModificar = new javax.swing.JComboBox<>();
         BackButton4 = new javax.swing.JButton();
@@ -1877,6 +1882,11 @@ public class MenuInicio extends javax.swing.JFrame {
         jButton4.setBorderPainted(false);
         jButton4.setContentAreaFilled(false);
         jButton4.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_listas_1.png"))); // NOI18N
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         Central2_2_1.add(jButton4);
         jButton4.setBounds(170, 210, 80, 40);
 
@@ -1976,6 +1986,52 @@ public class MenuInicio extends javax.swing.JFrame {
 
         Panel_Central.add(Central2_2_1_1);
         Central2_2_1_1.setBounds(0, 0, 720, 550);
+
+        Central2_2_1_2.setLayout(null);
+
+        BackButton17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back.png"))); // NOI18N
+        BackButton17.setBorder(null);
+        BackButton17.setBorderPainted(false);
+        BackButton17.setContentAreaFilled(false);
+        BackButton17.setFocusable(false);
+        BackButton17.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back2.png"))); // NOI18N
+        BackButton17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackButton17ActionPerformed(evt);
+            }
+        });
+        Central2_2_1_2.add(BackButton17);
+        BackButton17.setBounds(0, 11, 101, 51);
+
+        Central2_2_1_2_Panel.setMaximumSize(new java.awt.Dimension(403, 550));
+        Central2_2_1_2_Panel.setMinimumSize(new java.awt.Dimension(403, 550));
+
+        javax.swing.GroupLayout Central2_2_1_2_PanelLayout = new javax.swing.GroupLayout(Central2_2_1_2_Panel);
+        Central2_2_1_2_Panel.setLayout(Central2_2_1_2_PanelLayout);
+        Central2_2_1_2_PanelLayout.setHorizontalGroup(
+            Central2_2_1_2_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 720, Short.MAX_VALUE)
+        );
+        Central2_2_1_2_PanelLayout.setVerticalGroup(
+            Central2_2_1_2_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 590, Short.MAX_VALUE)
+        );
+
+        Central2_2_1_2.add(Central2_2_1_2_Panel);
+        Central2_2_1_2_Panel.setBounds(0, 110, 720, 590);
+
+        jSeparator119.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator119.setForeground(new java.awt.Color(153, 153, 153));
+        Central2_2_1_2.add(jSeparator119);
+        jSeparator119.setBounds(20, 100, 675, 60);
+
+        altacat11.setFont(berlin.deriveFont(20f));
+        altacat11.setText("Consulta de Playlist");
+        Central2_2_1_2.add(altacat11);
+        altacat11.setBounds(280, 40, 220, 20);
+
+        Panel_Central.add(Central2_2_1_2);
+        Central2_2_1_2.setBounds(0, 0, 720, 550);
 
         Central2_3.setLayout(null);
 
@@ -4542,7 +4598,7 @@ public class MenuInicio extends javax.swing.JFrame {
         jLabel18.setForeground(new java.awt.Color(102, 102, 102));
         jLabel18.setText("Videos");
         Central4_5_2.add(jLabel18);
-        jLabel18.setBounds(170, 150, 90, 14);
+        jLabel18.setBounds(170, 140, 90, 14);
 
         jLabel19.setFont(berlin);
         jLabel19.setForeground(new java.awt.Color(102, 102, 102));
@@ -4554,7 +4610,7 @@ public class MenuInicio extends javax.swing.JFrame {
         jLabel20.setForeground(new java.awt.Color(102, 102, 102));
         jLabel20.setText("Estado");
         Central4_5_2.add(jLabel20);
-        jLabel20.setBounds(170, 60, 90, 14);
+        jLabel20.setBounds(170, 100, 90, 14);
 
         SeleccionarVideoss.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_seleccionar_2.png"))); // NOI18N
         SeleccionarVideoss.setBorderPainted(false);
@@ -4567,17 +4623,17 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central4_5_2.add(SeleccionarVideoss);
-        SeleccionarVideoss.setBounds(510, 140, 90, 40);
+        SeleccionarVideoss.setBounds(510, 130, 90, 40);
 
         comboVideoCons.setFont(berlin);
         Central4_5_2.add(comboVideoCons);
-        comboVideoCons.setBounds(270, 150, 220, 22);
+        comboVideoCons.setBounds(270, 140, 220, 22);
 
         jLabel21.setFont(berlin);
         jLabel21.setForeground(new java.awt.Color(102, 102, 102));
         jLabel21.setText("Tipo");
         Central4_5_2.add(jLabel21);
-        jLabel21.setBounds(170, 100, 90, 14);
+        jLabel21.setBounds(170, 60, 90, 14);
 
         Varnick.setEditable(false);
         CampoTipo.setEditable(false);
@@ -4585,7 +4641,7 @@ public class MenuInicio extends javax.swing.JFrame {
         CampoTipo.setBorder(null);
         CampoTipo.setOpaque(false);
         Central4_5_2.add(CampoTipo);
-        CampoTipo.setBounds(270, 100, 220, 20);
+        CampoTipo.setBounds(270, 60, 220, 20);
 
         Varnick.setEditable(false);
         CampoNom1.setEditable(false);
@@ -4601,12 +4657,12 @@ public class MenuInicio extends javax.swing.JFrame {
         CampoPriv.setBorder(null);
         CampoPriv.setOpaque(false);
         Central4_5_2.add(CampoPriv);
-        CampoPriv.setBounds(270, 60, 220, 20);
+        CampoPriv.setBounds(270, 100, 220, 20);
 
         jSeparator94.setBackground(new java.awt.Color(153, 153, 153));
         jSeparator94.setForeground(new java.awt.Color(153, 153, 153));
         Central4_5_2.add(jSeparator94);
-        jSeparator94.setBounds(270, 120, 220, 16);
+        jSeparator94.setBounds(270, 80, 220, 16);
 
         jSeparator101.setBackground(new java.awt.Color(153, 153, 153));
         jSeparator101.setForeground(new java.awt.Color(153, 153, 153));
@@ -4616,7 +4672,7 @@ public class MenuInicio extends javax.swing.JFrame {
         jSeparator102.setBackground(new java.awt.Color(153, 153, 153));
         jSeparator102.setForeground(new java.awt.Color(153, 153, 153));
         Central4_5_2.add(jSeparator102);
-        jSeparator102.setBounds(270, 80, 220, 16);
+        jSeparator102.setBounds(270, 120, 220, 16);
 
         Panel_Central.add(Central4_5_2);
         Central4_5_2.setBounds(0, 0, 750, 550);
@@ -5291,6 +5347,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private void crearPlaylist_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearPlaylist_ButtonActionPerformed
         List lista = u.listaUsuarios();
         if (lista != null) {
+            NombreLista.setText("Ingrese Nombre de la Lista");
             Panel_Central.removeAll();
             Panel_Central.add(Central4_1);
             Panel_Central.revalidate();
@@ -5318,11 +5375,11 @@ public class MenuInicio extends javax.swing.JFrame {
 
     private void CrearListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearListaActionPerformed
         VentanaEmergente ventana = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-        if(NombreLista.getText().isEmpty()){
-            ventana.CambioTexto("    Debes ingresar el nombre de la lista");
+        if (!radioDefecto1.isSelected() && !radioParticular1.isSelected()) {
+            ventana.CambioTexto("         Debes seleccionar un tipo de lista");
         } else {
-            if (!radioDefecto1.isSelected() && !radioParticular1.isSelected()) {
-                ventana.CambioTexto("    Debes seleccionar un tipo de lista");
+            if (NombreLista.getText().isEmpty() || NombreLista.getText().equals("Ingrese Nombre de la Lista")) {
+                ventana.CambioTexto("      Debes ingresar el nombre de la lista");
             } else {
                 String nombreL = NombreLista.getText();
                 DtListaReproduccion lista;
@@ -5331,13 +5388,14 @@ public class MenuInicio extends javax.swing.JFrame {
                     try {
                         c.crearListaDefecto(lista);
                         ventana.CambioTexto("          La lista se creo exitosamente");
+                        NombreLista.setText("Ingrese Nombre de la Lista");
                         ventana.setVisible(true);
                     } catch (ListaRepetidaException e) {
                         ventana.CambioTexto("                     La lista ya existe");
                     }
                 } else {
                     if (!Si3.isSelected() && !No3.isSelected()) {
-                        ventana.CambioTexto("        Debes llenar todos los campos");
+                        ventana.CambioTexto("          Debes llenar todos los campos");
                     } else {
                         DtUsuario user = u.buscarUsuario(NombreUserLista.getSelectedItem().toString());
                         DtCategoria cat = new DtCategoria(comboCategoriasCrearLista.getSelectedItem().toString());
@@ -5345,6 +5403,7 @@ public class MenuInicio extends javax.swing.JFrame {
                         try {
                             c.crearListaParticular((DtListaParticulares) lista, user);
                             ventana.CambioTexto("             La lista se creo exitosamente");
+                            NombreLista.setText("Ingrese Nombre de la Lista");
                         } catch (ListaRepetidaException e) {
                             ventana.CambioTexto("                   La lista ya existe");
                         }
@@ -6898,7 +6957,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         } else {
             VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-            error.CambioTexto("              No hay listas ingresadas.");
+            error.CambioTexto("      Este usuario no tiene listas registradas");
             error.setVisible(true);
         }
     }//GEN-LAST:event_SelecionarUsuarioActionPerformed
@@ -6910,12 +6969,16 @@ public class MenuInicio extends javax.swing.JFrame {
         String user = ComboUsuariosLista.getSelectedItem().toString();
         String nomLista = comboListas1.getSelectedItem().toString();
         List lista = c.getListasReproduccion(user);
-        if (lista != null) {
-
+        Boolean listas=true;
+        comboVideoCons.removeAllItems();
+        if (!lista.isEmpty()) {
             DtListaParticulares lp;
             for (int x = 0; x < lista.size(); x++) {
                 lp = (DtListaParticulares) lista.get(x);
                 if (lp.getNombreLista().equals(nomLista)) {
+                    jLabel20.setVisible(true);
+                    jSeparator102.setVisible(true);
+                    CampoPriv.setVisible(true);
                     comboListas1.setEnabled(false);
                     Central4_5_1.add(CambiarUsuario11);
                     Central4_5_1.remove(SeleccionarListas);
@@ -6929,7 +6992,8 @@ public class MenuInicio extends javax.swing.JFrame {
                         CampoPriv.setText("Pública");
                     }
                     List videos = c.getVideosListaParticular(user, nomLista);
-                    if (videos != null) {
+                    if (!videos.isEmpty()) {
+                        listas=false;
                         DtListaParticularVideos v;
                         for (int y = 0; y < videos.size(); y++) {
                             v = (DtListaParticularVideos) videos.get(y);
@@ -6940,7 +7004,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         }
         List listaD = c.getListasDefecto(user);
-        if (listaD != null) {
+        if (!listaD.isEmpty()) {
             DtListaporDefecto ld;
             for (int x = 0; x < listaD.size(); x++) {
                 ld = (DtListaporDefecto) listaD.get(x);
@@ -6952,9 +7016,12 @@ public class MenuInicio extends javax.swing.JFrame {
                     Panel_Central.repaint();
                     CampoNom1.setText(nomLista);
                     CampoTipo.setText("Por Defecto");
-                    CampoPriv.setText("");
+                    jLabel20.setVisible(false);
+                    jSeparator102.setVisible(false);
+                    CampoPriv.setVisible(false);
                     List videos = c.getVideosListaDefecto(user, nomLista);
-                    if (videos != null) {
+                    if (!videos.isEmpty()) {
+                        listas=false;
                         DtListaDefectoVideos v;
                         for (int y = 0; y < videos.size(); y++) {
                             v = (DtListaDefectoVideos) videos.get(y);
@@ -6964,11 +7031,18 @@ public class MenuInicio extends javax.swing.JFrame {
                 }
             }
         }
+        if(listas){
+            comboVideoCons.setEnabled(false);
+            comboVideoCons.addItem("No hay videos");
+            SeleccionarVideoss.setEnabled(false);
+        }
 
     }//GEN-LAST:event_SeleccionarListasActionPerformed
 
     private void CambiarUsuario11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CambiarUsuario11ActionPerformed
         comboListas1.setEnabled(true);
+        comboVideoCons.setEnabled(true);
+        SeleccionarVideoss.setEnabled(true);
         Central4_5_1.remove(CambiarUsuario11);
         Central4_5_1_Panel.removeAll();
         Central4_5_1.add(SeleccionarListas);
@@ -7414,6 +7488,55 @@ public class MenuInicio extends javax.swing.JFrame {
         No4.setEnabled(false);
     }//GEN-LAST:event_CambiarUsuario14ActionPerformed
 
+    private void BackButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButton17ActionPerformed
+        Panel_Central.removeAll();
+        Panel_Central.add(Central2_2);
+        Panel_Central.revalidate();
+        Panel_Central.repaint();
+    }//GEN-LAST:event_BackButton17ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        ComboUsuariosLista.addItem(comboConsulta.getSelectedItem().toString());
+        ComboUsuariosLista.setSelectedItem(comboConsulta.getSelectedItem().toString());
+        String user = ComboUsuariosLista.getSelectedItem().toString();
+        DtUsuario us = u.buscarUsuario(user);
+        List listaParticulates = c.getListasReproduccion(user);
+        List listaDefecto = c.getListasDefecto(user);
+        if (!listaParticulates.isEmpty() && !listaDefecto.isEmpty()) {
+            comboVideoCons.setEnabled(true);
+            SeleccionarVideoss.setEnabled(true);
+            Panel_Central.removeAll();
+            Central4_5_1_Panel.removeAll();
+            Panel_Central.add(Central2_2_1_2);
+            Central2_2_1_2_Panel.add(Central4_5_1);
+            comboListas1.setEnabled(true);
+            Central4_5_1.remove(CambiarUsuario11);
+            Central4_5_1.add(SeleccionarListas);
+            ComboUsuariosLista.setEnabled(false);
+            Panel_Central.revalidate();
+            Panel_Central.repaint();
+            comboListas1.removeAllItems();
+            DtListaReproduccion l;
+            DtListaporDefecto ld;
+            if (!listaParticulates.isEmpty()) {
+                for (int x = 0; x < listaParticulates.size(); x++) {
+                    l = (DtListaReproduccion) listaParticulates.get(x);
+                    comboListas1.addItem(l.getNombreLista());
+                }
+            }
+            if (!listaDefecto.isEmpty()) {
+                for (int x = 0; x < listaDefecto.size(); x++) {
+                    ld = (DtListaporDefecto) listaDefecto.get(x);
+                    comboListas1.addItem(ld.getNombreLista());
+                }
+            }
+        } else {
+            VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
+            error.CambioTexto("      Este usuario no tiene listas registradas");
+            error.setVisible(true);
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
+
     private void setColor(JPanel pane) {
         pane.setBackground(new Color(114, 114, 114));
     }
@@ -7555,6 +7678,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JButton BackButton14;
     private javax.swing.JButton BackButton15;
     private javax.swing.JButton BackButton16;
+    private javax.swing.JButton BackButton17;
     private javax.swing.JButton BackButton2;
     private javax.swing.JButton BackButton3;
     private javax.swing.JButton BackButton4;
@@ -7615,6 +7739,8 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JPanel Central2_2_1;
     private javax.swing.JPanel Central2_2_1_1;
     private javax.swing.JPanel Central2_2_1_1_Panel;
+    private javax.swing.JPanel Central2_2_1_2;
+    private javax.swing.JPanel Central2_2_1_2_Panel;
     private javax.swing.JPanel Central2_2_Panel;
     private javax.swing.JPanel Central2_3;
     private javax.swing.JPanel Central2_3_1;
@@ -7799,6 +7925,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JLabel altacat;
     private javax.swing.JLabel altacat1;
     private javax.swing.JLabel altacat10;
+    private javax.swing.JLabel altacat11;
     private javax.swing.JLabel altacat2;
     private javax.swing.JLabel altacat3;
     private javax.swing.JLabel altacat4;
@@ -7935,6 +8062,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator116;
     private javax.swing.JSeparator jSeparator117;
     private javax.swing.JSeparator jSeparator118;
+    private javax.swing.JSeparator jSeparator119;
     private javax.swing.JSeparator jSeparator12;
     private javax.swing.JSeparator jSeparator13;
     private javax.swing.JSeparator jSeparator14;
