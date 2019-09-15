@@ -33,7 +33,7 @@ public class Comentario implements Serializable{
     private String comentario;
     
     @Column(name = "fecha")
-    @Temporal(javax.persistence.TemporalType.DATE)
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date fecha;
     
     @ManyToOne

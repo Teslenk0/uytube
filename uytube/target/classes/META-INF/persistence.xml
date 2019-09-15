@@ -10,13 +10,14 @@
     <class>clases.Video</class>
     <class>clases.Valorar</class>
     <properties>
+      <property name="hibernate.jdbc.time_zone" value="GMT-3"/>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://18.229.112.97:33066/uytubeAPP"/>
       <property name="javax.persistence.jdbc.user" value="uytube"/>
       <property name="javax.persistence.jdbc.password" value="Uytube++2019"/>
       
       <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
-      <property name="hibernate.hbm2ddl.auto" value="update"/>
+      <property name="hibernate.hbm2ddl.auto" value="validate"/>
     </properties>
   </persistence-unit>
 </persistence>
