@@ -6617,14 +6617,30 @@ public class MenuInicio extends javax.swing.JFrame {
                     + "\n"
                     + "Extraído del canal Teleuniversitaria UdelaR", "Noticias", "6:26", false);
             c.registrarVideo(video);
+            Date fechaC = new SimpleDateFormat("yyyy-MM dd HH-mm").parse("2017-09-07 04:56");
+            DtComentario com = new DtComentario("nicoJ","Felicitaciones FING!!!", fechaC, video,"",4,user.getCanal().getNombre_canal());
+            c.agregarComentario(com);
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("2017-11-24");
             video = new DtVideo("50 años del InCo", user.getCanal(), fechaU, "https://youtu.be/GzOJSk4urlM", "50 años del Instituto de Computación. Facultad de Ingeniería. UDELAR. 22 de noviembre 2017.\n"
                     + "La mesa de apertura estuvo integrada por Simon, el rector de la Universidad de la República (Udelar).", "Noticias", "27:22", false);
             c.registrarVideo(video);
+            fechaC = new SimpleDateFormat("yyyy-MM dd HH-mm").parse("2017-12-05 14:35");
+            com = new DtComentario("nicoJ","Fue in gran evento", fechaC, video,"",1,user.getCanal().getNombre_canal());
+            c.agregarComentario(com);
+            fechaC = new SimpleDateFormat("yyyy-MM dd HH-mm").parse("2017-12-08 01:47");
+            com = new DtComentario("hrubino","Para el proximo aniversario ofrezco vamo' con los Momo",fechaC,video,"1",2,user.getCanal().getNombre_canal());
+            c.agregarComentario(com);
+            fechaC = new SimpleDateFormat("yyyy-MM dd HH-mm").parse("2017-12-10 17:09");
+            com = new DtComentario("tabarec","Yo ofrezco a la banda tb",fechaC,video,"2",3,user.getCanal().getNombre_canal());
+            c.agregarComentario(com);
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("2017-10-25");
             video = new DtVideo("Ingeniería de Muestra 2017", user.getCanal(), fechaU, "https://youtu.be/RnaYRA1k5j4", "La muestra más grande de la ingeniería nacional se realizó el jueves 19, viernes 20 y sábado 21 de octubre de 2017. Ingeniería deMuestra fue organizada por la Facultad de Ingeniería de la Universidad de la República y su Fundación Julio Ricaldoni.", "Noticias", "1:00", false);
             c.registrarVideo(video);
-
+            fechaC = new SimpleDateFormat("yyyy-MM dd HH-mm").parse("2017-10-23 12:58");
+            com = new DtComentario("kairoh","Un gusto cubrir eventos como este.", fechaC, video,"",5,user.getCanal().getNombre_canal());
+            c.agregarComentario(com);
+            
+            
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("1971-07-24");
             canal = new DtCanal("Tabaré", "Mi música e ainda mais", false);
             user = new DtUsuario("tabarec", "TC", "Tabaré", "Cardozo", "tabare.car@agadu.org.uy", fechaU, "/imagenesUsuarios/tabarec.png", canal);
@@ -6634,13 +6650,18 @@ public class MenuInicio extends javax.swing.JFrame {
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("2018-06-05");
             video = new DtVideo("Locura Celeste", user.getCanal(), fechaU, "https://youtu.be/PAfbzKcePx0", "Tema Oficial de la cobertura celeste de Monte Carlo Televisión Canal 4 para el Mundial de Futbol FIFA Rusia 2018", "Música", "3:04", true);
             c.registrarVideo(video);
+            fechaC = new SimpleDateFormat("yyyy-MM dd HH-mm").parse("2017-09-11 03:45");
+            com = new DtComentario("marcelot","Me encanta este tema", fechaC, video,"",9,user.getCanal().getNombre_canal());
+            c.agregarComentario(com);
+            fechaC = new SimpleDateFormat("yyyy-MM dd HH-mm").parse("2017-09-15 12:29");
+            com = new DtComentario("tabarec","Gracias Marce ;)", fechaC, video,"9",10,user.getCanal().getNombre_canal());
+            c.agregarComentario(com);
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("2016-10-20");
             video = new DtVideo("Niño Payaso", user.getCanal(), fechaU, "https://youtu.be/K-uEIUnyZPg", "Niño Payaso Tabaré Cardozo", "Música", "4:18", true);
             c.registrarVideo(video);
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("2013-06-05");
             video = new DtVideo("Pacheco goles mas recordados", user.getCanal(), fechaU, "https://youtu.be/wlEd6-HsIxI", "Los goles más recordados de Antonio Pacheco", "Deporte", "5:48", true);
             c.registrarVideo(video);
-
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("1947-01-01");
             canal = new DtCanal("El Cachila", "Para juntar cosas", true);
             user = new DtUsuario("cachilas", "CS", "Waldemar \"Cachila\"", "Silva", "Cachila.sil@c1080.org.uy", fechaU, "/imagenesUsuarios/cachilas.png", canal);
@@ -6649,6 +6670,7 @@ public class MenuInicio extends javax.swing.JFrame {
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("2018-06-05");
             video = new DtVideo("Locura Celeste", user.getCanal(), fechaU, "https://youtu.be/PAfbzKcePx0", "Tema Oficial de la cobertura celeste de Monte Carlo Televisión Canal 4 para el Mundial de Futbol FIFA Rusia 2018", "Música", "3:04", true);
             c.registrarVideo(video);
+            
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("2016-10-20");
             video = new DtVideo("Niño Payaso", user.getCanal(), fechaU, "https://youtu.be/K-uEIUnyZPg", "Niño Payaso Tabaré Cardozo", "Música", "4:18", true);
             c.registrarVideo(video);
@@ -6674,6 +6696,9 @@ public class MenuInicio extends javax.swing.JFrame {
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("2009-10-02");
             video = new DtVideo("Thriller", user.getCanal(), fechaU, "https://youtu.be/sOnqjkJTMaA", "Michael Jackson's official music video for \"Thriller\"", "Música", "13:42", false);
             c.registrarVideo(video);
+            fechaC = new SimpleDateFormat("yyyy-MM dd HH-mm").parse("2017-10-30 02:17");
+            com = new DtComentario("marcelot","Rock and Rolllll", fechaC, video,"",7,user.getCanal().getNombre_canal());
+            c.agregarComentario(com);
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("2018-07-23");
             video = new DtVideo("Show de goles", user.getCanal(), fechaU, "https://youtu.be/g46w4_kD_lA", "TORNEO CLAUSURA 2018", "Deporte", "4:23", false);
             c.registrarVideo(video);
@@ -6681,6 +6706,9 @@ public class MenuInicio extends javax.swing.JFrame {
             video = new DtVideo("Inaguración Estadio Peñarol", user.getCanal(), fechaU, "https://youtu.be/U6XPJ8Vz72A", "Recordemos la ceremonia de inauguración del Estadio de Peñarol.\n"
                     + "\"Estadio Campeón del Siglo\".", "Deporte", "3:27:26", false);
             c.registrarVideo(video);
+            fechaC = new SimpleDateFormat("yyyy-MM dd HH-mm").parse("2016-11-14 05:34");
+            com = new DtComentario("kairoh","Peñarol peñarol!!!.", fechaC, video,"",6,user.getCanal().getNombre_canal());
+            c.agregarComentario(com);
 
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("1975-01-01");
             canal = new DtCanal("diegop", "Canal de DP", false);
@@ -6696,9 +6724,13 @@ public class MenuInicio extends javax.swing.JFrame {
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("2009-12-24");
             video = new DtVideo("Sweet child'o mine", user.getCanal(), fechaU, "https://youtu.be/1w7OgIMMRc4", "Music video by Guns N' Roses performing Sweet Child O' Mine. YouTube view counts pre-VEVO: 2,418,311. (C) 1987 Guns N' Roses under exclusive license to Geffen Records", "Música", "5:02", false);
             c.registrarVideo(video);
+            
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("2009-10-03");
             video = new DtVideo("Dancing in the Dark", user.getCanal(), fechaU, "https://youtu.be/129kuDCQtHs", "Bruce Springsteen's official music video for 'Dancing In The Dark'.", "Música", "3:58", false);
             c.registrarVideo(video);
+            fechaC = new SimpleDateFormat("yyyy-MM dd HH-mm").parse("2018-08-18 18:00");
+            com = new DtComentario("marcelot","Anoche explotó!!!", fechaC, video,"",8,user.getCanal().getNombre_canal());
+            c.agregarComentario(com);
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("2009-10-02");
             video = new DtVideo("Thriller", user.getCanal(), fechaU, "https://youtu.be/sOnqjkJTMaA", "Michael Jackson's official music video for \"Thriller\"", "Música", "13:42", false);
             c.registrarVideo(video);
@@ -6764,7 +6796,7 @@ public class MenuInicio extends javax.swing.JFrame {
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("2016-07-20");
             video = new DtVideo("Ventana al futuro Uruguay y déficit de ingenieros", user.getCanal(), fechaU, "https://youtu.be/zBR2pnASlQE", "En Uruguay hay un ingeniero por cada tres abogados y cada seis médicos. Los datos se desprenden del Panorama de la Educación 2014 del anuario del Ministerio de Educación y Cultura. Ese año egresaron de la Universidad de la República 348 ingenieros.", "Ciencia y Tecnología", "19:21", false);
             c.registrarVideo(video);
-
+            
             Sobrecarga.setEnabled(false);
             mensaje.CambioTexto("    Datos sobrecargados correctamente");
         } catch (ParseException ex) {
