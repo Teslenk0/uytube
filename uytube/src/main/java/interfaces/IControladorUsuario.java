@@ -26,7 +26,7 @@ public interface IControladorUsuario {
     
     public abstract void inicioBase();
     
-    public abstract void modificarUsuario(DtUsuario modUser, DtCanal modCanal, BufferedImage imagen, Boolean cambio);
+    public abstract void modificarUsuario(DtUsuario modUser, DtCanal modCanal, BufferedImage imagen, Boolean cambio) throws CanalRepetidoException;
     
     public abstract DtUsuario buscarUsuario(String nick);
     

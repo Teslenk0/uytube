@@ -485,13 +485,13 @@ public class MenuInicio extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
         CampoCom = new javax.swing.JTextField();
-        jSeparator56 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTree1 = new javax.swing.JTree();
         jButton6 = new javax.swing.JButton();
         CampoNick1 = new javax.swing.JTextField();
-        jSeparator79 = new javax.swing.JSeparator();
         jSeparator52 = new javax.swing.JSeparator();
+        jSeparator120 = new javax.swing.JSeparator();
+        jSeparator121 = new javax.swing.JSeparator();
         Central3_5 = new javax.swing.JPanel();
         userLabel = new javax.swing.JLabel();
         user_ComboBox = new javax.swing.JComboBox<>();
@@ -575,9 +575,6 @@ public class MenuInicio extends javax.swing.JFrame {
         Central4_4 = new javax.swing.JPanel();
         listaModificarListaLabel2 = new javax.swing.JLabel();
         usuarioModificarListaLabel3 = new javax.swing.JLabel();
-        jSeparator84 = new javax.swing.JSeparator();
-        jSeparator85 = new javax.swing.JSeparator();
-        jSeparator87 = new javax.swing.JSeparator();
         BackButton12 = new javax.swing.JButton();
         comboUsuarioSacarVideo = new javax.swing.JComboBox<>();
         comboVideoSacarVideo = new javax.swing.JComboBox<>();
@@ -589,10 +586,14 @@ public class MenuInicio extends javax.swing.JFrame {
         comboListaSacarVideo = new javax.swing.JComboBox<>();
         listaModificarListaLabel3 = new javax.swing.JLabel();
         botonSelectUsuarioSacarVideo = new javax.swing.JButton();
-        jSeparator88 = new javax.swing.JSeparator();
         textCanalOrigenSacarVideo = new javax.swing.JTextField();
-        jSeparator89 = new javax.swing.JSeparator();
         listaModificarListaLabel4 = new javax.swing.JLabel();
+        jSeparator122 = new javax.swing.JSeparator();
+        jSeparator123 = new javax.swing.JSeparator();
+        jSeparator124 = new javax.swing.JSeparator();
+        altacat12 = new javax.swing.JLabel();
+        CambiarUsuario15 = new javax.swing.JButton();
+        CambiarUsuario16 = new javax.swing.JButton();
         Central4_5 = new javax.swing.JPanel();
         BackButton14 = new javax.swing.JButton();
         ComboUsuariosLista = new javax.swing.JComboBox<>();
@@ -2298,7 +2299,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central2_3_1.add(Modificar);
-        Modificar.setBounds(90, 330, 100, 50);
+        Modificar.setBounds(90, 330, 90, 50);
         Modificar.getAccessibleContext().setAccessibleName("modificar");
 
         Privado1.setFont(berlin);
@@ -3693,8 +3694,6 @@ public class MenuInicio extends javax.swing.JFrame {
         CampoCom.setOpaque(false);
         Central3_4_1_1.add(CampoCom);
         CampoCom.setBounds(460, 200, 220, 20);
-        Central3_4_1_1.add(jSeparator56);
-        jSeparator56.setBounds(460, 220, 220, 20);
 
         treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
         jTree1.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
@@ -3735,14 +3734,22 @@ public class MenuInicio extends javax.swing.JFrame {
         });
         Central3_4_1_1.add(CampoNick1);
         CampoNick1.setBounds(160, 40, 220, 20);
-        Central3_4_1_1.add(jSeparator79);
-        jSeparator79.setBounds(160, 60, 220, 20);
 
         jSeparator52.setBackground(new java.awt.Color(153, 153, 153));
         jSeparator52.setForeground(new java.awt.Color(153, 153, 153));
         jSeparator52.setOrientation(javax.swing.SwingConstants.VERTICAL);
         Central3_4_1_1.add(jSeparator52);
         jSeparator52.setBounds(430, 20, 30, 200);
+
+        jSeparator120.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator120.setForeground(new java.awt.Color(153, 153, 153));
+        Central3_4_1_1.add(jSeparator120);
+        jSeparator120.setBounds(460, 220, 220, 20);
+
+        jSeparator121.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator121.setForeground(new java.awt.Color(153, 153, 153));
+        Central3_4_1_1.add(jSeparator121);
+        jSeparator121.setBounds(160, 60, 220, 20);
 
         Panel_Central.add(Central3_4_1_1);
         Central3_4_1_1.setBounds(0, 0, 750, 550);
@@ -4349,19 +4356,13 @@ public class MenuInicio extends javax.swing.JFrame {
         listaModificarListaLabel2.setForeground(new java.awt.Color(102, 102, 102));
         listaModificarListaLabel2.setText("Canal origen");
         Central4_4.add(listaModificarListaLabel2);
-        listaModificarListaLabel2.setBounds(210, 430, 100, 30);
+        listaModificarListaLabel2.setBounds(160, 360, 100, 20);
 
         usuarioModificarListaLabel3.setFont(berlin);
         usuarioModificarListaLabel3.setForeground(new java.awt.Color(102, 102, 102));
         usuarioModificarListaLabel3.setText("Tipo de lista");
         Central4_4.add(usuarioModificarListaLabel3);
-        usuarioModificarListaLabel3.setBounds(370, 140, 90, 20);
-        Central4_4.add(jSeparator84);
-        jSeparator84.setBounds(310, 120, 220, 20);
-        Central4_4.add(jSeparator85);
-        jSeparator85.setBounds(310, 290, 220, 20);
-        Central4_4.add(jSeparator87);
-        jSeparator87.setBounds(310, 460, 220, 20);
+        usuarioModificarListaLabel3.setBounds(330, 150, 90, 20);
 
         BackButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back.png"))); // NOI18N
         BackButton12.setBorder(null);
@@ -4377,21 +4378,24 @@ public class MenuInicio extends javax.swing.JFrame {
         Central4_4.add(BackButton12);
         BackButton12.setBounds(0, 11, 101, 51);
 
-        comboUsuarioSacarVideo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboUsuarioSacarVideo.setFont(berlin);
         Central4_4.add(comboUsuarioSacarVideo);
-        comboUsuarioSacarVideo.setBounds(310, 90, 220, 20);
+        comboUsuarioSacarVideo.setBounds(260, 100, 220, 20);
 
+        comboVideoSacarVideo.setFont(berlin);
+        comboVideoSacarVideo.setEnabled(false);
         comboVideoSacarVideo.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 comboVideoSacarVideoItemStateChanged(evt);
             }
         });
         Central4_4.add(comboVideoSacarVideo);
-        comboVideoSacarVideo.setBounds(310, 370, 220, 22);
+        comboVideoSacarVideo.setBounds(260, 300, 220, 22);
 
         botonAceptarModificarLista3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_2.png"))); // NOI18N
         botonAceptarModificarLista3.setBorderPainted(false);
         botonAceptarModificarLista3.setContentAreaFilled(false);
+        botonAceptarModificarLista3.setEnabled(false);
         botonAceptarModificarLista3.setFocusPainted(false);
         botonAceptarModificarLista3.setFocusable(false);
         botonAceptarModificarLista3.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_1.png"))); // NOI18N
@@ -4401,11 +4405,12 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central4_4.add(botonAceptarModificarLista3);
-        botonAceptarModificarLista3.setBounds(370, 480, 70, 40);
+        botonAceptarModificarLista3.setBounds(320, 410, 90, 40);
 
         botonSelectListaSacarVideo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_seleccionar_2.png"))); // NOI18N
         botonSelectListaSacarVideo.setBorderPainted(false);
         botonSelectListaSacarVideo.setContentAreaFilled(false);
+        botonSelectListaSacarVideo.setEnabled(false);
         botonSelectListaSacarVideo.setFocusPainted(false);
         botonSelectListaSacarVideo.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_seleccionar_1.png"))); // NOI18N
         botonSelectListaSacarVideo.addActionListener(new java.awt.event.ActionListener() {
@@ -4414,7 +4419,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central4_4.add(botonSelectListaSacarVideo);
-        botonSelectListaSacarVideo.setBounds(370, 310, 80, 40);
+        botonSelectListaSacarVideo.setBounds(490, 230, 90, 40);
 
         TrueFalse.add(radioParticularSacarVideo);
         radioParticularSacarVideo.setFont(berlin);
@@ -4422,7 +4427,7 @@ public class MenuInicio extends javax.swing.JFrame {
         radioParticularSacarVideo.setBorder(null);
         radioParticularSacarVideo.setFocusable(false);
         Central4_4.add(radioParticularSacarVideo);
-        radioParticularSacarVideo.setBounds(430, 170, 90, 15);
+        radioParticularSacarVideo.setBounds(380, 180, 90, 15);
 
         TrueFalse.add(radioDefectoSacarVideo);
         radioDefectoSacarVideo.setFont(berlin);
@@ -4430,22 +4435,24 @@ public class MenuInicio extends javax.swing.JFrame {
         radioDefectoSacarVideo.setBorder(null);
         radioDefectoSacarVideo.setFocusable(false);
         Central4_4.add(radioDefectoSacarVideo);
-        radioDefectoSacarVideo.setBounds(320, 170, 90, 15);
+        radioDefectoSacarVideo.setBounds(290, 180, 90, 15);
 
         usuarioModificarListaLabel4.setFont(berlin);
         usuarioModificarListaLabel4.setForeground(new java.awt.Color(102, 102, 102));
         usuarioModificarListaLabel4.setText("Usuario");
         Central4_4.add(usuarioModificarListaLabel4);
-        usuarioModificarListaLabel4.setBounds(210, 100, 160, 20);
+        usuarioModificarListaLabel4.setBounds(160, 100, 160, 20);
 
+        comboListaSacarVideo.setFont(berlin);
+        comboListaSacarVideo.setEnabled(false);
         Central4_4.add(comboListaSacarVideo);
-        comboListaSacarVideo.setBounds(310, 260, 220, 22);
+        comboListaSacarVideo.setBounds(260, 240, 220, 22);
 
         listaModificarListaLabel3.setFont(berlin);
         listaModificarListaLabel3.setForeground(new java.awt.Color(102, 102, 102));
         listaModificarListaLabel3.setText("Lista");
         Central4_4.add(listaModificarListaLabel3);
-        listaModificarListaLabel3.setBounds(210, 260, 100, 30);
+        listaModificarListaLabel3.setBounds(160, 240, 100, 20);
 
         botonSelectUsuarioSacarVideo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_seleccionar_2.png"))); // NOI18N
         botonSelectUsuarioSacarVideo.setBorderPainted(false);
@@ -4458,21 +4465,64 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central4_4.add(botonSelectUsuarioSacarVideo);
-        botonSelectUsuarioSacarVideo.setBounds(360, 200, 90, 40);
-        Central4_4.add(jSeparator88);
-        jSeparator88.setBounds(310, 240, 220, 20);
+        botonSelectUsuarioSacarVideo.setBounds(490, 90, 90, 40);
 
         textCanalOrigenSacarVideo.setEditable(false);
+        textCanalOrigenSacarVideo.setFont(berlin);
         Central4_4.add(textCanalOrigenSacarVideo);
-        textCanalOrigenSacarVideo.setBounds(310, 430, 220, 20);
-        Central4_4.add(jSeparator89);
-        jSeparator89.setBounds(310, 400, 220, 20);
+        textCanalOrigenSacarVideo.setBounds(260, 360, 220, 20);
 
         listaModificarListaLabel4.setFont(berlin);
         listaModificarListaLabel4.setForeground(new java.awt.Color(102, 102, 102));
         listaModificarListaLabel4.setText("Video");
         Central4_4.add(listaModificarListaLabel4);
-        listaModificarListaLabel4.setBounds(210, 370, 100, 30);
+        listaModificarListaLabel4.setBounds(160, 300, 100, 20);
+
+        jSeparator122.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator122.setForeground(new java.awt.Color(153, 153, 153));
+        Central4_4.add(jSeparator122);
+        jSeparator122.setBounds(260, 140, 220, 20);
+
+        jSeparator123.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator123.setForeground(new java.awt.Color(153, 153, 153));
+        Central4_4.add(jSeparator123);
+        jSeparator123.setBounds(260, 220, 210, 20);
+
+        jSeparator124.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator124.setForeground(new java.awt.Color(153, 153, 153));
+        Central4_4.add(jSeparator124);
+        jSeparator124.setBounds(20, 70, 675, 30);
+
+        altacat12.setFont(berlin.deriveFont(20f));
+        altacat12.setText("Quitar Video de Playlist");
+        Central4_4.add(altacat12);
+        altacat12.setBounds(260, 30, 220, 20);
+
+        CambiarUsuario15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_cambiar_1.png"))); // NOI18N
+        CambiarUsuario15.setBorderPainted(false);
+        CambiarUsuario15.setContentAreaFilled(false);
+        CambiarUsuario15.setFocusable(false);
+        CambiarUsuario15.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_cambiar_2.png"))); // NOI18N
+        CambiarUsuario15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CambiarUsuario15ActionPerformed(evt);
+            }
+        });
+        Central4_4.add(CambiarUsuario15);
+        CambiarUsuario15.setBounds(490, 230, 90, 40);
+
+        CambiarUsuario16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_cambiar_1.png"))); // NOI18N
+        CambiarUsuario16.setBorderPainted(false);
+        CambiarUsuario16.setContentAreaFilled(false);
+        CambiarUsuario16.setFocusable(false);
+        CambiarUsuario16.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_cambiar_2.png"))); // NOI18N
+        CambiarUsuario16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CambiarUsuario16ActionPerformed(evt);
+            }
+        });
+        Central4_4.add(CambiarUsuario16);
+        CambiarUsuario16.setBounds(490, 90, 90, 40);
 
         Panel_Central.add(Central4_4);
         Central4_4.setBounds(0, 0, 720, 550);
@@ -5252,8 +5302,12 @@ public class MenuInicio extends javax.swing.JFrame {
             DtUsuario modUser;
             DtCanal modCanal = new DtCanal(nomCanal, descripcion, privado1);
             modUser = new DtUsuario(user.getNickname(), pass, nom, ape, user.getEmail(), nuevafecha, rutaImagen, user.getCanal());
-            u.modificarUsuario(modUser, modCanal, imagen, cambio);
-            mensaje.CambioTexto("        Modificación realizada con éxito");
+            try {
+                u.modificarUsuario(modUser, modCanal, imagen, cambio);
+                mensaje.CambioTexto("        Modificación realizada con éxito");
+            } catch (CanalRepetidoException ex) {
+                mensaje.CambioTexto("          El nombre del canal ya esta en uso");
+            }
         }
         mensaje.setVisible(true);
         imagen = null;
@@ -6174,6 +6228,7 @@ public class MenuInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jTree1MouseClicked
 
     private void CampoNick1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CampoNick1FocusGained
+        if(CampoNick1.getText().equals("Ingrese Nickname"))
         CampoNick1.setText("");
     }//GEN-LAST:event_CampoNick1FocusGained
 
@@ -6185,7 +6240,6 @@ public class MenuInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_BackButton11ActionPerformed
 
     private void botonAceptarModificarLista2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAceptarModificarLista2ActionPerformed
-        // TODO add your handling code here:
         String nombreVideo = comboVideoOrigen.getSelectedItem().toString();
         String usuarioOrigen = comboUsuarioOrigen.getSelectedItem().toString();
         String usuarioDestino = comboUsuarioDestino.getSelectedItem().toString();
@@ -6194,22 +6248,22 @@ public class MenuInicio extends javax.swing.JFrame {
             try {
                 c.agregarVideoLista(nombreVideo, listaDestino, usuarioDestino, usuarioOrigen, false);
                 VentanaEmergente ok = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-                ok.CambioTexto("  Se ha ingresado el video a la lista correctamente");
+                ok.CambioTexto(" Se ha ingresado el video a la lista con éxito");
                 ok.setVisible(true);
             } catch (VideoYaExisteEnListaException e) {
                 VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-                error.CambioTexto("  Ya existe el video en la lista");
+                error.CambioTexto("          Ya existe el video en la lista");
                 error.setVisible(true);
             }
         } else {
             try {
                 c.agregarVideoLista(nombreVideo, listaDestino, usuarioDestino, usuarioOrigen, true);
                 VentanaEmergente ok = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-                ok.CambioTexto("  Se ha ingresado el video a la lista correctamente");
+                ok.CambioTexto(" Se ha ingresado el video a la lista con éxito");
                 ok.setVisible(true);
             } catch (VideoYaExisteEnListaException e) {
                 VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-                error.CambioTexto("  Ya existe el video en la lista");
+                error.CambioTexto("          Ya existe el video en la lista");
                 error.setVisible(true);
             }
         }
@@ -6337,106 +6391,6 @@ public class MenuInicio extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_agregarVideo_ButtonActionPerformed
 
-    private void BackButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButton12ActionPerformed
-        Panel_Central.removeAll();
-        Panel_Central.add(Scroll4);
-        Panel_Central.revalidate();
-        Panel_Central.repaint();
-    }//GEN-LAST:event_BackButton12ActionPerformed
-
-    private void botonAceptarModificarLista3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAceptarModificarLista3ActionPerformed
-        if (comboListaSacarVideo.getItemCount() != 0 && comboVideoSacarVideo.getItemCount() != 0) {
-
-            String usuario = comboUsuarioSacarVideo.getSelectedItem().toString();
-            String nombreLista = comboListaSacarVideo.getSelectedItem().toString();
-            String video = comboVideoSacarVideo.getSelectedItem().toString();
-            String canalOrigen = textCanalOrigenSacarVideo.getText();
-            if (!radioDefectoSacarVideo.isSelected()) {
-                c.sacarVideoLista(usuario, nombreLista, video, canalOrigen, true);
-            } else {
-                c.sacarVideoLista(usuario, nombreLista, video, canalOrigen, false);
-            }
-
-            VentanaEmergente ok = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-            ok.CambioTexto("El video se removio de la lista correctamente");
-            ok.setVisible(true);
-        } else {
-            VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-            error.CambioTexto("No se puede sacar video ya que no hay listas o videos en ella");
-            error.setVisible(true);
-        }
-    }//GEN-LAST:event_botonAceptarModificarLista3ActionPerformed
-
-    private void botonSelectListaSacarVideoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSelectListaSacarVideoActionPerformed
-        textCanalOrigenSacarVideo.setText("");
-        comboVideoSacarVideo.removeAllItems();
-        String nombreN = comboUsuarioSacarVideo.getSelectedItem().toString();
-        String nombreLista = comboListaSacarVideo.getSelectedItem().toString();
-        if (radioDefectoSacarVideo.isSelected()) {
-            DtListaDefectoVideos videosxlista;
-            listaVideosaSacar = c.getVideosListaDefecto(nombreN, nombreLista);
-            if (!listaVideosaSacar.isEmpty()) {
-                DtListaDefectoVideos aux;
-                for (int x = 0; x <= listaVideosaSacar.size() - 1; x++) {
-                    if (listaVideosaSacar.get(x) != null) {
-                        aux = (DtListaDefectoVideos) listaVideosaSacar.get(x);
-                        comboVideoSacarVideo.addItem(aux.getVideo());
-                    }
-                }
-            } else {
-                VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-                error.CambioTexto("El usuario seleccionado no tienen videos en esa lista.");
-                error.setVisible(true);
-            }
-        } else {
-            DtListaParticularVideos videosxlista;
-            listaVideosaSacar = c.getVideosListaParticular(nombreN, nombreLista);
-            if (!listaVideosaSacar.isEmpty()) {
-                DtListaParticularVideos aux;
-                for (int x = 0; x <= listaVideosaSacar.size() - 1; x++) {
-                    if (listaVideosaSacar.get(x) != null) {
-                        aux = (DtListaParticularVideos) listaVideosaSacar.get(x);
-                        comboVideoSacarVideo.addItem(aux.getVideo());
-                    }
-                }
-            } else {
-                VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-                error.CambioTexto("El usuario seleccionado no tienen videos en esa lista.");
-                error.setVisible(true);
-            }
-        }
-
-    }//GEN-LAST:event_botonSelectListaSacarVideoActionPerformed
-
-    private void botonSelectUsuarioSacarVideoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSelectUsuarioSacarVideoActionPerformed
-        // TODO add your handling code here:
-
-        comboListaSacarVideo.removeAllItems();
-        if (radioDefectoSacarVideo.isSelected()) {
-            List lista = c.getListasDefecto(comboUsuarioSacarVideo.getSelectedItem().toString());
-            if (lista != null) {
-                DtListaporDefecto aux;
-                for (int x = 0; x <= lista.size() - 1; x++) {
-                    if (lista.get(x) != null) {
-                        aux = (DtListaporDefecto) lista.get(x);
-                        comboListaSacarVideo.addItem(aux.getNombreLista());
-                    }
-                }
-            }
-        } else {
-            List lista = c.getListasReproduccion(comboUsuarioSacarVideo.getSelectedItem().toString());
-            if (lista != null) {
-                DtListaParticulares aux;
-                for (int x = 0; x <= lista.size() - 1; x++) {
-                    if (lista.get(x) != null) {
-                        aux = (DtListaParticulares) lista.get(x);
-                        comboListaSacarVideo.addItem(aux.getNombreLista());
-                    }
-                }
-            }
-        }
-    }//GEN-LAST:event_botonSelectUsuarioSacarVideoActionPerformed
-
     private void quitarVideo_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitarVideo_ButtonActionPerformed
         List lista = u.listaUsuarios();
         if (lista != null) {
@@ -6445,9 +6399,19 @@ public class MenuInicio extends javax.swing.JFrame {
             Panel_Central.add(Central4_4);
             Panel_Central.revalidate();
             Panel_Central.repaint();
+            botonSelectUsuarioSacarVideo.setVisible(true);
+            comboUsuarioSacarVideo.setEnabled(true);
+            radioDefectoSacarVideo.setEnabled(true);
+            radioParticularSacarVideo.setEnabled(true);
+            comboListaSacarVideo.setEnabled(false);
+            botonSelectListaSacarVideo.setVisible(true);
+            botonSelectListaSacarVideo.setEnabled(false);
+            comboVideoSacarVideo.setEnabled(false);
+            botonAceptarModificarLista3.setEnabled(false);
             comboUsuarioSacarVideo.removeAllItems();
             comboListaSacarVideo.removeAllItems();
             comboVideoSacarVideo.removeAllItems();
+            textCanalOrigenSacarVideo.setText("");
             DtUsuario user;
             for (int x = 0; x <= lista.size() - 1; x++) {
                 if (lista.get(x) != null) {
@@ -6840,21 +6804,6 @@ public class MenuInicio extends javax.swing.JFrame {
             error.setVisible(true);
         }
     }//GEN-LAST:event_listarCat_ButtonActionPerformed
-
-    private void comboVideoSacarVideoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboVideoSacarVideoItemStateChanged
-        textCanalOrigenSacarVideo.setText("");
-        if (listaVideosaSacar != null && comboVideoSacarVideo.getSelectedIndex() >= 0 && comboListaSacarVideo.getSelectedIndex() >= 0 && comboUsuarioSacarVideo.getSelectedIndex() >= 0) {
-            if (radioDefectoSacarVideo.isSelected()) {
-                DtListaDefectoVideos aux = (DtListaDefectoVideos) listaVideosaSacar.get(comboVideoSacarVideo.getSelectedIndex());
-                textCanalOrigenSacarVideo.setText(aux.getCanal());
-            } else {
-                DtListaParticularVideos aux = (DtListaParticularVideos) listaVideosaSacar.get(comboVideoSacarVideo.getSelectedIndex());
-                textCanalOrigenSacarVideo.setText(aux.getCanal());
-            }
-        }
-
-
-    }//GEN-LAST:event_comboVideoSacarVideoItemStateChanged
 
     private void CambiarUsuario9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CambiarUsuario9ActionPerformed
         comboUsuarios.setEnabled(true);
@@ -7315,7 +7264,6 @@ public class MenuInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_BotonBack3ActionPerformed
 
     private void BotonBack5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBack5ActionPerformed
-        // TODO add your handling code here:
         Panel_Central.removeAll();
         Panel_Central.add(Central5);
         Panel_Central.revalidate();
@@ -7327,7 +7275,6 @@ public class MenuInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_comboCategoriasConsultaCategoriaActionPerformed
 
     private void botonSeleccionarConsultaCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSeleccionarConsultaCategoriaActionPerformed
-        // TODO add your handling code here:
         if (comboCategoriasConsultaCategoria.getItemCount() != 0) {
             tableVideoUsuario.removeAll();
             tablePlaylist.removeAll();
@@ -7618,6 +7565,218 @@ public class MenuInicio extends javax.swing.JFrame {
         Panel_Central.repaint();
     }//GEN-LAST:event_BackButton18ActionPerformed
 
+    private void botonSelectUsuarioSacarVideoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSelectUsuarioSacarVideoActionPerformed
+        VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
+        if(!radioParticularSacarVideo.isSelected() && !radioDefectoSacarVideo.isSelected()){
+            error.CambioTexto("        Debes seleccionar el tipo de lista");
+            error.setVisible(true);
+        } else {
+            Boolean listas=true;
+            if (radioDefectoSacarVideo.isSelected()) {
+                List lista = c.getListasDefecto(comboUsuarioSacarVideo.getSelectedItem().toString());
+                if (!lista.isEmpty()) {
+                    radioDefectoSacarVideo.setEnabled(false);
+                    radioParticularSacarVideo.setEnabled(false);
+                    comboListaSacarVideo.setEnabled(true);
+                    botonSelectListaSacarVideo.setEnabled(true);
+                    comboUsuarioSacarVideo.setEnabled(false);
+                    botonSelectUsuarioSacarVideo.setVisible(false);
+                    CambiarUsuario16.setVisible(true);
+                    radioDefectoSacarVideo.setEnabled(false);
+                    radioParticularSacarVideo.setEnabled(false);
+                    DtListaporDefecto aux;
+                    comboListaSacarVideo.removeAllItems();
+                    listas=false;
+                    for (int x = 0; x <= lista.size() - 1; x++) {
+                        if (lista.get(x) != null) {
+                            aux = (DtListaporDefecto) lista.get(x);
+                            comboListaSacarVideo.addItem(aux.getNombreLista());
+                        }
+                    }
+                }
+            } else {
+                List lista = c.getListasReproduccion(comboUsuarioSacarVideo.getSelectedItem().toString());
+                if (!lista.isEmpty()) {
+                    DtListaParticulares aux;
+                    radioDefectoSacarVideo.setEnabled(false);
+                    radioParticularSacarVideo.setEnabled(false);
+                    radioDefectoSacarVideo.setEnabled(false);
+                    radioParticularSacarVideo.setEnabled(false);
+                    comboListaSacarVideo.setEnabled(true);
+                    botonSelectListaSacarVideo.setEnabled(true);
+                    comboUsuarioSacarVideo.setEnabled(false);
+                    botonSelectUsuarioSacarVideo.setVisible(false);
+                    CambiarUsuario16.setVisible(true);
+                    comboListaSacarVideo.removeAllItems();
+                    listas=false;
+                    for (int x = 0; x <= lista.size() - 1; x++) {
+                        if (lista.get(x) != null) {
+                            aux = (DtListaParticulares) lista.get(x);
+                            comboListaSacarVideo.addItem(aux.getNombreLista());
+                        }
+                    }
+                }
+            }
+            if(listas){
+                comboListaSacarVideo.setEnabled(false);
+                botonSelectListaSacarVideo.setEnabled(false);
+                comboVideoSacarVideo.setEnabled(false);
+                botonAceptarModificarLista3.setEnabled(false);
+                error.CambioTexto("    Este usuario no tiene este tipo de lista");
+                error.setVisible(true);
+            }
+        }
+    }//GEN-LAST:event_botonSelectUsuarioSacarVideoActionPerformed
+
+    private void botonSelectListaSacarVideoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSelectListaSacarVideoActionPerformed
+        textCanalOrigenSacarVideo.setText("");
+        comboVideoSacarVideo.removeAllItems();
+        String nombreN = comboUsuarioSacarVideo.getSelectedItem().toString();
+        String nombreLista = comboListaSacarVideo.getSelectedItem().toString();
+        if (radioDefectoSacarVideo.isSelected()) {
+            listaVideosaSacar = c.getVideosListaDefecto(nombreN, nombreLista);
+            if (!listaVideosaSacar.isEmpty()) {
+                DtListaDefectoVideos aux;
+                comboVideoSacarVideo.setEnabled(true);
+                comboListaSacarVideo.setEnabled(false);
+                CambiarUsuario15.setVisible(true);
+                botonSelectListaSacarVideo.setVisible(false);
+                botonAceptarModificarLista3.setEnabled(true);
+                for (int x = 0; x <= listaVideosaSacar.size() - 1; x++) {
+                    if (listaVideosaSacar.get(x) != null) {
+                        aux = (DtListaDefectoVideos) listaVideosaSacar.get(x);
+                        comboVideoSacarVideo.addItem(aux.getVideo());
+                    }
+                }
+            } else {
+                VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
+                error.CambioTexto("     El usuario no tiene videos en esta lista");
+                error.setVisible(true);
+            }
+        } else {
+            listaVideosaSacar = c.getVideosListaParticular(nombreN, nombreLista);
+            if (!listaVideosaSacar.isEmpty()) {
+                comboVideoSacarVideo.setEnabled(true);
+                comboListaSacarVideo.setEnabled(false);
+                CambiarUsuario15.setVisible(true);
+                botonSelectListaSacarVideo.setVisible(false);
+                botonAceptarModificarLista3.setEnabled(true);
+                DtListaParticularVideos aux;
+                for (int x = 0; x <= listaVideosaSacar.size() - 1; x++) {
+                    if (listaVideosaSacar.get(x) != null) {
+                        aux = (DtListaParticularVideos) listaVideosaSacar.get(x);
+                        comboVideoSacarVideo.addItem(aux.getVideo());
+                    }
+                }
+            } else {
+                VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
+                error.CambioTexto("    El usuario no tienen videos en esta lista");
+                error.setVisible(true);
+            }
+        }
+    }//GEN-LAST:event_botonSelectListaSacarVideoActionPerformed
+
+    private void botonAceptarModificarLista3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAceptarModificarLista3ActionPerformed
+        String usuario = comboUsuarioSacarVideo.getSelectedItem().toString();
+        String nombreLista = comboListaSacarVideo.getSelectedItem().toString();
+        String video = comboVideoSacarVideo.getSelectedItem().toString();
+        String canalOrigen = textCanalOrigenSacarVideo.getText();
+        VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
+        if (!radioDefectoSacarVideo.isSelected()) {
+            c.sacarVideoLista(usuario, nombreLista, video, canalOrigen, true);
+            error.CambioTexto("El video se removio de la lista correctamente");
+            listaVideosaSacar = c.getVideosListaParticular(usuario, nombreLista);
+            if (!listaVideosaSacar.isEmpty()) {
+                DtListaParticularVideos aux;
+                comboVideoSacarVideo.removeAllItems();
+                for (int x = 0; x <= listaVideosaSacar.size() - 1; x++) {
+                    if (listaVideosaSacar.get(x) != null) {
+                        aux = (DtListaParticularVideos) listaVideosaSacar.get(x);
+                        comboVideoSacarVideo.addItem(aux.getVideo());
+                    }
+                }
+            } else {
+                comboVideoSacarVideo.setEnabled(false);
+                botonSelectListaSacarVideo.setVisible(true);
+                CambiarUsuario15.setVisible(false);
+                comboListaSacarVideo.setEnabled(true);
+                comboVideoSacarVideo.removeAllItems();
+                textCanalOrigenSacarVideo.setText("");
+                error.CambioTexto("        Ya no hay mas videos en esta playlist");
+            }
+        } else {
+            c.sacarVideoLista(usuario, nombreLista, video, canalOrigen, false);
+            error.CambioTexto("El video se removio de la lista correctamente");
+            listaVideosaSacar = c.getVideosListaDefecto(usuario, nombreLista);
+            if (!listaVideosaSacar.isEmpty()) {
+                DtListaDefectoVideos aux;
+                comboVideoSacarVideo.removeAllItems();
+                for (int x = 0; x <= listaVideosaSacar.size() - 1; x++) {
+                    if (listaVideosaSacar.get(x) != null) {
+                        aux = (DtListaDefectoVideos) listaVideosaSacar.get(x);
+                        comboVideoSacarVideo.addItem(aux.getVideo());
+                    }
+                }
+            } else {
+                comboVideoSacarVideo.setEnabled(false);
+                botonSelectListaSacarVideo.setVisible(true);
+                CambiarUsuario15.setVisible(false);
+                comboListaSacarVideo.setEnabled(true);
+                comboVideoSacarVideo.removeAllItems();
+                textCanalOrigenSacarVideo.setText("");
+                error.CambioTexto("        Ya no hay mas videos en esta playlist");
+            }
+        }
+        error.setVisible(true);
+    }//GEN-LAST:event_botonAceptarModificarLista3ActionPerformed
+
+    private void comboVideoSacarVideoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboVideoSacarVideoItemStateChanged
+        textCanalOrigenSacarVideo.setText("");
+        if (listaVideosaSacar != null && comboVideoSacarVideo.getSelectedIndex() >= 0 && comboListaSacarVideo.getSelectedIndex() >= 0 && comboUsuarioSacarVideo.getSelectedIndex() >= 0) {
+            if (radioDefectoSacarVideo.isSelected()) {
+                DtListaDefectoVideos aux = (DtListaDefectoVideos) listaVideosaSacar.get(comboVideoSacarVideo.getSelectedIndex());
+                textCanalOrigenSacarVideo.setText(aux.getCanal());
+            } else {
+                DtListaParticularVideos aux = (DtListaParticularVideos) listaVideosaSacar.get(comboVideoSacarVideo.getSelectedIndex());
+                textCanalOrigenSacarVideo.setText(aux.getCanal());
+            }
+        }
+
+    }//GEN-LAST:event_comboVideoSacarVideoItemStateChanged
+
+    private void BackButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButton12ActionPerformed
+        Panel_Central.removeAll();
+        Panel_Central.add(Scroll4);
+        Panel_Central.revalidate();
+        Panel_Central.repaint();
+    }//GEN-LAST:event_BackButton12ActionPerformed
+
+    private void CambiarUsuario15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CambiarUsuario15ActionPerformed
+        textCanalOrigenSacarVideo.setText("");
+        CambiarUsuario15.setVisible(false);
+        botonSelectListaSacarVideo.setVisible(true);
+        comboListaSacarVideo.setEnabled(true);
+        comboVideoSacarVideo.setEnabled(false);
+        botonAceptarModificarLista3.setEnabled(false);
+    }//GEN-LAST:event_CambiarUsuario15ActionPerformed
+
+    private void CambiarUsuario16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CambiarUsuario16ActionPerformed
+        textCanalOrigenSacarVideo.setText("");
+        comboListaSacarVideo.removeAllItems();
+        comboVideoSacarVideo.removeAllItems();
+        radioDefectoSacarVideo.setEnabled(true);
+        radioParticularSacarVideo.setEnabled(true);
+        botonSelectUsuarioSacarVideo.setVisible(true);
+        CambiarUsuario16.setVisible(false);
+        comboUsuarioSacarVideo.setEnabled(true);
+        botonSelectListaSacarVideo.setEnabled(false);
+        CambiarUsuario15.setVisible(false);
+        botonSelectListaSacarVideo.setVisible(true);
+        comboListaSacarVideo.setEnabled(false);
+        comboVideoSacarVideo.setEnabled(false);
+        botonAceptarModificarLista3.setEnabled(false);
+    }//GEN-LAST:event_CambiarUsuario16ActionPerformed
+
     private void setColor(JPanel pane) {
         pane.setBackground(new Color(114, 114, 114));
     }
@@ -7782,6 +7941,8 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JButton CambiarUsuario12;
     private javax.swing.JButton CambiarUsuario13;
     private javax.swing.JButton CambiarUsuario14;
+    private javax.swing.JButton CambiarUsuario15;
+    private javax.swing.JButton CambiarUsuario16;
     private javax.swing.JButton CambiarUsuario3;
     private javax.swing.JButton CambiarUsuario4;
     private javax.swing.JButton CambiarUsuario5;
@@ -8008,6 +8169,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JLabel altacat1;
     private javax.swing.JLabel altacat10;
     private javax.swing.JLabel altacat11;
+    private javax.swing.JLabel altacat12;
     private javax.swing.JLabel altacat2;
     private javax.swing.JLabel altacat3;
     private javax.swing.JLabel altacat4;
@@ -8146,6 +8308,11 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator118;
     private javax.swing.JSeparator jSeparator119;
     private javax.swing.JSeparator jSeparator12;
+    private javax.swing.JSeparator jSeparator120;
+    private javax.swing.JSeparator jSeparator121;
+    private javax.swing.JSeparator jSeparator122;
+    private javax.swing.JSeparator jSeparator123;
+    private javax.swing.JSeparator jSeparator124;
     private javax.swing.JSeparator jSeparator13;
     private javax.swing.JSeparator jSeparator14;
     private javax.swing.JSeparator jSeparator15;
@@ -8186,7 +8353,6 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator53;
     private javax.swing.JSeparator jSeparator54;
     private javax.swing.JSeparator jSeparator55;
-    private javax.swing.JSeparator jSeparator56;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator60;
     private javax.swing.JSeparator jSeparator61;
@@ -8207,14 +8373,8 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator76;
     private javax.swing.JSeparator jSeparator77;
     private javax.swing.JSeparator jSeparator78;
-    private javax.swing.JSeparator jSeparator79;
     private javax.swing.JSeparator jSeparator8;
-    private javax.swing.JSeparator jSeparator84;
-    private javax.swing.JSeparator jSeparator85;
     private javax.swing.JSeparator jSeparator86;
-    private javax.swing.JSeparator jSeparator87;
-    private javax.swing.JSeparator jSeparator88;
-    private javax.swing.JSeparator jSeparator89;
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JSeparator jSeparator90;
     private javax.swing.JSeparator jSeparator91;

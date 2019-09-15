@@ -85,7 +85,7 @@ public class ControladorUsuario implements IControladorUsuario{
     }
     
     @Override
-    public void modificarUsuario(DtUsuario u, DtCanal c, BufferedImage imagen, Boolean cambio){
+    public void modificarUsuario(DtUsuario u, DtCanal c, BufferedImage imagen, Boolean cambio) throws CanalRepetidoException{
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
 
         Canal canal = new Canal(c.getNombre_canal(), c.getDescripcion(), c.getPrivado());
@@ -93,9 +93,11 @@ public class ControladorUsuario implements IControladorUsuario{
         Canal CanalViejo = new Canal(u.getCanal().getNombre_canal(), u.getCanal().getDescripcion(), u.getCanal().getPrivado());
 
         Usuario us = new Usuario(u.getNickname(), u.getContraseña(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen(), CanalViejo);
-
-        mu.modificarUsuario(us, canal);
-
+        try{
+            mu.modificarUsuario(us, canal);
+        } catch (Exception e){
+            throw new CanalRepetidoException("Canal repetido");
+        }
         if (cambio) {
             String ruta = System.getProperty("user.dir") + "/src/main/resources/imagenesUsuarios/" + us.getNickname() + ".png";
             Path path = Paths.get(ruta);
