@@ -6561,7 +6561,13 @@ public class MenuInicio extends javax.swing.JFrame {
             u.registrarUsuario(user, imagen);
             u.seguirUsuario(user, "hectorg");
             u.seguirUsuario(user, "diegop");
-
+            DtListaporDefecto listaD = new DtListaporDefecto("Escuchar más tarde");
+            c.crearListaDefecto(listaD);
+            listaD = new DtListaporDefecto("Deporte total");
+            c.crearListaDefecto(listaD);
+            listaD = new DtListaporDefecto("Novedades generales");
+            c.crearListaDefecto(listaD);
+            
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("1972-06-14");
             canal = new DtCanal("El bocha", "Mi canal para colgar mis cosas", false);
             user = new DtUsuario("mbusca", "MB", "Martín", "Buscaglia", "Martin.bus@agadu.org.uy", fechaU, "/imagenesUsuarios/mbusca.png", canal);
@@ -6706,6 +6712,7 @@ public class MenuInicio extends javax.swing.JFrame {
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("2009-10-02");
             video = new DtVideo("Thriller", user.getCanal(), fechaU, "https://youtu.be/sOnqjkJTMaA", "Michael Jackson's official music video for \"Thriller\"", "Música", "13:42", false);
             c.registrarVideo(video);
+            
 
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("1940-08-03");
             canal = new DtCanal("robinh", "Henderson", false);
@@ -6771,6 +6778,15 @@ public class MenuInicio extends javax.swing.JFrame {
             lista = new DtListaParticulares(false, new DtCategoria("Noticias"), "Noticias y CYT");
             c.crearListaParticular((DtListaParticulares) lista, user);
             
+            u.valorarVideo("hectorg", "50 años del InCo", "sergiop", "No me gusta");
+            u.valorarVideo("hectorg", "Ingeniería de Muestra 2017", "sergiop", "Me gusta");
+            u.valorarVideo("juliob", "Show de goles", "sergiop", "Me gusta");
+            u.valorarVideo("tabarec", "Locura Celeste", "nicoJ", "No me gusta");
+            u.valorarVideo("hectorg", "50 años del InCo", "nicoJ", "Me gusta");
+            u.valorarVideo("hectorg", "50 años del InCo", "kairoh", "Me gusta");
+            u.valorarVideo("juliob", "Inauguración Estadio Peñarol", "kairoh", "Me gusta");
+            u.valorarVideo("tabarec", "Locura Celeste", "marcelot", "Me gusta");
+            u.valorarVideo("kairoh", "Dancing in the Dark", "marcelot", "Me gusta");
             
             Sobrecarga.setEnabled(false);
             mensaje.CambioTexto("    Datos sobrecargados correctamente");
