@@ -12,6 +12,7 @@ import clases.*;
 import DataTypes.*;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.EntityNotFoundException;
 import javax.persistence.Query;
 
 /**
@@ -90,16 +91,31 @@ public class ManejadorInformacion {
     public void modificarUsuario(Usuario u, Canal c) {
         manager = emf.createEntityManager();
         manager.getTransaction().begin();
-        Usuario user = manager.find(Usuario.class, u.getNickname());
-        user.setNombre(u.getNombre());
-        user.setApellido(u.getApellido());
-        user.setContraseña(u.getContraseña());
-        user.setFechaNac(u.getFechaNac());
-        user.setImagen(u.getImagen());
-        user.setCanal(c);
+            Usuario user = manager.find(Usuario.class, u.getNickname());
+            user.setNombre(u.getNombre());
+            user.setApellido(u.getApellido());
+            user.setContraseña(u.getContraseña());
+            user.setFechaNac(u.getFechaNac());
+            user.setImagen(u.getImagen());
+        manager.getTransaction().commit();
+        String canalViejo = u.getCanal().getNombre_canal();
         Canal aux = manager.find(Canal.class, u.getCanal().getNombre_canal());
-        manager.remove(aux);
-        
+        if(!user.getCanal().getNombre_canal().equals(c.getNombre_canal())){
+            manager.clear();
+            manager.getTransaction().begin();
+                aux.setNombre_canal(c.getNombre_canal());
+                user = manager.find(Usuario.class, u.getNickname());
+                user.setCanal(aux);
+            manager.getTransaction().commit();
+            manager.clear();
+            manager.getTransaction().begin();
+                Canal aRemover = manager.find(Canal.class, canalViejo);
+                manager.remove(aRemover);
+            manager.getTransaction().commit();
+        }
+        manager.getTransaction().begin();
+            aux.setDescripcion(c.getDescripcion());
+            aux.setPrivado(c.getPrivado());
         manager.getTransaction().commit();
         manager.close();
     }
