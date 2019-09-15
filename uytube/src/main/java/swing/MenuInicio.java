@@ -541,6 +541,10 @@ public class MenuInicio extends javax.swing.JFrame {
         No4 = new javax.swing.JRadioButton();
         Si4 = new javax.swing.JRadioButton();
         jSeparator114 = new javax.swing.JSeparator();
+        CambiarUsuario14 = new javax.swing.JButton();
+        jSeparator117 = new javax.swing.JSeparator();
+        jSeparator118 = new javax.swing.JSeparator();
+        altacat10 = new javax.swing.JLabel();
         Central4_3 = new javax.swing.JPanel();
         listaModificarListaLabel1 = new javax.swing.JLabel();
         usuarioModificarListaLabel1 = new javax.swing.JLabel();
@@ -3824,7 +3828,6 @@ public class MenuInicio extends javax.swing.JFrame {
         jLabel1.setBounds(180, 180, 100, 20);
 
         Varnick.setEditable(false);
-        NombreLista.setEditable(false);
         NombreLista.setFont(berlin);
         NombreLista.setForeground(new java.awt.Color(102, 102, 102));
         NombreLista.setText("Ingrese Nombre de la Lista");
@@ -3970,19 +3973,19 @@ public class MenuInicio extends javax.swing.JFrame {
         listaModificarListaLabel.setForeground(new java.awt.Color(102, 102, 102));
         listaModificarListaLabel.setText("Lista a editar");
         Central4_2.add(listaModificarListaLabel);
-        listaModificarListaLabel.setBounds(160, 160, 230, 20);
+        listaModificarListaLabel.setBounds(170, 190, 230, 20);
 
         usuarioModificarListaLabel.setFont(berlin);
         usuarioModificarListaLabel.setForeground(new java.awt.Color(102, 102, 102));
         usuarioModificarListaLabel.setText("Usuario");
         Central4_2.add(usuarioModificarListaLabel);
-        usuarioModificarListaLabel.setBounds(160, 110, 160, 20);
+        usuarioModificarListaLabel.setBounds(170, 140, 160, 20);
 
         privadaModificarListaLabel.setFont(berlin);
         privadaModificarListaLabel.setForeground(new java.awt.Color(102, 102, 102));
         privadaModificarListaLabel.setText("¿Desea hacerla privada?");
         Central4_2.add(privadaModificarListaLabel);
-        privadaModificarListaLabel.setBounds(170, 280, 160, 20);
+        privadaModificarListaLabel.setBounds(180, 310, 160, 20);
 
         BackButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back.png"))); // NOI18N
         BackButton8.setBorder(null);
@@ -3999,26 +4002,29 @@ public class MenuInicio extends javax.swing.JFrame {
         BackButton8.setBounds(0, 11, 101, 51);
 
         comboCategoriaModificarLista.setFont(berlin);
+        comboCategoriaModificarLista.setEnabled(false);
         Central4_2.add(comboCategoriaModificarLista);
-        comboCategoriaModificarLista.setBounds(310, 220, 220, 22);
+        comboCategoriaModificarLista.setBounds(320, 240, 220, 22);
 
         comboUsuarioModificarLista.setFont(berlin);
         Central4_2.add(comboUsuarioModificarLista);
-        comboUsuarioModificarLista.setBounds(310, 110, 220, 22);
+        comboUsuarioModificarLista.setBounds(320, 140, 220, 22);
 
         comboListaModificarLista.setFont(berlin);
+        comboListaModificarLista.setEnabled(false);
         Central4_2.add(comboListaModificarLista);
-        comboListaModificarLista.setBounds(310, 160, 220, 22);
+        comboListaModificarLista.setBounds(320, 190, 220, 22);
 
         categoriaModificarListaLabel.setFont(berlin);
         categoriaModificarListaLabel.setForeground(new java.awt.Color(102, 102, 102));
         categoriaModificarListaLabel.setText("Categoria");
         Central4_2.add(categoriaModificarListaLabel);
-        categoriaModificarListaLabel.setBounds(160, 220, 100, 20);
+        categoriaModificarListaLabel.setBounds(170, 240, 100, 20);
 
         botonAceptarModificarLista1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_2.png"))); // NOI18N
         botonAceptarModificarLista1.setBorderPainted(false);
         botonAceptarModificarLista1.setContentAreaFilled(false);
+        botonAceptarModificarLista1.setEnabled(false);
         botonAceptarModificarLista1.setFocusPainted(false);
         botonAceptarModificarLista1.setFocusable(false);
         botonAceptarModificarLista1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_1.png"))); // NOI18N
@@ -4028,7 +4034,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central4_2.add(botonAceptarModificarLista1);
-        botonAceptarModificarLista1.setBounds(310, 330, 80, 40);
+        botonAceptarModificarLista1.setBounds(320, 360, 80, 40);
 
         botonSeleccionarModificarLista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_seleccionar_2.png"))); // NOI18N
         botonSeleccionarModificarLista.setBorderPainted(false);
@@ -4041,30 +4047,60 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         Central4_2.add(botonSeleccionarModificarLista);
-        botonSeleccionarModificarLista.setBounds(570, 90, 80, 58);
+        botonSeleccionarModificarLista.setBounds(570, 130, 80, 40);
 
         VoT.add(No4);
         No4.setFont(berlin);
         No4.setText("No");
         No4.setBorder(null);
+        No4.setEnabled(false);
         No4.setFocusable(false);
         No4.setNextFocusableComponent(CampoDescripcion);
         Central4_2.add(No4);
-        No4.setBounds(440, 280, 50, 20);
+        No4.setBounds(450, 310, 50, 20);
 
         VoT.add(Si4);
         Si4.setFont(berlin);
         Si4.setText("Si");
         Si4.setBorder(null);
+        Si4.setEnabled(false);
         Si4.setFocusable(false);
         Si4.setNextFocusableComponent(CampoDescripcion);
         Central4_2.add(Si4);
-        Si4.setBounds(350, 280, 50, 20);
+        Si4.setBounds(360, 310, 50, 20);
 
         jSeparator114.setBackground(new java.awt.Color(153, 153, 153));
         jSeparator114.setForeground(new java.awt.Color(153, 153, 153));
         Central4_2.add(jSeparator114);
-        jSeparator114.setBounds(160, 260, 370, 30);
+        jSeparator114.setBounds(170, 290, 370, 30);
+
+        CambiarUsuario14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_cambiar_1.png"))); // NOI18N
+        CambiarUsuario14.setBorderPainted(false);
+        CambiarUsuario14.setContentAreaFilled(false);
+        CambiarUsuario14.setFocusable(false);
+        CambiarUsuario14.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_cambiar_2.png"))); // NOI18N
+        CambiarUsuario14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CambiarUsuario14ActionPerformed(evt);
+            }
+        });
+        Central4_2.add(CambiarUsuario14);
+        CambiarUsuario14.setBounds(570, 130, 80, 40);
+
+        jSeparator117.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator117.setForeground(new java.awt.Color(153, 153, 153));
+        Central4_2.add(jSeparator117);
+        jSeparator117.setBounds(20, 430, 675, 30);
+
+        jSeparator118.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator118.setForeground(new java.awt.Color(153, 153, 153));
+        Central4_2.add(jSeparator118);
+        jSeparator118.setBounds(20, 100, 675, 30);
+
+        altacat10.setFont(berlin.deriveFont(20f));
+        altacat10.setText("Modificar Playlist");
+        Central4_2.add(altacat10);
+        altacat10.setBounds(280, 40, 220, 20);
 
         Panel_Central.add(Central4_2);
         Central4_2.setBounds(0, 0, 720, 550);
@@ -5282,35 +5318,36 @@ public class MenuInicio extends javax.swing.JFrame {
 
     private void CrearListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearListaActionPerformed
         VentanaEmergente ventana = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-
-        if (!radioDefecto1.isSelected() && !radioParticular1.isSelected()) {
-            ventana.CambioTexto("    Debes seleccionar un tipo de lista");
-            ventana.setVisible(true);
+        if(NombreLista.getText().isEmpty()){
+            ventana.CambioTexto("    Debes ingresar el nombre de la lista");
         } else {
-            String nombreL = NombreLista.getText();
-            DtListaReproduccion lista;
-            if (radioDefecto1.isSelected()) {
-                lista = new DtListaporDefecto(nombreL);
-                try {
-                    c.crearListaDefecto(lista);
-                    ventana.CambioTexto("          La lista se creo exitosamente");
-                    ventana.setVisible(true);
-                } catch (ListaRepetidaException e) {
-                    ventana.CambioTexto("                     La lista ya existe");
-                    ventana.setVisible(true);
-                }
+            if (!radioDefecto1.isSelected() && !radioParticular1.isSelected()) {
+                ventana.CambioTexto("    Debes seleccionar un tipo de lista");
             } else {
-                if (!Si3.isSelected() && !No3.isSelected()) {
-                    ventana.CambioTexto("        Debes llenar todos los campos");
-                } else {
-                    DtUsuario user = u.buscarUsuario(NombreUserLista.getSelectedItem().toString());
-                    DtCategoria cat = new DtCategoria(comboCategoriasCrearLista.getSelectedItem().toString());
-                    lista = new DtListaParticulares(Si3.isSelected(), cat, nombreL);
+                String nombreL = NombreLista.getText();
+                DtListaReproduccion lista;
+                if (radioDefecto1.isSelected()) {
+                    lista = new DtListaporDefecto(nombreL);
                     try {
-                        c.crearListaParticular((DtListaParticulares) lista, user);
-                        ventana.CambioTexto("             La lista se creo exitosamente");
+                        c.crearListaDefecto(lista);
+                        ventana.CambioTexto("          La lista se creo exitosamente");
+                        ventana.setVisible(true);
                     } catch (ListaRepetidaException e) {
-                        ventana.CambioTexto("                   La lista ya existe");
+                        ventana.CambioTexto("                     La lista ya existe");
+                    }
+                } else {
+                    if (!Si3.isSelected() && !No3.isSelected()) {
+                        ventana.CambioTexto("        Debes llenar todos los campos");
+                    } else {
+                        DtUsuario user = u.buscarUsuario(NombreUserLista.getSelectedItem().toString());
+                        DtCategoria cat = new DtCategoria(comboCategoriasCrearLista.getSelectedItem().toString());
+                        lista = new DtListaParticulares(Si3.isSelected(), cat, nombreL);
+                        try {
+                            c.crearListaParticular((DtListaParticulares) lista, user);
+                            ventana.CambioTexto("             La lista se creo exitosamente");
+                        } catch (ListaRepetidaException e) {
+                            ventana.CambioTexto("                   La lista ya existe");
+                        }
                     }
                 }
             }
@@ -5724,6 +5761,15 @@ public class MenuInicio extends javax.swing.JFrame {
     private void modificarPlaylist_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarPlaylist_ButtonActionPerformed
         List lista = u.listaUsuarios();
         if (lista != null) {
+            Central4_2.add(botonSeleccionarModificarLista);
+            Central4_2.remove(CambiarUsuario14);
+            comboUsuarioModificarLista.setEnabled(true);
+            comboListaModificarLista.setEnabled(false);
+            comboCategoriaModificarLista.setEnabled(false);
+            Si4.setEnabled(false);
+            No4.setEnabled(false);
+            botonAceptarModificarLista1.setEnabled(false);
+            
             Panel_Central.removeAll();
             Panel_Central.add(Central4_2);
             Panel_Central.revalidate();
@@ -5738,21 +5784,6 @@ public class MenuInicio extends javax.swing.JFrame {
                     comboUsuarioModificarLista.addItem(user.getNickname());
                 }
             }
-            List categorias = c.getCategorias();
-            if (comboCategoriaModificarLista.getItemCount() != 0) {
-                comboCategoriaModificarLista.removeAllItems();
-            }
-            comboCategoriaModificarLista.insertItemAt("", 0);
-            if (categorias != null) {
-                DtCategoria cat;
-                for (int x = 0; x <= categorias.size() - 1; x++) {
-                    if (categorias.get(x) != null) {
-                        cat = (DtCategoria) categorias.get(x);
-                        comboCategoriaModificarLista.addItem(cat.getnombreCategoria());
-                    }
-                }
-            }
-            this.comboCategoriasCrearLista.setEnabled(true);
         } else {
             VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
             error.CambioTexto("  No existen usuarios en la base de datos.");
@@ -5761,8 +5792,10 @@ public class MenuInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_modificarPlaylist_ButtonActionPerformed
 
     private void botonAceptarModificarLista1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAceptarModificarLista1ActionPerformed
-        // TODO add your handling code here:        
-        if(comboListaModificarLista.getItemCount() != 0 && comboUsuarioModificarLista.getItemCount() != 0){
+        VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
+        if(!Si4.isSelected() && !No4.isSelected()){
+            error.CambioTexto("         Debes llenar todos los campos");
+        }else{
             Boolean privado = Si4.isSelected();
             DtListaReproduccion tmp;
             String aux = "";
@@ -5774,32 +5807,53 @@ public class MenuInicio extends javax.swing.JFrame {
                 tmp = new DtListaParticulares(privado, null, comboListaModificarLista.getSelectedItem().toString());
             }
             c.modificarListaParticular((DtListaParticulares) tmp, user);
-        }else{
-            VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-            error.CambioTexto("  No hay listas o usuarios ingresados");
-            error.setVisible(true);
+            error.CambioTexto("              Lista modificada con éxito");
         }
+        error.setVisible(true);
     }//GEN-LAST:event_botonAceptarModificarLista1ActionPerformed
 
     private void botonSeleccionarModificarListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSeleccionarModificarListaActionPerformed
-        // TODO add your handling code here:
-        comboListaModificarLista.removeAllItems();
         List lista = c.getListasReproduccion(comboUsuarioModificarLista.getSelectedItem().toString());
-        if (lista != null) {
+        if (!lista.isEmpty()) {
+            comboUsuarioModificarLista.setEnabled(false);
+            Central4_2.remove(botonSeleccionarModificarLista);
+            Central4_2.add(CambiarUsuario14);
+            Panel_Central.revalidate();
+            Panel_Central.repaint();
+            comboListaModificarLista.setEnabled(true);
+            comboCategoriaModificarLista.setEnabled(true);
+            botonAceptarModificarLista1.setEnabled(true);
+            Si4.setEnabled(true);
+            No4.setEnabled(true);
             DtListaParticulares aux;
+            comboListaModificarLista.removeAllItems();
             for (int x = 0; x <= lista.size() - 1; x++) {
                 if (lista.get(x) != null) {
                     aux = (DtListaParticulares) lista.get(x);
                     comboListaModificarLista.addItem(aux.getNombreLista());
                 }
             }
+            List categorias = c.getCategorias();
+            if (categorias != null) {
+                DtCategoria cat;
+                comboCategoriaModificarLista.removeAllItems();
+                for (int x = 0; x <= categorias.size() - 1; x++) {
+                    if (categorias.get(x) != null) {
+                        cat = (DtCategoria) categorias.get(x);
+                        comboCategoriaModificarLista.addItem(cat.getnombreCategoria());
+                    }
+                }  
+            }
         } else {
+            comboListaModificarLista.setEnabled(false);
+            comboCategoriaModificarLista.setEnabled(false);
+            Si4.setEnabled(false);
+            No4.setEnabled(false);
+            botonAceptarModificarLista1.setEnabled(false);
             VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-            error.CambioTexto("  El usuario seleccionado no tiene listas de reproduccion asociadas");
+            error.CambioTexto("   El usuario no tiene listas de reproducción");
             error.setVisible(true);
         }
-
-
     }//GEN-LAST:event_botonSeleccionarModificarListaActionPerformed
 
     private void Modificar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Modificar1ActionPerformed
@@ -5816,33 +5870,36 @@ public class MenuInicio extends javax.swing.JFrame {
         DtVideo video = c.obtenerVideo(nomVideo, user.getCanal().getNombre_canal());
 
         VentanaEmergente mensaje = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-        if (video.getNombre().equals(nomV) && video.getDuracion().equals(durV) && video.getUrl().equals(urlV) && video.getCategoria().equals(catV) && video.getDescripcion().equals(desV) && video.getFechaPublicacion().equals(fechaV) && video.getPrivado() == privadoV) {
-            mensaje.CambioTexto("        No se realizo ninguna modificación");
+        if (nomV.isEmpty() || durV.isEmpty() || urlV.isEmpty() || desV.isEmpty() || fechaV==null) {
+            mensaje.CambioTexto("          Debes llenar todos los campos");
         } else {
-            DtVideo vid = new DtVideo(nomV, video.getCanal(), fechaV, urlV, desV, catV, durV, privadoV);
-            try {
-                c.modificarVideo(vid, video.getNombre());
-                mensaje.CambioTexto("      Modificaciones realizadas con éxito");
-                Central3_2_1.remove(CambiarUsuarioL);
-                Central3_2_1.add(SeleccionarVideoL);
-                comboVideo2.setEnabled(true);
-                Central3_2_1_Panel.removeAll();
-                Panel_Central.revalidate();
-                Panel_Central.repaint();
-
-                List lista = c.listaVideos(user.getCanal());
-                DtVideo v;
-                if (!lista.isEmpty()) {
-                    comboVideo2.removeAllItems();
-                    for (int x = 0; x <= lista.size() - 1; x++) {
-                        v = (DtVideo) lista.get(x);
-                        if (lista.get(x) != null) {
-                            comboVideo2.addItem(v.getNombre());
+            if (video.getNombre().equals(nomV) && video.getDuracion().equals(durV) && video.getUrl().equals(urlV) && video.getCategoria().equals(catV) && video.getDescripcion().equals(desV) && video.getFechaPublicacion().equals(fechaV) && video.getPrivado() == privadoV) {
+                mensaje.CambioTexto("        No se realizo ninguna modificación");
+            } else {
+                DtVideo vid = new DtVideo(nomV, video.getCanal(), fechaV, urlV, desV, catV, durV, privadoV);
+                try {
+                    c.modificarVideo(vid, video.getNombre());
+                    mensaje.CambioTexto("      Modificaciones realizadas con éxito");
+                    Central3_2_1.remove(CambiarUsuarioL);
+                    Central3_2_1.add(SeleccionarVideoL);
+                    comboVideo2.setEnabled(true);
+                    Central3_2_1_Panel.removeAll();
+                    Panel_Central.revalidate();
+                    Panel_Central.repaint();
+                    List lista = c.listaVideos(user.getCanal());
+                    DtVideo v;
+                    if (!lista.isEmpty()) {
+                        comboVideo2.removeAllItems();
+                        for (int x = 0; x <= lista.size() - 1; x++) {
+                            v = (DtVideo) lista.get(x);
+                            if (lista.get(x) != null) {
+                                comboVideo2.addItem(v.getNombre());
+                            }
                         }
                     }
+                } catch (VideoRepetidoException ex) {
+                    mensaje.CambioTexto("   El nuevo nombre de video indicado ya existe");
                 }
-            } catch (VideoRepetidoException ex) {
-                mensaje.CambioTexto("   El nuevo nombre de video indicado ya existe");
             }
         }
         mensaje.setVisible(true);
@@ -7252,7 +7309,7 @@ public class MenuInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_radioDefecto1ActionPerformed
 
     private void radioParticular1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioParticular1ActionPerformed
-        this.NombreLista.setEditable(true);
+
         this.NombreUserLista.setEnabled(true);
         Si3.setEnabled(true);
         No3.setEnabled(true);
@@ -7344,6 +7401,18 @@ public class MenuInicio extends javax.swing.JFrame {
             error.setVisible(true);
         }
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void CambiarUsuario14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CambiarUsuario14ActionPerformed
+        comboUsuarioModificarLista.setEnabled(true);
+        Central4_2.add(botonSeleccionarModificarLista);
+        Central4_2.remove(CambiarUsuario14);
+        Panel_Central.revalidate();
+        Panel_Central.repaint();
+        comboListaModificarLista.setEnabled(false);
+        comboCategoriaModificarLista.setEnabled(false);
+        Si4.setEnabled(false);
+        No4.setEnabled(false);
+    }//GEN-LAST:event_CambiarUsuario14ActionPerformed
 
     private void setColor(JPanel pane) {
         pane.setBackground(new Color(114, 114, 114));
@@ -7506,6 +7575,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JButton CambiarUsuario11;
     private javax.swing.JButton CambiarUsuario12;
     private javax.swing.JButton CambiarUsuario13;
+    private javax.swing.JButton CambiarUsuario14;
     private javax.swing.JButton CambiarUsuario3;
     private javax.swing.JButton CambiarUsuario4;
     private javax.swing.JButton CambiarUsuario5;
@@ -7728,6 +7798,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JButton agregarVideo_Button;
     private javax.swing.JLabel altacat;
     private javax.swing.JLabel altacat1;
+    private javax.swing.JLabel altacat10;
     private javax.swing.JLabel altacat2;
     private javax.swing.JLabel altacat3;
     private javax.swing.JLabel altacat4;
@@ -7862,6 +7933,8 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator114;
     private javax.swing.JSeparator jSeparator115;
     private javax.swing.JSeparator jSeparator116;
+    private javax.swing.JSeparator jSeparator117;
+    private javax.swing.JSeparator jSeparator118;
     private javax.swing.JSeparator jSeparator12;
     private javax.swing.JSeparator jSeparator13;
     private javax.swing.JSeparator jSeparator14;
