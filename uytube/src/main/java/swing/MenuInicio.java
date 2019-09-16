@@ -16,7 +16,6 @@ import DataTypes.DtListaParticulares;
 import DataTypes.DtListaReproduccion;
 import DataTypes.DtListaporDefecto;
 import DataTypes.DtUsuario;
-import DataTypes.DtValorar;
 import DataTypes.DtVideo;
 import excepciones.CanalRepetidoException;
 import excepciones.CategoriaRepetidaException;
@@ -45,7 +44,6 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
-import javax.swing.JTable;
 import javax.swing.JTree;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -3460,11 +3458,6 @@ public class MenuInicio extends javax.swing.JFrame {
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
         jTree3.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
-        jTree3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTree3MouseClicked(evt);
-            }
-        });
         jScrollPane4.setViewportView(jTree3);
 
         Central3_3_1_1.add(jScrollPane4);
@@ -3697,11 +3690,6 @@ public class MenuInicio extends javax.swing.JFrame {
 
         treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
         jTree1.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
-        jTree1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTree1MouseClicked(evt);
-            }
-        });
         jScrollPane1.setViewportView(jTree1);
 
         Central3_4_1_1.add(jScrollPane1);
@@ -4892,11 +4880,6 @@ public class MenuInicio extends javax.swing.JFrame {
         Central5_2.add(jSeparator106);
         jSeparator106.setBounds(20, 240, 675, 30);
 
-        comboCategoriasConsultaCategoria.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboCategoriasConsultaCategoriaActionPerformed(evt);
-            }
-        });
         Central5_2.add(comboCategoriasConsultaCategoria);
         comboCategoriasConsultaCategoria.setBounds(100, 170, 456, 22);
 
@@ -5359,7 +5342,6 @@ public class MenuInicio extends javax.swing.JFrame {
         if (URLVideo.getText().equals("Ingrese URL de video"))
             URLVideo.setText("");
     }//GEN-LAST:event_URLVideoFocusGained
-
 
     private void RegistrarVideoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarVideoActionPerformed
         String nombVideo = NombreVideo.getText();
@@ -6225,10 +6207,6 @@ public class MenuInicio extends javax.swing.JFrame {
             Estado.setText("Público");
     }//GEN-LAST:event_SeleccionarVideoL1ActionPerformed
 
-    private void jTree1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTree1MouseClicked
-
-    }//GEN-LAST:event_jTree1MouseClicked
-
     private void CampoNick1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CampoNick1FocusGained
         if (CampoNick1.getText().equals("Ingrese Nickname"))
             CampoNick1.setText("");
@@ -6680,7 +6658,7 @@ public class MenuInicio extends javax.swing.JFrame {
             video = new DtVideo("Show de goles", user.getCanal(), fechaU, "https://youtu.be/g46w4_kD_lA", "TORNEO CLAUSURA 2018", "Deporte", "4:23", false);
             c.registrarVideo(video);
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("2016-04-04");
-            video = new DtVideo("Inaguración Estadio Peñarol", user.getCanal(), fechaU, "https://youtu.be/U6XPJ8Vz72A", "Recordemos la ceremonia de inauguración del Estadio de Peñarol.\n"
+            video = new DtVideo("Inauguración Estadio Peñarol", user.getCanal(), fechaU, "https://youtu.be/U6XPJ8Vz72A", "Recordemos la ceremonia de inauguración del Estadio de Peñarol.\n"
                     + "\"Estadio Campeón del Siglo\".", "Deporte", "3:27:26", false);
             c.registrarVideo(video);
             fechaC = new SimpleDateFormat("yyyy-MM-dd HH:MM:SS").parse("2016-11-14 05:34:00");
@@ -7125,33 +7103,42 @@ public class MenuInicio extends javax.swing.JFrame {
             Panel_Central.revalidate();
             Panel_Central.repaint();
             String nomVideo = comboVideoCons.getSelectedItem().toString();
-            DtUsuario user;
-            user = u.buscarUsuario((String) ComboUsuariosLista.getSelectedItem());
-            DtVideo video = c.obtenerVideo(nomVideo, user.getCanal().getNombre_canal());
+            String usuario = ComboUsuariosLista.getSelectedItem().toString();
+            String nomL = comboListas1.getSelectedItem().toString();
+            String nomC = null;
+            DtUsuario user = u.buscarUsuario(usuario);
+            List listaR = c.getVideosListaParticular(user.getNickname(),nomL);
+            if (!listaR.isEmpty()) {
+                DtListaParticularVideos aux;
+                for (int x = 0; x < listaR.size(); x++) {
+                    aux = (DtListaParticularVideos) listaR.get(x);
+                    if (listaR.get(x) != null) {
+                        if (aux.getVideo().equals(nomVideo)) {
+                            nomC = aux.getCanal();
+                        }
+                    }
+                }
+            }
+            DtVideo video = c.obtenerVideo(nomVideo, nomC);
             jComboLesGusta.removeAllItems();
             jComboNoLesGusta.removeAllItems();
 
-            // Datos para crear el arbol en jtree
-            String vid = comboVideoCons.getSelectedItem().toString();
-            String usuario = ComboUsuariosLista.getSelectedItem().toString();
-            DtVideo v = c.obtenerVideo(vid, user.getCanal().getNombre_canal());
-            mostrarComentarios(v, jTree3);
+            mostrarComentarios(video, jTree3);
 
-            //Valoraciones
             Boolean megusta = true, nomegusta = true;
             List listaMeGusta = c.listaMeGustas(user.getNickname());
-            if (listaMeGusta != null) {
+            if (!listaMeGusta.isEmpty()) {
                 DtAuxiliarValorar aux;
                 for (int x = 0; x < listaMeGusta.size(); x++) {
                     aux = (DtAuxiliarValorar) listaMeGusta.get(x);
                     jComboLesGusta.setEnabled(true);
                     jComboNoLesGusta.setEnabled(true);
                     if (listaMeGusta.get(x) != null) {
-                        if (v.getNombre().equals(aux.getVid()) && usuario.equals(aux.getDueño()) && aux.getVal().equals("Me gusta")) {
+                        if (video.getNombre().equals(aux.getVid()) && usuario.equals(aux.getDueño()) && aux.getVal().equals("Me gusta")) {
                             megusta = false;
                             jComboLesGusta.addItem(aux.getUser());
                         }
-                        if (v.getNombre().equals(aux.getVid()) && usuario.equals(aux.getDueño()) && aux.getVal().equals("No me gusta")) {
+                        if (video.getNombre().equals(aux.getVid()) && usuario.equals(aux.getDueño()) && aux.getVal().equals("No me gusta")) {
                             jComboNoLesGusta.addItem(aux.getUser());
                             nomegusta = false;
                         }
@@ -7165,7 +7152,7 @@ public class MenuInicio extends javax.swing.JFrame {
             if (nomegusta) {
                 jComboNoLesGusta.setEnabled(false);
             }
-            // Datos del video
+
             DateFormat dt = new SimpleDateFormat("dd/MM/yyyy");
             String fechaN = dt.format(video.getFechaPublicacion());
             VarNomvideo1.setText(video.getNombre());
@@ -7174,11 +7161,12 @@ public class MenuInicio extends javax.swing.JFrame {
             VarCategoria1.setText(video.getCategoria());
             CampoDescripcion6.setText(video.getDescripcion());
             VarFechaPub2.setText(fechaN);
-            if (video.getPrivado())
+            if (video.getPrivado()) {
                 Estado.setText("Privado");
-            else
+            } else {
                 Estado.setText("Público");
             }
+        }
     }//GEN-LAST:event_SeleccionarVideossActionPerformed
 
     private void BackButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButton15ActionPerformed
@@ -7401,10 +7389,6 @@ public class MenuInicio extends javax.swing.JFrame {
         Panel_Central.repaint();
     }//GEN-LAST:event_BotonBack5ActionPerformed
 
-    private void comboCategoriasConsultaCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboCategoriasConsultaCategoriaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_comboCategoriasConsultaCategoriaActionPerformed
-
     private void botonSeleccionarConsultaCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSeleccionarConsultaCategoriaActionPerformed
         if (comboCategoriasConsultaCategoria.getItemCount() != 0) {
             tableVideoUsuario.removeAll();
@@ -7533,10 +7517,6 @@ public class MenuInicio extends javax.swing.JFrame {
         Panel_Central.revalidate();
         Panel_Central.repaint();
     }//GEN-LAST:event_CambiarUsuario13ActionPerformed
-
-    private void jTree3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTree3MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTree3MouseClicked
 
     private void BackButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButton16ActionPerformed
         Panel_Central.removeAll();

@@ -16,7 +16,6 @@ import DataTypes.DtListaParticulares;
 import DataTypes.DtListaReproduccion;
 import DataTypes.DtListaporDefecto;
 import DataTypes.DtUsuario;
-import DataTypes.DtValorar;
 import DataTypes.DtVideo;
 import clases.AuxiliarValorar;
 import clases.Canal;
@@ -28,7 +27,6 @@ import clases.ListaParticulares;
 import clases.ListaReproduccion;
 import clases.ListaporDefecto;
 import clases.Usuario;
-import clases.Valorar;
 import clases.Video;
 import excepciones.CategoriaRepetidaException;
 import excepciones.ListaRepetidaException;
@@ -92,10 +90,7 @@ public class ControladorCanal implements IControladorCanal {
 
         DtCanal canal = new DtCanal(video.getCanal().getNombre_canal(), video.getCanal().getDescripcion(), video.getCanal().getPrivado());
         DtVideo vid = new DtVideo(video.getNombre(), canal, video.getFechaPublicacion(), video.getUrl(), video.getDescripcion(), video.getCategoria(), video.getDuracion(), video.getPrivado());
-        if (vid != null) {
-            return vid;
-        }
-        return null;
+        return vid;
 
     }
 
@@ -103,13 +98,8 @@ public class ControladorCanal implements IControladorCanal {
     public DtComentario obtenerComentario(String comentario) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         Comentario c = mu.buscadorComentario(comentario);
-
         DtComentario com = new DtComentario(c);
-        if (com != null) {
-            return com;
-        }
-        return null;
-
+        return com;
     }
 
     @Override
@@ -214,14 +204,12 @@ public class ControladorCanal implements IControladorCanal {
         if (mu.buscoListaParticular(lista.getNombreLista(), user.getCanal().getNombre_canal())) {
             throw new ListaRepetidaException("La lista por defecto ya existe");
         }
-        //para que no rompa con las referencias cruzadas
-        //*******************************************************************
         Canal aux = new Canal(user.getCanal().getNombre_canal(), user.getCanal().getDescripcion(), user.getCanal().getPrivado());
         Usuario u = new Usuario(user.getNickname(), user.getContraseña(), user.getNombre(), user.getApellido(), user.getEmail(), user.getFechaNac(), user.getImagen());
         u.setCanal(aux);
         aux.setUsuario(u);
         Categoria cat = new Categoria(lista.getCategoria().getnombreCategoria());
-        //***************************************************
+
         ListaReproduccion list = new ListaParticulares(lista.getPrivado(), lista.getNombreLista(), cat, aux);
 
         mu.crearLista(list);
@@ -378,6 +366,7 @@ public class ControladorCanal implements IControladorCanal {
 
     }
 
+    @Override
     public void sacarVideoLista(String usuario, String nombreLista, String video, String canalOrigen, Boolean isParticular) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         Usuario user = mu.buscadorUsuario(usuario);

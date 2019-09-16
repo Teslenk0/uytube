@@ -216,12 +216,13 @@ public class Menu extends javax.swing.JFrame {
 
     private void menuIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuIniciarActionPerformed
         String nombre = Username.getText();
-        if("admin".equals(nombre)){ //Usuario correcto
+            String password = Password.getText();
+            if(nombre.equals("admin") && password.equals("admin")){
             MenuInicio menuinicio = new MenuInicio(manjari,berlin);
             menuinicio.setVisible(true);
             this.setVisible(false);
         }
-        else{ //Usuario incorrecto
+        else{
             VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled,manjari);
             
             error.CambioTexto("     Los datos ingresados son incorrectos");
@@ -237,12 +238,13 @@ public class Menu extends javax.swing.JFrame {
     private void UsernameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_UsernameKeyPressed
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
              String nombre = Username.getText();
-            if("admin".equals(nombre)){ //Usuario correcto
+             String password = Password.getText();
+            if(nombre.equals("admin") && password.equals("admin")){
                 MenuInicio menuinicio = new MenuInicio(manjari,berlin);
                 menuinicio.setVisible(true);
                 this.setVisible(false);
             }
-            else{ //Usuario incorrecto
+            else{
                 VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled,manjari);
                 error.CambioTexto("     Los datos ingresados son incorrectos");
                 error.setVisible(true);
@@ -281,13 +283,14 @@ int xx,xy;
 
     private void PasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PasswordKeyPressed
          if(evt.getKeyCode()==KeyEvent.VK_ENTER){
-             String nombre = Password.getText();
-            if("admin".equals(nombre)){ //Usuario correcto
+            String nombre = Username.getText();
+            String password = Password.getText();
+            if(nombre.equals("admin") && password.equals("admin")){ 
                 MenuInicio menuinicio = new MenuInicio(manjari,berlin);
                 menuinicio.setVisible(true);
                 this.setVisible(false);
             }
-            else{ //Usuario incorrecto
+            else{
                 VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled,manjari);
                 error.CambioTexto("     Los datos ingresados son incorrectos");
                 error.setVisible(true);
