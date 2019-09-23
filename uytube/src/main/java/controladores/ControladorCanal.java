@@ -138,13 +138,7 @@ public class ControladorCanal implements IControladorCanal {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         List lista = mu.listaTotalComentarios();
         if (lista != null) {
-            List aux = new LinkedList();
-            DtComentario dtaux;
-            for (int x = 0; x < lista.size(); x++) {
-                dtaux = new DtComentario((Comentario) lista.get(x));
-                aux.add(dtaux);
-            }
-            return aux;
+            return lista;
         }
         return null;
     }

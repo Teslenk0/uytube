@@ -11,6 +11,7 @@ import javax.persistence.Persistence;
 import clases.*;
 import DataTypes.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.Query;
 
@@ -220,8 +221,12 @@ public class ManejadorInformacion {
 
     public List listaTotalComentarios(){
         manager = emf.createEntityManager();
-        List<Comentario> comentarios = manager.createQuery("FROM Comentario c").getResultList();
-        return comentarios;
+        List<Object[]> comentarios = manager.createNativeQuery("SELECT * FROM comentarios_video;").getResultList();
+        List<DtauxComentarios> coment = new ArrayList<>();
+         comentarios.forEach((row) -> {
+             coment.add(new DtauxComentarios((String)row[0], (String)row[1], (Date) row[2], (String) row[3], (String) row[4], (Integer) row[5], (String) row[6]));
+        });
+        return coment;
     }
     
     public void addComentario(Comentario c) {
