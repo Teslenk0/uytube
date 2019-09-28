@@ -2,7 +2,7 @@
 
 ## **Plataforma uruguaya de reproduccion de videos**
 
-### **Breve descripcion del projecto**
+### **Breve descripcion del proyecto**
 UyTube es una plataforma uruguaya de reproduccion de videos, en proceso de desarrollo y testing.
 
 UyTube ofrece un servicio de intercambio y reproducción de videos en línea
