@@ -26,7 +26,7 @@ public class Usuario implements Serializable{
     private String nickname;
     
     @Column(name = "contraseña")
-    private String contraseña;
+    private String contrasenia;
     
     @Column(name = "nombre")
     private String nombre;
@@ -53,7 +53,7 @@ public class Usuario implements Serializable{
 
     public Usuario(String nickname, String contraseña, String nombre, String apellido, String email, Date fechaNac, String imagen) {
         this.nickname = nickname;
-        this.contraseña = contraseña;
+        this.contrasenia = contraseña;
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
@@ -63,7 +63,7 @@ public class Usuario implements Serializable{
 
     public Usuario(String nickname, String contraseña, String nombre, String apellido, String email, Date fechaNac, String imagen, Canal canal) {
         this.nickname = nickname;
-        this.contraseña = contraseña;
+        this.contrasenia = contraseña;
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
@@ -75,7 +75,7 @@ public class Usuario implements Serializable{
     public Usuario(DtUsuario usuario){
         this.nickname = usuario.getNickname();
         this.email = usuario.getEmail();
-        this.contraseña = usuario.getContraseña();
+        this.contrasenia = usuario.getContrasenia();
         this.nombre = usuario.getNombre();
         this.apellido = usuario.getApellido();
         this.fechaNac = usuario.getFechaNac();
@@ -84,12 +84,12 @@ public class Usuario implements Serializable{
     }
 
 
-    public String getContraseña() {
-        return contraseña;
+    public String getContrasenia() {
+        return contrasenia;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setContrasenia(String contraseña) {
+        this.contrasenia = contraseña;
     }
 
     public String getNickname() {

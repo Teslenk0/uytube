@@ -94,7 +94,7 @@ public class ManejadorInformacion {
             Usuario user = manager.find(Usuario.class, u.getNickname());
             user.setNombre(u.getNombre());
             user.setApellido(u.getApellido());
-            user.setContraseña(u.getContraseña());
+            user.setContrasenia(u.getContrasenia());
             user.setFechaNac(u.getFechaNac());
             user.setImagen(u.getImagen());
         manager.getTransaction().commit();
@@ -449,7 +449,7 @@ public class ManejadorInformacion {
     public void modificoVal(Valorar v) {
         manager = emf.createEntityManager();
         manager.getTransaction().begin();
-        Query query = manager.createQuery("delete from Valorar val where val.dueño='" + v.getDueño().getNickname() + "' and val.vid='" + v.getVid() + "' and val.user='" + v.getUser() + "'");
+        Query query = manager.createQuery("delete from Valorar val where val.dueño='" + v.getDuenio().getNickname() + "' and val.vid='" + v.getVid() + "' and val.user='" + v.getUser() + "'");
         query.executeUpdate();
         manager.persist(v);
         manager.getTransaction().commit();

@@ -19,7 +19,7 @@ public class DtUsuario implements Serializable {
     
     private final String nickname;
     
-    private final String contraseña;
+    private final String contrasenia;
     
     private final String nombre;
     
@@ -35,7 +35,7 @@ public class DtUsuario implements Serializable {
 
     public DtUsuario(String nickname, String contraseña, String nombre, String apellido, String email, Date fechaNac, String imagen, DtCanal canal) {
         this.nickname = nickname;
-        this.contraseña = contraseña;
+        this.contrasenia = contraseña;
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
@@ -46,7 +46,7 @@ public class DtUsuario implements Serializable {
     
     public DtUsuario(Usuario u){
         this.nickname = u.getNickname();
-        this.contraseña = u.getContraseña();
+        this.contrasenia = u.getContrasenia();
         this.nombre = u.getNombre();
         this.apellido = u.getApellido();
         this.email = u.getEmail();
@@ -63,8 +63,8 @@ public class DtUsuario implements Serializable {
         return nickname;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getContrasenia() {
+        return contrasenia;
     }
 
     public String getNombre() {

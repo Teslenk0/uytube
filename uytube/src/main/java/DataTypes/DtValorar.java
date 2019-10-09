@@ -16,7 +16,7 @@ public class DtValorar implements Serializable {
     
     private static final long serialVersionUID = 1L;
     
-    private final DtUsuario dueño;
+    private final DtUsuario duenio;
     
     private final String vid;
      
@@ -25,14 +25,14 @@ public class DtValorar implements Serializable {
     private final String val;
 
     public DtValorar(DtUsuario dueño, String vid, String user, String val) {
-        this.dueño = dueño;
+        this.duenio = dueño;
         this.vid = vid;
         this.user = user;
         this.val = val;
     }
     
     public DtValorar(Valorar v) {
-        this.dueño = new DtUsuario (v.getDueño());
+        this.duenio = new DtUsuario (v.getDuenio());
         this.vid = v.getVid();
         this.user = v.getUser();
         this.val = v.getVal();
@@ -42,8 +42,8 @@ public class DtValorar implements Serializable {
         return serialVersionUID;
     }
 
-    public DtUsuario getDueño() {
-        return dueño;
+    public DtUsuario getDuenio() {
+        return duenio;
     }
 
     public String getVid() {

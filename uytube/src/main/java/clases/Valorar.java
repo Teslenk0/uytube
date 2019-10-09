@@ -23,7 +23,7 @@ public class Valorar implements Serializable {
     @Id
     @ManyToOne
     @JoinColumn(name = "dueño_Vid")
-    private Usuario dueño;
+    private Usuario duenio;
     
     @Column(name = "video")
     private String vid;
@@ -38,18 +38,18 @@ public class Valorar implements Serializable {
     }
 
     public Valorar(Usuario dueño, String vid, String user, String val) {
-        this.dueño = dueño;
+        this.duenio = dueño;
         this.vid = vid;
         this.user = user;
         this.val = val;
     }
 
-    public Usuario getDueño() {
-        return dueño;
+    public Usuario getDuenio() {
+        return duenio;
     }
 
-    public void setDueño(Usuario dueño) {
-        this.dueño = dueño;
+    public void setDuenio(Usuario duenio) {
+        this.duenio = duenio;
     }
 
     public String getVid() {
@@ -78,7 +78,7 @@ public class Valorar implements Serializable {
 
     @Override
     public String toString() {
-        return "Valorar{" + "due\u00f1o=" + dueño + ", vid=" + vid + ", user=" + user + ", val=" + val + '}';
+        return "Valorar{" + "due\u00f1o=" + duenio + ", vid=" + vid + ", user=" + user + ", val=" + val + '}';
     }
     
 }

@@ -50,7 +50,7 @@ public class ControladorUsuario implements IControladorUsuario{
         if(canal != null){
             throw new CanalRepetidoException("El canal ya existe");
         }
-        user = new Usuario(u.getNickname(), u.getContraseña(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen(), new Canal(u.getCanal().getNombre_canal(), u.getCanal().getDescripcion(), u.getCanal().getPrivado()));  
+        user = new Usuario(u.getNickname(), u.getContrasenia(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen(), new Canal(u.getCanal().getNombre_canal(), u.getCanal().getDescripcion(), u.getCanal().getPrivado()));  
         mu.registrarUser(user);
         if (imagen != null) {
             String path = System.getProperty("user.dir");
@@ -92,7 +92,7 @@ public class ControladorUsuario implements IControladorUsuario{
 
         Canal CanalViejo = new Canal(u.getCanal().getNombre_canal(), u.getCanal().getDescripcion(), u.getCanal().getPrivado());
 
-        Usuario us = new Usuario(u.getNickname(), u.getContraseña(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen(), CanalViejo);
+        Usuario us = new Usuario(u.getNickname(), u.getContrasenia(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen(), CanalViejo);
         try{
             mu.modificarUsuario(us, canal);
         } catch (Exception e){
@@ -131,7 +131,7 @@ public class ControladorUsuario implements IControladorUsuario{
         u = mu.buscadorUsuario(nick);
         if(u != null){
             DtCanal canal = new DtCanal(u.getCanal().getNombre_canal(),u.getCanal().getDescripcion(),u.getCanal().getPrivado());
-            DtUsuario user = new DtUsuario(u.getNickname(), u.getContraseña(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen(),canal);
+            DtUsuario user = new DtUsuario(u.getNickname(), u.getContrasenia(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen(),canal);
             return user;
         }
        return null;
@@ -141,7 +141,7 @@ public class ControladorUsuario implements IControladorUsuario{
     public void seguirUsuario(DtUsuario u, String s) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         Canal canal = new Canal(u.getCanal().getNombre_canal(),u.getCanal().getDescripcion(),u.getCanal().getPrivado());
-        Usuario user = new Usuario(u.getNickname(), u.getContraseña(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen(),canal);
+        Usuario user = new Usuario(u.getNickname(), u.getContrasenia(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen(),canal);
         mu.seguirUsuario(user, s);
     }
     
@@ -149,7 +149,7 @@ public class ControladorUsuario implements IControladorUsuario{
     public void DejarSeguir_Usuario(DtUsuario u, String s) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         Canal canal = new Canal(u.getCanal().getNombre_canal(),u.getCanal().getDescripcion(),u.getCanal().getPrivado());
-        Usuario user = new Usuario(u.getNickname(), u.getContraseña(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen(),canal);
+        Usuario user = new Usuario(u.getNickname(), u.getContrasenia(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen(),canal);
         mu.dejarSeguir(user, s);
     }
     

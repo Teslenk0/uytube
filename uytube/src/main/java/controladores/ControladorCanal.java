@@ -199,7 +199,7 @@ public class ControladorCanal implements IControladorCanal {
             throw new ListaRepetidaException("La lista por defecto ya existe");
         }
         Canal aux = new Canal(user.getCanal().getNombre_canal(), user.getCanal().getDescripcion(), user.getCanal().getPrivado());
-        Usuario u = new Usuario(user.getNickname(), user.getContraseña(), user.getNombre(), user.getApellido(), user.getEmail(), user.getFechaNac(), user.getImagen());
+        Usuario u = new Usuario(user.getNickname(), user.getContrasenia(), user.getNombre(), user.getApellido(), user.getEmail(), user.getFechaNac(), user.getImagen());
         u.setCanal(aux);
         aux.setUsuario(u);
         Categoria cat = new Categoria(lista.getCategoria().getnombreCategoria());
@@ -247,7 +247,7 @@ public class ControladorCanal implements IControladorCanal {
     public void modificarListaParticular(DtListaParticulares lista, DtUsuario user) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         Canal aux = new Canal(user.getCanal().getNombre_canal(), user.getCanal().getDescripcion(), user.getCanal().getPrivado());
-        Usuario u = new Usuario(user.getNickname(), user.getContraseña(), user.getNombre(), user.getApellido(), user.getEmail(), user.getFechaNac(), user.getImagen());
+        Usuario u = new Usuario(user.getNickname(), user.getContrasenia(), user.getNombre(), user.getApellido(), user.getEmail(), user.getFechaNac(), user.getImagen());
         u.setCanal(aux);
         aux.setUsuario(u);
         ListaReproduccion list;

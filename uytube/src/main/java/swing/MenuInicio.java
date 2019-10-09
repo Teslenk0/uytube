@@ -5092,7 +5092,7 @@ public class MenuInicio extends javax.swing.JFrame {
             nombreCanal = nickname;
         }
         if (nickname.isEmpty() || pass.isEmpty() || nombreText.isEmpty() || apellidoText.isEmpty() || correo.isEmpty() || fechaText == null || descripcion.isEmpty() || (!privado && !publico)) {
-            mensaje.CambioTexto("  Debes llenar todos los campos obligatorios");
+            mensaje.CambioTexto("Debes llenar todos los campos obligatorios");
         } else {
             if (imagen == null) {
                 rutaImagen = "/imagenesUsuarios/Defecto.png";
@@ -5106,14 +5106,14 @@ public class MenuInicio extends javax.swing.JFrame {
             try {
                 addUser = new DtUsuario(nickname, pass, nombreText, apellidoText, correo, fechaText, rutaImagen, addCanal);
                 u.registrarUsuario(addUser, imagen);
-                mensaje.CambioTexto("     El usuario ha sido registrado con éxito");
+                mensaje.CambioTexto("El usuario ha sido registrado con éxito");
                 resetRegistro();
             } catch (UsuarioRepetidoException ex) {
-                mensaje.CambioTexto("            El nickname ya esta en uso");
+                mensaje.CambioTexto("El nickname ya esta en uso");
             } catch (CanalRepetidoException ex) {
-                mensaje.CambioTexto("          El nombre del canal ya esta en uso");
+                mensaje.CambioTexto("El nombre del canal ya esta en uso");
             } catch (EmailRepetidoException ex) {
-                mensaje.CambioTexto("              El email ya esta en uso");
+                mensaje.CambioTexto("El email ya esta en uso");
             }
         }
         mensaje.setVisible(true);
@@ -5249,7 +5249,7 @@ public class MenuInicio extends javax.swing.JFrame {
         }
         Varcanal1.setText(user.getCanal().getNombre_canal());
         CampoDescripcion3.setText(user.getCanal().getDescripcion());
-        VarPass.setText(user.getContraseña());
+        VarPass.setText(user.getContrasenia());
         Si1.setSelected(user.getCanal().getPrivado());
         DateChoose1.setDate(user.getFechaNac());
     }//GEN-LAST:event_SeleccionarUsuarioModificarActionPerformed
@@ -5275,9 +5275,9 @@ public class MenuInicio extends javax.swing.JFrame {
             rutaImagen = "/imagenesUsuarios/" + user.getNickname() + ".png";
         }
         if (nuevafecha == null || pass.isEmpty() || nom.isEmpty() || ape.isEmpty() || descripcion.isEmpty() || nomCanal.isEmpty()) {
-            mensaje.CambioTexto(" Debes llenar todos los campos obligatorios");
-        } else if (user.getCanal().getPrivado().equals(privado1) && user.getNombre().equals(nom) && user.getApellido().equals(ape) && user.getContraseña().equals(pass) && user.getCanal().getNombre_canal().equals(nomCanal) && user.getCanal().getDescripcion().equals(descripcion) && !cambio) {
-            mensaje.CambioTexto("        No se realizo ninguna modificación");
+            mensaje.CambioTexto("Debes llenar todos los campos obligatorios");
+        } else if (user.getCanal().getPrivado().equals(privado1) && user.getNombre().equals(nom) && user.getApellido().equals(ape) && user.getContrasenia().equals(pass) && user.getCanal().getNombre_canal().equals(nomCanal) && user.getCanal().getDescripcion().equals(descripcion) && !cambio) {
+            mensaje.CambioTexto("No se realizo ninguna modificación");
         } else {
             if (nomCanal.isEmpty()) {
                 nomCanal = user.getNickname();
@@ -5287,9 +5287,9 @@ public class MenuInicio extends javax.swing.JFrame {
             modUser = new DtUsuario(user.getNickname(), pass, nom, ape, user.getEmail(), nuevafecha, rutaImagen, user.getCanal());
             try {
                 u.modificarUsuario(modUser, modCanal, imagen, cambio);
-                mensaje.CambioTexto("        Modificación realizada con éxito");
+                mensaje.CambioTexto("Modificación realizada con éxito");
             } catch (CanalRepetidoException ex) {
-                mensaje.CambioTexto("          El nombre del canal ya esta en uso");
+                mensaje.CambioTexto("El nombre del canal ya esta en uso");
             }
         }
         mensaje.setVisible(true);
@@ -5356,16 +5356,16 @@ public class MenuInicio extends javax.swing.JFrame {
         DtVideo video = new DtVideo(nombVideo, user.getCanal(), fechaPub, urlV, desc, cat, duracionR, true);
         VentanaEmergente mensaje = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
         if (nombVideo.equals("Ingrese Nombre de Video") || duracionR.equals("Ingrese Duración") || urlV.equals("Ingrese URL")) {
-            mensaje.CambioTexto("          Debes llenar todos los campos");
+            mensaje.CambioTexto("Debes llenar todos los campos");
         } else if (nombVideo.isEmpty() || duracionR.isEmpty() || urlV.isEmpty() || desc.isEmpty() || desc.isEmpty() || fechaPub == null) {
-            mensaje.CambioTexto("          Debes llenar todos los campos");
+            mensaje.CambioTexto("Debes llenar todos los campos");
         } else {
             try {
                 c.registrarVideo(video);
                 resetRegistrarVideo();
-                mensaje.CambioTexto("            Video registrado con éxito");
+                mensaje.CambioTexto("Video registrado con éxito");
             } catch (VideoRepetidoException ex) {
-                mensaje.CambioTexto("  El nombre del video ya existe en este canal");
+                mensaje.CambioTexto("El nombre del video ya existe en este canal");
             }
         }
         mensaje.setVisible(true);
@@ -5373,7 +5373,7 @@ public class MenuInicio extends javax.swing.JFrame {
 
     private void consultaPlaylist_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultaPlaylist_buttonActionPerformed
         List lista = u.listaUsuarios();
-        if (lista != null) {
+        if (!lista.isEmpty()) {
             Panel_Central.removeAll();
             ComboUsuariosLista.setEnabled(true);
             comboListas1.setEnabled(true);
@@ -5395,14 +5395,14 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         } else {
             VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-            error.CambioTexto("  No existen usuarios en la base de datos.");
+            error.CambioTexto("No existen usuarios en la base de datos.");
             error.setVisible(true);
         }
     }//GEN-LAST:event_consultaPlaylist_buttonActionPerformed
 
     private void crearPlaylist_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearPlaylist_ButtonActionPerformed
         List lista = u.listaUsuarios();
-        if (lista != null) {
+        if (!lista.isEmpty()) {
             NombreLista.setText("Ingrese Nombre de la Lista");
             Panel_Central.removeAll();
             Panel_Central.add(Central4_1);
@@ -5412,7 +5412,7 @@ public class MenuInicio extends javax.swing.JFrame {
             comboCategoriasCrearLista.removeAllItems();
         } else {
             VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-            error.CambioTexto("  No existen usuarios en la base de datos.");
+            error.CambioTexto("No existen usuarios en la base de datos.");
             error.setVisible(true);
         }
     }//GEN-LAST:event_crearPlaylist_ButtonActionPerformed
@@ -5432,10 +5432,10 @@ public class MenuInicio extends javax.swing.JFrame {
     private void CrearListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearListaActionPerformed
         VentanaEmergente ventana = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
         if (!radioDefecto1.isSelected() && !radioParticular1.isSelected()) {
-            ventana.CambioTexto("         Debes seleccionar un tipo de lista");
+            ventana.CambioTexto("Debes seleccionar un tipo de lista");
         } else {
             if (NombreLista.getText().isEmpty() || NombreLista.getText().equals("Ingrese Nombre de la Lista")) {
-                ventana.CambioTexto("      Debes ingresar el nombre de la lista");
+                ventana.CambioTexto("Debes ingresar el nombre de la lista");
             } else {
                 String nombreL = NombreLista.getText();
                 DtListaReproduccion lista;
@@ -5443,25 +5443,25 @@ public class MenuInicio extends javax.swing.JFrame {
                     lista = new DtListaporDefecto(nombreL);
                     try {
                         c.crearListaDefecto(lista);
-                        ventana.CambioTexto("          La lista se creo exitosamente");
+                        ventana.CambioTexto("La lista se creo exitosamente");
                         NombreLista.setText("Ingrese Nombre de la Lista");
                         ventana.setVisible(true);
                     } catch (ListaRepetidaException e) {
-                        ventana.CambioTexto("                     La lista ya existe");
+                        ventana.CambioTexto("La lista ya existe");
                     }
                 } else {
                     if (!Si3.isSelected() && !No3.isSelected()) {
-                        ventana.CambioTexto("          Debes llenar todos los campos");
+                        ventana.CambioTexto("Debes llenar todos los campos");
                     } else {
                         DtUsuario user = u.buscarUsuario(NombreUserLista.getSelectedItem().toString());
                         DtCategoria cat = new DtCategoria(comboCategoriasCrearLista.getSelectedItem().toString());
                         lista = new DtListaParticulares(Si3.isSelected(), cat, nombreL);
                         try {
                             c.crearListaParticular((DtListaParticulares) lista, user);
-                            ventana.CambioTexto("             La lista se creo exitosamente");
+                            ventana.CambioTexto("La lista se creo exitosamente");
                             NombreLista.setText("Ingrese Nombre de la Lista");
                         } catch (ListaRepetidaException e) {
-                            ventana.CambioTexto("                   La lista ya existe");
+                            ventana.CambioTexto("La lista ya existe");
                         }
                     }
                 }
@@ -5477,11 +5477,11 @@ public class MenuInicio extends javax.swing.JFrame {
         user = (DtUsuario) u.buscarUsuario(nickUser);
         u.DejarSeguir_Usuario(user, nickSeg);
         VentanaEmergente mensaje = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-        mensaje.CambioTexto("       Se dejo de seguir a usuario con éxito");
+        mensaje.CambioTexto("Se dejo de seguir a usuario con éxito");
         List lista = u.listaSeguidos(nickUser);
         if (lista.isEmpty()) {
             mensaje = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-            mensaje.CambioTexto("     Este usuario ahora ya no sigue a nadie");
+            mensaje.CambioTexto("Este usuario ahora ya no sigue a nadie");
             UsuarioBox1.setEnabled(true);
             Central2_6.remove(Central2_6_1);
             Central2_6.remove(CambiarUsuario8);
@@ -5506,7 +5506,7 @@ public class MenuInicio extends javax.swing.JFrame {
         user = (DtUsuario) u.buscarUsuario(nickUser);
         u.seguirUsuario(user, nickSeg);
         VentanaEmergente mensaje = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-        mensaje.CambioTexto("            Se siguió a usuario con éxito");
+        mensaje.CambioTexto("Se siguió a usuario con éxito");
 
         List lista = u.listaUsuarios();
         List listaUsu = new ArrayList();
@@ -5523,7 +5523,7 @@ public class MenuInicio extends javax.swing.JFrame {
         listaUsu.remove(nickUser);
         if (listaUsu.isEmpty()) {
             mensaje = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-            mensaje.CambioTexto("             Este usuario ahora sigue a todos");
+            mensaje.CambioTexto("Este usuario ahora sigue a todos");
             UsuarioBox.setEnabled(true);
             Central2_5.remove(Central2_5_1);
             Central2_5.remove(CambiarUsuario7);
@@ -5555,7 +5555,7 @@ public class MenuInicio extends javax.swing.JFrame {
         List lista = u.listaSeguidos(nickUser);
         if (lista.isEmpty()) {
             VentanaEmergente mensaje = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-            mensaje.CambioTexto("            Este usuario no sigue a nadie");
+            mensaje.CambioTexto("Este usuario no sigue a nadie");
             mensaje.setVisible(true);
         } else {
             UsuarioBox1.setEnabled(false);
@@ -5591,7 +5591,7 @@ public class MenuInicio extends javax.swing.JFrame {
         listaUsu.remove(nickUser);
         if (listaUsu.isEmpty()) {
             VentanaEmergente mensaje = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-            mensaje.CambioTexto("           Este usuario ya sigue a todos");
+            mensaje.CambioTexto("Este usuario ya sigue a todos");
             mensaje.setVisible(true);
         } else {
             UsuarioBox.setEnabled(false);
@@ -5629,7 +5629,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private void SeguirUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeguirUsuarioActionPerformed
         List lista = u.listaUsuarios();
         DtUsuario user;
-        if (lista != null) {
+        if (!lista.isEmpty()) {
             Panel_Central.removeAll();
             Central2_5.remove(Central2_5_1);
             UsuarioBox.removeAllItems();
@@ -5647,7 +5647,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         } else {
             VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-            error.CambioTexto("  No existen usuarios en la base de datos.");
+            error.CambioTexto("No existen usuarios en la base de datos.");
             error.setVisible(true);
         }
     }//GEN-LAST:event_SeguirUsuarioActionPerformed
@@ -5655,7 +5655,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private void ListarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarUsuariosActionPerformed
         List lista = u.listaUsuarios();
         DtUsuario user;
-        if (lista != null) {
+        if (!lista.isEmpty()) {
             Panel_Central.removeAll();
             comboLista.removeAllItems();
             Panel_Central.add(Central2_4);
@@ -5669,14 +5669,14 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         } else {
             VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-            error.CambioTexto("  No existen usuarios en la base de datos.");
+            error.CambioTexto("No existen usuarios en la base de datos.");
             error.setVisible(true);
         }
     }//GEN-LAST:event_ListarUsuariosActionPerformed
 
     private void ConsultarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarUsuariosActionPerformed
         List lista = u.listaUsuarios();
-        if (lista != null) {
+        if (!lista.isEmpty()) {
             Central2_2_Panel.removeAll();
             Central2_2.remove(CambiarUsuario5);
             Central2_2.add(SeleccionarUsuario);
@@ -5695,14 +5695,14 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         } else {
             VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-            error.CambioTexto("  No existen usuarios en la base de datos.");
+            error.CambioTexto("No existen usuarios en la base de datos.");
             error.setVisible(true);
         }
     }//GEN-LAST:event_ConsultarUsuariosActionPerformed
 
     private void ModificarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarUsuarioActionPerformed
         List lista = u.listaUsuarios();
-        if (lista != null) {
+        if (!lista.isEmpty()) {
             CampoImagen1.setText("Imágen Seleccionada");
             comboModificar.removeAllItems();
             Central2_3_Panel.removeAll();
@@ -5722,14 +5722,14 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         } else {
             VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-            error.CambioTexto("  No existen usuarios en la base de datos.");
+            error.CambioTexto("No existen usuarios en la base de datos.");
             error.setVisible(true);
         }
     }//GEN-LAST:event_ModificarUsuarioActionPerformed
 
     private void DejarSeguirUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DejarSeguirUsuarioActionPerformed
         List lista = u.listaUsuarios();
-        if (lista != null) {
+        if (!lista.isEmpty()) {
             Panel_Central.removeAll();
             Central2_6.remove(CambiarUsuario8);
             Central2_6.remove(Central2_6_1);
@@ -5748,7 +5748,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         } else {
             VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-            error.CambioTexto("  No existen usuarios en la base de datos.");
+            error.CambioTexto("No existen usuarios en la base de datos.");
             error.setVisible(true);
         }
     }//GEN-LAST:event_DejarSeguirUsuarioActionPerformed
@@ -5781,7 +5781,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         } else {
             VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-            error.CambioTexto("         Este usuario no contiene videos");
+            error.CambioTexto("Este usuario no contiene videos");
             error.setVisible(true);
         }
     }//GEN-LAST:event_SeleccionarUsuario2ActionPerformed
@@ -5856,12 +5856,12 @@ public class MenuInicio extends javax.swing.JFrame {
         }
         if (aux == 1) {
             VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-            error.CambioTexto("             Comentario agregado ");
+            error.CambioTexto("Comentario agregado ");
             error.setVisible(true);
             mostrarComentarios(v, jTree1);
         } else if (aux == 0) {
             VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-            error.CambioTexto("            No existe el usuario. ");
+            error.CambioTexto("No existe el usuario. ");
             error.setVisible(true);
         }
     }//GEN-LAST:event_jButton5ActionPerformed
@@ -5875,7 +5875,7 @@ public class MenuInicio extends javax.swing.JFrame {
 
     private void modificarPlaylist_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarPlaylist_ButtonActionPerformed
         List lista = u.listaUsuarios();
-        if (lista != null) {
+        if (!lista.isEmpty()) {
             BackButton18.setVisible(false);
             BackButton8.setVisible(true);
             Central4_2.add(botonSeleccionarModificarLista);
@@ -5905,7 +5905,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         } else {
             VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-            error.CambioTexto("  No existen usuarios en la base de datos.");
+            error.CambioTexto("No existen usuarios en la base de datos.");
             error.setVisible(true);
         }
     }//GEN-LAST:event_modificarPlaylist_ButtonActionPerformed
@@ -5913,7 +5913,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private void botonAceptarModificarLista1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAceptarModificarLista1ActionPerformed
         VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
         if (!Si4.isSelected() && !No4.isSelected()) {
-            error.CambioTexto("         Debes llenar todos los campos");
+            error.CambioTexto("Debes llenar todos los campos");
         } else {
             Boolean privado = Si4.isSelected();
             DtListaReproduccion tmp;
@@ -5926,7 +5926,7 @@ public class MenuInicio extends javax.swing.JFrame {
                 tmp = new DtListaParticulares(privado, null, comboListaModificarLista.getSelectedItem().toString());
             }
             c.modificarListaParticular((DtListaParticulares) tmp, user);
-            error.CambioTexto("              Lista modificada con éxito");
+            error.CambioTexto("Lista modificada con éxito");
         }
         error.setVisible(true);
     }//GEN-LAST:event_botonAceptarModificarLista1ActionPerformed
@@ -5970,7 +5970,7 @@ public class MenuInicio extends javax.swing.JFrame {
             No4.setEnabled(false);
             botonAceptarModificarLista1.setEnabled(false);
             VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-            error.CambioTexto("   El usuario no tiene listas de reproducción");
+            error.CambioTexto("El usuario no tiene listas de reproducción");
             error.setVisible(true);
         }
     }//GEN-LAST:event_botonSeleccionarModificarListaActionPerformed
@@ -5990,15 +5990,15 @@ public class MenuInicio extends javax.swing.JFrame {
 
         VentanaEmergente mensaje = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
         if (nomV.isEmpty() || durV.isEmpty() || urlV.isEmpty() || desV.isEmpty() || fechaV == null) {
-            mensaje.CambioTexto("          Debes llenar todos los campos");
+            mensaje.CambioTexto("Debes llenar todos los campos");
         } else {
             if (video.getNombre().equals(nomV) && video.getDuracion().equals(durV) && video.getUrl().equals(urlV) && video.getCategoria().equals(catV) && video.getDescripcion().equals(desV) && video.getFechaPublicacion().equals(fechaV) && video.getPrivado() == privadoV) {
-                mensaje.CambioTexto("        No se realizo ninguna modificación");
+                mensaje.CambioTexto("No se realizo ninguna modificación");
             } else {
                 DtVideo vid = new DtVideo(nomV, video.getCanal(), fechaV, urlV, desV, catV, durV, privadoV);
                 try {
                     c.modificarVideo(vid, video.getNombre());
-                    mensaje.CambioTexto("      Modificaciones realizadas con éxito");
+                    mensaje.CambioTexto("Modificaciones realizadas con éxito");
                     Central3_2_1.remove(CambiarUsuarioL);
                     Central3_2_1.add(SeleccionarVideoL);
                     comboVideo2.setEnabled(true);
@@ -6017,7 +6017,7 @@ public class MenuInicio extends javax.swing.JFrame {
                         }
                     }
                 } catch (VideoRepetidoException ex) {
-                    mensaje.CambioTexto("   El nuevo nombre de video indicado ya existe");
+                    mensaje.CambioTexto("El nuevo nombre de video indicado ya existe");
                 }
             }
         }
@@ -6055,7 +6055,7 @@ public class MenuInicio extends javax.swing.JFrame {
             Panel_Central.repaint();
         } else {
             VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-            error.CambioTexto("  Este usuario no contiene videos registrados");
+            error.CambioTexto("Este usuario no contiene videos registrados");
             error.setVisible(true);
         }
     }//GEN-LAST:event_SeleccionarUsuario3ActionPerformed
@@ -6137,7 +6137,7 @@ public class MenuInicio extends javax.swing.JFrame {
             Panel_Central.repaint();
         } else {
             VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-            error.CambioTexto("  Este usuario no contiene videos registrados");
+            error.CambioTexto("Este usuario no contiene videos registrados");
             error.setVisible(true);
         }
     }//GEN-LAST:event_SeleccionarUsuario4ActionPerformed
@@ -6228,22 +6228,22 @@ public class MenuInicio extends javax.swing.JFrame {
             try {
                 c.agregarVideoLista(nombreVideo, listaDestino, usuarioDestino, usuarioOrigen, false);
                 VentanaEmergente ok = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-                ok.CambioTexto(" Se ha ingresado el video a la lista con éxito");
+                ok.CambioTexto("Se ha ingresado el video a la lista con éxito");
                 ok.setVisible(true);
             } catch (VideoYaExisteEnListaException e) {
                 VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-                error.CambioTexto("          Ya existe el video en la lista");
+                error.CambioTexto("Ya existe el video en la lista");
                 error.setVisible(true);
             }
         } else {
             try {
                 c.agregarVideoLista(nombreVideo, listaDestino, usuarioDestino, usuarioOrigen, true);
                 VentanaEmergente ok = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-                ok.CambioTexto(" Se ha ingresado el video a la lista con éxito");
+                ok.CambioTexto("Se ha ingresado el video a la lista con éxito");
                 ok.setVisible(true);
             } catch (VideoYaExisteEnListaException e) {
                 VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-                error.CambioTexto("          Ya existe el video en la lista");
+                error.CambioTexto("Ya existe el video en la lista");
                 error.setVisible(true);
             }
         }
@@ -6267,7 +6267,7 @@ public class MenuInicio extends javax.swing.JFrame {
                 comboListaDestino.setEnabled(false);
                 botonAceptarModificarLista2.setEnabled(false);
                 VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-                error.CambioTexto("       Este usuario no tiene listas defecto");
+                error.CambioTexto("Este usuario no tiene listas defecto");
                 error.setVisible(true);
             }
         } else {
@@ -6286,7 +6286,7 @@ public class MenuInicio extends javax.swing.JFrame {
                 comboListaDestino.setEnabled(false);
                 botonAceptarModificarLista2.setEnabled(false);
                 VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-                error.CambioTexto("   Este usuario no tiene listas particulares");
+                error.CambioTexto("Este usuario no tiene listas particulares");
                 error.setVisible(true);
             }
         }
@@ -6317,7 +6317,7 @@ public class MenuInicio extends javax.swing.JFrame {
                 }
                 lista = u.listaUsuarios();
                 comboUsuarioDestino.removeAllItems();
-                if (lista != null) {
+                if (!lista.isEmpty()) {
                     DtUsuario auxUser;
                     for (int x = 0; x <= lista.size() - 1; x++) {
                         if (lista.get(x) != null) {
@@ -6331,12 +6331,12 @@ public class MenuInicio extends javax.swing.JFrame {
                 }
             } else {
                 VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-                error.CambioTexto("  Este usuario no contiene videos registrados");
+                error.CambioTexto("Este usuario no contiene videos registrados");
                 error.setVisible(true);
             }
         } else {
             VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-            error.CambioTexto("  No hay usuarios ingresados");
+            error.CambioTexto("No hay usuarios ingresados");
             error.setVisible(true);
         }
 
@@ -6344,7 +6344,7 @@ public class MenuInicio extends javax.swing.JFrame {
 
     private void agregarVideo_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarVideo_ButtonActionPerformed
         List lista = u.listaUsuarios();
-        if (lista != null) {
+        if (!lista.isEmpty()) {
             comboVideoOrigen.setEnabled(false);
             comboUsuarioDestino.setEnabled(false);
             radioDefecto.setEnabled(false);
@@ -6372,14 +6372,14 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         } else {
             VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-            error.CambioTexto("  No existen usuarios en la base de datos.");
+            error.CambioTexto("No existen usuarios en la base de datos.");
             error.setVisible(true);
         }
     }//GEN-LAST:event_agregarVideo_ButtonActionPerformed
 
     private void quitarVideo_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitarVideo_ButtonActionPerformed
         List lista = u.listaUsuarios();
-        if (lista != null) {
+        if (!lista.isEmpty()) {
             listaVideosaSacar = null;
             Panel_Central.removeAll();
             Panel_Central.add(Central4_4);
@@ -6407,7 +6407,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         } else {
             VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-            error.CambioTexto("  No existen usuarios en la base de datos.");
+            error.CambioTexto("No existen usuarios en la base de datos.");
             error.setVisible(true);
         }
     }//GEN-LAST:event_quitarVideo_ButtonActionPerformed
@@ -6833,12 +6833,12 @@ public class MenuInicio extends javax.swing.JFrame {
         if (!CampoCategoria.getText().equals("Ingrese Nombre de Categoría") && !CampoCategoria.getText().isEmpty()) {
             try {
                 c.registrarCategoria(cat);
-                mensaje.CambioTexto("        La categoría se registro con éxito");
+                mensaje.CambioTexto("La categoría se registro con éxito");
             } catch (CategoriaRepetidaException ex) {
-                mensaje.CambioTexto("         La categoría ingresada ya existe");
+                mensaje.CambioTexto("La categoría ingresada ya existe");
             }
         } else {
-            mensaje.CambioTexto("            Debes ingresar la categoría");
+            mensaje.CambioTexto("Debes ingresar la categoría");
         }
         mensaje.setVisible(true);
     }//GEN-LAST:event_SeleccionarButton2ActionPerformed
@@ -6857,7 +6857,7 @@ public class MenuInicio extends javax.swing.JFrame {
 
     private void listarCat_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarCat_ButtonActionPerformed
         List lista = c.getCategorias();
-        if (lista != null) {
+        if (!lista.isEmpty()) {
             Panel_Central.removeAll();
             Panel_Central.add(Central5_3);
             Panel_Central.revalidate();
@@ -6872,7 +6872,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         } else {
             VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-            error.CambioTexto("  No existen categorías en la base de datos.");
+            error.CambioTexto("No existen categorías en la base de datos.");
             error.setVisible(true);
         }
     }//GEN-LAST:event_listarCat_ButtonActionPerformed
@@ -6932,14 +6932,14 @@ public class MenuInicio extends javax.swing.JFrame {
             Panel_Central.repaint();
         } else {
             VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-            error.CambioTexto("  Este usuario no contiene videos registrados");
+            error.CambioTexto("Este usuario no contiene videos registrados");
             error.setVisible(true);
         }
     }//GEN-LAST:event_modifVideoButtonActionPerformed
 
     private void consultaCat_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultaCat_ButtonActionPerformed
         List lista = c.getCategorias();
-        if (lista != null) {
+        if (!lista.isEmpty()) {
             Panel_Central.removeAll();
             Panel_Central.add(Central5_2);
             Panel_Central.revalidate();
@@ -6954,7 +6954,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         } else {
             VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-            error.CambioTexto("  No existen categorías en la base de datos.");
+            error.CambioTexto("No existen categorías en la base de datos.");
             error.setVisible(true);
         }
     }//GEN-LAST:event_consultaCat_ButtonActionPerformed
@@ -7003,7 +7003,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         } else {
             VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-            error.CambioTexto("      Este usuario no tiene listas registradas");
+            error.CambioTexto("Este usuario no tiene listas registradas");
             error.setVisible(true);
         }
     }//GEN-LAST:event_SelecionarUsuarioActionPerformed
@@ -7179,7 +7179,7 @@ public class MenuInicio extends javax.swing.JFrame {
 
     private void consVid_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consVid_ButtonActionPerformed
         List lista = u.listaUsuarios();
-        if (lista != null) {
+        if (!lista.isEmpty()) {
             Panel_Central.removeAll();
             Central3_3_Panel.removeAll();
             Central3_3_1_Panel.removeAll();
@@ -7199,14 +7199,14 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         } else {
             VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-            error.CambioTexto("  No existen usuarios en la base de datos.");
+            error.CambioTexto("No existen usuarios en la base de datos.");
             error.setVisible(true);
         }
     }//GEN-LAST:event_consVid_ButtonActionPerformed
 
     private void comenVid_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comenVid_ButtonActionPerformed
         List lista = u.listaUsuarios();
-        if (lista != null) {
+        if (!lista.isEmpty()) {
             Panel_Central.removeAll();
             Central3_4.remove(CambiarUsuario9);
             Central3_4.add(SeleccionarUsuario2);
@@ -7230,14 +7230,14 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         } else {
             VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-            error.CambioTexto("  No existen usuarios en la base de datos.");
+            error.CambioTexto("No existen usuarios en la base de datos.");
             error.setVisible(true);
         }
     }//GEN-LAST:event_comenVid_ButtonActionPerformed
 
     private void agrVid_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agrVid_ButtonActionPerformed
         List lista = u.listaUsuarios();
-        if (lista != null) {
+        if (!lista.isEmpty()) {
             Panel_Central.removeAll();
             Central3_1_Panel.removeAll();
             comboVideo.removeAllItems();
@@ -7257,14 +7257,14 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         } else {
             VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-            error.CambioTexto("  No existen usuarios en la base de datos.");
+            error.CambioTexto("No existen usuarios en la base de datos.");
             error.setVisible(true);
         }
     }//GEN-LAST:event_agrVid_ButtonActionPerformed
 
     private void modVid_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modVid_ButtonActionPerformed
         List lista = u.listaUsuarios();
-        if (lista != null) {
+        if (!lista.isEmpty()) {
             Panel_Central.removeAll();
             Central3_2_Panel.removeAll();
             Central3_2_1_Panel.removeAll();
@@ -7284,7 +7284,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         } else {
             VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-            error.CambioTexto("  No existen usuarios en la base de datos.");
+            error.CambioTexto("No existen usuarios en la base de datos.");
             error.setVisible(true);
         }
     }//GEN-LAST:event_modVid_ButtonActionPerformed
@@ -7300,7 +7300,7 @@ public class MenuInicio extends javax.swing.JFrame {
         Panel_Central.repaint();
         val_ComboBox.removeAllItems();
         List lista = u.listaUsuarios();
-        if (lista != null) {
+        if (!lista.isEmpty()) {
             DtUsuario user;
             user_ComboBox.removeAllItems();
             for (int x = 0; x <= lista.size() - 1; x++) {
@@ -7311,7 +7311,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         } else {
             VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-            error.CambioTexto("  No existen usuarios en la base de datos.");
+            error.CambioTexto("No existen usuarios en la base de datos.");
             error.setVisible(true);
         }
     }//GEN-LAST:event_valorarVid_ButtonActionPerformed
@@ -7324,7 +7324,7 @@ public class MenuInicio extends javax.swing.JFrame {
 
         u.valorarVideo(nickDueño, nomVideo, nickUser, val);
         VentanaEmergente mensaje = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-        mensaje.CambioTexto("            Se valoró video con éxito");
+        mensaje.CambioTexto("Se valoró video con éxito");
         mensaje.setVisible(true);
     }//GEN-LAST:event_aceptar_ButtonActionPerformed
 
@@ -7359,7 +7359,7 @@ public class MenuInicio extends javax.swing.JFrame {
             val_ComboBox.addItem("No me gusta");
         } else {
             VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-            error.CambioTexto("  Este usuario no contiene videos registrados");
+            error.CambioTexto("Este usuario no contiene videos registrados");
             error.setVisible(true);
         }
     }//GEN-LAST:event_seleccionar_ButtonActionPerformed
@@ -7440,13 +7440,13 @@ public class MenuInicio extends javax.swing.JFrame {
             }
             if (playlists.isEmpty() && videos.isEmpty()) {
                 VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-                error.CambioTexto("  No hay videos ni playlists con esa categoria");
+                error.CambioTexto("No hay videos ni playlists con esa categoria");
                 error.setVisible(true);
             }
         } else {
 
             VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-            error.CambioTexto("  No hay categorias ingresadas");
+            error.CambioTexto("No hay categorias ingresadas");
             error.setVisible(true);
         }
     }//GEN-LAST:event_botonSeleccionarConsultaCategoriaActionPerformed
@@ -7483,7 +7483,7 @@ public class MenuInicio extends javax.swing.JFrame {
             comboCategoriasCrearLista.removeAllItems();
         }
 
-        if (lista != null) {
+        if (!lista.isEmpty()) {
             DtUsuario user;
             for (int x = 0; x <= lista.size() - 1; x++) {
                 if (lista.get(x) != null) {
@@ -7554,7 +7554,7 @@ public class MenuInicio extends javax.swing.JFrame {
             Panel_Central.repaint();
         } else {
             VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-            error.CambioTexto("  Este usuario no contiene videos registrados");
+            error.CambioTexto("Este usuario no contiene videos registrados");
             error.setVisible(true);
         }
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -7616,7 +7616,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         } else {
             VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-            error.CambioTexto("      Este usuario no tiene listas registradas");
+            error.CambioTexto("Este usuario no tiene listas registradas");
             error.setVisible(true);
         }
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -7664,7 +7664,7 @@ public class MenuInicio extends javax.swing.JFrame {
             No4.setEnabled(false);
             botonAceptarModificarLista1.setEnabled(false);
             VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-            error.CambioTexto("   El usuario no tiene listas de reproducción");
+            error.CambioTexto("El usuario no tiene listas de reproducción");
             error.setVisible(true);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -7681,7 +7681,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private void botonSelectUsuarioSacarVideoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSelectUsuarioSacarVideoActionPerformed
         VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
         if (!radioParticularSacarVideo.isSelected() && !radioDefectoSacarVideo.isSelected()) {
-            error.CambioTexto("        Debes seleccionar el tipo de lista");
+            error.CambioTexto("Debes seleccionar el tipo de lista");
             error.setVisible(true);
         } else {
             Boolean listas = true;
@@ -7735,7 +7735,7 @@ public class MenuInicio extends javax.swing.JFrame {
                 botonSelectListaSacarVideo.setEnabled(false);
                 comboVideoSacarVideo.setEnabled(false);
                 botonAceptarModificarLista3.setEnabled(false);
-                error.CambioTexto("    Este usuario no tiene este tipo de lista");
+                error.CambioTexto("Este usuario no tiene este tipo de lista");
                 error.setVisible(true);
             }
         }
@@ -7763,7 +7763,7 @@ public class MenuInicio extends javax.swing.JFrame {
                 }
             } else {
                 VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-                error.CambioTexto("     El usuario no tiene videos en esta lista");
+                error.CambioTexto("El usuario no tiene videos en esta lista");
                 error.setVisible(true);
             }
         } else {
@@ -7783,7 +7783,7 @@ public class MenuInicio extends javax.swing.JFrame {
                 }
             } else {
                 VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-                error.CambioTexto("    El usuario no tienen videos en esta lista");
+                error.CambioTexto("El usuario no tienen videos en esta lista");
                 error.setVisible(true);
             }
         }
@@ -7815,7 +7815,7 @@ public class MenuInicio extends javax.swing.JFrame {
                 comboListaSacarVideo.setEnabled(true);
                 comboVideoSacarVideo.removeAllItems();
                 textCanalOrigenSacarVideo.setText("");
-                error.CambioTexto("        Ya no hay mas videos en esta playlist");
+                error.CambioTexto("Ya no hay mas videos en esta playlist");
             }
         } else {
             c.sacarVideoLista(usuario, nombreLista, video, canalOrigen, false);
@@ -7837,7 +7837,7 @@ public class MenuInicio extends javax.swing.JFrame {
                 comboListaSacarVideo.setEnabled(true);
                 comboVideoSacarVideo.removeAllItems();
                 textCanalOrigenSacarVideo.setText("");
-                error.CambioTexto("        Ya no hay mas videos en esta playlist");
+                error.CambioTexto("Ya no hay mas videos en esta playlist");
             }
         }
         error.setVisible(true);

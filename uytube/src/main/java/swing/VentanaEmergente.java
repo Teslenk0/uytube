@@ -86,8 +86,9 @@ public class VentanaEmergente extends javax.swing.JDialog {
 
         Texto.setFont(manjari);
         Texto.setForeground(new java.awt.Color(255, 255, 255));
+        Texto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Panel.add(Texto);
-        Texto.setBounds(34, 43, 305, 40);
+        Texto.setBounds(19, 43, 320, 40);
 
         BotonAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_aceptar_1.png"))); // NOI18N
         BotonAceptar.setBorder(null);
