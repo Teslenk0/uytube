@@ -31,6 +31,8 @@ public interface IControladorCanal {
     
     public abstract List listaVideos(DtCanal canal);
     
+    public abstract boolean buscarCanal(String canal);
+    
     public abstract DtVideo obtenerVideo(String nomV, String canal);
     
     public abstract List listaComentarios(DtVideo video);

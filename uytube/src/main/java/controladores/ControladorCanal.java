@@ -67,6 +67,16 @@ public class ControladorCanal implements IControladorCanal {
     }
 
     @Override
+    public boolean buscarCanal(String canal) {
+        ManejadorInformacion mu = ManejadorInformacion.getInstance();
+        Canal c = mu.buscadorCanal(canal);
+        if(c != null){
+            return true;
+        }
+       return false;
+    }
+    
+    @Override
     public List listaVideos(DtCanal c) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         Canal canal = new Canal(c.getNombre_canal(), c.getDescripcion(), c.getPrivado());

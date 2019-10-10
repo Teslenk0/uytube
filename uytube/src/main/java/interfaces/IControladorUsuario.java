@@ -30,6 +30,8 @@ public interface IControladorUsuario {
     
     public abstract DtUsuario buscarUsuario(String nick);
     
+    public abstract boolean buscarEmail(String Email);
+    
     public abstract void seguirUsuario(DtUsuario u, String s);
     
     public abstract void DejarSeguir_Usuario(DtUsuario u, String s);

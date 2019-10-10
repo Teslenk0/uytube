@@ -138,6 +138,16 @@ public class ControladorUsuario implements IControladorUsuario{
     }
     
     @Override
+    public boolean buscarEmail(String email) {
+        ManejadorInformacion mu = ManejadorInformacion.getInstance();
+        Usuario u = mu.buscadorEmail(email);
+        if(u != null){
+            return true;
+        }
+       return false;
+    }
+    
+    @Override
     public void seguirUsuario(DtUsuario u, String s) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         Canal canal = new Canal(u.getCanal().getNombre_canal(),u.getCanal().getDescripcion(),u.getCanal().getPrivado());
