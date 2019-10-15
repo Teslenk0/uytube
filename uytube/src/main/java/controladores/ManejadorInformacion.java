@@ -177,7 +177,7 @@ public class ManejadorInformacion {
         manager = emf.createEntityManager();
         manager.getTransaction().begin();
         Video v = (Video) manager.createQuery("select v from Video v where v.canal='" + video.getCanal().getNombre_canal() + "' and v.nombre='" + oldV + "'").getSingleResult();
-        Query query = manager.createQuery("update Video v set v.nombre = '" + video.getNombre() + "' where v.nombre = '" + oldV + "'");     
+        Query query = manager.createQuery("update Video v set v.nombre = '" + video.getNombre() + "' where v.nombre = '" + oldV + "' and v.canal='" + video.getCanal().getNombre_canal() +"'");     
         query.executeUpdate();             
         v.setCategoria(video.getCategoria());      
         v.setDescripcion(video.getDescripcion());       
@@ -197,19 +197,19 @@ public class ManejadorInformacion {
 
     public List listaCom(DtVideo v) {
         manager = emf.createEntityManager();
-         List<Object[]> comentario = manager.createNativeQuery("SELECT comentario, Referencia, Padre, nickname FROM comentarios_video where Video='" + v.getNombre() +"';").getResultList();
+         List<Object[]> comentario = manager.createNativeQuery("SELECT comentario, Referencia, Padre, nickname, fecha FROM comentarios_video where Video='" + v.getNombre() +"';").getResultList();
          List<DtAuxiliar> comentarios = new ArrayList<>();
          comentario.forEach((row) -> {
-             comentarios.add(new DtAuxiliar((String)row[0], (Integer)row[1], (String) row[2], (String) row[3]));
+             comentarios.add(new DtAuxiliar((String)row[0], (Integer)row[1], (String) row[2], (String) row[3], (Date) row[4]));
         });
          return comentarios;
     }
 
     public DtAuxiliar BuscarComentarioRef(String padre) {
         manager = emf.createEntityManager();
-        Object[] comentario = ((List<Object[]>)manager.createNativeQuery("SELECT comentario, Referencia, Padre, nickname FROM comentarios_video where Referencia='" + padre +"';").getResultList()).get(0);
+        Object[] comentario = ((List<Object[]>)manager.createNativeQuery("SELECT comentario, Referencia, Padre, nickname, fecha FROM comentarios_video where Referencia='" + padre +"';").getResultList()).get(0);
         if (comentario != null){
-            DtAuxiliar c = new DtAuxiliar( (String)comentario[0], (Integer) comentario[1] , (String)comentario[2], (String)comentario[3]);
+            DtAuxiliar c = new DtAuxiliar( (String)comentario[0], (Integer) comentario[1] , (String)comentario[2], (String)comentario[3], (Date)comentario[4]);
             return c;
         }
         return null;
