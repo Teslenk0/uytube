@@ -79,10 +79,10 @@ public class ListaDefectoVideos implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 89 * hash + Objects.hashCode(this.id);
-        hash = 89 * hash + Objects.hashCode(this.video);
-        hash = 89 * hash + Objects.hashCode(this.canal);
+        int hash = 7;
+        hash = 17 * hash + Objects.hashCode(this.id);
+        hash = 17 * hash + Objects.hashCode(this.video);
+        hash = 17 * hash + Objects.hashCode(this.canal);
         return hash;
     }
 
@@ -109,5 +109,7 @@ public class ListaDefectoVideos implements Serializable {
         }
         return true;
     }
+
+    
 
 }

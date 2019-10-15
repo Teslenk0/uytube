@@ -15,7 +15,6 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 /**
  *
  * @author esteban
@@ -26,7 +25,7 @@ public class Menu extends javax.swing.JFrame {
      * Creates new form menu
      */
     Font manjari, berlin;
-    
+
     public Menu() {
         try {
             String path = System.getProperty("user.dir") + "/src/main/resources/font/Manjari.ttf";
@@ -42,6 +41,7 @@ public class Menu extends javax.swing.JFrame {
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/logoAPP.png")));
         setLocationRelativeTo(null);
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -216,36 +216,34 @@ public class Menu extends javax.swing.JFrame {
 
     private void menuIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuIniciarActionPerformed
         String nombre = Username.getText();
-            String password = Password.getText();
-            if(nombre.equals("admin") && password.equals("admin")){
-            MenuInicio menuinicio = new MenuInicio(manjari,berlin);
+        String password = Password.getText();
+        if (nombre.equals("admin") && password.equals("admin")) {
+            MenuInicio menuinicio = new MenuInicio(manjari, berlin);
             menuinicio.setVisible(true);
             this.setVisible(false);
-        }
-        else{
-            VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled,manjari);
-            
+        } else {
+            VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
+
             error.CambioTexto("     Los datos ingresados son incorrectos");
             error.setVisible(true);
-           
+
         }
     }//GEN-LAST:event_menuIniciarActionPerformed
 
     private void menuCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCancelarActionPerformed
-      System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_menuCancelarActionPerformed
 
     private void UsernameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_UsernameKeyPressed
-        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
-             String nombre = Username.getText();
-             String password = Password.getText();
-            if(nombre.equals("admin") && password.equals("admin")){
-                MenuInicio menuinicio = new MenuInicio(manjari,berlin);
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            String nombre = Username.getText();
+            String password = Password.getText();
+            if (nombre.equals("admin") && password.equals("admin")) {
+                MenuInicio menuinicio = new MenuInicio(manjari, berlin);
                 menuinicio.setVisible(true);
                 this.setVisible(false);
-            }
-            else{
-                VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled,manjari);
+            } else {
+                VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
                 error.CambioTexto("     Los datos ingresados son incorrectos");
                 error.setVisible(true);
             }
@@ -253,17 +251,17 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_UsernameKeyPressed
 
     private void cerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarActionPerformed
-      System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_cerrarActionPerformed
 
     private void minimizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minimizarActionPerformed
         setState(Menu.ICONIFIED);
     }//GEN-LAST:event_minimizarActionPerformed
-int xx,xy;
+    int xx, xy;
     private void DragPanelMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DragPanelMouseDragged
         int x = evt.getXOnScreen();
         int y = evt.getYOnScreen();
-        this.setLocation(x-xx,y-xy);
+        this.setLocation(x - xx, y - xy);
     }//GEN-LAST:event_DragPanelMouseDragged
 
     private void DragPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DragPanelMousePressed
@@ -272,26 +270,25 @@ int xx,xy;
     }//GEN-LAST:event_DragPanelMousePressed
 
     private void UsernameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_UsernameFocusGained
-        if(Username.getText().equals("Username"))
-        Username.setText("");
+        if (Username.getText().equals("Username"))
+            Username.setText("");
     }//GEN-LAST:event_UsernameFocusGained
 
     private void PasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_PasswordFocusGained
-         if(Password.getText().equals("password"))
-        Password.setText("");
+        if (Password.getText().equals("password"))
+            Password.setText("");
     }//GEN-LAST:event_PasswordFocusGained
 
     private void PasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PasswordKeyPressed
-         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             String nombre = Username.getText();
             String password = Password.getText();
-            if(nombre.equals("admin") && password.equals("admin")){ 
-                MenuInicio menuinicio = new MenuInicio(manjari,berlin);
+            if (nombre.equals("admin") && password.equals("admin")) {
+                MenuInicio menuinicio = new MenuInicio(manjari, berlin);
                 menuinicio.setVisible(true);
                 this.setVisible(false);
-            }
-            else{
-                VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled,manjari);
+            } else {
+                VentanaEmergente error = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
                 error.CambioTexto("     Los datos ingresados son incorrectos");
                 error.setVisible(true);
             }

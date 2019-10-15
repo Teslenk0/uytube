@@ -8,6 +8,7 @@ package clases;
 import DataTypes.DtVideo;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -141,4 +142,59 @@ public class Video implements Serializable {
     public void setPrivado(Boolean privado) {
         this.privado = privado;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 53 * hash + Objects.hashCode(this.nombre);
+        hash = 53 * hash + Objects.hashCode(this.canal);
+        hash = 53 * hash + Objects.hashCode(this.fechaPublicacion);
+        hash = 53 * hash + Objects.hashCode(this.url);
+        hash = 53 * hash + Objects.hashCode(this.descripcion);
+        hash = 53 * hash + Objects.hashCode(this.categoria);
+        hash = 53 * hash + Objects.hashCode(this.duracion);
+        hash = 53 * hash + Objects.hashCode(this.privado);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Video other = (Video) obj;
+        if (!Objects.equals(this.nombre, other.nombre)) {
+            return false;
+        }
+        if (!Objects.equals(this.url, other.url)) {
+            return false;
+        }
+        if (!Objects.equals(this.descripcion, other.descripcion)) {
+            return false;
+        }
+        if (!Objects.equals(this.categoria, other.categoria)) {
+            return false;
+        }
+        if (!Objects.equals(this.duracion, other.duracion)) {
+            return false;
+        }
+        if (!Objects.equals(this.canal, other.canal)) {
+            return false;
+        }
+        if (!Objects.equals(this.fechaPublicacion, other.fechaPublicacion)) {
+            return false;
+        }
+        if (!Objects.equals(this.privado, other.privado)) {
+            return false;
+        }
+        return true;
+    }
+    
+    
 }

@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package DataTypes;
+
+import java.util.Objects;
+
 /**
  *
  * @author esteban
@@ -33,4 +36,35 @@ public class DtListaParticulares extends DtListaReproduccion{
     public DtCategoria getCategoria() {
         return categoria;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 23 * hash + Objects.hashCode(this.privado);
+        hash = 23 * hash + Objects.hashCode(this.categoria);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final DtListaParticulares other = (DtListaParticulares) obj;
+        if (!Objects.equals(this.privado, other.privado)) {
+            return false;
+        }
+        if (!Objects.equals(this.categoria, other.categoria)) {
+            return false;
+        }
+        return true;
+    }
+    
+    
 }

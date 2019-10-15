@@ -39,6 +39,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.List;
+import java.util.SortedSet;
+import java.util.TreeSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -4980,6 +4982,8 @@ public class MenuInicio extends javax.swing.JFrame {
         Panel_Central.add(Central1);
         Panel_Central.revalidate();
         Panel_Central.repaint();
+        
+        System.out.println(c.busquedaArborescenteListasParticulares("de"));
 
     }//GEN-LAST:event_btn_InicioMousePressed
 

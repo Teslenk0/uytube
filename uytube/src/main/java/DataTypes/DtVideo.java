@@ -8,12 +8,13 @@ package DataTypes;
 import clases.Video;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Objects;
 
 /**
  *
  * @author esteban
  */
-public class DtVideo implements Serializable{
+public class DtVideo implements Serializable, Comparable<DtVideo>{
         
       private static final long serialVersionUID = 1L; 
      
@@ -90,5 +91,68 @@ public class DtVideo implements Serializable{
     public boolean getPrivado() {
         return privado;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 59 * hash + Objects.hashCode(this.nombre);
+        hash = 59 * hash + Objects.hashCode(this.canal);
+        hash = 59 * hash + Objects.hashCode(this.fechaPublicacion);
+        hash = 59 * hash + Objects.hashCode(this.url);
+        hash = 59 * hash + Objects.hashCode(this.descripcion);
+        hash = 59 * hash + Objects.hashCode(this.categoria);
+        hash = 59 * hash + Objects.hashCode(this.duracion);
+        hash = 59 * hash + (this.privado ? 1 : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final DtVideo other = (DtVideo) obj;
+        if (this.privado != other.privado) {
+            return false;
+        }
+        if (!Objects.equals(this.nombre, other.nombre)) {
+            return false;
+        }
+        if (!Objects.equals(this.url, other.url)) {
+            return false;
+        }
+        if (!Objects.equals(this.descripcion, other.descripcion)) {
+            return false;
+        }
+        if (!Objects.equals(this.categoria, other.categoria)) {
+            return false;
+        }
+        if (!Objects.equals(this.duracion, other.duracion)) {
+            return false;
+        }
+        if (!Objects.equals(this.canal, other.canal)) {
+            return false;
+        }
+        if (!Objects.equals(this.fechaPublicacion, other.fechaPublicacion)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "DtVideo{" + "nombre=" + nombre + '}';
+    }
+    
+   @Override
+    public int compareTo(DtVideo other) {
+     return this.nombre.compareTo(other.nombre);
+   }
     
 }

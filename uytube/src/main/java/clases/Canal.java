@@ -7,6 +7,7 @@ package clases;
 
 import DataTypes.DtCanal;
 import java.io.Serializable;
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -19,7 +20,7 @@ import javax.persistence.OneToOne;
  */
 @Entity
 @Table(name = "canal_usuario")
-public class Canal implements Serializable {
+public class Canal implements Serializable, Comparable<Canal> {
 
     private static final long serialVersionUID = 1L;
 
@@ -35,7 +36,7 @@ public class Canal implements Serializable {
 
     @OneToOne(mappedBy = "canal")
     private Usuario usuario;
-    
+
     public Canal() {
     }
 
@@ -51,14 +52,14 @@ public class Canal implements Serializable {
         this.descripcion = descripcion;
         this.privado = privado;
     }
-    
-    public Canal(DtCanal canal){
+
+    public Canal(DtCanal canal) {
         this.nombre_canal = canal.getNombre_canal();
         this.descripcion = canal.getDescripcion();
         this.privado = canal.getPrivado();
         this.usuario = new Usuario(canal.getUsuario());
     }
-    
+
     public String getNombre_canal() {
         return nombre_canal;
     }
@@ -91,8 +92,57 @@ public class Canal implements Serializable {
         this.usuario = usuario;
     }
 
-    @Override
+    /*@Override
     public String toString() {
         return "Canal{" + "nombre_canal=" + nombre_canal + ", descripcion=" + descripcion + ", privado=" + privado + ", usuario=" + usuario + '}';
+    }*/
+
+    @Override
+    public String toString() {
+        return "Canal{" + "nombre_canal=" + nombre_canal + '}';
     }
+
+    
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 29 * hash + Objects.hashCode(this.nombre_canal);
+        hash = 29 * hash + Objects.hashCode(this.descripcion);
+        hash = 29 * hash + Objects.hashCode(this.privado);
+        hash = 29 * hash + Objects.hashCode(this.usuario);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Canal other = (Canal) obj;
+        if (!Objects.equals(this.nombre_canal, other.nombre_canal)) {
+            return false;
+        }
+        if (!Objects.equals(this.descripcion, other.descripcion)) {
+            return false;
+        }
+        if (!Objects.equals(this.privado, other.privado)) {
+            return false;
+        }
+        if (!Objects.equals(this.usuario, other.usuario)) {
+            return false;
+        }
+        return true;
+    }
+    
+    @Override
+    public int compareTo(Canal other) {
+     return this.nombre_canal.compareTo(other.nombre_canal);
+   }
+
 }

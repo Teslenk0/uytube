@@ -8,6 +8,7 @@ package clases;
 import DataTypes.DtUsuario;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Objects;
 import javax.persistence.*;
 
 /**
@@ -148,4 +149,59 @@ public class Usuario implements Serializable{
         this.canal = canal;
     }
 
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 83 * hash + Objects.hashCode(this.nickname);
+        hash = 83 * hash + Objects.hashCode(this.contrasenia);
+        hash = 83 * hash + Objects.hashCode(this.nombre);
+        hash = 83 * hash + Objects.hashCode(this.apellido);
+        hash = 83 * hash + Objects.hashCode(this.email);
+        hash = 83 * hash + Objects.hashCode(this.fechaNac);
+        hash = 83 * hash + Objects.hashCode(this.imagen);
+        hash = 83 * hash + Objects.hashCode(this.canal);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Usuario other = (Usuario) obj;
+        if (!Objects.equals(this.nickname, other.nickname)) {
+            return false;
+        }
+        if (!Objects.equals(this.contrasenia, other.contrasenia)) {
+            return false;
+        }
+        if (!Objects.equals(this.nombre, other.nombre)) {
+            return false;
+        }
+        if (!Objects.equals(this.apellido, other.apellido)) {
+            return false;
+        }
+        if (!Objects.equals(this.email, other.email)) {
+            return false;
+        }
+        if (!Objects.equals(this.imagen, other.imagen)) {
+            return false;
+        }
+        if (!Objects.equals(this.fechaNac, other.fechaNac)) {
+            return false;
+        }
+        if (!Objects.equals(this.canal, other.canal)) {
+            return false;
+        }
+        return true;
+    }
+    
+    
+    
 }

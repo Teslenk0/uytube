@@ -13,6 +13,7 @@ import DataTypes.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.SortedSet;
 import javax.persistence.Query;
 
 /**
@@ -469,6 +470,36 @@ public class ManejadorInformacion {
     public List obtenerListasParticularesPorCategoria(String categoria){
         manager = emf.createEntityManager();
         String query = "FROM ListaParticulares l WHERE l.categoria='" + categoria + "'";
+        List aux = manager.createQuery(query).getResultList(); 
+        if (aux != null) {
+            return aux;
+        }
+        return null;
+    }
+    
+    public List busquedaArborescenteCanales(String text){
+        manager = emf.createEntityManager();
+        String query = "FROM Canal c WHERE c.nombre_canal LIKE '%" + text + "%'";
+        List aux = manager.createQuery(query).getResultList(); 
+        if (aux != null) {
+            return aux;
+        }
+        return null;
+    }
+    
+    public List busquedaArborescenteVideos(String text){
+        manager = emf.createEntityManager();
+        String query = "FROM Video v WHERE v.nombre LIKE '%" + text + "%'";
+        List aux = manager.createQuery(query).getResultList(); 
+        if (aux != null) {
+            return aux;
+        }
+        return null;
+    }
+    
+    public List busquedaArborescenteListasParticulares(String text){
+        manager = emf.createEntityManager();
+        String query = "FROM ListaParticulares l WHERE l.nombreLista LIKE '%" + text + "%'";
         List aux = manager.createQuery(query).getResultList(); 
         if (aux != null) {
             return aux;

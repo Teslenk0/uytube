@@ -6,12 +6,13 @@
 package DataTypes;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  *
  * @author esteban
  */
-public abstract class DtListaReproduccion implements Serializable{
+public abstract class DtListaReproduccion implements Serializable, Comparable<DtListaReproduccion>{
     
     protected static final long serialVersionUID = 1L;
     
@@ -49,8 +50,45 @@ public abstract class DtListaReproduccion implements Serializable{
 
     @Override
     public String toString() {
-        return "DtListaReproduccion{" + "nombreLista=" + nombreLista + ", canal=" + canal + '}';
+        return "DtListaReproduccion{" + "nombreLista=" + nombreLista + '}';
+    }
+
+    
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 59 * hash + Objects.hashCode(this.nombreLista);
+        hash = 59 * hash + Objects.hashCode(this.canal);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final DtListaReproduccion other = (DtListaReproduccion) obj;
+        if (!Objects.equals(this.nombreLista, other.nombreLista)) {
+            return false;
+        }
+        if (!Objects.equals(this.canal, other.canal)) {
+            return false;
+        }
+        return true;
     }
     
+    
+    
+    @Override
+    public int compareTo(DtListaReproduccion other) {
+     return this.nombreLista.compareTo(other.nombreLista);
+   }
     
 }

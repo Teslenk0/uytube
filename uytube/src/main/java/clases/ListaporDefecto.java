@@ -52,8 +52,8 @@ public class ListaporDefecto extends ListaReproduccion{
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 17 * hash + this.id;
+        int hash = 5;
+        hash = 47 * hash + this.id;
         return hash;
     }
 
@@ -74,6 +74,8 @@ public class ListaporDefecto extends ListaReproduccion{
         }
         return true;
     }
+
+    
 
     @Override
     public String toString() {

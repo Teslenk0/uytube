@@ -6,6 +6,7 @@
 package clases;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  *
@@ -60,6 +61,43 @@ public class AuxiliarValorar implements Serializable{
 
     public void setVal(String val) {
         this.val = val;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 71 * hash + Objects.hashCode(this.dueño);
+        hash = 71 * hash + Objects.hashCode(this.vid);
+        hash = 71 * hash + Objects.hashCode(this.user);
+        hash = 71 * hash + Objects.hashCode(this.val);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final AuxiliarValorar other = (AuxiliarValorar) obj;
+        if (!Objects.equals(this.dueño, other.dueño)) {
+            return false;
+        }
+        if (!Objects.equals(this.vid, other.vid)) {
+            return false;
+        }
+        if (!Objects.equals(this.user, other.user)) {
+            return false;
+        }
+        if (!Objects.equals(this.val, other.val)) {
+            return false;
+        }
+        return true;
     }
     
     

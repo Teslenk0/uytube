@@ -1,6 +1,7 @@
 package clases;
 
 import java.io.Serializable;
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -52,5 +53,35 @@ public class Seguir implements Serializable {
     public String toString() {
         return "Seguir{" + "usuario=" + us + ", seguidos=" + seguidos + '}';
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 79 * hash + Objects.hashCode(this.us);
+        hash = 79 * hash + Objects.hashCode(this.seguidos);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Seguir other = (Seguir) obj;
+        if (!Objects.equals(this.seguidos, other.seguidos)) {
+            return false;
+        }
+        if (!Objects.equals(this.us, other.us)) {
+            return false;
+        }
+        return true;
+    }
+    
     
 }

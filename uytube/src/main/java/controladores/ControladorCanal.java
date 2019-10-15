@@ -33,8 +33,12 @@ import excepciones.ListaRepetidaException;
 import excepciones.VideoRepetidoException;
 import excepciones.VideoYaExisteEnListaException;
 import interfaces.IControladorCanal;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 /**
  *
@@ -70,12 +74,12 @@ public class ControladorCanal implements IControladorCanal {
     public boolean buscarCanal(String canal) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         Canal c = mu.buscadorCanal(canal);
-        if(c != null){
+        if (c != null) {
             return true;
         }
-       return false;
+        return false;
     }
-    
+
     @Override
     public List listaVideos(DtCanal c) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
@@ -330,18 +334,23 @@ public class ControladorCanal implements IControladorCanal {
         Usuario user = mu.buscadorUsuario(nombre);
         ListaporDefecto list = mu.buscadorListaDefecto(user.getCanal().getNombre_canal(), nombreLista);
         List listaxvideos = mu.getVideosListaDefecto(list.getId());
-        List aux = new LinkedList();
-        ListaDefectoVideos tmp;
-        DtListaDefectoVideos temp;
-        for (int x = 0; x < listaxvideos.size(); x++) {
-            if (listaxvideos.get(x) != null) {
-                tmp = (ListaDefectoVideos) listaxvideos.get(x);
-                temp = new DtListaDefectoVideos(new DtListaporDefecto(nombreLista), tmp.getVideo(), tmp.getCanal());
-                aux.add(temp);
+        System.out.println("LLEGA ACA PARIENTE");
+        if (listaxvideos != null) {
+            List aux = new LinkedList();
+            ListaDefectoVideos tmp;
+            DtListaDefectoVideos temp;
+            for (int x = 0; x < listaxvideos.size(); x++) {
+                if (listaxvideos.get(x) != null) {
+                    tmp = (ListaDefectoVideos) listaxvideos.get(x);
+                    temp = new DtListaDefectoVideos(new DtListaporDefecto(nombreLista), tmp.getVideo(), tmp.getCanal());
+                    aux.add(temp);
+                }
             }
+            System.out.println("ACA NO LLEGA");
+            return aux;
+        } else {
+            return null;
         }
-        return aux;
-
     }
 
     @Override
@@ -350,23 +359,28 @@ public class ControladorCanal implements IControladorCanal {
         Usuario user = mu.buscadorUsuario(nombre);
         ListaParticulares list = mu.buscadorListaParticular(user.getCanal().getNombre_canal(), nombreLista);
         List listaxvideos = mu.getVideosListaParticular(list.getId());
-        List aux = new LinkedList();
-        ListaParticularVideos tmp;
-        DtListaParticulares listaParticular;
-        DtListaParticularVideos temp;
-        for (int x = 0; x < listaxvideos.size(); x++) {
-            if (listaxvideos.get(x) != null) {
-                tmp = (ListaParticularVideos) listaxvideos.get(x);
-                if (list.getCategoria() != null) {
-                    listaParticular = new DtListaParticulares(list.getPrivado(), new DtCategoria(list.getCategoria().getNombreCategoria()), nombreLista);
-                } else {
-                    listaParticular = new DtListaParticulares(list.getPrivado(), null, nombreLista);
+        if (listaxvideos != null) {
+            List aux = new LinkedList();
+            ListaParticularVideos tmp;
+            DtListaParticulares listaParticular;
+            DtListaParticularVideos temp;
+            for (int x = 0; x < listaxvideos.size(); x++) {
+                if (listaxvideos.get(x) != null) {
+                    tmp = (ListaParticularVideos) listaxvideos.get(x);
+                    if (list.getCategoria() != null) {
+                        listaParticular = new DtListaParticulares(list.getPrivado(), new DtCategoria(list.getCategoria().getNombreCategoria()), nombreLista);
+                    } else {
+                        listaParticular = new DtListaParticulares(list.getPrivado(), null, nombreLista);
+                    }
+                    temp = new DtListaParticularVideos(listaParticular, tmp.getVideo(), tmp.getCanal());
+                    aux.add(temp);
                 }
-                temp = new DtListaParticularVideos(listaParticular, tmp.getVideo(), tmp.getCanal());
-                aux.add(temp);
             }
+            return aux;
+
+        } else {
+            return null;
         }
-        return aux;
 
     }
 
@@ -407,16 +421,16 @@ public class ControladorCanal implements IControladorCanal {
             List aux = new LinkedList();
             DtVideo dtaux;
             for (int x = 0; x < lista.size(); x++) {
-                dtaux = new DtVideo((Video)lista.get(x));
+                dtaux = new DtVideo((Video) lista.get(x));
                 aux.add(dtaux);
             }
             return aux;
         }
         return null;
     }
-    
+
     @Override
-    public List obtenerListasParticularesPorCategoria(String categoria){
+    public List obtenerListasParticularesPorCategoria(String categoria) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         List lista = mu.obtenerListasParticularesPorCategoria(categoria);
         if (lista != null) {
@@ -424,9 +438,9 @@ public class ControladorCanal implements IControladorCanal {
             ListaParticulares aux;
             DtListaParticulares dtaux;
             for (int x = 0; x < lista.size(); x++) {
-                if(lista.get(x) != null){
-                    aux = (ListaParticulares)lista.get(x);
-                    dtaux = new DtListaParticulares(aux.getPrivado(),aux.getNombreLista(),new DtCategoria(categoria),new DtCanal(aux.getCanal().getNombre_canal(), aux.getCanal().getDescripcion(), aux.getCanal().getPrivado()));
+                if (lista.get(x) != null) {
+                    aux = (ListaParticulares) lista.get(x);
+                    dtaux = new DtListaParticulares(aux.getPrivado(), aux.getNombreLista(), new DtCategoria(categoria), new DtCanal(aux.getCanal().getNombre_canal(), aux.getCanal().getDescripcion(), aux.getCanal().getPrivado()));
                     auxReturn.add(dtaux);
                 }
             }
@@ -434,4 +448,77 @@ public class ControladorCanal implements IControladorCanal {
         }
         return null;
     }
+
+    @Override
+    public List busquedaArborescenteCanales(String text) {
+
+        ManejadorInformacion mu = ManejadorInformacion.getInstance();
+
+        List results = mu.busquedaArborescenteCanales(text);
+
+        DtCanal tmp;
+        Canal aux;
+        if (!results.isEmpty()) {
+            List<DtCanal> resultados = new LinkedList<DtCanal>();
+            for (int i = 0; i < results.size(); i++) {
+                aux = (Canal) results.get(i);
+                aux.setNombre_canal(aux.getNombre_canal().toLowerCase());
+                tmp = new DtCanal(aux.getNombre_canal(), aux.getDescripcion(), aux.getPrivado(), new DtUsuario(aux.getUsuario()));
+                resultados.add(tmp);
+            }
+            Collections.sort(resultados);
+            return resultados;
+        }
+        return null;
+    }
+
+    @Override
+    public List busquedaArborescenteVideos(String text) {
+
+        ManejadorInformacion mu = ManejadorInformacion.getInstance();
+
+        List results = mu.busquedaArborescenteVideos(text);
+
+        DtVideo tmp;
+        Video aux;
+        if (!results.isEmpty()) {
+            List<DtVideo> resultados = new LinkedList<DtVideo>();
+            for (int i = 0; i < results.size(); i++) {
+                aux = (Video) results.get(i);
+                aux.setNombre(aux.getNombre().toLowerCase());
+                tmp = new DtVideo(aux);
+                resultados.add(tmp);
+            }
+            Collections.sort(resultados);
+            return resultados;
+        }
+        return null;
+    }
+
+    @Override
+    public List busquedaArborescenteListasParticulares(String text) {
+
+        ManejadorInformacion mu = ManejadorInformacion.getInstance();
+
+        List results = mu.busquedaArborescenteListasParticulares(text);
+
+        DtListaParticulares tmp;
+        ListaParticulares aux;
+        if (!results.isEmpty()) {
+            List<DtListaParticulares> resultados = new LinkedList<DtListaParticulares>();
+            for (int i = 0; i < results.size(); i++) {
+
+                aux = (ListaParticulares) results.get(i);
+                aux.setNombreLista(aux.getNombreLista().toLowerCase());
+                tmp = new DtListaParticulares(aux.getPrivado(), aux.getNombreLista(), new DtCategoria(aux.getCategoria().getNombreCategoria()),
+                        new DtCanal(aux.getCanal().getNombre_canal(),
+                                aux.getCanal().getDescripcion(), aux.getCanal().getPrivado(), new DtUsuario(aux.getCanal().getUsuario())));
+                resultados.add(tmp);
+            }
+            Collections.sort(resultados);
+            return resultados;
+        }
+        return null;
+    }
+
 }

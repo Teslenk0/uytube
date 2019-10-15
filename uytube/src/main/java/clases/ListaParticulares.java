@@ -82,9 +82,9 @@ public class ListaParticulares extends ListaReproduccion {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 97 * hash + this.id;
-        hash = 97 * hash + Objects.hashCode(this.privado);
-        hash = 97 * hash + Objects.hashCode(this.categoria);
+        hash = 71 * hash + this.id;
+        hash = 71 * hash + Objects.hashCode(this.privado);
+        hash = 71 * hash + Objects.hashCode(this.categoria);
         return hash;
     }
 
@@ -100,8 +100,20 @@ public class ListaParticulares extends ListaReproduccion {
             return false;
         }
         final ListaParticulares other = (ListaParticulares) obj;
+        if (this.id != other.id) {
+            return false;
+        }
+        if (!Objects.equals(this.privado, other.privado)) {
+            return false;
+        }
+        if (!Objects.equals(this.categoria, other.categoria)) {
+            return false;
+        }
         return true;
     }
+
+   
+    
 
     @Override
     public String toString() {

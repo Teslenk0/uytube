@@ -7,6 +7,7 @@ package clases;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -122,6 +123,57 @@ public class Comentario implements Serializable{
     public String toString() {
         return "Comentario{" + "nick=" + nick + ", comentario=" + comentario + ", fecha=" + fecha + ", video=" + video + '}';
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 73 * hash + Objects.hashCode(this.nick);
+        hash = 73 * hash + Objects.hashCode(this.comentario);
+        hash = 73 * hash + Objects.hashCode(this.fecha);
+        hash = 73 * hash + Objects.hashCode(this.video);
+        hash = 73 * hash + Objects.hashCode(this.padre);
+        hash = 73 * hash + Objects.hashCode(this.ref);
+        hash = 73 * hash + Objects.hashCode(this.canal);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Comentario other = (Comentario) obj;
+        if (!Objects.equals(this.nick, other.nick)) {
+            return false;
+        }
+        if (!Objects.equals(this.comentario, other.comentario)) {
+            return false;
+        }
+        if (!Objects.equals(this.padre, other.padre)) {
+            return false;
+        }
+        if (!Objects.equals(this.canal, other.canal)) {
+            return false;
+        }
+        if (!Objects.equals(this.fecha, other.fecha)) {
+            return false;
+        }
+        if (!Objects.equals(this.video, other.video)) {
+            return false;
+        }
+        if (!Objects.equals(this.ref, other.ref)) {
+            return false;
+        }
+        return true;
+    }
+    
+    
 
     
 }

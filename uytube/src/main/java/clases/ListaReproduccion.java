@@ -60,8 +60,8 @@ public abstract class ListaReproduccion implements Serializable{
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 73 * hash + Objects.hashCode(this.nombreLista);
-        hash = 73 * hash + Objects.hashCode(this.canal);
+        hash = 31 * hash + Objects.hashCode(this.nombreLista);
+        hash = 31 * hash + Objects.hashCode(this.canal);
         return hash;
     }
 
@@ -88,7 +88,6 @@ public abstract class ListaReproduccion implements Serializable{
 
     
 
-    
 
     
     

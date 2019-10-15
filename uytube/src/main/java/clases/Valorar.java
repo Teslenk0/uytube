@@ -6,6 +6,7 @@
 package clases;
 
 import java.io.Serializable;
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -80,5 +81,44 @@ public class Valorar implements Serializable {
     public String toString() {
         return "Valorar{" + "due\u00f1o=" + duenio + ", vid=" + vid + ", user=" + user + ", val=" + val + '}';
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 23 * hash + Objects.hashCode(this.duenio);
+        hash = 23 * hash + Objects.hashCode(this.vid);
+        hash = 23 * hash + Objects.hashCode(this.user);
+        hash = 23 * hash + Objects.hashCode(this.val);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Valorar other = (Valorar) obj;
+        if (!Objects.equals(this.vid, other.vid)) {
+            return false;
+        }
+        if (!Objects.equals(this.user, other.user)) {
+            return false;
+        }
+        if (!Objects.equals(this.val, other.val)) {
+            return false;
+        }
+        if (!Objects.equals(this.duenio, other.duenio)) {
+            return false;
+        }
+        return true;
+    }
+    
+    
     
 }

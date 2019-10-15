@@ -18,6 +18,7 @@ import excepciones.ListaRepetidaException;
 import excepciones.VideoRepetidoException;
 import excepciones.VideoYaExisteEnListaException;
 import java.util.List;
+import java.util.SortedSet;
 
 /**
  *
@@ -76,4 +77,10 @@ public interface IControladorCanal {
     public abstract List obtenerListasParticularesPorCategoria(String categoria);
     
     public abstract List listarVideosPorCategoria(String categoria);
+    
+    public abstract List busquedaArborescenteCanales(String text);
+    
+    public abstract List busquedaArborescenteVideos(String text);
+    
+    public abstract List busquedaArborescenteListasParticulares(String text);
 }
