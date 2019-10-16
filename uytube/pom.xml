@@ -12,7 +12,6 @@
     </properties>
     
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/org.netbeans.external/AbsoluteLayout -->
     <!-- https://mvnrepository.com/artifact/org.netbeans.external/AbsoluteLayout -->
     <dependency>
         <groupId>org.netbeans.external</groupId>
