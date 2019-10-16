@@ -177,10 +177,6 @@ public class ManejadorInformacion {
         manager = emf.createEntityManager();
         manager.getTransaction().begin();
         Query query;
-        if(!video.getNombre().equals(oldV)){
-            query = manager.createNativeQuery("update videos_canal set nombre='" + video.getNombre() + "' where nombre='" + oldV + "' and nombre_canal='" + video.getCanal().getNombre_canal() +"';");     
-            query.executeUpdate();
-        }
         query = manager.createNativeQuery("update videos_canal set categoria='" + video.getCategoria() + "' where nombre='" + oldV + "' and nombre_canal='" + video.getCanal().getNombre_canal() +"';");     
         query.executeUpdate(); 
         query = manager.createNativeQuery("update videos_canal set descripcion='" + video.getDescripcion() + "' where nombre='" + oldV + "' and nombre_canal='" + video.getCanal().getNombre_canal() +"';");     
@@ -201,6 +197,10 @@ public class ManejadorInformacion {
         query.executeUpdate();
         query = manager.createNativeQuery("update videos_canal set url='" + video.getUrl() + "' where nombre='" + oldV + "' and nombre_canal='" + video.getCanal().getNombre_canal() +"';");     
         query.executeUpdate();
+        if(!video.getNombre().equals(oldV)){
+            query = manager.createNativeQuery("update videos_canal set nombre='" + video.getNombre() + "' where nombre='" + oldV + "' and nombre_canal='" + video.getCanal().getNombre_canal() +"';");     
+            query.executeUpdate();
+        }
         manager.getTransaction().commit();
         manager.close();
     }
