@@ -219,4 +219,11 @@ public class ControladorUsuario implements IControladorUsuario{
         }
         return null;
     }
+    
+    public void valorarVideoEliminar(String u, String video, String user_val, String val){
+        ManejadorInformacion mu = ManejadorInformacion.getInstance();
+        Usuario user = mu.buscadorUsuario(u);
+        Valorar v = new Valorar(user, video, user_val, val);
+        mu.borrarValoracion(v);
+    }
 }

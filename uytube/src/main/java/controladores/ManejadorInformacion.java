@@ -537,4 +537,13 @@ public class ManejadorInformacion {
         user = (Usuario) manager.createQuery ("select u FROM Usuario u WHERE u.canal='" + canal + "'").getSingleResult();
         return user;
     }
+    
+    public void borrarValoracion(Valorar v){
+       manager = emf.createEntityManager();
+       manager.getTransaction().begin();
+       Query query = manager.createNativeQuery("delete from valorar where dueño_Vid='" + v.getDuenio().getNickname() + "' and video='" + v.getVid() + "' and usuario='" + v.getUser() + "';");
+       query.executeUpdate();
+       manager.getTransaction().commit();
+       manager.close();    
+    }
 }
