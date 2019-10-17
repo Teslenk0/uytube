@@ -40,5 +40,7 @@ public interface IControladorUsuario {
     
     public abstract List listaSeguidores(String nick);
 
-    public void valorarVideo(String u, String video, String user_val, String val);
+    public abstract void valorarVideo(String u, String video, String user_val, String val);
+    
+    public abstract DtUsuario buscarUsuarioCanal(String c);
 }

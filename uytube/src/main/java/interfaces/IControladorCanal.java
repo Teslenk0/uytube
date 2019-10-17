@@ -82,4 +82,6 @@ public interface IControladorCanal {
     public abstract List busquedaArborescenteVideos(String text);
     
     public abstract List busquedaArborescenteListasParticulares(String text);
+    
+    public abstract DtListaParticulares buscarListaParticular(String nomLista, DtCanal canal);
 }
