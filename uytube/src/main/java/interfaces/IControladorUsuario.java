@@ -43,4 +43,6 @@ public interface IControladorUsuario {
     public abstract void valorarVideo(String u, String video, String user_val, String val);
     
     public abstract DtUsuario buscarUsuarioCanal(String c);
+    
+    public abstract void valorarVideoEliminar(String u, String video, String user_val, String val);
 }
