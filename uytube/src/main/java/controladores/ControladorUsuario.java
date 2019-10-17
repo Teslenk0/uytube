@@ -207,4 +207,16 @@ public class ControladorUsuario implements IControladorUsuario{
             mu.valorarVid(v);
         }
     }
+    
+    @Override
+    public DtUsuario buscarUsuarioCanal(String c){
+        ManejadorInformacion mu = ManejadorInformacion.getInstance();
+        Usuario u = mu.buscarUser2(c);
+        if(u != null){
+            DtCanal canal = new DtCanal(u.getCanal().getNombre_canal(),u.getCanal().getDescripcion(),u.getCanal().getPrivado());
+            DtUsuario user = new DtUsuario(u.getNickname(), u.getContrasenia(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen(),canal);
+            return user;
+        }
+        return null;
+    }
 }

@@ -529,16 +529,12 @@ public class ManejadorInformacion {
             return aux;
         }
         return null;
-        
-        /*List<Object[]> listas = manager.createNativeQuery("SELECT * FROM lista_particular_canal as l WHERE l.nombre_lista LIKE '%" + text + "%';").getResultList();
-        List<ListaParticulares> result = new LinkedList<>();
-        if (!listas.isEmpty()) {
-            listas.forEach((row) -> {
-                Canal c = manager.find(Canal.class, (String) row[1]);
-                result.add(new ListaParticulares());
-            });
-            return result;
-        }
-        return null;*/
+    }
+    
+    public Usuario buscarUser2(String canal){
+        manager = emf.createEntityManager();
+        Usuario user;
+        user = (Usuario) manager.createQuery ("select u FROM Usuario u WHERE u.canal='" + canal + "'").getSingleResult();
+        return user;
     }
 }

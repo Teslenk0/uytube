@@ -514,5 +514,20 @@ public class ControladorCanal implements IControladorCanal {
         }
         return null;
     }
+    
+    @Override
+    public DtListaParticulares buscarListaParticular(String nomLista, DtCanal canal) {
+        ManejadorInformacion mu = ManejadorInformacion.getInstance();
+        
+        ListaParticulares lista = mu.buscadorListaParticular(canal.getNombre_canal(),nomLista);
+        if(lista != null){
+            DtCanal c = new DtCanal (lista.getCanal().getNombre_canal(), lista.getCanal().getDescripcion(), lista.getCanal().getPrivado());
+            DtCategoria cat = new DtCategoria (lista.getCategoria().getNombreCategoria());
+            DtListaParticulares aux = new DtListaParticulares (lista.getPrivado(),lista.getNombreLista(),cat,c);
+            return aux;
+        }
+            
+        return null;
+    }
 
 }
