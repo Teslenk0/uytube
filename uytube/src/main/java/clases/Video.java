@@ -190,10 +190,7 @@ public class Video implements Serializable {
         if (!Objects.equals(this.fechaPublicacion, other.fechaPublicacion)) {
             return false;
         }
-        if (!Objects.equals(this.privado, other.privado)) {
-            return false;
-        }
-        return true;
+        return Objects.equals(this.privado, other.privado);
     }
     
     

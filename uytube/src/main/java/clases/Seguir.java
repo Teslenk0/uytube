@@ -77,10 +77,7 @@ public class Seguir implements Serializable {
         if (!Objects.equals(this.seguidos, other.seguidos)) {
             return false;
         }
-        if (!Objects.equals(this.us, other.us)) {
-            return false;
-        }
-        return true;
+        return Objects.equals(this.us, other.us);
     }
     
     

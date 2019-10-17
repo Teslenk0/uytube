@@ -5,7 +5,6 @@
  */
 package DataTypes;
 
-import clases.Canal;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -95,10 +94,7 @@ public class DtCanal implements Serializable, Comparable<DtCanal>{
         if (!Objects.equals(this.privado, other.privado)) {
             return false;
         }
-        if (!Objects.equals(this.usuario, other.usuario)) {
-            return false;
-        }
-        return true;
+        return Objects.equals(this.usuario, other.usuario);
     }
     
     @Override

@@ -13,7 +13,6 @@ import DataTypes.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.SortedSet;
 import javax.persistence.Query;
 
 /**
@@ -173,7 +172,7 @@ public class ManejadorInformacion {
         manager.close();
     }
 
-    public void modificarVideo(Video video, String oldV) {
+    public void modificarVideo(Video video, String oldV){
         manager = emf.createEntityManager();
         manager.getTransaction().begin();
         Query query;

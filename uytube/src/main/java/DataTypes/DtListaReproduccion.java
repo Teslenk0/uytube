@@ -78,10 +78,7 @@ public abstract class DtListaReproduccion implements Serializable, Comparable<Dt
         if (!Objects.equals(this.nombreLista, other.nombreLista)) {
             return false;
         }
-        if (!Objects.equals(this.canal, other.canal)) {
-            return false;
-        }
-        return true;
+        return Objects.equals(this.canal, other.canal);
     }
     
     

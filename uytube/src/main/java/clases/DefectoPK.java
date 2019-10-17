@@ -62,10 +62,7 @@ public class DefectoPK implements Serializable{
         if (!Objects.equals(this.video, other.video)) {
             return false;
         }
-        if (!Objects.equals(this.canal, other.canal)) {
-            return false;
-        }
-        return true;
+        return Objects.equals(this.canal, other.canal);
     }
 
     

@@ -139,10 +139,7 @@ public class DtVideo implements Serializable, Comparable<DtVideo>{
         if (!Objects.equals(this.canal, other.canal)) {
             return false;
         }
-        if (!Objects.equals(this.fechaPublicacion, other.fechaPublicacion)) {
-            return false;
-        }
-        return true;
+        return Objects.equals(this.fechaPublicacion, other.fechaPublicacion);
     }
 
     @Override

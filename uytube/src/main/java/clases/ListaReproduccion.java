@@ -80,10 +80,7 @@ public abstract class ListaReproduccion implements Serializable{
         if (!Objects.equals(this.nombreLista, other.nombreLista)) {
             return false;
         }
-        if (!Objects.equals(this.canal, other.canal)) {
-            return false;
-        }
-        return true;
+        return Objects.equals(this.canal, other.canal);
     }
 
     

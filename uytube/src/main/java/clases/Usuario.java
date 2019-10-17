@@ -196,10 +196,7 @@ public class Usuario implements Serializable{
         if (!Objects.equals(this.fechaNac, other.fechaNac)) {
             return false;
         }
-        if (!Objects.equals(this.canal, other.canal)) {
-            return false;
-        }
-        return true;
+        return Objects.equals(this.canal, other.canal);
     }
     
     

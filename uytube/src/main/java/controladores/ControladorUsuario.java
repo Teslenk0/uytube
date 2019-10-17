@@ -141,10 +141,7 @@ public class ControladorUsuario implements IControladorUsuario{
     public boolean buscarEmail(String email) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         Usuario u = mu.buscadorEmail(email);
-        if(u != null){
-            return true;
-        }
-       return false;
+       return u != null;
     }
     
     @Override

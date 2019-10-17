@@ -104,10 +104,7 @@ public class ListaParticularVideos implements Serializable {
         if (!Objects.equals(this.canal, other.canal)) {
             return false;
         }
-        if (!Objects.equals(this.id, other.id)) {
-            return false;
-        }
-        return true;
+        return Objects.equals(this.id, other.id);
     }
 
     

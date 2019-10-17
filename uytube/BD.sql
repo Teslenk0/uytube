@@ -1,13 +1,13 @@
--- MySQL dump 10.13  Distrib 5.7.26, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.17, for Win64 (x86_64)
 --
 -- Host: localhost    Database: uytubeAPP
 -- ------------------------------------------------------
--- Server version	5.7.26-0ubuntu0.18.04.1
+-- Server version	8.0.17
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -21,13 +21,13 @@
 
 DROP TABLE IF EXISTS `canal_usuario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `canal_usuario` (
   `nombre_canal` varchar(100) NOT NULL,
   `descripcion` varchar(300) NOT NULL,
   `isPrivate` bit(1) NOT NULL,
   PRIMARY KEY (`nombre_canal`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -46,11 +46,11 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `categoria_video`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `categoria_video` (
   `categoria` varchar(100) NOT NULL,
   PRIMARY KEY (`categoria`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -69,7 +69,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `comentarios_video`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `comentarios_video` (
   `nickname` varchar(30) DEFAULT NULL,
   `comentario` varchar(100) DEFAULT NULL,
@@ -81,7 +81,7 @@ CREATE TABLE `comentarios_video` (
   PRIMARY KEY (`Referencia`),
   UNIQUE KEY `comentarios_video_Referencia_uindex` (`Referencia`),
   KEY `FKqxve4tjk6v4pf4n3c2wy636ol` (`Video`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -100,14 +100,14 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `lista_defecto_canal`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `lista_defecto_canal` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre_lista` varchar(100) NOT NULL,
   `canal` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FK3sx7a9e8qag7xo9k4cu70q0ex` (`canal`)
-) ENGINE=InnoDB AUTO_INCREMENT=224 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=269 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -116,7 +116,7 @@ CREATE TABLE `lista_defecto_canal` (
 
 LOCK TABLES `lista_defecto_canal` WRITE;
 /*!40000 ALTER TABLE `lista_defecto_canal` DISABLE KEYS */;
-INSERT INTO `lista_defecto_canal` VALUES (179,'Escuchar más tarde','Canal Horacio'),(180,'Escuchar más tarde','Chino Recoba'),(181,'Escuchar más tarde','Con la gente'),(182,'Escuchar más tarde','Desde Genexus'),(183,'Escuchar más tarde','diegop'),(184,'Escuchar más tarde','El bocha'),(185,'Escuchar más tarde','El Cachila'),(186,'Escuchar más tarde','hectorg'),(187,'Escuchar más tarde','juliob'),(188,'Escuchar más tarde','Kairo música'),(189,'Escuchar más tarde','Puglia invita'),(190,'Escuchar más tarde','robinh'),(191,'Escuchar más tarde','Tabaré'),(192,'Escuchar más tarde','Tinelli total'),(193,'Escuchar más tarde','Tony Pacheco'),(194,'Deporte total','Canal Horacio'),(195,'Deporte total','Chino Recoba'),(196,'Deporte total','Con la gente'),(197,'Deporte total','Desde Genexus'),(198,'Deporte total','diegop'),(199,'Deporte total','El bocha'),(200,'Deporte total','El Cachila'),(201,'Deporte total','hectorg'),(202,'Deporte total','juliob'),(203,'Deporte total','Kairo música'),(204,'Deporte total','Puglia invita'),(205,'Deporte total','robinh'),(206,'Deporte total','Tabaré'),(207,'Deporte total','Tinelli total'),(208,'Deporte total','Tony Pacheco'),(209,'Novedades generales','Canal Horacio'),(210,'Novedades generales','Chino Recoba'),(211,'Novedades generales','Con la gente'),(212,'Novedades generales','Desde Genexus'),(213,'Novedades generales','diegop'),(214,'Novedades generales','El bocha'),(215,'Novedades generales','El Cachila'),(216,'Novedades generales','hectorg'),(217,'Novedades generales','juliob'),(218,'Novedades generales','Kairo música'),(219,'Novedades generales','Puglia invita'),(220,'Novedades generales','robinh'),(221,'Novedades generales','Tabaré'),(222,'Novedades generales','Tinelli total'),(223,'Novedades generales','Tony Pacheco');
+INSERT INTO `lista_defecto_canal` VALUES (224,'Escuchar más tarde','Canal Horacio'),(225,'Escuchar más tarde','Chino Recoba'),(226,'Escuchar más tarde','Con la gente'),(227,'Escuchar más tarde','Desde Genexus'),(228,'Escuchar más tarde','diegop'),(229,'Escuchar más tarde','El bocha'),(230,'Escuchar más tarde','El Cachila'),(231,'Escuchar más tarde','hectorg'),(232,'Escuchar más tarde','juliob'),(233,'Escuchar más tarde','Kairo música'),(234,'Escuchar más tarde','Puglia invita'),(235,'Escuchar más tarde','robinh'),(236,'Escuchar más tarde','Tabaré'),(237,'Escuchar más tarde','Tinelli total'),(238,'Escuchar más tarde','Tony Pacheco'),(239,'Deporte total','Canal Horacio'),(240,'Deporte total','Chino Recoba'),(241,'Deporte total','Con la gente'),(242,'Deporte total','Desde Genexus'),(243,'Deporte total','diegop'),(244,'Deporte total','El bocha'),(245,'Deporte total','El Cachila'),(246,'Deporte total','hectorg'),(247,'Deporte total','juliob'),(248,'Deporte total','Kairo música'),(249,'Deporte total','Puglia invita'),(250,'Deporte total','robinh'),(251,'Deporte total','Tabaré'),(252,'Deporte total','Tinelli total'),(253,'Deporte total','Tony Pacheco'),(254,'Novedades generales','Canal Horacio'),(255,'Novedades generales','Chino Recoba'),(256,'Novedades generales','Con la gente'),(257,'Novedades generales','Desde Genexus'),(258,'Novedades generales','diegop'),(259,'Novedades generales','El bocha'),(260,'Novedades generales','El Cachila'),(261,'Novedades generales','hectorg'),(262,'Novedades generales','juliob'),(263,'Novedades generales','Kairo música'),(264,'Novedades generales','Puglia invita'),(265,'Novedades generales','robinh'),(266,'Novedades generales','Tabaré'),(267,'Novedades generales','Tinelli total'),(268,'Novedades generales','Tony Pacheco');
 /*!40000 ALTER TABLE `lista_defecto_canal` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -126,14 +126,14 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `lista_defecto_video`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `lista_defecto_video` (
   `id` int(11) NOT NULL,
   `nombre_video` varchar(100) NOT NULL,
   `nombre_canal_video_origen` varchar(100) NOT NULL,
   KEY `lista_defecto_video_lista_defecto_canal_id_fk` (`id`),
   KEY `lista_defecto_video_videos_canal_nombre_fk` (`nombre_video`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -151,7 +151,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `lista_particular_canal`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `lista_particular_canal` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre_lista` varchar(100) NOT NULL,
@@ -160,7 +160,7 @@ CREATE TABLE `lista_particular_canal` (
   `categoria` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FKcodr6lbvrytds0hotfe1imn5d` (`canal`)
-) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -169,7 +169,7 @@ CREATE TABLE `lista_particular_canal` (
 
 LOCK TABLES `lista_particular_canal` WRITE;
 /*!40000 ALTER TABLE `lista_particular_canal` DISABLE KEYS */;
-INSERT INTO `lista_particular_canal` VALUES (52,'Novedades FING','hectorg',_binary '\0','Noticias'),(53,'De fiesta','Tabaré',_binary '','Música'),(54,'De todo un poco','El Cachila',_binary '','Música'),(55,'Solo deportes','juliob',_binary '\0','Deporte'),(56,'Nostalgia','Kairo música',_binary '\0','Música'),(57,'Noticias y CYT','Desde Genexus',_binary '\0','Noticias');
+INSERT INTO `lista_particular_canal` VALUES (58,'Novedades FING','hectorg',_binary '\0','Noticias'),(59,'De fiesta','Tabaré',_binary '','Música'),(60,'De todo un poco','El Cachila',_binary '','Música'),(61,'Solo deportes','juliob',_binary '\0','Deporte'),(62,'Nostalgia','Kairo música',_binary '\0','Música'),(63,'Noticias y CYT','Desde Genexus',_binary '\0','Noticias');
 /*!40000 ALTER TABLE `lista_particular_canal` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -179,13 +179,13 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `lista_particular_video`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `lista_particular_video` (
   `id` int(11) NOT NULL,
   `nombre_video` varchar(100) NOT NULL,
   `nombre_canal_video_origen` varchar(100) NOT NULL,
   KEY `lista_particular_video_lista_particular_canal_id_fk` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -194,7 +194,7 @@ CREATE TABLE `lista_particular_video` (
 
 LOCK TABLES `lista_particular_video` WRITE;
 /*!40000 ALTER TABLE `lista_particular_video` DISABLE KEYS */;
-INSERT INTO `lista_particular_video` VALUES (56,'Sweet child o mine','Kairo música'),(56,'Dancing in the Dark','Kairo música'),(56,'Thriller','Kairo música'),(53,'Locura celeste','El Cachila'),(53,'Niño payaso','El Cachila'),(53,'Etapa Don Timoteo Liguilla','El Cachila'),(52,'100 años de FING','hectorg'),(52,'50 años del InCo','hectorg'),(52,'Ingeniería de Muestra 2017','hectorg'),(54,'Locura Celeste','El Cachila'),(54,'Niño Payaso','El Cachila'),(54,'Etapa A contramano Liguilla','El Cachila'),(54,'Inauguración Estadio Peñarol','juliob'),(55,'Show de goles','juliob'),(55,'Inaguración Estadio Peñarol','juliob'),(57,'Ventana al futuro Uruguay y déficit de ingenieros','Desde Genexus'),(57,'Ingeniería de Muestra 2017','hectorg');
+INSERT INTO `lista_particular_video` VALUES (62,'Sweet child o mine','Kairo música'),(62,'Dancing in the Dark','Kairo música'),(62,'Thriller','Kairo música'),(59,'Locura celeste','El Cachila'),(59,'Niño payaso','El Cachila'),(59,'Etapa Don Timoteo Liguilla','El Cachila'),(58,'100 años de FING','hectorg'),(58,'50 años del InCo','hectorg'),(58,'Ingeniería de Muestra 2017','hectorg'),(60,'Locura Celeste','El Cachila'),(60,'Niño Payaso','El Cachila'),(60,'Etapa A contramano Liguilla','El Cachila'),(60,'Inauguración Estadio Peñarol','juliob'),(61,'Show de goles','juliob'),(61,'Inaguración Estadio Peñarol','juliob'),(63,'Ventana al futuro Uruguay y déficit de ingenieros','Desde Genexus'),(63,'Ingeniería de Muestra 2017','hectorg');
 /*!40000 ALTER TABLE `lista_particular_video` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -204,12 +204,12 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `seguir`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `seguir` (
   `nickname` varchar(100) NOT NULL,
   `seguido` varchar(100) NOT NULL,
   KEY `FKr8dqhxes6236fhftvt9uxrj4t` (`nickname`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -228,7 +228,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `usuario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `usuario` (
   `nickname` varchar(100) NOT NULL,
   `contraseña` varchar(100) NOT NULL,
@@ -241,7 +241,7 @@ CREATE TABLE `usuario` (
   PRIMARY KEY (`nickname`),
   UNIQUE KEY `usuario_normal_email_uindex` (`email`),
   KEY `FK3vkji6f6vbowroolxoc2owvf7` (`canal`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -250,7 +250,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES ('cachilas','CS','Waldemar \"Cachila\"','Silva','Cachila.sil@c1080.org.uy','1947-01-01','/imagenesUsuarios/cachilas.png','El Cachila'),('chino','AR','Alvaro','Recoba','chino@trico.org.uy','1976-03-17','/imagenesUsuarios/chino.png','Chino Recoba'),('diegop','DP','Diego','Parodi','diego@efectocine.com','1974-12-31','/imagenesUsuarios/Defecto.png','diegop'),('hectorg','HG','Héctor','Guido','hector.gui@elgalpon.org.uy','1954-01-07','/imagenesUsuarios/Defecto.png','hectorg'),('hrubino','HR','Horacio','Rubino','horacio.rubino@guambia.com.uy','1962-02-25','/imagenesUsuarios/hrubino.png','Canal Horacio'),('juliob','JB','Julio','Bocca','juliobocca@sodre.com.uy','1967-03-16','/imagenesUsuarios/Defecto.png','juliob'),('kairoh','KH','Kairo','Herrera','kairoher@pilsenrock.com.uy','1940-04-25','/imagenesUsuarios/kairoh.png','Kairo música'),('marcelot','MT','Marcelo','Tinelli','marcelot@ideasdelsur.com.ar','1960-04-01','/imagenesUsuarios/Defecto.png','Tinelli total'),('mbusca','MB','Martín','Buscaglia','Martin.bus@agadu.org.uy','1972-06-13','/imagenesUsuarios/mbusca.png','El bocha'),('nicoJ','NJ','Nicolás','Jodal','jodal@artech.com.uy','1960-08-09','/imagenesUsuarios/Defecto.png','Desde Genexus'),('novick','EN','Edgardo','Novick','edgardo@novick.com.uy','1952-07-17','/imagenesUsuarios/Defecto.png','Con la gente'),('robinh','RH','Robin','Henderson','robin.h@tinglesa.com.uy','1940-08-03','/imagenesUsuarios/Defecto.png','robinh'),('sergiop','SP','Sergio','Puglia','puglia@alpanpan.com.uy','1950-01-28','/imagenesUsuarios/Defecto.png','Puglia invita'),('tabarec','TC','Tabaré','Cardozo','tabare.car@agadu.org.uy','1971-07-24','/imagenesUsuarios/tabarec.png','Tabaré'),('tonyp','AP','Antonio','Pacheco','eltony@manya.org.uy','1955-02-14','/imagenesUsuarios/tonyp.png','Tony Pacheco');
+INSERT INTO `usuario` VALUES ('cachilas','Sancho456','Waldemar \"Cachila\"','Silva','Cachila.sil@c1080.org.uy','1947-01-01','/imagenesUsuarios/cachilas.png','El Cachila'),('chino','Laika765','Alvaro','Recoba','chino@trico.org.uy','1976-03-17','/imagenesUsuarios/chino.png','Chino Recoba'),('diegop','Ruffo678','Diego','Parodi','diego@efectocine.com','1975-01-01','/imagenesUsuarios/Defecto.png','diegop'),('hectorg','Pancho345','Héctor','Guido','hector.gui@elgalpon.org.uy','1954-01-07','/imagenesUsuarios/Defecto.png','hectorg'),('hrubino','Rufus123','Horacio','Rubino','horacio.rubino@guambia.com.uy','1962-02-25','/imagenesUsuarios/hrubino.png','Canal Horacio'),('juliob','Salome56','Julio','Bocca','juliobocca@sodre.com.uy','1967-03-16','/imagenesUsuarios/Defecto.png','juliob'),('kairoh','Corbata15','Kairo','Herrera','kairoher@pilsenrock.com.uy','1940-04-25','/imagenesUsuarios/kairoh.png','Kairo música'),('marcelot','Mancha890','Marcelo','Tinelli','marcelot@ideasdelsur.com.ar','1960-04-01','/imagenesUsuarios/Defecto.png','Tinelli total'),('mbusca','Cookie234','Martín','Buscaglia','Martin.bus@agadu.org.uy','1972-06-14','/imagenesUsuarios/mbusca.png','El bocha'),('nicoJ','Albino80','Nicolás','Jodal','jodal@artech.com.uy','1960-08-09','/imagenesUsuarios/Defecto.png','Desde Genexus'),('novick','Xenon987','Edgardo','Novick','edgardo@novick.com.uy','1952-07-17','/imagenesUsuarios/Defecto.png','Con la gente'),('robinh','Aquiles67','Robin','Henderson','robin.h@tinglesa.com.uy','1940-08-03','/imagenesUsuarios/Defecto.png','robinh'),('sergiop','Sultan876','Sergio','Puglia','puglia@alpanpan.com.uy','1950-01-28','/imagenesUsuarios/Defecto.png','Puglia invita'),('tabarec','Ketchup1','Tabaré','Cardozo','tabare.car@agadu.org.uy','1971-07-24','/imagenesUsuarios/tabarec.png','Tabaré'),('tonyp','Kitty543','Antonio','Pacheco','eltony@manya.org.uy','1955-02-14','/imagenesUsuarios/tonyp.png','Tony Pacheco');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -262,25 +262,12 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER updateCanales BEFORE UPDATE ON usuario FOR EACH ROW BEGIN
-
-update megusta set canal=new.canal where canal=old.canal;
-
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `updateCanales` BEFORE UPDATE ON `usuario` FOR EACH ROW BEGIN
 update videos_canal set nombre_canal=new.canal where nombre_canal=old.canal;
-
-
 update comentarios_video set Canal_video=new.canal where Canal_video=old.canal;
-
-
 update lista_defecto_canal set canal=new.canal where canal=old.canal;
-
-
 update lista_defecto_video set nombre_canal_video_origen=new.canal where nombre_canal_video_origen=old.canal;
-
-
 update lista_particular_canal set canal=new.canal where canal=old.canal;
-
-
 update lista_particular_video set nombre_canal_video_origen=new.canal where nombre_canal_video_origen=old.canal;
 END */;;
 DELIMITER ;
@@ -295,7 +282,7 @@ DELIMITER ;
 
 DROP TABLE IF EXISTS `valorar`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `valorar` (
   `dueño_Vid` varchar(100) NOT NULL,
   `video` varchar(100) NOT NULL,
@@ -303,7 +290,7 @@ CREATE TABLE `valorar` (
   `valoracion` varchar(100) NOT NULL,
   PRIMARY KEY (`dueño_Vid`,`video`,`usuario`),
   UNIQUE KEY `valorar_pk` (`dueño_Vid`,`video`,`usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -322,7 +309,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `videos_canal`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `videos_canal` (
   `nombre` varchar(100) NOT NULL,
   `nombre_canal` varchar(100) NOT NULL,
@@ -335,7 +322,7 @@ CREATE TABLE `videos_canal` (
   PRIMARY KEY (`nombre`,`nombre_canal`),
   KEY `videos_canal_categoria_video_categoria_fk` (`categoria`),
   KEY `FKdjjsxs8mnroq1gnfd9h3kan5i` (`nombre_canal`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -344,7 +331,7 @@ CREATE TABLE `videos_canal` (
 
 LOCK TABLES `videos_canal` WRITE;
 /*!40000 ALTER TABLE `videos_canal` DISABLE KEYS */;
-INSERT INTO `videos_canal` VALUES ('100 años de FING','hectorg','2017-08-03','https://youtu.be/peGS4TBxSaI','Del Ciclo más Universidad realizado por la UdelaR, compartimos con ustedes un audiovisual realizado en 2016 por los 100 años de la denominación Facultad de Ingeniería.\n\nExtraído del canal Teleuniversitaria UdelaR','Noticias','6:26',0),('50 años del InCo','hectorg','2017-11-24','https://youtu.be/GzOJSk4urlM','50 años del Instituto de Computación. Facultad de Ingeniería. UDELAR. 22 de noviembre 2017.\nLa mesa de apertura estuvo integrada por Simon, el rector de la Universidad de la República (Udelar).','Noticias','27:22',0),('Dancing in the Dark','Kairo música','2009-10-03','https://youtu.be/129kuDCQtHs','Bruce Springsteen\'s official music video for \'Dancing In The Dark\'.','Música','3:58',0),('Entrevista a director CUTI','Desde Genexus','2017-04-03','https://youtu.be/Eq5uBEzI6qs','Segunda parte de la entrevista realizada por la periodista Paula Echevarría al director de CUTI','Ciencia y Tecnología','5:39',0),('Etapa A contramano Liguilla','El Cachila','2015-12-17','https://youtu.be/Es6GRMHXeCQ','4A ETAPA A CONTRAMANO LIGUILLA','Carnaval','57:15',1),('Etapa Don Timoteo Liguilla','El Cachila','2015-12-18','https://youtu.be/I_spHBU9ZsI','2A ETAPA DON TIMOTEO LIGUILLA','Carnaval','51:38',1),('Inauguración Estadio Peñarol','juliob','2016-04-04','https://youtu.be/U6XPJ8Vz72A','Recordemos la ceremonia de inauguración del Estadio de Peñarol.\n\"Estadio Campeón del Siglo\".','Deporte','3:27:26',0),('Ingeniería de Muestra 2017','hectorg','2017-10-25','https://youtu.be/RnaYRA1k5j4','La muestra más grande de la ingeniería nacional se realizó el jueves 19, viernes 20 y sábado 21 de octubre de 2017. Ingeniería deMuestra fue organizada por la Facultad de Ingeniería de la Universidad de la República y su Fundación Julio Ricaldoni.','Noticias','1:00',0),('Locura Celeste','El Cachila','2018-06-05','https://youtu.be/PAfbzKcePx0','Tema Oficial de la cobertura celeste de Monte Carlo Televisión Canal 4 para el Mundial de Futbol FIFA Rusia 2018','Música','3:04',1),('Locura Celeste','Tabaré','2018-06-05','https://youtu.be/PAfbzKcePx0','Tema Oficial de la cobertura celeste de Monte Carlo Televisión Canal 4 para el Mundial de Futbol FIFA Rusia 2018','Música','3:04',1),('Niño Payaso','El Cachila','2016-10-20','https://youtu.be/K-uEIUnyZPg','Niño Payaso Tabaré Cardozo','Música','4:18',1),('Niño Payaso','Tabaré','2016-10-20','https://youtu.be/K-uEIUnyZPg','Niño Payaso Tabaré Cardozo','Música','4:18',1),('Pacheco goles mas recordados','Tabaré','2013-06-05','https://youtu.be/wlEd6-HsIxI','Los goles más recordados de Antonio Pacheco','Deporte','5:48',1),('Pacheco goles mas recordados','Tony Pacheco','2013-06-05','https://youtu.be/wlEd6-HsIxI','Los goles más recordados de Antonio Pacheco','Deporte','5:48',1),('Recoba 20 mejores goles','Chino Recoba','2011-11-13','https://youtu.be/Gy3fZhWdLEQ','Recoba - Top 20 Goals','Deporte','13:26',1),('Recoba 20 mejores goles','El Cachila','2011-11-13','https://youtu.be/Gy3fZhWdLEQ','Recoba - Top 20 Goals','Deporte','13:26',1),('Show de goles','juliob','2018-07-23','https://youtu.be/g46w4_kD_lA','TORNEO CLAUSURA 2018','Deporte','4:23',0),('Sweet child o mine','juliob','2009-12-23','https://youtu.be/1w7OgIMMRc4','Music video by Guns N\' Roses performing Sweet Child O\' Mine. YouTube view counts pre-VEVO: 2,418,311. (C) 1987 Guns N\' Roses under exclusive license to Geffen Records','Música','5:02',0),('Sweet child o mine','Kairo música','2009-12-23','https://youtu.be/1w7OgIMMRc4','Music video by Guns N\' Roses performing Sweet Child O\' Mine. YouTube view counts pre-VEVO: 2,418,311. (C) 1987 Guns N\' Roses under exclusive license to Geffen Records','Música','5:02',0),('Thriller','juliob','2009-10-02','https://youtu.be/sOnqjkJTMaA','Michael Jackson\'s official music video for \"Thriller\"','Música','13:42',0),('Thriller','Kairo música','2009-10-02','https://youtu.be/sOnqjkJTMaA','Michael Jackson\'s official music video for \"Thriller\"','Música','13:42',0),('Ventana al futuro Uruguay y déficit de ingenieros','Desde Genexus','2016-07-20','https://youtu.be/zBR2pnASlQE','En Uruguay hay un ingeniero por cada tres abogados y cada seis médicos. Los datos se desprenden del Panorama de la Educación 2014 del anuario del Ministerio de Educación y Cultura. Ese año egresaron de la Universidad de la República 348 ingenieros.','Ciencia y Tecnología','19:21',0);
+INSERT INTO `videos_canal` VALUES ('100 años de FING','hectorg','2017-08-03','https://youtu.be/peGS4TBxSaI','Del Ciclo más Universidad realizado por la UdelaR, compartimos con ustedes un audiovisual realizado en 2016 por los 100 años de la denominación Facultad de Ingeniería.\n\nExtraído del canal Teleuniversitaria UdelaR','Noticias','6:26',0),('50 años del InCo','hectorg','2017-11-24','https://youtu.be/GzOJSk4urlM','50 años del Instituto de Computación. Facultad de Ingeniería. UDELAR. 22 de noviembre 2017.\nLa mesa de apertura estuvo integrada por Simon, el rector de la Universidad de la República (Udelar).','Noticias','27:22',0),('Dancing in the Dark','Kairo música','2009-10-03','https://youtu.be/129kuDCQtHs','Bruce Springsteen\'s official music video for \'Dancing In The Dark\'.','Música','3:58',0),('Entrevista a director CUTI','Desde Genexus','2017-04-03','https://youtu.be/Eq5uBEzI6qs','Segunda parte de la entrevista realizada por la periodista Paula Echevarría al director de CUTI','Ciencia y Tecnología','5:39',0),('Etapa A contramano Liguilla','El Cachila','2015-12-17','https://youtu.be/Es6GRMHXeCQ','4A ETAPA A CONTRAMANO LIGUILLA','Carnaval','57:15',1),('Etapa Don Timoteo Liguilla','El Cachila','2015-12-18','https://youtu.be/I_spHBU9ZsI','2A ETAPA DON TIMOTEO LIGUILLA','Carnaval','51:38',1),('Inauguración Estadio Peñarol','juliob','2016-04-04','https://youtu.be/U6XPJ8Vz72A','Recordemos la ceremonia de inauguración del Estadio de Peñarol.\n\"Estadio Campeón del Siglo\".','Deporte','3:27:26',0),('Ingeniería de Muestra 2017','hectorg','2017-10-25','https://youtu.be/RnaYRA1k5j4','La muestra más grande de la ingeniería nacional se realizó el jueves 19, viernes 20 y sábado 21 de octubre de 2017. Ingeniería deMuestra fue organizada por la Facultad de Ingeniería de la Universidad de la República y su Fundación Julio Ricaldoni.','Noticias','1:00',0),('Locura Celeste','El Cachila','2018-06-05','https://youtu.be/PAfbzKcePx0','Tema Oficial de la cobertura celeste de Monte Carlo Televisión Canal 4 para el Mundial de Futbol FIFA Rusia 2018','Música','3:04',1),('Locura Celeste','Tabaré','2018-06-05','https://youtu.be/PAfbzKcePx0','Tema Oficial de la cobertura celeste de Monte Carlo Televisión Canal 4 para el Mundial de Futbol FIFA Rusia 2018','Música','3:04',1),('Niño Payaso','El Cachila','2016-10-20','https://youtu.be/K-uEIUnyZPg','Niño Payaso Tabaré Cardozo','Música','4:18',1),('Niño Payaso','Tabaré','2016-10-20','https://youtu.be/K-uEIUnyZPg','Niño Payaso Tabaré Cardozo','Música','4:18',1),('Pacheco goles mas recordados','Tabaré','2013-06-05','https://youtu.be/wlEd6-HsIxI','Los goles más recordados de Antonio Pacheco','Deporte','5:48',1),('Pacheco goles mas recordados','Tony Pacheco','2013-06-05','https://youtu.be/wlEd6-HsIxI','Los goles más recordados de Antonio Pacheco','Deporte','5:48',1),('Recoba 20 mejores goles','Chino Recoba','2011-11-14','https://youtu.be/Gy3fZhWdLEQ','Recoba - Top 20 Goals','Deporte','13:26',1),('Recoba 20 mejores goles','El Cachila','2011-11-14','https://youtu.be/Gy3fZhWdLEQ','Recoba - Top 20 Goals','Deporte','13:26',1),('Show de goles','juliob','2018-07-23','https://youtu.be/g46w4_kD_lA','TORNEO CLAUSURA 2018','Deporte','4:23',0),('Sweet child o mine','juliob','2009-12-24','https://youtu.be/1w7OgIMMRc4','Music video by Guns N\' Roses performing Sweet Child O\' Mine. YouTube view counts pre-VEVO: 2,418,311. (C) 1987 Guns N\' Roses under exclusive license to Geffen Records','Música','5:02',0),('Sweet child o mine','Kairo música','2009-12-24','https://youtu.be/1w7OgIMMRc4','Music video by Guns N\' Roses performing Sweet Child O\' Mine. YouTube view counts pre-VEVO: 2,418,311. (C) 1987 Guns N\' Roses under exclusive license to Geffen Records','Música','5:02',0),('Thriller','juliob','2009-10-02','https://youtu.be/sOnqjkJTMaA','Michael Jackson\'s official music video for \"Thriller\"','Música','13:42',0),('Thriller','Kairo música','2009-10-02','https://youtu.be/sOnqjkJTMaA','Michael Jackson\'s official music video for \"Thriller\"','Música','13:42',0),('Ventana al futuro Uruguay y déficit de ingenieros','Desde Genexus','2016-07-20','https://youtu.be/zBR2pnASlQE','En Uruguay hay un ingeniero por cada tres abogados y cada seis médicos. Los datos se desprenden del Panorama de la Educación 2014 del anuario del Ministerio de Educación y Cultura. Ese año egresaron de la Universidad de la República 348 ingenieros.','Ciencia y Tecnología','19:21',0);
 /*!40000 ALTER TABLE `videos_canal` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -356,20 +343,11 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER updateVideos BEFORE UPDATE ON videos_canal FOR EACH ROW BEGIN
-update megusta set video=new.nombre where video=old.nombre;
-
-    update valorar set video=new.nombre where video=old.nombre;
-
-
-    update lista_defecto_video set nombre_video=new.nombre where nombre_video=old.nombre;
-
-
-    update lista_particular_video set nombre_video=new.nombre where nombre_video=old.nombre;
-
-
-    update comentarios_video set Video=new.nombre where Video=old.nombre;
-
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `updateVideos` BEFORE UPDATE ON `videos_canal` FOR EACH ROW BEGIN
+update valorar set video=new.nombre where video=old.nombre;
+update lista_defecto_video set nombre_video=new.nombre where nombre_video=old.nombre;
+update lista_particular_video set nombre_video=new.nombre where nombre_video=old.nombre;
+update comentarios_video set Video=new.nombre where Video=old.nombre;
 END */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -386,4 +364,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-10-16 19:15:36
+-- Dump completed on 2019-10-16 20:57:55

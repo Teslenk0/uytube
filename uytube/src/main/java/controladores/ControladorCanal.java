@@ -33,12 +33,9 @@ import excepciones.ListaRepetidaException;
 import excepciones.VideoRepetidoException;
 import excepciones.VideoYaExisteEnListaException;
 import interfaces.IControladorCanal;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.SortedSet;
-import java.util.TreeSet;
 
 /**
  *
@@ -74,10 +71,7 @@ public class ControladorCanal implements IControladorCanal {
     public boolean buscarCanal(String canal) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         Canal c = mu.buscadorCanal(canal);
-        if (c != null) {
-            return true;
-        }
-        return false;
+        return c != null;
     }
 
     @Override
@@ -459,7 +453,7 @@ public class ControladorCanal implements IControladorCanal {
         DtCanal tmp;
         Canal aux;
         if (!results.isEmpty()) {
-            List<DtCanal> resultados = new LinkedList<DtCanal>();
+            List<DtCanal> resultados = new LinkedList<>();
             for (int i = 0; i < results.size(); i++) {
                 aux = (Canal) results.get(i);
                 aux.setNombre_canal(aux.getNombre_canal().toLowerCase());
@@ -482,7 +476,7 @@ public class ControladorCanal implements IControladorCanal {
         DtVideo tmp;
         Video aux;
         if (!results.isEmpty()) {
-            List<DtVideo> resultados = new LinkedList<DtVideo>();
+            List<DtVideo> resultados = new LinkedList<>();
             for (int i = 0; i < results.size(); i++) {
                 aux = (Video) results.get(i);
                 aux.setNombre(aux.getNombre().toLowerCase());
@@ -505,7 +499,7 @@ public class ControladorCanal implements IControladorCanal {
         DtListaParticulares tmp;
         ListaParticulares aux;
         if (!results.isEmpty()) {
-            List<DtListaParticulares> resultados = new LinkedList<DtListaParticulares>();
+            List<DtListaParticulares> resultados = new LinkedList<>();
             for (int i = 0; i < results.size(); i++) {
 
                 aux = (ListaParticulares) results.get(i);

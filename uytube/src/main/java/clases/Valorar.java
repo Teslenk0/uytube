@@ -113,10 +113,7 @@ public class Valorar implements Serializable {
         if (!Objects.equals(this.val, other.val)) {
             return false;
         }
-        if (!Objects.equals(this.duenio, other.duenio)) {
-            return false;
-        }
-        return true;
+        return Objects.equals(this.duenio, other.duenio);
     }
     
     

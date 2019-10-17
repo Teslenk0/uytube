@@ -39,8 +39,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.List;
-import java.util.SortedSet;
-import java.util.TreeSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -6547,14 +6545,14 @@ public class MenuInicio extends javax.swing.JFrame {
             c.registrarCategoria(cat);
             Date fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("1962-02-25");
             DtCanal canal = new DtCanal("Canal Horacio", "El canal de Horacio es para publicar contenido divertido", false);
-            DtUsuario user = new DtUsuario("hrubino", "HR", "Horacio", "Rubino", "horacio.rubino@guambia.com.uy", fechaU, "/imagenesUsuarios/hrubino.png", canal);
+            DtUsuario user = new DtUsuario("hrubino", "Rufus123", "Horacio", "Rubino", "horacio.rubino@guambia.com.uy", fechaU, "/imagenesUsuarios/hrubino.png", canal);
             u.registrarUsuario(user, imagen);
             u.seguirUsuario(user, "hectorg");
             u.seguirUsuario(user, "diegop");
 
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("1972-06-14");
             canal = new DtCanal("El bocha", "Mi canal para colgar mis cosas", false);
-            user = new DtUsuario("mbusca", "MB", "Martín", "Buscaglia", "Martin.bus@agadu.org.uy", fechaU, "/imagenesUsuarios/mbusca.png", canal);
+            user = new DtUsuario("mbusca", "Cookie234", "Martín", "Buscaglia", "Martin.bus@agadu.org.uy", fechaU, "/imagenesUsuarios/mbusca.png", canal);
             u.registrarUsuario(user, imagen);
             u.seguirUsuario(user, "tabarec");
             u.seguirUsuario(user, "cachilas");
@@ -6562,7 +6560,7 @@ public class MenuInicio extends javax.swing.JFrame {
 
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("1954-01-07");
             canal = new DtCanal("hectorg", "Canal HG", false);
-            user = new DtUsuario("hectorg", "HG", "Héctor", "Guido", "hector.gui@elgalpon.org.uy", fechaU, "/imagenesUsuarios/Defecto.png", canal);
+            user = new DtUsuario("hectorg", "Pancho345", "Héctor", "Guido", "hector.gui@elgalpon.org.uy", fechaU, "/imagenesUsuarios/Defecto.png", canal);
             u.registrarUsuario(user, imagen);
             u.seguirUsuario(user, "mbusca");
             u.seguirUsuario(user, "juliob");
@@ -6598,7 +6596,7 @@ public class MenuInicio extends javax.swing.JFrame {
 
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("1971-07-24");
             canal = new DtCanal("Tabaré", "Mi música e ainda mais", false);
-            user = new DtUsuario("tabarec", "TC", "Tabaré", "Cardozo", "tabare.car@agadu.org.uy", fechaU, "/imagenesUsuarios/tabarec.png", canal);
+            user = new DtUsuario("tabarec", "Ketchup1", "Tabaré", "Cardozo", "tabare.car@agadu.org.uy", fechaU, "/imagenesUsuarios/tabarec.png", canal);
             u.registrarUsuario(user, imagen);
             u.seguirUsuario(user, "hrubino");
             u.seguirUsuario(user, "cachilas");
@@ -6622,7 +6620,7 @@ public class MenuInicio extends javax.swing.JFrame {
 
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("1947-01-01");
             canal = new DtCanal("El Cachila", "Para juntar cosas", true);
-            user = new DtUsuario("cachilas", "CS", "Waldemar \"Cachila\"", "Silva", "Cachila.sil@c1080.org.uy", fechaU, "/imagenesUsuarios/cachilas.png", canal);
+            user = new DtUsuario("cachilas", "Sancho456", "Waldemar \"Cachila\"", "Silva", "Cachila.sil@c1080.org.uy", fechaU, "/imagenesUsuarios/cachilas.png", canal);
             u.registrarUsuario(user, imagen);
             u.seguirUsuario(user, "hrubino");
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("2018-06-05");
@@ -6645,7 +6643,7 @@ public class MenuInicio extends javax.swing.JFrame {
 
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("1967-03-16");
             canal = new DtCanal("juliob", "Canal de JB", false);
-            user = new DtUsuario("juliob", "JB", "Julio", "Bocca", "juliobocca@sodre.com.uy", fechaU, "/imagenesUsuarios/Defecto.png", canal);
+            user = new DtUsuario("juliob", "Salome56", "Julio", "Bocca", "juliobocca@sodre.com.uy", fechaU, "/imagenesUsuarios/Defecto.png", canal);
             u.registrarUsuario(user, imagen);
             u.seguirUsuario(user, "mbusca");
             u.seguirUsuario(user, "diegop");
@@ -6673,13 +6671,13 @@ public class MenuInicio extends javax.swing.JFrame {
 
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("1975-01-01");
             canal = new DtCanal("diegop", "Canal de DP", false);
-            user = new DtUsuario("diegop", "DP", "Diego", "Parodi", "diego@efectocine.com", fechaU, "/imagenesUsuarios/Defecto.png", canal);
+            user = new DtUsuario("diegop", "Ruffo678", "Diego", "Parodi", "diego@efectocine.com", fechaU, "/imagenesUsuarios/Defecto.png", canal);
             u.registrarUsuario(user, imagen);
             u.seguirUsuario(user, "hectorg");
 
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("1940-04-25");
             canal = new DtCanal("Kairo música", "Videos de grandes canciones de hoy y siempre", false);
-            user = new DtUsuario("kairoh", "KH", "Kairo", "Herrera", "kairoher@pilsenrock.com.uy", fechaU, "/imagenesUsuarios/kairoh.png", canal);
+            user = new DtUsuario("kairoh", "Corbata15", "Kairo", "Herrera", "kairoher@pilsenrock.com.uy", fechaU, "/imagenesUsuarios/kairoh.png", canal);
             u.registrarUsuario(user, imagen);
             u.seguirUsuario(user, "sergiop");
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("2009-12-24");
@@ -6699,7 +6697,7 @@ public class MenuInicio extends javax.swing.JFrame {
 
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("1940-08-03");
             canal = new DtCanal("robinh", "Henderson", false);
-            user = new DtUsuario("robinh", "RH", "Robin", "Henderson", "robin.h@tinglesa.com.uy", fechaU, "/imagenesUsuarios/Defecto.png", canal);
+            user = new DtUsuario("robinh", "Aquiles67", "Robin", "Henderson", "robin.h@tinglesa.com.uy", fechaU, "/imagenesUsuarios/Defecto.png", canal);
             u.registrarUsuario(user, imagen);
             u.seguirUsuario(user, "hectorg");
             u.seguirUsuario(user, "juliob");
@@ -6707,7 +6705,7 @@ public class MenuInicio extends javax.swing.JFrame {
 
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("1960-04-01");
             canal = new DtCanal("Tinelli total", "Todo lo que querías y más!", false);
-            user = new DtUsuario("marcelot", "MT", "Marcelo", "Tinelli", "marcelot@ideasdelsur.com.ar", fechaU, "/imagenesUsuarios/Defecto.png", canal);
+            user = new DtUsuario("marcelot", "Mancha890", "Marcelo", "Tinelli", "marcelot@ideasdelsur.com.ar", fechaU, "/imagenesUsuarios/Defecto.png", canal);
             u.registrarUsuario(user, imagen);
             u.seguirUsuario(user, "cachilas");
             u.seguirUsuario(user, "juliob");
@@ -6715,7 +6713,7 @@ public class MenuInicio extends javax.swing.JFrame {
 
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("1952-07-17");
             canal = new DtCanal("Con la gente", "Preparando las elecciones", false);
-            user = new DtUsuario("novick", "EN", "Edgardo", "Novick", "edgardo@novick.com.uy", fechaU, "/imagenesUsuarios/Defecto.png", canal);
+            user = new DtUsuario("novick", "Xenon987", "Edgardo", "Novick", "edgardo@novick.com.uy", fechaU, "/imagenesUsuarios/Defecto.png", canal);
             u.registrarUsuario(user, imagen);
             u.seguirUsuario(user, "hrubino");
             u.seguirUsuario(user, "tabarec");
@@ -6723,7 +6721,7 @@ public class MenuInicio extends javax.swing.JFrame {
 
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("1950-01-28");
             canal = new DtCanal("Puglia invita", "Programas del ciclo y videos de cocina masterchef", false);
-            user = new DtUsuario("sergiop", "SP", "Sergio", "Puglia", "puglia@alpanpan.com.uy", fechaU, "/imagenesUsuarios/Defecto.png", canal);
+            user = new DtUsuario("sergiop", "Sultan876", "Sergio", "Puglia", "puglia@alpanpan.com.uy", fechaU, "/imagenesUsuarios/Defecto.png", canal);
             u.registrarUsuario(user, imagen);
             u.seguirUsuario(user, "mbusca");
             u.seguirUsuario(user, "juliob");
@@ -6731,7 +6729,7 @@ public class MenuInicio extends javax.swing.JFrame {
 
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("1976-03-17");
             canal = new DtCanal("Chino Recoba", "Canal de goles con Nacional", true);
-            user = new DtUsuario("chino", "AR", "Alvaro", "Recoba", "chino@trico.org.uy", fechaU, "/imagenesUsuarios/chino.png", canal);
+            user = new DtUsuario("chino", "Laika765", "Alvaro", "Recoba", "chino@trico.org.uy", fechaU, "/imagenesUsuarios/chino.png", canal);
             u.registrarUsuario(user, imagen);
             u.seguirUsuario(user, "tonyp");
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("2011-11-14");
@@ -6740,7 +6738,7 @@ public class MenuInicio extends javax.swing.JFrame {
 
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("1955-02-14");
             canal = new DtCanal("Tony Pacheco", "Canal de goles con Peñarol", true);
-            user = new DtUsuario("tonyp", "AP", "Antonio", "Pacheco", "eltony@manya.org.uy", fechaU, "/imagenesUsuarios/tonyp.png", canal);
+            user = new DtUsuario("tonyp", "Kitty543", "Antonio", "Pacheco", "eltony@manya.org.uy", fechaU, "/imagenesUsuarios/tonyp.png", canal);
             u.registrarUsuario(user, imagen);
             u.seguirUsuario(user, "chino");
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("2013-06-05");
@@ -6749,7 +6747,7 @@ public class MenuInicio extends javax.swing.JFrame {
 
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("1960-08-09");
             canal = new DtCanal("Desde Genexus", "Canal información C y T", false);
-            user = new DtUsuario("nicoJ", "NJ", "Nicolás", "Jodal", "jodal@artech.com.uy", fechaU, "/imagenesUsuarios/Defecto.png", canal);
+            user = new DtUsuario("nicoJ", "Albino80", "Nicolás", "Jodal", "jodal@artech.com.uy", fechaU, "/imagenesUsuarios/Defecto.png", canal);
             u.registrarUsuario(user, imagen);
             u.seguirUsuario(user, "diegop");
             fechaU = new SimpleDateFormat("yyyy-MM-dd").parse("2017-04-03");

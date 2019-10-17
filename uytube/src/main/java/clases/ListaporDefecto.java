@@ -69,10 +69,7 @@ public class ListaporDefecto extends ListaReproduccion{
             return false;
         }
         final ListaporDefecto other = (ListaporDefecto) obj;
-        if (this.id != other.id) {
-            return false;
-        }
-        return true;
+        return this.id == other.id;
     }
 
     

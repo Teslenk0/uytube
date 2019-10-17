@@ -60,10 +60,7 @@ public class DtListaParticulares extends DtListaReproduccion{
         if (!Objects.equals(this.privado, other.privado)) {
             return false;
         }
-        if (!Objects.equals(this.categoria, other.categoria)) {
-            return false;
-        }
-        return true;
+        return Objects.equals(this.categoria, other.categoria);
     }
     
     
