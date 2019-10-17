@@ -192,6 +192,9 @@ public class Video implements Serializable {
         }
         return Objects.equals(this.privado, other.privado);
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return "Video{" + "nombre=" + nombre + ", canal=" + canal.getNombre_canal() + '}';
+    }
 }

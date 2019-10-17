@@ -12,6 +12,7 @@ import clases.*;
 import DataTypes.*;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 import javax.persistence.Query;
 
@@ -91,31 +92,31 @@ public class ManejadorInformacion {
     public void modificarUsuario(Usuario u, Canal c) {
         manager = emf.createEntityManager();
         manager.getTransaction().begin();
-            Usuario user = manager.find(Usuario.class, u.getNickname());
-            user.setNombre(u.getNombre());
-            user.setApellido(u.getApellido());
-            user.setContrasenia(u.getContrasenia());
-            user.setFechaNac(u.getFechaNac());
-            user.setImagen(u.getImagen());
+        Usuario user = manager.find(Usuario.class, u.getNickname());
+        user.setNombre(u.getNombre());
+        user.setApellido(u.getApellido());
+        user.setContrasenia(u.getContrasenia());
+        user.setFechaNac(u.getFechaNac());
+        user.setImagen(u.getImagen());
         manager.getTransaction().commit();
         String canalViejo = u.getCanal().getNombre_canal();
         Canal aux = manager.find(Canal.class, u.getCanal().getNombre_canal());
-        if(!user.getCanal().getNombre_canal().equals(c.getNombre_canal())){
+        if (!user.getCanal().getNombre_canal().equals(c.getNombre_canal())) {
             manager.clear();
             manager.getTransaction().begin();
-                aux.setNombre_canal(c.getNombre_canal());
-                user = manager.find(Usuario.class, u.getNickname());
-                user.setCanal(aux);
+            aux.setNombre_canal(c.getNombre_canal());
+            user = manager.find(Usuario.class, u.getNickname());
+            user.setCanal(aux);
             manager.getTransaction().commit();
             manager.clear();
             manager.getTransaction().begin();
-                Canal aRemover = manager.find(Canal.class, canalViejo);
-                manager.remove(aRemover);
+            Canal aRemover = manager.find(Canal.class, canalViejo);
+            manager.remove(aRemover);
             manager.getTransaction().commit();
         }
         manager.getTransaction().begin();
-            aux.setDescripcion(c.getDescripcion());
-            aux.setPrivado(c.getPrivado());
+        aux.setDescripcion(c.getDescripcion());
+        aux.setPrivado(c.getPrivado());
         manager.getTransaction().commit();
         manager.close();
     }
@@ -172,32 +173,33 @@ public class ManejadorInformacion {
         manager.close();
     }
 
-    public void modificarVideo(Video video, String oldV){
+    public void modificarVideo(Video video, String oldV) {
         manager = emf.createEntityManager();
         manager.getTransaction().begin();
         Query query;
-        query = manager.createNativeQuery("update videos_canal set categoria='" + video.getCategoria() + "' where nombre='" + oldV + "' and nombre_canal='" + video.getCanal().getNombre_canal() +"';");     
-        query.executeUpdate(); 
-        query = manager.createNativeQuery("update videos_canal set descripcion='" + video.getDescripcion() + "' where nombre='" + oldV + "' and nombre_canal='" + video.getCanal().getNombre_canal() +"';");     
-        query.executeUpdate(); 
-        query = manager.createNativeQuery("update videos_canal set duracion='" + video.getDuracion() + "' where nombre='" + oldV + "' and nombre_canal='" + video.getCanal().getNombre_canal() +"';");     
+        query = manager.createNativeQuery("update videos_canal set categoria='" + video.getCategoria() + "' where nombre='" + oldV + "' and nombre_canal='" + video.getCanal().getNombre_canal() + "';");
+        query.executeUpdate();
+        query = manager.createNativeQuery("update videos_canal set descripcion='" + video.getDescripcion() + "' where nombre='" + oldV + "' and nombre_canal='" + video.getCanal().getNombre_canal() + "';");
+        query.executeUpdate();
+        query = manager.createNativeQuery("update videos_canal set duracion='" + video.getDuracion() + "' where nombre='" + oldV + "' and nombre_canal='" + video.getCanal().getNombre_canal() + "';");
         query.executeUpdate();
         Integer privado;
-        if(video.getPrivado())
+        if (video.getPrivado()) {
             privado = 1;
-        else
+        } else {
             privado = 0;
-        query = manager.createNativeQuery("update videos_canal set isPrivate='" + privado + "' where nombre='" + oldV + "' and nombre_canal='" + video.getCanal().getNombre_canal() +"';");     
+        }
+        query = manager.createNativeQuery("update videos_canal set isPrivate='" + privado + "' where nombre='" + oldV + "' and nombre_canal='" + video.getCanal().getNombre_canal() + "';");
         query.executeUpdate();
         Date dt = video.getFechaPublicacion();
         java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd");
         String date = sdf.format(dt);
-        query = manager.createNativeQuery("update videos_canal set fecha_publicacion='" + date + "' where nombre='" + oldV + "' and nombre_canal='" + video.getCanal().getNombre_canal() +"';");     
+        query = manager.createNativeQuery("update videos_canal set fecha_publicacion='" + date + "' where nombre='" + oldV + "' and nombre_canal='" + video.getCanal().getNombre_canal() + "';");
         query.executeUpdate();
-        query = manager.createNativeQuery("update videos_canal set url='" + video.getUrl() + "' where nombre='" + oldV + "' and nombre_canal='" + video.getCanal().getNombre_canal() +"';");     
+        query = manager.createNativeQuery("update videos_canal set url='" + video.getUrl() + "' where nombre='" + oldV + "' and nombre_canal='" + video.getCanal().getNombre_canal() + "';");
         query.executeUpdate();
-        if(!video.getNombre().equals(oldV)){
-            query = manager.createNativeQuery("update videos_canal set nombre='" + video.getNombre() + "' where nombre='" + oldV + "' and nombre_canal='" + video.getCanal().getNombre_canal() +"';");     
+        if (!video.getNombre().equals(oldV)) {
+            query = manager.createNativeQuery("update videos_canal set nombre='" + video.getNombre() + "' where nombre='" + oldV + "' and nombre_canal='" + video.getCanal().getNombre_canal() + "';");
             query.executeUpdate();
         }
         manager.getTransaction().commit();
@@ -212,19 +214,19 @@ public class ManejadorInformacion {
 
     public List listaCom(DtVideo v) {
         manager = emf.createEntityManager();
-         List<Object[]> comentario = manager.createNativeQuery("SELECT comentario, Referencia, Padre, nickname, fecha FROM comentarios_video where Video='" + v.getNombre() +"';").getResultList();
-         List<DtAuxiliar> comentarios = new ArrayList<>();
-         comentario.forEach((row) -> {
-             comentarios.add(new DtAuxiliar((String)row[0], (Integer)row[1], (String) row[2], (String) row[3], (Date) row[4]));
+        List<Object[]> comentario = manager.createNativeQuery("SELECT comentario, Referencia, Padre, nickname, fecha FROM comentarios_video where Video='" + v.getNombre() + "';").getResultList();
+        List<DtAuxiliar> comentarios = new ArrayList<>();
+        comentario.forEach((row) -> {
+            comentarios.add(new DtAuxiliar((String) row[0], (Integer) row[1], (String) row[2], (String) row[3], (Date) row[4]));
         });
-         return comentarios;
+        return comentarios;
     }
 
     public DtAuxiliar BuscarComentarioRef(String padre) {
         manager = emf.createEntityManager();
-        Object[] comentario = ((List<Object[]>)manager.createNativeQuery("SELECT comentario, Referencia, Padre, nickname, fecha FROM comentarios_video where Referencia='" + padre +"';").getResultList()).get(0);
-        if (comentario != null){
-            DtAuxiliar c = new DtAuxiliar( (String)comentario[0], (Integer) comentario[1] , (String)comentario[2], (String)comentario[3], (Date)comentario[4]);
+        Object[] comentario = ((List<Object[]>) manager.createNativeQuery("SELECT comentario, Referencia, Padre, nickname, fecha FROM comentarios_video where Referencia='" + padre + "';").getResultList()).get(0);
+        if (comentario != null) {
+            DtAuxiliar c = new DtAuxiliar((String) comentario[0], (Integer) comentario[1], (String) comentario[2], (String) comentario[3], (Date) comentario[4]);
             return c;
         }
         return null;
@@ -235,16 +237,16 @@ public class ManejadorInformacion {
         return (String) manager.createQuery(query).getSingleResult();
     }
 
-    public List listaTotalComentarios(){
+    public List listaTotalComentarios() {
         manager = emf.createEntityManager();
         List<Object[]> comentarios = manager.createNativeQuery("SELECT * FROM comentarios_video;").getResultList();
         List<DtauxComentarios> coment = new ArrayList<>();
-         comentarios.forEach((row) -> {
-             coment.add(new DtauxComentarios((String)row[0], (String)row[1], (Date) row[2], (String) row[3], (String) row[4], (Integer) row[5], (String) row[6]));
+        comentarios.forEach((row) -> {
+            coment.add(new DtauxComentarios((String) row[0], (String) row[1], (Date) row[2], (String) row[3], (String) row[4], (Integer) row[5], (String) row[6]));
         });
         return coment;
     }
-    
+
     public void addComentario(Comentario c) {
         manager = emf.createEntityManager();
         manager.getTransaction().begin();
@@ -408,52 +410,52 @@ public class ManejadorInformacion {
     public List getVideosListaDefecto(int id) {
         manager = emf.createEntityManager();
         String query = "FROM ListaDefectoVideos l WHERE l.id='" + id + "'";
-        List aux = manager.createQuery(query).getResultList(); 
+        List aux = manager.createQuery(query).getResultList();
         if (aux != null) {
             return aux;
         }
         return null;
     }
-    
+
     public List getVideosListaParticular(int id) {
         manager = emf.createEntityManager();
         String query = "FROM ListaParticularVideos l WHERE l.id='" + id + "'";
-        List aux = manager.createQuery(query).getResultList(); 
+        List aux = manager.createQuery(query).getResultList();
         if (aux != null) {
             return aux;
         }
         return null;
     }
-    
-    public void removerVideoLista(int id, String video, String canalOrigen,Boolean isParticular){
+
+    public void removerVideoLista(int id, String video, String canalOrigen, Boolean isParticular) {
         manager = emf.createEntityManager();
-        
-        if(isParticular){
-            ListaParticularVideos aux =(ListaParticularVideos) manager.createQuery("FROM ListaParticularVideos l WHERE l.id='" + id + "' and l.video='"+video+"' and l.canal='"+canalOrigen+"'").getSingleResult(); 
+
+        if (isParticular) {
+            ListaParticularVideos aux = (ListaParticularVideos) manager.createQuery("FROM ListaParticularVideos l WHERE l.id='" + id + "' and l.video='" + video + "' and l.canal='" + canalOrigen + "'").getSingleResult();
             manager.getTransaction().begin();
             manager.remove(aux);
             manager.getTransaction().commit();
-        }else{
-            ListaDefectoVideos aux = (ListaDefectoVideos) manager.createQuery("FROM ListaDefectoVideos l WHERE l.id='" + id + "' and l.video='"+video+"' and l.canal='"+canalOrigen+"'").getSingleResult(); 
+        } else {
+            ListaDefectoVideos aux = (ListaDefectoVideos) manager.createQuery("FROM ListaDefectoVideos l WHERE l.id='" + id + "' and l.video='" + video + "' and l.canal='" + canalOrigen + "'").getSingleResult();
             manager.getTransaction().begin();
             manager.remove(aux);
             manager.getTransaction().commit();
         }
         manager.close();
     }
-    
+
     public List obtenerVal(String nick) {
         manager = emf.createEntityManager();
         Usuario u = this.buscadorUsuario(nick);
-        List<Object[]> valorar = manager.createNativeQuery("SELECT dueño_Vid, video, usuario, valoracion FROM valorar where dueño_Vid='" + u.getNickname() +"';").getResultList();
+        List<Object[]> valorar = manager.createNativeQuery("SELECT dueño_Vid, video, usuario, valoracion FROM valorar where dueño_Vid='" + u.getNickname() + "';").getResultList();
         List<AuxiliarValorar> valoraciones = new ArrayList<>();
-         valorar.forEach((row) -> {
-             valoraciones.add(new AuxiliarValorar((String)row[0], (String)row[1], (String) row[2], (String) row[3]));
+        valorar.forEach((row) -> {
+            valoraciones.add(new AuxiliarValorar((String) row[0], (String) row[1], (String) row[2], (String) row[3]));
         });
-         return valoraciones;
-     
+        return valoraciones;
+
     }
-    
+
     public void valorarVid(Valorar v) {
         manager = emf.createEntityManager();
         manager.getTransaction().begin();
@@ -461,7 +463,7 @@ public class ManejadorInformacion {
         manager.getTransaction().commit();
         manager.close();
     }
-    
+
     public void modificoVal(Valorar v) {
         manager = emf.createEntityManager();
         manager.getTransaction().begin();
@@ -471,54 +473,72 @@ public class ManejadorInformacion {
         manager.getTransaction().commit();
         manager.close();
     }
-    
-    public List obtenerVideosPorCategoria(String categoria){
+
+    public List obtenerVideosPorCategoria(String categoria) {
         manager = emf.createEntityManager();
         String query = "FROM Video v WHERE v.categoria='" + categoria + "'";
-        List aux = manager.createQuery(query).getResultList(); 
+        List aux = manager.createQuery(query).getResultList();
         if (aux != null) {
             return aux;
         }
         return null;
     }
-    
-    public List obtenerListasParticularesPorCategoria(String categoria){
+
+    public List obtenerListasParticularesPorCategoria(String categoria) {
         manager = emf.createEntityManager();
         String query = "FROM ListaParticulares l WHERE l.categoria='" + categoria + "'";
-        List aux = manager.createQuery(query).getResultList(); 
+        List aux = manager.createQuery(query).getResultList();
         if (aux != null) {
             return aux;
         }
         return null;
     }
-    
-    public List busquedaArborescenteCanales(String text){
+
+    public List busquedaArborescenteCanales(String text) {
         manager = emf.createEntityManager();
         String query = "FROM Canal c WHERE c.nombre_canal LIKE '%" + text + "%'";
-        List aux = manager.createQuery(query).getResultList(); 
+        List aux = manager.createQuery(query).getResultList();
         if (aux != null) {
             return aux;
         }
         return null;
     }
-    
-    public List busquedaArborescenteVideos(String text){
+
+    public List busquedaArborescenteVideos(String text) {
         manager = emf.createEntityManager();
-        String query = "FROM Video v WHERE v.nombre LIKE '%" + text + "%'";
-        List aux = manager.createQuery(query).getResultList(); 
-        if (aux != null) {
-            return aux;
+
+        List<Object[]> videos = manager.createNativeQuery("SELECT * FROM videos_canal as v WHERE v.nombre LIKE '%" + text + "%';").getResultList();
+        List<Video> result = new LinkedList<Video>();
+        if (!videos.isEmpty()) {
+            videos.forEach((row) -> {
+                Canal c = manager.find(Canal.class, (String) row[1]);
+                result.add(new Video((String) row[0].toString().toLowerCase(), c, (Date) row[2], (String) row[3], (String) row[4], (String) row[5], (String) row[6], (Boolean) row[7]));
+            });
+            return result;
         }
         return null;
     }
-    
-    public List busquedaArborescenteListasParticulares(String text){
+
+    public List busquedaArborescenteListasParticulares(String text) {
         manager = emf.createEntityManager();
-        String query = "FROM ListaParticulares l WHERE l.nombreLista LIKE '%" + text + "%'";
-        List aux = manager.createQuery(query).getResultList(); 
+        
+        manager = emf.createEntityManager();
+        String query = "FROM ListaParticulares c WHERE c.nombreLista LIKE '%" + text + "%'";
+        List aux = manager.createQuery(query).getResultList();
         if (aux != null) {
             return aux;
         }
         return null;
+        
+        /*List<Object[]> listas = manager.createNativeQuery("SELECT * FROM lista_particular_canal as l WHERE l.nombre_lista LIKE '%" + text + "%';").getResultList();
+        List<ListaParticulares> result = new LinkedList<>();
+        if (!listas.isEmpty()) {
+            listas.forEach((row) -> {
+                Canal c = manager.find(Canal.class, (String) row[1]);
+                result.add(new ListaParticulares());
+            });
+            return result;
+        }
+        return null;*/
     }
 }

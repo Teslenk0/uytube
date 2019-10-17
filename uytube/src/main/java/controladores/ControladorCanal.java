@@ -472,14 +472,13 @@ public class ControladorCanal implements IControladorCanal {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
 
         List results = mu.busquedaArborescenteVideos(text);
-
+        
         DtVideo tmp;
         Video aux;
         if (!results.isEmpty()) {
             List<DtVideo> resultados = new LinkedList<>();
             for (int i = 0; i < results.size(); i++) {
                 aux = (Video) results.get(i);
-                aux.setNombre(aux.getNombre().toLowerCase());
                 tmp = new DtVideo(aux);
                 resultados.add(tmp);
             }
@@ -501,7 +500,6 @@ public class ControladorCanal implements IControladorCanal {
         if (!results.isEmpty()) {
             List<DtListaParticulares> resultados = new LinkedList<>();
             for (int i = 0; i < results.size(); i++) {
-
                 aux = (ListaParticulares) results.get(i);
                 aux.setNombreLista(aux.getNombreLista().toLowerCase());
                 tmp = new DtListaParticulares(aux.getPrivado(), aux.getNombreLista(), new DtCategoria(aux.getCategoria().getNombreCategoria()),

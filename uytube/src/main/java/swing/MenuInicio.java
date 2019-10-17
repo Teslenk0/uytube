@@ -4980,8 +4980,6 @@ public class MenuInicio extends javax.swing.JFrame {
         Panel_Central.add(Central1);
         Panel_Central.revalidate();
         Panel_Central.repaint();
-        
-        System.out.println(c.busquedaArborescenteListasParticulares("de"));
 
     }//GEN-LAST:event_btn_InicioMousePressed
 

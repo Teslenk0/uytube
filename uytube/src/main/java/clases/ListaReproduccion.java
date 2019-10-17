@@ -83,9 +83,8 @@ public abstract class ListaReproduccion implements Serializable{
         return Objects.equals(this.canal, other.canal);
     }
 
-    
-
-
-    
-    
+    @Override
+    public String toString() {
+        return "ListaReproduccion{" + "nombreLista=" + nombreLista + ", canal=" + canal + '}';
+    }    
 }

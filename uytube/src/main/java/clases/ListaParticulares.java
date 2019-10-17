@@ -108,13 +108,4 @@ public class ListaParticulares extends ListaReproduccion {
         }
         return Objects.equals(this.categoria, other.categoria);
     }
-
-   
-    
-
-    @Override
-    public String toString() {
-        return "ListaParticulares{" + "id=" + id + ", privado=" + privado + ", categoria=" + categoria + '}';
-    }
-    
 }
