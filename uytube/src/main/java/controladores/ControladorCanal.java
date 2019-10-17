@@ -95,11 +95,13 @@ public class ControladorCanal implements IControladorCanal {
     public DtVideo obtenerVideo(String nomV, String c) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         Video video = mu.buscadorVideo(nomV, c);
-
-        DtCanal canal = new DtCanal(video.getCanal().getNombre_canal(), video.getCanal().getDescripcion(), video.getCanal().getPrivado());
-        DtVideo vid = new DtVideo(video.getNombre(), canal, video.getFechaPublicacion(), video.getUrl(), video.getDescripcion(), video.getCategoria(), video.getDuracion(), video.getPrivado());
-        return vid;
-
+        if(video !=null){
+            DtCanal canal = new DtCanal(video.getCanal().getNombre_canal(), video.getCanal().getDescripcion(), video.getCanal().getPrivado());
+            DtVideo vid = new DtVideo(video.getNombre(), canal, video.getFechaPublicacion(), video.getUrl(), video.getDescripcion(), video.getCategoria(), video.getDuracion(), video.getPrivado());
+            return vid;
+        }else{
+            return null;
+        }
     }
 
     @Override
