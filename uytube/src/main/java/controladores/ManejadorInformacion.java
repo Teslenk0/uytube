@@ -174,29 +174,19 @@ public class ManejadorInformacion {
     }
 
     public void modificarVideo(Video video, String oldV) {
-        manager = emf.createEntityManager();
-        manager.getTransaction().begin();
-        Query query;
-        query = manager.createNativeQuery("update videos_canal set categoria='" + video.getCategoria() + "' where nombre='" + oldV + "' and nombre_canal='" + video.getCanal().getNombre_canal() + "';");
-        query.executeUpdate();
-        query = manager.createNativeQuery("update videos_canal set descripcion='" + video.getDescripcion() + "' where nombre='" + oldV + "' and nombre_canal='" + video.getCanal().getNombre_canal() + "';");
-        query.executeUpdate();
-        query = manager.createNativeQuery("update videos_canal set duracion='" + video.getDuracion() + "' where nombre='" + oldV + "' and nombre_canal='" + video.getCanal().getNombre_canal() + "';");
-        query.executeUpdate();
-        Integer privado;
+         Integer privado;
         if (video.getPrivado()) {
             privado = 1;
         } else {
             privado = 0;
         }
-        query = manager.createNativeQuery("update videos_canal set isPrivate='" + privado + "' where nombre='" + oldV + "' and nombre_canal='" + video.getCanal().getNombre_canal() + "';");
-        query.executeUpdate();
         Date dt = video.getFechaPublicacion();
         java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd");
         String date = sdf.format(dt);
-        query = manager.createNativeQuery("update videos_canal set fecha_publicacion='" + date + "' where nombre='" + oldV + "' and nombre_canal='" + video.getCanal().getNombre_canal() + "';");
-        query.executeUpdate();
-        query = manager.createNativeQuery("update videos_canal set url='" + video.getUrl() + "' where nombre='" + oldV + "' and nombre_canal='" + video.getCanal().getNombre_canal() + "';");
+        manager = emf.createEntityManager();
+        manager.getTransaction().begin();
+        Query query;
+        query = manager.createNativeQuery("update videos_canal set categoria='" + video.getCategoria() + "', descripcion='" + video.getDescripcion() + "', duracion='" + video.getDuracion() + "', isPrivate='" + privado + "', fecha_publicacion='" + date + "', url='" + video.getUrl() + "' where nombre='" + oldV + "' and nombre_canal='" + video.getCanal().getNombre_canal() + "';");
         query.executeUpdate();
         if (!video.getNombre().equals(oldV)) {
             query = manager.createNativeQuery("update videos_canal set nombre='" + video.getNombre() + "' where nombre='" + oldV + "' and nombre_canal='" + video.getCanal().getNombre_canal() + "';");
@@ -517,7 +507,7 @@ public class ManejadorInformacion {
 
                 Canal c = manager.find(Canal.class, (String) row[1]);
 
-                result.add(new Video((String) row[0].toString().toLowerCase(), c, (Date) row[2], (String) row[3], (String) row[4], (String) row[5], (String) row[6], (Boolean) row[7]));
+                result.add(new Video((String) row[0].toString(), c, (Date) row[2], (String) row[3], (String) row[4], (String) row[5], (String) row[6], (Boolean) row[7]));
             });
             return result;
         }

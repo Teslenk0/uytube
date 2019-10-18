@@ -6575,7 +6575,7 @@ public class MenuInicio extends javax.swing.JFrame {
                     + "La mesa de apertura estuvo integrada por Simon, el rector de la Universidad de la República (Udelar).", "Noticias", "27:22", false);
             c.registrarVideo(video);
             fechaC = new SimpleDateFormat("yyyy-MM-dd HH:MM:SS").parse("2017-12-05 14:35:00");
-            com = new DtComentario("nicoJ", "Fue in gran evento", fechaC, video, null, 1, user.getCanal().getNombre_canal());
+            com = new DtComentario("nicoJ", "Fue un gran evento", fechaC, video, null, 1, user.getCanal().getNombre_canal());
             c.agregarComentario(com);
             fechaC = new SimpleDateFormat("yyyy-MM-dd HH:MM:SS").parse("2017-12-08 01:47:00");
             com = new DtComentario("hrubino", "Para el proximo aniversario ofrezco vamo' con los Momo", fechaC, video, "1", 2, user.getCanal().getNombre_canal());

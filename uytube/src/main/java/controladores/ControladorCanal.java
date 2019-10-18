@@ -464,7 +464,7 @@ public class ControladorCanal implements IControladorCanal {
             List<DtCanal> resultados = new LinkedList<>();
             for (int i = 0; i < results.size(); i++) {
                 aux = (Canal) results.get(i);
-                aux.setNombre_canal(aux.getNombre_canal().toLowerCase());
+                aux.setNombre_canal(aux.getNombre_canal());
                 tmp = new DtCanal(aux.getNombre_canal(), aux.getDescripcion(), aux.getPrivado(), new DtUsuario(aux.getUsuario()));
                 resultados.add(tmp);
             }
@@ -487,7 +487,7 @@ public class ControladorCanal implements IControladorCanal {
             List<DtVideo> resultados = new LinkedList<>();
             for (int i = 0; i < results.size(); i++) {
                 aux = (Video) results.get(i);
-                aux.setNombre(aux.getNombre().toLowerCase());
+                aux.setNombre(aux.getNombre());
                 tmp = new DtVideo(aux);
                 resultados.add(tmp);
             }
@@ -510,7 +510,7 @@ public class ControladorCanal implements IControladorCanal {
             List<DtListaParticulares> resultados = new LinkedList<>();
             for (int i = 0; i < results.size(); i++) {
                 aux = (ListaParticulares) results.get(i);
-                aux.setNombreLista(aux.getNombreLista().toLowerCase());
+                aux.setNombreLista(aux.getNombreLista());
                 tmp = new DtListaParticulares(aux.getPrivado(), aux.getNombreLista(), new DtCategoria(aux.getCategoria().getNombreCategoria()),
                         new DtCanal(aux.getCanal().getNombre_canal(),
                                 aux.getCanal().getDescripcion(), aux.getCanal().getPrivado(), new DtUsuario(aux.getCanal().getUsuario())));

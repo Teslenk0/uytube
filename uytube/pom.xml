@@ -12,6 +12,26 @@
     </properties>
     
     <dependencies>
+    <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-api</artifactId>
+        <version>5.5.2</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.junit.platform</groupId>
+        <artifactId>junit-platform-launcher</artifactId>
+        <version>1.5.2</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.junit.vintage</groupId>
+        <artifactId>junit-vintage-engine</artifactId>
+        <version>5.5.2</version>
+        <scope>test</scope>
+    </dependency>
+    
     <!-- https://mvnrepository.com/artifact/org.netbeans.external/AbsoluteLayout -->
     <dependency>
         <groupId>org.netbeans.external</groupId>
@@ -60,16 +80,6 @@
         <artifactId>hibernate-jpa-2.1-api</artifactId>
         <version>1.0.2.Final</version>
     </dependency>
-    
-    <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
-    <dependency>
-        <groupId>org.junit.jupiter</groupId>
-        <artifactId>junit-jupiter-api</artifactId>
-        <version>5.5.0</version>
-        <scope>test</scope>
-    </dependency>
-
-
     </dependencies>
     
     <build>
