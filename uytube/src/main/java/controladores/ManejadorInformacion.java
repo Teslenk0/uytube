@@ -508,10 +508,14 @@ public class ManejadorInformacion {
         manager = emf.createEntityManager();
 
         List<Object[]> videos = manager.createNativeQuery("SELECT * FROM videos_canal as v WHERE v.nombre LIKE '%" + text + "%';").getResultList();
-        List<Video> result = new LinkedList<Video>();
+       
         if (!videos.isEmpty()) {
+            
+            List<Video> result = new ArrayList<>();
             videos.forEach((row) -> {
+                
                 Canal c = manager.find(Canal.class, (String) row[1]);
+                
                 result.add(new Video((String) row[0].toString().toLowerCase(), c, (Date) row[2], (String) row[3], (String) row[4], (String) row[5], (String) row[6], (Boolean) row[7]));
             });
             return result;

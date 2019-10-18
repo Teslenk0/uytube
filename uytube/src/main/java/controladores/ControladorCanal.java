@@ -481,7 +481,7 @@ public class ControladorCanal implements IControladorCanal {
         
         DtVideo tmp;
         Video aux;
-        if (!results.isEmpty()) {
+        if (results != null) {
             List<DtVideo> resultados = new LinkedList<>();
             for (int i = 0; i < results.size(); i++) {
                 aux = (Video) results.get(i);
