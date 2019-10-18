@@ -15,6 +15,7 @@ import clases.Canal;
 import clases.Valorar;
 import excepciones.CanalRepetidoException;
 import excepciones.EmailRepetidoException;
+import excepciones.ValoracionException;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -184,7 +185,7 @@ public class ControladorUsuario implements IControladorUsuario{
     }
     
     @Override
-    public void valorarVideo(String u, String video, String user_val, String val) {
+    public void valorarVideo(String u, String video, String user_val, String val) throws ValoracionException{
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         Usuario user = mu.buscadorUsuario(u);
         List lista = mu.obtenerVal(u);
@@ -196,15 +197,27 @@ public class ControladorUsuario implements IControladorUsuario{
             for(int x = 0; x < lista.size(); x++) {
                 dtaux = (AuxiliarValorar)lista.get(x);
                 if(dtaux.getVid().equals(video)&&dtaux.getUser().equals(user_val)&&!dtaux.getVal().equals(val)) {
-                    mu.modificoVal(v);
+                    try{
+                        mu.modificoVal(v);
+                    }catch(Exception e){
+                        throw new ValoracionException("Este usuario ya tiene la valoracion '"+v.getVal()+"' en este video");
+                    }
                     b=true;
                 }
             }
             if(b == false)
-                mu.valorarVid(v);
+                try{
+                    mu.modificoVal(v);
+                }catch(Exception e){
+                    throw new ValoracionException("Este usuario ya tiene la valoracion '"+v.getVal()+"' en este video");
+                }
         }
         else {
-            mu.valorarVid(v);
+            try{
+                mu.modificoVal(v);
+            }catch(Exception e){
+                throw new ValoracionException("Este usuario ya tiene la valoracion '"+v.getVal()+"' en este video");
+            }
         }
     }
     

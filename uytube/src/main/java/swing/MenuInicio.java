@@ -22,6 +22,7 @@ import excepciones.CategoriaRepetidaException;
 import excepciones.EmailRepetidoException;
 import excepciones.ListaRepetidaException;
 import excepciones.UsuarioRepetidoException;
+import excepciones.ValoracionException;
 import excepciones.VideoRepetidoException;
 import excepciones.VideoYaExisteEnListaException;
 import fabrica.Fabrica;
@@ -6808,6 +6809,8 @@ public class MenuInicio extends javax.swing.JFrame {
             mensaje.CambioTexto("    Error de listas");
         }catch(VideoYaExisteEnListaException ex){
             mensaje.CambioTexto("    Error de videos en listas");
+        } catch (ValoracionException ex) {
+            Logger.getLogger(MenuInicio.class.getName()).log(Level.SEVERE, null, ex);
         }
         mensaje.setVisible(true);
     }//GEN-LAST:event_SobrecargaActionPerformed
@@ -7321,10 +7324,13 @@ public class MenuInicio extends javax.swing.JFrame {
         String nomVideo = (String) videos_ComboBox.getSelectedItem();
         String nickUser = (String) userVal_ComboBox.getSelectedItem();
         String val = (String) val_ComboBox.getSelectedItem();
-
-        u.valorarVideo(nickDueño, nomVideo, nickUser, val);
         VentanaEmergente mensaje = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
-        mensaje.CambioTexto("Se valoró video con éxito");
+        try {
+            u.valorarVideo(nickDueño, nomVideo, nickUser, val);
+            mensaje.CambioTexto("Se valoró video con éxito");
+        } catch (ValoracionException ex) {
+            mensaje.CambioTexto(ex.getMessage());
+        }
         mensaje.setVisible(true);
     }//GEN-LAST:event_aceptar_ButtonActionPerformed
 

@@ -10,6 +10,7 @@ import excepciones.UsuarioRepetidoException;
 import DataTypes.DtUsuario;
 import excepciones.CanalRepetidoException;
 import excepciones.EmailRepetidoException;
+import excepciones.ValoracionException;
 import java.awt.image.BufferedImage;
 import java.util.List;
 
@@ -40,7 +41,7 @@ public interface IControladorUsuario {
     
     public abstract List listaSeguidores(String nick);
 
-    public abstract void valorarVideo(String u, String video, String user_val, String val);
+    public abstract void valorarVideo(String u, String video, String user_val, String val) throws ValoracionException;
     
     public abstract DtUsuario buscarUsuarioCanal(String c);
     

@@ -467,7 +467,7 @@ public class ManejadorInformacion {
     public void modificoVal(Valorar v) {
         manager = emf.createEntityManager();
         manager.getTransaction().begin();
-        Query query = manager.createQuery("delete from Valorar val where val.dueño='" + v.getDuenio().getNickname() + "' and val.vid='" + v.getVid() + "' and val.user='" + v.getUser() + "'");
+        Query query = manager.createNativeQuery("delete from valorar where dueño_Vid='" + v.getDuenio().getNickname() + "' and video='" + v.getVid() + "' and usuario='" + v.getUser() + "';");
         query.executeUpdate();
         manager.persist(v);
         manager.getTransaction().commit();
