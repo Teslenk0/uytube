@@ -60,10 +60,12 @@ public class ControladorCanal implements IControladorCanal {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         Canal canal = new Canal(v.getCanal().getNombre_canal(), v.getCanal().getDescripcion(), v.getCanal().getPrivado());
         Video video = new Video(v.getNombre(), canal, v.getFechaPublicacion(), v.getUrl(), v.getDescripcion(), v.getCategoria(), v.getDuracion(), v.getPrivado());
-        if(!video.getNombre().equals(oldV)) 
-            if (obtenerVideo(v.getNombre(), v.getCanal().getNombre_canal()) != null) 
+        if (!video.getNombre().equals(oldV)) {
+            if (obtenerVideo(v.getNombre(), v.getCanal().getNombre_canal()) != null) {
                 throw new VideoRepetidoException("El video ya existe");
-        
+            }
+        }
+
         try {
             mu.modificarVideo(video, oldV);
         } catch (Exception c) {
@@ -99,11 +101,11 @@ public class ControladorCanal implements IControladorCanal {
     public DtVideo obtenerVideo(String nomV, String c) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         Video video = mu.buscadorVideo(nomV, c);
-        if(video !=null){
+        if (video != null) {
             DtCanal canal = new DtCanal(video.getCanal().getNombre_canal(), video.getCanal().getDescripcion(), video.getCanal().getPrivado());
             DtVideo vid = new DtVideo(video.getNombre(), canal, video.getFechaPublicacion(), video.getUrl(), video.getDescripcion(), video.getCategoria(), video.getDuracion(), video.getPrivado());
             return vid;
-        }else{
+        } else {
             return null;
         }
     }
@@ -478,13 +480,14 @@ public class ControladorCanal implements IControladorCanal {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
 
         List results = mu.busquedaArborescenteVideos(text);
-        
+
         DtVideo tmp;
         Video aux;
         if (results != null) {
             List<DtVideo> resultados = new LinkedList<>();
             for (int i = 0; i < results.size(); i++) {
                 aux = (Video) results.get(i);
+                aux.setNombre(aux.getNombre().toLowerCase());
                 tmp = new DtVideo(aux);
                 resultados.add(tmp);
             }
@@ -518,20 +521,61 @@ public class ControladorCanal implements IControladorCanal {
         }
         return null;
     }
-    
+
     @Override
     public DtListaParticulares buscarListaParticular(String nomLista, DtCanal canal) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
-        
-        ListaParticulares lista = mu.buscadorListaParticular(canal.getNombre_canal(),nomLista);
-        if(lista != null){
-            DtCanal c = new DtCanal (lista.getCanal().getNombre_canal(), lista.getCanal().getDescripcion(), lista.getCanal().getPrivado());
-            DtCategoria cat = new DtCategoria (lista.getCategoria().getNombreCategoria());
-            DtListaParticulares aux = new DtListaParticulares (lista.getPrivado(),lista.getNombreLista(),cat,c);
+
+        ListaParticulares lista = mu.buscadorListaParticular(canal.getNombre_canal(), nomLista);
+        if (lista != null) {
+            DtCanal c = new DtCanal(lista.getCanal().getNombre_canal(), lista.getCanal().getDescripcion(), lista.getCanal().getPrivado());
+            DtCategoria cat = new DtCategoria(lista.getCategoria().getNombreCategoria());
+            DtListaParticulares aux = new DtListaParticulares(lista.getPrivado(), lista.getNombreLista(), cat, c);
             return aux;
         }
-            
+
         return null;
     }
 
+    @Override
+    public DtVideo buscoVideoMasRecienteCanal(String canal) {
+        ManejadorInformacion mu = ManejadorInformacion.getInstance();
+        Canal c = mu.buscadorCanal(canal);
+        if (c != null) {
+            Video v = mu.buscoVideoMasRecienteCanal(c);
+            if (v != null) {
+                return new DtVideo(v);
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public DtVideo buscoVideoMasRecienteListaParticular(String lista, String canal) {
+        ManejadorInformacion mu = ManejadorInformacion.getInstance();
+        ListaParticulares l = mu.buscadorListaParticular(canal,lista);
+        if (l != null) {
+
+            List<ListaParticularVideos> videos = mu.getVideosListaParticular(l.getId());
+            if (videos != null) {
+                Video ultimo = null;
+                Video tmp = null;
+                ListaParticularVideos aux = null;
+                for (int i = 0; i < videos.size(); i++) {
+                    aux = (ListaParticularVideos) videos.get(i);
+                    if(i == 0){
+                        ultimo = mu.buscadorVideo(aux.getVideo(), aux.getCanal());
+                    }else{
+                        tmp = mu.buscadorVideo(aux.getVideo(), aux.getCanal());
+                        if(ultimo.getFechaPublicacion().before(tmp.getFechaPublicacion())){
+                            ultimo = tmp;
+                        }
+                    }
+                }
+                return new DtVideo(ultimo);
+            }
+            return null;
+        }
+        return null;
+    }
 }
