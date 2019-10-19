@@ -336,7 +336,7 @@ public class ControladorCanal implements IControladorCanal {
         Usuario user = mu.buscadorUsuario(nombre);
         ListaporDefecto list = mu.buscadorListaDefecto(user.getCanal().getNombre_canal(), nombreLista);
         List listaxvideos = mu.getVideosListaDefecto(list.getId());
-        System.out.println("LLEGA ACA PARIENTE");
+        
         if (listaxvideos != null) {
             List aux = new LinkedList();
             ListaDefectoVideos tmp;
@@ -348,7 +348,7 @@ public class ControladorCanal implements IControladorCanal {
                     aux.add(temp);
                 }
             }
-            System.out.println("ACA NO LLEGA");
+            
             return aux;
         } else {
             return null;
@@ -553,8 +553,11 @@ public class ControladorCanal implements IControladorCanal {
 
     @Override
     public DtVideo buscoVideoMasRecienteListaParticular(String lista, String canal) {
+        
+        
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         ListaParticulares l = mu.buscadorListaParticular(canal,lista);
+        
         if (l != null) {
 
             List<ListaParticularVideos> videos = mu.getVideosListaParticular(l.getId());
@@ -564,12 +567,19 @@ public class ControladorCanal implements IControladorCanal {
                 ListaParticularVideos aux = null;
                 for (int i = 0; i < videos.size(); i++) {
                     aux = (ListaParticularVideos) videos.get(i);
+                    
                     if(i == 0){
+                        
                         ultimo = mu.buscadorVideo(aux.getVideo(), aux.getCanal());
                     }else{
+                        
                         tmp = mu.buscadorVideo(aux.getVideo(), aux.getCanal());
-                        if(ultimo.getFechaPublicacion().before(tmp.getFechaPublicacion())){
-                            ultimo = tmp;
+                        if(tmp != null){
+                            if(ultimo.getFechaPublicacion().before(tmp.getFechaPublicacion())){
+                                ultimo = tmp;
+                            }
+                        }else{
+                            return null;
                         }
                     }
                 }

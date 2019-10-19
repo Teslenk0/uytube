@@ -4981,6 +4981,7 @@ public class MenuInicio extends javax.swing.JFrame {
         Panel_Central.add(Central1);
         Panel_Central.revalidate();
         Panel_Central.repaint();
+        System.out.println(c.buscoVideoMasRecienteListaParticular("Solo deportes", "juliob"));
     }//GEN-LAST:event_btn_InicioMousePressed
 
     private void btn_UsuarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_UsuarioMousePressed

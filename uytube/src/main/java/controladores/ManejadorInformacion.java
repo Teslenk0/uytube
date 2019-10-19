@@ -174,7 +174,7 @@ public class ManejadorInformacion {
     }
 
     public void modificarVideo(Video video, String oldV) {
-         Integer privado;
+        Integer privado;
         if (video.getPrivado()) {
             privado = 1;
         } else {
@@ -359,7 +359,7 @@ public class ManejadorInformacion {
             ListaParticulares aux = (ListaParticulares) manager.createQuery("FROM ListaParticulares l WHERE l.canal='" + canal + "' and l.nombreLista='" + lista + "'").getSingleResult();
             return aux;
         } catch (Exception e) {
-             return null;
+            return null;
         }
     }
 
@@ -410,10 +410,15 @@ public class ManejadorInformacion {
 
     public List getVideosListaParticular(int id) {
         manager = emf.createEntityManager();
-        String query = "FROM ListaParticularVideos l WHERE l.id='" + id + "'";
-        List aux = manager.createQuery(query).getResultList();
-        if (aux != null) {
-            return aux;
+
+        List<Object[]> listaxvideos = manager.createNativeQuery("SELECT * FROM lista_particular_video where id=" + id + ";").getResultList();
+        List<ListaParticularVideos> result = new ArrayList<>();
+        ListaParticulares lista = manager.find(ListaParticulares.class, id);
+        if (!listaxvideos.isEmpty()) {
+            listaxvideos.forEach((row) -> {
+                result.add(new ListaParticularVideos(lista, (String) row[1], lista.getCanal().getNombre_canal()));
+            });
+            return result;
         }
         return null;
     }
@@ -543,17 +548,14 @@ public class ManejadorInformacion {
     }
 
     public Video buscoVideoMasRecienteCanal(Canal canal) {
-         manager = emf.createEntityManager();
-        Object[] v = (Object[]) manager.createNativeQuery("SELECT DISTINCT * FROM videos_canal AS v WHERE v.fecha_publicacion = (SELECT MAX(fecha_publicacion) FROM videos_canal AS c WHERE c.nombre_canal ='" + canal.getNombre_canal() + "') and v.nombre_canal='" + canal.getNombre_canal() + "';").getSingleResult();
-        System.out.println(canal.getNombre_canal());
-        System.out.println(v);
-        Video result = null;
-        if (v != null) {
-            result = new Video((String) v[0].toString(), canal, (Date) v[2], (String) v[3], (String) v[4], (String) v[5], (String) v[6], (Boolean) v[7]);
-            System.out.println(result);
-            return result;
-        }
+        manager = emf.createEntityManager();
+        try {
+            Object[] v = (Object[]) manager.createNativeQuery("SELECT DISTINCT * FROM videos_canal AS v WHERE v.fecha_publicacion = (SELECT MAX(fecha_publicacion) FROM videos_canal AS c WHERE c.nombre_canal ='" + canal.getNombre_canal() + "') and v.nombre_canal='" + canal.getNombre_canal() + "';").getSingleResult();
+            Video result = new Video((String) v[0].toString(), canal, (Date) v[2], (String) v[3], (String) v[4], (String) v[5], (String) v[6], (Boolean) v[7]);
 
-        return null;
+            return result;
+        } catch (Exception e) {
+            return null;
+        }
     }
 }
