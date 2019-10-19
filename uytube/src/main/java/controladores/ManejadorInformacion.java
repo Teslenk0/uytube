@@ -552,7 +552,6 @@ public class ManejadorInformacion {
         try {
             Object[] v = (Object[]) manager.createNativeQuery("SELECT DISTINCT * FROM videos_canal AS v WHERE v.fecha_publicacion = (SELECT MAX(fecha_publicacion) FROM videos_canal AS c WHERE c.nombre_canal ='" + canal.getNombre_canal() + "') and v.nombre_canal='" + canal.getNombre_canal() + "';").getSingleResult();
             Video result = new Video((String) v[0].toString(), canal, (Date) v[2], (String) v[3], (String) v[4], (String) v[5], (String) v[6], (Boolean) v[7]);
-
             return result;
         } catch (Exception e) {
             return null;

@@ -198,6 +198,11 @@ public class Usuario implements Serializable{
         }
         return Objects.equals(this.canal, other.canal);
     }
+
+    @Override
+    public String toString() {
+        return "Usuario{" + "nickname=" + nickname + '}';
+    }
     
     
     

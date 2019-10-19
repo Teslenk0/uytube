@@ -544,7 +544,14 @@ public class ControladorCanal implements IControladorCanal {
         if (c != null) {
             Video v = mu.buscoVideoMasRecienteCanal(c);
             if (v != null) {
-                return new DtVideo(v);
+                DtVideo video = new DtVideo(v.getNombre(),new DtCanal(v.getCanal().getNombre_canal(), v.getCanal().getDescripcion(), v.getCanal().getPrivado(),new DtUsuario(v.getCanal().getUsuario())),
+                        v.getFechaPublicacion(),
+                        v.getUrl(),
+                        v.getDescripcion(),
+                        v.getCategoria(),
+                        v.getDuracion(),
+                        v.getPrivado());
+                return video;
             }
             return null;
         }
