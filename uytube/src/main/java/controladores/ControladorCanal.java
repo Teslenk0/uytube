@@ -546,6 +546,7 @@ public class ControladorCanal implements IControladorCanal {
             if (v != null) {
                 return new DtVideo(v);
             }
+            return null;
         }
         return null;
     }

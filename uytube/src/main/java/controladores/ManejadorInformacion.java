@@ -543,36 +543,17 @@ public class ManejadorInformacion {
     }
 
     public Video buscoVideoMasRecienteCanal(Canal canal) {
-        manager = emf.createEntityManager();
-        Object[] video = (Object[]) manager.createNativeQuery("SELECT *\n"
-                + "FROM videos_canal AS v\n"
-                + "WHERE fecha_publicacion = (\n"
-                + "    SELECT MAX(fecha_publicacion)\n"
-                + "    FROM videos_canal AS c\n"
-                + "    WHERE c.nombre_canal ='"+canal.getNombre_canal()+"'\n"
-                + ");").getSingleResult();
-
-        if (video != null) {
-            Video result = new Video((String) video[0].toString(), canal, (Date) video[2], (String) video[3], (String) video[4], (String) video[5], (String) video[6], (Boolean) video[7]);
+         manager = emf.createEntityManager();
+        Object[] v = (Object[]) manager.createNativeQuery("SELECT DISTINCT * FROM videos_canal AS v WHERE v.fecha_publicacion = (SELECT MAX(fecha_publicacion) FROM videos_canal AS c WHERE c.nombre_canal ='" + canal.getNombre_canal() + "') and v.nombre_canal='" + canal.getNombre_canal() + "';").getSingleResult();
+        System.out.println(canal.getNombre_canal());
+        System.out.println(v);
+        Video result = null;
+        if (v != null) {
+            result = new Video((String) v[0].toString(), canal, (Date) v[2], (String) v[3], (String) v[4], (String) v[5], (String) v[6], (Boolean) v[7]);
+            System.out.println(result);
             return result;
         }
+
         return null;
     }
-    
-    /*public Video buscoVideoMasRecienteListaParticular(ListaParticulares lista){
-    manager = emf.createEntityManager();
-        Object[] video = (Object[]) manager.createNativeQuery("SELECT *\n"
-                + "FROM  AS l\n"
-                + "WHERE fecha_publicacion = (\n"
-                + "    SELECT MAX(fecha_publicacion)\n"
-                + "    FROM videos_canal AS c\n"
-                + "    WHERE c.nombre_canal ='"+canal.getNombre_canal()+"'\n"
-                + ");").getSingleResult();
-
-        if (video != null) {
-            Video result = new Video((String) video[0].toString(), canal, (Date) video[2], (String) video[3], (String) video[4], (String) video[5], (String) video[6], (Boolean) video[7]);
-            return result;
-        }
-        return null;
-    }*/
 }
