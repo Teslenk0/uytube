@@ -4981,7 +4981,6 @@ public class MenuInicio extends javax.swing.JFrame {
         Panel_Central.add(Central1);
         Panel_Central.revalidate();
         Panel_Central.repaint();
-        System.out.println(c.buscoVideoMasRecienteListaParticular("Solo deportes", "juliob"));
     }//GEN-LAST:event_btn_InicioMousePressed
 
     private void btn_UsuarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_UsuarioMousePressed
@@ -6978,7 +6977,6 @@ public class MenuInicio extends javax.swing.JFrame {
         DtUsuario us = u.buscarUsuario(user);
         List listaParticulates = c.getListasReproduccion(user);
         List listaDefecto = c.getListasDefecto(user);
-        System.out.println(listaDefecto);
         if (!listaParticulates.isEmpty() || !listaDefecto.isEmpty()) {
             comboListas1.setEnabled(true);
             Central4_5_1.remove(CambiarUsuario11);
