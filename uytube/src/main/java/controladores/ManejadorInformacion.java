@@ -410,15 +410,10 @@ public class ManejadorInformacion {
 
     public List getVideosListaParticular(int id) {
         manager = emf.createEntityManager();
-
-        List<Object[]> listaxvideos = manager.createNativeQuery("SELECT * FROM lista_particular_video where id=" + id + ";").getResultList();
-        List<ListaParticularVideos> result = new ArrayList<>();
-        ListaParticulares lista = manager.find(ListaParticulares.class, id);
-        if (!listaxvideos.isEmpty()) {
-            listaxvideos.forEach((row) -> {
-                result.add(new ListaParticularVideos(lista, (String) row[1], lista.getCanal().getNombre_canal()));
-            });
-            return result;
+        String query = "FROM ListaParticularVideos l WHERE l.id='" + id + "'";
+        List aux = manager.createQuery(query).getResultList();
+        if (aux != null) {
+            return aux;
         }
         return null;
     }
@@ -472,22 +467,46 @@ public class ManejadorInformacion {
 
     public List obtenerVideosPorCategoria(String categoria) {
         manager = emf.createEntityManager();
-        String query = "FROM Video v WHERE v.categoria='" + categoria + "'";
-        List aux = manager.createQuery(query).getResultList();
-        if (aux != null) {
-            return aux;
+        
+        List<Object[]> videos = manager.createNativeQuery("SELECT * FROM videos_canal as v WHERE v.categoria='" + categoria + "';").getResultList();
+
+        if (!videos.isEmpty()) {
+
+            List<Video> result = new ArrayList<>();
+            videos.forEach((row) -> {
+
+                Canal c = manager.find(Canal.class, (String) row[1]);
+
+                result.add(new Video((String) row[0].toString(), c, (Date) row[2], (String) row[3], (String) row[4], (String) row[5], (String) row[6], (Boolean) row[7]));
+            });
+            return result;
         }
         return null;
     }
 
     public List obtenerListasParticularesPorCategoria(String categoria) {
         manager = emf.createEntityManager();
-        String query = "FROM ListaParticulares l WHERE l.categoria='" + categoria + "'";
+        
+        List<Object[]> listas = manager.createNativeQuery("SELECT * FROM lista_particular_canal as l WHERE l.categoria='" + categoria + "';").getResultList();
+
+        if (!listas.isEmpty()) {
+
+            List<ListaParticulares> result = new ArrayList<>();
+            listas.forEach((row) -> {
+                Canal c = manager.find(Canal.class, (String) row[2]);
+                result.add(new ListaParticulares((Boolean) row[3], (String)row[1], new Categoria((String) row[4]), c));
+            });
+            return result;
+        }
+        return null;
+        
+        
+        /*String query = "FROM ListaParticulares l WHERE l.categoria='" + categoria + "'";
         List aux = manager.createQuery(query).getResultList();
         if (aux != null) {
             return aux;
         }
-        return null;
+        return null;*/
     }
 
     public List busquedaArborescenteCanales(String text) {
