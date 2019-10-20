@@ -589,8 +589,12 @@ public class ControladorCanal implements IControladorCanal {
                         ultimo = mu.buscadorVideo(aux.getVideo(), aux.getCanal());
                     }else{
                         tmp = mu.buscadorVideo(aux.getVideo(), aux.getCanal());
-                        if(ultimo.getFechaPublicacion().before(tmp.getFechaPublicacion())){
-                            ultimo = tmp;
+                        if(tmp != null && ultimo != null){
+                            if(ultimo.getFechaPublicacion().before(tmp.getFechaPublicacion())){
+                                ultimo = tmp;
+                            }
+                        }else{
+                            return null;
                         }
                     }
                 }
