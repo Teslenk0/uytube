@@ -4,7 +4,11 @@
     <states>
       <state key="ProjectJDKs.UI">
         <settings>
+<<<<<<< Updated upstream
           <last-edited>1.8</last-edited>
+=======
+          <last-edited>11</last-edited>
+>>>>>>> Stashed changes
           <splitter-proportions>
             <option name="proportions">
               <list>

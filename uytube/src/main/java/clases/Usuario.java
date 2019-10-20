@@ -81,7 +81,9 @@ public class Usuario implements Serializable{
         this.apellido = usuario.getApellido();
         this.fechaNac = usuario.getFechaNac();
         this.imagen = usuario.getImagen();
-        this.canal = new Canal(usuario.getCanal());
+        if(usuario.getCanal ()!= null) {
+            this.canal = new Canal(usuario.getCanal());
+        }
     }
 
 

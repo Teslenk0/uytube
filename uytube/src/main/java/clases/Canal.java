@@ -57,7 +57,9 @@ public class Canal implements Serializable, Comparable<Canal> {
         this.nombre_canal = canal.getNombre_canal();
         this.descripcion = canal.getDescripcion();
         this.privado = canal.getPrivado();
-        this.usuario = new Usuario(canal.getUsuario());
+        if(canal.getUsuario() != null) {
+            this.usuario = new Usuario(canal.getUsuario());
+        }
     }
 
     public String getNombre_canal() {
