@@ -576,4 +576,33 @@ public class ManejadorInformacion {
             return null;
         }
     }
+    
+    
+    public List obtenerTodasListasDefecto(){
+        manager = emf.createEntityManager();
+        String query = "FROM ListaporDefecto l";
+        List<ListaporDefecto> aux = manager.createQuery(query).getResultList();
+        if (aux != null) {
+            return aux;
+        }
+        return null;
+        
+    }
+    
+    public void agregarListasDefecto(List listas, String nickname){
+        manager = emf.createEntityManager();
+        if(listas != null){
+            Usuario u = manager.find(Usuario.class,nickname);
+            
+            ListaporDefecto l;
+            for(int i=0;i<listas.size();i++){
+                l = (ListaporDefecto) listas.get(i);
+                manager.getTransaction().begin();
+                ListaporDefecto lista = new ListaporDefecto(l.getNombreLista(), u.getCanal());
+                manager.persist(lista);
+                manager.getTransaction().commit();
+            }
+        }
+    }
+    
 }

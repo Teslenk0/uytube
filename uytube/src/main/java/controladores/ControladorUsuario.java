@@ -53,6 +53,12 @@ public class ControladorUsuario implements IControladorUsuario{
         }
         user = new Usuario(u.getNickname(), u.getContrasenia(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen(), new Canal(u.getCanal().getNombre_canal(), u.getCanal().getDescripcion(), u.getCanal().getPrivado()));  
         mu.registrarUser(user);
+        List<Usuario> users = mu.ObtenerUsuarios();
+        if(users != null){
+            Usuario aux = (Usuario) users.get(users.size()-1);
+            List listasDefecto = mu.obtenerListasDefecto(aux.getNickname());
+            mu.agregarListasDefecto(listasDefecto, user.getNickname());
+        }
         if (imagen != null) {
             String path = System.getProperty("user.dir");
             path = path + "/src/main/resources/imagenesUsuarios/" + u.getNickname() + ".png";
