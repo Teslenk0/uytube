@@ -142,9 +142,12 @@ public class ControladorCanal implements IControladorCanal {
     @Override
     public List listaComentarios(DtVideo video) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
-        List lista = mu.listaCom(video);
-        if (lista != null) {
-            return lista;
+        if(video != null) {
+            List lista = mu.listaCom(video);
+            if (lista != null) {
+                return lista;
+            }
+            return null;
         }
         return null;
     }
@@ -192,19 +195,20 @@ public class ControladorCanal implements IControladorCanal {
         List canales = mu.obtenerCanales();
         ListaReproduccion list;
         Canal aux;
-        if (mu.buscoListaDefecto(lista.getNombreLista())) {
-            throw new ListaRepetidaException("La lista por defecto ya existe");
-        }
+        if(lista != null) {
+            if (mu.buscoListaDefecto(lista.getNombreLista())) {
+                throw new ListaRepetidaException("La lista por defecto ya existe");
+            }
 
-        for (int x = 0; x < canales.size(); x++) {
-            if (canales.get(x) != null) {
-                aux = (Canal) canales.get(x);
-                list = new ListaporDefecto(lista.getNombreLista());
-                list.setCanal(aux);
-                mu.crearLista(list);
+            for (int x = 0; x < canales.size(); x++) {
+                if (canales.get(x) != null) {
+                    aux = (Canal) canales.get(x);
+                    list = new ListaporDefecto(lista.getNombreLista());
+                    list.setCanal(aux);
+                    mu.crearLista(list);
+                }
             }
         }
-
     }
 
     @Override
@@ -232,48 +236,57 @@ public class ControladorCanal implements IControladorCanal {
         List<DtListaParticulares> aux = new LinkedList<>();
         ListaParticulares tmp;
         DtListaParticulares temp;
-        listasParticulares = mu.obtenerListasParticulares(nick);
-        for (int x = 0; x < listasParticulares.size(); x++) {
-            if (listasParticulares.get(x) != null) {
-                tmp = (ListaParticulares) listasParticulares.get(x);
+        if(nick != null) {
+            if(mu.buscadorUsuario(nick) != null) {
+                listasParticulares = mu.obtenerListasParticulares(nick);
+                for (int x = 0; x < listasParticulares.size(); x++) {
+                    if (listasParticulares.get(x) != null) {
+                        tmp = (ListaParticulares) listasParticulares.get(x);
 
-                if (tmp.getCategoria() != null) {
-                    temp = new DtListaParticulares(tmp.getPrivado(), new DtCategoria(tmp.getCategoria().getNombreCategoria()), tmp.getNombreLista());
-                } else {
-                    temp = new DtListaParticulares(tmp.getPrivado(), null, tmp.getNombreLista());
+                        if (tmp.getCategoria() != null) {
+                            temp = new DtListaParticulares(tmp.getPrivado(), new DtCategoria(tmp.getCategoria().getNombreCategoria()), tmp.getNombreLista());
+                        } else {
+                            temp = new DtListaParticulares(tmp.getPrivado(), null, tmp.getNombreLista());
+                        }
+                        aux.add(temp);
+                    }
                 }
-                aux.add(temp);
+                return aux;
             }
+            return null;
         }
-        return aux;
+        return null;
     }
 
     @Override
     public void registrarCategoria(DtCategoria c) throws CategoriaRepetidaException {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
-        Categoria cat = new Categoria(c.getnombreCategoria());
-        try {
-            mu.registrarCategoria(cat);
-        } catch (Exception e) {
-            throw new CategoriaRepetidaException("Categoria repetida");
+        if(c != null) {
+            Categoria cat = new Categoria(c.getnombreCategoria());
+            try {
+                mu.registrarCategoria(cat);
+            } catch (Exception e) {
+                throw new CategoriaRepetidaException("Categoria repetida");
+            }
         }
     }
 
     @Override
     public void modificarListaParticular(DtListaParticulares lista, DtUsuario user) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
-        Canal aux = new Canal(user.getCanal().getNombre_canal(), user.getCanal().getDescripcion(), user.getCanal().getPrivado());
-        Usuario u = new Usuario(user.getNickname(), user.getContrasenia(), user.getNombre(), user.getApellido(), user.getEmail(), user.getFechaNac(), user.getImagen());
-        u.setCanal(aux);
-        aux.setUsuario(u);
-        ListaReproduccion list;
-        if (lista.getCategoria() == null) {
-            list = new ListaParticulares(lista.getPrivado(), lista.getNombreLista(), null, aux);
-        } else {
-            list = new ListaParticulares(lista.getPrivado(), lista.getNombreLista(), new Categoria(lista.getCategoria().getnombreCategoria()), aux);
+        if(user != null && lista != null) {
+            Canal aux = new Canal(user.getCanal().getNombre_canal(), user.getCanal().getDescripcion(), user.getCanal().getPrivado());
+            Usuario u = new Usuario(user.getNickname(), user.getContrasenia(), user.getNombre(), user.getApellido(), user.getEmail(), user.getFechaNac(), user.getImagen());
+            u.setCanal(aux);
+            aux.setUsuario(u);
+            ListaReproduccion list;
+            if (lista.getCategoria() == null) {
+                list = new ListaParticulares(lista.getPrivado(), lista.getNombreLista(), null, aux);
+            } else {
+                list = new ListaParticulares(lista.getPrivado(), lista.getNombreLista(), new Categoria(lista.getCategoria().getnombreCategoria()), aux);
+            }
+            mu.modificarListaParticular((ListaParticulares) list);
         }
-        mu.modificarListaParticular((ListaParticulares) list);
-
     }
 
     @Override
@@ -297,19 +310,26 @@ public class ControladorCanal implements IControladorCanal {
     @Override
     public List getListasDefecto(String nick) {
         if(nick != null) {
+
             ManejadorInformacion mu = ManejadorInformacion.getInstance();
             List<DtListaporDefecto> aux = new LinkedList<>();
             ListaporDefecto tmp;
             DtListaporDefecto temp;
-            List listas = mu.obtenerListasDefecto(nick);
-            for (int x = 0; x < listas.size(); x++) {
-                if (listas.get(x) != null) {
-                    tmp = (ListaporDefecto) listas.get(x);
-                    temp = new DtListaporDefecto(tmp.getNombreLista());
-                    aux.add(temp);
+            if(!nick.isEmpty()) {
+                List listas = mu.obtenerListasDefecto(nick);
+                if(listas != null) {
+                    for (int x = 0; x < listas.size(); x++) {
+                        if (listas.get(x) != null) {
+                            tmp = (ListaporDefecto) listas.get(x);
+                            temp = new DtListaporDefecto(tmp.getNombreLista());
+                            aux.add(temp);
+                        }
+                    }
+                    return aux;
                 }
+                return null;
             }
-            return aux;
+            return null;
         }
         return null;
     }
@@ -336,26 +356,29 @@ public class ControladorCanal implements IControladorCanal {
     @Override
     public List getVideosListaDefecto(String nombre, String nombreLista) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
-        Usuario user = mu.buscadorUsuario(nombre);
-        ListaporDefecto list = mu.buscadorListaDefecto(user.getCanal().getNombre_canal(), nombreLista);
-        List listaxvideos = mu.getVideosListaDefecto(list.getId());
-        System.out.println("LLEGA ACA PARIENTE");
-        if (listaxvideos != null) {
-            List aux = new LinkedList();
-            ListaDefectoVideos tmp;
-            DtListaDefectoVideos temp;
-            for (int x = 0; x < listaxvideos.size(); x++) {
-                if (listaxvideos.get(x) != null) {
-                    tmp = (ListaDefectoVideos) listaxvideos.get(x);
-                    temp = new DtListaDefectoVideos(new DtListaporDefecto(nombreLista), tmp.getVideo(), tmp.getCanal());
-                    aux.add(temp);
+        if(nombre != null && nombreLista != null) {
+            Usuario user = mu.buscadorUsuario(nombre);
+            ListaporDefecto list = mu.buscadorListaDefecto(user.getCanal().getNombre_canal(), nombreLista);
+            List listaxvideos = mu.getVideosListaDefecto(list.getId());
+            System.out.println("LLEGA ACA PARIENTE");
+            if (listaxvideos != null) {
+                List aux = new LinkedList();
+                ListaDefectoVideos tmp;
+                DtListaDefectoVideos temp;
+                for (int x = 0; x < listaxvideos.size(); x++) {
+                    if (listaxvideos.get(x) != null) {
+                        tmp = (ListaDefectoVideos) listaxvideos.get(x);
+                        temp = new DtListaDefectoVideos(new DtListaporDefecto(nombreLista), tmp.getVideo(), tmp.getCanal());
+                        aux.add(temp);
+                    }
                 }
+                System.out.println("ACA NO LLEGA");
+                return aux;
+            } else {
+                return null;
             }
-            System.out.println("ACA NO LLEGA");
-            return aux;
-        } else {
-            return null;
         }
+        return null;
     }
 
     @Override
@@ -407,15 +430,21 @@ public class ControladorCanal implements IControladorCanal {
     @Override
     public List listaMeGustas(String usuario) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
-        List lista = mu.obtenerVal(usuario);
-        if (lista != null) {
-            List aux = new LinkedList();
-            DtAuxiliarValorar dtaux;
-            for (int x = 0; x < lista.size(); x++) {
-                dtaux = new DtAuxiliarValorar((AuxiliarValorar) lista.get(x));
-                aux.add(dtaux);
+        if(usuario != null) {
+            if(mu.buscadorUsuario(usuario) != null) {
+                List lista = mu.obtenerVal(usuario);
+                if (lista != null) {
+                    List aux = new LinkedList();
+                    DtAuxiliarValorar dtaux;
+                    for (int x = 0; x < lista.size(); x++) {
+                        dtaux = new DtAuxiliarValorar((AuxiliarValorar) lista.get(x));
+                        aux.add(dtaux);
+                    }
+                    return aux;
+                }
+                return null;
             }
-            return aux;
+            return null;
         }
         return null;
     }

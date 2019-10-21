@@ -7,11 +7,14 @@
 package controladores;
 
 import DataTypes.*;
+import clases.*;
+import excepciones.CategoriaRepetidaException;
 import fabrica.Fabrica;
 import interfaces.IControladorCanal;
 import interfaces.IControladorUsuario;
 import org.junit.*;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -54,7 +57,11 @@ public class ControladorCanalIT {
         DtCanal ca = new DtCanal("El Cachila", "Para juntar cosas", true);
         Date d = new SimpleDateFormat("yyyy-MM-dd").parse("2018-06-01");
         DtVideo v = new DtVideo("Celeste", ca, d, "https://youtu.be/PAfbzKcePx0", "Tema Oficial", "Música", "3:04", true);
-        c.registrarVideo(v);
+        try {
+            c.registrarVideo(v);
+        }catch (Exception e){
+
+        }
         DtVideo vi = c.obtenerVideo(v.getNombre(), v.getCanal().getNombre_canal());
         assertNotNull(vi);
         //delete from videos_canal where nombre='Celeste' and nombre_canal='El Cachila';
@@ -70,7 +77,11 @@ public class ControladorCanalIT {
         Date d = new SimpleDateFormat("yyyy-MM-dd").parse("2018-06-01");
         DtVideo v = new DtVideo("Cambio", ca, d, "https://youtu.be/PAfbzKcePx0", "Prueba", "Música", "3:04", true);
         String oldV = "Celeste";
-        c.modificarVideo(v, oldV);
+        try {
+            c.modificarVideo(v, oldV);
+        }catch (Exception e){
+
+        }
         DtVideo vi = c.obtenerVideo(v.getNombre(), v.getCanal().getNombre_canal());
         assertEquals("Cambio", vi.getNombre());
         //delete from videos_canal where nombre='Cambio' and nombre_canal='El Cachila';
@@ -141,13 +152,22 @@ public class ControladorCanalIT {
     @Test
     public void testListaComentarios() {
         System.out.println("listaComentarios");
+
+        //PARAMETROS NULL
         DtVideo video = null;
-        ControladorCanal c = new ControladorCanal();
-        List expResult = null;
         List result = c.listaComentarios(video);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        assertNull(result);
+
+
+        //PARAMETROS NO EXISTENTE
+        DtUsuario user = controladorUsuario.buscarUsuario("hectorg");
+        result = c.listaComentarios(new DtVideo("nombre", user.getCanal(), new Date(10,12,15), "url","descripcion","categoria", "duracion", false));
+        assertNotNull(result);
+
+        //PARAMETROS EXISTENTES
+        video = c.obtenerVideo("Locura Celeste","Tabaré");
+        result = c.listaComentarios(video);
+        assertNotNull(result);
     }
 
     /**
@@ -156,12 +176,8 @@ public class ControladorCanalIT {
     @Test
     public void testListaComentariosTodos() {
         System.out.println("listaComentariosTodos");
-        ControladorCanal c = new ControladorCanal();
-        List expResult = null;
         List result = c.listaComentariosTodos();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        assertNotNull(result);
     }
 
     /**
@@ -169,12 +185,32 @@ public class ControladorCanalIT {
      */
     @Test
     public void testAgregarComentario() {
-        /*System.out.println("agregarComentario");
-        DtComentario c = null;
-        ControladorCanal c = new ControladorCanal();
-        c.agregarComentario(c);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");*/
+        System.out.println("agregarComentario");
+        //PARAMETROS NULL
+        DtComentario coment = null;
+        try{
+            c.agregarComentario(coment);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
+        //PARAMETROS MAL
+        DtVideo video = c.obtenerVideo("Show de goles","juliob");
+        coment = new DtComentario("hectorg","comentario", new Date(10,12,12), video, "asd", 15, "canal");
+        try{
+            c.agregarComentario(coment);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
+        //PARAMETROS BIEN
+        video = c.obtenerVideo("Show de goles","juliob");
+        coment = new DtComentario("hectorg","esto es un comentario", new Date(10,12,12), video, "12", 15, "juliob");
+        try{
+            c.agregarComentario(coment);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -183,12 +219,8 @@ public class ControladorCanalIT {
     @Test
     public void testGetCanales() {
         System.out.println("getCanales");
-        ControladorCanal c = new ControladorCanal();
-        List expResult = null;
         List result = c.getCanales();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        assertNotNull(result);
     }
 
     /**
@@ -199,11 +231,32 @@ public class ControladorCanalIT {
     @Test
     public void testCrearListaDefecto() throws Exception {
         System.out.println("crearListaDefecto");
-        DtListaReproduccion lista = null;
-        ControladorCanal c = new ControladorCanal();
-        c.crearListaDefecto(lista);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+
+        //PARAMETROS VACIOS
+        DtListaporDefecto lista = null;
+        DtUsuario user = null;
+        try {
+            c.crearListaDefecto(lista);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+
+        //LISTA DUPLICADA
+        lista = new DtListaporDefecto("Ver mas tarde");
+        try {
+            c.crearListaDefecto(lista);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        //CASO OK
+        lista = new DtListaporDefecto("Invierno del 91");
+        try {
+            c.crearListaDefecto(lista);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -214,12 +267,41 @@ public class ControladorCanalIT {
     @Test
     public void testCrearListaParticular() throws Exception {
         System.out.println("crearListaParticular");
+
+        //PARAMETROS VACIOS
         DtListaParticulares lista = null;
         DtUsuario user = null;
-        ControladorCanal c = new ControladorCanal();
-        c.crearListaParticular(lista, user);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        try {
+            c.crearListaParticular(lista, user);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        //PARAMETROS MALOS
+        lista = null;
+        user = controladorUsuario.buscarUsuario("kairoh");
+        try {
+            c.crearListaParticular(lista, user);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        //LISTA DUPLICADA
+        lista = c.buscarListaParticular("Nostalgia",user.getCanal());
+        try {
+            c.crearListaParticular(lista, user);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        //CASO OK
+        lista = new DtListaParticulares(false,"Carnavalito", new DtCategoria("Carnaval"), new DtCanal(user.getCanal().getNombre_canal(),user.getCanal().getDescripcion(),user.getCanal().getPrivado(), user));
+        try {
+            c.crearListaParticular(lista, user);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
 
     /**
@@ -228,13 +310,21 @@ public class ControladorCanalIT {
     @Test
     public void testGetListasReproduccion() {
         System.out.println("getListasReproduccion");
-        String nick = "";
-        ControladorCanal c = new ControladorCanal();
-        List expResult = null;
+
+        //PARAMETROS VACIOS
+        String nick = null;
         List result = c.getListasReproduccion(nick);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        assertEquals(null, result);
+
+        //PARAMETROS NO EXISTENTES
+        nick = "asdasd";
+        result = c.getListasReproduccion(nick);
+        assertEquals(null, result);
+
+        //PARAMETROS EXISTENTES
+        nick = "hectorg";
+        result = c.getListasReproduccion(nick);
+        assertNotNull(result);
     }
 
     /**
@@ -244,12 +334,29 @@ public class ControladorCanalIT {
      */
     @Test
     public void testRegistrarCategoria() throws Exception {
-        /*System.out.println("registrarCategoria");
-        DtCategoria c = null;
-        ControladorCanal c = new ControladorCanal();
-        c.registrarCategoria(c);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");*/
+        System.out.println("registrarCategoria");
+
+        //PARAMETROS VACIOS
+        DtCategoria categoria = null;
+        try {
+            c.registrarCategoria(categoria);
+        }catch (CategoriaRepetidaException e){
+        }
+
+        //PARAMETROS REPETIDOS
+        categoria = new DtCategoria("Carnaval");
+        try {
+            c.registrarCategoria(categoria);
+        }catch (CategoriaRepetidaException e){
+        }
+
+        //PARAMETROS NUEVOS
+        categoria = new DtCategoria("asdasdasd");
+        try {
+            c.registrarCategoria(categoria);
+        }catch (CategoriaRepetidaException e){
+        }
+
     }
 
     /**
@@ -258,12 +365,59 @@ public class ControladorCanalIT {
     @Test
     public void testModificarListaParticular() {
         System.out.println("modificarListaParticular");
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/mm/dd");
+        Date date;
+        {
+            try{
+                date = sdf.parse("1111/11/11");
+            }catch (ParseException e){
+                e.printStackTrace();
+            }
+        }
+
+        //PARAMETROS EN NULL
         DtListaParticulares lista = null;
         DtUsuario user = null;
-        ControladorCanal c = new ControladorCanal();
         c.modificarListaParticular(lista, user);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+
+        try {
+            c.modificarListaParticular(lista, user);
+        }catch (Exception e){
+            System.out.println(e.getStackTrace());
+        }
+
+        //PARAMETROS MALOS
+        lista = new DtListaParticulares( false, new DtCategoria("categoria"),"nombreLista");
+        DtCanal canal = new DtCanal("nombre_canal", "descripcion", false);
+        user = new DtUsuario("nickname", "contraseña", "nombre", "apellido", "email", new Date(2312,10,25), "imagen",canal);
+        c.modificarListaParticular(lista, user);
+        try {
+            c.modificarListaParticular(lista, user);
+        }catch (Exception e){
+            System.out.println(e.getStackTrace());
+        }
+
+        //PARAMETROS BUENOS - LISTA NO EXISTENTE
+        lista = new DtListaParticulares( false, new DtCategoria("Carnaval"),"Carnavalitos del amor");
+        user = controladorUsuario.buscarUsuario("hectorg");
+        c.modificarListaParticular(lista, user);
+        try {
+            c.modificarListaParticular(lista, user);
+        }catch (Exception e){
+            System.out.println(e.getStackTrace());
+        }
+
+        //PARAMETROS BUENOS - LISTA EXISTENTE
+        user = controladorUsuario.buscarUsuario("kairoh");
+        lista = c.buscarListaParticular("Nostalgia",user.getCanal());
+        c.modificarListaParticular(lista, user);
+        try {
+            c.modificarListaParticular(lista, user);
+        }catch (Exception e){
+            System.out.println(e.getStackTrace());
+        }
+
     }
 
     /**
@@ -272,12 +426,10 @@ public class ControladorCanalIT {
     @Test
     public void testGetCategorias() {
         System.out.println("getCategorias");
-        ControladorCanal c = new ControladorCanal();
-        List expResult = null;
+
         List result = c.getCategorias();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        assertNotNull(result);
+
     }
 
     /**
@@ -286,13 +438,22 @@ public class ControladorCanalIT {
     @Test
     public void testGetListasDefecto() {
         System.out.println("getListasDefecto");
-        String nick = "";
-        ControladorCanal c = new ControladorCanal();
-        List expResult = null;
+
+        //PARAMETROS VACIOS
+        String nick = null;
         List result = c.getListasDefecto(nick);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        assertNull(result);
+
+        //PARAMETROS NO EXISTENTES
+        nick = "asdasd";
+        result = c.getListasDefecto(nick);
+        assertNull(result);
+
+        //PARAMETROS EXISTENTES
+        nick = "hectorg";
+        result = c.getListasDefecto(nick);
+        assertNotNull(result);
+
     }
 
     /**
@@ -303,15 +464,39 @@ public class ControladorCanalIT {
     @Test
     public void testAgregarVideoLista() throws Exception {
         System.out.println("agregarVideoLista");
+
         String nombreVideo = "";
         String listaDestino = "";
         String usuarioDestino = "";
         String usuarioOrigen = "";
-        Boolean isParticular = null;
-        ControladorCanal c = new ControladorCanal();
-        c.agregarVideoLista(nombreVideo, listaDestino, usuarioDestino, usuarioOrigen, isParticular);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        Boolean isParticular = true;
+        try {
+            c.agregarVideoLista(nombreVideo, listaDestino, usuarioDestino, usuarioOrigen, isParticular);
+        }catch (Exception e){
+            System.out.println(e.getStackTrace());
+        }
+
+        nombreVideo = "asdasd";
+        listaDestino = "asdsd";
+        usuarioDestino = "hectorg";
+        usuarioOrigen = "kairoh";
+        isParticular = false;
+        try {
+            c.agregarVideoLista(nombreVideo, listaDestino, usuarioDestino, usuarioOrigen, isParticular);
+        }catch (Exception e){
+            System.out.println(e.getStackTrace());
+        }
+
+        nombreVideo = "Dancing in the Dark";
+        listaDestino = "Nostalgia";
+        usuarioDestino = "kairoh";
+        usuarioOrigen = "hectorg";
+        isParticular = true;
+        try {
+            c.agregarVideoLista(nombreVideo, listaDestino, usuarioDestino, usuarioOrigen, isParticular);
+        }catch (Exception e){
+            System.out.println(e.getStackTrace());
+        }
     }
 
     /**
@@ -320,14 +505,36 @@ public class ControladorCanalIT {
     @Test
     public void testGetVideosListaDefecto() {
         System.out.println("getVideosListaDefecto");
-        String nombre = "";
-        String nombreLista = "";
-        ControladorCanal c = new ControladorCanal();
-        List expResult = null;
+
+        //PARAMETROS VACIOS
+        String nombre = null;
+        String nombreLista = null;
         List result = c.getVideosListaDefecto(nombre, nombreLista);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        assertNull(result);
+
+        //PARAMETROS NO EXISTENTES
+        nombre = "asdasdc";
+        nombreLista = "f54552";
+        result = c.getVideosListaDefecto(nombre, nombreLista);
+        assertNull(result);
+
+        //USUARIO EXISTENTE PERO NO LISTA
+        nombre = "hectorg";
+        nombreLista = "f54552";
+        result = c.getVideosListaDefecto(nombre, nombreLista);
+        assertNull(result);
+
+        //USUARIO NO EXISTENTE PERO SI LISTA
+        nombre = "asdasd";
+        nombreLista = "Escuchar más tarde";
+        result = c.getVideosListaDefecto(nombre, nombreLista);
+        assertNull(result);
+
+        //DATOS POSTA
+        nombre = "kairoh";
+        nombreLista = "Escuchar más tarde";
+        result = c.getVideosListaDefecto(nombre, nombreLista);
+        assertNotNull(result);
     }
 
     /**
@@ -434,7 +641,7 @@ public class ControladorCanalIT {
         System.out.println("listaMeGustas");
 
         //PARAMETROS VACIOS
-        String usuario = "";
+        String usuario = null;
         List result = c.listaMeGustas(usuario);
         assertNull(result);
 
