@@ -296,19 +296,22 @@ public class ControladorCanal implements IControladorCanal {
 
     @Override
     public List getListasDefecto(String nick) {
-        ManejadorInformacion mu = ManejadorInformacion.getInstance();
-        List<DtListaporDefecto> aux = new LinkedList<>();
-        ListaporDefecto tmp;
-        DtListaporDefecto temp;
-        List listas = mu.obtenerListasDefecto(nick);
-        for (int x = 0; x < listas.size(); x++) {
-            if (listas.get(x) != null) {
-                tmp = (ListaporDefecto) listas.get(x);
-                temp = new DtListaporDefecto(tmp.getNombreLista());
-                aux.add(temp);
+        if(nick != null) {
+            ManejadorInformacion mu = ManejadorInformacion.getInstance();
+            List<DtListaporDefecto> aux = new LinkedList<>();
+            ListaporDefecto tmp;
+            DtListaporDefecto temp;
+            List listas = mu.obtenerListasDefecto(nick);
+            for (int x = 0; x < listas.size(); x++) {
+                if (listas.get(x) != null) {
+                    tmp = (ListaporDefecto) listas.get(x);
+                    temp = new DtListaporDefecto(tmp.getNombreLista());
+                    aux.add(temp);
+                }
             }
+            return aux;
         }
-        return aux;
+        return null;
     }
 
     @Override
@@ -358,32 +361,34 @@ public class ControladorCanal implements IControladorCanal {
     @Override
     public List getVideosListaParticular(String nombre, String nombreLista) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
-        Usuario user = mu.buscadorUsuario(nombre);
-        ListaParticulares list = mu.buscadorListaParticular(user.getCanal().getNombre_canal(), nombreLista);
-        List listaxvideos = mu.getVideosListaParticular(list.getId());
-        if (listaxvideos != null) {
-            List aux = new LinkedList();
-            ListaParticularVideos tmp;
-            DtListaParticulares listaParticular;
-            DtListaParticularVideos temp;
-            for (int x = 0; x < listaxvideos.size(); x++) {
-                if (listaxvideos.get(x) != null) {
-                    tmp = (ListaParticularVideos) listaxvideos.get(x);
-                    if (list.getCategoria() != null) {
-                        listaParticular = new DtListaParticulares(list.getPrivado(), new DtCategoria(list.getCategoria().getNombreCategoria()), nombreLista);
-                    } else {
-                        listaParticular = new DtListaParticulares(list.getPrivado(), null, nombreLista);
+        if(nombre != null && nombreLista!=null) {
+            Usuario user = mu.buscadorUsuario(nombre);
+            ListaParticulares list = mu.buscadorListaParticular(user.getCanal().getNombre_canal(), nombreLista);
+            List listaxvideos = mu.getVideosListaParticular(list.getId());
+            if (listaxvideos != null) {
+                List aux = new LinkedList();
+                ListaParticularVideos tmp;
+                DtListaParticulares listaParticular;
+                DtListaParticularVideos temp;
+                for (int x = 0; x < listaxvideos.size(); x++) {
+                    if (listaxvideos.get(x) != null) {
+                        tmp = (ListaParticularVideos) listaxvideos.get(x);
+                        if (list.getCategoria() != null) {
+                            listaParticular = new DtListaParticulares(list.getPrivado(), new DtCategoria(list.getCategoria().getNombreCategoria()), nombreLista);
+                        } else {
+                            listaParticular = new DtListaParticulares(list.getPrivado(), null, nombreLista);
+                        }
+                        temp = new DtListaParticularVideos(listaParticular, tmp.getVideo(), tmp.getCanal());
+                        aux.add(temp);
                     }
-                    temp = new DtListaParticularVideos(listaParticular, tmp.getVideo(), tmp.getCanal());
-                    aux.add(temp);
                 }
+                return aux;
+
+            } else {
+                return null;
             }
-            return aux;
-
-        } else {
-            return null;
         }
-
+        return null;
     }
 
     @Override
@@ -526,14 +531,17 @@ public class ControladorCanal implements IControladorCanal {
     public DtListaParticulares buscarListaParticular(String nomLista, DtCanal canal) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
 
-        ListaParticulares lista = mu.buscadorListaParticular(canal.getNombre_canal(), nomLista);
-        if (lista != null) {
-            DtCanal c = new DtCanal(lista.getCanal().getNombre_canal(), lista.getCanal().getDescripcion(), lista.getCanal().getPrivado());
-            DtCategoria cat = new DtCategoria(lista.getCategoria().getNombreCategoria());
-            DtListaParticulares aux = new DtListaParticulares(lista.getPrivado(), lista.getNombreLista(), cat, c);
-            return aux;
-        }
+        if(nomLista != null && canal != null) {
+            ListaParticulares lista = mu.buscadorListaParticular(canal.getNombre_canal(), nomLista);
+            if (lista != null) {
+                DtCanal c = new DtCanal(lista.getCanal().getNombre_canal(), lista.getCanal().getDescripcion(), lista.getCanal().getPrivado());
+                DtCategoria cat = new DtCategoria(lista.getCategoria().getNombreCategoria());
+                DtListaParticulares aux = new DtListaParticulares(lista.getPrivado(), lista.getNombreLista(), cat, c);
+                return aux;
+            }
 
+            return null;
+        }
         return null;
     }
 
@@ -541,66 +549,59 @@ public class ControladorCanal implements IControladorCanal {
     public DtVideo buscoVideoMasRecienteCanal(String canal) {
         
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
-        Canal c = mu.buscadorCanal(canal);
-        if (c != null) {
-            Video v = mu.buscoVideoMasRecienteCanal(c);
-            if (v != null) {
-                DtVideo video = new DtVideo(v.getNombre(),new DtCanal(v.getCanal().getNombre_canal(), v.getCanal().getDescripcion(), v.getCanal().getPrivado(),new DtUsuario(v.getCanal().getUsuario())),
-                        v.getFechaPublicacion(),
-                        v.getUrl(),
-                        v.getDescripcion(),
-                        v.getCategoria(),
-                        v.getDuracion(),
-                        v.getPrivado());
-                return video;
+        if(canal != null) {
+            Canal c = mu.buscadorCanal(canal);
+            if (c != null) {
+                Video v = mu.buscoVideoMasRecienteCanal(c);
+                if (v != null) {
+                    DtVideo video = new DtVideo(v.getNombre(), new DtCanal(v.getCanal().getNombre_canal(), v.getCanal().getDescripcion(), v.getCanal().getPrivado(), new DtUsuario(v.getCanal().getUsuario())),
+                            v.getFechaPublicacion(),
+                            v.getUrl(),
+                            v.getDescripcion(),
+                            v.getCategoria(),
+                            v.getDuracion(),
+                            v.getPrivado());
+                    return video;
+                }
+                return null;
             }
             return null;
         }
         return null;
-        /*ManejadorInformacion mu = ManejadorInformacion.getInstance();
-        Canal c = mu.buscadorCanal(canal);
-        if (c != null) {
-            
-            //ATENCIONE PUEDE GENERAR PROBLEMAS ACA
-            //CAMBIADO EL 19/10 21HS
-            Video v = mu.buscoVideoMasRecienteCanal(c);
-            if (v != null) {
-                return new DtVideo(v);
-            }
-            return null;
-        }
-        return null;*/
     }
 
     @Override
     public DtVideo buscoVideoMasRecienteListaParticular(String lista, String canal) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
-        ListaParticulares l = mu.buscadorListaParticular(canal,lista);
-        if (l != null) {
+        if (lista != null && canal != null) {
+            ListaParticulares l = mu.buscadorListaParticular(canal, lista);
+            if (l != null) {
 
-            List<ListaParticularVideos> videos = mu.getVideosListaParticular(l.getId());
-            if (videos != null) {
-                Video ultimo = null;
-                Video tmp = null;
-                ListaParticularVideos aux = null;
-                for (int i = 0; i < videos.size(); i++) {
-                    aux = (ListaParticularVideos) videos.get(i);
-                    if(i == 0){
-                        ultimo = mu.buscadorVideo(aux.getVideo(), aux.getCanal());
-                    }else{
-                        tmp = mu.buscadorVideo(aux.getVideo(), aux.getCanal());
-                        if(tmp != null && ultimo != null){
-                            if(ultimo.getFechaPublicacion().before(tmp.getFechaPublicacion())){
-                                ultimo = tmp;
+                List<ListaParticularVideos> videos = mu.getVideosListaParticular(l.getId());
+                if (videos != null) {
+                    Video ultimo = null;
+                    Video tmp = null;
+                    ListaParticularVideos aux = null;
+                    for (int i = 0; i < videos.size(); i++) {
+                        aux = (ListaParticularVideos) videos.get(i);
+                        if (i == 0) {
+                            ultimo = mu.buscadorVideo(aux.getVideo(), aux.getCanal());
+                        } else {
+                            tmp = mu.buscadorVideo(aux.getVideo(), aux.getCanal());
+                            if (tmp != null && ultimo != null) {
+                                if (ultimo.getFechaPublicacion().before(tmp.getFechaPublicacion())) {
+                                    ultimo = tmp;
+                                }
+                            } else {
+                                return null;
                             }
-                        }else{
-                            return null;
                         }
                     }
+                    if (ultimo != null) {
+                        return new DtVideo(ultimo);
+                    }
                 }
-                if(ultimo != null){
-                    return new DtVideo(ultimo);
-                }
+                return null;
             }
             return null;
         }
