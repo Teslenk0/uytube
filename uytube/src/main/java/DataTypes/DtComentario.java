@@ -69,11 +69,7 @@ public class DtComentario implements Serializable {
         return video;
     }
 
-    public class getVideo {
-
-        public getVideo() {
-        }
+    public String getCanal() {
+        return canal;
     }
-    
-    
 }
