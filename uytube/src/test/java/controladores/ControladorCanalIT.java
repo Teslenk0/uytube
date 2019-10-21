@@ -357,13 +357,16 @@ public class ControladorCanalIT {
         assertNull(result);
 
         //USUARIO NO EXISTENTE PERO SI LISTA
-        nombre = "hectorg";
-        nombreLista = "f54552";
+        nombre = "asdasd";
+        nombreLista = "Nostalgia";
         result = c.getVideosListaParticular(nombre, nombreLista);
         assertNull(result);
 
-
-
+        //USUARIO NO EXISTENTE PERO SI LISTA
+        nombre = "kairoh";
+        nombreLista = "Nostalgia";
+        result = c.getVideosListaParticular(nombre, nombreLista);
+        assertNotNull(result);
     }
 
     /**
