@@ -23,6 +23,10 @@ class DtVideoTest {
     }
     DtVideo test = new DtVideo("nombre", canal, date, "url", "descripcion", "categoria","duracion", true);
 
+    @Test
+    void getSerialVersionUID() {
+        assertEquals(1L,test.getSerialVersionUID());
+    }
 
     @Test
     void getNombre() {

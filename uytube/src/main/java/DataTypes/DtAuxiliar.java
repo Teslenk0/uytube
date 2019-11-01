@@ -5,13 +5,16 @@
  */
 package DataTypes;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  *
  * @author esteban
  */
-public class DtAuxiliar {
+public class DtAuxiliar implements Serializable{
+    
+    private static final long serialVersionUID = 1L;
     
     private final String comentario;
     

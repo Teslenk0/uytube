@@ -6787,9 +6787,10 @@ public class MenuInicio extends javax.swing.JFrame {
             c.agregarVideoLista("Niño Payaso", "De todo un poco", "cachilas", "cachilas", true);
             c.agregarVideoLista("Etapa A contramano Liguilla", "De todo un poco", "cachilas", "cachilas", true);
             c.agregarVideoLista("Inauguración Estadio Peñarol", "De todo un poco", "cachilas", "juliob", true);
+            c.agregarVideoLista("Show de goles", "Solo deportes", "cachilas", "juliob", true);
             
             c.agregarVideoLista("Show de goles", "Solo deportes", "juliob", "juliob", true);
-            c.agregarVideoLista("Inaguración Estadio Peñarol", "Solo deportes", "juliob", "juliob", true);
+            c.agregarVideoLista("Inauguración Estadio Peñarol", "Solo deportes", "juliob", "juliob", true);
             
             c.agregarVideoLista("Ventana al futuro Uruguay y déficit de ingenieros", "Noticias y CYT", "nicoJ", "nicoJ", true);
             c.agregarVideoLista("Ingeniería de Muestra 2017", "Noticias y CYT", "nicoJ", "hectorg", true);

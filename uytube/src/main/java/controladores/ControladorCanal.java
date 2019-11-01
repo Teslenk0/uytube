@@ -36,11 +36,13 @@ import interfaces.IControladorCanal;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+import javax.jws.WebService;
 
 /**
  *
  * @author tecnologo
  */
+@WebService(endpointInterface = "interfaces.IControladorCanal")
 public class ControladorCanal implements IControladorCanal {
 
     @Override

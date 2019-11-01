@@ -9,6 +9,11 @@ class DtCategoriaTest {
     DtCategoria test = new DtCategoria("cat");
 
     @Test
+    void getSerialVersionUID() {
+        assertEquals(1L,test.getSerialVersionUID());
+    }
+
+    @Test
     void getnombreCategoria() {
         assertEquals("cat",test.getnombreCategoria());
     }

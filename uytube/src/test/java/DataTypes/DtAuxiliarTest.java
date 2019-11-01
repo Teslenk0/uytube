@@ -23,6 +23,7 @@ class DtAuxiliarTest {
 
     DtAuxiliar test = new DtAuxiliar("comentario",1,"padre", "nick", date);
 
+
     @Test
     void getFecha() throws ParseException {
         Date dateR = sdf.parse("1111/11/11");

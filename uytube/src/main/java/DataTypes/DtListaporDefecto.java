@@ -5,11 +5,15 @@
  */
 package DataTypes;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Tesla
  */
-public class DtListaporDefecto extends DtListaReproduccion {
+public class DtListaporDefecto extends DtListaReproduccion implements Serializable{
+    
+    private static final long serialVersionUID = 1L;
 
     public DtListaporDefecto(String nombreLista, DtCanal canal) {
         super(nombreLista, canal);

@@ -5,13 +5,16 @@
  */
 package DataTypes;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  *
  * @author esteban
  */
-public class DtListaParticulares extends DtListaReproduccion{
+public class DtListaParticulares extends DtListaReproduccion implements Serializable{
+    
+    private static final long serialVersionUID = 1L;
     
     private final Boolean privado;
     

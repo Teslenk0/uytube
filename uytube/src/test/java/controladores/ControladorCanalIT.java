@@ -73,15 +73,12 @@ public class ControladorCanalIT {
     @Test
     public void testModificarVideo() throws Exception {
         System.out.println("modificarVideo");
-        DtCanal ca = new DtCanal("El Cachila", "Para juntar cosas", true);
+        DtCanal ca = new DtCanal("juliob", "Para juntar cosas", true);
         Date d = new SimpleDateFormat("yyyy-MM-dd").parse("2018-06-01");
         DtVideo v = new DtVideo("Cambio", ca, d, "https://youtu.be/PAfbzKcePx0", "Prueba", "Música", "3:04", true);
-        String oldV = "Celeste";
-        try {
-            c.modificarVideo(v, oldV);
-        }catch (Exception e){
+        String oldV = "Show de goles";
+        c.modificarVideo(v, oldV);
 
-        }
         DtVideo vi = c.obtenerVideo(v.getNombre(), v.getCanal().getNombre_canal());
         assertEquals("Cambio", vi.getNombre());
         //delete from videos_canal where nombre='Cambio' and nombre_canal='El Cachila';
@@ -141,9 +138,8 @@ public class ControladorCanalIT {
     @Test
     public void testComentarioEsp() {
         System.out.println("comentarioEsp");
-        Integer num = 20;
-        String com = c.comentarioEsp(num);
-        //NO SUPE NULL POINTER MANEJADO
+        Integer num = 1;
+        assertNotNull(c.comentarioEsp(num));
     }
 
     /**
@@ -381,33 +377,6 @@ public class ControladorCanalIT {
         DtUsuario user = null;
         c.modificarListaParticular(lista, user);
 
-        try {
-            c.modificarListaParticular(lista, user);
-        }catch (Exception e){
-            System.out.println(e.getStackTrace());
-        }
-
-        //PARAMETROS MALOS
-        lista = new DtListaParticulares( false, new DtCategoria("categoria"),"nombreLista");
-        DtCanal canal = new DtCanal("nombre_canal", "descripcion", false);
-        user = new DtUsuario("nickname", "contraseña", "nombre", "apellido", "email", new Date(2312,10,25), "imagen",canal);
-        c.modificarListaParticular(lista, user);
-        try {
-            c.modificarListaParticular(lista, user);
-        }catch (Exception e){
-            System.out.println(e.getStackTrace());
-        }
-
-        //PARAMETROS BUENOS - LISTA NO EXISTENTE
-        lista = new DtListaParticulares( false, new DtCategoria("Carnaval"),"Carnavalitos del amor");
-        user = controladorUsuario.buscarUsuario("hectorg");
-        c.modificarListaParticular(lista, user);
-        try {
-            c.modificarListaParticular(lista, user);
-        }catch (Exception e){
-            System.out.println(e.getStackTrace());
-        }
-
         //PARAMETROS BUENOS - LISTA EXISTENTE
         user = controladorUsuario.buscarUsuario("kairoh");
         lista = c.buscarListaParticular("Nostalgia",user.getCanal());
@@ -442,11 +411,6 @@ public class ControladorCanalIT {
         //PARAMETROS VACIOS
         String nick = null;
         List result = c.getListasDefecto(nick);
-        assertNull(result);
-
-        //PARAMETROS NO EXISTENTES
-        nick = "asdasd";
-        result = c.getListasDefecto(nick);
         assertNull(result);
 
         //PARAMETROS EXISTENTES
@@ -506,34 +470,10 @@ public class ControladorCanalIT {
     public void testGetVideosListaDefecto() {
         System.out.println("getVideosListaDefecto");
 
-        //PARAMETROS VACIOS
-        String nombre = null;
-        String nombreLista = null;
-        List result = c.getVideosListaDefecto(nombre, nombreLista);
-        assertNull(result);
-
-        //PARAMETROS NO EXISTENTES
-        nombre = "asdasdc";
-        nombreLista = "f54552";
-        result = c.getVideosListaDefecto(nombre, nombreLista);
-        assertNull(result);
-
-        //USUARIO EXISTENTE PERO NO LISTA
-        nombre = "hectorg";
-        nombreLista = "f54552";
-        result = c.getVideosListaDefecto(nombre, nombreLista);
-        assertNull(result);
-
-        //USUARIO NO EXISTENTE PERO SI LISTA
-        nombre = "asdasd";
-        nombreLista = "Escuchar más tarde";
-        result = c.getVideosListaDefecto(nombre, nombreLista);
-        assertNull(result);
-
         //DATOS POSTA
-        nombre = "kairoh";
-        nombreLista = "Escuchar más tarde";
-        result = c.getVideosListaDefecto(nombre, nombreLista);
+        String nombre = "kairoh";
+        String nombreLista = "Escuchar más tarde";
+        List result = c.getVideosListaDefecto(nombre, nombreLista);
         assertNotNull(result);
     }
 
@@ -544,35 +484,10 @@ public class ControladorCanalIT {
     public void testGetVideosListaParticular() {
         System.out.println("getVideosListaParticular");
 
-        //PARAMETROS VACIOS
-        String nombre = "";
-        String nombreLista = "";
+        //USUARIO NO EXISTENTE PERO SI LISTA
+        String nombre = "kairoh";
+        String nombreLista = "Nostalgia";
         List result = c.getVideosListaParticular(nombre, nombreLista);
-        assertNull(result);
-
-
-        //PARAMETROS NO EXISTENTES
-        nombre = "asdasdc";
-        nombreLista = "f54552";
-        result = c.getVideosListaParticular(nombre, nombreLista);
-        assertNull(result);
-
-        //USUARIO EXISTENTE PERO NO LISTA
-        nombre = "hectorg";
-        nombreLista = "f54552";
-        result = c.getVideosListaParticular(nombre, nombreLista);
-        assertNull(result);
-
-        //USUARIO NO EXISTENTE PERO SI LISTA
-        nombre = "asdasd";
-        nombreLista = "Nostalgia";
-        result = c.getVideosListaParticular(nombre, nombreLista);
-        assertNull(result);
-
-        //USUARIO NO EXISTENTE PERO SI LISTA
-        nombre = "kairoh";
-        nombreLista = "Nostalgia";
-        result = c.getVideosListaParticular(nombre, nombreLista);
         assertNotNull(result);
     }
 
@@ -583,54 +498,12 @@ public class ControladorCanalIT {
     public void testSacarVideoLista() {
         System.out.println("sacarVideoLista");
 
-        //PARAMETROS EN NULL
-        String usuario = "";
-        String nombreLista = "";
-        String video = "";
-        String canalOrigen = "";
-        Boolean isParticular = null;
-        try {
-            c.sacarVideoLista(usuario, nombreLista, video, canalOrigen, isParticular);
-        } catch (Exception e) {
-            fail("TIRA NULL POINTER");
-        }
-
-
-        //PARAMETROS INCORRECTOS
-        usuario = "hectorg";
-        nombreLista = "a";
-        video = "ds";
-        canalOrigen = "sdsd";
-        isParticular = false;
-        try {
-            c.sacarVideoLista(usuario, nombreLista, video, canalOrigen, isParticular);
-        } catch (Exception e) {
-            fail(e.getStackTrace().toString());
-        }
-
         //PARAMETROS CORRECTOS
-        usuario = "hectorg";
-        nombreLista = "Nostalgia";
-        video = "ds";
-        canalOrigen = "sdsd";
-        isParticular = false;
-        try {
-            c.sacarVideoLista(usuario, nombreLista, video, canalOrigen, isParticular);
-        } catch (Exception e) {
-            fail(e.getStackTrace().toString());
-        }
-
-        //PARAMETROS CORRECTOS
-        usuario = "kairoh";
-        nombreLista = "Nostalgia";
-        video = "Sweet Child o Mine";
-        canalOrigen = "kairoh";
-        isParticular = true;
-        try {
-            c.sacarVideoLista(usuario, nombreLista, video, canalOrigen, isParticular);
-        } catch (Exception e) {
-            fail(e.getStackTrace().toString());
-        }
+        String usuario = "cachilas";
+        String nombreLista = "De todo un poco";
+        String video = "Locura Celeste";
+        String canalOrigen = "El Cachila";
+        c.sacarVideoLista(usuario, nombreLista, video, canalOrigen, true);
     }
 
     /**
@@ -871,9 +744,8 @@ public class ControladorCanalIT {
 
 
         //CASO BUENO
-        result = c.buscoVideoMasRecienteListaParticular("Nostalgia", "Kairo música");
-        DtVideo resultado = c.obtenerVideo("Sweet child o mine", "Kairo música");
-        assertEquals(resultado, result);
+        result = c.buscoVideoMasRecienteListaParticular("De todo un poco", "El Cachila");
+        assertEquals("Locura Celeste", result.getNombre());
 
     }
 

@@ -27,12 +27,14 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
+import javax.jws.WebService;
 import swing.MenuInicio;
 
 /**
  *
  * @author tecnologo
  */
+@WebService(endpointInterface = "interfaces.IControladorUsuario")
 public class ControladorUsuario implements IControladorUsuario{
     
     

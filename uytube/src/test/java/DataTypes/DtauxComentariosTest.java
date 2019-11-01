@@ -6,6 +6,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class DtauxComentariosTest {
 
@@ -22,7 +23,10 @@ class DtauxComentariosTest {
 
     DtauxComentarios test = new DtauxComentarios("Nick","Comentario",date,"Video","Padre",1,"Canal");
 
-
+    @Test
+    void getSerialVersionUID() {
+        assertEquals(1L,test.getSerialVersionUID());
+    }
 
     @Test
     void getNick() {

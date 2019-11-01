@@ -143,37 +143,6 @@ public class ControladorUsuarioIT {
             }
         }
         assertTrue(esta);
-
-        //caso que no existe seguido
-        u = controladorUsuario.buscarUsuario("hectorg");
-        seguido = "taque";
-        controladorUsuario.seguirUsuario(u,seguido);
-        esta = false;
-        seguidos =controladorUsuario.listaSeguidos(u.getNickname());
-        for(int x = 0; x<seguidos.size(); x++){
-            nomSeguido = (String) seguidos.get(x);
-            if(nomSeguido.equals(seguido)){
-                esta = true;
-            }
-        }
-        assertFalse(esta);
-
-        //caso que no existe user
-        u = controladorUsuario.buscarUsuario("taque");
-        if(u != null) {
-            seguido = "chino";
-            controladorUsuario.seguirUsuario(u, seguido);
-            nomSeguido = null;
-            esta = false;
-            seguidos = controladorUsuario.listaSeguidos(u.getNickname());
-            for (int x = 0; x < seguidos.size(); x++) {
-                nomSeguido = (String) seguidos.get(x);
-                if (nomSeguido.equals(seguido)) {
-                    esta = true;
-                }
-            }
-        }
-        assertFalse(esta);
     } // delete from seguir where nickname="cachilas" and seguido="chino";
 
 
@@ -193,37 +162,6 @@ public class ControladorUsuarioIT {
             }
         }
         assertTrue(sigue);
-
-        //caso que no existe seguido
-        u = controladorUsuario.buscarUsuario("hectorg");
-        dejarseguido = "taque";
-        controladorUsuario.seguirUsuario(u,dejarseguido);
-        sigue = false;
-        seguidos =controladorUsuario.listaSeguidos(u.getNickname());
-        for(int x = 0; x<seguidos.size(); x++){
-            nomSeguido = (String) seguidos.get(x);
-            if(nomSeguido.equals(dejarseguido)){
-                sigue = true;
-            }
-        }
-        assertFalse(sigue);
-
-        //caso que no existe user
-        u = controladorUsuario.buscarUsuario("taque");
-        if(u != null) {
-            dejarseguido = "chino";
-            controladorUsuario.seguirUsuario(u, dejarseguido);
-            nomSeguido = null;
-            sigue = false;
-            seguidos = controladorUsuario.listaSeguidos(u.getNickname());
-            for (int x = 0; x < seguidos.size(); x++) {
-                nomSeguido = (String) seguidos.get(x);
-                if (nomSeguido.equals(dejarseguido)) {
-                    sigue = true;
-                }
-            }
-        }
-        assertFalse(sigue);
     } //insert into seguir values("hrubino", "hectorg");
 
 

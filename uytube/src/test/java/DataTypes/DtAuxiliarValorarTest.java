@@ -9,6 +9,11 @@ class DtAuxiliarValorarTest {
     DtAuxiliarValorar test = new DtAuxiliarValorar("dueño", "vid", "user", "val");
 
     @Test
+    void getSerialVersionUID() {
+        assertEquals(1L,test.getSerialVersionUID());
+    }
+
+    @Test
     void getDueño() {
         assertEquals("dueño",test.getDueño());
     }

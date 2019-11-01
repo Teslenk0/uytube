@@ -28,6 +28,11 @@ class DtValorarTest {
     DtValorar test = new DtValorar(user,"vid", "user","val");
 
     @Test
+    void getSerialVersionUID() {
+        assertEquals(1L,test.getSerialVersionUID());
+    }
+
+    @Test
     void constructorUser(){
         Usuario u = new Usuario(user);
         Valorar v = new Valorar(u,"vid", "user","val");
