@@ -7,11 +7,14 @@ package DataTypes;
 
 import java.io.Serializable;
 import java.util.Objects;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 
 /**
  *
  * @author tesla
  */
+@XmlAccessorType(XmlAccessType.FIELD)
 public class DtListaParticularVideos implements Serializable {
 
     protected static final long serialVersionUID = 1L;

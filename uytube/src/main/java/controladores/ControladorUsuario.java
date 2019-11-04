@@ -35,6 +35,7 @@ import swing.MenuInicio;
  * @author tecnologo
  */
 @WebService(endpointInterface = "interfaces.IControladorUsuario")
+//@SOAPBinding(style = SOAPBinding.Style.RPC, parameterStyle = SOAPBinding.ParameterStyle.WRAPPED)
 public class ControladorUsuario implements IControladorUsuario{
     
     

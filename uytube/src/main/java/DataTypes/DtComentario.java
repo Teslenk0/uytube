@@ -8,11 +8,14 @@ package DataTypes;
 import clases.Comentario;
 import java.io.Serializable;
 import java.util.Date;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 
 /**
  *
  * @author esteban
  */
+@XmlAccessorType(XmlAccessType.FIELD)
 public class DtComentario implements Serializable {
     
     private static final long serialVersionUID = 1L;

@@ -7,11 +7,14 @@ package DataTypes;
 
 import clases.AuxiliarValorar;
 import java.io.Serializable;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 
 /**
  *
  * @author esteban
  */
+@XmlAccessorType(XmlAccessType.FIELD)
 public class DtAuxiliarValorar implements Serializable{
     
     private static final long serialVersionUID = 1L;
