@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="@uytubeAPP" uuid="e208ee52-cc50-4728-928d-7174bd7c824a">
+    <data-source source="LOCAL" name="uytubeAPP@localhost" uuid="3c57190a-5676-4f3a-a24d-0ad962c22880">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>

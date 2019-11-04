@@ -6,8 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="uytubeMaven" />
+        <module name="uytube" />
       </profile>
     </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="uytube" options="-endorseddirs $PROJECT_DIR$/target/endorsed" />
+    </option>
   </component>
 </project>
