@@ -19,13 +19,16 @@ public class DtValorar implements Serializable {
     
     private static final long serialVersionUID = 1L;
     
-    private final DtUsuario duenio;
+    private DtUsuario duenio;
     
-    private final String vid;
+    private String vid;
      
-    private final String user;
+    private String user;
     
-    private final String val;
+    private String val;
+
+    public DtValorar() {
+    }
 
     public DtValorar(DtUsuario dueño, String vid, String user, String val) {
         this.duenio = dueño;

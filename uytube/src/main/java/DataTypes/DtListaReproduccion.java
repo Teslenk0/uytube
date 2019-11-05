@@ -28,6 +28,9 @@ public abstract class DtListaReproduccion implements Serializable, Comparable<Dt
         this.canal = canal;
     }
 
+    public DtListaReproduccion() {
+    }
+
     public DtListaReproduccion(String nombreLista) {
         this.nombreLista = nombreLista;
         this.canal = null;

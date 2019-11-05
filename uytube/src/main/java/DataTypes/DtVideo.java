@@ -21,21 +21,24 @@ public class DtVideo implements Serializable, Comparable<DtVideo>{
         
       private static final long serialVersionUID = 1L; 
      
-      private final  String nombre;
+      private String nombre;
       
-      private final DtCanal canal;
+      private DtCanal canal;
       
-      private final Date fechaPublicacion;
+      private Date fechaPublicacion;
       
-      private final String url;
+      private String url;
       
-      private final String descripcion;
+      private String descripcion;
       
-      private final String categoria;
+      private String categoria;
       
-      private final String duracion;
+      private String duracion;
       
-      private final boolean privado;
+      private boolean privado;
+
+    public DtVideo() {
+    }
 
     public DtVideo(String nombre, DtCanal canal, Date fechaPublicacion, String url, String descripcion, String categoria, String duracion, boolean privado) {
         this.nombre = nombre;

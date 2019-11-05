@@ -19,13 +19,16 @@ public class DtAuxiliarValorar implements Serializable{
     
     private static final long serialVersionUID = 1L;
     
-    private final String dueño;
+    private String dueño;
     
-    private final String vid;
+    private String vid;
      
-    private final String user;
+    private String user;
     
-    private final String val;
+    private String val;
+
+    public DtAuxiliarValorar() {
+    }
 
     public DtAuxiliarValorar(String dueño, String vid, String user, String val) {
         this.dueño = dueño;

@@ -19,14 +19,16 @@ public class DtCanal implements Serializable, Comparable<DtCanal>{
     
     private static final long serialVersionUID = 1L;
        
-    private final String nombre_canal;
+    private String nombre_canal;
     
-    private final String descripcion;
+    private String descripcion;
     
-    private final Boolean privado;
+    private Boolean privado;
     
-    private final DtUsuario usuario;
+    private DtUsuario usuario;
 
+    public DtCanal() {
+    }
 
     public DtCanal(String nombre_canal, String descripcion, Boolean privado) {
         

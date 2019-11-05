@@ -19,9 +19,12 @@ public class DtListaParticulares extends DtListaReproduccion implements Serializ
     
     private static final long serialVersionUID = 1L;
     
-    private final Boolean privado;
+    private Boolean privado;
     
-    private final DtCategoria categoria;
+    private DtCategoria categoria;
+
+    public DtListaParticulares() {
+    }
 
     public DtListaParticulares(Boolean privado, String nombreLista, DtCategoria categoria, DtCanal canal) {
         super(nombreLista, canal);

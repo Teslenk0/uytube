@@ -20,19 +20,22 @@ public class DtComentario implements Serializable {
     
     private static final long serialVersionUID = 1L;
     
-    private final String nick;
+    private String nick;
     
-    private final String comentario;
+    private String comentario;
     
-    private final Date fecha;
+    private Date fecha;
     
-    private final DtVideo video;
+    private DtVideo video;
     
-    private final String padre;
+    private String padre;
 
-    private final Integer ref;
+    private Integer ref;
     
-    private final String canal;
+    private String canal;
+
+    public DtComentario() {
+    }
     
     public DtComentario(String nick, String comentario, Date fecha, DtVideo video, String padre, Integer ref, String canal) {
         this.nick = nick;

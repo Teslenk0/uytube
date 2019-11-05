@@ -19,15 +19,18 @@ public class DtAuxiliar implements Serializable{
     
     private static final long serialVersionUID = 1L;
     
-    private final String comentario;
+    private String comentario;
     
-    private final Integer referencia;
+    private Integer referencia;
     
-    private final String padre;
+    private String padre;
     
-    private final String nick;
+    private String nick;
     
-    private final Date fecha;
+    private Date fecha;
+
+    public DtAuxiliar() {
+    }
 
     public DtAuxiliar(String comentario, Integer referencia, String padre, String nick, Date fecha) {
         this.comentario = comentario;
