@@ -16,7 +16,9 @@ import DataTypes.DtListaParticulares;
 import DataTypes.DtListaReproduccion;
 import DataTypes.DtListaporDefecto;
 import DataTypes.DtUsuario;
+import DataTypes.DtValorar;
 import DataTypes.DtVideo;
+import DataTypes.DtauxComentarios;
 import clases.AuxiliarValorar;
 import clases.Canal;
 import clases.Categoria;
@@ -144,7 +146,7 @@ public class ControladorCanal implements IControladorCanal {
     @Override
     public List listaComentarios(DtVideo video) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
-        if(video != null) {
+        if (video != null) {
             List lista = mu.listaCom(video);
             if (lista != null) {
                 return lista;
@@ -197,7 +199,7 @@ public class ControladorCanal implements IControladorCanal {
         List canales = mu.obtenerCanales();
         ListaReproduccion list;
         Canal aux;
-        if(lista != null) {
+        if (lista != null) {
             if (mu.buscoListaDefecto(lista.getNombreLista())) {
                 throw new ListaRepetidaException("La lista por defecto ya existe");
             }
@@ -238,8 +240,8 @@ public class ControladorCanal implements IControladorCanal {
         List<DtListaParticulares> aux = new LinkedList<>();
         ListaParticulares tmp;
         DtListaParticulares temp;
-        if(nick != null) {
-            if(mu.buscadorUsuario(nick) != null) {
+        if (nick != null) {
+            if (mu.buscadorUsuario(nick) != null) {
                 listasParticulares = mu.obtenerListasParticulares(nick);
                 for (int x = 0; x < listasParticulares.size(); x++) {
                     if (listasParticulares.get(x) != null) {
@@ -263,7 +265,7 @@ public class ControladorCanal implements IControladorCanal {
     @Override
     public void registrarCategoria(DtCategoria c) throws CategoriaRepetidaException {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
-        if(c != null) {
+        if (c != null) {
             Categoria cat = new Categoria(c.getnombreCategoria());
             try {
                 mu.registrarCategoria(cat);
@@ -276,7 +278,7 @@ public class ControladorCanal implements IControladorCanal {
     @Override
     public void modificarListaParticular(DtListaParticulares lista, DtUsuario user) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
-        if(user != null && lista != null) {
+        if (user != null && lista != null) {
             Canal aux = new Canal(user.getCanal().getNombre_canal(), user.getCanal().getDescripcion(), user.getCanal().getPrivado());
             Usuario u = new Usuario(user.getNickname(), user.getContrasenia(), user.getNombre(), user.getApellido(), user.getEmail(), user.getFechaNac(), user.getImagen());
             u.setCanal(aux);
@@ -311,15 +313,15 @@ public class ControladorCanal implements IControladorCanal {
 
     @Override
     public List getListasDefecto(String nick) {
-        if(nick != null) {
+        if (nick != null) {
 
             ManejadorInformacion mu = ManejadorInformacion.getInstance();
             List<DtListaporDefecto> aux = new LinkedList<>();
             ListaporDefecto tmp;
             DtListaporDefecto temp;
-            if(!nick.isEmpty()) {
+            if (!nick.isEmpty()) {
                 List listas = mu.obtenerListasDefecto(nick);
-                if(listas != null) {
+                if (listas != null) {
                     for (int x = 0; x < listas.size(); x++) {
                         if (listas.get(x) != null) {
                             tmp = (ListaporDefecto) listas.get(x);
@@ -358,7 +360,7 @@ public class ControladorCanal implements IControladorCanal {
     @Override
     public List getVideosListaDefecto(String nombre, String nombreLista) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
-        if(nombre != null && nombreLista != null) {
+        if (nombre != null && nombreLista != null) {
             Usuario user = mu.buscadorUsuario(nombre);
             ListaporDefecto list = mu.buscadorListaDefecto(user.getCanal().getNombre_canal(), nombreLista);
             List listaxvideos = mu.getVideosListaDefecto(list.getId());
@@ -386,7 +388,7 @@ public class ControladorCanal implements IControladorCanal {
     @Override
     public List getVideosListaParticular(String nombre, String nombreLista) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
-        if(nombre != null && nombreLista!=null) {
+        if (nombre != null && nombreLista != null) {
             Usuario user = mu.buscadorUsuario(nombre);
             ListaParticulares list = mu.buscadorListaParticular(user.getCanal().getNombre_canal(), nombreLista);
             List listaxvideos = mu.getVideosListaParticular(list.getId());
@@ -432,8 +434,8 @@ public class ControladorCanal implements IControladorCanal {
     @Override
     public List listaMeGustas(String usuario) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
-        if(usuario != null) {
-            if(mu.buscadorUsuario(usuario) != null) {
+        if (usuario != null) {
+            if (mu.buscadorUsuario(usuario) != null) {
                 List lista = mu.obtenerVal(usuario);
                 if (lista != null) {
                     List aux = new LinkedList();
@@ -562,7 +564,7 @@ public class ControladorCanal implements IControladorCanal {
     public DtListaParticulares buscarListaParticular(String nomLista, DtCanal canal) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
 
-        if(nomLista != null && canal != null) {
+        if (nomLista != null && canal != null) {
             ListaParticulares lista = mu.buscadorListaParticular(canal.getNombre_canal(), nomLista);
             if (lista != null) {
                 DtCanal c = new DtCanal(lista.getCanal().getNombre_canal(), lista.getCanal().getDescripcion(), lista.getCanal().getPrivado());
@@ -578,9 +580,9 @@ public class ControladorCanal implements IControladorCanal {
 
     @Override
     public DtVideo buscoVideoMasRecienteCanal(String canal) {
-        
+
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
-        if(canal != null) {
+        if (canal != null) {
             Canal c = mu.buscadorCanal(canal);
             if (c != null) {
                 Video v = mu.buscoVideoMasRecienteCanal(c);
@@ -636,6 +638,12 @@ public class ControladorCanal implements IControladorCanal {
             }
             return null;
         }
+        return null;
+    }
+    
+    @Override
+    public List funcionAuxiliarAccesoDt(DtAuxiliarValorar a, DtListaporDefecto b, DtListaDefectoVideos c, DtListaParticularVideos d, DtValorar e, DtauxComentarios f){
+        
         return null;
     }
 }

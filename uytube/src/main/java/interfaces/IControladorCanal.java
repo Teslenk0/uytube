@@ -5,14 +5,7 @@
  */
 package interfaces;
 
-import DataTypes.DtAuxiliar;
-import DataTypes.DtCanal;
-import DataTypes.DtCategoria;
-import DataTypes.DtComentario;
-import DataTypes.DtListaParticulares;
-import DataTypes.DtListaReproduccion;
-import DataTypes.DtUsuario;
-import DataTypes.DtVideo;
+import DataTypes.*;
 import excepciones.CategoriaRepetidaException;
 import excepciones.ListaRepetidaException;
 import excepciones.VideoRepetidoException;
@@ -125,4 +118,7 @@ public interface IControladorCanal {
     
     @WebMethod
     public abstract DtVideo buscoVideoMasRecienteListaParticular(String lista, String canal);
+    
+    @WebMethod
+    public abstract List funcionAuxiliarAccesoDt(DtAuxiliarValorar a, DtListaporDefecto b, DtListaDefectoVideos c, DtListaParticularVideos d, DtValorar e, DtauxComentarios f);
 }

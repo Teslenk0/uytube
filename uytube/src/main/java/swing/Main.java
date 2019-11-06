@@ -22,8 +22,8 @@ public class Main {
             fabrica.Fabrica factory = fabrica.Fabrica.getInstance();
             IControladorCanal controladorCanal = factory.getControladorCanal();
             IControladorUsuario controladorUsuario = factory.getControladorUsuario();
-            Endpoint.publish("http://localhost:17184/CanalWs", controladorCanal);
-            Endpoint.publish("http://localhost:17184/UsuarioWs", controladorUsuario);
+            Endpoint.publish("http://0.0.0.0:17184/CanalWs", controladorCanal);
+            Endpoint.publish("http://0.0.0.0:17184/UsuarioWs", controladorUsuario);
         });
 
     }
