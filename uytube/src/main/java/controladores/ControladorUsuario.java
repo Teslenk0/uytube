@@ -12,6 +12,7 @@ import DataTypes.DtUsuario;
 import DataTypes.DtCanal;
 import clases.AuxiliarValorar;
 import clases.Canal;
+import clases.ListaporDefecto;
 import clases.Valorar;
 import excepciones.CanalRepetidoException;
 import excepciones.EmailRepetidoException;
@@ -60,7 +61,20 @@ public class ControladorUsuario implements IControladorUsuario{
         if(users != null){
             Usuario aux = (Usuario) users.get(users.size()-1);
             List listasDefecto = mu.obtenerListasDefecto(aux.getNickname());
+            boolean existe = false;
+            for(int i = 0; i < listasDefecto.size();i++){
+                ListaporDefecto listaAux = (ListaporDefecto) listasDefecto.get(i);
+                if(listaAux.getNombreLista().equals("Historial")){
+                    existe = true;
+                    break;
+                }
+            }
+            if(!existe){
+                ListaporDefecto historial = new ListaporDefecto("Historial", user.getCanal());
+                listasDefecto.add(historial);
+            }
             mu.agregarListasDefecto(listasDefecto, user.getNickname());
+            
         }
         if (imagen != null) {
             String path = System.getProperty("user.dir");

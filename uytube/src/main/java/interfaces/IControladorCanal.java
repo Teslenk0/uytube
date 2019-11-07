@@ -121,4 +121,7 @@ public interface IControladorCanal {
     
     @WebMethod
     public abstract List funcionAuxiliarAccesoDt(DtAuxiliarValorar a, DtListaporDefecto b, DtListaDefectoVideos c, DtListaParticularVideos d, DtValorar e, DtauxComentarios f);
+
+    @WebMethod
+    public abstract void agregarVideoHistorial(DtVideo video, DtCanal canal);
 }

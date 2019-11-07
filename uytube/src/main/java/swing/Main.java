@@ -9,6 +9,8 @@ import javax.swing.SwingUtilities;
 import javax.xml.ws.Endpoint;
 import interfaces.IControladorCanal;
 import interfaces.IControladorUsuario;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  *
@@ -22,8 +24,9 @@ public class Main {
             fabrica.Fabrica factory = fabrica.Fabrica.getInstance();
             IControladorCanal controladorCanal = factory.getControladorCanal();
             IControladorUsuario controladorUsuario = factory.getControladorUsuario();
-            Endpoint.publish("http://0.0.0.0:17184/CanalWs", controladorCanal);
-            Endpoint.publish("http://0.0.0.0:17184/UsuarioWs", controladorUsuario);
+            ExecutorService es = Executors.newFixedThreadPool(5);
+            Endpoint.publish("http://0.0.0.0:17184/CanalWs", controladorCanal).setExecutor(es);
+            Endpoint.publish("http://0.0.0.0:17184/UsuarioWs", controladorUsuario).setExecutor(es);
         });
 
     }

@@ -4984,7 +4984,6 @@ public class MenuInicio extends javax.swing.JFrame {
         Panel_Central.add(Central1);
         Panel_Central.revalidate();
         Panel_Central.repaint();
-        System.out.println(c.buscoVideoMasRecienteCanal("juliob"));
     }//GEN-LAST:event_btn_InicioMousePressed
 
     private void btn_UsuarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_UsuarioMousePressed
@@ -6771,37 +6770,37 @@ public class MenuInicio extends javax.swing.JFrame {
             u.valorarVideo("tabarec", "Locura Celeste", "marcelot", "Me gusta");
             u.valorarVideo("kairoh", "Dancing in the Dark", "marcelot", "Me gusta");
 
-            c.agregarVideoLista("Sweet child o mine","Nostalgia","kairoh" ,"kairoh",true);
-            c.agregarVideoLista("Dancing in the Dark","Nostalgia","kairoh" ,"kairoh",true);
-            c.agregarVideoLista("Thriller","Nostalgia","kairoh" ,"kairoh",true);
-            
-            c.agregarVideoLista("Locura celeste","De fiesta","tabarec" ,"cachilas",true);
-            c.agregarVideoLista("Niño payaso","De fiesta","tabarec" ,"cachilas",true);
-            c.agregarVideoLista("Etapa Don Timoteo Liguilla","De fiesta","tabarec" ,"cachilas",true);
-            
-            c.agregarVideoLista("100 años de FING","Novedades FING","hectorg" ,"hectorg",true);
-            c.agregarVideoLista("50 años del InCo","Novedades FING","hectorg" ,"hectorg",true);
-            c.agregarVideoLista("Ingeniería de Muestra 2017","Novedades FING","hectorg" ,"hectorg",true);
-            
+            c.agregarVideoLista("Sweet child o mine", "Nostalgia", "kairoh", "kairoh", true);
+            c.agregarVideoLista("Dancing in the Dark", "Nostalgia", "kairoh", "kairoh", true);
+            c.agregarVideoLista("Thriller", "Nostalgia", "kairoh", "kairoh", true);
+
+            c.agregarVideoLista("Locura celeste", "De fiesta", "tabarec", "cachilas", true);
+            c.agregarVideoLista("Niño payaso", "De fiesta", "tabarec", "cachilas", true);
+            c.agregarVideoLista("Etapa Don Timoteo Liguilla", "De fiesta", "tabarec", "cachilas", true);
+
+            c.agregarVideoLista("100 años de FING", "Novedades FING", "hectorg", "hectorg", true);
+            c.agregarVideoLista("50 años del InCo", "Novedades FING", "hectorg", "hectorg", true);
+            c.agregarVideoLista("Ingeniería de Muestra 2017", "Novedades FING", "hectorg", "hectorg", true);
+
             c.agregarVideoLista("Locura Celeste", "De todo un poco", "cachilas", "cachilas", true);
             c.agregarVideoLista("Niño Payaso", "De todo un poco", "cachilas", "cachilas", true);
             c.agregarVideoLista("Etapa A contramano Liguilla", "De todo un poco", "cachilas", "cachilas", true);
             c.agregarVideoLista("Inauguración Estadio Peñarol", "De todo un poco", "cachilas", "juliob", true);
             c.agregarVideoLista("Show de goles", "De todo un poco", "cachilas", "juliob", true);
-            
+
             c.agregarVideoLista("Show de goles", "Solo deportes", "juliob", "juliob", true);
             c.agregarVideoLista("Inauguración Estadio Peñarol", "Solo deportes", "juliob", "juliob", true);
-            
+
             c.agregarVideoLista("Ventana al futuro Uruguay y déficit de ingenieros", "Noticias y CYT", "nicoJ", "nicoJ", true);
             c.agregarVideoLista("Ingeniería de Muestra 2017", "Noticias y CYT", "nicoJ", "hectorg", true);
-            
+
             DtListaporDefecto listaD = new DtListaporDefecto("Escuchar más tarde");
             c.crearListaDefecto(listaD);
             listaD = new DtListaporDefecto("Deporte total");
             c.crearListaDefecto(listaD);
             listaD = new DtListaporDefecto("Novedades generales");
             c.crearListaDefecto(listaD);
-            
+
             Sobrecarga.setEnabled(false);
             mensaje.CambioTexto("    Datos sobrecargados correctamente");
         } catch (ParseException ex) {
@@ -6811,7 +6810,7 @@ public class MenuInicio extends javax.swing.JFrame {
             mensaje.CambioTexto("      Error al cargar categorias");
         } catch (ListaRepetidaException ex) {
             mensaje.CambioTexto("    Error de listas");
-        }catch(VideoYaExisteEnListaException ex){
+        } catch (VideoYaExisteEnListaException ex) {
             mensaje.CambioTexto("    Error de videos en listas");
         } catch (ValoracionException ex) {
             Logger.getLogger(MenuInicio.class.getName()).log(Level.SEVERE, null, ex);
@@ -7114,7 +7113,7 @@ public class MenuInicio extends javax.swing.JFrame {
             String nomL = comboListas1.getSelectedItem().toString();
             String nomC = null;
             DtUsuario user = u.buscarUsuario(usuario);
-            List listaR = c.getVideosListaParticular(user.getNickname(),nomL);
+            List listaR = c.getVideosListaParticular(user.getNickname(), nomL);
             if (!listaR.isEmpty()) {
                 DtListaParticularVideos aux;
                 for (int x = 0; x < listaR.size(); x++) {

@@ -1,13 +1,13 @@
--- MySQL dump 10.13  Distrib 5.7.27, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.17, for Linux (x86_64)
 --
 -- Host: localhost    Database: uytubeAPP
 -- ------------------------------------------------------
--- Server version	5.7.27-0ubuntu0.18.04.1
+-- Server version	8.0.17-0ubuntu2
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -21,13 +21,13 @@
 
 DROP TABLE IF EXISTS `canal_usuario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `canal_usuario` (
   `nombre_canal` varchar(100) NOT NULL,
   `descripcion` varchar(300) NOT NULL,
   `isPrivate` bit(1) NOT NULL,
   PRIMARY KEY (`nombre_canal`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -45,11 +45,11 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `categoria_video`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `categoria_video` (
   `categoria` varchar(100) NOT NULL,
   PRIMARY KEY (`categoria`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -67,7 +67,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `comentarios_video`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `comentarios_video` (
   `nickname` varchar(30) DEFAULT NULL,
   `comentario` varchar(100) DEFAULT NULL,
@@ -79,7 +79,7 @@ CREATE TABLE `comentarios_video` (
   PRIMARY KEY (`Referencia`),
   UNIQUE KEY `comentarios_video_Referencia_uindex` (`Referencia`),
   KEY `FKqxve4tjk6v4pf4n3c2wy636ol` (`Video`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -97,14 +97,14 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `lista_defecto_canal`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `lista_defecto_canal` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre_lista` varchar(100) NOT NULL,
   `canal` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FK3sx7a9e8qag7xo9k4cu70q0ex` (`canal`)
-) ENGINE=InnoDB AUTO_INCREMENT=314 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=314 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -122,14 +122,14 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `lista_defecto_video`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `lista_defecto_video` (
   `id` int(11) NOT NULL,
   `nombre_video` varchar(100) NOT NULL,
   `nombre_canal_video_origen` varchar(100) NOT NULL,
   KEY `lista_defecto_video_lista_defecto_canal_id_fk` (`id`),
   KEY `lista_defecto_video_videos_canal_nombre_fk` (`nombre_video`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -142,12 +142,36 @@ LOCK TABLES `lista_defecto_video` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `lista_historica`
+--
+
+DROP TABLE IF EXISTS `lista_historica`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `lista_historica` (
+  `id_lista` int(11) NOT NULL,
+  `video` varchar(100) NOT NULL,
+  `dueno_video` varchar(100) DEFAULT NULL,
+  `visitas` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `lista_historica`
+--
+
+LOCK TABLES `lista_historica` WRITE;
+/*!40000 ALTER TABLE `lista_historica` DISABLE KEYS */;
+/*!40000 ALTER TABLE `lista_historica` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `lista_particular_canal`
 --
 
 DROP TABLE IF EXISTS `lista_particular_canal`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `lista_particular_canal` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre_lista` varchar(100) NOT NULL,
@@ -156,7 +180,7 @@ CREATE TABLE `lista_particular_canal` (
   `categoria` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FKcodr6lbvrytds0hotfe1imn5d` (`canal`)
-) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -174,13 +198,13 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `lista_particular_video`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `lista_particular_video` (
   `id` int(11) NOT NULL,
   `nombre_video` varchar(100) NOT NULL,
   `nombre_canal_video_origen` varchar(100) NOT NULL,
   KEY `lista_particular_video_lista_particular_canal_id_fk` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -198,12 +222,12 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `seguir`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `seguir` (
   `nickname` varchar(100) NOT NULL,
   `seguido` varchar(100) NOT NULL,
   KEY `FKr8dqhxes6236fhftvt9uxrj4t` (`nickname`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -221,7 +245,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `usuario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `usuario` (
   `nickname` varchar(100) NOT NULL,
   `contraseña` varchar(100) NOT NULL,
@@ -234,7 +258,7 @@ CREATE TABLE `usuario` (
   PRIMARY KEY (`nickname`),
   UNIQUE KEY `usuario_normal_email_uindex` (`email`),
   KEY `FK3vkji6f6vbowroolxoc2owvf7` (`canal`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -274,7 +298,7 @@ DELIMITER ;
 
 DROP TABLE IF EXISTS `valorar`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `valorar` (
   `dueño_Vid` varchar(100) NOT NULL,
   `video` varchar(100) NOT NULL,
@@ -282,7 +306,7 @@ CREATE TABLE `valorar` (
   `valoracion` varchar(100) NOT NULL,
   PRIMARY KEY (`dueño_Vid`,`video`,`usuario`),
   UNIQUE KEY `valorar_pk` (`dueño_Vid`,`video`,`usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -300,7 +324,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `videos_canal`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `videos_canal` (
   `nombre` varchar(100) NOT NULL,
   `nombre_canal` varchar(100) NOT NULL,
@@ -313,7 +337,7 @@ CREATE TABLE `videos_canal` (
   PRIMARY KEY (`nombre`,`nombre_canal`),
   KEY `videos_canal_categoria_video_categoria_fk` (`categoria`),
   KEY `FKdjjsxs8mnroq1gnfd9h3kan5i` (`nombre_canal`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -354,4 +378,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-11-04 11:48:11
+-- Dump completed on 2019-11-07 16:10:02

@@ -364,7 +364,7 @@ public class ControladorCanal implements IControladorCanal {
             Usuario user = mu.buscadorUsuario(nombre);
             ListaporDefecto list = mu.buscadorListaDefecto(user.getCanal().getNombre_canal(), nombreLista);
             List listaxvideos = mu.getVideosListaDefecto(list.getId());
-            System.out.println("LLEGA ACA PARIENTE");
+
             if (listaxvideos != null) {
                 List aux = new LinkedList();
                 ListaDefectoVideos tmp;
@@ -376,7 +376,7 @@ public class ControladorCanal implements IControladorCanal {
                         aux.add(temp);
                     }
                 }
-                System.out.println("ACA NO LLEGA");
+
                 return aux;
             } else {
                 return null;
@@ -640,10 +640,29 @@ public class ControladorCanal implements IControladorCanal {
         }
         return null;
     }
-    
+
     @Override
-    public List funcionAuxiliarAccesoDt(DtAuxiliarValorar a, DtListaporDefecto b, DtListaDefectoVideos c, DtListaParticularVideos d, DtValorar e, DtauxComentarios f){
-        
+    public List funcionAuxiliarAccesoDt(DtAuxiliarValorar a, DtListaporDefecto b, DtListaDefectoVideos c, DtListaParticularVideos d, DtValorar e, DtauxComentarios f) {
+
         return null;
+    }
+
+    /**
+     *
+     * @param video Video que va a ser agregado al historial
+     * @param canal Canal que vio el video
+     */
+    @Override
+    public void agregarVideoHistorial(DtVideo video, DtCanal canal) {
+
+        ManejadorInformacion mu = ManejadorInformacion.getInstance();
+        if (video != null && canal != null) {
+            ListaporDefecto l = mu.buscadorListaDefecto(canal.getNombre_canal(),"Historial");
+            Video v = mu.buscadorVideo(video.getNombre(), video.getCanal().getNombre_canal());
+            if (v != null && l != null) {
+                
+                mu.agregarVideoHistorial(v,l);
+            }
+        }
     }
 }

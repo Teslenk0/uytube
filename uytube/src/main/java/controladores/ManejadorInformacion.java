@@ -467,7 +467,7 @@ public class ManejadorInformacion {
 
     public List obtenerVideosPorCategoria(String categoria) {
         manager = emf.createEntityManager();
-        
+
         List<Object[]> videos = manager.createNativeQuery("SELECT * FROM videos_canal as v WHERE v.categoria='" + categoria + "';").getResultList();
 
         if (!videos.isEmpty()) {
@@ -486,7 +486,7 @@ public class ManejadorInformacion {
 
     public List obtenerListasParticularesPorCategoria(String categoria) {
         manager = emf.createEntityManager();
-        
+
         List<Object[]> listas = manager.createNativeQuery("SELECT * FROM lista_particular_canal as l WHERE l.categoria='" + categoria + "';").getResultList();
 
         if (!listas.isEmpty()) {
@@ -494,13 +494,12 @@ public class ManejadorInformacion {
             List<ListaParticulares> result = new ArrayList<>();
             listas.forEach((row) -> {
                 Canal c = manager.find(Canal.class, (String) row[2]);
-                result.add(new ListaParticulares((Boolean) row[3], (String)row[1], new Categoria((String) row[4]), c));
+                result.add(new ListaParticulares((Boolean) row[3], (String) row[1], new Categoria((String) row[4]), c));
             });
             return result;
         }
         return null;
-        
-        
+
         /*String query = "FROM ListaParticulares l WHERE l.categoria='" + categoria + "'";
         List aux = manager.createQuery(query).getResultList();
         if (aux != null) {
@@ -576,9 +575,8 @@ public class ManejadorInformacion {
             return null;
         }
     }
-    
-    
-    public List obtenerTodasListasDefecto(){
+
+    public List obtenerTodasListasDefecto() {
         manager = emf.createEntityManager();
         String query = "FROM ListaporDefecto l";
         List<ListaporDefecto> aux = manager.createQuery(query).getResultList();
@@ -586,16 +584,16 @@ public class ManejadorInformacion {
             return aux;
         }
         return null;
-        
+
     }
-    
-    public void agregarListasDefecto(List listas, String nickname){
+
+    public void agregarListasDefecto(List listas, String nickname) {
         manager = emf.createEntityManager();
-        if(listas != null){
-            Usuario u = manager.find(Usuario.class,nickname);
-            
+        if (listas != null) {
+            Usuario u = manager.find(Usuario.class, nickname);
+
             ListaporDefecto l;
-            for(int i=0;i<listas.size();i++){
+            for (int i = 0; i < listas.size(); i++) {
                 l = (ListaporDefecto) listas.get(i);
                 manager.getTransaction().begin();
                 ListaporDefecto lista = new ListaporDefecto(l.getNombreLista(), u.getCanal());
@@ -604,5 +602,19 @@ public class ManejadorInformacion {
             }
         }
     }
-    
+
+    public void agregarVideoHistorial(Video v, ListaporDefecto l) {
+        manager = emf.createEntityManager();
+        manager.getTransaction().begin();
+        ListaHistorica aux = manager.find(ListaHistorica.class, new DefectoPK(l.getId(), v.getNombre(), v.getCanal().getNombre_canal()));
+        if (aux != null) {
+            aux.setCantVistas(aux.getCantVistas()+1);
+        }else{
+            ListaHistorica nueva = new ListaHistorica(l, v.getNombre(), v.getCanal().getNombre_canal(), 1);
+            manager.persist(nueva);
+        }
+        manager.getTransaction().commit();
+        manager.close();
+    }
+
 }
