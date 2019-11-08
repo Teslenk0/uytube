@@ -12,6 +12,7 @@ import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -28,12 +29,24 @@ public class Menu extends javax.swing.JFrame {
 
     public Menu() {
         try {
-            String path = System.getProperty("user.dir") + "/src/main/resources/font/Manjari.ttf";
-            manjari = Font.createFont(Font.TRUETYPE_FONT, new File(path)).deriveFont(14f);
+            //String path = System.getProperty("user.dir") + "/src/main/resources/font/Manjari.ttf";
+            
+            //String path = System.getProperty("user.dir") +"/font/Manjari.ttf";
+            
+            InputStream is = this.getClass().getResourceAsStream("/font/Manjari.ttf");
+            manjari = Font.createFont(Font.TRUETYPE_FONT,is);
+            manjari = manjari.deriveFont(14f);
+            
+            //manjari = Font.createFont(Font.TRUETYPE_FONT, new File(path)).deriveFont(14f);
             GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
             ge.registerFont(manjari);
-            path = System.getProperty("user.dir") + "/src/main/resources/font/Berlin.ttf";
-            berlin = Font.createFont(Font.TRUETYPE_FONT, new File(path)).deriveFont(16f);
+            //path = System.getProperty("user.dir") + "/src/main/resources/font/Berlin.ttf";
+            
+            is = this.getClass().getResourceAsStream("/font/Berlin.ttf");
+            berlin = Font.createFont(Font.TRUETYPE_FONT,is);
+            berlin = berlin.deriveFont(16f);
+            //berlin = Font.createFont(Font.TRUETYPE_FONT, new File(path)).deriveFont(16f);
+            ge.registerFont(berlin);
         } catch (FontFormatException | IOException ex) {
             Logger.getLogger(MenuInicio.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -1,0 +1,8 @@
+PARA PODER CREAR Y EJECUTAR EL JAR CON TODAS LAS DEPENDENCIAS 
+
+1. Moverse a la carpeta donde esta el pom.xml y tirar ->  mvn -U -X clean compile assembly:single
+
+2. Luego de esto se generara un Jar con nombre uytube-2.0-jar-with-dependencies.jar, para ejecutarlo : java -jar nombre
+
+NOTAS:
+En caso de que cause error al compilar por falta de dependencias que ya estan agregadas, o diciendo que el ZIP is empty, acceder al /home/usuario/.m2/ y borrar la carpeta Repository, luego de esto comenzar por el paso 1
