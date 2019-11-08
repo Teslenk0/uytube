@@ -606,11 +606,12 @@ public class ManejadorInformacion {
     public void agregarVideoHistorial(Video v, ListaporDefecto l) {
         manager = emf.createEntityManager();
         manager.getTransaction().begin();
-        ListaHistorica aux = manager.find(ListaHistorica.class, new DefectoPK(l.getId(), v.getNombre(), v.getCanal().getNombre_canal()));
+        ListaporDefecto nuevaListaDefecto = manager.find(ListaporDefecto.class, l.getId());
+        ListaHistorica aux = manager.find(ListaHistorica.class, new DefectoPK(nuevaListaDefecto.getId(), v.getNombre(), v.getCanal().getNombre_canal()));
         if (aux != null) {
             aux.setCantVistas(aux.getCantVistas()+1);
         }else{
-            ListaHistorica nueva = new ListaHistorica(l, v.getNombre(), v.getCanal().getNombre_canal(), 1);
+            ListaHistorica nueva = new ListaHistorica(nuevaListaDefecto, v.getNombre(), v.getCanal().getNombre_canal(), 1);
             manager.persist(nueva);
         }
         manager.getTransaction().commit();
