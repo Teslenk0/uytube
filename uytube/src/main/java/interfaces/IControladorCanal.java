@@ -124,4 +124,7 @@ public interface IControladorCanal {
 
     @WebMethod
     public abstract void agregarVideoHistorial(DtVideo video, DtCanal canal);
+    
+    @WebMethod
+    public abstract List obtenerVideosHistoricos(DtCanal duenoCanal);
 }

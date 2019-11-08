@@ -5,6 +5,7 @@
  */
 package clases;
 
+import DataTypes.DtVideo;
 import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Column;
@@ -22,7 +23,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "lista_historica")
 @IdClass(DefectoPK.class)
-public class ListaHistorica implements Serializable {
+public class ListaHistorica implements Serializable, Comparable<ListaHistorica> {
     
     private static final long serialVersionUID = 1L;
     
@@ -128,5 +129,8 @@ public class ListaHistorica implements Serializable {
     }
     
     
-    
+    @Override
+    public int compareTo(ListaHistorica other) {
+     return Integer.compare(this.cantVistas, other.cantVistas)*-1;
+   }
 }

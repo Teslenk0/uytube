@@ -609,8 +609,8 @@ public class ManejadorInformacion {
         ListaporDefecto nuevaListaDefecto = manager.find(ListaporDefecto.class, l.getId());
         ListaHistorica aux = manager.find(ListaHistorica.class, new DefectoPK(nuevaListaDefecto.getId(), v.getNombre(), v.getCanal().getNombre_canal()));
         if (aux != null) {
-            aux.setCantVistas(aux.getCantVistas()+1);
-        }else{
+            aux.setCantVistas(aux.getCantVistas() + 1);
+        } else {
             ListaHistorica nueva = new ListaHistorica(nuevaListaDefecto, v.getNombre(), v.getCanal().getNombre_canal(), 1);
             manager.persist(nueva);
         }
@@ -618,4 +618,14 @@ public class ManejadorInformacion {
         manager.close();
     }
 
+    public List obtenerHistorial(DtCanal duenoCanal) {
+        manager = emf.createEntityManager();
+        ListaporDefecto l = this.buscadorListaDefecto(duenoCanal.getNombre_canal(), "Historial");
+        String query = "FROM ListaHistorica l WHERE l.id="+l.getId()+"";
+        List aux = manager.createQuery(query).getResultList();
+        if(!aux.isEmpty()){
+            return aux;
+        }
+        return null;
+    }
 }

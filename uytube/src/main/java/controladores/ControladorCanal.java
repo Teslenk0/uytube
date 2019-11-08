@@ -24,6 +24,7 @@ import clases.Canal;
 import clases.Categoria;
 import clases.Comentario;
 import clases.ListaDefectoVideos;
+import clases.ListaHistorica;
 import clases.ListaParticularVideos;
 import clases.ListaParticulares;
 import clases.ListaReproduccion;
@@ -664,5 +665,26 @@ public class ControladorCanal implements IControladorCanal {
                 mu.agregarVideoHistorial(v,l);
             }
         }
+    }
+    
+    @Override
+    public List obtenerVideosHistoricos(DtCanal duenoCanal){
+        ManejadorInformacion mu = ManejadorInformacion.getInstance();
+        if(duenoCanal != null){
+            List <ListaHistorica> lista = mu.obtenerHistorial(duenoCanal);
+            if(lista != null){
+                Collections.sort(lista);
+                DtVideo auxVideo;
+                List <DtVideo> listaVideos = new LinkedList<>();
+                for(int i = 0; i< lista.size();i++){
+                    ListaHistorica auxList = lista.get(i);
+                    auxVideo = this.obtenerVideo(auxList.getVideo(), auxList.getCanal());
+                    listaVideos.add(auxVideo);
+                }
+                return listaVideos;
+            }
+            return null;
+        }
+        return null;
     }
 }
