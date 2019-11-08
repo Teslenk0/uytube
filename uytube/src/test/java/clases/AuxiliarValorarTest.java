@@ -6,17 +6,17 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class AuxiliarValorarTest {
 
-    AuxiliarValorar auxVal = new AuxiliarValorar("dueñoVid", "vid", "userVal", "valoracion");
+    AuxiliarValorar auxVal = new AuxiliarValorar("duenioVid", "vid", "userVal", "valoracion");
 
     @Test
-    void getDueño() {
-        assertNotNull(auxVal.getDueño());
+    void getDuenio() {
+        assertNotNull(auxVal.getDuenio());
     }
 
     @Test
-    void setDueño() {
+    void setDuenio() {
         AuxiliarValorar aux = new AuxiliarValorar(null,"vid", "userVal", "valoracion");
-        aux.setDueño(auxVal.getDueño());
+        aux.setDuenio(auxVal.getDuenio());
         assertEquals(auxVal,aux);
     }
 
@@ -27,7 +27,7 @@ class AuxiliarValorarTest {
 
     @Test
     void setVid() {
-        AuxiliarValorar aux = new AuxiliarValorar("dueñoVid",null, "userVal", "valoracion");
+        AuxiliarValorar aux = new AuxiliarValorar("duenioVid",null, "userVal", "valoracion");
         aux.setVid(auxVal.getVid());
         assertEquals(auxVal,aux);
     }
@@ -39,7 +39,7 @@ class AuxiliarValorarTest {
 
     @Test
     void setUser() {
-        AuxiliarValorar aux = new AuxiliarValorar("dueñoVid","vid", null, "valoracion");
+        AuxiliarValorar aux = new AuxiliarValorar("duenioVid","vid", null, "valoracion");
         aux.setUser(auxVal.getUser());
         assertEquals(auxVal,aux);
     }
@@ -51,7 +51,7 @@ class AuxiliarValorarTest {
 
     @Test
     void setVal() {
-        AuxiliarValorar aux = new AuxiliarValorar("dueñoVid","vid", "userVal", null);
+        AuxiliarValorar aux = new AuxiliarValorar("duenioVid","vid", "userVal", null);
         aux.setVal(auxVal.getVal());
         assertEquals(auxVal,aux);
     }

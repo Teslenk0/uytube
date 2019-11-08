@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class DtAuxiliarValorarTest {
 
-    DtAuxiliarValorar test = new DtAuxiliarValorar("dueño", "vid", "user", "val");
+    DtAuxiliarValorar test = new DtAuxiliarValorar("duenio", "vid", "user", "val");
 
     @Test
     void getSerialVersionUID() {
@@ -15,7 +15,7 @@ class DtAuxiliarValorarTest {
 
     @Test
     void getDueño() {
-        assertEquals("dueño",test.getDueño());
+        assertEquals("duenio",test.getDuenio());
     }
 
     @Test

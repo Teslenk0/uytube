@@ -26,7 +26,7 @@ public class Main {
             IControladorUsuario controladorUsuario = factory.getControladorUsuario();
             ExecutorService es = Executors.newFixedThreadPool(5);
             Endpoint.publish("http://0.0.0.0:17184/CanalWs", controladorCanal).setExecutor(es);
-            Endpoint.publish("http://0.0.0.0:17184/UsuarioWs", controladorUsuario).setExecutor(es);
+            Endpoint.publish("http://0.0.0.0:17183/UsuarioWs", controladorUsuario).setExecutor(es);
         });
 
     }

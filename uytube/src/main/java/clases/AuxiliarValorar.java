@@ -16,7 +16,7 @@ public class AuxiliarValorar implements Serializable{
     
     private static final long serialVersionUID = 1L;
     
-    private String dueño;
+    private String duenio;
     
     private String vid;
     
@@ -24,19 +24,19 @@ public class AuxiliarValorar implements Serializable{
     
     private String val;
 
-    public AuxiliarValorar(String dueño, String vid, String user, String val) {
-        this.dueño = dueño;
+    public AuxiliarValorar(String duenio, String vid, String user, String val) {
+        this.duenio = duenio;
         this.vid = vid;
         this.user = user;
         this.val = val;
     }
 
-    public String getDueño() {
-        return dueño;
+    public String getDuenio() {
+        return duenio;
     }
 
-    public void setDueño(String dueño) {
-        this.dueño = dueño;
+    public void setDuenio(String duenio) {
+        this.duenio = duenio;
     }
 
     public String getVid() {
@@ -66,7 +66,7 @@ public class AuxiliarValorar implements Serializable{
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 71 * hash + Objects.hashCode(this.dueño);
+        hash = 71 * hash + Objects.hashCode(this.duenio);
         hash = 71 * hash + Objects.hashCode(this.vid);
         hash = 71 * hash + Objects.hashCode(this.user);
         hash = 71 * hash + Objects.hashCode(this.val);
@@ -85,7 +85,7 @@ public class AuxiliarValorar implements Serializable{
             return false;
         }
         final AuxiliarValorar other = (AuxiliarValorar) obj;
-        if (!Objects.equals(this.dueño, other.dueño)) {
+        if (!Objects.equals(this.duenio, other.duenio)) {
             return false;
         }
         if (!Objects.equals(this.vid, other.vid)) {

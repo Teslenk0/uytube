@@ -6172,11 +6172,11 @@ public class MenuInicio extends javax.swing.JFrame {
                 jComboLesGusta.setEnabled(true);
                 jComboNoLesGusta.setEnabled(true);
                 if (listaMeGusta.get(x) != null) {
-                    if (v.getNombre().equals(aux.getVid()) && usuario.equals(aux.getDueño()) && aux.getVal().equals("Me gusta")) {
+                    if (v.getNombre().equals(aux.getVid()) && usuario.equals(aux.getDuenio()) && aux.getVal().equals("Me gusta")) {
                         megusta = false;
                         jComboLesGusta.addItem(aux.getUser());
                     }
-                    if (v.getNombre().equals(aux.getVid()) && usuario.equals(aux.getDueño()) && aux.getVal().equals("No me gusta")) {
+                    if (v.getNombre().equals(aux.getVid()) && usuario.equals(aux.getDuenio()) && aux.getVal().equals("No me gusta")) {
                         jComboNoLesGusta.addItem(aux.getUser());
                         nomegusta = false;
                     }
@@ -7140,11 +7140,11 @@ public class MenuInicio extends javax.swing.JFrame {
                     jComboLesGusta.setEnabled(true);
                     jComboNoLesGusta.setEnabled(true);
                     if (listaMeGusta.get(x) != null) {
-                        if (video.getNombre().equals(aux.getVid()) && usuario.equals(aux.getDueño()) && aux.getVal().equals("Me gusta")) {
+                        if (video.getNombre().equals(aux.getVid()) && usuario.equals(aux.getDuenio()) && aux.getVal().equals("Me gusta")) {
                             megusta = false;
                             jComboLesGusta.addItem(aux.getUser());
                         }
-                        if (video.getNombre().equals(aux.getVid()) && usuario.equals(aux.getDueño()) && aux.getVal().equals("No me gusta")) {
+                        if (video.getNombre().equals(aux.getVid()) && usuario.equals(aux.getDuenio()) && aux.getVal().equals("No me gusta")) {
                             jComboNoLesGusta.addItem(aux.getUser());
                             nomegusta = false;
                         }
