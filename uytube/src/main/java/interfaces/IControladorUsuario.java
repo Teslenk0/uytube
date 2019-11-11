@@ -65,4 +65,10 @@ public interface IControladorUsuario {
     
     @WebMethod
     public abstract void eliminarUsuario(String nickname);
+    
+    @WebMethod
+    public abstract void uploadImage(String fileName, byte[] imageBytes);
+     
+    @WebMethod
+    public abstract byte[] downloadImage(String fileName);    
 }

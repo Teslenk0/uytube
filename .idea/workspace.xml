@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="333d2808-90c0-4b11-ab04-a31099ecc278" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/uytube/BD.sql" beforeDir="false" afterPath="$PROJECT_DIR$/uytube/BD.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uytube/ejecutar.sh" beforeDir="false" afterPath="$PROJECT_DIR$/uytube/ejecutar.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uytube/src/main/java/controladores/ControladorUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/uytube/src/main/java/controladores/ControladorUsuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uytube/src/main/java/interfaces/IControladorUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/uytube/src/main/java/interfaces/IControladorUsuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uytube/src/main/java/swing/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/uytube/src/main/java/swing/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uytube/target/classes/controladores/ControladorUsuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/uytube/target/classes/controladores/ControladorUsuario.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uytube/target/classes/interfaces/IControladorUsuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/uytube/target/classes/interfaces/IControladorUsuario.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uytube/target/classes/swing/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/uytube/target/classes/swing/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uytube/target/classes/swing/MenuInicio$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/uytube/target/classes/swing/MenuInicio$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uytube/target/classes/swing/MenuInicio$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/uytube/target/classes/swing/MenuInicio$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uytube/target/classes/swing/MenuInicio$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/uytube/target/classes/swing/MenuInicio$11.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uytube/target/classes/swing/MenuInicio$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/uytube/target/classes/swing/MenuInicio$12.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uytube/target/classes/swing/MenuInicio$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/uytube/target/classes/swing/MenuInicio$13.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uytube/target/classes/swing/MenuInicio$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/uytube/target/classes/swing/MenuInicio$15.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uytube/target/classes/swing/MenuInicio$17.class" beforeDir="false" afterPath="$PROJECT_DIR$/uytube/target/classes/swing/MenuInicio$17.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uytube/target/classes/swing/MenuInicio$19.class" beforeDir="false" afterPath="$PROJECT_DIR$/uytube/target/classes/swing/MenuInicio$19.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uytube/target/classes/swing/MenuInicio$20.class" beforeDir="false" afterPath="$PROJECT_DIR$/uytube/target/classes/swing/MenuInicio$20.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uytube/target/classes/swing/MenuInicio$22.class" beforeDir="false" afterPath="$PROJECT_DIR$/uytube/target/classes/swing/MenuInicio$22.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uytube/target/classes/swing/MenuInicio$24.class" beforeDir="false" afterPath="$PROJECT_DIR$/uytube/target/classes/swing/MenuInicio$24.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uytube/target/classes/swing/MenuInicio$26.class" beforeDir="false" afterPath="$PROJECT_DIR$/uytube/target/classes/swing/MenuInicio$26.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uytube/target/classes/swing/MenuInicio$28.class" beforeDir="false" afterPath="$PROJECT_DIR$/uytube/target/classes/swing/MenuInicio$28.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uytube/target/classes/swing/MenuInicio$29.class" beforeDir="false" afterPath="$PROJECT_DIR$/uytube/target/classes/swing/MenuInicio$29.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uytube/target/classes/swing/MenuInicio$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/uytube/target/classes/swing/MenuInicio$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uytube/target/classes/swing/MenuInicio$30.class" beforeDir="false" afterPath="$PROJECT_DIR$/uytube/target/classes/swing/MenuInicio$30.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uytube/target/classes/swing/MenuInicio$32.class" beforeDir="false" afterPath="$PROJECT_DIR$/uytube/target/classes/swing/MenuInicio$32.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uytube/target/classes/swing/MenuInicio$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/uytube/target/classes/swing/MenuInicio$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uytube/target/classes/swing/MenuInicio$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/uytube/target/classes/swing/MenuInicio$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uytube/target/classes/swing/MenuInicio$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/uytube/target/classes/swing/MenuInicio$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uytube/target/classes/swing/MenuInicio.class" beforeDir="false" afterPath="$PROJECT_DIR$/uytube/target/classes/swing/MenuInicio.class" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1TU1V5PRpNAgS6EBfKQzf97UZ2C" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="333d2808-90c0-4b11-ab04-a31099ecc278" name="Default Changelist" comment="" />
+      <created>1573499880846</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1573499880846</updated>
+      <workItem from="1573499882714" duration="3000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

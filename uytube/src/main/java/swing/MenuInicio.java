@@ -32,6 +32,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -5256,7 +5257,7 @@ public class MenuInicio extends javax.swing.JFrame {
         Varfech.setText(fechaN);
         Varmail.setText(user.getEmail());
         try {
-            BufferedImage img = ImageIO.read(getClass().getResource(user.getImagen()));
+            BufferedImage img = ImageIO.read(new File("/home/"+System.getProperty("user.name")+"/.UyTube"+user.getImagen()));
             Imagen.setIcon(new ImageIcon(img));
         } catch (IOException ex) {
             Logger.getLogger(MenuInicio.class.getName()).log(Level.SEVERE, null, ex);
@@ -5325,7 +5326,7 @@ public class MenuInicio extends javax.swing.JFrame {
         Varape1.setText(user.getApellido());
         Varmail1.setText(user.getEmail());
         try {
-            BufferedImage img = ImageIO.read(getClass().getResource(user.getImagen()));
+            BufferedImage img = ImageIO.read(new File("/home/"+System.getProperty("user.name")+"/.UyTube"+user.getImagen()));
             Imagen1.setIcon(new ImageIcon(img));
         } catch (IOException ex) {
             Logger.getLogger(MenuInicio.class.getName()).log(Level.SEVERE, null, ex);

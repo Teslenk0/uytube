@@ -52,7 +52,7 @@ public class Main {
             String urlCanalWs = Main.DEFAULT_CANAL_WS;
 
             //Obtengo el archivo
-            File properties = new File("E:/UyTube/properties.xml");
+            File properties = new File("/home/" + user + "/.UyTube/properties.xml");
 
             /**
              * Si existe leo el archivo, sino creo uno nuevo y le seteo los
@@ -83,7 +83,7 @@ public class Main {
             } else {
 
                 //Busco la carpeta
-                File directorio = new File("E:/UyTube");
+                File directorio = new File("/home/" + user + "/.UyTube");
 
                 //Si no existe, la creo
                 if (!directorio.exists()) {
@@ -91,9 +91,8 @@ public class Main {
                 }
 
                 /**
-                 * EN CASO DE QUE NO EXISTA EL ARCHIVO,
-                 * TOMA LOS DATOS DE LAS CONSTANTES DEFINIDAS ARRIBA
-                 * COMO POR DEFECTO.
+                 * EN CASO DE QUE NO EXISTA EL ARCHIVO, TOMA LOS DATOS DE LAS
+                 * CONSTANTES DEFINIDAS ARRIBA COMO POR DEFECTO.
                  */
                 try {
                     properties.createNewFile();
@@ -106,7 +105,10 @@ public class Main {
                     Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-
+            File imagenesUsuarios = new File("/home/" + user + "/.UyTube/imagenesUsuarios");
+            if (!imagenesUsuarios.exists()) {
+                imagenesUsuarios.mkdir();
+            }
             Endpoint.publish(urlCanalWs, controladorCanal).setExecutor(es);
             Endpoint.publish(urlUserWs, controladorUsuario).setExecutor(es);
         });
@@ -136,7 +138,7 @@ public class Main {
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
         Transformer transformer = transformerFactory.newTransformer();
         DOMSource source = new DOMSource(doc);
-        StreamResult result = new StreamResult(new File("E:/UyTube/properties.xml"));
+        StreamResult result = new StreamResult(new File("/home/" + user + "/.UyTube/properties.xml"));
         transformer.transform(source, result);
 
     }
