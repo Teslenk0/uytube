@@ -126,5 +126,9 @@ public interface IControladorCanal {
     public abstract void agregarVideoHistorial(DtVideo video, DtCanal canal);
     
     @WebMethod
+<<<<<<< Updated upstream
     public abstract List obtenerVideosHistoricos(DtCanal duenoCanal);
+=======
+    public abstract DtauxComentarios buscarRespuestas(DtComentario com);
+>>>>>>> Stashed changes
 }

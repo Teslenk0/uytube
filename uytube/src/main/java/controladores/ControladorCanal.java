@@ -644,7 +644,7 @@ public class ControladorCanal implements IControladorCanal {
 
     @Override
     public List funcionAuxiliarAccesoDt(DtAuxiliarValorar a, DtListaporDefecto b, DtListaDefectoVideos c, DtListaParticularVideos d, DtValorar e, DtauxComentarios f) {
-
+        
         return null;
     }
 
