@@ -675,11 +675,13 @@ public class ControladorCanal implements IControladorCanal {
             if(lista != null){
                 Collections.sort(lista);
                 DtVideo auxVideo;
-                List <DtVideo> listaVideos = new LinkedList<>();
+                DtListaDefectoVideos lista_x_videos;
+                List <DtListaDefectoVideos> listaVideos = new LinkedList<>();
                 for(int i = 0; i< lista.size();i++){
                     ListaHistorica auxList = lista.get(i);
                     auxVideo = this.obtenerVideo(auxList.getVideo(), auxList.getCanal());
-                    listaVideos.add(auxVideo);
+                    lista_x_videos = new DtListaDefectoVideos(new DtListaporDefecto(auxList.getId().getNombreLista(), duenoCanal), auxVideo.getNombre(),auxVideo.getCanal().getNombre_canal());
+                    listaVideos.add(lista_x_videos);
                 }
                 return listaVideos;
             }
