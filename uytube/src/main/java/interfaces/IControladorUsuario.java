@@ -15,7 +15,6 @@ import java.awt.image.BufferedImage;
 import java.util.List;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
-import javax.jws.soap.SOAPBinding;
 
 
 /**
@@ -63,4 +62,7 @@ public interface IControladorUsuario {
     
     @WebMethod
     public abstract void valorarVideoEliminar(String u, String video, String user_val, String val);
+    
+    @WebMethod
+    public abstract void eliminarUsuario(String nickname);
 }

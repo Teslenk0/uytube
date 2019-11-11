@@ -40,7 +40,6 @@ public class Main {
     public static void main(String args[]) {
         SwingUtilities.invokeLater(() -> {
             new Menu().setVisible(true);
-
             fabrica.Fabrica factory = fabrica.Fabrica.getInstance();
             IControladorCanal controladorCanal = factory.getControladorCanal();
             IControladorUsuario controladorUsuario = factory.getControladorUsuario();
@@ -53,7 +52,7 @@ public class Main {
             String urlCanalWs = Main.DEFAULT_CANAL_WS;
 
             //Obtengo el archivo
-            File properties = new File("/home/" + user + "/.UyTube/properties.xml");
+            File properties = new File("E:/UyTube/properties.xml");
 
             /**
              * Si existe leo el archivo, sino creo uno nuevo y le seteo los
@@ -84,7 +83,7 @@ public class Main {
             } else {
 
                 //Busco la carpeta
-                File directorio = new File("/home/" + user + "/.UyTube");
+                File directorio = new File("E:/UyTube");
 
                 //Si no existe, la creo
                 if (!directorio.exists()) {
@@ -137,7 +136,7 @@ public class Main {
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
         Transformer transformer = transformerFactory.newTransformer();
         DOMSource source = new DOMSource(doc);
-        StreamResult result = new StreamResult(new File("/home/" + user + "/.UyTube/properties.xml"));
+        StreamResult result = new StreamResult(new File("E:/UyTube/properties.xml"));
         transformer.transform(source, result);
 
     }

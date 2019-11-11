@@ -12,7 +12,6 @@ import clases.*;
 import DataTypes.*;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.LinkedList;
 import java.util.List;
 import javax.persistence.Query;
 
@@ -554,6 +553,15 @@ public class ManejadorInformacion {
         Usuario user;
         user = (Usuario) manager.createQuery("select u FROM Usuario u WHERE u.canal='" + canal + "'").getSingleResult();
         return user;
+    }
+    
+    public void BorrarUser(String nick){
+        manager = emf.createEntityManager();
+        manager.getTransaction().begin();
+        Query query = manager.createNativeQuery("delete from usuario where nickname='" + nick + "';");
+        query.executeUpdate();
+        manager.getTransaction().commit();
+        manager.close();
     }
 
     public void borrarValoracion(Valorar v) {
