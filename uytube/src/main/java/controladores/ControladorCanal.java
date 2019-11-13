@@ -689,4 +689,9 @@ public class ControladorCanal implements IControladorCanal {
         }
         return null;
     }
+    
+    @Override
+    public DtauxComentarios buscarRespuestas(DtComentario com){
+        return null;
+    }
 }
