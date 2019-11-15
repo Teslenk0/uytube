@@ -94,10 +94,7 @@ public class AuxiliarValorar implements Serializable{
         if (!Objects.equals(this.user, other.user)) {
             return false;
         }
-        if (!Objects.equals(this.val, other.val)) {
-            return false;
-        }
-        return true;
+        return Objects.equals(this.val, other.val);
     }
     
     

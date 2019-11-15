@@ -167,10 +167,7 @@ public class Comentario implements Serializable{
         if (!Objects.equals(this.video, other.video)) {
             return false;
         }
-        if (!Objects.equals(this.ref, other.ref)) {
-            return false;
-        }
-        return true;
+        return Objects.equals(this.ref, other.ref);
     }
     
     

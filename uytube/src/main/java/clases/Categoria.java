@@ -61,10 +61,7 @@ public class Categoria implements Serializable{
             return false;
         }
         final Categoria other = (Categoria) obj;
-        if (!Objects.equals(this.nombreCategoria, other.nombreCategoria)) {
-            return false;
-        }
-        return true;
+        return Objects.equals(this.nombreCategoria, other.nombreCategoria);
     }
     
     

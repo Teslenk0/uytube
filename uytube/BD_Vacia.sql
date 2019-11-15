@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.17, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.17, for Win64 (x86_64)
 --
 -- Host: localhost    Database: uytubeAPP
 -- ------------------------------------------------------
--- Server version	8.0.17-0ubuntu2
+-- Server version	8.0.17
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,6 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `canal_eliminado`
+--
+
+DROP TABLE IF EXISTS `canal_eliminado`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `canal_eliminado` (
+  `id` int(11) NOT NULL,
+  `nombre_canal` varchar(200) DEFAULT NULL,
+  `descripcion` varchar(200) DEFAULT NULL,
+  `isPrivate` bit(1) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `canal_eliminado`
+--
+
+LOCK TABLES `canal_eliminado` WRITE;
+/*!40000 ALTER TABLE `canal_eliminado` DISABLE KEYS */;
+/*!40000 ALTER TABLE `canal_eliminado` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `canal_usuario`
 --
 
@@ -27,7 +52,7 @@ CREATE TABLE `canal_usuario` (
   `descripcion` varchar(300) NOT NULL,
   `isPrivate` bit(1) NOT NULL,
   PRIMARY KEY (`nombre_canal`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -49,7 +74,7 @@ DROP TABLE IF EXISTS `categoria_video`;
 CREATE TABLE `categoria_video` (
   `categoria` varchar(100) NOT NULL,
   PRIMARY KEY (`categoria`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -79,7 +104,7 @@ CREATE TABLE `comentarios_video` (
   PRIMARY KEY (`Referencia`),
   UNIQUE KEY `comentarios_video_Referencia_uindex` (`Referencia`),
   KEY `FKqxve4tjk6v4pf4n3c2wy636ol` (`Video`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -104,7 +129,7 @@ CREATE TABLE `lista_defecto_canal` (
   `canal` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FK3sx7a9e8qag7xo9k4cu70q0ex` (`canal`)
-) ENGINE=InnoDB AUTO_INCREMENT=314 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=374 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -114,6 +139,30 @@ CREATE TABLE `lista_defecto_canal` (
 LOCK TABLES `lista_defecto_canal` WRITE;
 /*!40000 ALTER TABLE `lista_defecto_canal` DISABLE KEYS */;
 /*!40000 ALTER TABLE `lista_defecto_canal` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `lista_defecto_canal_eliminada`
+--
+
+DROP TABLE IF EXISTS `lista_defecto_canal_eliminada`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `lista_defecto_canal_eliminada` (
+  `id_user` int(11) DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre_lista` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `lista_defecto_canal_eliminada`
+--
+
+LOCK TABLES `lista_defecto_canal_eliminada` WRITE;
+/*!40000 ALTER TABLE `lista_defecto_canal_eliminada` DISABLE KEYS */;
+/*!40000 ALTER TABLE `lista_defecto_canal_eliminada` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -129,7 +178,7 @@ CREATE TABLE `lista_defecto_video` (
   `nombre_canal_video_origen` varchar(100) NOT NULL,
   KEY `lista_defecto_video_lista_defecto_canal_id_fk` (`id`),
   KEY `lista_defecto_video_videos_canal_nombre_fk` (`nombre_video`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -139,6 +188,28 @@ CREATE TABLE `lista_defecto_video` (
 LOCK TABLES `lista_defecto_video` WRITE;
 /*!40000 ALTER TABLE `lista_defecto_video` DISABLE KEYS */;
 /*!40000 ALTER TABLE `lista_defecto_video` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `lista_defecto_video_eliminada`
+--
+
+DROP TABLE IF EXISTS `lista_defecto_video_eliminada`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `lista_defecto_video_eliminada` (
+  `id` int(11) DEFAULT NULL,
+  `nombre_video` varchar(200) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `lista_defecto_video_eliminada`
+--
+
+LOCK TABLES `lista_defecto_video_eliminada` WRITE;
+/*!40000 ALTER TABLE `lista_defecto_video_eliminada` DISABLE KEYS */;
+/*!40000 ALTER TABLE `lista_defecto_video_eliminada` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -153,7 +224,7 @@ CREATE TABLE `lista_historica` (
   `video` varchar(100) NOT NULL,
   `dueno_video` varchar(100) DEFAULT NULL,
   `visitas` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -180,7 +251,7 @@ CREATE TABLE `lista_particular_canal` (
   `categoria` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FKcodr6lbvrytds0hotfe1imn5d` (`canal`)
-) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=86 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -190,6 +261,32 @@ CREATE TABLE `lista_particular_canal` (
 LOCK TABLES `lista_particular_canal` WRITE;
 /*!40000 ALTER TABLE `lista_particular_canal` DISABLE KEYS */;
 /*!40000 ALTER TABLE `lista_particular_canal` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `lista_particular_canal_eliminada`
+--
+
+DROP TABLE IF EXISTS `lista_particular_canal_eliminada`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `lista_particular_canal_eliminada` (
+  `id_user` int(11) DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre_lista` varchar(200) DEFAULT NULL,
+  `categoria` varchar(100) DEFAULT NULL,
+  `privada` bit(1) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `lista_particular_canal_eliminada`
+--
+
+LOCK TABLES `lista_particular_canal_eliminada` WRITE;
+/*!40000 ALTER TABLE `lista_particular_canal_eliminada` DISABLE KEYS */;
+/*!40000 ALTER TABLE `lista_particular_canal_eliminada` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -204,7 +301,7 @@ CREATE TABLE `lista_particular_video` (
   `nombre_video` varchar(100) NOT NULL,
   `nombre_canal_video_origen` varchar(100) NOT NULL,
   KEY `lista_particular_video_lista_particular_canal_id_fk` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -214,6 +311,28 @@ CREATE TABLE `lista_particular_video` (
 LOCK TABLES `lista_particular_video` WRITE;
 /*!40000 ALTER TABLE `lista_particular_video` DISABLE KEYS */;
 /*!40000 ALTER TABLE `lista_particular_video` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `lista_particular_video_eliminada`
+--
+
+DROP TABLE IF EXISTS `lista_particular_video_eliminada`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `lista_particular_video_eliminada` (
+  `id` int(11) DEFAULT NULL,
+  `nombre_video` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `lista_particular_video_eliminada`
+--
+
+LOCK TABLES `lista_particular_video_eliminada` WRITE;
+/*!40000 ALTER TABLE `lista_particular_video_eliminada` DISABLE KEYS */;
+/*!40000 ALTER TABLE `lista_particular_video_eliminada` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -227,7 +346,7 @@ CREATE TABLE `seguir` (
   `nickname` varchar(100) NOT NULL,
   `seguido` varchar(100) NOT NULL,
   KEY `FKr8dqhxes6236fhftvt9uxrj4t` (`nickname`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -258,7 +377,7 @@ CREATE TABLE `usuario` (
   PRIMARY KEY (`nickname`),
   UNIQUE KEY `usuario_normal_email_uindex` (`email`),
   KEY `FK3vkji6f6vbowroolxoc2owvf7` (`canal`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -291,6 +410,63 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = cp850 */ ;
+/*!50003 SET character_set_results = cp850 */ ;
+/*!50003 SET collation_connection  = cp850_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `eliminarUsuario` AFTER DELETE ON `usuario` FOR EACH ROW BEGIN
+delete from canal_usuario where nombre_canal=old.canal;
+delete from comentarios_video where Canal_video=old.canal or nickname=old.nickname;
+
+delete from lista_defecto_video where nombre_canal_video_origen=old.canal;
+delete from lista_defecto_canal where canal=old.canal;
+
+delete from lista_particular_video where nombre_canal_video_origen=old.canal;
+delete from lista_particular_canal where canal=old.canal;
+
+delete from seguir where nickname=old.nickname or seguido=old.nickname;
+delete from valorar where usuario=old.nickname or due�o_Vid=old.nickname;
+delete from videos_canal where nombre_canal=old.canal;
+
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+
+--
+-- Table structure for table `usuario_eliminado`
+--
+
+DROP TABLE IF EXISTS `usuario_eliminado`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `usuario_eliminado` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nickname` varchar(200) DEFAULT NULL,
+  `nombre` varchar(200) DEFAULT NULL,
+  `apellido` varchar(200) DEFAULT NULL,
+  `email` varchar(200) DEFAULT NULL,
+  `fechaNac` date DEFAULT NULL,
+  `canal` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `usuario_eliminado`
+--
+
+LOCK TABLES `usuario_eliminado` WRITE;
+/*!40000 ALTER TABLE `usuario_eliminado` DISABLE KEYS */;
+/*!40000 ALTER TABLE `usuario_eliminado` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `valorar`
@@ -306,7 +482,7 @@ CREATE TABLE `valorar` (
   `valoracion` varchar(100) NOT NULL,
   PRIMARY KEY (`dueño_Vid`,`video`,`usuario`),
   UNIQUE KEY `valorar_pk` (`dueño_Vid`,`video`,`usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -337,7 +513,7 @@ CREATE TABLE `videos_canal` (
   PRIMARY KEY (`nombre`,`nombre_canal`),
   KEY `videos_canal_categoria_video_categoria_fk` (`categoria`),
   KEY `FKdjjsxs8mnroq1gnfd9h3kan5i` (`nombre_canal`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -368,6 +544,34 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+
+--
+-- Table structure for table `videos_eliminado`
+--
+
+DROP TABLE IF EXISTS `videos_eliminado`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `videos_eliminado` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(200) DEFAULT NULL,
+  `fecha_publicacion` date DEFAULT NULL,
+  `url` varchar(200) DEFAULT NULL,
+  `descripcion` varchar(600) DEFAULT NULL,
+  `categoria` varchar(100) DEFAULT NULL,
+  `duracion` varchar(100) DEFAULT NULL,
+  `isPrivate` tinyint(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `videos_eliminado`
+--
+
+LOCK TABLES `videos_eliminado` WRITE;
+/*!40000 ALTER TABLE `videos_eliminado` DISABLE KEYS */;
+/*!40000 ALTER TABLE `videos_eliminado` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -378,4 +582,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-11-07 16:10:02
+-- Dump completed on 2019-11-15 18:24:48

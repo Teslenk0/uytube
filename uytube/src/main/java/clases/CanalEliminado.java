@@ -5,26 +5,30 @@
  */
 package clases;
 
-import DataTypes.DtCanal;
 import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 /**
  *
- * @author esteban
+ * @author isaac
  */
 @Entity
-@Table(name = "canal_usuario")
-public class Canal implements Serializable, Comparable<Canal> {
+@Table(name = "canal_eliminado")
+public class CanalEliminado implements Serializable{
 
     private static final long serialVersionUID = 1L;
 
     @Id
+    @OneToOne(targetEntity = UsuarioEliminado.class)
+    @JoinColumn(name = "id")
+    private UsuarioEliminado id;
+    
     @Column(name = "nombre_canal")
     private String nombre_canal;
 
@@ -34,32 +38,22 @@ public class Canal implements Serializable, Comparable<Canal> {
     @Column(name = "isPrivate")
     private Boolean privado;
 
-    @OneToOne(mappedBy = "canal")
-    private Usuario usuario;
-
-    public Canal() {
+    public CanalEliminado() {
     }
 
-    public Canal(String nombre_canal, String descripcion, Boolean privado, Usuario usuario) {
-        this.nombre_canal = nombre_canal;
-        this.descripcion = descripcion;
-        this.privado = privado;
-        this.usuario = usuario;
-    }
-
-    public Canal(String nombre_canal, String descripcion, Boolean privado) {
+    public CanalEliminado(UsuarioEliminado id, String nombre_canal, String descripcion, Boolean privado) {
+        this.id = id;
         this.nombre_canal = nombre_canal;
         this.descripcion = descripcion;
         this.privado = privado;
     }
 
-    public Canal(DtCanal canal) {
-        this.nombre_canal = canal.getNombre_canal();
-        this.descripcion = canal.getDescripcion();
-        this.privado = canal.getPrivado();
-        if(canal.getUsuario() != null) {
-            this.usuario = new Usuario(canal.getUsuario());
-        }
+    public UsuarioEliminado getId() {
+        return id;
+    }
+
+    public void setId(UsuarioEliminado id) {
+        this.id = id;
     }
 
     public String getNombre_canal() {
@@ -86,27 +80,13 @@ public class Canal implements Serializable, Comparable<Canal> {
         this.privado = privado;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
-
-    @Override
-    public String toString() {
-        return "Canal{" + "nombre_canal=" + nombre_canal + '}';
-    }
-
-    
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 29 * hash + Objects.hashCode(this.nombre_canal);
-        hash = 29 * hash + Objects.hashCode(this.descripcion);
-        hash = 29 * hash + Objects.hashCode(this.privado);
-        hash = 29 * hash + Objects.hashCode(this.usuario);
+        int hash = 3;
+        hash = 47 * hash + Objects.hashCode(this.id);
+        hash = 47 * hash + Objects.hashCode(this.nombre_canal);
+        hash = 47 * hash + Objects.hashCode(this.descripcion);
+        hash = 47 * hash + Objects.hashCode(this.privado);
         return hash;
     }
 
@@ -121,22 +101,18 @@ public class Canal implements Serializable, Comparable<Canal> {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Canal other = (Canal) obj;
+        final CanalEliminado other = (CanalEliminado) obj;
         if (!Objects.equals(this.nombre_canal, other.nombre_canal)) {
             return false;
         }
         if (!Objects.equals(this.descripcion, other.descripcion)) {
             return false;
         }
-        if (!Objects.equals(this.privado, other.privado)) {
+        if (!Objects.equals(this.id, other.id)) {
             return false;
         }
-        return Objects.equals(this.usuario, other.usuario);
+        return Objects.equals(this.privado, other.privado);
     }
-    
-    @Override
-    public int compareTo(Canal other) {
-     return this.nombre_canal.compareTo(other.nombre_canal);
-   }
 
+   
 }

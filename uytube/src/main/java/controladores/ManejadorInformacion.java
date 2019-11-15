@@ -498,13 +498,6 @@ public class ManejadorInformacion {
             return result;
         }
         return null;
-
-        /*String query = "FROM ListaParticulares l WHERE l.categoria='" + categoria + "'";
-        List aux = manager.createQuery(query).getResultList();
-        if (aux != null) {
-            return aux;
-        }
-        return null;*/
     }
 
     public List busquedaArborescenteCanales(String text) {
@@ -563,7 +556,59 @@ public class ManejadorInformacion {
         manager.getTransaction().commit();
         manager.close();
     }
+    
+    public void guardarUser(UsuarioEliminado us, CanalEliminado ca, List videos){
+        manager = emf.createEntityManager();
+        manager.getTransaction().begin();
+        manager.persist(us);
+        manager.persist(ca);
+        Video aux;
+        VideoEliminado vid;
+        if (!videos.isEmpty()) {
+             for (int x = 0; x <= videos.size() - 1; x++) {
+                if (videos.get(x) != null) {
+                    aux = (Video) videos.get(x);
+                    vid = new VideoEliminado(us,aux.getNombre(),aux.getFechaPublicacion(),aux.getUrl(),aux.getDescripcion(),aux.getCategoria(),aux.getDuracion(),aux.getPrivado());
+                    manager.persist(vid);
+                }
+            }
+        }
+        manager.getTransaction().commit();
+        manager.close();
+    }
 
+    public void guardarParticular(ListaParticularesEliminadas lista){
+        manager = emf.createEntityManager();
+        manager.getTransaction().begin();
+        manager.persist(lista);
+        manager.getTransaction().commit();
+        manager.close();
+    }
+    
+     public void guardarVideosParticular(ListaParticularVideosEliminados video){
+        manager = emf.createEntityManager();
+        manager.getTransaction().begin();
+        manager.persist(video);
+        manager.getTransaction().commit();
+        manager.close();
+    }
+     
+     public void guardarDefecto(ListaporDefectoEliminadas lista){
+        manager = emf.createEntityManager();
+        manager.getTransaction().begin();
+        manager.persist(lista);
+        manager.getTransaction().commit();
+        manager.close();
+    }
+    
+     public void guardarVideosDefecto(ListaDefectoVideosEliminados video){
+        manager = emf.createEntityManager();
+        manager.getTransaction().begin();
+        manager.persist(video);
+        manager.getTransaction().commit();
+        manager.close();
+    }
+    
     public void borrarValoracion(Valorar v) {
         manager = emf.createEntityManager();
         manager.getTransaction().begin();

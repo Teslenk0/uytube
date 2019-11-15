@@ -64,7 +64,7 @@ public interface IControladorUsuario {
     public abstract void valorarVideoEliminar(String u, String video, String user_val, String val);
     
     @WebMethod
-    public abstract void eliminarUsuario(String nickname);
+    public abstract void eliminarUsuario(DtUsuario user);
     
     @WebMethod
     public abstract void uploadImage(String fileName, byte[] imageBytes);

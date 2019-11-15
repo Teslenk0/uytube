@@ -2,12 +2,15 @@
 <persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence              http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
   <persistence-unit name="uytube-app">
     <class>clases.Usuario</class>
+    <class>clases.UsuarioEliminado</class>
     <class>clases.Canal</class>
+    <class>cclases.CanalEliminado</class>
     <class>clases.ListaReproduccion</class>
     <class>clases.ListaporDefecto</class>
     <class>clases.ListaDefectoVideos</class>
     <class>clases.Seguir</class>
     <class>clases.Video</class>
+    <class>clases.VideoEliminado</class>
     <class>clases.Valorar</class>
     <properties>
       <property name="hibernate.jdbc.time_zone" value="GMT-3"/>

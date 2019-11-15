@@ -8045,8 +8045,8 @@ public class MenuInicio extends javax.swing.JFrame {
         VentanaEmergente mensaje = new VentanaEmergente(this, rootPaneCheckingEnabled, manjari);
         if(resp){
             String nickU = (String) comboLista1.getSelectedItem();
-            u.buscarUsuario(nickU);
-            u.eliminarUsuario(nickU);
+            DtUsuario us = u.buscarUsuario(nickU);
+            u.eliminarUsuario(us);
             mensaje.CambioTexto("Usuario eliminado con éxito");
             List lista = u.listaUsuarios();
             DtUsuario user;

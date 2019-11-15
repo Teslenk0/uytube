@@ -117,10 +117,7 @@ public class ListaHistorica implements Serializable, Comparable<ListaHistorica> 
         if (!Objects.equals(this.canal, other.canal)) {
             return false;
         }
-        if (!Objects.equals(this.id, other.id)) {
-            return false;
-        }
-        return true;
+        return Objects.equals(this.id, other.id);
     }
 
     @Override

@@ -12,8 +12,17 @@ import DataTypes.DtUsuario;
 import DataTypes.DtCanal;
 import clases.AuxiliarValorar;
 import clases.Canal;
+import clases.CanalEliminado;
+import clases.ListaDefectoVideos;
+import clases.ListaDefectoVideosEliminados;
+import clases.ListaParticularVideos;
+import clases.ListaParticularVideosEliminados;
+import clases.ListaParticulares;
+import clases.ListaParticularesEliminadas;
 import clases.ListaporDefecto;
+import clases.ListaporDefectoEliminadas;
 import clases.Valorar;
+import clases.UsuarioEliminado;
 import excepciones.CanalRepetidoException;
 import excepciones.EmailRepetidoException;
 import excepciones.ValoracionException;
@@ -273,9 +282,67 @@ public class ControladorUsuario implements IControladorUsuario {
     }
 
     @Override
-    public void eliminarUsuario(String nick) {
+    public void eliminarUsuario(DtUsuario user) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
-        mu.BorrarUser(nick);
+        UsuarioEliminado us = new UsuarioEliminado(user.getNickname(),user.getNombre(), user.getApellido(), user.getEmail(), user.getFechaNac(), user.getCanal().getNombre_canal());
+        CanalEliminado ca = new CanalEliminado(us,us.getCanal(),user.getCanal().getDescripcion(),user.getCanal().getPrivado());
+    
+        List particulares = mu.obtenerListasParticulares(user.getNickname());
+        List defecto = mu.obtenerListasDefecto(user.getNickname());
+        List videos = mu.listaVid(new Canal(user.getCanal()));
+      
+        mu.guardarUser(us, ca, videos);
+        
+        ListaParticulares auxlp;
+        ListaParticularesEliminadas listap;
+        ListaParticularVideos auxv;
+        ListaParticularVideosEliminados listavid;
+        if (!particulares.isEmpty()) {
+             for (int x = 0; x <= particulares.size() - 1; x++) {
+                if (particulares.get(x) != null) {
+                    auxlp = (ListaParticulares) particulares.get(x);
+                    listap = new ListaParticularesEliminadas(us,auxlp.getNombreLista(),auxlp.getCategoria().getNombreCategoria(),auxlp.getPrivado());
+                    mu.guardarParticular(listap);
+                    
+                    List videosLista = mu.getVideosListaParticular(auxlp.getId());
+                    if(!videosLista.isEmpty()){
+                        for (int y = 0; y <= videosLista.size() - 1; y++) {
+                            if (videosLista.get(y) != null) {
+                                 auxv = (ListaParticularVideos) videosLista.get(y);
+                                 listavid = new ListaParticularVideosEliminados(listap,auxv.getVideo());
+                                 mu.guardarVideosParticular(listavid);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        ListaporDefecto auxld;
+        ListaporDefectoEliminadas listad;
+        ListaDefectoVideos auxvd;
+        ListaDefectoVideosEliminados listavi;
+        if (!defecto.isEmpty()) {
+             for (int x = 0; x <= defecto.size() - 1; x++) {
+                if (defecto.get(x) != null) {
+                    auxld = (ListaporDefecto) defecto.get(x);
+                    listad = new ListaporDefectoEliminadas(us,auxld.getNombreLista());
+                    mu.guardarDefecto(listad);
+                    
+                    List videosLista = mu.getVideosListaDefecto(auxld.getId());
+                    if(!videosLista.isEmpty()){
+                        for (int y = 0; y <= videosLista.size() - 1; y++) {
+                            if (videosLista.get(y) != null) {
+                                 auxvd = (ListaDefectoVideos) videosLista.get(y);
+                                 listavi = new  ListaDefectoVideosEliminados(listad,auxvd.getVideo());
+                                 mu.guardarVideosDefecto(listavi);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        mu.BorrarUser(user.getNickname());
     }
 
     @Override

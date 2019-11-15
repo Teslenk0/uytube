@@ -178,12 +178,11 @@ public class ControladorCanal implements IControladorCanal {
 
     @Override
     public List getCanales() {
-        List canales = new LinkedList();
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         List<DtCanal> aux = new LinkedList<>();
         Canal tmp;
         DtCanal temp;
-        canales = mu.obtenerCanales();
+        List canales = mu.obtenerCanales();
         for (int x = 0; x < canales.size(); x++) {
             if (canales.get(x) != null) {
                 tmp = (Canal) canales.get(x);
