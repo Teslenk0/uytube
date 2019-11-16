@@ -69,6 +69,16 @@ public class ManejadorInformacion {
         return null;
 
     }
+    
+    public List ObtenerUsuariosEliminados() {
+        manager = emf.createEntityManager();
+        List<UsuarioEliminado> usuarios = manager.createQuery("FROM UsuarioEliminado u").getResultList();
+        if (usuarios != null) {
+            return usuarios;
+        }
+        return null;
+
+    }
 
     public void crearCanal(Canal c) {
         manager = emf.createEntityManager();
@@ -164,6 +174,12 @@ public class ManejadorInformacion {
         return user;
     }
 
+    public CanalEliminado buscadorUsuarioEliminado(Integer id) {
+        manager = emf.createEntityManager();
+        CanalEliminado user = manager.find(CanalEliminado.class, id);
+        return user;
+    }
+    
     public void altaVideo(Video video) {
         manager = emf.createEntityManager();
         manager.getTransaction().begin();
@@ -200,6 +216,17 @@ public class ManejadorInformacion {
         String query = "SELECT v FROM Video v WHERE v.canal = '" + c.getNombre_canal() + "'";
         return manager.createQuery(query).getResultList();
     }
+    
+    public List listaVideosEliminados(Integer id) {
+        manager = emf.createEntityManager();
+        String query = "FROM VideoEliminado v WHERE v.id='" + id + "'";
+        List aux = manager.createQuery(query).getResultList();
+        if (aux != null) {
+            return aux;
+        }
+        return null;
+    }
+    
 
     public List listaCom(DtVideo v) {
         manager = emf.createEntityManager();
@@ -249,6 +276,17 @@ public class ManejadorInformacion {
         Video video;
         try {
             video = (Video) manager.createQuery("select v from Video v where v.canal='" + canal + "' and v.nombre='" + nom + "'").getSingleResult();
+        } catch (Exception e) {
+            video = null;
+        }
+        return video;
+    }
+    
+    public VideoEliminado buscadorVideoEliminado(Integer id, String nomV) {
+        manager = emf.createEntityManager();
+        VideoEliminado video;
+        try {
+            video = (VideoEliminado) manager.createQuery("select v from VideoEliminado v where v.id='" + id + "' and v.nombre='" + nomV + "'").getSingleResult();
         } catch (Exception e) {
             video = null;
         }
@@ -306,6 +344,49 @@ public class ManejadorInformacion {
 
     }
 
+    public List obtenerListasParticularesEliminadas(Integer id) {
+        manager = emf.createEntityManager();
+        String query = "FROM ListaParticularesEliminadas l WHERE l.id_user='" + id + "'";
+        List aux = manager.createQuery(query).getResultList();
+        if (aux != null) {
+            return aux;
+        }
+        return null;
+
+    }
+    
+    public List obtenerVideosListaParticularEliminadas(Integer id) {
+        manager = emf.createEntityManager();
+        String query = "FROM ListaParticularVideosEliminados l WHERE l.id='" + id + "'";
+        List aux = manager.createQuery(query).getResultList();
+        if (aux != null) {
+            return aux;
+        }
+        return null;
+
+    }
+    
+     public List obtenerVideosListaDefectoEliminadas(Integer id) {
+        manager = emf.createEntityManager();
+        String query = "FROM ListaDefectoVideosEliminados l WHERE l.id='" + id + "'";
+        List aux = manager.createQuery(query).getResultList();
+        if (aux != null) {
+            return aux;
+        }
+        return null;
+
+    }
+    
+    public List obtenerListasporDefectoEliminadas(Integer id) {
+        manager = emf.createEntityManager();
+        String query = "FROM ListaporDefectoEliminadas l WHERE l.id_user='" + id + "'";
+        List aux = manager.createQuery(query).getResultList();
+        if (aux != null) {
+            return aux;
+        }
+        return null;
+    }
+    
     public void registrarCategoria(Categoria c) {
         manager = emf.createEntityManager();
         manager.getTransaction().begin();
@@ -544,7 +625,8 @@ public class ManejadorInformacion {
     public Usuario buscarUser2(String canal) {
         manager = emf.createEntityManager();
         Usuario user;
-        user = (Usuario) manager.createQuery("select u FROM Usuario u WHERE u.canal='" + canal + "'").getSingleResult();
+        String query = "select u FROM Usuario u WHERE u.canal='" + canal + "'";
+        user = (Usuario) manager.createQuery(query).getSingleResult();
         return user;
     }
     

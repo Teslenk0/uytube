@@ -33,10 +33,16 @@ public interface IControladorCanal {
     public abstract List listaVideos(DtCanal canal);
     
     @WebMethod
+    public List listaVideosUserEliminado(Integer id);
+    
+    @WebMethod
     public abstract boolean buscarCanal(String canal);
     
     @WebMethod
     public abstract DtVideo obtenerVideo(String nomV, String canal);
+    
+    @WebMethod
+    public abstract DtVideoEliminado obtenerVideoEliminado(Integer id, String nomV);
     
     @WebMethod
     public abstract List listaComentarios(DtVideo video);
@@ -61,6 +67,12 @@ public interface IControladorCanal {
     
     @WebMethod
     public abstract List getListasReproduccion(String nick);
+    
+    @WebMethod
+    public List getListasParticularesEliminadas(Integer id);
+    
+    @WebMethod
+    public List getListasDefectoEliminadas(Integer id);
     
     @WebMethod
     public abstract void crearListaDefecto(DtListaReproduccion lista) throws ListaRepetidaException;
@@ -88,6 +100,12 @@ public interface IControladorCanal {
     
     @WebMethod
     public abstract List getVideosListaParticular(String nombre,String nombreLista);
+    
+    @WebMethod
+    public List getVideosListaParticularEliminadas(Integer id);
+    
+    @WebMethod
+    public List getVideosListaDefectoEliminadas(Integer id);
     
     @WebMethod
     public abstract void sacarVideoLista(String usuario,String nombreLista, String video,String canalOrigen, Boolean isParticular);

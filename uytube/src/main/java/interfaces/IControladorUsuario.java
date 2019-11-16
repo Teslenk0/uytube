@@ -6,8 +6,10 @@
 package interfaces;
 
 import DataTypes.DtCanal;
+import DataTypes.DtCanalEliminado;
 import excepciones.UsuarioRepetidoException;
 import DataTypes.DtUsuario;
+import DataTypes.DtUsuarioEliminado;
 import excepciones.CanalRepetidoException;
 import excepciones.EmailRepetidoException;
 import excepciones.ValoracionException;
@@ -31,6 +33,9 @@ public interface IControladorUsuario {
     public abstract List listaUsuarios();
     
     @WebMethod
+    public List listaUsuariosEliminados();
+    
+    @WebMethod
     public abstract void inicioBase();
     
     @WebMethod
@@ -38,6 +43,9 @@ public interface IControladorUsuario {
     
     @WebMethod
     public abstract DtUsuario buscarUsuario(String nick);
+    
+    @WebMethod
+    public abstract DtCanalEliminado buscarUsuarioEliminado(Integer id);
     
     @WebMethod
     public abstract boolean buscarEmail(String Email);

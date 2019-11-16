@@ -4,10 +4,16 @@
     <class>clases.Usuario</class>
     <class>clases.UsuarioEliminado</class>
     <class>clases.Canal</class>
-    <class>cclases.CanalEliminado</class>
+    <class>clases.CanalEliminado</class>
     <class>clases.ListaReproduccion</class>
     <class>clases.ListaporDefecto</class>
+    <class>clases.ListaporDefectoEliminadas</class>
     <class>clases.ListaDefectoVideos</class>
+    <class>clases.ListaDefectoVideosEliminados</class>
+    <class>clases.ListaParticulares</class>
+    <class>clases.ListaParticularesEliminadas</class>
+    <class>clases.ListaParticularVideos</class>
+    <class>clases.ListaParticularVideosEliminados</class>
     <class>clases.Seguir</class>
     <class>clases.Video</class>
     <class>clases.VideoEliminado</class>

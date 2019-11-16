@@ -11,26 +11,36 @@ import DataTypes.DtCanal;
 import DataTypes.DtCategoria;
 import DataTypes.DtComentario;
 import DataTypes.DtListaDefectoVideos;
+import DataTypes.DtListaDefectoVideosEliminados;
 import DataTypes.DtListaParticularVideos;
+import DataTypes.DtListaParticularVideosEliminados;
 import DataTypes.DtListaParticulares;
+import DataTypes.DtListaParticularesEliminadas;
 import DataTypes.DtListaReproduccion;
 import DataTypes.DtListaporDefecto;
+import DataTypes.DtListaporDefectoEliminadas;
 import DataTypes.DtUsuario;
 import DataTypes.DtValorar;
 import DataTypes.DtVideo;
+import DataTypes.DtVideoEliminado;
 import DataTypes.DtauxComentarios;
 import clases.AuxiliarValorar;
 import clases.Canal;
 import clases.Categoria;
 import clases.Comentario;
 import clases.ListaDefectoVideos;
+import clases.ListaDefectoVideosEliminados;
 import clases.ListaHistorica;
 import clases.ListaParticularVideos;
+import clases.ListaParticularVideosEliminados;
 import clases.ListaParticulares;
+import clases.ListaParticularesEliminadas;
 import clases.ListaReproduccion;
 import clases.ListaporDefecto;
+import clases.ListaporDefectoEliminadas;
 import clases.Usuario;
 import clases.Video;
+import clases.VideoEliminado;
 import excepciones.CategoriaRepetidaException;
 import excepciones.ListaRepetidaException;
 import excepciones.VideoRepetidoException;
@@ -103,12 +113,41 @@ public class ControladorCanal implements IControladorCanal {
     }
 
     @Override
+    public List listaVideosUserEliminado(Integer id) {
+        ManejadorInformacion mu = ManejadorInformacion.getInstance();
+ 
+        List lista = mu.listaVideosEliminados(id);
+        if (lista != null) {
+            List aux = new LinkedList();
+            DtVideoEliminado dtaux;
+            for (int x = 0; x < lista.size(); x++) {
+                dtaux = new DtVideoEliminado((VideoEliminado) lista.get(x));
+                aux.add(dtaux);
+            }
+            return aux;
+        }
+        return null;
+    }
+    
+    @Override
     public DtVideo obtenerVideo(String nomV, String c) {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();
         Video video = mu.buscadorVideo(nomV, c);
         if (video != null) {
             DtCanal canal = new DtCanal(video.getCanal().getNombre_canal(), video.getCanal().getDescripcion(), video.getCanal().getPrivado());
             DtVideo vid = new DtVideo(video.getNombre(), canal, video.getFechaPublicacion(), video.getUrl(), video.getDescripcion(), video.getCategoria(), video.getDuracion(), video.getPrivado());
+            return vid;
+        } else {
+            return null;
+        }
+    }
+    
+    @Override
+    public DtVideoEliminado obtenerVideoEliminado(Integer id, String nomV) {
+        ManejadorInformacion mu = ManejadorInformacion.getInstance();
+        VideoEliminado video = mu.buscadorVideoEliminado(id, nomV);
+        if (video != null) {
+            DtVideoEliminado vid = new DtVideoEliminado(video.getId().getId(),video.getNombre(),video.getFechaPublicacion(),video.getUrl(),video.getDescripcion(),video.getCategoria(),video.getDuracion(),video.getPrivado());
             return vid;
         } else {
             return null;
@@ -261,7 +300,71 @@ public class ControladorCanal implements IControladorCanal {
         }
         return null;
     }
+    
+    @Override
+    public List getListasParticularesEliminadas(Integer id) {
+        ManejadorInformacion mu = ManejadorInformacion.getInstance();
+        List lista = mu.obtenerListasParticularesEliminadas(id);
+        if (lista != null) {
+            List aux = new LinkedList();
+            DtListaParticularesEliminadas dtaux;
+            for (int x = 0; x < lista.size(); x++) {
+                dtaux = new DtListaParticularesEliminadas((ListaParticularesEliminadas) lista.get(x));
+                aux.add(dtaux);
+            }
+            return aux;
+        }
+        return null;
+    }
+    
+    @Override
+    public List getListasDefectoEliminadas(Integer id) {
+        ManejadorInformacion mu = ManejadorInformacion.getInstance();
+        List lista = mu.obtenerListasporDefectoEliminadas(id);
+        if (lista != null) {
+            List aux = new LinkedList();
+            DtListaporDefectoEliminadas dtaux;
+            for (int x = 0; x < lista.size(); x++) {
+                dtaux = new DtListaporDefectoEliminadas((ListaporDefectoEliminadas) lista.get(x));
+                aux.add(dtaux);
+            }
+            return aux;
+        }
+        return null;
+    }
 
+    @Override
+    public List getVideosListaParticularEliminadas(Integer id) {
+        ManejadorInformacion mu = ManejadorInformacion.getInstance();
+        List lista = mu.obtenerVideosListaParticularEliminadas(id);
+        if (lista != null) {
+            List aux = new LinkedList();
+            DtListaParticularVideosEliminados dtaux;
+            for (int x = 0; x < lista.size(); x++) {
+                dtaux = new DtListaParticularVideosEliminados((ListaParticularVideosEliminados) lista.get(x));
+                aux.add(dtaux);
+            }
+            return aux;
+        }
+        return null;
+    }
+    
+    @Override
+    public List getVideosListaDefectoEliminadas(Integer id) {
+        ManejadorInformacion mu = ManejadorInformacion.getInstance();
+        List lista = mu.obtenerVideosListaDefectoEliminadas(id);
+        if (lista != null) {
+            List aux = new LinkedList();
+            DtListaDefectoVideosEliminados dtaux;
+            for (int x = 0; x < lista.size(); x++) {
+                dtaux = new DtListaDefectoVideosEliminados((ListaDefectoVideosEliminados) lista.get(x));
+                aux.add(dtaux);
+            }
+            return aux;
+        }
+        return null;
+    }
+    
     @Override
     public void registrarCategoria(DtCategoria c) throws CategoriaRepetidaException {
         ManejadorInformacion mu = ManejadorInformacion.getInstance();

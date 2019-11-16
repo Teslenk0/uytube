@@ -10,6 +10,8 @@ import excepciones.UsuarioRepetidoException;
 import interfaces.IControladorUsuario;
 import DataTypes.DtUsuario;
 import DataTypes.DtCanal;
+import DataTypes.DtCanalEliminado;
+import DataTypes.DtUsuarioEliminado;
 import clases.AuxiliarValorar;
 import clases.Canal;
 import clases.CanalEliminado;
@@ -123,6 +125,22 @@ public class ControladorUsuario implements IControladorUsuario {
         }
         return null;
     }
+    
+    @Override
+    public List listaUsuariosEliminados() {
+        ManejadorInformacion mu = ManejadorInformacion.getInstance();
+        List lista = mu.ObtenerUsuariosEliminados();
+        if (lista != null) {
+            List aux = new LinkedList();
+            DtUsuarioEliminado dtaux;
+            for (int x = 0; x < lista.size(); x++) {
+                dtaux = new DtUsuarioEliminado((UsuarioEliminado) lista.get(x));
+                aux.add(dtaux);
+            }
+            return aux;
+        }
+        return null;
+    }
 
     @Override
     public void modificarUsuario(DtUsuario u, DtCanal c, BufferedImage imagen, Boolean cambio) throws CanalRepetidoException {
@@ -175,6 +193,18 @@ public class ControladorUsuario implements IControladorUsuario {
             DtCanal canal = new DtCanal(u.getCanal().getNombre_canal(), u.getCanal().getDescripcion(), u.getCanal().getPrivado());
             DtUsuario user = new DtUsuario(u.getNickname(), u.getContrasenia(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen(), canal);
             return user;
+        }
+        return null;
+    }
+    
+    @Override
+    public DtCanalEliminado buscarUsuarioEliminado(Integer id) {
+        ManejadorInformacion mu = ManejadorInformacion.getInstance();
+        CanalEliminado u = mu.buscadorUsuarioEliminado(id);
+        if (u != null) {
+            DtUsuarioEliminado us = new DtUsuarioEliminado(u.getId());
+            DtCanalEliminado canal = new DtCanalEliminado(us, u.getNombre_canal(), u.getDescripcion(), u.getPrivado());
+            return canal;
         }
         return null;
     }
@@ -342,7 +372,7 @@ public class ControladorUsuario implements IControladorUsuario {
                 }
             }
         }
-        mu.BorrarUser(user.getNickname());
+        //mu.BorrarUser(user.getNickname());
     }
 
     @Override
