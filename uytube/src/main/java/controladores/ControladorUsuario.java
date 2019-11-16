@@ -53,7 +53,6 @@ import swing.MenuInicio;
  * @author tecnologo
  */
 @WebService(endpointInterface = "interfaces.IControladorUsuario")
-//@SOAPBinding(style = SOAPBinding.Style.RPC, parameterStyle = SOAPBinding.ParameterStyle.WRAPPED)
 public class ControladorUsuario implements IControladorUsuario {
 
     @Override
@@ -112,7 +111,7 @@ public class ControladorUsuario implements IControladorUsuario {
      */
     @Override
     public List listaUsuarios() {
-        ManejadorInformacion mu = ManejadorInformacion.getInstance(); //pido una instancia del manejador
+        ManejadorInformacion mu = ManejadorInformacion.getInstance();
         List lista = mu.ObtenerUsuarios();
         if (lista != null) {
             List aux = new LinkedList();
@@ -234,7 +233,7 @@ public class ControladorUsuario implements IControladorUsuario {
 
     @Override
     public List listaSeguidos(String nick) {
-        ManejadorInformacion mu = ManejadorInformacion.getInstance(); //pido una instancia del manejador
+        ManejadorInformacion mu = ManejadorInformacion.getInstance();
         List lista = mu.ObtenerSeguidos(nick);
         return lista;
     }
@@ -372,7 +371,7 @@ public class ControladorUsuario implements IControladorUsuario {
                 }
             }
         }
-        //mu.BorrarUser(user.getNickname());
+        mu.BorrarUser(user.getNickname());
     }
 
     @Override
